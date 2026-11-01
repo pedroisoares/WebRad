@@ -721,6 +721,51 @@ ${chartsTypings.source}
     set onSearch(handler: WebComponentEventHandler<this> | null);
   }
 
+  export const WEB_RICH_TEXT_COMMANDS: readonly [
+    'bold',
+    'italic',
+    'underline',
+    'strikethrough',
+    'heading',
+    'bulletList',
+    'numberedList',
+    'quote',
+    'link',
+    'clear',
+  ];
+  export type WebRichTextCommand = (typeof WEB_RICH_TEXT_COMMANDS)[number];
+  /** True for http(s), mailto, tel, anchors and relative links. */
+  export function isSafeRichTextLink(value: string): boolean;
+  /** Keeps only basic formatting and safe links, dropping scripts and attributes. */
+  export function sanitizeRichTextHtml(html: string, document?: Document): string;
+  /** Plain text of rich HTML, with line breaks between blocks. */
+  export function richTextToPlainText(html: string, document?: Document): string;
+
+  /** WYSIWYG editor whose value is sanitized HTML and text the plain text. */
+  export class WebRichTextEditor extends WebComponent<HTMLDivElement> {
+    constructor(element: HTMLElement);
+    /** The editable area. */
+    readonly content: HTMLDivElement;
+    /** Sanitized HTML of the content; '' when empty. */
+    value: string;
+    /** Plain text, with a line break between blocks. */
+    text: string;
+    placeholder: string;
+    readOnly: boolean;
+    showToolbar: boolean;
+    /** Most plain-text characters accepted by validate(); 0 for no limit. */
+    maxLength: number;
+    required: boolean;
+    readonly isEmpty: boolean;
+    /** Fails when required and empty, or when the text exceeds maxLength. */
+    validate(): boolean;
+    clear(): void;
+    /** Applies a toolbar command to the current selection. */
+    execute(command: WebRichTextCommand, argument?: string): boolean;
+    set onChange(handler: WebComponentEventHandler<this> | null);
+    set onInput(handler: WebComponentEventHandler<this> | null);
+  }
+
   /** Tab strip that shows one named component per tab and hides the others. */
   export class WebTabs extends WebComponent<HTMLDivElement> {
     constructor(element: HTMLElement);

@@ -1,5 +1,18 @@
 # WebRAD delivery plan
 
+## Rich Text Editor component: 2026-11-01
+
+Added `WebRichTextEditor`, a contenteditable editor with a localized toolbar
+(bold, italic, underline, strike, heading, lists, quote, link, clear) and
+Ctrl+B/I/U. Its `value` is HTML sanitized by an allowlist on assignment, paste,
+and read (no attributes except safe `href`, scripts and frames removed), and
+`text` is plain text. It supports Placeholder, Show Toolbar, Read Only, Maximum
+Length, Required, OnInput, and OnChange. Registered after Autocomplete with a
+plain-text Designer preview, runtime CSS, Monaco declarations, completion and
+generation fixtures, runtime tests, an Aurora showcase entry, and a
+[guide](docs/rich-text-editor.md). It uses the generic Inspector editors, so no
+Electron smoke interaction changed.
+
 ## Toasts and themed dialogs: 2026-11-01
 
 Added the page globals `Toast`, `ConfirmDialog`, and `MessageDialog`

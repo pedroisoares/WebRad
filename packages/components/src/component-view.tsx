@@ -289,6 +289,23 @@ function DataGridButtonPreview({ column }: { readonly column: DataGridColumn }):
 }
 
 /** Shows the saved Edit value as the browser runtime would: formatted or converted. */
+/** Plain-text approximation of saved rich text; markup is never injected into the Designer. */
+function richTextPreview(html: string): string {
+  return html
+    .replace(/<\s*(script|style)[^>]*>[\s\S]*?<\/\s*\1\s*>/giu, '')
+    .replace(/<\s*li[^>]*>/giu, '\n• ')
+    .replace(/<\s*(br|\/p|\/div|\/h[1-6]|\/blockquote)[^>]*>/giu, '\n')
+    .replace(/<[^>]*>/gu, '')
+    .replace(/&nbsp;/gu, ' ')
+    .replace(/&lt;/gu, '<')
+    .replace(/&gt;/gu, '>')
+    .replace(/&quot;/gu, '"')
+    .replace(/&#39;/gu, "'")
+    .replace(/&amp;/gu, '&')
+    .replace(/\n{3,}/gu, '\n\n')
+    .trim();
+}
+
 function designEditValue(node: ComponentNode): string {
   const value = readStringProperty(node, 'value');
   const type = readStringProperty(node, 'inputType', 'text');
@@ -641,6 +658,30 @@ const renderers: Readonly<Record<string, ComponentRenderer>> = Object.freeze({
           );
         })}
       </fieldset>
+    );
+  },
+  WebRichTextEditor: ({ node, designTime, styleClassName }) => {
+    const value = readStringProperty(node, 'value');
+    return (
+      <div {...sharedAttributes(node, designTime, styleClassName)}>
+        {readBooleanProperty(node, 'showToolbar', true) && (
+          <div className="wr-richtext-toolbar" role="toolbar">
+            {['B', 'I', 'U', 'S', 'H', '•', '1.', '❝', '🔗'].map((glyph) => (
+              <button className="wr-richtext-button" key={glyph} tabIndex={-1} type="button">
+                {glyph}
+              </button>
+            ))}
+          </div>
+        )}
+        <div
+          className="wr-richtext-content"
+          data-placeholder={readStringProperty(node, 'placeholder')}
+          data-webrad-empty={String(value.trim().length === 0)}
+          style={{ whiteSpace: 'pre-line' }}
+        >
+          {richTextPreview(value)}
+        </div>
+      </div>
     );
   },
   WebAutocomplete: ({ node, designTime, styleClassName }) => (

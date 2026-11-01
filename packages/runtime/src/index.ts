@@ -27,6 +27,7 @@ export * from './radio-group.js';
 export * from './tabs.js';
 export * from './autocomplete.js';
 export * from './feedback.js';
+export * from './rich-text-editor.js';
 export * from './page.js';
 export * from './page-router.js';
 export * from './globals.js';

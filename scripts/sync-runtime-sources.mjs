@@ -187,6 +187,7 @@ const sourceFiles = [
   'radio-group.ts',
   'tabs.ts',
   'autocomplete.ts',
+  'rich-text-editor.ts',
   'progress-bar.ts',
   'icon.ts',
   'html.ts',

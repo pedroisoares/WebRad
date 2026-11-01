@@ -601,6 +601,7 @@ void source; void unsupportedBody; void unsupportedConnection;
   WebRadioGroup,
   WebTabs,
   WebAutocomplete,
+  WebRichTextEditor,
   WebPanel, WebGroup,
   WebPopup,
   WebReusableElement,
@@ -632,6 +633,7 @@ class EditorPage extends WebPage {
     radio: WebRadioGroup,
     tabs: WebTabs,
     autocomplete: WebAutocomplete,
+    richText: WebRichTextEditor,
     grid: WebDataGrid,
     charts: WebCharts,
     repeatingGroup: WebRepeatingGroup,
@@ -663,6 +665,7 @@ panel./*@panel*/caption;
     radio./*@radio*/orientation;
     tabs./*@tabs*/panels;
     autocomplete./*@autocomplete*/minChars;
+    richText./*@richText*/showToolbar;
     grid./*@grid*/configuration;
     charts./*@charts*/chartsConfig;
     repeatingGroup./*@repeatingGroup*/rows;
@@ -837,6 +840,7 @@ panel./*@panel*/caption;
       WebRadioGroup: 'radio',
       WebTabs: 'tabs',
       WebAutocomplete: 'autocomplete',
+      WebRichTextEditor: 'richText',
       WebPanel: 'panel',
       WebGroup: 'group',
       WebPopup: 'popup',

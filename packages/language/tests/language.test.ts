@@ -58,6 +58,7 @@ const MVP_COMPONENT_FIXTURES = [
   { id: 'stable-radio-group', type: 'WebRadioGroup', name: 'RadioGroup1' },
   { id: 'stable-tabs', type: 'WebTabs', name: 'Tabs1' },
   { id: 'stable-autocomplete', type: 'WebAutocomplete', name: 'Autocomplete1' },
+  { id: 'stable-rich-text', type: 'WebRichTextEditor', name: 'RichText1' },
   { id: 'data-grid', type: 'WebDataGrid', name: 'DataGrid1' },
   { id: 'charts', type: 'WebCharts', name: 'Charts1' },
   { id: 'repeating-group', type: 'WebRepeatingGroup', name: 'RepeatingGroup1' },
