@@ -1,5 +1,16 @@
 # WebRAD delivery plan
 
+## Tabs and Radio Group components: 2026-11-01
+
+Added `WebTabs`, a WAI-ARIA tab strip that shows one named component per tab
+within its page or reusable placement and hides the others (including panels
+created later in the same render), and `WebRadioGroup`, a fieldset of native
+radio buttons with captions, values, orientation, legend, and required
+validation. Both are registered after List Box, have Designer previews, runtime
+CSS, Monaco declarations, completion and generation fixtures, runtime tests,
+Aurora showcase entries, and a [guide](docs/tabs-radio-group.md). They use the
+generic Inspector list editors, so no Electron smoke interaction changed.
+
 ## Edit masks, validation, and pt-BR dates: 2026-11-01
 
 `WebEdit` gained CPF, CNPJ, CPF-or-CNPJ, phone, CEP, and custom masks with

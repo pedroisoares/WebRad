@@ -309,6 +309,13 @@ function formControls(): readonly DemoNode[] {
       'FormsIntro',
       'Edit the example values, then review the summary. This demonstration keeps values in the current page session.',
     ),
+    {
+      type: 'WebTabs',
+      name: 'ProfileTabs',
+      height: 40,
+      // Panels lists the component each tab shows; this showcase keeps both columns visible.
+      props: { tabs: ['Profile', 'Preferences'], panels: [], selectedIndex: 0 },
+    },
     row('ProfileColumns', [
       panel(
         'ProfileFields',
@@ -381,6 +388,19 @@ function formControls(): readonly DemoNode[] {
               item: { width: 'fixed', grow: 1, shrink: true },
             },
           ]),
+          {
+            type: 'WebRadioGroup',
+            name: 'ContactRadio',
+            height: 56,
+            props: {
+              caption: 'Preferred contact / Radio Group',
+              items: ['Email', 'Phone'],
+              values: ['email', 'phone'],
+              orientation: 'horizontal',
+              selectedIndex: 0,
+            },
+            events: { OnChange: 'PreferenceChanged' },
+          },
           text('InterestLabel', 'Favorite feature / List Box', 30),
           {
             type: 'WebListBox',

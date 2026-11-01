@@ -184,6 +184,8 @@ const sourceFiles = [
   'video-player.ts',
   'controls.ts',
   'input-masks.ts',
+  'radio-group.ts',
+  'tabs.ts',
   'progress-bar.ts',
   'icon.ts',
   'html.ts',

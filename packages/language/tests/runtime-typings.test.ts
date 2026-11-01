@@ -598,6 +598,8 @@ void source; void unsupportedBody; void unsupportedConnection;
   WebImage,
   WebLabel,
   WebListBox,
+  WebRadioGroup,
+  WebTabs,
   WebPanel, WebGroup,
   WebPopup,
   WebReusableElement,
@@ -626,6 +628,8 @@ class EditorPage extends WebPage {
     combo: WebComboBox,
     image: WebImage,
     list: WebListBox,
+    radio: WebRadioGroup,
+    tabs: WebTabs,
     grid: WebDataGrid,
     charts: WebCharts,
     repeatingGroup: WebRepeatingGroup,
@@ -654,6 +658,8 @@ panel./*@panel*/caption;
     combo./*@combo*/items;
     image./*@image*/objectFit;
     list./*@list*/selectedIndex;
+    radio./*@radio*/orientation;
+    tabs./*@tabs*/panels;
     grid./*@grid*/configuration;
     charts./*@charts*/chartsConfig;
     repeatingGroup./*@repeatingGroup*/rows;
@@ -825,6 +831,8 @@ panel./*@panel*/caption;
       WebImage: 'image',
       WebLabel: 'label',
       WebListBox: 'list',
+      WebRadioGroup: 'radio',
+      WebTabs: 'tabs',
       WebPanel: 'panel',
       WebGroup: 'group',
       WebPopup: 'popup',

@@ -607,6 +607,59 @@ ${chartsTypings.source}
     set onInput(handler: WebComponentEventHandler<this> | null);
   }
 
+  export const WEB_RADIO_GROUP_ORIENTATIONS: readonly ['vertical', 'horizontal'];
+  export type WebRadioGroupOrientation = (typeof WEB_RADIO_GROUP_ORIENTATIONS)[number];
+
+  export interface WebRadioItem {
+    readonly label: string;
+    readonly value: string;
+  }
+
+  export interface WebTabChangeEventDetail {
+    readonly index: number;
+    readonly caption: string;
+    /** Name of the component shown by this tab, or ''. */
+    readonly panel: string;
+    readonly previousIndex: number;
+  }
+
+  /** Tab strip that shows one named component per tab and hides the others. */
+  export class WebTabs extends WebComponent<HTMLDivElement> {
+    constructor(element: HTMLElement);
+    /** Tab captions, in order. */
+    tabs: readonly string[];
+    /** Name of the component each tab shows, by position. */
+    panels: readonly string[];
+    selectedIndex: number;
+    /** Caption of the selected tab, or ''. */
+    readonly selectedTab: string;
+    /** Selects a tab by caption or by the name of the component it shows. */
+    selectTab(captionOrPanel: string): boolean;
+    set onChange(handler: WebComponentEventHandler<this> | null);
+  }
+
+  /** Single-choice group of native radio buttons inside a fieldset. */
+  export class WebRadioGroup extends WebComponent<HTMLFieldSetElement> {
+    constructor(element: HTMLElement);
+    get items(): readonly string[];
+    set items(items: readonly (string | WebRadioItem)[]);
+    /** One value per item; defaults to each caption. */
+    values: readonly string[];
+    /** Optional visible group title (fieldset legend). */
+    caption: string;
+    value: string;
+    /** Zero-based index of the checked option, or -1. */
+    selectedIndex: number;
+    /** Caption of the checked option, or ''. */
+    readonly selectedItem: string;
+    orientation: WebRadioGroupOrientation;
+    required: boolean;
+    /** Marks the group invalid when required and nothing is checked. */
+    validate(): boolean;
+    clear(): void;
+    set onChange(handler: WebComponentEventHandler<this> | null);
+  }
+
   export class WebTextArea extends WebComponent<HTMLTextAreaElement> {
     constructor(element: HTMLElement);
     value: string;

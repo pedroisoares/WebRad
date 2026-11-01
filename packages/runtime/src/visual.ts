@@ -1377,6 +1377,20 @@ ${WEB_MENU_CSS}
 .wr-button-content-text .wr-button-icon { display: none; }
 .wr-button-icon-left { flex-direction: row; }
 .wr-webcheckbox { display: flex; align-items: center; gap: 7px; }
+.wr-webradiogroup { display: flex; flex-direction: column; gap: var(--wr-radio-gap, 6px); min-width: 0; margin: 0; padding: 0; border: 0; }
+.wr-webradiogroup[data-webrad-orientation='horizontal'] { flex-direction: row; flex-wrap: wrap; align-items: center; column-gap: var(--wr-radio-gap, 16px); }
+.wr-radio-legend { padding: 0; margin-bottom: 4px; font-weight: 600; }
+.wr-webradiogroup[data-webrad-orientation='horizontal'] > .wr-radio-legend { width: 100%; }
+.wr-webtabs { display: flex; align-items: stretch; gap: 2px; min-width: 0; overflow-x: auto; border-bottom: 1px solid var(--wr-control-border, #cbd5e1); }
+.wr-tab { flex: none; border: 1px solid transparent; border-bottom: 0; border-radius: var(--wr-tab-radius, 6px) var(--wr-tab-radius, 6px) 0 0; background: transparent; color: inherit; cursor: pointer; font: inherit; padding: 6px 14px; margin-bottom: -1px; opacity: .75; }
+.wr-tab:hover { opacity: 1; }
+.wr-tab[aria-selected='true'] { border-color: var(--wr-control-border, #cbd5e1); background: var(--wr-tab-selected-background, var(--wr-control-surface, #ffffff)); color: var(--wr-tab-selected-text-color, inherit); font-weight: 600; opacity: 1; }
+.wr-tab:focus-visible { outline: 2px solid var(--wr-accent, #4da3ff); outline-offset: -2px; }
+.wr-webtabs[aria-disabled='true'] .wr-tab { cursor: not-allowed; opacity: .5; }
+.wr-radio-option { display: inline-flex; align-items: center; gap: 7px; cursor: pointer; }
+.wr-radio-option > input { margin: 0; accent-color: var(--wr-accent, #2563eb); }
+.wr-webradiogroup:disabled .wr-radio-option { cursor: not-allowed; opacity: .6; }
+.wr-webradiogroup[aria-invalid='true'] .wr-radio-option > input { outline: 2px solid var(--wr-invalid-color, #dc2626); outline-offset: 1px; }
 .wr-webimage { display: block; object-fit: contain; border: 1px dashed var(--wr-control-border, #677184); color: var(--wr-muted-text, #8e98aa); }
 .wr-webvideoplayer { display: block; position: relative; overflow: hidden; min-width: 0; min-height: 0; background: #111827; color: #fff; }
 .wr-webvideoplayer > video { display: block; width: 100%; height: 100%; }

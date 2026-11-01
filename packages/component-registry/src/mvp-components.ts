@@ -502,6 +502,8 @@ const checkBoxBounds = { width: 120, height: 24 } as const;
 const comboBoxBounds = { width: 160, height: 36 } as const;
 const imageBounds = { width: 160, height: 120 } as const;
 const listBoxBounds = { width: 180, height: 120 } as const;
+const radioGroupBounds = { width: 220, height: 96 } as const;
+const tabsBounds = { width: 480, height: 40 } as const;
 const apiClientBounds = { width: 112, height: 52 } as const;
 const popupBounds = { width: 360, height: 200 } as const;
 const dataGridBounds = { width: 640, height: 320 } as const;
@@ -1968,6 +1970,157 @@ const webVideoPlayer: ComponentDefinition = {
   ],
 };
 
+const webRadioGroup: ComponentDefinition = {
+  type: 'WebRadioGroup',
+  displayName: 'Radio Group',
+  namePrefix: 'RadioGroup',
+  palette: { category: standardCategory, caption: 'Radio Group' },
+  icon: 'radio',
+  visual: true,
+  styleEditor: {
+    ...checkBoxStyleEditor,
+    previewProps: { items: ['Option A', 'Option B'], selectedIndex: 0 },
+  },
+  canHaveChildren: false,
+  defaultEvent: 'OnChange',
+  defaultBounds: radioGroupBounds,
+  defaults: {
+    caption: '',
+    items: ['Option 1', 'Option 2'],
+    values: [],
+    selectedIndex: -1,
+    value: '',
+    orientation: 'vertical',
+    required: false,
+    visible: true,
+    collapseWhenHidden: true,
+    enabled: true,
+  },
+  properties: [
+    ...geometryProperties(radioGroupBounds),
+    {
+      name: 'caption',
+      label: 'Caption',
+      type: 'string',
+      category: 'Appearance',
+      source: 'props',
+      defaultValue: '',
+      description: 'Optional group title; it also names the group for screen readers.',
+    },
+    {
+      name: 'items',
+      label: 'Items',
+      type: 'string-list',
+      category: 'Data',
+      source: 'props',
+      defaultValue: ['Option 1', 'Option 2'],
+    },
+    {
+      name: 'values',
+      label: 'Values',
+      type: 'string-list',
+      category: 'Data',
+      source: 'props',
+      defaultValue: [],
+      description: 'One value per item sent to code and APIs; empty uses each caption.',
+    },
+    {
+      name: 'selectedIndex',
+      label: 'Selected Index',
+      type: 'number',
+      category: 'Data',
+      source: 'props',
+      defaultValue: -1,
+    },
+    {
+      name: 'value',
+      label: 'Value',
+      type: 'string',
+      category: 'Data',
+      source: 'props',
+      defaultValue: '',
+    },
+    {
+      name: 'orientation',
+      label: 'Orientation',
+      type: 'enum',
+      category: 'Appearance',
+      source: 'props',
+      defaultValue: 'vertical',
+      options: ['vertical', 'horizontal'],
+    },
+    {
+      name: 'required',
+      label: 'Required',
+      type: 'boolean',
+      category: 'Validation',
+      source: 'props',
+      defaultValue: false,
+    },
+  ],
+  events: [event('OnChange'), event('OnFocus'), event('OnBlur')],
+};
+
+const webTabs: ComponentDefinition = {
+  type: 'WebTabs',
+  displayName: 'Tabs',
+  namePrefix: 'Tabs',
+  palette: { category: standardCategory, caption: 'Tabs' },
+  icon: 'panel-top',
+  visual: true,
+  styleEditor: {
+    ...checkBoxStyleEditor,
+    previewProps: { tabs: ['General', 'History'], selectedIndex: 0 },
+  },
+  canHaveChildren: false,
+  defaultEvent: 'OnChange',
+  defaultBounds: tabsBounds,
+  defaults: {
+    tabs: ['Tab 1', 'Tab 2'],
+    panels: [],
+    selectedIndex: 0,
+    visible: true,
+    collapseWhenHidden: true,
+    enabled: true,
+  },
+  properties: [
+    ...geometryProperties(tabsBounds),
+    {
+      name: 'tabs',
+      label: 'Tabs',
+      type: 'string-list',
+      category: 'Data',
+      source: 'props',
+      defaultValue: ['Tab 1', 'Tab 2'],
+      description: 'Tab captions, in order.',
+    },
+    {
+      name: 'panels',
+      label: 'Panels',
+      type: 'string-list',
+      category: 'Data',
+      source: 'props',
+      defaultValue: [],
+      description:
+        'Name of the component (usually a Panel) shown by each tab, in the same order; the others are hidden.',
+    },
+    {
+      name: 'selectedIndex',
+      label: 'Selected Index',
+      type: 'number',
+      category: 'Data',
+      source: 'props',
+      defaultValue: 0,
+    },
+  ],
+  events: [
+    event('OnChange', 'Behavior', {
+      eventDetailType: 'WebTabChangeEventDetail',
+      eventDetailProperties: ['index', 'caption', 'panel', 'previousIndex'],
+    }),
+  ],
+};
+
 const webListBox: ComponentDefinition = {
   type: 'WebListBox',
   displayName: 'List Box',
@@ -2242,6 +2395,8 @@ export const MVP_COMPONENT_TYPES = [
   'WebComboBox',
   'WebImage',
   'WebListBox',
+  'WebRadioGroup',
+  'WebTabs',
   'WebDataGrid',
   'WebCharts',
   'WebRepeatingGroup',
@@ -2274,6 +2429,8 @@ const mvpComponentDefinitions: readonly ComponentDefinition[] = [
   webComboBox,
   webImage,
   webListBox,
+  webRadioGroup,
+  webTabs,
   webDataGrid,
   createWebChartsDefinition(geometryProperties({ width: 480, height: 320 })),
   webRepeatingGroup,
