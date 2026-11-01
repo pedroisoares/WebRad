@@ -271,6 +271,8 @@ ${chartsTypings.source}
     visible: boolean;
     collapseWhenHidden: boolean;
     enabled: boolean;
+    /** Roles that may see this component; empty is public, "*" any signed-in user. */
+    allowedRoles: readonly string[];
     x: number;
     y: number;
     width: number;
@@ -1021,6 +1023,60 @@ ${WEB_BUTTON_ICON_TYPINGS};
     readonly okText?: string;
     readonly kind?: WebFeedbackKind;
   }
+  export interface AccessUser {
+    readonly id?: string;
+    readonly name?: string;
+    /** Profiles or groups such as "ADMIN", "TECNICO", "SOLICITANTE". */
+    readonly roles: readonly string[];
+    readonly data?: Readonly<Record<string, unknown>>;
+  }
+  export interface AccessConfiguration {
+    /** Page opened when a protected page needs a signed-in user. Default '/login'. */
+    readonly loginPage?: string;
+    /** Page opened when the user lacks the roles. Default '/403', then the login page. */
+    readonly deniedPage?: string;
+    /** Where the user survives a reload. Default 'session'. */
+    readonly persist?: 'session' | 'local' | 'none';
+    readonly storageKey?: string;
+  }
+  export type AccessDecision =
+    | { readonly allowed: true }
+    | { readonly allowed: false; readonly reason: 'unauthenticated' | 'forbidden' };
+  export const ACCESS_ANY_AUTHENTICATED = '*';
+  /** Decides access for a list of allowed roles; an empty list is public. */
+  export function evaluateAccess(
+    user: AccessUser | null,
+    allowedRoles: readonly string[],
+  ): AccessDecision;
+  /** Client-side access rules. The API must still authorize every request. */
+  export class WebAccessControl {
+    readonly user: AccessUser | null;
+    readonly roles: readonly string[];
+    readonly isAuthenticated: boolean;
+    readonly configuration: AccessConfiguration;
+    /** The last page the router refused and why; cleared by setUser. */
+    readonly lastDenied: {
+      readonly page: string;
+      readonly reason: 'unauthenticated' | 'forbidden';
+    } | null;
+    configure(configuration: AccessConfiguration): void;
+    /** Signs a user in for interface rules, usually after the login API succeeds. */
+    setUser(user: AccessUser | null): void;
+    clear(): void;
+    /** True when the user has at least one of the roles. */
+    hasRole(...roles: readonly string[]): boolean;
+    hasAllRoles(...roles: readonly string[]): boolean;
+    /** Allowed Roles semantics: empty is public and "*" is any signed-in user. */
+    isAllowed(allowedRoles: readonly string[]): boolean;
+    evaluate(allowedRoles: readonly string[]): AccessDecision;
+    onChange(listener: (user: AccessUser | null) => void): () => void;
+    /** Hides an element unless the user has one of the roles. */
+    restrict(element: HTMLElement, allowedRoles: readonly string[]): void;
+    restrictionOf(element: HTMLElement): readonly string[];
+    recordDenied(page: string, reason: 'unauthenticated' | 'forbidden'): void;
+  }
+  /** The application's shared access rules. */
+  export const Access: WebAccessControl;
   /** Shows a short in-page notification that closes by itself. */
   export function Toast(message: unknown, options?: ToastOptions): WebToastHandle;
   /** Asks for confirmation in a themed modal dialog; resolves true when confirmed. */
@@ -1315,6 +1371,8 @@ declare module '@webrad/runtime/image-display' {
 declare const Message: typeof import('@webrad/runtime').Message;
 /** Globally available WebRAD confirmation helper. */
 declare const Confirm: typeof import('@webrad/runtime').Confirm;
+/** Application access rules: signed-in user, roles and protected pages. */
+declare const Access: typeof import('@webrad/runtime').Access;
 /** Globally available in-page notification helper. */
 declare const Toast: typeof import('@webrad/runtime').Toast;
 /** Globally available themed confirmation dialog; resolves true when confirmed. */

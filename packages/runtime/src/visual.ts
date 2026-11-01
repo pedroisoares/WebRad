@@ -1364,6 +1364,7 @@ ${WEB_MENU_CSS}
 .wr-webedit:focus, .wr-webtextarea:focus, .wr-webcombobox:focus, .wr-weblistbox:focus { border-color: var(--wr-accent, #4da3ff); box-shadow: 0 0 0 1px var(--wr-accent, #4da3ff); }
 .wr-webedit[aria-invalid='true'] { border-color: var(--wr-invalid-color, #dc2626); box-shadow: 0 0 0 1px var(--wr-invalid-color, #dc2626); }
 .wr-webedit::-webkit-calendar-picker-indicator { cursor: pointer; }
+[data-webrad-access-denied='true'] { display: none !important; }
 .wr-toast-region { position: fixed; z-index: 2147483000; display: flex; flex-direction: column; gap: 8px; width: min(380px, calc(100vw - 32px)); pointer-events: none; }
 .wr-toast-region[data-webrad-position^='top'] { top: 16px; }
 .wr-toast-region[data-webrad-position^='bottom'] { bottom: 16px; flex-direction: column-reverse; }

@@ -310,6 +310,7 @@ function applyCommon(
   component.enabled = visual.enabled;
   if (visual.tabIndex !== undefined) component.tabIndex = visual.tabIndex;
   if (visual.title !== undefined) element.title = visual.title;
+  component.allowedRoles = readStringListProperty(node, 'allowedRoles');
 }
 
 function elementFactory(tagName: string): RuntimeComponentAdapter['createElement'] {

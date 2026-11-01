@@ -68,6 +68,18 @@ const marginSideProperties: readonly ComponentPropertyDefinition[] = [
   defaultValueWhen: (props) => props.margin ?? 0,
 }));
 
+/** Shared by every visual component and page; enforced by the runtime Access rules. */
+const allowedRolesProperty: ComponentPropertyDefinition = {
+  name: 'allowedRoles',
+  label: 'Allowed Roles',
+  type: 'string-list',
+  category: 'Security',
+  source: 'props',
+  defaultValue: [],
+  description:
+    'Roles that may see this component (or open this page). Empty is public; * means any signed-in user. The API must still authorize requests.',
+};
+
 function geometryProperties(
   bounds: DefaultComponentBounds,
 ): readonly ComponentPropertyDefinition[] {
@@ -133,6 +145,7 @@ function geometryProperties(
       source: 'props',
       defaultValue: true,
     },
+    allowedRolesProperty,
   ];
 }
 
