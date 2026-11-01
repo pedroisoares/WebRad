@@ -1,4 +1,5 @@
 import type { RuntimeLayoutAlignSelf } from './layout.js';
+import { Access } from './access-control.js';
 
 export type WebComponentEventHandler<TSender = WebComponent> = (
   sender: TSender,
@@ -180,6 +181,18 @@ export class WebComponent<TElement extends HTMLElement = HTMLElement> {
     const layoutDisplay = this.element.dataset.webradLayoutDisplay;
     if (layoutDisplay === undefined) this.element.style.removeProperty('display');
     else this.element.style.setProperty('display', layoutDisplay, 'important');
+  }
+
+  /**
+   * Roles that may see this component; empty is public and "*" is any
+   * signed-in user. The API must still authorize requests.
+   */
+  public get allowedRoles(): readonly string[] {
+    return Access.restrictionOf(this.element);
+  }
+
+  public set allowedRoles(value: readonly string[]) {
+    Access.restrict(this.element, value);
   }
 
   public get enabled(): boolean {

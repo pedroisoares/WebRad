@@ -1,5 +1,22 @@
 # WebRAD delivery plan
 
+## Roles and protected pages: 2026-11-01
+
+Added `Access` (`packages/runtime/src/access-control.ts`), the client-side
+access rules: `setUser`/`clear` with roles kept in session storage by default,
+`hasRole`, `hasAllRoles`, `isAllowed`, and `onChange`. Every visual component
+and page gained **Allowed Roles** (Security category; empty is public, `*` is
+any signed-in user) and `WebComponent.allowedRoles`. Denied components are
+hidden by a data attribute and made inert, independently of Visible. The page
+router checks a page's roles before mounting, redirects signed-out users to the
+login page and others to the denied page (`/403`), replaces the refused
+address, records `Access.lastDenied`, emits `webrad:access-denied`, and leaves a
+protected page when the user signs out. The compiler installs the `Access`
+global when user code references it. Runtime tests, Monaco declarations, and a
+[guide](docs/access-control.md) stress that the API must still authorize every
+request. Inspector rows use the generic string-list editor, so no Electron
+smoke interaction changed.
+
 ## Rich Text Editor component: 2026-11-01
 
 Added `WebRichTextEditor`, a contenteditable editor with a localized toolbar

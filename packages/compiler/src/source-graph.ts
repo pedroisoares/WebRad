@@ -108,6 +108,7 @@ function reusableGeneratedSourcePath(reusableElement: PageModel): string {
 
 function createGlobalTypings(): string {
   return `import type {
+  Access as RuntimeAccess,
   Confirm as RuntimeConfirm,
   ConfirmDialog as RuntimeConfirmDialog,
   Message as RuntimeMessage,
@@ -122,6 +123,7 @@ declare global {
   const Message: typeof RuntimeMessage;
   const Confirm: typeof RuntimeConfirm;
   const Toast: typeof RuntimeToast;
+  const Access: typeof RuntimeAccess;
   const ConfirmDialog: typeof RuntimeConfirmDialog;
   const MessageDialog: typeof RuntimeMessageDialog;
   const Navigate: typeof RuntimeNavigate;
@@ -231,7 +233,7 @@ function createEntrySource(
   );
   const confirm = usesRuntimeGlobal(userSources, 'Confirm');
   const message = usesRuntimeGlobal(userSources, 'Message');
-  const feedbackGlobals = ['Toast', 'ConfirmDialog', 'MessageDialog'].filter((name) =>
+  const feedbackGlobals = ['Toast', 'ConfirmDialog', 'MessageDialog', 'Access'].filter((name) =>
     usesRuntimeGlobal(userSources, name),
   );
   return `import './theme-bootstrap';
