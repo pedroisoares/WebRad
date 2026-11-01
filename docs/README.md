@@ -20,6 +20,7 @@ Start with the root [README](../README.md) to install the IDE and create a proje
 
 - [Charts](charts.md): eight chart types and up to five API-bound data series
 - [Data Grid paging, sorting, search, and export](data-grid-paging.md)
+- [Edit masks, validation, and dates](edit-masks-dates.md)
 - [Aspect ratios](aspect-ratio.md): free or proportional sizing for Panel, Group and HTML
 - [HTML](html.md): embed HTML markup and CSS in an isolated document
 - [Icons](icons.md), [Menu](menu.md), [Timer](timer.md), and [Toggle](toggle.md)

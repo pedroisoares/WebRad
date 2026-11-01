@@ -183,6 +183,7 @@ const sourceFiles = [
   'video-player-shaka.ts',
   'video-player.ts',
   'controls.ts',
+  'input-masks.ts',
   'progress-bar.ts',
   'icon.ts',
   'html.ts',

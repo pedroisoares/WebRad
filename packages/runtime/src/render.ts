@@ -25,6 +25,7 @@ import {
   type WebSelectItem,
 } from './controls.js';
 import { WebPage } from './page.js';
+import { isWebEditMask } from './input-masks.js';
 import { WebDataGrid, normalizeWebDataGridConfiguration } from './data-grid.js';
 import { WebCharts } from './charts.js';
 import { normalizeWebChartsConfiguration } from './charts-data.js';
@@ -463,6 +464,14 @@ runtimeComponentRegistry
       component.placeholder = readStringProperty(node, 'placeholder');
       component.readOnly = readBooleanProperty(node, 'readOnly');
       component.inputType = readStringProperty(node, 'inputType', 'text') as WebInputType;
+      // Mask and type first, so the saved value is formatted or converted once.
+      const mask = readStringProperty(node, 'mask', 'none');
+      component.maskPattern = readStringProperty(node, 'maskPattern');
+      component.mask = isWebEditMask(mask) ? mask : 'none';
+      component.required = readBooleanProperty(node, 'required');
+      component.minimum = readStringProperty(node, 'minimum');
+      component.maximum = readStringProperty(node, 'maximum');
+      component.value = readStringProperty(node, 'value');
     },
   })
   .register<WebTextArea>('WebTextArea', {

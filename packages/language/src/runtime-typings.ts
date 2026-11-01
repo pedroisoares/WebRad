@@ -537,14 +537,71 @@ ${chartsTypings.source}
     autoSize: boolean;
   }
 
-  export type WebInputType = 'text' | 'password' | 'email' | 'number' | 'search' | 'tel' | 'url';
+  export const WEB_EDIT_MASKS: readonly ['none', 'cpf', 'cnpj', 'cpf-cnpj', 'phone', 'cep', 'custom'];
+  export type WebEditMask = (typeof WEB_EDIT_MASKS)[number];
+  export const WEB_EDIT_DATE_INPUT_TYPES: readonly ['date', 'datetime-local', 'time', 'month'];
+  export type WebEditDateInputType = (typeof WEB_EDIT_DATE_INPUT_TYPES)[number];
+  export function isWebEditMask(value: unknown): value is WebEditMask;
+  export function isNumericWebEditMask(mask: WebEditMask, pattern?: string): boolean;
+  /** Applies a pattern: 9 digit, A letter, * letter or digit, anything else literal. */
+  export function applyMaskPattern(value: string, pattern: string): string;
+  export function onlyDigits(value: string): string;
+  export function formatWithWebEditMask(value: string, mask: WebEditMask, pattern?: string): string;
+  export function webEditMaskMaxLength(mask: WebEditMask, pattern?: string): number | null;
+  /** Validates a CPF by its check digits; punctuation is ignored. */
+  export function isValidCpf(value: string): boolean;
+  /** Validates a CNPJ by its check digits; punctuation is ignored. */
+  export function isValidCnpj(value: string): boolean;
+  export function isWebEditDateInputType(value: unknown): value is WebEditDateInputType;
+  /** Converts dd/mm/yyyy, ISO or MySQL text into a native date input value. */
+  export function toNativeDateInputValue(value: string, type: WebEditDateInputType): string;
+  export function nativeDateInputValueToDate(value: string, type: WebEditDateInputType): Date | null;
+  export function dateToNativeDateInputValue(value: Date, type: WebEditDateInputType): string;
+  /** Formats a native date input value for display, e.g. 05/01/2024 14:30 in pt-BR. */
+  export function formatNativeDateInputValue(
+    value: string,
+    type: WebEditDateInputType,
+    locale: string,
+  ): string;
+
+  export type WebInputType =
+    | 'text'
+    | 'password'
+    | 'email'
+    | 'number'
+    | 'search'
+    | 'tel'
+    | 'url'
+    | WebEditDateInputType;
 
   export class WebEdit extends WebComponent<HTMLInputElement> {
     constructor(element: HTMLElement);
+    /** Date-like inputs keep ISO values and also accept dd/mm/yyyy; masked inputs are formatted. */
     value: string;
     placeholder: string;
     readOnly: boolean;
     inputType: WebInputType;
+    /** CPF, CNPJ, CPF or CNPJ, phone, CEP or a custom pattern, applied while typing. */
+    mask: WebEditMask;
+    /** Custom mask: 9 digit, A letter, * letter or digit, other characters literal. */
+    maskPattern: string;
+    /** The value without mask punctuation. */
+    readonly unmaskedValue: string;
+    required: boolean;
+    /** Smallest number or date (yyyy-mm-dd or dd/mm/yyyy). */
+    minimum: string;
+    /** Largest number or date (yyyy-mm-dd or dd/mm/yyyy). */
+    maximum: string;
+    /** Date-like inputs: the value as a local Date, or null when empty. */
+    dateValue: Date | null;
+    /** Date-like inputs formatted for the page language, e.g. 05/01/2024. */
+    readonly formattedValue: string;
+    readonly validationMessage: string;
+    /** Checks the value without showing messages. */
+    readonly isValid: boolean;
+    /** Checks required, limits, format, mask and CPF/CNPJ digits; marks the input when invalid. */
+    validate(): boolean;
+    clearValidation(): void;
     clear(): void;
     set onChange(handler: WebComponentEventHandler<this> | null);
     set onInput(handler: WebComponentEventHandler<this> | null);

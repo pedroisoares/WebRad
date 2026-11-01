@@ -30,6 +30,12 @@ import { getWebRadIconShapes, isWebRadIconName, type WebRadIconShape } from '@we
 import { bindImageResampling, imagePlaceholderSource } from '@webrad/runtime/image-display';
 import { WebHtml, projectRepeatingGroupRowStyle } from '@webrad/runtime';
 import {
+  formatWithWebEditMask,
+  isWebEditDateInputType,
+  isWebEditMask,
+  toNativeDateInputValue,
+} from '@webrad/runtime/input-masks';
+import {
   Children,
   cloneElement,
   isValidElement,
@@ -282,6 +288,17 @@ function DataGridButtonPreview({ column }: { readonly column: DataGridColumn }):
   );
 }
 
+/** Shows the saved Edit value as the browser runtime would: formatted or converted. */
+function designEditValue(node: ComponentNode): string {
+  const value = readStringProperty(node, 'value');
+  const type = readStringProperty(node, 'inputType', 'text');
+  if (isWebEditDateInputType(type)) return toNativeDateInputValue(value, type);
+  const mask = readStringProperty(node, 'mask', 'none');
+  return isWebEditMask(mask)
+    ? formatWithWebEditMask(value, mask, readStringProperty(node, 'maskPattern'))
+    : value;
+}
+
 function dataGridLayoutStyle(
   configuration: DataGridConfiguration,
   availableWidth: number,
@@ -515,7 +532,8 @@ const renderers: Readonly<Record<string, ComponentRenderer>> = Object.freeze({
     <input
       {...sharedAttributes(node, designTime, styleClassName)}
       aria-label={readStringProperty(node, 'placeholder', node.name)}
-      value={readStringProperty(node, 'value')}
+      value={designEditValue(node)}
+      required={readBooleanProperty(node, 'required')}
       disabled={!readBooleanProperty(node, 'enabled', true)}
       placeholder={readStringProperty(node, 'placeholder')}
       readOnly={readBooleanProperty(node, 'readOnly')}
