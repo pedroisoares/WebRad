@@ -1,5 +1,31 @@
 # WebRAD delivery plan
 
+## Autocomplete component: 2026-11-01
+
+Added `WebAutocomplete`, a WAI-ARIA combobox that suggests items while typing.
+Suggestions come from static Items (accent- and case-insensitive, every word must
+match), from a `source` function, or from a configured API operation through
+`bindOperation(...)`, which sends the term as a query parameter (`q` by default)
+with a result limit and reads rows by JSON pointer, keeping the client's
+authentication and error events. It debounces input, waits for Minimum
+Characters, ignores stale responses, shows localized loading, empty and error
+states, supports keyboard and mouse choice, and validates Required and Require
+Selection. It is registered after Tabs with a Designer preview, runtime CSS,
+Monaco declarations, completion and generation fixtures, runtime tests, an
+Aurora showcase entry, and a [guide](docs/autocomplete.md). It uses the generic
+Inspector editors, so no Electron smoke interaction changed.
+
+## Tabs and Radio Group components: 2026-11-01
+
+Added `WebTabs`, a WAI-ARIA tab strip that shows one named component per tab
+within its page or reusable placement and hides the others (including panels
+created later in the same render), and `WebRadioGroup`, a fieldset of native
+radio buttons with captions, values, orientation, legend, and required
+validation. Both are registered after List Box, have Designer previews, runtime
+CSS, Monaco declarations, completion and generation fixtures, runtime tests,
+Aurora showcase entries, and a [guide](docs/tabs-radio-group.md). They use the
+generic Inspector list editors, so no Electron smoke interaction changed.
+
 ## Edit masks, validation, and pt-BR dates: 2026-11-01
 
 `WebEdit` gained CPF, CNPJ, CPF-or-CNPJ, phone, CEP, and custom masks with

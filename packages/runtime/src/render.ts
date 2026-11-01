@@ -26,6 +26,9 @@ import {
 } from './controls.js';
 import { WebPage } from './page.js';
 import { isWebEditMask } from './input-masks.js';
+import { WebRadioGroup } from './radio-group.js';
+import { WebTabs } from './tabs.js';
+import { WebAutocomplete } from './autocomplete.js';
 import { WebDataGrid, normalizeWebDataGridConfiguration } from './data-grid.js';
 import { WebCharts } from './charts.js';
 import { normalizeWebChartsConfiguration } from './charts-data.js';
@@ -621,6 +624,51 @@ runtimeComponentRegistry
       component.poster = readStringProperty(node, 'poster');
       component.quality = typeof node.props.quality === 'number' ? node.props.quality : 'auto';
       component.source = normalizeVideoPlayerSource(node.props.source);
+    },
+  })
+  .register<WebRadioGroup>('WebRadioGroup', {
+    createElement: elementFactory('fieldset'),
+    createComponent: (element) => new WebRadioGroup(element),
+    applyProperties: (component, node) => {
+      applyCommon(component, node);
+      component.caption = readStringProperty(node, 'caption');
+      const items = readStringListProperty(node, 'items');
+      const values = readStringListProperty(node, 'values');
+      component.items = items.map((label, index) => ({ label, value: values[index] ?? label }));
+      component.orientation =
+        readStringProperty(node, 'orientation') === 'horizontal' ? 'horizontal' : 'vertical';
+      component.required = readBooleanProperty(node, 'required');
+      const selectedIndex = readIntegerProperty(node, 'selectedIndex');
+      if (selectedIndex !== undefined && selectedIndex >= 0)
+        component.selectedIndex = selectedIndex;
+      else component.value = readStringProperty(node, 'value');
+    },
+  })
+  .register<WebAutocomplete>('WebAutocomplete', {
+    createElement: elementFactory('div'),
+    createComponent: (element) => new WebAutocomplete(element),
+    applyProperties: (component, node) => {
+      applyCommon(component, node);
+      component.placeholder = readStringProperty(node, 'placeholder');
+      component.items = readStringListProperty(node, 'items');
+      component.minChars = readIntegerProperty(node, 'minChars') ?? 2;
+      component.debounceMs = readIntegerProperty(node, 'debounceMs') ?? 300;
+      component.maxResults = readIntegerProperty(node, 'maxResults') ?? 20;
+      component.requireSelection = readBooleanProperty(node, 'requireSelection', true);
+      component.required = readBooleanProperty(node, 'required');
+      component.noResultsText = readStringProperty(node, 'noResultsText');
+      const value = readStringProperty(node, 'value');
+      if (value.length > 0) component.value = value;
+    },
+  })
+  .register<WebTabs>('WebTabs', {
+    createElement: elementFactory('div'),
+    createComponent: (element) => new WebTabs(element),
+    applyProperties: (component, node) => {
+      applyCommon(component, node);
+      component.tabs = readStringListProperty(node, 'tabs');
+      component.panels = readStringListProperty(node, 'panels');
+      component.selectedIndex = readIntegerProperty(node, 'selectedIndex') ?? 0;
     },
   })
   .register<WebListBox>('WebListBox', {

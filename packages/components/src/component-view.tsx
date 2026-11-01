@@ -606,6 +606,81 @@ const renderers: Readonly<Record<string, ComponentRenderer>> = Object.freeze({
       </span>
     </label>
   ),
+  WebRadioGroup: ({ node, designTime, styleClassName, onEvent }) => {
+    const items = readStringListProperty(node, 'items');
+    const values = readStringListProperty(node, 'values');
+    const selectedIndex = readIntegerProperty(node, 'selectedIndex', -1);
+    const value = readStringProperty(node, 'value');
+    const caption = readStringProperty(node, 'caption');
+    const orientation =
+      readStringProperty(node, 'orientation') === 'horizontal' ? 'horizontal' : 'vertical';
+    return (
+      <fieldset
+        {...sharedAttributes(node, designTime, styleClassName)}
+        role="radiogroup"
+        aria-label={caption || node.name}
+        aria-orientation={orientation}
+        data-webrad-orientation={orientation}
+        disabled={!readBooleanProperty(node, 'enabled', true)}
+      >
+        {caption.length > 0 && <legend className="wr-radio-legend">{caption}</legend>}
+        {items.map((item, index) => {
+          const itemValue = values[index] ?? item;
+          return (
+            <label className="wr-radio-option" key={`${String(index)}-${item}`}>
+              <input
+                type="radio"
+                name={`wr-design-radio-${node.id}`}
+                value={itemValue}
+                checked={selectedIndex >= 0 ? index === selectedIndex : itemValue === value}
+                tabIndex={designTime ? -1 : undefined}
+                onChange={() => onEvent?.('OnChange', node)}
+              />
+              <span className="wr-radio-caption">{item}</span>
+            </label>
+          );
+        })}
+      </fieldset>
+    );
+  },
+  WebAutocomplete: ({ node, designTime, styleClassName }) => (
+    <div {...sharedAttributes(node, designTime, styleClassName)}>
+      <input
+        aria-autocomplete="list"
+        aria-expanded={false}
+        aria-label={readStringProperty(node, 'placeholder', node.name)}
+        autoComplete="off"
+        className="wr-autocomplete-input"
+        disabled={!readBooleanProperty(node, 'enabled', true)}
+        placeholder={readStringProperty(node, 'placeholder')}
+        readOnly
+        role="combobox"
+        tabIndex={designTime ? -1 : undefined}
+        type="text"
+        value={readStringProperty(node, 'value')}
+      />
+    </div>
+  ),
+  WebTabs: ({ node, designTime, styleClassName }) => {
+    const tabs = readStringListProperty(node, 'tabs');
+    const selectedIndex = readIntegerProperty(node, 'selectedIndex', 0);
+    return (
+      <div {...sharedAttributes(node, designTime, styleClassName)} role="tablist">
+        {tabs.map((caption, index) => (
+          <button
+            aria-selected={index === selectedIndex}
+            className="wr-tab"
+            key={`${String(index)}-${caption}`}
+            role="tab"
+            tabIndex={designTime ? -1 : index === selectedIndex ? 0 : -1}
+            type="button"
+          >
+            {caption}
+          </button>
+        ))}
+      </div>
+    );
+  },
   WebComboBox: ({ node, designTime, styleClassName, onEvent }) => {
     const items = node.props.comboBoxConfig == null ? readStringListProperty(node, 'items') : [];
     const values = readStringListProperty(node, 'values');

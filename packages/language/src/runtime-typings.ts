@@ -607,6 +607,157 @@ ${chartsTypings.source}
     set onInput(handler: WebComponentEventHandler<this> | null);
   }
 
+  export const WEB_RADIO_GROUP_ORIENTATIONS: readonly ['vertical', 'horizontal'];
+  export type WebRadioGroupOrientation = (typeof WEB_RADIO_GROUP_ORIENTATIONS)[number];
+
+  export interface WebRadioItem {
+    readonly label: string;
+    readonly value: string;
+  }
+
+  export interface WebTabChangeEventDetail {
+    readonly index: number;
+    readonly caption: string;
+    /** Name of the component shown by this tab, or ''. */
+    readonly panel: string;
+    readonly previousIndex: number;
+  }
+
+  /** One suggestion: value goes to code and APIs, label is shown and typed. */
+  export interface WebAutocompleteItem {
+    readonly value: string;
+    readonly label: string;
+    /** Optional second line, such as a CPF or a department. */
+    readonly detail?: string;
+    /** The original record. */
+    readonly data?: unknown;
+  }
+
+  export type WebAutocompleteSourceResult = readonly (string | WebAutocompleteItem)[];
+
+  /** Returns the suggestions for a search term; may be async. */
+  export type WebAutocompleteSource = (
+    term: string,
+  ) => WebAutocompleteSourceResult | Promise<WebAutocompleteSourceResult>;
+
+  export interface WebAutocompleteOperationOptions {
+    /** JSON pointer or schema node id of the list in the response; '' for the root. */
+    readonly listPath?: string;
+    /** JSON pointer of the caption in each row; '' uses the row itself. */
+    readonly displayField?: string;
+    /** JSON pointer of the value in each row; '' uses the caption. */
+    readonly keyField?: string;
+    /** JSON pointer of an optional second line in each row. */
+    readonly detailField?: string;
+    /** Query parameter that receives the typed term. Default 'q'. */
+    readonly searchParameter?: string;
+    /** Query parameter that limits the result size. Default 'page_size'; '' sends none. */
+    readonly limitParameter?: string;
+  }
+
+  export interface WebAutocompleteSearchEventDetail {
+    readonly term: string;
+  }
+
+  export interface WebAutocompleteSelectEventDetail {
+    readonly item: WebAutocompleteItem | null;
+    readonly value: string;
+    readonly label: string;
+  }
+
+  /** Case- and accent-insensitive text used to match suggestions. */
+  export function normalizeAutocompleteText(value: string): string;
+  export function normalizeAutocompleteItems(
+    items: WebAutocompleteSourceResult,
+  ): readonly WebAutocompleteItem[];
+  /** Keeps the items whose caption or detail contains every typed word. */
+  export function filterAutocompleteItems(
+    items: readonly WebAutocompleteItem[],
+    term: string,
+    limit: number,
+  ): readonly WebAutocompleteItem[];
+
+  /** Text box that suggests items while typing, from static items, a function or an API operation. */
+  export class WebAutocomplete extends WebComponent<HTMLDivElement> {
+    constructor(element: HTMLElement);
+    /** The inner text box. */
+    readonly input: HTMLInputElement;
+    get items(): readonly WebAutocompleteItem[];
+    set items(value: WebAutocompleteSourceResult);
+    /** Function that returns suggestions for a term; replaces items while set. */
+    source: WebAutocompleteSource | null;
+    /** Searches through a configured API operation, sending the term as a query parameter. */
+    bindOperation(
+      apiClient: WebApiClient,
+      operationName: string,
+      options?: WebAutocompleteOperationOptions,
+    ): void;
+    /** Value of the chosen item, or ''. */
+    value: string;
+    /** Text currently in the box. */
+    text: string;
+    selectedItem: WebAutocompleteItem | null;
+    placeholder: string;
+    /** Characters typed before searching; 0 lists suggestions on focus. */
+    minChars: number;
+    /** Pause after the last keystroke before searching, in milliseconds. */
+    debounceMs: number;
+    /** Most suggestions shown; 0 shows all. */
+    maxResults: number;
+    requireSelection: boolean;
+    required: boolean;
+    noResultsText: string;
+    readonly suggestions: readonly WebAutocompleteItem[];
+    readonly isOpen: boolean;
+    readonly validationMessage: string;
+    /** Runs a search now, ignoring minChars and the delay. */
+    search(term?: string): Promise<readonly WebAutocompleteItem[]>;
+    close(): void;
+    clear(): void;
+    validate(): boolean;
+    clearValidation(): void;
+    set onChange(handler: WebComponentEventHandler<this> | null);
+    set onSelect(handler: WebComponentEventHandler<this> | null);
+    set onSearch(handler: WebComponentEventHandler<this> | null);
+  }
+
+  /** Tab strip that shows one named component per tab and hides the others. */
+  export class WebTabs extends WebComponent<HTMLDivElement> {
+    constructor(element: HTMLElement);
+    /** Tab captions, in order. */
+    tabs: readonly string[];
+    /** Name of the component each tab shows, by position. */
+    panels: readonly string[];
+    selectedIndex: number;
+    /** Caption of the selected tab, or ''. */
+    readonly selectedTab: string;
+    /** Selects a tab by caption or by the name of the component it shows. */
+    selectTab(captionOrPanel: string): boolean;
+    set onChange(handler: WebComponentEventHandler<this> | null);
+  }
+
+  /** Single-choice group of native radio buttons inside a fieldset. */
+  export class WebRadioGroup extends WebComponent<HTMLFieldSetElement> {
+    constructor(element: HTMLElement);
+    get items(): readonly string[];
+    set items(items: readonly (string | WebRadioItem)[]);
+    /** One value per item; defaults to each caption. */
+    values: readonly string[];
+    /** Optional visible group title (fieldset legend). */
+    caption: string;
+    value: string;
+    /** Zero-based index of the checked option, or -1. */
+    selectedIndex: number;
+    /** Caption of the checked option, or ''. */
+    readonly selectedItem: string;
+    orientation: WebRadioGroupOrientation;
+    required: boolean;
+    /** Marks the group invalid when required and nothing is checked. */
+    validate(): boolean;
+    clear(): void;
+    set onChange(handler: WebComponentEventHandler<this> | null);
+  }
+
   export class WebTextArea extends WebComponent<HTMLTextAreaElement> {
     constructor(element: HTMLElement);
     value: string;
