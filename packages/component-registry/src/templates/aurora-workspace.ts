@@ -401,6 +401,17 @@ function formControls(): readonly DemoNode[] {
             },
             events: { OnChange: 'PreferenceChanged' },
           },
+          {
+            type: 'WebAutocomplete',
+            name: 'CityAutocomplete',
+            height: 36,
+            props: {
+              placeholder: 'City / Autocomplete',
+              items: ['Campinas', 'Curitiba', 'Florianópolis', 'São Paulo', 'São José dos Campos'],
+              minChars: 1,
+              debounceMs: 0,
+            },
+          },
           text('InterestLabel', 'Favorite feature / List Box', 30),
           {
             type: 'WebListBox',

@@ -504,6 +504,7 @@ const imageBounds = { width: 160, height: 120 } as const;
 const listBoxBounds = { width: 180, height: 120 } as const;
 const radioGroupBounds = { width: 220, height: 96 } as const;
 const tabsBounds = { width: 480, height: 40 } as const;
+const autocompleteBounds = { width: 240, height: 36 } as const;
 const apiClientBounds = { width: 112, height: 52 } as const;
 const popupBounds = { width: 360, height: 200 } as const;
 const dataGridBounds = { width: 640, height: 320 } as const;
@@ -2061,6 +2062,130 @@ const webRadioGroup: ComponentDefinition = {
   events: [event('OnChange'), event('OnFocus'), event('OnBlur')],
 };
 
+const webAutocomplete: ComponentDefinition = {
+  type: 'WebAutocomplete',
+  displayName: 'Autocomplete',
+  namePrefix: 'Autocomplete',
+  palette: { category: standardCategory, caption: 'Autocomplete' },
+  icon: 'search',
+  visual: true,
+  styleEditor: {
+    ...inputStyleEditor,
+    previewProps: { placeholder: 'Search…' },
+  },
+  canHaveChildren: false,
+  defaultEvent: 'OnSelect',
+  defaultBounds: autocompleteBounds,
+  defaults: {
+    placeholder: '',
+    items: [],
+    value: '',
+    minChars: 2,
+    debounceMs: 300,
+    maxResults: 20,
+    requireSelection: true,
+    required: false,
+    noResultsText: '',
+    visible: true,
+    collapseWhenHidden: true,
+    enabled: true,
+  },
+  properties: [
+    ...geometryProperties(autocompleteBounds),
+    {
+      name: 'placeholder',
+      label: 'Placeholder',
+      type: 'string',
+      category: 'Appearance',
+      source: 'props',
+      defaultValue: '',
+    },
+    {
+      name: 'items',
+      label: 'Items',
+      type: 'string-list',
+      category: 'Data',
+      source: 'props',
+      defaultValue: [],
+      description:
+        'Static suggestions filtered while typing. For server search, call bindOperation(...) or set source in code.',
+    },
+    {
+      name: 'value',
+      label: 'Value',
+      type: 'string',
+      category: 'Data',
+      source: 'props',
+      defaultValue: '',
+    },
+    {
+      name: 'minChars',
+      label: 'Minimum Characters',
+      type: 'number',
+      category: 'Behavior',
+      source: 'props',
+      defaultValue: 2,
+      description: 'Characters typed before searching; 0 lists suggestions on focus.',
+    },
+    {
+      name: 'debounceMs',
+      label: 'Search Delay (ms)',
+      type: 'number',
+      category: 'Behavior',
+      source: 'props',
+      defaultValue: 300,
+      description: 'Pause after the last keystroke before searching.',
+    },
+    {
+      name: 'maxResults',
+      label: 'Maximum Results',
+      type: 'number',
+      category: 'Behavior',
+      source: 'props',
+      defaultValue: 20,
+      description: 'Most suggestions shown; 0 shows all.',
+    },
+    {
+      name: 'noResultsText',
+      label: 'No Results Text',
+      type: 'string',
+      category: 'Appearance',
+      source: 'props',
+      defaultValue: '',
+      description: 'Shown when a search finds nothing; empty uses the page language.',
+    },
+    {
+      name: 'requireSelection',
+      label: 'Require Selection',
+      type: 'boolean',
+      category: 'Validation',
+      source: 'props',
+      defaultValue: true,
+      description:
+        'Typed text that is not a chosen suggestion leaves Value empty and fails validation.',
+    },
+    {
+      name: 'required',
+      label: 'Required',
+      type: 'boolean',
+      category: 'Validation',
+      source: 'props',
+      defaultValue: false,
+    },
+  ],
+  events: [
+    event('OnSelect', 'Behavior', {
+      eventDetailType: 'WebAutocompleteSelectEventDetail',
+      eventDetailProperties: ['item', 'value', 'label'],
+    }),
+    event('OnChange'),
+    event('OnSearch', 'Behavior', {
+      eventDetailType: 'WebAutocompleteSearchEventDetail',
+      eventDetailProperties: ['term'],
+    }),
+  ],
+};
+
 const webTabs: ComponentDefinition = {
   type: 'WebTabs',
   displayName: 'Tabs',
@@ -2397,6 +2522,7 @@ export const MVP_COMPONENT_TYPES = [
   'WebListBox',
   'WebRadioGroup',
   'WebTabs',
+  'WebAutocomplete',
   'WebDataGrid',
   'WebCharts',
   'WebRepeatingGroup',
@@ -2431,6 +2557,7 @@ const mvpComponentDefinitions: readonly ComponentDefinition[] = [
   webListBox,
   webRadioGroup,
   webTabs,
+  webAutocomplete,
   webDataGrid,
   createWebChartsDefinition(geometryProperties({ width: 480, height: 320 })),
   webRepeatingGroup,

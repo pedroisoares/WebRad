@@ -186,6 +186,7 @@ const sourceFiles = [
   'input-masks.ts',
   'radio-group.ts',
   'tabs.ts',
+  'autocomplete.ts',
   'progress-bar.ts',
   'icon.ts',
   'html.ts',

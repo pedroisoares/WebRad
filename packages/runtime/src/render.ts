@@ -28,6 +28,7 @@ import { WebPage } from './page.js';
 import { isWebEditMask } from './input-masks.js';
 import { WebRadioGroup } from './radio-group.js';
 import { WebTabs } from './tabs.js';
+import { WebAutocomplete } from './autocomplete.js';
 import { WebDataGrid, normalizeWebDataGridConfiguration } from './data-grid.js';
 import { WebCharts } from './charts.js';
 import { normalizeWebChartsConfiguration } from './charts-data.js';
@@ -641,6 +642,23 @@ runtimeComponentRegistry
       if (selectedIndex !== undefined && selectedIndex >= 0)
         component.selectedIndex = selectedIndex;
       else component.value = readStringProperty(node, 'value');
+    },
+  })
+  .register<WebAutocomplete>('WebAutocomplete', {
+    createElement: elementFactory('div'),
+    createComponent: (element) => new WebAutocomplete(element),
+    applyProperties: (component, node) => {
+      applyCommon(component, node);
+      component.placeholder = readStringProperty(node, 'placeholder');
+      component.items = readStringListProperty(node, 'items');
+      component.minChars = readIntegerProperty(node, 'minChars') ?? 2;
+      component.debounceMs = readIntegerProperty(node, 'debounceMs') ?? 300;
+      component.maxResults = readIntegerProperty(node, 'maxResults') ?? 20;
+      component.requireSelection = readBooleanProperty(node, 'requireSelection', true);
+      component.required = readBooleanProperty(node, 'required');
+      component.noResultsText = readStringProperty(node, 'noResultsText');
+      const value = readStringProperty(node, 'value');
+      if (value.length > 0) component.value = value;
     },
   })
   .register<WebTabs>('WebTabs', {

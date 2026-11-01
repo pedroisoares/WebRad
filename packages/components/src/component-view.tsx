@@ -643,6 +643,24 @@ const renderers: Readonly<Record<string, ComponentRenderer>> = Object.freeze({
       </fieldset>
     );
   },
+  WebAutocomplete: ({ node, designTime, styleClassName }) => (
+    <div {...sharedAttributes(node, designTime, styleClassName)}>
+      <input
+        aria-autocomplete="list"
+        aria-expanded={false}
+        aria-label={readStringProperty(node, 'placeholder', node.name)}
+        autoComplete="off"
+        className="wr-autocomplete-input"
+        disabled={!readBooleanProperty(node, 'enabled', true)}
+        placeholder={readStringProperty(node, 'placeholder')}
+        readOnly
+        role="combobox"
+        tabIndex={designTime ? -1 : undefined}
+        type="text"
+        value={readStringProperty(node, 'value')}
+      />
+    </div>
+  ),
   WebTabs: ({ node, designTime, styleClassName }) => {
     const tabs = readStringListProperty(node, 'tabs');
     const selectedIndex = readIntegerProperty(node, 'selectedIndex', 0);
