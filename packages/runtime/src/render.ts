@@ -29,6 +29,7 @@ import { isWebEditMask } from './input-masks.js';
 import { WebRadioGroup } from './radio-group.js';
 import { WebTabs } from './tabs.js';
 import { WebAutocomplete } from './autocomplete.js';
+import { WebRichTextEditor } from './rich-text-editor.js';
 import { WebDataGrid, normalizeWebDataGridConfiguration } from './data-grid.js';
 import { WebCharts } from './charts.js';
 import { normalizeWebChartsConfiguration } from './charts-data.js';
@@ -309,6 +310,7 @@ function applyCommon(
   component.enabled = visual.enabled;
   if (visual.tabIndex !== undefined) component.tabIndex = visual.tabIndex;
   if (visual.title !== undefined) element.title = visual.title;
+  component.allowedRoles = readStringListProperty(node, 'allowedRoles');
 }
 
 function elementFactory(tagName: string): RuntimeComponentAdapter['createElement'] {
@@ -659,6 +661,19 @@ runtimeComponentRegistry
       component.noResultsText = readStringProperty(node, 'noResultsText');
       const value = readStringProperty(node, 'value');
       if (value.length > 0) component.value = value;
+    },
+  })
+  .register<WebRichTextEditor>('WebRichTextEditor', {
+    createElement: elementFactory('div'),
+    createComponent: (element) => new WebRichTextEditor(element),
+    applyProperties: (component, node) => {
+      applyCommon(component, node);
+      component.placeholder = readStringProperty(node, 'placeholder');
+      component.showToolbar = readBooleanProperty(node, 'showToolbar', true);
+      component.readOnly = readBooleanProperty(node, 'readOnly');
+      component.maxLength = readIntegerProperty(node, 'maxLength') ?? 0;
+      component.required = readBooleanProperty(node, 'required');
+      component.value = readStringProperty(node, 'value');
     },
   })
   .register<WebTabs>('WebTabs', {

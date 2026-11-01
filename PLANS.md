@@ -1,5 +1,47 @@
 # WebRAD delivery plan
 
+## Roles and protected pages: 2026-11-01
+
+Added `Access` (`packages/runtime/src/access-control.ts`), the client-side
+access rules: `setUser`/`clear` with roles kept in session storage by default,
+`hasRole`, `hasAllRoles`, `isAllowed`, and `onChange`. Every visual component
+and page gained **Allowed Roles** (Security category; empty is public, `*` is
+any signed-in user) and `WebComponent.allowedRoles`. Denied components are
+hidden by a data attribute and made inert, independently of Visible. The page
+router checks a page's roles before mounting, redirects signed-out users to the
+login page and others to the denied page (`/403`), replaces the refused
+address, records `Access.lastDenied`, emits `webrad:access-denied`, and leaves a
+protected page when the user signs out. The compiler installs the `Access`
+global when user code references it. Runtime tests, Monaco declarations, and a
+[guide](docs/access-control.md) stress that the API must still authorize every
+request. Inspector rows use the generic string-list editor, so no Electron
+smoke interaction changed.
+
+## Rich Text Editor component: 2026-11-01
+
+Added `WebRichTextEditor`, a contenteditable editor with a localized toolbar
+(bold, italic, underline, strike, heading, lists, quote, link, clear) and
+Ctrl+B/I/U. Its `value` is HTML sanitized by an allowlist on assignment, paste,
+and read (no attributes except safe `href`, scripts and frames removed), and
+`text` is plain text. It supports Placeholder, Show Toolbar, Read Only, Maximum
+Length, Required, OnInput, and OnChange. Registered after Autocomplete with a
+plain-text Designer preview, runtime CSS, Monaco declarations, completion and
+generation fixtures, runtime tests, an Aurora showcase entry, and a
+[guide](docs/rich-text-editor.md). It uses the generic Inspector editors, so no
+Electron smoke interaction changed.
+
+## Toasts and themed dialogs: 2026-11-01
+
+Added the page globals `Toast`, `ConfirmDialog`, and `MessageDialog`
+(`packages/runtime/src/feedback.ts`). Toasts stack per position, close after a
+kind-dependent duration, pause on hover or focus, and support an action button;
+errors are announced as alerts. The dialogs use the native modal `dialog`,
+resolve promises, localize default captions, focus Cancel for destructive
+confirmations, and restore focus. The compiler installs each global only when
+user code references it. Runtime CSS, Monaco declarations, runtime and compiler
+tests, and a [guide](docs/toast-dialogs.md) are included. No Designer component
+or Electron smoke interaction changed.
+
 ## Autocomplete component: 2026-11-01
 
 Added `WebAutocomplete`, a WAI-ARIA combobox that suggests items while typing.

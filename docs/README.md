@@ -23,6 +23,9 @@ Start with the root [README](../README.md) to install the IDE and create a proje
 - [Edit masks, validation, and dates](edit-masks-dates.md)
 - [Tabs and Radio Group](tabs-radio-group.md)
 - [Autocomplete](autocomplete.md)
+- [Toasts and dialogs](toast-dialogs.md)
+- [Rich Text Editor](rich-text-editor.md)
+- [Roles and protected pages](access-control.md)
 - [Aspect ratios](aspect-ratio.md): free or proportional sizing for Panel, Group and HTML
 - [HTML](html.md): embed HTML markup and CSS in an isolated document
 - [Icons](icons.md), [Menu](menu.md), [Timer](timer.md), and [Toggle](toggle.md)

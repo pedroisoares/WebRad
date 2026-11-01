@@ -271,6 +271,8 @@ ${chartsTypings.source}
     visible: boolean;
     collapseWhenHidden: boolean;
     enabled: boolean;
+    /** Roles that may see this component; empty is public, "*" any signed-in user. */
+    allowedRoles: readonly string[];
     x: number;
     y: number;
     width: number;
@@ -721,6 +723,51 @@ ${chartsTypings.source}
     set onSearch(handler: WebComponentEventHandler<this> | null);
   }
 
+  export const WEB_RICH_TEXT_COMMANDS: readonly [
+    'bold',
+    'italic',
+    'underline',
+    'strikethrough',
+    'heading',
+    'bulletList',
+    'numberedList',
+    'quote',
+    'link',
+    'clear',
+  ];
+  export type WebRichTextCommand = (typeof WEB_RICH_TEXT_COMMANDS)[number];
+  /** True for http(s), mailto, tel, anchors and relative links. */
+  export function isSafeRichTextLink(value: string): boolean;
+  /** Keeps only basic formatting and safe links, dropping scripts and attributes. */
+  export function sanitizeRichTextHtml(html: string, document?: Document): string;
+  /** Plain text of rich HTML, with line breaks between blocks. */
+  export function richTextToPlainText(html: string, document?: Document): string;
+
+  /** WYSIWYG editor whose value is sanitized HTML and text the plain text. */
+  export class WebRichTextEditor extends WebComponent<HTMLDivElement> {
+    constructor(element: HTMLElement);
+    /** The editable area. */
+    readonly content: HTMLDivElement;
+    /** Sanitized HTML of the content; '' when empty. */
+    value: string;
+    /** Plain text, with a line break between blocks. */
+    text: string;
+    placeholder: string;
+    readOnly: boolean;
+    showToolbar: boolean;
+    /** Most plain-text characters accepted by validate(); 0 for no limit. */
+    maxLength: number;
+    required: boolean;
+    readonly isEmpty: boolean;
+    /** Fails when required and empty, or when the text exceeds maxLength. */
+    validate(): boolean;
+    clear(): void;
+    /** Applies a toolbar command to the current selection. */
+    execute(command: WebRichTextCommand, argument?: string): boolean;
+    set onChange(handler: WebComponentEventHandler<this> | null);
+    set onInput(handler: WebComponentEventHandler<this> | null);
+  }
+
   /** Tab strip that shows one named component per tab and hides the others. */
   export class WebTabs extends WebComponent<HTMLDivElement> {
     constructor(element: HTMLElement);
@@ -934,6 +981,108 @@ ${WEB_BUTTON_ICON_TYPINGS};
    * compiled app; otherwise navigates the browser or opens another window.
    */
   export function Navigate(destination: string | URL, options?: NavigateOptions): void;
+  export const WEB_FEEDBACK_KINDS: readonly ['info', 'success', 'warning', 'error'];
+  export type WebFeedbackKind = (typeof WEB_FEEDBACK_KINDS)[number];
+  export const WEB_TOAST_POSITIONS: readonly [
+    'top-right',
+    'top-left',
+    'top-center',
+    'bottom-right',
+    'bottom-left',
+    'bottom-center',
+  ];
+  export type WebToastPosition = (typeof WEB_TOAST_POSITIONS)[number];
+  export interface ToastAction {
+    readonly label: string;
+    readonly onClick: () => void;
+  }
+  export interface ToastOptions {
+    readonly kind?: WebFeedbackKind;
+    readonly title?: string;
+    /** Milliseconds before closing; 0 keeps it until closed. Default 4000 (7000 for errors). */
+    readonly duration?: number;
+    readonly position?: WebToastPosition;
+    /** Optional button, such as "Desfazer". Choosing it closes the toast. */
+    readonly action?: ToastAction;
+  }
+  export interface WebToastHandle {
+    readonly element: HTMLElement;
+    close(): void;
+    /** Resolves when the toast closes. */
+    readonly closed: Promise<void>;
+  }
+  export interface ConfirmDialogOptions {
+    readonly title?: string;
+    readonly confirmText?: string;
+    readonly cancelText?: string;
+    /** 'error' styles the confirm button as destructive and focuses Cancel. */
+    readonly kind?: WebFeedbackKind;
+  }
+  export interface MessageDialogOptions {
+    readonly title?: string;
+    readonly okText?: string;
+    readonly kind?: WebFeedbackKind;
+  }
+  export interface AccessUser {
+    readonly id?: string;
+    readonly name?: string;
+    /** Profiles or groups such as "ADMIN", "TECNICO", "SOLICITANTE". */
+    readonly roles: readonly string[];
+    readonly data?: Readonly<Record<string, unknown>>;
+  }
+  export interface AccessConfiguration {
+    /** Page opened when a protected page needs a signed-in user. Default '/login'. */
+    readonly loginPage?: string;
+    /** Page opened when the user lacks the roles. Default '/403', then the login page. */
+    readonly deniedPage?: string;
+    /** Where the user survives a reload. Default 'session'. */
+    readonly persist?: 'session' | 'local' | 'none';
+    readonly storageKey?: string;
+  }
+  export type AccessDecision =
+    | { readonly allowed: true }
+    | { readonly allowed: false; readonly reason: 'unauthenticated' | 'forbidden' };
+  export const ACCESS_ANY_AUTHENTICATED = '*';
+  /** Decides access for a list of allowed roles; an empty list is public. */
+  export function evaluateAccess(
+    user: AccessUser | null,
+    allowedRoles: readonly string[],
+  ): AccessDecision;
+  /** Client-side access rules. The API must still authorize every request. */
+  export class WebAccessControl {
+    readonly user: AccessUser | null;
+    readonly roles: readonly string[];
+    readonly isAuthenticated: boolean;
+    readonly configuration: AccessConfiguration;
+    /** The last page the router refused and why; cleared by setUser. */
+    readonly lastDenied: {
+      readonly page: string;
+      readonly reason: 'unauthenticated' | 'forbidden';
+    } | null;
+    configure(configuration: AccessConfiguration): void;
+    /** Signs a user in for interface rules, usually after the login API succeeds. */
+    setUser(user: AccessUser | null): void;
+    clear(): void;
+    /** True when the user has at least one of the roles. */
+    hasRole(...roles: readonly string[]): boolean;
+    hasAllRoles(...roles: readonly string[]): boolean;
+    /** Allowed Roles semantics: empty is public and "*" is any signed-in user. */
+    isAllowed(allowedRoles: readonly string[]): boolean;
+    evaluate(allowedRoles: readonly string[]): AccessDecision;
+    onChange(listener: (user: AccessUser | null) => void): () => void;
+    /** Hides an element unless the user has one of the roles. */
+    restrict(element: HTMLElement, allowedRoles: readonly string[]): void;
+    restrictionOf(element: HTMLElement): readonly string[];
+    recordDenied(page: string, reason: 'unauthenticated' | 'forbidden'): void;
+  }
+  /** The application's shared access rules. */
+  export const Access: WebAccessControl;
+  /** Shows a short in-page notification that closes by itself. */
+  export function Toast(message: unknown, options?: ToastOptions): WebToastHandle;
+  /** Asks for confirmation in a themed modal dialog; resolves true when confirmed. */
+  export function ConfirmDialog(message: unknown, options?: ConfirmDialogOptions): Promise<boolean>;
+  /** Shows a message in a themed modal dialog and resolves when it closes. */
+  export function MessageDialog(message: unknown, options?: MessageDialogOptions): Promise<void>;
   export const message: typeof Message;
   export const confirm: typeof Confirm;
   export const navigate: typeof Navigate;
@@ -1222,6 +1371,14 @@ declare module '@webrad/runtime/image-display' {
 declare const Message: typeof import('@webrad/runtime').Message;
 /** Globally available WebRAD confirmation helper. */
 declare const Confirm: typeof import('@webrad/runtime').Confirm;
+/** Application access rules: signed-in user, roles and protected pages. */
+declare const Access: typeof import('@webrad/runtime').Access;
+/** Globally available in-page notification helper. */
+declare const Toast: typeof import('@webrad/runtime').Toast;
+/** Globally available themed confirmation dialog; resolves true when confirmed. */
+declare const ConfirmDialog: typeof import('@webrad/runtime').ConfirmDialog;
+/** Globally available themed message dialog. */
+declare const MessageDialog: typeof import('@webrad/runtime').MessageDialog;
 /** Globally available WebRAD navigation helper. */
 declare const Navigate: typeof import('@webrad/runtime').Navigate;
 /** Application theme service, available without an import. */

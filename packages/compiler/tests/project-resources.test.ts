@@ -75,4 +75,39 @@ describe('compiled project resources', () => {
       ),
     ).toBe(true);
   }, 120000);
+
+  it('exposes Toast, ConfirmDialog and MessageDialog as page globals', async () => {
+    const outputDirectory = await fs.mkdtemp(path.join(os.tmpdir(), 'webrad-feedback-'));
+    directories.push(outputDirectory);
+    const project = parseProject(createProject('Feedback'));
+    const page = project.pages[0];
+    if (!page) throw new Error('Missing page.');
+    const source = createUserPageSource(page);
+    const result = await compileProject(project, {
+      outputDirectory,
+      write: false,
+      userSources: {
+        'pages/index.ts':
+          source +
+          // Globals are installed by the entry after page modules load, as for event handlers.
+          '\nsetTimeout(() => { Toast("Salvo", { kind: "success", duration: 0 }); void ConfirmDialog("Excluir?").then((ok: boolean) => { document.documentElement.dataset.confirmed = String(ok); }); void MessageDialog; }, 0);',
+      },
+    });
+    expect(result.diagnostics).toEqual([]);
+    expect(result.success).toBe(true);
+    const dom = new JSDOM(result.previewHtml, {
+      runScripts: 'dangerously',
+      url: 'http://localhost/preview/index.html',
+    });
+    try {
+      const document = dom.window.document;
+      await new Promise((resolve) => dom.window.setTimeout(resolve, 10));
+      expect(document.querySelector('.wr-toast')?.textContent).toContain('Salvo');
+      document.querySelector<HTMLButtonElement>('[data-webrad-primary="true"]')?.click();
+      await new Promise((resolve) => dom.window.setTimeout(resolve, 0));
+      expect(document.documentElement.dataset.confirmed).toBe('true');
+    } finally {
+      dom.window.close();
+    }
+  }, 120000);
 });

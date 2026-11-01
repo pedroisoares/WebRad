@@ -1,4 +1,5 @@
 import { Navigate, type NavigateOptions } from './globals.js';
+import { Access } from './access-control.js';
 import type { WebPage, WebReusableElementInstance } from './page.js';
 import {
   mountPage,
@@ -42,6 +43,17 @@ interface ActiveRuntimePage {
 function disposeMountedComponents(mounted: MountedRuntimePage): void {
   mounted.dispose();
   for (const component of mounted.components.values()) component.dispose();
+}
+
+/** Allowed Roles saved on the page's root component; empty for public pages. */
+function routeAllowedRoles(route: RuntimePageRoute): readonly string[] {
+  const root = route.model.components.find(
+    (component) => component.id === route.model.rootComponentId,
+  );
+  const roles: unknown = root?.props.allowedRoles;
+  return Array.isArray(roles)
+    ? roles.filter((role): role is string => typeof role === 'string')
+    : [];
 }
 
 function requireRouteField(value: string, field: 'id' | 'name'): void {
@@ -89,6 +101,7 @@ export class WebPageRouter {
   #active: ActiveRuntimePage | null = null;
   #entryRoute: RuntimePageRoute | null = null;
   #listeningForHashChanges = false;
+  #unsubscribeAccess: (() => void) | null = null;
 
   public constructor(
     routes: readonly RuntimePageRoute[],
@@ -194,6 +207,12 @@ export class WebPageRouter {
       );
       this.#listeningForHashChanges = true;
     }
+    this.#unsubscribeAccess ??= Access.onChange(() => {
+      // A sign-out on a protected page moves to the login or denied page.
+      const active = this.#active;
+      if (active !== null && !Access.isAllowed(routeAllowedRoles(active.route)))
+        this.navigate(active.route.id);
+    });
     return this.#navigateFromHash();
   }
 
@@ -265,6 +284,8 @@ export class WebPageRouter {
   public navigate(destination: string): WebPage {
     const route = this.findRoute(destination);
     if (route === undefined) throw new Error(`No WebRAD page route matches "${destination}".`);
+    const redirect = this.#accessRedirect(route);
+    if (redirect !== undefined) return redirect;
     if (this.#active?.route.id === route.id) {
       if (!this.#active.page.visible) this.#active.page.show();
       return this.#active.page;
@@ -299,6 +320,8 @@ export class WebPageRouter {
 
   /** Removes the active page and releases all generated event bindings. */
   public dispose(): void {
+    this.#unsubscribeAccess?.();
+    this.#unsubscribeAccess = null;
     this.#host.removeEventListener('webrad:menu-navigate', this.#onMenuNavigate);
     if (this.#listeningForHashChanges) {
       this.#window.removeEventListener(
@@ -309,6 +332,48 @@ export class WebPageRouter {
     }
     this.#entryRoute = null;
     this.#disposeActivePage();
+  }
+
+  /**
+   * Opens the login page for signed-out users, or the denied page (`/403`)
+   * for users without the roles, replacing the refused address in history.
+   */
+  #accessRedirect(route: RuntimePageRoute): WebPage | undefined {
+    const decision = Access.evaluate(routeAllowedRoles(route));
+    if (decision.allowed) return undefined;
+    Access.recordDenied(route.name, decision.reason);
+    this.#window.dispatchEvent(
+      new CustomEvent('webrad:access-denied', {
+        detail: { page: route.name, reason: decision.reason },
+      }),
+    );
+    const configuration = Access.configuration;
+    const candidates =
+      decision.reason === 'unauthenticated'
+        ? [configuration.loginPage, '/login']
+        : [configuration.deniedPage, '/403', configuration.loginPage, '/login'];
+    const target = candidates
+      .map((candidate) => (candidate === undefined ? undefined : this.findRoute(candidate)))
+      .find(
+        (candidate) =>
+          candidate !== undefined &&
+          candidate.id !== route.id &&
+          Access.isAllowed(routeAllowedRoles(candidate)),
+      );
+    if (target === undefined) {
+      this.#disposeActivePage();
+      throw new Error(
+        `Access to page "${route.name}" was denied and no allowed login or 403 page exists.`,
+      );
+    }
+    if (this.#entryRoute !== null) {
+      const url =
+        this.#mode === 'hash'
+          ? this.#routeHash(target)
+          : this.#routeUrl(target) + this.#window.location.search;
+      this.#window.history.replaceState(null, '', new URL(url, this.#window.location.href));
+    }
+    return this.navigate(target.id);
   }
 
   #routeHash(route: RuntimePageRoute): string {

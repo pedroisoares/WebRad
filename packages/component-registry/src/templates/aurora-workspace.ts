@@ -402,6 +402,15 @@ function formControls(): readonly DemoNode[] {
             events: { OnChange: 'PreferenceChanged' },
           },
           {
+            type: 'WebRichTextEditor',
+            name: 'NotesEditor',
+            height: 160,
+            props: {
+              placeholder: 'Notes / Rich Text Editor',
+              value: '<p>Use <strong>bold</strong>, <em>italic</em> and lists.</p>',
+            },
+          },
+          {
             type: 'WebAutocomplete',
             name: 'CityAutocomplete',
             height: 36,
