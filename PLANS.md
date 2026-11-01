@@ -1,5 +1,16 @@
 # WebRAD delivery plan
 
+## Edit masks, validation, and pt-BR dates: 2026-11-01
+
+`WebEdit` gained CPF, CNPJ, CPF-or-CNPJ, phone, CEP, and custom masks with
+caret-preserving reformatting; CPF/CNPJ check-digit validation; `required`,
+`minimum`, and `maximum`; and `date`, `datetime-local`, `time`, and `month`
+input types that accept dd/mm/yyyy and MySQL values. Shared pure helpers live
+in `@webrad/runtime/input-masks` for the Designer and runtime. Monaco
+declarations, registry properties, Designer preview, CSS, and the
+[guide](docs/edit-masks-dates.md) were updated together; the Inspector renders
+the new properties generically, so no Electron smoke interaction changed.
+
 ## Data Grid paging, sorting, search, and CSV export: 2026-11-01
 
 Added client and server paging, header sorting, accent-insensitive search, and

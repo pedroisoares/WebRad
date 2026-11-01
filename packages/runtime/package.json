@@ -40,6 +40,10 @@
       "types": "./src/visual.ts",
       "default": "./src/visual.ts"
     },
+    "./input-masks": {
+      "types": "./src/input-masks.ts",
+      "default": "./src/input-masks.ts"
+    },
     "./icons": {
       "types": "./src/icons.ts",
       "default": "./src/icons.ts"

@@ -22,6 +22,7 @@ export * from './file-upload.js';
 export * from './video-upload.js';
 export * from './video-player.js';
 export * from './controls.js';
+export * from './input-masks.js';
 export * from './page.js';
 export * from './page-router.js';
 export * from './globals.js';

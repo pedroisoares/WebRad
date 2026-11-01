@@ -19,6 +19,23 @@ import {
 } from './visual.js';
 import type { WebApiClient } from './api-client.js';
 import {
+  WEB_EDIT_DATE_INPUT_TYPES,
+  dateToNativeDateInputValue,
+  formatNativeDateInputValue,
+  formatWithWebEditMask,
+  isNumericWebEditMask,
+  isValidCnpj,
+  isValidCpf,
+  isWebEditDateInputType,
+  isWebEditMask,
+  nativeDateInputValueToDate,
+  onlyDigits,
+  toNativeDateInputValue,
+  webEditMaskMaxLength,
+  type WebEditDateInputType,
+  type WebEditMask,
+} from './input-masks.js';
+import {
   comboBoxItemText,
   normalizeWebComboBoxConfiguration,
   type WebComboBoxConfiguration,
@@ -110,7 +127,88 @@ export class WebLabel extends WebComponent<HTMLElement> {
   }
 }
 
-export type WebInputType = 'text' | 'password' | 'email' | 'number' | 'search' | 'tel' | 'url';
+export type WebInputType =
+  'text' | 'password' | 'email' | 'number' | 'search' | 'tel' | 'url' | WebEditDateInputType;
+
+const WEB_INPUT_TYPES: readonly WebInputType[] = [
+  'text',
+  'password',
+  'email',
+  'number',
+  'search',
+  'tel',
+  'url',
+  ...WEB_EDIT_DATE_INPUT_TYPES,
+];
+
+function editLocale(element: HTMLElement): string {
+  const lang = element.closest('[lang]')?.getAttribute('lang')?.trim() ?? '';
+  return lang.length > 0 ? lang : 'en';
+}
+
+function editMessages(element: HTMLElement): {
+  readonly required: string;
+  readonly incomplete: string;
+  readonly cpf: string;
+  readonly cnpj: string;
+  readonly cpfCnpj: string;
+} {
+  return editLocale(element).toLowerCase().startsWith('pt')
+    ? {
+        required: 'Preencha este campo.',
+        incomplete: 'Preencha o valor completo.',
+        cpf: 'CPF inválido.',
+        cnpj: 'CNPJ inválido.',
+        cpfCnpj: 'CPF ou CNPJ inválido.',
+      }
+    : {
+        required: 'Please fill in this field.',
+        incomplete: 'Please enter the complete value.',
+        cpf: 'Invalid CPF.',
+        cnpj: 'Invalid CNPJ.',
+        cpfCnpj: 'Invalid CPF or CNPJ.',
+      };
+}
+
+function elementMask(element: HTMLInputElement): WebEditMask {
+  const mask = element.dataset.webradMask;
+  return isWebEditMask(mask) ? mask : 'none';
+}
+
+/** Elements that already reformat themselves; shared by every WebEdit wrapper. */
+const maskedElements = new WeakSet<HTMLInputElement>();
+
+function reformatMaskedInput(element: HTMLInputElement): void {
+  const mask = elementMask(element);
+  if (mask === 'none') return;
+  const pattern = element.dataset.webradMaskPattern ?? '';
+  const caret = element.selectionStart ?? element.value.length;
+  const significantBeforeCaret = element.value
+    .slice(0, caret)
+    .replace(/[^\p{L}\p{Nd}]+/gu, '').length;
+  const formatted = formatWithWebEditMask(element.value, mask, pattern);
+  if (formatted === element.value) return;
+  element.value = formatted;
+  let position = 0;
+  let seen = 0;
+  while (position < formatted.length && seen < significantBeforeCaret) {
+    if (/[\p{L}\p{Nd}]/u.test(formatted[position] ?? '')) seen += 1;
+    position += 1;
+  }
+  if (element.ownerDocument.activeElement === element)
+    element.setSelectionRange(position, position);
+}
+
+function ensureEditListeners(element: HTMLInputElement): void {
+  if (maskedElements.has(element)) return;
+  maskedElements.add(element);
+  element.addEventListener('input', () => reformatMaskedInput(element));
+  element.addEventListener('blur', () => {
+    if (element.dataset.webradValidated === 'true' || element.value.length > 0) {
+      new WebEdit(element).validate();
+    }
+  });
+}
 
 function inputElement(element: HTMLElement): HTMLInputElement {
   if (!(element instanceof HTMLInputElement))
@@ -123,12 +221,208 @@ export class WebEdit extends WebComponent<HTMLInputElement> {
     super(inputElement(element));
   }
 
+  /**
+   * The input's value. Date-like inputs keep the native ISO format and also
+   * accept dd/mm/yyyy, dd/mm/yyyy hh:mm and MySQL `yyyy-mm-dd hh:mm:ss`; masked
+   * inputs are formatted as they are assigned.
+   */
   public get value(): string {
     return this.element.value;
   }
 
   public set value(value: string) {
-    this.element.value = value;
+    const type = this.element.type;
+    if (isWebEditDateInputType(type)) {
+      this.element.value = toNativeDateInputValue(value, type);
+      return;
+    }
+    const mask = elementMask(this.element);
+    this.element.value =
+      mask === 'none'
+        ? value
+        : formatWithWebEditMask(value, mask, this.element.dataset.webradMaskPattern ?? '');
+  }
+
+  /** Formatting applied while typing: CPF, CNPJ, CPF or CNPJ, phone, CEP or a custom pattern. */
+  public get mask(): WebEditMask {
+    return elementMask(this.element);
+  }
+
+  public set mask(value: WebEditMask) {
+    const mask = isWebEditMask(value) ? value : 'none';
+    if (mask === 'none') delete this.element.dataset.webradMask;
+    else this.element.dataset.webradMask = mask;
+    this.#applyMaskAttributes();
+  }
+
+  /** Custom mask: `9` digit, `A` letter, `*` letter or digit, anything else literal. */
+  public get maskPattern(): string {
+    return this.element.dataset.webradMaskPattern ?? '';
+  }
+
+  public set maskPattern(value: string) {
+    if (value.length === 0) delete this.element.dataset.webradMaskPattern;
+    else this.element.dataset.webradMaskPattern = value;
+    this.#applyMaskAttributes();
+  }
+
+  /** The value without mask punctuation, e.g. 12345678909 for 123.456.789-09. */
+  public get unmaskedValue(): string {
+    return this.mask === 'none'
+      ? this.element.value
+      : this.element.value.replace(/[^\p{L}\p{Nd}]+/gu, '');
+  }
+
+  public get required(): boolean {
+    return this.element.required;
+  }
+
+  public set required(value: boolean) {
+    this.element.required = value;
+    if (value) ensureEditListeners(this.element);
+    if (value) this.element.setAttribute('aria-required', 'true');
+    else this.element.removeAttribute('aria-required');
+  }
+
+  /** Smallest accepted value of number and date-like inputs (dd/mm/yyyy also accepted). */
+  public get minimum(): string {
+    return this.element.min;
+  }
+
+  public set minimum(value: string) {
+    this.element.min = this.#boundary(value);
+  }
+
+  /** Largest accepted value of number and date-like inputs (dd/mm/yyyy also accepted). */
+  public get maximum(): string {
+    return this.element.max;
+  }
+
+  public set maximum(value: string) {
+    this.element.max = this.#boundary(value);
+  }
+
+  /** Date-like inputs: the value as a local Date, or null when empty. */
+  public get dateValue(): Date | null {
+    const type = this.element.type;
+    return isWebEditDateInputType(type)
+      ? nativeDateInputValueToDate(this.element.value, type)
+      : null;
+  }
+
+  public set dateValue(value: Date | null) {
+    const type = this.element.type;
+    if (!isWebEditDateInputType(type)) return;
+    this.element.value = value === null ? '' : dateToNativeDateInputValue(value, type);
+  }
+
+  /** Date-like inputs formatted for the page language, e.g. 05/01/2024 14:30 in pt-BR. */
+  public get formattedValue(): string {
+    const type = this.element.type;
+    return isWebEditDateInputType(type)
+      ? formatNativeDateInputValue(this.element.value, type, editLocale(this.element))
+      : this.element.value;
+  }
+
+  /** The message of the last failed validate(), or ''. */
+  public get validationMessage(): string {
+    return this.element.validationMessage;
+  }
+
+  /** Checks the value without showing messages. */
+  public get isValid(): boolean {
+    return this.#customError() === '' && this.#nativeValid();
+  }
+
+  /**
+   * Checks required, number/date limits, e-mail/URL format, mask completeness
+   * and CPF/CNPJ check digits. Marks the input with aria-invalid and the
+   * browser message; returns true when the value is valid.
+   */
+  public validate(): boolean {
+    const custom = this.#customError();
+    this.element.setCustomValidity(custom);
+    this.element.dataset.webradValidated = 'true';
+    const valid = this.element.checkValidity();
+    if (valid) this.element.removeAttribute('aria-invalid');
+    else this.element.setAttribute('aria-invalid', 'true');
+    return valid;
+  }
+
+  /** Clears a validation mark without changing the value. */
+  public clearValidation(): void {
+    this.element.setCustomValidity('');
+    this.element.removeAttribute('aria-invalid');
+    delete this.element.dataset.webradValidated;
+  }
+
+  #nativeValid(): boolean {
+    this.element.setCustomValidity('');
+    return this.element.checkValidity();
+  }
+
+  #customError(): string {
+    const value = this.element.value;
+    const messages = editMessages(this.element);
+    if (this.element.required && value.trim().length === 0) return messages.required;
+    if (value.length === 0) return '';
+    const mask = this.mask;
+    const pattern = this.maskPattern;
+    const digits = onlyDigits(value);
+    switch (mask) {
+      case 'cpf':
+        return isValidCpf(value) ? '' : messages.cpf;
+      case 'cnpj':
+        return isValidCnpj(value) ? '' : messages.cnpj;
+      case 'cpf-cnpj':
+        return (digits.length === 11 && isValidCpf(value)) ||
+          (digits.length === 14 && isValidCnpj(value))
+          ? ''
+          : messages.cpfCnpj;
+      case 'phone':
+        return digits.length === 10 || digits.length === 11 ? '' : messages.incomplete;
+      case 'cep':
+        return digits.length === 8 ? '' : messages.incomplete;
+      case 'custom':
+        return pattern.length > 0 && Array.from(value).length !== Array.from(pattern).length
+          ? messages.incomplete
+          : '';
+      default:
+        return '';
+    }
+  }
+
+  #boundary(value: string): string {
+    const type = this.element.type;
+    return isWebEditDateInputType(type) && value.length > 0
+      ? toNativeDateInputValue(value, type)
+      : value;
+  }
+
+  #applyMaskAttributes(): void {
+    const mask = this.mask;
+    const length = webEditMaskMaxLength(mask, this.maskPattern);
+    if (mask === 'none') {
+      if (this.element.dataset.webradMaskMaxLength !== undefined) {
+        this.element.removeAttribute('maxlength');
+        delete this.element.dataset.webradMaskMaxLength;
+      }
+      this.element.removeAttribute('inputmode');
+      return;
+    }
+    ensureEditListeners(this.element);
+    if (length === null) {
+      this.element.removeAttribute('maxlength');
+      delete this.element.dataset.webradMaskMaxLength;
+    } else {
+      this.element.maxLength = length;
+      this.element.dataset.webradMaskMaxLength = String(length);
+    }
+    if (isNumericWebEditMask(mask, this.maskPattern)) this.element.inputMode = 'numeric';
+    else this.element.removeAttribute('inputmode');
+    if (this.element.value.length > 0) {
+      this.element.value = formatWithWebEditMask(this.element.value, mask, this.maskPattern);
+    }
   }
 
   public get placeholder(): string {
@@ -152,7 +446,13 @@ export class WebEdit extends WebComponent<HTMLInputElement> {
   }
 
   public set inputType(value: WebInputType) {
-    this.element.type = value;
+    const type = WEB_INPUT_TYPES.includes(value) ? value : 'text';
+    const previous = this.element.value;
+    this.element.type = type;
+    // Switching to a date type keeps a dd/mm/yyyy value the browser would drop.
+    if (isWebEditDateInputType(type) && previous.length > 0 && this.element.value.length === 0) {
+      this.element.value = toNativeDateInputValue(previous, type);
+    }
   }
 
   public clear(): void {
