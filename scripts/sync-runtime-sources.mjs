@@ -196,6 +196,7 @@ const sourceFiles = [
   'page-event-hooks.ts',
   'page-router.ts',
   'globals.ts',
+  'feedback.ts',
   'icons.ts',
   'image-display.ts',
   'image-resampling.ts',

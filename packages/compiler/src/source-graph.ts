@@ -109,15 +109,21 @@ function reusableGeneratedSourcePath(reusableElement: PageModel): string {
 function createGlobalTypings(): string {
   return `import type {
   Confirm as RuntimeConfirm,
+  ConfirmDialog as RuntimeConfirmDialog,
   Message as RuntimeMessage,
+  MessageDialog as RuntimeMessageDialog,
   Navigate as RuntimeNavigate,
   RestGO as RuntimeRestGO,
   Theme as RuntimeTheme,
+  Toast as RuntimeToast,
 } from '@webrad/runtime';
 
 declare global {
   const Message: typeof RuntimeMessage;
   const Confirm: typeof RuntimeConfirm;
+  const Toast: typeof RuntimeToast;
+  const ConfirmDialog: typeof RuntimeConfirmDialog;
+  const MessageDialog: typeof RuntimeMessageDialog;
   const Navigate: typeof RuntimeNavigate;
   const RestGO: typeof RuntimeRestGO;
   const Theme: typeof RuntimeTheme;
@@ -225,11 +231,15 @@ function createEntrySource(
   );
   const confirm = usesRuntimeGlobal(userSources, 'Confirm');
   const message = usesRuntimeGlobal(userSources, 'Message');
+  const feedbackGlobals = ['Toast', 'ConfirmDialog', 'MessageDialog'].filter((name) =>
+    usesRuntimeGlobal(userSources, name),
+  );
   return `import './theme-bootstrap';
 import {
   ${confirm ? 'Confirm,' : ''}
   ${restGo ? 'configureRestGo,' : ''}
   ${message ? 'Message,' : ''}
+  ${feedbackGlobals.map((name) => `${name},`).join(' ')}
   Navigate as RuntimeNavigate,
   ${restGo ? 'RestGO,' : ''}
   WebPageRouter,
@@ -298,7 +308,7 @@ const Navigate = (destination: string | URL, options: NavigateOptions = {}): voi
   router.navigateBrowser(destination, options);
 };
 
-Object.assign(globalThis, { ${confirm ? 'Confirm,' : ''} ${message ? 'Message,' : ''} Navigate, Env${restGo ? ', RestGO' : ''} });
+Object.assign(globalThis, { ${confirm ? 'Confirm,' : ''} ${message ? 'Message,' : ''} ${feedbackGlobals.map((name) => `${name},`).join(' ')} Navigate, Env${restGo ? ', RestGO' : ''} });
 ${restGo ? '' : `Object.defineProperty(globalThis, 'RestGO', { configurable: true, get: () => { throw new Error('Enable and configure RestGO in RestGo integration > Connection before using RestGO.'); } });`}
 router.start(${JSON.stringify(entryPage.id)});
 `;

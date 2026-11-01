@@ -1364,6 +1364,31 @@ ${WEB_MENU_CSS}
 .wr-webedit:focus, .wr-webtextarea:focus, .wr-webcombobox:focus, .wr-weblistbox:focus { border-color: var(--wr-accent, #4da3ff); box-shadow: 0 0 0 1px var(--wr-accent, #4da3ff); }
 .wr-webedit[aria-invalid='true'] { border-color: var(--wr-invalid-color, #dc2626); box-shadow: 0 0 0 1px var(--wr-invalid-color, #dc2626); }
 .wr-webedit::-webkit-calendar-picker-indicator { cursor: pointer; }
+.wr-toast-region { position: fixed; z-index: 2147483000; display: flex; flex-direction: column; gap: 8px; width: min(380px, calc(100vw - 32px)); pointer-events: none; }
+.wr-toast-region[data-webrad-position^='top'] { top: 16px; }
+.wr-toast-region[data-webrad-position^='bottom'] { bottom: 16px; flex-direction: column-reverse; }
+.wr-toast-region[data-webrad-position$='right'] { right: 16px; }
+.wr-toast-region[data-webrad-position$='left'] { left: 16px; }
+.wr-toast-region[data-webrad-position$='center'] { left: 50%; transform: translateX(-50%); }
+.wr-toast { --wr-toast-accent: var(--wr-accent, #2563eb); pointer-events: auto; display: flex; align-items: flex-start; gap: 10px; padding: 10px 12px; border: 1px solid var(--wr-control-border, #cbd5e1); border-left: 4px solid var(--wr-toast-accent); border-radius: 6px; background: var(--wr-popover-bg, var(--wr-control-surface, #ffffff)); color: var(--wr-text-color, #111827); box-shadow: 0 10px 30px rgb(0 0 0 / 18%); font: inherit; animation: wr-toast-in .18s ease-out; }
+.wr-toast[data-webrad-kind='success'] { --wr-toast-accent: var(--wr-success-color, #16a34a); }
+.wr-toast[data-webrad-kind='warning'] { --wr-toast-accent: var(--wr-warning-color, #d97706); }
+.wr-toast[data-webrad-kind='error'] { --wr-toast-accent: var(--wr-invalid-color, #dc2626); }
+.wr-toast-body { display: flex; flex: 1; flex-direction: column; gap: 2px; min-width: 0; overflow-wrap: anywhere; }
+.wr-toast-action { border: 0; background: transparent; color: var(--wr-toast-accent); cursor: pointer; font: inherit; font-weight: 600; padding: 0 4px; }
+.wr-toast-close { border: 0; background: transparent; color: inherit; cursor: pointer; font-size: 18px; line-height: 1; opacity: .6; padding: 0 2px; }
+.wr-toast-close:hover { opacity: 1; }
+@keyframes wr-toast-in { from { opacity: 0; transform: translateY(-6px); } }
+@media (prefers-reduced-motion: reduce) { .wr-toast { animation: none; } }
+.wr-feedback-dialog { width: min(440px, calc(100vw - 32px)); padding: 20px; border: 1px solid var(--wr-control-border, #cbd5e1); border-radius: 8px; background: var(--wr-popover-bg, var(--wr-control-surface, #ffffff)); color: var(--wr-text-color, #111827); box-shadow: 0 20px 50px rgb(0 0 0 / 30%); font: inherit; }
+.wr-feedback-dialog::backdrop { background: rgb(15 23 42 / 45%); }
+.wr-feedback-title { margin: 0 0 8px; font-size: 1.1em; }
+.wr-feedback-message { margin: 0 0 18px; white-space: pre-line; overflow-wrap: anywhere; }
+.wr-feedback-actions { display: flex; justify-content: flex-end; flex-wrap: wrap; gap: 8px; }
+.wr-feedback-button { min-width: 88px; padding: 7px 14px; border: 1px solid var(--wr-control-border, #cbd5e1); border-radius: 5px; background: transparent; color: inherit; cursor: pointer; font: inherit; }
+.wr-feedback-button[data-webrad-primary='true'] { border-color: var(--wr-accent, #2563eb); background: var(--wr-accent, #2563eb); color: #ffffff; }
+.wr-feedback-button[data-webrad-danger='true'] { border-color: var(--wr-invalid-color, #dc2626); background: var(--wr-invalid-color, #dc2626); }
+.wr-feedback-button:focus-visible { outline: 2px solid var(--wr-accent, #4da3ff); outline-offset: 2px; }
 .wr-webautocomplete { --webrad-border-gradient-surface: var(--wr-input-bg, #11151c); position: relative; display: flex; align-items: stretch; min-width: 0; border: 1px solid var(--wr-control-border, #677184); border-radius: 3px; background: var(--wr-input-bg, #11151c); color: inherit; padding: 0; overflow: visible; }
 .wr-webautocomplete:focus-within { border-color: var(--wr-accent, #4da3ff); box-shadow: 0 0 0 1px var(--wr-accent, #4da3ff); }
 .wr-webautocomplete:has(> .wr-autocomplete-input[aria-invalid='true']) { border-color: var(--wr-invalid-color, #dc2626); box-shadow: 0 0 0 1px var(--wr-invalid-color, #dc2626); }

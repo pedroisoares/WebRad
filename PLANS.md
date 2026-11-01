@@ -1,5 +1,17 @@
 # WebRAD delivery plan
 
+## Toasts and themed dialogs: 2026-11-01
+
+Added the page globals `Toast`, `ConfirmDialog`, and `MessageDialog`
+(`packages/runtime/src/feedback.ts`). Toasts stack per position, close after a
+kind-dependent duration, pause on hover or focus, and support an action button;
+errors are announced as alerts. The dialogs use the native modal `dialog`,
+resolve promises, localize default captions, focus Cancel for destructive
+confirmations, and restore focus. The compiler installs each global only when
+user code references it. Runtime CSS, Monaco declarations, runtime and compiler
+tests, and a [guide](docs/toast-dialogs.md) are included. No Designer component
+or Electron smoke interaction changed.
+
 ## Autocomplete component: 2026-11-01
 
 Added `WebAutocomplete`, a WAI-ARIA combobox that suggests items while typing.

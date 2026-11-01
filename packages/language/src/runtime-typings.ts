@@ -934,6 +934,54 @@ ${WEB_BUTTON_ICON_TYPINGS};
    * compiled app; otherwise navigates the browser or opens another window.
    */
   export function Navigate(destination: string | URL, options?: NavigateOptions): void;
+  export const WEB_FEEDBACK_KINDS: readonly ['info', 'success', 'warning', 'error'];
+  export type WebFeedbackKind = (typeof WEB_FEEDBACK_KINDS)[number];
+  export const WEB_TOAST_POSITIONS: readonly [
+    'top-right',
+    'top-left',
+    'top-center',
+    'bottom-right',
+    'bottom-left',
+    'bottom-center',
+  ];
+  export type WebToastPosition = (typeof WEB_TOAST_POSITIONS)[number];
+  export interface ToastAction {
+    readonly label: string;
+    readonly onClick: () => void;
+  }
+  export interface ToastOptions {
+    readonly kind?: WebFeedbackKind;
+    readonly title?: string;
+    /** Milliseconds before closing; 0 keeps it until closed. Default 4000 (7000 for errors). */
+    readonly duration?: number;
+    readonly position?: WebToastPosition;
+    /** Optional button, such as "Desfazer". Choosing it closes the toast. */
+    readonly action?: ToastAction;
+  }
+  export interface WebToastHandle {
+    readonly element: HTMLElement;
+    close(): void;
+    /** Resolves when the toast closes. */
+    readonly closed: Promise<void>;
+  }
+  export interface ConfirmDialogOptions {
+    readonly title?: string;
+    readonly confirmText?: string;
+    readonly cancelText?: string;
+    /** 'error' styles the confirm button as destructive and focuses Cancel. */
+    readonly kind?: WebFeedbackKind;
+  }
+  export interface MessageDialogOptions {
+    readonly title?: string;
+    readonly okText?: string;
+    readonly kind?: WebFeedbackKind;
+  }
+  /** Shows a short in-page notification that closes by itself. */
+  export function Toast(message: unknown, options?: ToastOptions): WebToastHandle;
+  /** Asks for confirmation in a themed modal dialog; resolves true when confirmed. */
+  export function ConfirmDialog(message: unknown, options?: ConfirmDialogOptions): Promise<boolean>;
+  /** Shows a message in a themed modal dialog and resolves when it closes. */
+  export function MessageDialog(message: unknown, options?: MessageDialogOptions): Promise<void>;
   export const message: typeof Message;
   export const confirm: typeof Confirm;
   export const navigate: typeof Navigate;
@@ -1222,6 +1270,12 @@ declare module '@webrad/runtime/image-display' {
 declare const Message: typeof import('@webrad/runtime').Message;
 /** Globally available WebRAD confirmation helper. */
 declare const Confirm: typeof import('@webrad/runtime').Confirm;
+/** Globally available in-page notification helper. */
+declare const Toast: typeof import('@webrad/runtime').Toast;
+/** Globally available themed confirmation dialog; resolves true when confirmed. */
+declare const ConfirmDialog: typeof import('@webrad/runtime').ConfirmDialog;
+/** Globally available themed message dialog. */
+declare const MessageDialog: typeof import('@webrad/runtime').MessageDialog;
 /** Globally available WebRAD navigation helper. */
 declare const Navigate: typeof import('@webrad/runtime').Navigate;
 /** Application theme service, available without an import. */
