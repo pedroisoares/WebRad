@@ -4,10 +4,13 @@ SIGAT2 is the first phase of the SIGAT → SIGAT2 migration: the screens of the
 legacy SIGAT (CodeIgniter + jQuery) rebuilt as a WebRAD project. They read the
 production `db_sigat` and OTOBO databases through the HexAPI catalog
 `catalogos/sigat2.json`, and they leave the database structure as it is. Phase 1
-covered the reads. Phase 2 adds the first writes on the Chamado page (see
-[Writes](#writes)). The remaining SIGAT write actions (open a chamado, record an
-interaction, close a reparo, deliver equipment, and so on) are listed in the HexAPI
-inventory `catalogos/SIGAT2-INVENTARIO.md`.
+covered the reads. Phase 2 adds writes on the Chamado page, including recording interactions (see
+[Writes](#writes)). The remaining SIGAT write actions (open a chamado, close a
+reparo, deliver equipment, and so on) are listed in the HexAPI inventory
+`catalogos/SIGAT2-INVENTARIO.md`.
+
+SIGAT2 does not copy SIGAT bugs. When the PHP code does something wrong, SIGAT2
+does it correctly, and the inventory lists each fix.
 
 Open [Sigat2.wrproj](Sigat2.wrproj) in the IDE and press **F9**.
 
@@ -56,6 +59,23 @@ cannot skip the history, because the steps are defined on the server.
 | Desbloquear                           | `chamado-desbloquear`     | the chamado is open and held by the user, or the user is level 3 or up |
 | Priorizar / Remover prioridade        | `chamado-priorizar`       | the user has the `admin` role                                          |
 | (opening the "E-mails do ticket" tab) | `chamado-zerar-nao-lidos` | the user holds the chamado and it has unread e-mails                   |
+
+The **Registrar interação** tab records an interaction. The choice of type picks
+the operation; the text comes from the rich text editor and HexAPI cleans it
+(parameter type `html`) before saving it:
+
+| Type              | Operation                  | What else it does                                                                             |
+| ----------------- | -------------------------- | --------------------------------------------------------------------------------------------- |
+| Observação        | `interacao-observacao`     | nothing else                                                                                  |
+| Alteração de fila | `interacao-alterar-fila`   | moves the chamado to another active queue and releases it                                     |
+| Atendimento       | `interacao-atendimento`    | closes the chosen open services; closes the chamado when nothing is left (queues 5 to 8 only) |
+| Deixar em espera  | `interacao-espera`         | puts the chosen open (or failed) equipment and open services on hold                          |
+| Remover da espera | `interacao-remover-espera` | puts the chosen equipment and services on hold back to open                                   |
+
+The tab is shown to the user who holds the chamado and to level 3 or up, while
+the chamado is open. HexAPI checks this again, takes the user from the session
+token and writes the interaction, the item changes and the `evento` rows in one
+transaction.
 
 HexAPI checks the same rules again; a refusal (for example the 3-lock limit on
 queue 1) comes back as a 409 with the SIGAT message, shown in a toast.

@@ -177,6 +177,31 @@ function row(name: string, children: readonly Node[]): Node {
   };
 }
 
+function combo(name: string, items: readonly string[] = [], onChange?: string): Node {
+  return {
+    type: 'WebComboBox',
+    name,
+    width: 320,
+    height: 40,
+    props: { items: [...items], selectedIndex: items.length > 0 ? 0 : -1, value: items[0] ?? '' },
+    item: { width: 'fixed', minWidth: 200, grow: 0, shrink: true },
+    ...(onChange === undefined ? {} : { events: { OnChange: onChange } }),
+  };
+}
+
+function listBox(name: string, height: number): Node {
+  return {
+    type: 'WebListBox',
+    name,
+    height,
+    props: { items: [], selectedIndex: -1, multiple: true },
+  };
+}
+
+function richText(name: string, placeholder: string, height: number): Node {
+  return { type: 'WebRichTextEditor', name, height, props: { value: '', placeholder } };
+}
+
 function panel(name: string, children: readonly Node[]): Node {
   return {
     type: 'WebPanel',
@@ -943,6 +968,33 @@ function chamadoPage(): PageSpec {
     desbloquear: write('Desbloquear', 'chamado-desbloquear', { id_chamado: 'integer' }),
     priorizar: write('Priorizar', 'chamado-priorizar', { id_chamado: 'integer' }),
     zerarNaoLidos: write('ZerarNaoLidos', 'chamado-zerar-nao-lidos', { id_chamado: 'integer' }),
+    filas: op('Filas', 'filas', F.filas),
+    observacao: write('Observacao', 'interacao-observacao', {
+      id_chamado: 'integer',
+      texto: 'string',
+    }),
+    alterarFila: write('AlterarFila', 'interacao-alterar-fila', {
+      id_chamado: 'integer',
+      id_fila: 'integer',
+      texto: 'string',
+    }),
+    atendimento: write('Atendimento', 'interacao-atendimento', {
+      id_chamado: 'integer',
+      texto: 'string',
+      servicos: 'array',
+    }),
+    espera: write('Espera', 'interacao-espera', {
+      id_chamado: 'integer',
+      texto: 'string',
+      equipamentos: 'array',
+      servicos: 'array',
+    }),
+    removerEspera: write('RemoverEspera', 'interacao-remover-espera', {
+      id_chamado: 'integer',
+      texto: 'string',
+      equipamentos: 'array',
+      servicos: 'array',
+    }),
   };
   return {
     name: 'Chamado',
@@ -987,6 +1039,7 @@ function chamadoPage(): PageSpec {
           'E-mails do ticket',
           'Histórico',
           'Anexos e termos',
+          'Registrar interação',
         ],
         [
           'PNLInteracoes',
@@ -996,6 +1049,7 @@ function chamadoPage(): PageSpec {
           'PNLEmails',
           'PNLHistorico',
           'PNLAnexos',
+          'PNLRegistrar',
         ],
         'TrocarAba',
       ),
@@ -1110,6 +1164,22 @@ function chamadoPage(): PageSpec {
           ],
           { height: 200 },
         ),
+      ]),
+      panel('PNLRegistrar', [
+        label('LBLRegistrar', ''),
+        {
+          type: 'WebGroup',
+          name: 'GRPRegistrar',
+          item: { height: 'fit-content' },
+          container: { mode: 'column', gap: 10 },
+          children: [
+            row('TipoInteracao', [combo('CMBTipo', [], 'MudarTipo'), combo('CMBFila')]),
+            label('LBLItens', ''),
+            listBox('LSTItens', 180),
+            richText('RTEInteracao', 'Descreva a interação...', 220),
+            row('AcoesInteracao', [button('BTNRegistrar', 'Registrar', 'Registrar', 'save')]),
+          ],
+        },
       ]),
       apiClient('Api', id, Object.values(ops)),
     ],

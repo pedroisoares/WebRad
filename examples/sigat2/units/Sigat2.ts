@@ -57,7 +57,7 @@ export function erro(e: unknown): string {
 
 // ---- writes: HexAPI composite operations
 
-type ValorGravacao = string | number | boolean | null;
+type ValorGravacao = string | number | boolean | null | readonly (string | number)[];
 
 interface Gravacao {
   execute(opcoes?: {

@@ -44,6 +44,9 @@ export class Chamado extends ChamadoGenerated {
 
   private ticketId = '';
   private chamado: Linha | undefined;
+  private equipamentos: Linha[] = [];
+  private servicos: Linha[] = [];
+  private filas: Linha[] = [];
 
   public async Mostrar(): Promise<void> {
     preencherCabecalho(this.LBLUsuario);
@@ -84,8 +87,17 @@ export class Chamado extends ChamadoGenerated {
       const interacoes = executar(this.Api.Interacoes, parametros);
       await Promise.all([
         interacoes.then((r) => mostrarInteracoes(this.HTMLInteracoes, linhas(r))),
-        executar(this.Api.Equipamentos, parametros),
-        executar(this.Api.Servicos, parametros),
+        executar(this.Api.Equipamentos, parametros).then((r) => {
+          this.equipamentos = linhas(r);
+        }),
+        executar(this.Api.Servicos, parametros).then((r) => {
+          this.servicos = linhas(r);
+        }),
+        this.filas.length > 0
+          ? Promise.resolve()
+          : this.Api.Filas.execute().then((r) => {
+              this.filas = linhas(r);
+            }),
         executar(this.Api.Reparos, parametros),
         executar(this.Api.Historico, parametros),
         executar(this.Api.Anexos, parametros),
@@ -97,6 +109,7 @@ export class Chamado extends ChamadoGenerated {
             )
           : Promise.resolve(mostrarArtigos(this.HTMLEmails, [])),
       ]);
+      this.MostrarRegistro();
     } catch (e) {
       Toast('Erro ao carregar o chamado: ' + erro(e), { kind: 'error' });
     }
@@ -161,6 +174,127 @@ export class Chamado extends ChamadoGenerated {
       this.chamado = { ...c, email_nao_lido_chamado: 0 };
     } catch {
       // The SIGAT ignores this failure too; the count is cleared on the next visit.
+    }
+  }
+
+  // ---- registrar interação (Interacao::registrar_interacao do SIGAT)
+
+  private PodeRegistrar(c: Linha | undefined): boolean {
+    const nivel = numero(Access.user?.data?.autorizacao_usuario) ?? 0;
+    return (
+      c !== undefined &&
+      texto(c.status_chamado, '') === 'ABERTO' &&
+      (texto(c.id_responsavel, '') === (Access.user?.id ?? '') || nivel >= 3)
+    );
+  }
+
+  /** Types offered by the SIGAT form; Atendimento only in queues 5 to 8. */
+  private MostrarRegistro(): void {
+    const c = this.chamado;
+    const pode = this.PodeRegistrar(c);
+    this.GRPRegistrar.visible = pode;
+    this.LBLRegistrar.caption = pode
+      ? ''
+      : 'Para registrar uma interação, o chamado precisa estar aberto e bloqueado por você (ou você precisa ter autorização 3 ou mais).';
+    if (!pode || c === undefined) return;
+    const fila = numero(c.id_fila) ?? 0;
+    const tipos = [
+      ...(fila >= 5 && fila <= 8 ? [{ value: 'ATENDIMENTO', label: 'Atendimento' }] : []),
+      { value: 'OBSERVACAO', label: 'Observação' },
+      { value: 'ALT_FILA', label: 'Alteração de fila' },
+      { value: 'ESPERA', label: 'Deixar em espera' },
+      { value: 'REM_ESPERA', label: 'Remover da espera' },
+    ];
+    const anterior = this.CMBTipo.value;
+    this.CMBTipo.items = tipos;
+    this.CMBTipo.value = tipos.some((t) => t.value === anterior)
+      ? anterior
+      : (tipos[0]?.value ?? '');
+    this.MudarTipo();
+  }
+
+  public MudarTipo(): void {
+    const tipo = this.CMBTipo.value;
+    const filaAtual = numero(this.chamado?.id_fila);
+    this.CMBFila.visible = tipo === 'ALT_FILA';
+    this.CMBFila.items = this.filas
+      .filter((f) => numero(f.id_fila) !== filaAtual)
+      .map((f) => ({ value: texto(f.id_fila, ''), label: texto(f.nome_fila) }));
+    const itens: { value: string; label: string }[] = [];
+    if (tipo === 'ESPERA' || tipo === 'REM_ESPERA') {
+      const status = tipo === 'ESPERA' ? ['ABERTO', 'FALHA'] : ['ESPERA'];
+      for (const e of this.equipamentos)
+        if (status.includes(texto(e.status_equipamento_chamado, '')))
+          itens.push({
+            value: 'e:' + texto(e.num_equipamento, ''),
+            label:
+              'Equipamento ' + texto(e.num_equipamento) + ' - ' + texto(e.descricao_equipamento),
+          });
+    }
+    if (tipo === 'ATENDIMENTO' || tipo === 'ESPERA' || tipo === 'REM_ESPERA') {
+      const status = tipo === 'REM_ESPERA' ? 'ESPERA' : 'ABERTO';
+      for (const s of this.servicos)
+        if (texto(s.status_servico, '') === status)
+          itens.push({
+            value: 's:' + texto(s.id, ''),
+            label:
+              'Serviço ' +
+              texto(s.nome_servico) +
+              ' (' +
+              texto(s.quantidade) +
+              ' ' +
+              texto(s.unidade_medida) +
+              ')',
+          });
+    }
+    const comItens = tipo === 'ATENDIMENTO' || tipo === 'ESPERA' || tipo === 'REM_ESPERA';
+    this.LSTItens.visible = comItens && itens.length > 0;
+    this.LSTItens.items = itens;
+    this.LBLItens.caption = !comItens
+      ? ''
+      : itens.length === 0
+        ? 'Não há equipamentos ou serviços para esta ação.'
+        : tipo === 'ATENDIMENTO'
+          ? 'Marque os serviços que foram finalizados:'
+          : tipo === 'ESPERA'
+            ? 'Marque o que será deixado em espera:'
+            : 'Marque o que sairá da espera:';
+  }
+
+  public async Registrar(): Promise<void> {
+    const id = numero(this.chamado?.id_chamado);
+    if (id === null) return;
+    const selecionados = this.LSTItens.visible ? this.LSTItens.selectedValues : [];
+    const equipamentos = selecionados.filter((v) => v.startsWith('e:')).map((v) => v.slice(2));
+    const servicos = selecionados.filter((v) => v.startsWith('s:')).map((v) => Number(v.slice(2)));
+    const comum = { id_chamado: id, texto: this.RTEInteracao.value };
+    const tipo = this.CMBTipo.value;
+    this.BTNRegistrar.enabled = false;
+    try {
+      if (tipo === 'ALT_FILA') {
+        const fila = numero(this.CMBFila.value);
+        if (fila === null) {
+          Toast('Escolha a nova fila.', { kind: 'warning' });
+          return;
+        }
+        await gravar(this.Api.AlterarFila, { ...comum, id_fila: fila });
+      } else if (tipo === 'ATENDIMENTO') {
+        await gravar(this.Api.Atendimento, { ...comum, servicos });
+      } else if (tipo === 'ESPERA') {
+        await gravar(this.Api.Espera, { ...comum, equipamentos, servicos });
+      } else if (tipo === 'REM_ESPERA') {
+        await gravar(this.Api.RemoverEspera, { ...comum, equipamentos, servicos });
+      } else {
+        await gravar(this.Api.Observacao, comum);
+      }
+      Toast('Interação registrada.', { kind: 'success' });
+      this.RTEInteracao.value = '';
+      this.Abas.selectTab('PNLInteracoes');
+      await this.Carregar();
+    } catch (e) {
+      Toast(erro(e), { kind: 'warning' });
+    } finally {
+      this.BTNRegistrar.enabled = true;
     }
   }
 

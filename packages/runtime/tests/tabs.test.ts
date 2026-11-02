@@ -76,4 +76,23 @@ describe('WebTabs', () => {
     expect(panel(root, 'PainelB').hidden).toBe(true);
     root.remove();
   });
+
+  it('lets a second instance for the same element drive the rendered strip', () => {
+    const { root, tabs } = page();
+    tabs.tabs = ['Dados gerais', 'Histórico'];
+    tabs.panels = ['DadosGerais', 'Historico'];
+    const pageCode = new WebTabs(tabs.element);
+    expect(pageCode.tabs).toEqual(['Dados gerais', 'Histórico']);
+    expect(pageCode.selectTab('Historico')).toBe(true);
+    expect(tabs.selectedIndex).toBe(1);
+    expect(panel(root, 'Historico').hidden).toBe(false);
+    expect(panel(root, 'DadosGerais').hidden).toBe(true);
+
+    const events: number[] = [];
+    pageCode.onChange = (_sender, event) => {
+      events.push((event as CustomEvent<WebTabChangeEventDetail>).detail.index);
+    };
+    tabs.element.dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowRight' }));
+    expect(events).toEqual([0]);
+  });
 });
