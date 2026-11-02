@@ -1,0 +1,2572 @@
+{
+  "formatVersion": 2,
+  "id": "7c3d3849-217f-4c7c-9c35-304129c1c4a8",
+  "name": "Local",
+  "caption": "Local",
+  "width": 1280,
+  "height": 1200,
+  "rootComponentId": "f895ab88-278f-476a-b210-2485af4cb011",
+  "components": [
+    {
+      "id": "f895ab88-278f-476a-b210-2485af4cb011",
+      "type": "WebPage",
+      "name": "Local",
+      "parentId": null,
+      "layout": {
+        "container": {
+          "mode": "column",
+          "paddingTop": 16,
+          "paddingRight": 24,
+          "paddingBottom": 24,
+          "paddingLeft": 24,
+          "gap": 16,
+          "wrap": false,
+          "justifyContent": "start",
+          "alignItems": "stretch"
+        },
+        "item": {
+          "width": "fixed",
+          "height": "fit-content",
+          "minWidth": 0,
+          "maxWidth": null,
+          "minHeight": 600,
+          "maxHeight": null,
+          "grow": 0,
+          "shrink": true,
+          "alignSelf": "auto",
+          "horizontalAnchor": "start",
+          "verticalAnchor": "start",
+          "left": 0,
+          "right": 0,
+          "top": 0,
+          "bottom": 0
+        }
+      },
+      "bounds": {
+        "width": 1280,
+        "height": 1200,
+        "x": 0,
+        "y": 0
+      },
+      "props": {
+        "caption": "Local",
+        "enabled": true,
+        "backgroundColor": "#ffffff",
+        "allowedRoles": [
+          "*"
+        ],
+        "browserTitle": "SIGAT2 | Local",
+        "visible": true
+      },
+      "events": {
+        "OnCreate": null,
+        "OnHide": null,
+        "OnResize": null,
+        "OnShow": "Mostrar"
+      },
+      "styleId": "3755d9a1-991d-4861-8878-42148ee446dc:default-style:WebPage",
+      "children": [
+        "582be749-e002-474a-a5b2-cbb5da695d56",
+        "e0e3ee84-b8e8-4c8f-8740-7980aa358e0f",
+        "c706d526-2576-4c61-9fad-64112aa1df33",
+        "af596c04-5bc9-46cd-acb2-b899ee59ab42",
+        "7d6baf57-e018-402b-bd62-8af4eab2e684"
+      ]
+    },
+    {
+      "id": "582be749-e002-474a-a5b2-cbb5da695d56",
+      "type": "WebGroup",
+      "name": "Cabecalho",
+      "parentId": "f895ab88-278f-476a-b210-2485af4cb011",
+      "layout": {
+        "container": {
+          "mode": "row",
+          "paddingTop": 0,
+          "paddingRight": 0,
+          "paddingBottom": 0,
+          "paddingLeft": 0,
+          "gap": 12,
+          "wrap": true,
+          "justifyContent": "start",
+          "alignItems": "center"
+        },
+        "item": {
+          "width": "stretch",
+          "height": "fit-content",
+          "minWidth": 0,
+          "maxWidth": null,
+          "minHeight": 0,
+          "maxHeight": null,
+          "grow": 0,
+          "shrink": false,
+          "alignSelf": "auto",
+          "horizontalAnchor": "start",
+          "verticalAnchor": "start",
+          "left": 0,
+          "right": 0,
+          "top": 0,
+          "bottom": 0
+        }
+      },
+      "bounds": {
+        "width": 240,
+        "height": 160,
+        "x": 0,
+        "y": 0
+      },
+      "props": {
+        "enabled": true,
+        "aspectRatio": "none",
+        "collapseWhenHidden": true,
+        "visible": true
+      },
+      "events": {
+        "OnClick": null,
+        "OnDblClick": null,
+        "OnMouseEnter": null,
+        "OnMouseLeave": null
+      },
+      "children": [
+        "4369e5d8-d85f-416b-a0d1-ed63b81a781b",
+        "b3292542-9320-4ec7-9ebe-92dd844db57c",
+        "878af721-df35-486b-ba41-b37796e2a93c",
+        "ff1ab590-3ce8-42cb-a548-2c58de458fc3",
+        "ac2b927c-e94e-4749-af28-0e8e2cc0f08a",
+        "ecef369e-8e25-4892-a635-035f54f06fb4",
+        "23621527-be15-448d-81d7-5a9bdbc1ffec",
+        "4e1d42b0-4291-48e4-8926-55ec05672f5a"
+      ]
+    },
+    {
+      "id": "4369e5d8-d85f-416b-a0d1-ed63b81a781b",
+      "type": "WebLabel",
+      "name": "Marca",
+      "parentId": "582be749-e002-474a-a5b2-cbb5da695d56",
+      "layout": {
+        "container": {
+          "mode": "fixed",
+          "paddingTop": 0,
+          "paddingRight": 0,
+          "paddingBottom": 0,
+          "paddingLeft": 0,
+          "gap": 0,
+          "wrap": false,
+          "justifyContent": "start",
+          "alignItems": "start"
+        },
+        "item": {
+          "width": "fixed",
+          "height": "fixed",
+          "minWidth": 0,
+          "maxWidth": null,
+          "minHeight": 0,
+          "maxHeight": null,
+          "grow": 0,
+          "shrink": false,
+          "alignSelf": "auto",
+          "horizontalAnchor": "start",
+          "verticalAnchor": "start",
+          "left": 0,
+          "right": 0,
+          "top": 0,
+          "bottom": 0
+        }
+      },
+      "bounds": {
+        "width": 110,
+        "height": 32,
+        "x": 0,
+        "y": 0
+      },
+      "props": {
+        "caption": "SIGAT2",
+        "enabled": true,
+        "autoSize": false,
+        "collapseWhenHidden": true,
+        "color": "#000000",
+        "visible": true
+      },
+      "events": {
+        "OnClick": null,
+        "OnDblClick": null,
+        "OnMouseEnter": null,
+        "OnMouseLeave": null
+      },
+      "styleId": "3755d9a1-991d-4861-8878-42148ee446dc:default-style:WebLabel",
+      "children": []
+    },
+    {
+      "id": "b3292542-9320-4ec7-9ebe-92dd844db57c",
+      "type": "WebButton",
+      "name": "BTNPainel",
+      "parentId": "582be749-e002-474a-a5b2-cbb5da695d56",
+      "layout": {
+        "container": {
+          "mode": "fixed",
+          "paddingTop": 0,
+          "paddingRight": 0,
+          "paddingBottom": 0,
+          "paddingLeft": 0,
+          "gap": 0,
+          "wrap": false,
+          "justifyContent": "start",
+          "alignItems": "start"
+        },
+        "item": {
+          "width": "fixed",
+          "height": "fixed",
+          "minWidth": 120,
+          "maxWidth": 220,
+          "minHeight": 0,
+          "maxHeight": null,
+          "grow": 0,
+          "shrink": true,
+          "alignSelf": "auto",
+          "horizontalAnchor": "start",
+          "verticalAnchor": "start",
+          "left": 0,
+          "right": 0,
+          "top": 0,
+          "bottom": 0
+        }
+      },
+      "bounds": {
+        "width": 180,
+        "height": 40,
+        "x": 0,
+        "y": 0
+      },
+      "props": {
+        "caption": "Painel",
+        "enabled": true,
+        "collapseWhenHidden": true,
+        "icon": "list",
+        "tabIndex": 0,
+        "visible": true
+      },
+      "events": {
+        "OnBlur": null,
+        "OnClick": "AbrirPainel",
+        "OnFocus": null,
+        "OnMouseEnter": null,
+        "OnMouseLeave": null
+      },
+      "styleId": "3755d9a1-991d-4861-8878-42148ee446dc:default-style:WebButton",
+      "children": []
+    },
+    {
+      "id": "878af721-df35-486b-ba41-b37796e2a93c",
+      "type": "WebEdit",
+      "name": "EDTBuscaRapida",
+      "parentId": "582be749-e002-474a-a5b2-cbb5da695d56",
+      "layout": {
+        "container": {
+          "mode": "fixed",
+          "paddingTop": 0,
+          "paddingRight": 0,
+          "paddingBottom": 0,
+          "paddingLeft": 0,
+          "gap": 0,
+          "wrap": false,
+          "justifyContent": "start",
+          "alignItems": "start"
+        },
+        "item": {
+          "width": "fixed",
+          "height": "fixed",
+          "minWidth": 200,
+          "maxWidth": null,
+          "minHeight": 0,
+          "maxHeight": null,
+          "grow": 1,
+          "shrink": true,
+          "alignSelf": "auto",
+          "horizontalAnchor": "start",
+          "verticalAnchor": "start",
+          "left": 0,
+          "right": 0,
+          "top": 0,
+          "bottom": 0
+        }
+      },
+      "bounds": {
+        "width": 300,
+        "height": 40,
+        "x": 0,
+        "y": 0
+      },
+      "props": {
+        "value": "",
+        "enabled": true,
+        "collapseWhenHidden": true,
+        "placeholder": "Busca rápida (patrimônio, ticket, local)...",
+        "readOnly": false,
+        "tabIndex": 0,
+        "visible": true
+      },
+      "events": {
+        "OnBlur": null,
+        "OnChange": null,
+        "OnFocus": null,
+        "OnInput": null,
+        "OnKeyDown": "BuscaRapidaTecla",
+        "OnKeyUp": null
+      },
+      "styleId": "3755d9a1-991d-4861-8878-42148ee446dc:default-style:WebEdit",
+      "children": []
+    },
+    {
+      "id": "ff1ab590-3ce8-42cb-a548-2c58de458fc3",
+      "type": "WebButton",
+      "name": "BTNBuscar",
+      "parentId": "582be749-e002-474a-a5b2-cbb5da695d56",
+      "layout": {
+        "container": {
+          "mode": "fixed",
+          "paddingTop": 0,
+          "paddingRight": 0,
+          "paddingBottom": 0,
+          "paddingLeft": 0,
+          "gap": 0,
+          "wrap": false,
+          "justifyContent": "start",
+          "alignItems": "start"
+        },
+        "item": {
+          "width": "fixed",
+          "height": "fixed",
+          "minWidth": 120,
+          "maxWidth": 220,
+          "minHeight": 0,
+          "maxHeight": null,
+          "grow": 0,
+          "shrink": true,
+          "alignSelf": "auto",
+          "horizontalAnchor": "start",
+          "verticalAnchor": "start",
+          "left": 0,
+          "right": 0,
+          "top": 0,
+          "bottom": 0
+        }
+      },
+      "bounds": {
+        "width": 180,
+        "height": 40,
+        "x": 0,
+        "y": 0
+      },
+      "props": {
+        "caption": "Buscar",
+        "enabled": true,
+        "collapseWhenHidden": true,
+        "icon": "search",
+        "tabIndex": 0,
+        "visible": true
+      },
+      "events": {
+        "OnBlur": null,
+        "OnClick": "BuscaRapida",
+        "OnFocus": null,
+        "OnMouseEnter": null,
+        "OnMouseLeave": null
+      },
+      "styleId": "3755d9a1-991d-4861-8878-42148ee446dc:default-style:WebButton",
+      "children": []
+    },
+    {
+      "id": "ac2b927c-e94e-4749-af28-0e8e2cc0f08a",
+      "type": "WebButton",
+      "name": "BTNInserviveis",
+      "parentId": "582be749-e002-474a-a5b2-cbb5da695d56",
+      "layout": {
+        "container": {
+          "mode": "fixed",
+          "paddingTop": 0,
+          "paddingRight": 0,
+          "paddingBottom": 0,
+          "paddingLeft": 0,
+          "gap": 0,
+          "wrap": false,
+          "justifyContent": "start",
+          "alignItems": "start"
+        },
+        "item": {
+          "width": "fixed",
+          "height": "fixed",
+          "minWidth": 120,
+          "maxWidth": 220,
+          "minHeight": 0,
+          "maxHeight": null,
+          "grow": 0,
+          "shrink": true,
+          "alignSelf": "auto",
+          "horizontalAnchor": "start",
+          "verticalAnchor": "start",
+          "left": 0,
+          "right": 0,
+          "top": 0,
+          "bottom": 0
+        }
+      },
+      "bounds": {
+        "width": 180,
+        "height": 40,
+        "x": 0,
+        "y": 0
+      },
+      "props": {
+        "caption": "Inservíveis",
+        "enabled": true,
+        "allowedRoles": [
+          "inservivel"
+        ],
+        "collapseWhenHidden": true,
+        "icon": "archive",
+        "tabIndex": 0,
+        "visible": true
+      },
+      "events": {
+        "OnBlur": null,
+        "OnClick": "AbrirInserviveis",
+        "OnFocus": null,
+        "OnMouseEnter": null,
+        "OnMouseLeave": null
+      },
+      "styleId": "3755d9a1-991d-4861-8878-42148ee446dc:default-style:WebButton",
+      "children": []
+    },
+    {
+      "id": "ecef369e-8e25-4892-a635-035f54f06fb4",
+      "type": "WebButton",
+      "name": "BTNAdmin",
+      "parentId": "582be749-e002-474a-a5b2-cbb5da695d56",
+      "layout": {
+        "container": {
+          "mode": "fixed",
+          "paddingTop": 0,
+          "paddingRight": 0,
+          "paddingBottom": 0,
+          "paddingLeft": 0,
+          "gap": 0,
+          "wrap": false,
+          "justifyContent": "start",
+          "alignItems": "start"
+        },
+        "item": {
+          "width": "fixed",
+          "height": "fixed",
+          "minWidth": 120,
+          "maxWidth": 220,
+          "minHeight": 0,
+          "maxHeight": null,
+          "grow": 0,
+          "shrink": true,
+          "alignSelf": "auto",
+          "horizontalAnchor": "start",
+          "verticalAnchor": "start",
+          "left": 0,
+          "right": 0,
+          "top": 0,
+          "bottom": 0
+        }
+      },
+      "bounds": {
+        "width": 180,
+        "height": 40,
+        "x": 0,
+        "y": 0
+      },
+      "props": {
+        "caption": "Administração",
+        "enabled": true,
+        "allowedRoles": [
+          "admin"
+        ],
+        "collapseWhenHidden": true,
+        "icon": "settings",
+        "tabIndex": 0,
+        "visible": true
+      },
+      "events": {
+        "OnBlur": null,
+        "OnClick": "AbrirAdmin",
+        "OnFocus": null,
+        "OnMouseEnter": null,
+        "OnMouseLeave": null
+      },
+      "styleId": "3755d9a1-991d-4861-8878-42148ee446dc:default-style:WebButton",
+      "children": []
+    },
+    {
+      "id": "23621527-be15-448d-81d7-5a9bdbc1ffec",
+      "type": "WebLabel",
+      "name": "LBLUsuario",
+      "parentId": "582be749-e002-474a-a5b2-cbb5da695d56",
+      "layout": {
+        "container": {
+          "mode": "fixed",
+          "paddingTop": 0,
+          "paddingRight": 0,
+          "paddingBottom": 0,
+          "paddingLeft": 0,
+          "gap": 0,
+          "wrap": false,
+          "justifyContent": "start",
+          "alignItems": "start"
+        },
+        "item": {
+          "width": "fixed",
+          "height": "fixed",
+          "minWidth": 0,
+          "maxWidth": null,
+          "minHeight": 0,
+          "maxHeight": null,
+          "grow": 1,
+          "shrink": false,
+          "alignSelf": "auto",
+          "horizontalAnchor": "start",
+          "verticalAnchor": "start",
+          "left": 0,
+          "right": 0,
+          "top": 0,
+          "bottom": 0
+        }
+      },
+      "bounds": {
+        "width": 200,
+        "height": 28,
+        "x": 0,
+        "y": 0
+      },
+      "props": {
+        "caption": "",
+        "enabled": true,
+        "autoSize": false,
+        "collapseWhenHidden": true,
+        "color": "#000000",
+        "visible": true
+      },
+      "events": {
+        "OnClick": null,
+        "OnDblClick": null,
+        "OnMouseEnter": null,
+        "OnMouseLeave": null
+      },
+      "styleId": "3755d9a1-991d-4861-8878-42148ee446dc:default-style:WebLabel",
+      "children": []
+    },
+    {
+      "id": "4e1d42b0-4291-48e4-8926-55ec05672f5a",
+      "type": "WebButton",
+      "name": "BTNSair",
+      "parentId": "582be749-e002-474a-a5b2-cbb5da695d56",
+      "layout": {
+        "container": {
+          "mode": "fixed",
+          "paddingTop": 0,
+          "paddingRight": 0,
+          "paddingBottom": 0,
+          "paddingLeft": 0,
+          "gap": 0,
+          "wrap": false,
+          "justifyContent": "start",
+          "alignItems": "start"
+        },
+        "item": {
+          "width": "fixed",
+          "height": "fixed",
+          "minWidth": 120,
+          "maxWidth": 220,
+          "minHeight": 0,
+          "maxHeight": null,
+          "grow": 0,
+          "shrink": true,
+          "alignSelf": "auto",
+          "horizontalAnchor": "start",
+          "verticalAnchor": "start",
+          "left": 0,
+          "right": 0,
+          "top": 0,
+          "bottom": 0
+        }
+      },
+      "bounds": {
+        "width": 180,
+        "height": 40,
+        "x": 0,
+        "y": 0
+      },
+      "props": {
+        "caption": "Sair",
+        "enabled": true,
+        "collapseWhenHidden": true,
+        "icon": "logout",
+        "tabIndex": 0,
+        "visible": true
+      },
+      "events": {
+        "OnBlur": null,
+        "OnClick": "Sair",
+        "OnFocus": null,
+        "OnMouseEnter": null,
+        "OnMouseLeave": null
+      },
+      "styleId": "3755d9a1-991d-4861-8878-42148ee446dc:default-style:WebButton",
+      "children": []
+    },
+    {
+      "id": "e0e3ee84-b8e8-4c8f-8740-7980aa358e0f",
+      "type": "WebGroup",
+      "name": "Topo",
+      "parentId": "f895ab88-278f-476a-b210-2485af4cb011",
+      "layout": {
+        "container": {
+          "mode": "row",
+          "paddingTop": 0,
+          "paddingRight": 0,
+          "paddingBottom": 0,
+          "paddingLeft": 0,
+          "gap": 12,
+          "wrap": true,
+          "justifyContent": "start",
+          "alignItems": "center"
+        },
+        "item": {
+          "width": "stretch",
+          "height": "fit-content",
+          "minWidth": 0,
+          "maxWidth": null,
+          "minHeight": 0,
+          "maxHeight": null,
+          "grow": 0,
+          "shrink": false,
+          "alignSelf": "auto",
+          "horizontalAnchor": "start",
+          "verticalAnchor": "start",
+          "left": 0,
+          "right": 0,
+          "top": 0,
+          "bottom": 0
+        }
+      },
+      "bounds": {
+        "width": 240,
+        "height": 160,
+        "x": 0,
+        "y": 0
+      },
+      "props": {
+        "enabled": true,
+        "aspectRatio": "none",
+        "collapseWhenHidden": true,
+        "visible": true
+      },
+      "events": {
+        "OnClick": null,
+        "OnDblClick": null,
+        "OnMouseEnter": null,
+        "OnMouseLeave": null
+      },
+      "children": [
+        "6522c6ba-cfbf-40af-9e24-7cbf90f11bda",
+        "fe59d077-5765-49a0-ba8b-78e4de78a5e7"
+      ]
+    },
+    {
+      "id": "6522c6ba-cfbf-40af-9e24-7cbf90f11bda",
+      "type": "WebLabel",
+      "name": "LBLLocal",
+      "parentId": "e0e3ee84-b8e8-4c8f-8740-7980aa358e0f",
+      "layout": {
+        "container": {
+          "mode": "fixed",
+          "paddingTop": 0,
+          "paddingRight": 0,
+          "paddingBottom": 0,
+          "paddingLeft": 0,
+          "gap": 0,
+          "wrap": false,
+          "justifyContent": "start",
+          "alignItems": "start"
+        },
+        "item": {
+          "width": "fixed",
+          "height": "fixed",
+          "minWidth": 0,
+          "maxWidth": null,
+          "minHeight": 0,
+          "maxHeight": null,
+          "grow": 1,
+          "shrink": false,
+          "alignSelf": "auto",
+          "horizontalAnchor": "start",
+          "verticalAnchor": "start",
+          "left": 0,
+          "right": 0,
+          "top": 0,
+          "bottom": 0
+        }
+      },
+      "bounds": {
+        "width": 400,
+        "height": 36,
+        "x": 0,
+        "y": 0
+      },
+      "props": {
+        "caption": "Local",
+        "enabled": true,
+        "autoSize": false,
+        "collapseWhenHidden": true,
+        "color": "#000000",
+        "visible": true
+      },
+      "events": {
+        "OnClick": null,
+        "OnDblClick": null,
+        "OnMouseEnter": null,
+        "OnMouseLeave": null
+      },
+      "styleId": "3755d9a1-991d-4861-8878-42148ee446dc:default-style:WebLabel",
+      "children": []
+    },
+    {
+      "id": "fe59d077-5765-49a0-ba8b-78e4de78a5e7",
+      "type": "WebButton",
+      "name": "BTNVoltar",
+      "parentId": "e0e3ee84-b8e8-4c8f-8740-7980aa358e0f",
+      "layout": {
+        "container": {
+          "mode": "fixed",
+          "paddingTop": 0,
+          "paddingRight": 0,
+          "paddingBottom": 0,
+          "paddingLeft": 0,
+          "gap": 0,
+          "wrap": false,
+          "justifyContent": "start",
+          "alignItems": "start"
+        },
+        "item": {
+          "width": "fixed",
+          "height": "fixed",
+          "minWidth": 120,
+          "maxWidth": 220,
+          "minHeight": 0,
+          "maxHeight": null,
+          "grow": 0,
+          "shrink": true,
+          "alignSelf": "auto",
+          "horizontalAnchor": "start",
+          "verticalAnchor": "start",
+          "left": 0,
+          "right": 0,
+          "top": 0,
+          "bottom": 0
+        }
+      },
+      "bounds": {
+        "width": 180,
+        "height": 40,
+        "x": 0,
+        "y": 0
+      },
+      "props": {
+        "caption": "Voltar",
+        "enabled": true,
+        "collapseWhenHidden": true,
+        "icon": "arrow-left",
+        "tabIndex": 0,
+        "visible": true
+      },
+      "events": {
+        "OnBlur": null,
+        "OnClick": "Voltar",
+        "OnFocus": null,
+        "OnMouseEnter": null,
+        "OnMouseLeave": null
+      },
+      "styleId": "3755d9a1-991d-4861-8878-42148ee446dc:default-style:WebButton",
+      "children": []
+    },
+    {
+      "id": "c706d526-2576-4c61-9fad-64112aa1df33",
+      "type": "WebPanel",
+      "name": "PNLDados",
+      "parentId": "f895ab88-278f-476a-b210-2485af4cb011",
+      "layout": {
+        "container": {
+          "mode": "column",
+          "paddingTop": 16,
+          "paddingRight": 16,
+          "paddingBottom": 16,
+          "paddingLeft": 16,
+          "gap": 10,
+          "wrap": false,
+          "justifyContent": "start",
+          "alignItems": "start"
+        },
+        "item": {
+          "width": "stretch",
+          "height": "fit-content",
+          "minWidth": 0,
+          "maxWidth": null,
+          "minHeight": 0,
+          "maxHeight": null,
+          "grow": 0,
+          "shrink": true,
+          "alignSelf": "auto",
+          "horizontalAnchor": "start",
+          "verticalAnchor": "start",
+          "left": 0,
+          "right": 0,
+          "top": 0,
+          "bottom": 0
+        }
+      },
+      "bounds": {
+        "width": 600,
+        "height": 160,
+        "x": 0,
+        "y": 0
+      },
+      "props": {
+        "caption": "",
+        "enabled": true,
+        "backgroundColor": "transparent",
+        "aspectRatio": "none",
+        "backgroundImage": "",
+        "backgroundPosition": "center",
+        "backgroundRepeat": "no-repeat",
+        "backgroundSize": "cover",
+        "borderColor": "#808080",
+        "collapseWhenHidden": true,
+        "floatingAlignment": "none",
+        "floatingHorizontalAnchor": "left",
+        "floatingVerticalAnchor": "top",
+        "floatingZIndex": 100,
+        "placement": "in-flow",
+        "progressEnabled": false,
+        "progressValue": 0,
+        "visible": true
+      },
+      "events": {
+        "OnClick": null,
+        "OnDblClick": null,
+        "OnMouseEnter": null,
+        "OnMouseLeave": null
+      },
+      "styleId": "3755d9a1-991d-4861-8878-42148ee446dc:default-style:WebPanel",
+      "children": [
+        "3b4bdfc8-c54f-4d03-b207-4c6ca8fccddd"
+      ]
+    },
+    {
+      "id": "3b4bdfc8-c54f-4d03-b207-4c6ca8fccddd",
+      "type": "WebGroup",
+      "name": "Dados",
+      "parentId": "c706d526-2576-4c61-9fad-64112aa1df33",
+      "layout": {
+        "container": {
+          "mode": "row",
+          "paddingTop": 0,
+          "paddingRight": 0,
+          "paddingBottom": 0,
+          "paddingLeft": 0,
+          "gap": 8,
+          "wrap": true,
+          "justifyContent": "start",
+          "alignItems": "start"
+        },
+        "item": {
+          "width": "stretch",
+          "height": "fit-content",
+          "minWidth": 0,
+          "maxWidth": null,
+          "minHeight": 0,
+          "maxHeight": null,
+          "grow": 0,
+          "shrink": false,
+          "alignSelf": "auto",
+          "horizontalAnchor": "start",
+          "verticalAnchor": "start",
+          "left": 0,
+          "right": 0,
+          "top": 0,
+          "bottom": 0
+        }
+      },
+      "bounds": {
+        "width": 240,
+        "height": 160,
+        "x": 0,
+        "y": 0
+      },
+      "props": {
+        "enabled": true,
+        "aspectRatio": "none",
+        "collapseWhenHidden": true,
+        "visible": true
+      },
+      "events": {
+        "OnClick": null,
+        "OnDblClick": null,
+        "OnMouseEnter": null,
+        "OnMouseLeave": null
+      },
+      "children": [
+        "6f1d5d3d-d986-4d8b-bb2c-b36c2ba6b21f",
+        "3852a87a-1f27-47c1-83e7-00592a87f01e",
+        "02e1b012-81b9-4c12-9f14-bc18ea92e272",
+        "b0771027-5c8d-4b8a-94a4-cc263f7a87f2",
+        "21a05f1c-0dea-4e66-954f-d597afb917b4"
+      ]
+    },
+    {
+      "id": "6f1d5d3d-d986-4d8b-bb2c-b36c2ba6b21f",
+      "type": "WebGroup",
+      "name": "DadosEndereco",
+      "parentId": "3b4bdfc8-c54f-4d03-b207-4c6ca8fccddd",
+      "layout": {
+        "container": {
+          "mode": "column",
+          "paddingTop": 0,
+          "paddingRight": 0,
+          "paddingBottom": 0,
+          "paddingLeft": 0,
+          "gap": 2,
+          "wrap": false,
+          "justifyContent": "start",
+          "alignItems": "start"
+        },
+        "item": {
+          "width": "fixed",
+          "height": "fit-content",
+          "minWidth": 220,
+          "maxWidth": null,
+          "minHeight": 0,
+          "maxHeight": null,
+          "grow": 1,
+          "shrink": true,
+          "alignSelf": "auto",
+          "horizontalAnchor": "start",
+          "verticalAnchor": "start",
+          "left": 0,
+          "right": 0,
+          "top": 0,
+          "bottom": 0
+        }
+      },
+      "bounds": {
+        "width": 260,
+        "height": 160,
+        "x": 0,
+        "y": 0
+      },
+      "props": {
+        "enabled": true,
+        "aspectRatio": "none",
+        "collapseWhenHidden": true,
+        "visible": true
+      },
+      "events": {
+        "OnClick": null,
+        "OnDblClick": null,
+        "OnMouseEnter": null,
+        "OnMouseLeave": null
+      },
+      "children": [
+        "e519a101-caa2-4b06-b3c0-d2b0aaf66b8a",
+        "f5b18486-8294-4940-a702-ea603c90aa05"
+      ]
+    },
+    {
+      "id": "e519a101-caa2-4b06-b3c0-d2b0aaf66b8a",
+      "type": "WebLabel",
+      "name": "LBLEndereco",
+      "parentId": "6f1d5d3d-d986-4d8b-bb2c-b36c2ba6b21f",
+      "layout": {
+        "container": {
+          "mode": "fixed",
+          "paddingTop": 0,
+          "paddingRight": 0,
+          "paddingBottom": 0,
+          "paddingLeft": 0,
+          "gap": 0,
+          "wrap": false,
+          "justifyContent": "start",
+          "alignItems": "start"
+        },
+        "item": {
+          "width": "stretch",
+          "height": "fixed",
+          "minWidth": 0,
+          "maxWidth": null,
+          "minHeight": 0,
+          "maxHeight": null,
+          "grow": 0,
+          "shrink": false,
+          "alignSelf": "auto",
+          "horizontalAnchor": "start",
+          "verticalAnchor": "start",
+          "left": 0,
+          "right": 0,
+          "top": 0,
+          "bottom": 0
+        }
+      },
+      "bounds": {
+        "width": 80,
+        "height": 20,
+        "x": 0,
+        "y": 0
+      },
+      "props": {
+        "caption": "Endereço",
+        "enabled": true,
+        "autoSize": false,
+        "collapseWhenHidden": true,
+        "color": "#000000",
+        "visible": true
+      },
+      "events": {
+        "OnClick": null,
+        "OnDblClick": null,
+        "OnMouseEnter": null,
+        "OnMouseLeave": null
+      },
+      "styleId": "3755d9a1-991d-4861-8878-42148ee446dc:default-style:WebLabel",
+      "children": []
+    },
+    {
+      "id": "f5b18486-8294-4940-a702-ea603c90aa05",
+      "type": "WebLabel",
+      "name": "Endereco",
+      "parentId": "6f1d5d3d-d986-4d8b-bb2c-b36c2ba6b21f",
+      "layout": {
+        "container": {
+          "mode": "fixed",
+          "paddingTop": 0,
+          "paddingRight": 0,
+          "paddingBottom": 0,
+          "paddingLeft": 0,
+          "gap": 0,
+          "wrap": false,
+          "justifyContent": "start",
+          "alignItems": "start"
+        },
+        "item": {
+          "width": "stretch",
+          "height": "fixed",
+          "minWidth": 0,
+          "maxWidth": null,
+          "minHeight": 0,
+          "maxHeight": null,
+          "grow": 0,
+          "shrink": false,
+          "alignSelf": "auto",
+          "horizontalAnchor": "start",
+          "verticalAnchor": "start",
+          "left": 0,
+          "right": 0,
+          "top": 0,
+          "bottom": 0
+        }
+      },
+      "bounds": {
+        "width": 80,
+        "height": 26,
+        "x": 0,
+        "y": 0
+      },
+      "props": {
+        "caption": "-",
+        "enabled": true,
+        "autoSize": false,
+        "collapseWhenHidden": true,
+        "color": "#000000",
+        "visible": true
+      },
+      "events": {
+        "OnClick": null,
+        "OnDblClick": null,
+        "OnMouseEnter": null,
+        "OnMouseLeave": null
+      },
+      "styleId": "3755d9a1-991d-4861-8878-42148ee446dc:default-style:WebLabel",
+      "children": []
+    },
+    {
+      "id": "3852a87a-1f27-47c1-83e7-00592a87f01e",
+      "type": "WebGroup",
+      "name": "DadosSecretaria",
+      "parentId": "3b4bdfc8-c54f-4d03-b207-4c6ca8fccddd",
+      "layout": {
+        "container": {
+          "mode": "column",
+          "paddingTop": 0,
+          "paddingRight": 0,
+          "paddingBottom": 0,
+          "paddingLeft": 0,
+          "gap": 2,
+          "wrap": false,
+          "justifyContent": "start",
+          "alignItems": "start"
+        },
+        "item": {
+          "width": "fixed",
+          "height": "fit-content",
+          "minWidth": 220,
+          "maxWidth": null,
+          "minHeight": 0,
+          "maxHeight": null,
+          "grow": 1,
+          "shrink": true,
+          "alignSelf": "auto",
+          "horizontalAnchor": "start",
+          "verticalAnchor": "start",
+          "left": 0,
+          "right": 0,
+          "top": 0,
+          "bottom": 0
+        }
+      },
+      "bounds": {
+        "width": 260,
+        "height": 160,
+        "x": 0,
+        "y": 0
+      },
+      "props": {
+        "enabled": true,
+        "aspectRatio": "none",
+        "collapseWhenHidden": true,
+        "visible": true
+      },
+      "events": {
+        "OnClick": null,
+        "OnDblClick": null,
+        "OnMouseEnter": null,
+        "OnMouseLeave": null
+      },
+      "children": [
+        "589010ba-6f5c-4e4a-b49b-07d751335c5b",
+        "ede380a9-42b7-4aa3-94dc-4b847a0b0628"
+      ]
+    },
+    {
+      "id": "589010ba-6f5c-4e4a-b49b-07d751335c5b",
+      "type": "WebLabel",
+      "name": "LBLSecretaria",
+      "parentId": "3852a87a-1f27-47c1-83e7-00592a87f01e",
+      "layout": {
+        "container": {
+          "mode": "fixed",
+          "paddingTop": 0,
+          "paddingRight": 0,
+          "paddingBottom": 0,
+          "paddingLeft": 0,
+          "gap": 0,
+          "wrap": false,
+          "justifyContent": "start",
+          "alignItems": "start"
+        },
+        "item": {
+          "width": "stretch",
+          "height": "fixed",
+          "minWidth": 0,
+          "maxWidth": null,
+          "minHeight": 0,
+          "maxHeight": null,
+          "grow": 0,
+          "shrink": false,
+          "alignSelf": "auto",
+          "horizontalAnchor": "start",
+          "verticalAnchor": "start",
+          "left": 0,
+          "right": 0,
+          "top": 0,
+          "bottom": 0
+        }
+      },
+      "bounds": {
+        "width": 80,
+        "height": 20,
+        "x": 0,
+        "y": 0
+      },
+      "props": {
+        "caption": "Secretaria",
+        "enabled": true,
+        "autoSize": false,
+        "collapseWhenHidden": true,
+        "color": "#000000",
+        "visible": true
+      },
+      "events": {
+        "OnClick": null,
+        "OnDblClick": null,
+        "OnMouseEnter": null,
+        "OnMouseLeave": null
+      },
+      "styleId": "3755d9a1-991d-4861-8878-42148ee446dc:default-style:WebLabel",
+      "children": []
+    },
+    {
+      "id": "ede380a9-42b7-4aa3-94dc-4b847a0b0628",
+      "type": "WebLabel",
+      "name": "Secretaria",
+      "parentId": "3852a87a-1f27-47c1-83e7-00592a87f01e",
+      "layout": {
+        "container": {
+          "mode": "fixed",
+          "paddingTop": 0,
+          "paddingRight": 0,
+          "paddingBottom": 0,
+          "paddingLeft": 0,
+          "gap": 0,
+          "wrap": false,
+          "justifyContent": "start",
+          "alignItems": "start"
+        },
+        "item": {
+          "width": "stretch",
+          "height": "fixed",
+          "minWidth": 0,
+          "maxWidth": null,
+          "minHeight": 0,
+          "maxHeight": null,
+          "grow": 0,
+          "shrink": false,
+          "alignSelf": "auto",
+          "horizontalAnchor": "start",
+          "verticalAnchor": "start",
+          "left": 0,
+          "right": 0,
+          "top": 0,
+          "bottom": 0
+        }
+      },
+      "bounds": {
+        "width": 80,
+        "height": 26,
+        "x": 0,
+        "y": 0
+      },
+      "props": {
+        "caption": "-",
+        "enabled": true,
+        "autoSize": false,
+        "collapseWhenHidden": true,
+        "color": "#000000",
+        "visible": true
+      },
+      "events": {
+        "OnClick": null,
+        "OnDblClick": null,
+        "OnMouseEnter": null,
+        "OnMouseLeave": null
+      },
+      "styleId": "3755d9a1-991d-4861-8878-42148ee446dc:default-style:WebLabel",
+      "children": []
+    },
+    {
+      "id": "02e1b012-81b9-4c12-9f14-bc18ea92e272",
+      "type": "WebGroup",
+      "name": "DadosRegiao",
+      "parentId": "3b4bdfc8-c54f-4d03-b207-4c6ca8fccddd",
+      "layout": {
+        "container": {
+          "mode": "column",
+          "paddingTop": 0,
+          "paddingRight": 0,
+          "paddingBottom": 0,
+          "paddingLeft": 0,
+          "gap": 2,
+          "wrap": false,
+          "justifyContent": "start",
+          "alignItems": "start"
+        },
+        "item": {
+          "width": "fixed",
+          "height": "fit-content",
+          "minWidth": 220,
+          "maxWidth": null,
+          "minHeight": 0,
+          "maxHeight": null,
+          "grow": 1,
+          "shrink": true,
+          "alignSelf": "auto",
+          "horizontalAnchor": "start",
+          "verticalAnchor": "start",
+          "left": 0,
+          "right": 0,
+          "top": 0,
+          "bottom": 0
+        }
+      },
+      "bounds": {
+        "width": 260,
+        "height": 160,
+        "x": 0,
+        "y": 0
+      },
+      "props": {
+        "enabled": true,
+        "aspectRatio": "none",
+        "collapseWhenHidden": true,
+        "visible": true
+      },
+      "events": {
+        "OnClick": null,
+        "OnDblClick": null,
+        "OnMouseEnter": null,
+        "OnMouseLeave": null
+      },
+      "children": [
+        "e7129493-9e5d-4bdc-9d99-e73803ed25d0",
+        "ff4452c8-c237-45e0-b7c2-12921c85c5ed"
+      ]
+    },
+    {
+      "id": "e7129493-9e5d-4bdc-9d99-e73803ed25d0",
+      "type": "WebLabel",
+      "name": "LBLRegiao",
+      "parentId": "02e1b012-81b9-4c12-9f14-bc18ea92e272",
+      "layout": {
+        "container": {
+          "mode": "fixed",
+          "paddingTop": 0,
+          "paddingRight": 0,
+          "paddingBottom": 0,
+          "paddingLeft": 0,
+          "gap": 0,
+          "wrap": false,
+          "justifyContent": "start",
+          "alignItems": "start"
+        },
+        "item": {
+          "width": "stretch",
+          "height": "fixed",
+          "minWidth": 0,
+          "maxWidth": null,
+          "minHeight": 0,
+          "maxHeight": null,
+          "grow": 0,
+          "shrink": false,
+          "alignSelf": "auto",
+          "horizontalAnchor": "start",
+          "verticalAnchor": "start",
+          "left": 0,
+          "right": 0,
+          "top": 0,
+          "bottom": 0
+        }
+      },
+      "bounds": {
+        "width": 80,
+        "height": 20,
+        "x": 0,
+        "y": 0
+      },
+      "props": {
+        "caption": "Região",
+        "enabled": true,
+        "autoSize": false,
+        "collapseWhenHidden": true,
+        "color": "#000000",
+        "visible": true
+      },
+      "events": {
+        "OnClick": null,
+        "OnDblClick": null,
+        "OnMouseEnter": null,
+        "OnMouseLeave": null
+      },
+      "styleId": "3755d9a1-991d-4861-8878-42148ee446dc:default-style:WebLabel",
+      "children": []
+    },
+    {
+      "id": "ff4452c8-c237-45e0-b7c2-12921c85c5ed",
+      "type": "WebLabel",
+      "name": "Regiao",
+      "parentId": "02e1b012-81b9-4c12-9f14-bc18ea92e272",
+      "layout": {
+        "container": {
+          "mode": "fixed",
+          "paddingTop": 0,
+          "paddingRight": 0,
+          "paddingBottom": 0,
+          "paddingLeft": 0,
+          "gap": 0,
+          "wrap": false,
+          "justifyContent": "start",
+          "alignItems": "start"
+        },
+        "item": {
+          "width": "stretch",
+          "height": "fixed",
+          "minWidth": 0,
+          "maxWidth": null,
+          "minHeight": 0,
+          "maxHeight": null,
+          "grow": 0,
+          "shrink": false,
+          "alignSelf": "auto",
+          "horizontalAnchor": "start",
+          "verticalAnchor": "start",
+          "left": 0,
+          "right": 0,
+          "top": 0,
+          "bottom": 0
+        }
+      },
+      "bounds": {
+        "width": 80,
+        "height": 26,
+        "x": 0,
+        "y": 0
+      },
+      "props": {
+        "caption": "-",
+        "enabled": true,
+        "autoSize": false,
+        "collapseWhenHidden": true,
+        "color": "#000000",
+        "visible": true
+      },
+      "events": {
+        "OnClick": null,
+        "OnDblClick": null,
+        "OnMouseEnter": null,
+        "OnMouseLeave": null
+      },
+      "styleId": "3755d9a1-991d-4861-8878-42148ee446dc:default-style:WebLabel",
+      "children": []
+    },
+    {
+      "id": "b0771027-5c8d-4b8a-94a4-cc263f7a87f2",
+      "type": "WebGroup",
+      "name": "DadosSituacao",
+      "parentId": "3b4bdfc8-c54f-4d03-b207-4c6ca8fccddd",
+      "layout": {
+        "container": {
+          "mode": "column",
+          "paddingTop": 0,
+          "paddingRight": 0,
+          "paddingBottom": 0,
+          "paddingLeft": 0,
+          "gap": 2,
+          "wrap": false,
+          "justifyContent": "start",
+          "alignItems": "start"
+        },
+        "item": {
+          "width": "fixed",
+          "height": "fit-content",
+          "minWidth": 220,
+          "maxWidth": null,
+          "minHeight": 0,
+          "maxHeight": null,
+          "grow": 1,
+          "shrink": true,
+          "alignSelf": "auto",
+          "horizontalAnchor": "start",
+          "verticalAnchor": "start",
+          "left": 0,
+          "right": 0,
+          "top": 0,
+          "bottom": 0
+        }
+      },
+      "bounds": {
+        "width": 260,
+        "height": 160,
+        "x": 0,
+        "y": 0
+      },
+      "props": {
+        "enabled": true,
+        "aspectRatio": "none",
+        "collapseWhenHidden": true,
+        "visible": true
+      },
+      "events": {
+        "OnClick": null,
+        "OnDblClick": null,
+        "OnMouseEnter": null,
+        "OnMouseLeave": null
+      },
+      "children": [
+        "e1cefdbc-4996-4ef9-ba97-4a16a85cf950",
+        "ab805ddb-147b-4713-9e1c-687c1f5b7666"
+      ]
+    },
+    {
+      "id": "e1cefdbc-4996-4ef9-ba97-4a16a85cf950",
+      "type": "WebLabel",
+      "name": "LBLSituacao",
+      "parentId": "b0771027-5c8d-4b8a-94a4-cc263f7a87f2",
+      "layout": {
+        "container": {
+          "mode": "fixed",
+          "paddingTop": 0,
+          "paddingRight": 0,
+          "paddingBottom": 0,
+          "paddingLeft": 0,
+          "gap": 0,
+          "wrap": false,
+          "justifyContent": "start",
+          "alignItems": "start"
+        },
+        "item": {
+          "width": "stretch",
+          "height": "fixed",
+          "minWidth": 0,
+          "maxWidth": null,
+          "minHeight": 0,
+          "maxHeight": null,
+          "grow": 0,
+          "shrink": false,
+          "alignSelf": "auto",
+          "horizontalAnchor": "start",
+          "verticalAnchor": "start",
+          "left": 0,
+          "right": 0,
+          "top": 0,
+          "bottom": 0
+        }
+      },
+      "bounds": {
+        "width": 80,
+        "height": 20,
+        "x": 0,
+        "y": 0
+      },
+      "props": {
+        "caption": "Situação",
+        "enabled": true,
+        "autoSize": false,
+        "collapseWhenHidden": true,
+        "color": "#000000",
+        "visible": true
+      },
+      "events": {
+        "OnClick": null,
+        "OnDblClick": null,
+        "OnMouseEnter": null,
+        "OnMouseLeave": null
+      },
+      "styleId": "3755d9a1-991d-4861-8878-42148ee446dc:default-style:WebLabel",
+      "children": []
+    },
+    {
+      "id": "ab805ddb-147b-4713-9e1c-687c1f5b7666",
+      "type": "WebLabel",
+      "name": "Situacao",
+      "parentId": "b0771027-5c8d-4b8a-94a4-cc263f7a87f2",
+      "layout": {
+        "container": {
+          "mode": "fixed",
+          "paddingTop": 0,
+          "paddingRight": 0,
+          "paddingBottom": 0,
+          "paddingLeft": 0,
+          "gap": 0,
+          "wrap": false,
+          "justifyContent": "start",
+          "alignItems": "start"
+        },
+        "item": {
+          "width": "stretch",
+          "height": "fixed",
+          "minWidth": 0,
+          "maxWidth": null,
+          "minHeight": 0,
+          "maxHeight": null,
+          "grow": 0,
+          "shrink": false,
+          "alignSelf": "auto",
+          "horizontalAnchor": "start",
+          "verticalAnchor": "start",
+          "left": 0,
+          "right": 0,
+          "top": 0,
+          "bottom": 0
+        }
+      },
+      "bounds": {
+        "width": 80,
+        "height": 26,
+        "x": 0,
+        "y": 0
+      },
+      "props": {
+        "caption": "-",
+        "enabled": true,
+        "autoSize": false,
+        "collapseWhenHidden": true,
+        "color": "#000000",
+        "visible": true
+      },
+      "events": {
+        "OnClick": null,
+        "OnDblClick": null,
+        "OnMouseEnter": null,
+        "OnMouseLeave": null
+      },
+      "styleId": "3755d9a1-991d-4861-8878-42148ee446dc:default-style:WebLabel",
+      "children": []
+    },
+    {
+      "id": "21a05f1c-0dea-4e66-954f-d597afb917b4",
+      "type": "WebGroup",
+      "name": "DadosInfovia",
+      "parentId": "3b4bdfc8-c54f-4d03-b207-4c6ca8fccddd",
+      "layout": {
+        "container": {
+          "mode": "column",
+          "paddingTop": 0,
+          "paddingRight": 0,
+          "paddingBottom": 0,
+          "paddingLeft": 0,
+          "gap": 2,
+          "wrap": false,
+          "justifyContent": "start",
+          "alignItems": "start"
+        },
+        "item": {
+          "width": "fixed",
+          "height": "fit-content",
+          "minWidth": 220,
+          "maxWidth": null,
+          "minHeight": 0,
+          "maxHeight": null,
+          "grow": 1,
+          "shrink": true,
+          "alignSelf": "auto",
+          "horizontalAnchor": "start",
+          "verticalAnchor": "start",
+          "left": 0,
+          "right": 0,
+          "top": 0,
+          "bottom": 0
+        }
+      },
+      "bounds": {
+        "width": 260,
+        "height": 160,
+        "x": 0,
+        "y": 0
+      },
+      "props": {
+        "enabled": true,
+        "aspectRatio": "none",
+        "collapseWhenHidden": true,
+        "visible": true
+      },
+      "events": {
+        "OnClick": null,
+        "OnDblClick": null,
+        "OnMouseEnter": null,
+        "OnMouseLeave": null
+      },
+      "children": [
+        "408c2e09-0b10-41c3-a13d-b080f41ce3cd",
+        "096dddac-a06b-4074-9d88-abdc5362837c"
+      ]
+    },
+    {
+      "id": "408c2e09-0b10-41c3-a13d-b080f41ce3cd",
+      "type": "WebLabel",
+      "name": "LBLInfovia",
+      "parentId": "21a05f1c-0dea-4e66-954f-d597afb917b4",
+      "layout": {
+        "container": {
+          "mode": "fixed",
+          "paddingTop": 0,
+          "paddingRight": 0,
+          "paddingBottom": 0,
+          "paddingLeft": 0,
+          "gap": 0,
+          "wrap": false,
+          "justifyContent": "start",
+          "alignItems": "start"
+        },
+        "item": {
+          "width": "stretch",
+          "height": "fixed",
+          "minWidth": 0,
+          "maxWidth": null,
+          "minHeight": 0,
+          "maxHeight": null,
+          "grow": 0,
+          "shrink": false,
+          "alignSelf": "auto",
+          "horizontalAnchor": "start",
+          "verticalAnchor": "start",
+          "left": 0,
+          "right": 0,
+          "top": 0,
+          "bottom": 0
+        }
+      },
+      "bounds": {
+        "width": 80,
+        "height": 20,
+        "x": 0,
+        "y": 0
+      },
+      "props": {
+        "caption": "Infovia",
+        "enabled": true,
+        "autoSize": false,
+        "collapseWhenHidden": true,
+        "color": "#000000",
+        "visible": true
+      },
+      "events": {
+        "OnClick": null,
+        "OnDblClick": null,
+        "OnMouseEnter": null,
+        "OnMouseLeave": null
+      },
+      "styleId": "3755d9a1-991d-4861-8878-42148ee446dc:default-style:WebLabel",
+      "children": []
+    },
+    {
+      "id": "096dddac-a06b-4074-9d88-abdc5362837c",
+      "type": "WebLabel",
+      "name": "Infovia",
+      "parentId": "21a05f1c-0dea-4e66-954f-d597afb917b4",
+      "layout": {
+        "container": {
+          "mode": "fixed",
+          "paddingTop": 0,
+          "paddingRight": 0,
+          "paddingBottom": 0,
+          "paddingLeft": 0,
+          "gap": 0,
+          "wrap": false,
+          "justifyContent": "start",
+          "alignItems": "start"
+        },
+        "item": {
+          "width": "stretch",
+          "height": "fixed",
+          "minWidth": 0,
+          "maxWidth": null,
+          "minHeight": 0,
+          "maxHeight": null,
+          "grow": 0,
+          "shrink": false,
+          "alignSelf": "auto",
+          "horizontalAnchor": "start",
+          "verticalAnchor": "start",
+          "left": 0,
+          "right": 0,
+          "top": 0,
+          "bottom": 0
+        }
+      },
+      "bounds": {
+        "width": 80,
+        "height": 26,
+        "x": 0,
+        "y": 0
+      },
+      "props": {
+        "caption": "-",
+        "enabled": true,
+        "autoSize": false,
+        "collapseWhenHidden": true,
+        "color": "#000000",
+        "visible": true
+      },
+      "events": {
+        "OnClick": null,
+        "OnDblClick": null,
+        "OnMouseEnter": null,
+        "OnMouseLeave": null
+      },
+      "styleId": "3755d9a1-991d-4861-8878-42148ee446dc:default-style:WebLabel",
+      "children": []
+    },
+    {
+      "id": "af596c04-5bc9-46cd-acb2-b899ee59ab42",
+      "type": "WebPanel",
+      "name": "PNLTelefones",
+      "parentId": "f895ab88-278f-476a-b210-2485af4cb011",
+      "layout": {
+        "container": {
+          "mode": "column",
+          "paddingTop": 16,
+          "paddingRight": 16,
+          "paddingBottom": 16,
+          "paddingLeft": 16,
+          "gap": 10,
+          "wrap": false,
+          "justifyContent": "start",
+          "alignItems": "start"
+        },
+        "item": {
+          "width": "stretch",
+          "height": "fit-content",
+          "minWidth": 0,
+          "maxWidth": null,
+          "minHeight": 0,
+          "maxHeight": null,
+          "grow": 0,
+          "shrink": true,
+          "alignSelf": "auto",
+          "horizontalAnchor": "start",
+          "verticalAnchor": "start",
+          "left": 0,
+          "right": 0,
+          "top": 0,
+          "bottom": 0
+        }
+      },
+      "bounds": {
+        "width": 600,
+        "height": 160,
+        "x": 0,
+        "y": 0
+      },
+      "props": {
+        "caption": "",
+        "enabled": true,
+        "backgroundColor": "transparent",
+        "aspectRatio": "none",
+        "backgroundImage": "",
+        "backgroundPosition": "center",
+        "backgroundRepeat": "no-repeat",
+        "backgroundSize": "cover",
+        "borderColor": "#808080",
+        "collapseWhenHidden": true,
+        "floatingAlignment": "none",
+        "floatingHorizontalAnchor": "left",
+        "floatingVerticalAnchor": "top",
+        "floatingZIndex": 100,
+        "placement": "in-flow",
+        "progressEnabled": false,
+        "progressValue": 0,
+        "visible": true
+      },
+      "events": {
+        "OnClick": null,
+        "OnDblClick": null,
+        "OnMouseEnter": null,
+        "OnMouseLeave": null
+      },
+      "styleId": "3755d9a1-991d-4861-8878-42148ee446dc:default-style:WebPanel",
+      "children": [
+        "0d620b34-94d8-4b04-827f-d83b7d9374a9",
+        "23cd3de5-5663-499c-8f48-ce615248fc21"
+      ]
+    },
+    {
+      "id": "0d620b34-94d8-4b04-827f-d83b7d9374a9",
+      "type": "WebLabel",
+      "name": "LBLTelefones",
+      "parentId": "af596c04-5bc9-46cd-acb2-b899ee59ab42",
+      "layout": {
+        "container": {
+          "mode": "fixed",
+          "paddingTop": 0,
+          "paddingRight": 0,
+          "paddingBottom": 0,
+          "paddingLeft": 0,
+          "gap": 0,
+          "wrap": false,
+          "justifyContent": "start",
+          "alignItems": "start"
+        },
+        "item": {
+          "width": "stretch",
+          "height": "fixed",
+          "minWidth": 0,
+          "maxWidth": null,
+          "minHeight": 0,
+          "maxHeight": null,
+          "grow": 0,
+          "shrink": false,
+          "alignSelf": "auto",
+          "horizontalAnchor": "start",
+          "verticalAnchor": "start",
+          "left": 0,
+          "right": 0,
+          "top": 0,
+          "bottom": 0
+        }
+      },
+      "bounds": {
+        "width": 80,
+        "height": 28,
+        "x": 0,
+        "y": 0
+      },
+      "props": {
+        "caption": "Telefones",
+        "enabled": true,
+        "autoSize": false,
+        "collapseWhenHidden": true,
+        "color": "#000000",
+        "visible": true
+      },
+      "events": {
+        "OnClick": null,
+        "OnDblClick": null,
+        "OnMouseEnter": null,
+        "OnMouseLeave": null
+      },
+      "styleId": "3755d9a1-991d-4861-8878-42148ee446dc:default-style:WebLabel",
+      "children": []
+    },
+    {
+      "id": "23cd3de5-5663-499c-8f48-ce615248fc21",
+      "type": "WebDataGrid",
+      "name": "GRDTelefones",
+      "parentId": "af596c04-5bc9-46cd-acb2-b899ee59ab42",
+      "layout": {
+        "container": {
+          "mode": "fixed",
+          "paddingTop": 0,
+          "paddingRight": 0,
+          "paddingBottom": 0,
+          "paddingLeft": 0,
+          "gap": 0,
+          "wrap": false,
+          "justifyContent": "start",
+          "alignItems": "start"
+        },
+        "item": {
+          "width": "stretch",
+          "height": "fixed",
+          "minWidth": 0,
+          "maxWidth": null,
+          "minHeight": 0,
+          "maxHeight": null,
+          "grow": 0,
+          "shrink": false,
+          "alignSelf": "auto",
+          "horizontalAnchor": "start",
+          "verticalAnchor": "start",
+          "left": 0,
+          "right": 0,
+          "top": 0,
+          "bottom": 0
+        }
+      },
+      "bounds": {
+        "width": 640,
+        "height": 320,
+        "x": 0,
+        "y": 0
+      },
+      "props": {
+        "enabled": true,
+        "collapseWhenHidden": true,
+        "dataGridConfig": {
+          "apiClientId": "7d6baf57-e018-402b-bd62-8af4eab2e684",
+          "cellPaddingHorizontal": 10,
+          "cellPaddingVertical": 8,
+          "columnCount": 2,
+          "columns": [
+            {
+              "id": "6f39ba97-2105-42f4-a3e7-d375a8f1b2e7",
+              "width": 180,
+              "minWidth": 90,
+              "maxWidth": null,
+              "buttonIcon": null,
+              "cellAlign": "start",
+              "cellKind": "text",
+              "fieldPath": "/setor",
+              "fixedCaption": "",
+              "flex": 1,
+              "footer": "",
+              "header": "Setor",
+              "headerAlign": "start",
+              "searchable": true,
+              "sortable": true,
+              "widthMode": "dynamic"
+            },
+            {
+              "id": "25cba440-2549-49ee-a74c-1e79bcb0b54d",
+              "width": 200,
+              "minWidth": 90,
+              "maxWidth": null,
+              "buttonIcon": null,
+              "cellAlign": "start",
+              "cellKind": "text",
+              "fieldPath": "/telefone",
+              "fixedCaption": "",
+              "flex": 1,
+              "footer": "",
+              "header": "Telefone",
+              "headerAlign": "start",
+              "searchable": true,
+              "sortable": true,
+              "widthMode": "fixed"
+            }
+          ],
+          "emptyMessage": "Nenhum registro",
+          "exportEnabled": true,
+          "fixedRowHeight": 40,
+          "listPath": "/data",
+          "maxRowHeight": null,
+          "minRowHeight": 36,
+          "operationId": "b3df1fe9-6d74-4704-89c9-580c3954e415",
+          "pageSize": 25,
+          "pageSizeOptions": [
+            10,
+            25,
+            50,
+            100
+          ],
+          "pagination": "client",
+          "rowHeightMode": "dynamic",
+          "schemaVersion": 2,
+          "searchEnabled": true,
+          "searchPlaceholder": "",
+          "serverDirectionParameter": "dir",
+          "serverSearchParameter": "q",
+          "serverSortParameter": "sort",
+          "showFooter": false,
+          "showHeader": true,
+          "showHorizontalLines": true,
+          "showPageSizeSelector": true,
+          "showVerticalLines": false,
+          "sortEnabled": true,
+          "stickyFooter": true,
+          "stickyHeader": true,
+          "stripedRows": true,
+          "totalPagesPath": "/total_pages",
+          "totalRowsPath": "/total",
+          "wrapText": false
+        },
+        "visible": true
+      },
+      "events": {
+        "OnCellClick": null,
+        "OnPageChange": null,
+        "OnQueryChange": null,
+        "OnSearch": null,
+        "OnSortChange": null
+      },
+      "styleId": "3755d9a1-991d-4861-8878-42148ee446dc:default-style:WebDataGrid",
+      "children": []
+    },
+    {
+      "id": "7d6baf57-e018-402b-bd62-8af4eab2e684",
+      "type": "WebApiClient",
+      "name": "Api",
+      "parentId": "f895ab88-278f-476a-b210-2485af4cb011",
+      "layout": {
+        "container": {
+          "mode": "fixed",
+          "paddingTop": 0,
+          "paddingRight": 0,
+          "paddingBottom": 0,
+          "paddingLeft": 0,
+          "gap": 0,
+          "wrap": false,
+          "justifyContent": "start",
+          "alignItems": "start"
+        },
+        "item": {
+          "width": "stretch",
+          "height": "fixed",
+          "minWidth": 0,
+          "maxWidth": null,
+          "minHeight": 0,
+          "maxHeight": null,
+          "grow": 0,
+          "shrink": false,
+          "alignSelf": "auto",
+          "horizontalAnchor": "start",
+          "verticalAnchor": "start",
+          "left": 0,
+          "right": 0,
+          "top": 0,
+          "bottom": 0
+        }
+      },
+      "bounds": {
+        "width": 112,
+        "height": 52,
+        "x": 0,
+        "y": 0
+      },
+      "props": {
+        "baseUrl": "",
+        "apiClientConfig": {
+          "connection": "restgo-session",
+          "defaultHeaders": [],
+          "operations": [
+            {
+              "id": "0658cf63-559d-4c5d-97ca-5c65fd36d4f9",
+              "name": "Local",
+              "apiVersion": 1,
+              "body": {
+                "kind": "none",
+                "content": ""
+              },
+              "credentials": "omit",
+              "headers": [],
+              "method": "GET",
+              "path": "sigat/local",
+              "query": [
+                {
+                  "id": "925681ed-decb-4751-aa54-98509b276552",
+                  "name": "id",
+                  "value": "",
+                  "enabled": false
+                }
+              ],
+              "responseSchema": {
+                "root": {
+                  "id": "522906ed-fce9-4667-9a47-ec08ba4125a2",
+                  "name": "Response",
+                  "children": [
+                    {
+                      "id": "9983e775-b65a-480f-9367-352fdcee5103",
+                      "name": "success",
+                      "children": [],
+                      "kind": "field",
+                      "fieldType": "boolean",
+                      "nullable": false,
+                      "path": "/success"
+                    },
+                    {
+                      "id": "63543752-4772-4b23-aed8-5f3150d29f06",
+                      "name": "data",
+                      "children": [
+                        {
+                          "id": "d6e75d3b-e1d6-4990-94dd-420cfbfcbdb1",
+                          "name": "id_local",
+                          "children": [],
+                          "kind": "field",
+                          "fieldType": "integer",
+                          "nullable": true,
+                          "path": "/data/*/id_local"
+                        },
+                        {
+                          "id": "1c97dc29-cce1-4707-a5fa-5ee565999841",
+                          "name": "status_local",
+                          "children": [],
+                          "kind": "field",
+                          "fieldType": "integer",
+                          "nullable": true,
+                          "path": "/data/*/status_local"
+                        },
+                        {
+                          "id": "09e3a3d9-e1b5-4d8c-81a9-4d53de629627",
+                          "name": "nome_local",
+                          "children": [],
+                          "kind": "field",
+                          "fieldType": "string",
+                          "nullable": true,
+                          "path": "/data/*/nome_local"
+                        },
+                        {
+                          "id": "30f4ce6a-2948-4b54-bc2b-347d5a6c4167",
+                          "name": "secretaria_local",
+                          "children": [],
+                          "kind": "field",
+                          "fieldType": "integer",
+                          "nullable": true,
+                          "path": "/data/*/secretaria_local"
+                        },
+                        {
+                          "id": "9ff5077f-f71b-427a-82bc-bd0be4982e7c",
+                          "name": "endereco_local",
+                          "children": [],
+                          "kind": "field",
+                          "fieldType": "string",
+                          "nullable": true,
+                          "path": "/data/*/endereco_local"
+                        },
+                        {
+                          "id": "02663797-5729-4ed8-a074-f4c26ee3279d",
+                          "name": "regiao_local",
+                          "children": [],
+                          "kind": "field",
+                          "fieldType": "string",
+                          "nullable": true,
+                          "path": "/data/*/regiao_local"
+                        },
+                        {
+                          "id": "92f29345-6fbd-4450-8500-522953d53e83",
+                          "name": "infovia",
+                          "children": [],
+                          "kind": "field",
+                          "fieldType": "integer",
+                          "nullable": true,
+                          "path": "/data/*/infovia"
+                        },
+                        {
+                          "id": "34405ed9-2dda-4c60-a052-306443788398",
+                          "name": "pms_id",
+                          "children": [],
+                          "kind": "field",
+                          "fieldType": "integer",
+                          "nullable": true,
+                          "path": "/data/*/pms_id"
+                        }
+                      ],
+                      "kind": "list",
+                      "fieldType": "list",
+                      "nullable": false,
+                      "path": "/data"
+                    },
+                    {
+                      "id": "0c85fff9-f1ab-4b4c-b81a-c357f8aa2d99",
+                      "name": "page",
+                      "children": [],
+                      "kind": "field",
+                      "fieldType": "integer",
+                      "nullable": true,
+                      "path": "/page"
+                    },
+                    {
+                      "id": "e64029fe-79f0-49c5-954a-0e909fd12815",
+                      "name": "page_size",
+                      "children": [],
+                      "kind": "field",
+                      "fieldType": "integer",
+                      "nullable": true,
+                      "path": "/page_size"
+                    },
+                    {
+                      "id": "b37ca94b-bc3a-4fcd-aeb2-06b5885d5a7c",
+                      "name": "total_pages",
+                      "children": [],
+                      "kind": "field",
+                      "fieldType": "integer",
+                      "nullable": true,
+                      "path": "/total_pages"
+                    },
+                    {
+                      "id": "ab214671-8033-4afa-a77d-af1a61b139ba",
+                      "name": "total",
+                      "children": [],
+                      "kind": "field",
+                      "fieldType": "integer",
+                      "nullable": true,
+                      "path": "/total"
+                    },
+                    {
+                      "id": "50002ea4-3e1d-4d46-a880-90465bff2f26",
+                      "name": "has_more",
+                      "children": [],
+                      "kind": "field",
+                      "fieldType": "boolean",
+                      "nullable": true,
+                      "path": "/has_more"
+                    }
+                  ],
+                  "kind": "object",
+                  "fieldType": "object",
+                  "nullable": false,
+                  "path": ""
+                },
+                "version": 1
+              },
+              "timeoutMs": null
+            },
+            {
+              "id": "b3df1fe9-6d74-4704-89c9-580c3954e415",
+              "name": "Telefones",
+              "apiVersion": 1,
+              "body": {
+                "kind": "none",
+                "content": ""
+              },
+              "credentials": "omit",
+              "headers": [],
+              "method": "GET",
+              "path": "sigat/local-telefones",
+              "query": [
+                {
+                  "id": "0a348797-e11e-4cd6-bd99-b6ce59c07235",
+                  "name": "id",
+                  "value": "",
+                  "enabled": false
+                }
+              ],
+              "responseSchema": {
+                "root": {
+                  "id": "c6e1e693-3214-40be-917d-c5007b4c6ceb",
+                  "name": "Response",
+                  "children": [
+                    {
+                      "id": "e83a588e-ff3e-4135-bea6-f7a4782500da",
+                      "name": "success",
+                      "children": [],
+                      "kind": "field",
+                      "fieldType": "boolean",
+                      "nullable": false,
+                      "path": "/success"
+                    },
+                    {
+                      "id": "f6ec42a5-7620-4db3-81d8-e58f05fa3087",
+                      "name": "data",
+                      "children": [
+                        {
+                          "id": "81129d18-1299-4be6-8d09-7a98dc172e97",
+                          "name": "id",
+                          "children": [],
+                          "kind": "field",
+                          "fieldType": "integer",
+                          "nullable": true,
+                          "path": "/data/*/id"
+                        },
+                        {
+                          "id": "58cea8c1-49dc-4515-9156-ec4c3902652d",
+                          "name": "setor",
+                          "children": [],
+                          "kind": "field",
+                          "fieldType": "string",
+                          "nullable": true,
+                          "path": "/data/*/setor"
+                        },
+                        {
+                          "id": "51bd21aa-e9ca-4d89-8e2b-a8d75befbe1a",
+                          "name": "telefone",
+                          "children": [],
+                          "kind": "field",
+                          "fieldType": "string",
+                          "nullable": true,
+                          "path": "/data/*/telefone"
+                        },
+                        {
+                          "id": "016a7637-2197-4df4-8b6c-c6e627b0593a",
+                          "name": "id_local",
+                          "children": [],
+                          "kind": "field",
+                          "fieldType": "integer",
+                          "nullable": true,
+                          "path": "/data/*/id_local"
+                        }
+                      ],
+                      "kind": "list",
+                      "fieldType": "list",
+                      "nullable": false,
+                      "path": "/data"
+                    },
+                    {
+                      "id": "8dd93c4d-05b3-419b-9b4a-d371fbc1190b",
+                      "name": "page",
+                      "children": [],
+                      "kind": "field",
+                      "fieldType": "integer",
+                      "nullable": true,
+                      "path": "/page"
+                    },
+                    {
+                      "id": "845218bc-0392-4f2c-a957-f59ad24d5ff4",
+                      "name": "page_size",
+                      "children": [],
+                      "kind": "field",
+                      "fieldType": "integer",
+                      "nullable": true,
+                      "path": "/page_size"
+                    },
+                    {
+                      "id": "e880f88a-cc7e-4666-9ea6-83eaa7a64f57",
+                      "name": "total_pages",
+                      "children": [],
+                      "kind": "field",
+                      "fieldType": "integer",
+                      "nullable": true,
+                      "path": "/total_pages"
+                    },
+                    {
+                      "id": "9dc4a8f9-a97d-4eb9-8600-d66dea438a26",
+                      "name": "total",
+                      "children": [],
+                      "kind": "field",
+                      "fieldType": "integer",
+                      "nullable": true,
+                      "path": "/total"
+                    },
+                    {
+                      "id": "9faeec70-bbb2-45c0-83db-39b16f7ab304",
+                      "name": "has_more",
+                      "children": [],
+                      "kind": "field",
+                      "fieldType": "boolean",
+                      "nullable": true,
+                      "path": "/has_more"
+                    }
+                  ],
+                  "kind": "object",
+                  "fieldType": "object",
+                  "nullable": false,
+                  "path": ""
+                },
+                "version": 1
+              },
+              "timeoutMs": null
+            },
+            {
+              "id": "25ccc543-b1cd-4d72-aa92-1786b6e56ae1",
+              "name": "Secretarias",
+              "apiVersion": 1,
+              "body": {
+                "kind": "none",
+                "content": ""
+              },
+              "credentials": "omit",
+              "headers": [],
+              "method": "GET",
+              "path": "sigat/secretarias",
+              "query": [
+                {
+                  "id": "2a440ac1-cd5a-474b-a6e9-7e9a5343dd96",
+                  "name": "ativas",
+                  "value": "",
+                  "enabled": false
+                }
+              ],
+              "responseSchema": {
+                "root": {
+                  "id": "4ad521e3-fd2b-417f-b684-b0e247ed7a81",
+                  "name": "Response",
+                  "children": [
+                    {
+                      "id": "85448c88-a9d3-41aa-ae85-2bdc78bc33b5",
+                      "name": "success",
+                      "children": [],
+                      "kind": "field",
+                      "fieldType": "boolean",
+                      "nullable": false,
+                      "path": "/success"
+                    },
+                    {
+                      "id": "e333427a-119f-40be-8d31-c3cf84ee57ac",
+                      "name": "data",
+                      "children": [
+                        {
+                          "id": "29b17db1-53a3-42c3-a040-4ccac391a198",
+                          "name": "id_secretaria",
+                          "children": [],
+                          "kind": "field",
+                          "fieldType": "integer",
+                          "nullable": true,
+                          "path": "/data/*/id_secretaria"
+                        },
+                        {
+                          "id": "b18dd05d-1f90-4efe-85f4-f05e988328a3",
+                          "name": "nome_secretaria",
+                          "children": [],
+                          "kind": "field",
+                          "fieldType": "string",
+                          "nullable": true,
+                          "path": "/data/*/nome_secretaria"
+                        },
+                        {
+                          "id": "295629c1-44bd-410f-8749-23a20a5f9f4b",
+                          "name": "sigla_secretaria",
+                          "children": [],
+                          "kind": "field",
+                          "fieldType": "string",
+                          "nullable": true,
+                          "path": "/data/*/sigla_secretaria"
+                        },
+                        {
+                          "id": "d4c74907-63bd-41a9-8928-82b8d25d9c1c",
+                          "name": "status_secretaria",
+                          "children": [],
+                          "kind": "field",
+                          "fieldType": "integer",
+                          "nullable": true,
+                          "path": "/data/*/status_secretaria"
+                        },
+                        {
+                          "id": "39e5cd6a-56e7-46fd-b562-9d4968493df6",
+                          "name": "ultima_alteracao",
+                          "children": [],
+                          "kind": "field",
+                          "fieldType": "datetime",
+                          "nullable": true,
+                          "path": "/data/*/ultima_alteracao"
+                        }
+                      ],
+                      "kind": "list",
+                      "fieldType": "list",
+                      "nullable": false,
+                      "path": "/data"
+                    },
+                    {
+                      "id": "0544359d-dc89-45a7-b29f-d23fbe82255c",
+                      "name": "page",
+                      "children": [],
+                      "kind": "field",
+                      "fieldType": "integer",
+                      "nullable": true,
+                      "path": "/page"
+                    },
+                    {
+                      "id": "b70338eb-ca5f-4331-9a6f-a8df4062b608",
+                      "name": "page_size",
+                      "children": [],
+                      "kind": "field",
+                      "fieldType": "integer",
+                      "nullable": true,
+                      "path": "/page_size"
+                    },
+                    {
+                      "id": "b4914aeb-3ec2-4a86-927c-249ea358eae2",
+                      "name": "total_pages",
+                      "children": [],
+                      "kind": "field",
+                      "fieldType": "integer",
+                      "nullable": true,
+                      "path": "/total_pages"
+                    },
+                    {
+                      "id": "f78db585-fa84-45b8-bbbd-a06f05678f75",
+                      "name": "total",
+                      "children": [],
+                      "kind": "field",
+                      "fieldType": "integer",
+                      "nullable": true,
+                      "path": "/total"
+                    },
+                    {
+                      "id": "6096f196-d764-405d-a0d1-e17d83e55643",
+                      "name": "has_more",
+                      "children": [],
+                      "kind": "field",
+                      "fieldType": "boolean",
+                      "nullable": true,
+                      "path": "/has_more"
+                    }
+                  ],
+                  "kind": "object",
+                  "fieldType": "object",
+                  "nullable": false,
+                  "path": ""
+                },
+                "version": 1
+              },
+              "timeoutMs": null
+            }
+          ],
+          "schemaVersion": 1,
+          "timeoutMs": 30000
+        }
+      },
+      "events": {
+        "OnComplete": null,
+        "OnError": null,
+        "OnRequest": null,
+        "OnSuccess": null
+      },
+      "children": []
+    }
+  ]
+}

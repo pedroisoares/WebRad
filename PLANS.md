@@ -1,5 +1,24 @@
 # WebRAD delivery plan
 
+## SIGAT2 example generator: 2026-11-02
+
+Added `examples/sigat2`, the first phase of the SIGAT → SIGAT2 migration: 13
+read-only pages (Login, Painel, Chamado, Triagem, Equipamento, Busca,
+Inservíveis, Remessa, Admin, Usuario, Local, Negado, 404) built with
+`@webrad/project-model` by `scripts/sigat2` and regenerated with
+`node scripts/generate-sigat2.mjs`. Every API Client uses `restgo-session`
+against the HexAPI catalog `catalogos/sigat2.json` (hexapi repository). The
+generator typechecks through `compileProject` before writing, seeds model IDs
+so output is reproducible, and formats the result with Prettier. A Playwright
+pass against HexAPI and a production dump loaded login, painel, chamado tabs,
+search, triage, inservíveis, and admin without request or page errors.
+
+Two runtime behaviours surfaced and are worked around in the example rather
+than changed: runtime globals (`Access`, `Toast`) are installed after units are
+evaluated, so a unit cannot call them at top level; and `execute({ parameters })`
+fills body templates only, so query parameters must be assigned through
+`operation.parameter` first.
+
 ## Roles and protected pages: 2026-11-01
 
 Added `Access` (`packages/runtime/src/access-control.ts`), the client-side
@@ -1335,6 +1354,9 @@ records above rather than assuming every implementation note is a passing check.
 
 ## Remaining work
 
+- Decide whether units may use runtime globals at top level, and whether
+  `execute({ parameters })` should also fill configured query parameters (both
+  found while building `examples/sigat2`).
 - Verify the final corrected commit through validate, security, all four release
   platforms, assemble, and required Electron/updater evidence before tagging.
   Inspect original failures rather than merely rerunning jobs.

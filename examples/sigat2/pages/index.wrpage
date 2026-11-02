@@ -1,0 +1,2724 @@
+{
+  "formatVersion": 2,
+  "id": "041c3057-162f-46dc-a973-a739f16ed095",
+  "name": "index",
+  "caption": "index",
+  "width": 1280,
+  "height": 1200,
+  "rootComponentId": "c6388358-1ffc-4ed3-9745-bd66df99af27",
+  "components": [
+    {
+      "id": "c6388358-1ffc-4ed3-9745-bd66df99af27",
+      "type": "WebPage",
+      "name": "index",
+      "parentId": null,
+      "layout": {
+        "container": {
+          "mode": "column",
+          "paddingTop": 16,
+          "paddingRight": 24,
+          "paddingBottom": 24,
+          "paddingLeft": 24,
+          "gap": 16,
+          "wrap": false,
+          "justifyContent": "start",
+          "alignItems": "stretch"
+        },
+        "item": {
+          "width": "fixed",
+          "height": "fit-content",
+          "minWidth": 0,
+          "maxWidth": null,
+          "minHeight": 600,
+          "maxHeight": null,
+          "grow": 0,
+          "shrink": true,
+          "alignSelf": "auto",
+          "horizontalAnchor": "start",
+          "verticalAnchor": "start",
+          "left": 0,
+          "right": 0,
+          "top": 0,
+          "bottom": 0
+        }
+      },
+      "bounds": {
+        "width": 1280,
+        "height": 1200,
+        "x": 0,
+        "y": 0
+      },
+      "props": {
+        "caption": "Painel",
+        "enabled": true,
+        "backgroundColor": "#ffffff",
+        "allowedRoles": [
+          "*"
+        ],
+        "browserTitle": "SIGAT2 | Painel",
+        "visible": true
+      },
+      "events": {
+        "OnCreate": null,
+        "OnHide": null,
+        "OnResize": null,
+        "OnShow": "Mostrar"
+      },
+      "styleId": "3755d9a1-991d-4861-8878-42148ee446dc:default-style:WebPage",
+      "children": [
+        "decd27f8-23b6-4282-8ea7-b605a79ec255",
+        "46e5d11f-634f-49be-96ad-b949fd750e71",
+        "748a0139-0b65-43f0-9a0d-b8c452527d81",
+        "8490ce1f-5728-477a-81b2-59caf9c88a72",
+        "f25f1e96-eca5-4751-8a52-2b2b41aa8113",
+        "36d87d96-c7ce-496c-b6f9-eaf10fd31abb"
+      ]
+    },
+    {
+      "id": "decd27f8-23b6-4282-8ea7-b605a79ec255",
+      "type": "WebGroup",
+      "name": "Cabecalho",
+      "parentId": "c6388358-1ffc-4ed3-9745-bd66df99af27",
+      "layout": {
+        "container": {
+          "mode": "row",
+          "paddingTop": 0,
+          "paddingRight": 0,
+          "paddingBottom": 0,
+          "paddingLeft": 0,
+          "gap": 12,
+          "wrap": true,
+          "justifyContent": "start",
+          "alignItems": "center"
+        },
+        "item": {
+          "width": "stretch",
+          "height": "fit-content",
+          "minWidth": 0,
+          "maxWidth": null,
+          "minHeight": 0,
+          "maxHeight": null,
+          "grow": 0,
+          "shrink": false,
+          "alignSelf": "auto",
+          "horizontalAnchor": "start",
+          "verticalAnchor": "start",
+          "left": 0,
+          "right": 0,
+          "top": 0,
+          "bottom": 0
+        }
+      },
+      "bounds": {
+        "width": 240,
+        "height": 160,
+        "x": 0,
+        "y": 0
+      },
+      "props": {
+        "enabled": true,
+        "aspectRatio": "none",
+        "collapseWhenHidden": true,
+        "visible": true
+      },
+      "events": {
+        "OnClick": null,
+        "OnDblClick": null,
+        "OnMouseEnter": null,
+        "OnMouseLeave": null
+      },
+      "children": [
+        "0f068add-16a5-474b-aad9-160dbb39ac42",
+        "3f7c600a-9f59-419e-97ab-7f7f0e297013",
+        "44eeca22-3876-4d46-a171-d6a6aaad4153",
+        "10ac1128-f4fb-425f-ad00-63262d829f4a",
+        "9e029d62-0c4f-4f1a-ab1e-cfdfbfa1b12c",
+        "b9c856db-1982-42d0-9b53-46a56d8e30d8",
+        "3681f38a-d736-4999-8aa4-0c97e5c963e2",
+        "af5cdb0e-f3fd-41ea-963e-d95ec2a283b2"
+      ]
+    },
+    {
+      "id": "0f068add-16a5-474b-aad9-160dbb39ac42",
+      "type": "WebLabel",
+      "name": "Marca",
+      "parentId": "decd27f8-23b6-4282-8ea7-b605a79ec255",
+      "layout": {
+        "container": {
+          "mode": "fixed",
+          "paddingTop": 0,
+          "paddingRight": 0,
+          "paddingBottom": 0,
+          "paddingLeft": 0,
+          "gap": 0,
+          "wrap": false,
+          "justifyContent": "start",
+          "alignItems": "start"
+        },
+        "item": {
+          "width": "fixed",
+          "height": "fixed",
+          "minWidth": 0,
+          "maxWidth": null,
+          "minHeight": 0,
+          "maxHeight": null,
+          "grow": 0,
+          "shrink": false,
+          "alignSelf": "auto",
+          "horizontalAnchor": "start",
+          "verticalAnchor": "start",
+          "left": 0,
+          "right": 0,
+          "top": 0,
+          "bottom": 0
+        }
+      },
+      "bounds": {
+        "width": 110,
+        "height": 32,
+        "x": 0,
+        "y": 0
+      },
+      "props": {
+        "caption": "SIGAT2",
+        "enabled": true,
+        "autoSize": false,
+        "collapseWhenHidden": true,
+        "color": "#000000",
+        "visible": true
+      },
+      "events": {
+        "OnClick": null,
+        "OnDblClick": null,
+        "OnMouseEnter": null,
+        "OnMouseLeave": null
+      },
+      "styleId": "3755d9a1-991d-4861-8878-42148ee446dc:default-style:WebLabel",
+      "children": []
+    },
+    {
+      "id": "3f7c600a-9f59-419e-97ab-7f7f0e297013",
+      "type": "WebButton",
+      "name": "BTNPainel",
+      "parentId": "decd27f8-23b6-4282-8ea7-b605a79ec255",
+      "layout": {
+        "container": {
+          "mode": "fixed",
+          "paddingTop": 0,
+          "paddingRight": 0,
+          "paddingBottom": 0,
+          "paddingLeft": 0,
+          "gap": 0,
+          "wrap": false,
+          "justifyContent": "start",
+          "alignItems": "start"
+        },
+        "item": {
+          "width": "fixed",
+          "height": "fixed",
+          "minWidth": 120,
+          "maxWidth": 220,
+          "minHeight": 0,
+          "maxHeight": null,
+          "grow": 0,
+          "shrink": true,
+          "alignSelf": "auto",
+          "horizontalAnchor": "start",
+          "verticalAnchor": "start",
+          "left": 0,
+          "right": 0,
+          "top": 0,
+          "bottom": 0
+        }
+      },
+      "bounds": {
+        "width": 180,
+        "height": 40,
+        "x": 0,
+        "y": 0
+      },
+      "props": {
+        "caption": "Painel",
+        "enabled": true,
+        "collapseWhenHidden": true,
+        "icon": "list",
+        "tabIndex": 0,
+        "visible": true
+      },
+      "events": {
+        "OnBlur": null,
+        "OnClick": "AbrirPainel",
+        "OnFocus": null,
+        "OnMouseEnter": null,
+        "OnMouseLeave": null
+      },
+      "styleId": "3755d9a1-991d-4861-8878-42148ee446dc:default-style:WebButton",
+      "children": []
+    },
+    {
+      "id": "44eeca22-3876-4d46-a171-d6a6aaad4153",
+      "type": "WebEdit",
+      "name": "EDTBuscaRapida",
+      "parentId": "decd27f8-23b6-4282-8ea7-b605a79ec255",
+      "layout": {
+        "container": {
+          "mode": "fixed",
+          "paddingTop": 0,
+          "paddingRight": 0,
+          "paddingBottom": 0,
+          "paddingLeft": 0,
+          "gap": 0,
+          "wrap": false,
+          "justifyContent": "start",
+          "alignItems": "start"
+        },
+        "item": {
+          "width": "fixed",
+          "height": "fixed",
+          "minWidth": 200,
+          "maxWidth": null,
+          "minHeight": 0,
+          "maxHeight": null,
+          "grow": 1,
+          "shrink": true,
+          "alignSelf": "auto",
+          "horizontalAnchor": "start",
+          "verticalAnchor": "start",
+          "left": 0,
+          "right": 0,
+          "top": 0,
+          "bottom": 0
+        }
+      },
+      "bounds": {
+        "width": 300,
+        "height": 40,
+        "x": 0,
+        "y": 0
+      },
+      "props": {
+        "value": "",
+        "enabled": true,
+        "collapseWhenHidden": true,
+        "placeholder": "Busca rápida (patrimônio, ticket, local)...",
+        "readOnly": false,
+        "tabIndex": 0,
+        "visible": true
+      },
+      "events": {
+        "OnBlur": null,
+        "OnChange": null,
+        "OnFocus": null,
+        "OnInput": null,
+        "OnKeyDown": "BuscaRapidaTecla",
+        "OnKeyUp": null
+      },
+      "styleId": "3755d9a1-991d-4861-8878-42148ee446dc:default-style:WebEdit",
+      "children": []
+    },
+    {
+      "id": "10ac1128-f4fb-425f-ad00-63262d829f4a",
+      "type": "WebButton",
+      "name": "BTNBuscar",
+      "parentId": "decd27f8-23b6-4282-8ea7-b605a79ec255",
+      "layout": {
+        "container": {
+          "mode": "fixed",
+          "paddingTop": 0,
+          "paddingRight": 0,
+          "paddingBottom": 0,
+          "paddingLeft": 0,
+          "gap": 0,
+          "wrap": false,
+          "justifyContent": "start",
+          "alignItems": "start"
+        },
+        "item": {
+          "width": "fixed",
+          "height": "fixed",
+          "minWidth": 120,
+          "maxWidth": 220,
+          "minHeight": 0,
+          "maxHeight": null,
+          "grow": 0,
+          "shrink": true,
+          "alignSelf": "auto",
+          "horizontalAnchor": "start",
+          "verticalAnchor": "start",
+          "left": 0,
+          "right": 0,
+          "top": 0,
+          "bottom": 0
+        }
+      },
+      "bounds": {
+        "width": 180,
+        "height": 40,
+        "x": 0,
+        "y": 0
+      },
+      "props": {
+        "caption": "Buscar",
+        "enabled": true,
+        "collapseWhenHidden": true,
+        "icon": "search",
+        "tabIndex": 0,
+        "visible": true
+      },
+      "events": {
+        "OnBlur": null,
+        "OnClick": "BuscaRapida",
+        "OnFocus": null,
+        "OnMouseEnter": null,
+        "OnMouseLeave": null
+      },
+      "styleId": "3755d9a1-991d-4861-8878-42148ee446dc:default-style:WebButton",
+      "children": []
+    },
+    {
+      "id": "9e029d62-0c4f-4f1a-ab1e-cfdfbfa1b12c",
+      "type": "WebButton",
+      "name": "BTNInserviveis",
+      "parentId": "decd27f8-23b6-4282-8ea7-b605a79ec255",
+      "layout": {
+        "container": {
+          "mode": "fixed",
+          "paddingTop": 0,
+          "paddingRight": 0,
+          "paddingBottom": 0,
+          "paddingLeft": 0,
+          "gap": 0,
+          "wrap": false,
+          "justifyContent": "start",
+          "alignItems": "start"
+        },
+        "item": {
+          "width": "fixed",
+          "height": "fixed",
+          "minWidth": 120,
+          "maxWidth": 220,
+          "minHeight": 0,
+          "maxHeight": null,
+          "grow": 0,
+          "shrink": true,
+          "alignSelf": "auto",
+          "horizontalAnchor": "start",
+          "verticalAnchor": "start",
+          "left": 0,
+          "right": 0,
+          "top": 0,
+          "bottom": 0
+        }
+      },
+      "bounds": {
+        "width": 180,
+        "height": 40,
+        "x": 0,
+        "y": 0
+      },
+      "props": {
+        "caption": "Inservíveis",
+        "enabled": true,
+        "allowedRoles": [
+          "inservivel"
+        ],
+        "collapseWhenHidden": true,
+        "icon": "archive",
+        "tabIndex": 0,
+        "visible": true
+      },
+      "events": {
+        "OnBlur": null,
+        "OnClick": "AbrirInserviveis",
+        "OnFocus": null,
+        "OnMouseEnter": null,
+        "OnMouseLeave": null
+      },
+      "styleId": "3755d9a1-991d-4861-8878-42148ee446dc:default-style:WebButton",
+      "children": []
+    },
+    {
+      "id": "b9c856db-1982-42d0-9b53-46a56d8e30d8",
+      "type": "WebButton",
+      "name": "BTNAdmin",
+      "parentId": "decd27f8-23b6-4282-8ea7-b605a79ec255",
+      "layout": {
+        "container": {
+          "mode": "fixed",
+          "paddingTop": 0,
+          "paddingRight": 0,
+          "paddingBottom": 0,
+          "paddingLeft": 0,
+          "gap": 0,
+          "wrap": false,
+          "justifyContent": "start",
+          "alignItems": "start"
+        },
+        "item": {
+          "width": "fixed",
+          "height": "fixed",
+          "minWidth": 120,
+          "maxWidth": 220,
+          "minHeight": 0,
+          "maxHeight": null,
+          "grow": 0,
+          "shrink": true,
+          "alignSelf": "auto",
+          "horizontalAnchor": "start",
+          "verticalAnchor": "start",
+          "left": 0,
+          "right": 0,
+          "top": 0,
+          "bottom": 0
+        }
+      },
+      "bounds": {
+        "width": 180,
+        "height": 40,
+        "x": 0,
+        "y": 0
+      },
+      "props": {
+        "caption": "Administração",
+        "enabled": true,
+        "allowedRoles": [
+          "admin"
+        ],
+        "collapseWhenHidden": true,
+        "icon": "settings",
+        "tabIndex": 0,
+        "visible": true
+      },
+      "events": {
+        "OnBlur": null,
+        "OnClick": "AbrirAdmin",
+        "OnFocus": null,
+        "OnMouseEnter": null,
+        "OnMouseLeave": null
+      },
+      "styleId": "3755d9a1-991d-4861-8878-42148ee446dc:default-style:WebButton",
+      "children": []
+    },
+    {
+      "id": "3681f38a-d736-4999-8aa4-0c97e5c963e2",
+      "type": "WebLabel",
+      "name": "LBLUsuario",
+      "parentId": "decd27f8-23b6-4282-8ea7-b605a79ec255",
+      "layout": {
+        "container": {
+          "mode": "fixed",
+          "paddingTop": 0,
+          "paddingRight": 0,
+          "paddingBottom": 0,
+          "paddingLeft": 0,
+          "gap": 0,
+          "wrap": false,
+          "justifyContent": "start",
+          "alignItems": "start"
+        },
+        "item": {
+          "width": "fixed",
+          "height": "fixed",
+          "minWidth": 0,
+          "maxWidth": null,
+          "minHeight": 0,
+          "maxHeight": null,
+          "grow": 1,
+          "shrink": false,
+          "alignSelf": "auto",
+          "horizontalAnchor": "start",
+          "verticalAnchor": "start",
+          "left": 0,
+          "right": 0,
+          "top": 0,
+          "bottom": 0
+        }
+      },
+      "bounds": {
+        "width": 200,
+        "height": 28,
+        "x": 0,
+        "y": 0
+      },
+      "props": {
+        "caption": "",
+        "enabled": true,
+        "autoSize": false,
+        "collapseWhenHidden": true,
+        "color": "#000000",
+        "visible": true
+      },
+      "events": {
+        "OnClick": null,
+        "OnDblClick": null,
+        "OnMouseEnter": null,
+        "OnMouseLeave": null
+      },
+      "styleId": "3755d9a1-991d-4861-8878-42148ee446dc:default-style:WebLabel",
+      "children": []
+    },
+    {
+      "id": "af5cdb0e-f3fd-41ea-963e-d95ec2a283b2",
+      "type": "WebButton",
+      "name": "BTNSair",
+      "parentId": "decd27f8-23b6-4282-8ea7-b605a79ec255",
+      "layout": {
+        "container": {
+          "mode": "fixed",
+          "paddingTop": 0,
+          "paddingRight": 0,
+          "paddingBottom": 0,
+          "paddingLeft": 0,
+          "gap": 0,
+          "wrap": false,
+          "justifyContent": "start",
+          "alignItems": "start"
+        },
+        "item": {
+          "width": "fixed",
+          "height": "fixed",
+          "minWidth": 120,
+          "maxWidth": 220,
+          "minHeight": 0,
+          "maxHeight": null,
+          "grow": 0,
+          "shrink": true,
+          "alignSelf": "auto",
+          "horizontalAnchor": "start",
+          "verticalAnchor": "start",
+          "left": 0,
+          "right": 0,
+          "top": 0,
+          "bottom": 0
+        }
+      },
+      "bounds": {
+        "width": 180,
+        "height": 40,
+        "x": 0,
+        "y": 0
+      },
+      "props": {
+        "caption": "Sair",
+        "enabled": true,
+        "collapseWhenHidden": true,
+        "icon": "logout",
+        "tabIndex": 0,
+        "visible": true
+      },
+      "events": {
+        "OnBlur": null,
+        "OnClick": "Sair",
+        "OnFocus": null,
+        "OnMouseEnter": null,
+        "OnMouseLeave": null
+      },
+      "styleId": "3755d9a1-991d-4861-8878-42148ee446dc:default-style:WebButton",
+      "children": []
+    },
+    {
+      "id": "46e5d11f-634f-49be-96ad-b949fd750e71",
+      "type": "WebTabs",
+      "name": "Abas",
+      "parentId": "c6388358-1ffc-4ed3-9745-bd66df99af27",
+      "layout": {
+        "container": {
+          "mode": "fixed",
+          "paddingTop": 0,
+          "paddingRight": 0,
+          "paddingBottom": 0,
+          "paddingLeft": 0,
+          "gap": 0,
+          "wrap": false,
+          "justifyContent": "start",
+          "alignItems": "start"
+        },
+        "item": {
+          "width": "stretch",
+          "height": "fixed",
+          "minWidth": 0,
+          "maxWidth": null,
+          "minHeight": 0,
+          "maxHeight": null,
+          "grow": 0,
+          "shrink": false,
+          "alignSelf": "auto",
+          "horizontalAnchor": "start",
+          "verticalAnchor": "start",
+          "left": 0,
+          "right": 0,
+          "top": 0,
+          "bottom": 0
+        }
+      },
+      "bounds": {
+        "width": 480,
+        "height": 44,
+        "x": 0,
+        "y": 0
+      },
+      "props": {
+        "enabled": true,
+        "collapseWhenHidden": true,
+        "panels": [
+          "PNLChamados",
+          "PNLTriagem",
+          "PNLArquivo"
+        ],
+        "selectedIndex": 0,
+        "tabs": [
+          "Chamados",
+          "Triagem",
+          "Arquivo"
+        ],
+        "visible": true
+      },
+      "events": {
+        "OnChange": null
+      },
+      "children": []
+    },
+    {
+      "id": "748a0139-0b65-43f0-9a0d-b8c452527d81",
+      "type": "WebPanel",
+      "name": "PNLChamados",
+      "parentId": "c6388358-1ffc-4ed3-9745-bd66df99af27",
+      "layout": {
+        "container": {
+          "mode": "column",
+          "paddingTop": 16,
+          "paddingRight": 16,
+          "paddingBottom": 16,
+          "paddingLeft": 16,
+          "gap": 10,
+          "wrap": false,
+          "justifyContent": "start",
+          "alignItems": "start"
+        },
+        "item": {
+          "width": "stretch",
+          "height": "fit-content",
+          "minWidth": 0,
+          "maxWidth": null,
+          "minHeight": 0,
+          "maxHeight": null,
+          "grow": 0,
+          "shrink": true,
+          "alignSelf": "auto",
+          "horizontalAnchor": "start",
+          "verticalAnchor": "start",
+          "left": 0,
+          "right": 0,
+          "top": 0,
+          "bottom": 0
+        }
+      },
+      "bounds": {
+        "width": 600,
+        "height": 160,
+        "x": 0,
+        "y": 0
+      },
+      "props": {
+        "caption": "",
+        "enabled": true,
+        "backgroundColor": "transparent",
+        "aspectRatio": "none",
+        "backgroundImage": "",
+        "backgroundPosition": "center",
+        "backgroundRepeat": "no-repeat",
+        "backgroundSize": "cover",
+        "borderColor": "#808080",
+        "collapseWhenHidden": true,
+        "floatingAlignment": "none",
+        "floatingHorizontalAnchor": "left",
+        "floatingVerticalAnchor": "top",
+        "floatingZIndex": 100,
+        "placement": "in-flow",
+        "progressEnabled": false,
+        "progressValue": 0,
+        "visible": true
+      },
+      "events": {
+        "OnClick": null,
+        "OnDblClick": null,
+        "OnMouseEnter": null,
+        "OnMouseLeave": null
+      },
+      "styleId": "3755d9a1-991d-4861-8878-42148ee446dc:default-style:WebPanel",
+      "children": [
+        "cb7d9c29-f6ce-4411-9903-88f2b0d1295c",
+        "dc1e892c-1050-4d46-a158-d7dfa1124e3e"
+      ]
+    },
+    {
+      "id": "cb7d9c29-f6ce-4411-9903-88f2b0d1295c",
+      "type": "WebGroup",
+      "name": "Filtros",
+      "parentId": "748a0139-0b65-43f0-9a0d-b8c452527d81",
+      "layout": {
+        "container": {
+          "mode": "row",
+          "paddingTop": 0,
+          "paddingRight": 0,
+          "paddingBottom": 0,
+          "paddingLeft": 0,
+          "gap": 12,
+          "wrap": true,
+          "justifyContent": "start",
+          "alignItems": "center"
+        },
+        "item": {
+          "width": "stretch",
+          "height": "fit-content",
+          "minWidth": 0,
+          "maxWidth": null,
+          "minHeight": 0,
+          "maxHeight": null,
+          "grow": 0,
+          "shrink": false,
+          "alignSelf": "auto",
+          "horizontalAnchor": "start",
+          "verticalAnchor": "start",
+          "left": 0,
+          "right": 0,
+          "top": 0,
+          "bottom": 0
+        }
+      },
+      "bounds": {
+        "width": 240,
+        "height": 160,
+        "x": 0,
+        "y": 0
+      },
+      "props": {
+        "enabled": true,
+        "aspectRatio": "none",
+        "collapseWhenHidden": true,
+        "visible": true
+      },
+      "events": {
+        "OnClick": null,
+        "OnDblClick": null,
+        "OnMouseEnter": null,
+        "OnMouseLeave": null
+      },
+      "children": [
+        "36d442da-c68c-4747-b0ca-461d05e124d6",
+        "d7a37e60-4904-4c40-adba-382477fc7a2d",
+        "c90e747b-5f08-4538-9347-9dad51231fe6"
+      ]
+    },
+    {
+      "id": "36d442da-c68c-4747-b0ca-461d05e124d6",
+      "type": "WebComboBox",
+      "name": "CBFila",
+      "parentId": "cb7d9c29-f6ce-4411-9903-88f2b0d1295c",
+      "layout": {
+        "container": {
+          "mode": "fixed",
+          "paddingTop": 0,
+          "paddingRight": 0,
+          "paddingBottom": 0,
+          "paddingLeft": 0,
+          "gap": 0,
+          "wrap": false,
+          "justifyContent": "start",
+          "alignItems": "start"
+        },
+        "item": {
+          "width": "fixed",
+          "height": "fixed",
+          "minWidth": 0,
+          "maxWidth": null,
+          "minHeight": 0,
+          "maxHeight": null,
+          "grow": 0,
+          "shrink": false,
+          "alignSelf": "auto",
+          "horizontalAnchor": "start",
+          "verticalAnchor": "start",
+          "left": 0,
+          "right": 0,
+          "top": 0,
+          "bottom": 0
+        }
+      },
+      "bounds": {
+        "width": 260,
+        "height": 40,
+        "x": 0,
+        "y": 0
+      },
+      "props": {
+        "value": "0",
+        "enabled": true,
+        "values": [
+          "0"
+        ],
+        "collapseWhenHidden": true,
+        "comboBoxConfig": null,
+        "items": [
+          "Todas as filas"
+        ],
+        "selectedIndex": -1,
+        "tabIndex": 0,
+        "visible": true
+      },
+      "events": {
+        "OnBlur": null,
+        "OnChange": "MudarFila",
+        "OnFocus": null
+      },
+      "styleId": "3755d9a1-991d-4861-8878-42148ee446dc:default-style:WebComboBox",
+      "children": []
+    },
+    {
+      "id": "d7a37e60-4904-4c40-adba-382477fc7a2d",
+      "type": "WebButton",
+      "name": "BTNAtualizar",
+      "parentId": "cb7d9c29-f6ce-4411-9903-88f2b0d1295c",
+      "layout": {
+        "container": {
+          "mode": "fixed",
+          "paddingTop": 0,
+          "paddingRight": 0,
+          "paddingBottom": 0,
+          "paddingLeft": 0,
+          "gap": 0,
+          "wrap": false,
+          "justifyContent": "start",
+          "alignItems": "start"
+        },
+        "item": {
+          "width": "fixed",
+          "height": "fixed",
+          "minWidth": 120,
+          "maxWidth": 220,
+          "minHeight": 0,
+          "maxHeight": null,
+          "grow": 0,
+          "shrink": true,
+          "alignSelf": "auto",
+          "horizontalAnchor": "start",
+          "verticalAnchor": "start",
+          "left": 0,
+          "right": 0,
+          "top": 0,
+          "bottom": 0
+        }
+      },
+      "bounds": {
+        "width": 180,
+        "height": 40,
+        "x": 0,
+        "y": 0
+      },
+      "props": {
+        "caption": "Atualizar",
+        "enabled": true,
+        "collapseWhenHidden": true,
+        "icon": "refresh",
+        "tabIndex": 0,
+        "visible": true
+      },
+      "events": {
+        "OnBlur": null,
+        "OnClick": "Atualizar",
+        "OnFocus": null,
+        "OnMouseEnter": null,
+        "OnMouseLeave": null
+      },
+      "styleId": "3755d9a1-991d-4861-8878-42148ee446dc:default-style:WebButton",
+      "children": []
+    },
+    {
+      "id": "c90e747b-5f08-4538-9347-9dad51231fe6",
+      "type": "WebLabel",
+      "name": "LBLResumo",
+      "parentId": "cb7d9c29-f6ce-4411-9903-88f2b0d1295c",
+      "layout": {
+        "container": {
+          "mode": "fixed",
+          "paddingTop": 0,
+          "paddingRight": 0,
+          "paddingBottom": 0,
+          "paddingLeft": 0,
+          "gap": 0,
+          "wrap": false,
+          "justifyContent": "start",
+          "alignItems": "start"
+        },
+        "item": {
+          "width": "fixed",
+          "height": "fixed",
+          "minWidth": 0,
+          "maxWidth": null,
+          "minHeight": 0,
+          "maxHeight": null,
+          "grow": 1,
+          "shrink": false,
+          "alignSelf": "auto",
+          "horizontalAnchor": "start",
+          "verticalAnchor": "start",
+          "left": 0,
+          "right": 0,
+          "top": 0,
+          "bottom": 0
+        }
+      },
+      "bounds": {
+        "width": 320,
+        "height": 28,
+        "x": 0,
+        "y": 0
+      },
+      "props": {
+        "caption": "",
+        "enabled": true,
+        "autoSize": false,
+        "collapseWhenHidden": true,
+        "color": "#000000",
+        "visible": true
+      },
+      "events": {
+        "OnClick": null,
+        "OnDblClick": null,
+        "OnMouseEnter": null,
+        "OnMouseLeave": null
+      },
+      "styleId": "3755d9a1-991d-4861-8878-42148ee446dc:default-style:WebLabel",
+      "children": []
+    },
+    {
+      "id": "dc1e892c-1050-4d46-a158-d7dfa1124e3e",
+      "type": "WebDataGrid",
+      "name": "GRDChamados",
+      "parentId": "748a0139-0b65-43f0-9a0d-b8c452527d81",
+      "layout": {
+        "container": {
+          "mode": "fixed",
+          "paddingTop": 0,
+          "paddingRight": 0,
+          "paddingBottom": 0,
+          "paddingLeft": 0,
+          "gap": 0,
+          "wrap": false,
+          "justifyContent": "start",
+          "alignItems": "start"
+        },
+        "item": {
+          "width": "stretch",
+          "height": "fixed",
+          "minWidth": 0,
+          "maxWidth": null,
+          "minHeight": 0,
+          "maxHeight": null,
+          "grow": 0,
+          "shrink": false,
+          "alignSelf": "auto",
+          "horizontalAnchor": "start",
+          "verticalAnchor": "start",
+          "left": 0,
+          "right": 0,
+          "top": 0,
+          "bottom": 0
+        }
+      },
+      "bounds": {
+        "width": 640,
+        "height": 620,
+        "x": 0,
+        "y": 0
+      },
+      "props": {
+        "enabled": true,
+        "collapseWhenHidden": true,
+        "dataGridConfig": {
+          "apiClientId": "36d87d96-c7ce-496c-b6f9-eaf10fd31abb",
+          "cellPaddingHorizontal": 10,
+          "cellPaddingVertical": 8,
+          "columnCount": 11,
+          "columns": [
+            {
+              "id": "391d10a1-6e78-42ca-aa3c-9ded49058738",
+              "width": 80,
+              "minWidth": 80,
+              "maxWidth": null,
+              "buttonIcon": null,
+              "cellAlign": "start",
+              "cellKind": "text",
+              "fieldPath": "/id_chamado",
+              "fixedCaption": "",
+              "flex": 1,
+              "footer": "",
+              "header": "#",
+              "headerAlign": "start",
+              "searchable": true,
+              "sortable": true,
+              "widthMode": "fixed"
+            },
+            {
+              "id": "18e7962c-52eb-4ccf-8de6-d5e545391b79",
+              "width": 110,
+              "minWidth": 90,
+              "maxWidth": null,
+              "buttonIcon": null,
+              "cellAlign": "start",
+              "cellKind": "text",
+              "fieldPath": "/status_painel",
+              "fixedCaption": "",
+              "flex": 1,
+              "footer": "",
+              "header": "Status",
+              "headerAlign": "start",
+              "searchable": true,
+              "sortable": true,
+              "widthMode": "fixed"
+            },
+            {
+              "id": "4650a8d1-e7df-45c0-a548-5da5484d7d29",
+              "width": 170,
+              "minWidth": 90,
+              "maxWidth": null,
+              "buttonIcon": null,
+              "cellAlign": "start",
+              "cellKind": "text",
+              "fieldPath": "/ticket_chamado",
+              "fixedCaption": "",
+              "flex": 1,
+              "footer": "",
+              "header": "Ticket",
+              "headerAlign": "start",
+              "searchable": true,
+              "sortable": true,
+              "widthMode": "fixed"
+            },
+            {
+              "id": "7280f32a-7144-40cd-b870-2ee588af092b",
+              "width": 180,
+              "minWidth": 90,
+              "maxWidth": null,
+              "buttonIcon": null,
+              "cellAlign": "start",
+              "cellKind": "text",
+              "fieldPath": "/nome_solicitante_chamado",
+              "fixedCaption": "",
+              "flex": 1,
+              "footer": "",
+              "header": "Solicitante",
+              "headerAlign": "start",
+              "searchable": true,
+              "sortable": true,
+              "widthMode": "dynamic"
+            },
+            {
+              "id": "1902956c-6dd0-48d0-aaf7-70d180918a5a",
+              "width": 180,
+              "minWidth": 90,
+              "maxWidth": null,
+              "buttonIcon": null,
+              "cellAlign": "start",
+              "cellKind": "text",
+              "fieldPath": "/resumo_chamado",
+              "fixedCaption": "",
+              "flex": 1,
+              "footer": "",
+              "header": "Solicitação",
+              "headerAlign": "start",
+              "searchable": true,
+              "sortable": true,
+              "widthMode": "dynamic"
+            },
+            {
+              "id": "4b2c6592-f8c1-42d0-96e4-6d4434c12bb7",
+              "width": 180,
+              "minWidth": 90,
+              "maxWidth": null,
+              "buttonIcon": null,
+              "cellAlign": "start",
+              "cellKind": "text",
+              "fieldPath": "/nome_local",
+              "fixedCaption": "",
+              "flex": 1,
+              "footer": "",
+              "header": "Local",
+              "headerAlign": "start",
+              "searchable": true,
+              "sortable": true,
+              "widthMode": "dynamic"
+            },
+            {
+              "id": "745f3489-4e4f-4e95-88b5-51e46377aba7",
+              "width": 130,
+              "minWidth": 90,
+              "maxWidth": null,
+              "buttonIcon": null,
+              "cellAlign": "start",
+              "cellKind": "text",
+              "fieldPath": "/nome_fila",
+              "fixedCaption": "",
+              "flex": 1,
+              "footer": "",
+              "header": "Fila",
+              "headerAlign": "start",
+              "searchable": true,
+              "sortable": true,
+              "widthMode": "fixed"
+            },
+            {
+              "id": "08f683bb-bb10-4a8e-8c65-a33c64299054",
+              "width": 100,
+              "minWidth": 90,
+              "maxWidth": null,
+              "buttonIcon": null,
+              "cellAlign": "start",
+              "cellKind": "text",
+              "fieldPath": "/regiao_local",
+              "fixedCaption": "",
+              "flex": 1,
+              "footer": "",
+              "header": "Região",
+              "headerAlign": "start",
+              "searchable": true,
+              "sortable": true,
+              "widthMode": "fixed"
+            },
+            {
+              "id": "eb93e934-b374-47b8-a881-8d4fdb56cf24",
+              "width": 140,
+              "minWidth": 90,
+              "maxWidth": null,
+              "buttonIcon": null,
+              "cellAlign": "start",
+              "cellKind": "text",
+              "fieldPath": "/data_chamado_fmt",
+              "fixedCaption": "",
+              "flex": 1,
+              "footer": "",
+              "header": "Abertura",
+              "headerAlign": "start",
+              "searchable": true,
+              "sortable": true,
+              "widthMode": "fixed"
+            },
+            {
+              "id": "54028191-0f12-4c39-b409-8c75fff28a23",
+              "width": 110,
+              "minWidth": 90,
+              "maxWidth": null,
+              "buttonIcon": null,
+              "cellAlign": "start",
+              "cellKind": "text",
+              "fieldPath": "/minutos_espera",
+              "fixedCaption": "",
+              "flex": 1,
+              "footer": "",
+              "header": "Espera (min)",
+              "headerAlign": "start",
+              "searchable": true,
+              "sortable": true,
+              "widthMode": "fixed"
+            },
+            {
+              "id": "8549f78c-ce18-46b1-9289-8dda40afe31a",
+              "width": 160,
+              "minWidth": 90,
+              "maxWidth": null,
+              "buttonIcon": null,
+              "cellAlign": "start",
+              "cellKind": "text",
+              "fieldPath": "/nome_responsavel",
+              "fixedCaption": "",
+              "flex": 1,
+              "footer": "",
+              "header": "Responsável",
+              "headerAlign": "start",
+              "searchable": true,
+              "sortable": true,
+              "widthMode": "fixed"
+            }
+          ],
+          "emptyMessage": "Nenhum registro",
+          "exportEnabled": true,
+          "fixedRowHeight": 40,
+          "listPath": "/data",
+          "maxRowHeight": null,
+          "minRowHeight": 36,
+          "operationId": "0f92b92e-f6e6-4c9d-8cbd-f85f0f138e46",
+          "pageSize": 25,
+          "pageSizeOptions": [
+            10,
+            25,
+            50,
+            100
+          ],
+          "pagination": "server",
+          "rowHeightMode": "dynamic",
+          "schemaVersion": 2,
+          "searchEnabled": true,
+          "searchPlaceholder": "",
+          "serverDirectionParameter": "dir",
+          "serverSearchParameter": "q",
+          "serverSortParameter": "sort",
+          "showFooter": false,
+          "showHeader": true,
+          "showHorizontalLines": true,
+          "showPageSizeSelector": true,
+          "showVerticalLines": false,
+          "sortEnabled": true,
+          "stickyFooter": true,
+          "stickyHeader": true,
+          "stripedRows": true,
+          "totalPagesPath": "/total_pages",
+          "totalRowsPath": "/total",
+          "wrapText": false
+        },
+        "visible": true
+      },
+      "events": {
+        "OnCellClick": "AbrirChamadoDaGrade",
+        "OnPageChange": null,
+        "OnQueryChange": null,
+        "OnSearch": null,
+        "OnSortChange": null
+      },
+      "styleId": "3755d9a1-991d-4861-8878-42148ee446dc:default-style:WebDataGrid",
+      "children": []
+    },
+    {
+      "id": "8490ce1f-5728-477a-81b2-59caf9c88a72",
+      "type": "WebPanel",
+      "name": "PNLTriagem",
+      "parentId": "c6388358-1ffc-4ed3-9745-bd66df99af27",
+      "layout": {
+        "container": {
+          "mode": "column",
+          "paddingTop": 16,
+          "paddingRight": 16,
+          "paddingBottom": 16,
+          "paddingLeft": 16,
+          "gap": 10,
+          "wrap": false,
+          "justifyContent": "start",
+          "alignItems": "start"
+        },
+        "item": {
+          "width": "stretch",
+          "height": "fit-content",
+          "minWidth": 0,
+          "maxWidth": null,
+          "minHeight": 0,
+          "maxHeight": null,
+          "grow": 0,
+          "shrink": true,
+          "alignSelf": "auto",
+          "horizontalAnchor": "start",
+          "verticalAnchor": "start",
+          "left": 0,
+          "right": 0,
+          "top": 0,
+          "bottom": 0
+        }
+      },
+      "bounds": {
+        "width": 600,
+        "height": 160,
+        "x": 0,
+        "y": 0
+      },
+      "props": {
+        "caption": "",
+        "enabled": true,
+        "backgroundColor": "transparent",
+        "allowedRoles": [
+          "triagem"
+        ],
+        "aspectRatio": "none",
+        "backgroundImage": "",
+        "backgroundPosition": "center",
+        "backgroundRepeat": "no-repeat",
+        "backgroundSize": "cover",
+        "borderColor": "#808080",
+        "collapseWhenHidden": true,
+        "floatingAlignment": "none",
+        "floatingHorizontalAnchor": "left",
+        "floatingVerticalAnchor": "top",
+        "floatingZIndex": 100,
+        "placement": "in-flow",
+        "progressEnabled": false,
+        "progressValue": 0,
+        "visible": true
+      },
+      "events": {
+        "OnClick": null,
+        "OnDblClick": null,
+        "OnMouseEnter": null,
+        "OnMouseLeave": null
+      },
+      "styleId": "3755d9a1-991d-4861-8878-42148ee446dc:default-style:WebPanel",
+      "children": [
+        "056692df-793f-49e4-9335-689076ec4024",
+        "a8b58cad-d2b5-4423-ad41-5587b547df97"
+      ]
+    },
+    {
+      "id": "056692df-793f-49e4-9335-689076ec4024",
+      "type": "WebLabel",
+      "name": "LBLTriagem",
+      "parentId": "8490ce1f-5728-477a-81b2-59caf9c88a72",
+      "layout": {
+        "container": {
+          "mode": "fixed",
+          "paddingTop": 0,
+          "paddingRight": 0,
+          "paddingBottom": 0,
+          "paddingLeft": 0,
+          "gap": 0,
+          "wrap": false,
+          "justifyContent": "start",
+          "alignItems": "start"
+        },
+        "item": {
+          "width": "stretch",
+          "height": "fixed",
+          "minWidth": 0,
+          "maxWidth": null,
+          "minHeight": 0,
+          "maxHeight": null,
+          "grow": 0,
+          "shrink": false,
+          "alignSelf": "auto",
+          "horizontalAnchor": "start",
+          "verticalAnchor": "start",
+          "left": 0,
+          "right": 0,
+          "top": 0,
+          "bottom": 0
+        }
+      },
+      "bounds": {
+        "width": 80,
+        "height": 28,
+        "x": 0,
+        "y": 0
+      },
+      "props": {
+        "caption": "Tickets novos do OTOBO nas filas Suporte, Redes e Telefonia.",
+        "enabled": true,
+        "autoSize": false,
+        "collapseWhenHidden": true,
+        "color": "#000000",
+        "visible": true
+      },
+      "events": {
+        "OnClick": null,
+        "OnDblClick": null,
+        "OnMouseEnter": null,
+        "OnMouseLeave": null
+      },
+      "styleId": "3755d9a1-991d-4861-8878-42148ee446dc:default-style:WebLabel",
+      "children": []
+    },
+    {
+      "id": "a8b58cad-d2b5-4423-ad41-5587b547df97",
+      "type": "WebDataGrid",
+      "name": "GRDTriagem",
+      "parentId": "8490ce1f-5728-477a-81b2-59caf9c88a72",
+      "layout": {
+        "container": {
+          "mode": "fixed",
+          "paddingTop": 0,
+          "paddingRight": 0,
+          "paddingBottom": 0,
+          "paddingLeft": 0,
+          "gap": 0,
+          "wrap": false,
+          "justifyContent": "start",
+          "alignItems": "start"
+        },
+        "item": {
+          "width": "stretch",
+          "height": "fixed",
+          "minWidth": 0,
+          "maxWidth": null,
+          "minHeight": 0,
+          "maxHeight": null,
+          "grow": 0,
+          "shrink": false,
+          "alignSelf": "auto",
+          "horizontalAnchor": "start",
+          "verticalAnchor": "start",
+          "left": 0,
+          "right": 0,
+          "top": 0,
+          "bottom": 0
+        }
+      },
+      "bounds": {
+        "width": 640,
+        "height": 560,
+        "x": 0,
+        "y": 0
+      },
+      "props": {
+        "enabled": true,
+        "collapseWhenHidden": true,
+        "dataGridConfig": {
+          "apiClientId": "36d87d96-c7ce-496c-b6f9-eaf10fd31abb",
+          "cellPaddingHorizontal": 10,
+          "cellPaddingVertical": 8,
+          "columnCount": 4,
+          "columns": [
+            {
+              "id": "f7558cc1-b386-44a9-8520-6f2defe8f5c8",
+              "width": 200,
+              "minWidth": 90,
+              "maxWidth": null,
+              "buttonIcon": null,
+              "cellAlign": "start",
+              "cellKind": "text",
+              "fieldPath": "/ticket",
+              "fixedCaption": "",
+              "flex": 1,
+              "footer": "",
+              "header": "Ticket",
+              "headerAlign": "start",
+              "searchable": true,
+              "sortable": true,
+              "widthMode": "fixed"
+            },
+            {
+              "id": "8d9e704c-f7b8-43e8-9f5c-dc4b06c8384d",
+              "width": 150,
+              "minWidth": 90,
+              "maxWidth": null,
+              "buttonIcon": null,
+              "cellAlign": "start",
+              "cellKind": "text",
+              "fieldPath": "/create_time_fmt",
+              "fixedCaption": "",
+              "flex": 1,
+              "footer": "",
+              "header": "Abertura",
+              "headerAlign": "start",
+              "searchable": true,
+              "sortable": true,
+              "widthMode": "fixed"
+            },
+            {
+              "id": "cb81c3fd-871d-4734-a068-f00e2ee03532",
+              "width": 180,
+              "minWidth": 90,
+              "maxWidth": null,
+              "buttonIcon": null,
+              "cellAlign": "start",
+              "cellKind": "text",
+              "fieldPath": "/title",
+              "fixedCaption": "",
+              "flex": 1,
+              "footer": "",
+              "header": "Assunto",
+              "headerAlign": "start",
+              "searchable": true,
+              "sortable": true,
+              "widthMode": "dynamic"
+            },
+            {
+              "id": "ac7e6fbc-e262-470a-8230-665c4ea4a2aa",
+              "width": 180,
+              "minWidth": 90,
+              "maxWidth": null,
+              "buttonIcon": null,
+              "cellAlign": "start",
+              "cellKind": "text",
+              "fieldPath": "/a_from",
+              "fixedCaption": "",
+              "flex": 1,
+              "footer": "",
+              "header": "Solicitante",
+              "headerAlign": "start",
+              "searchable": true,
+              "sortable": true,
+              "widthMode": "dynamic"
+            }
+          ],
+          "emptyMessage": "Nenhum ticket aguardando triagem",
+          "exportEnabled": true,
+          "fixedRowHeight": 40,
+          "listPath": "/data",
+          "maxRowHeight": null,
+          "minRowHeight": 36,
+          "operationId": "7d4a73f4-5c2b-4e8b-a5ef-e197b271334d",
+          "pageSize": 25,
+          "pageSizeOptions": [
+            10,
+            25,
+            50,
+            100
+          ],
+          "pagination": "client",
+          "rowHeightMode": "dynamic",
+          "schemaVersion": 2,
+          "searchEnabled": true,
+          "searchPlaceholder": "",
+          "serverDirectionParameter": "dir",
+          "serverSearchParameter": "q",
+          "serverSortParameter": "sort",
+          "showFooter": false,
+          "showHeader": true,
+          "showHorizontalLines": true,
+          "showPageSizeSelector": true,
+          "showVerticalLines": false,
+          "sortEnabled": true,
+          "stickyFooter": true,
+          "stickyHeader": true,
+          "stripedRows": true,
+          "totalPagesPath": "/total_pages",
+          "totalRowsPath": "/total",
+          "wrapText": false
+        },
+        "visible": true
+      },
+      "events": {
+        "OnCellClick": "AbrirTriagem",
+        "OnPageChange": null,
+        "OnQueryChange": null,
+        "OnSearch": null,
+        "OnSortChange": null
+      },
+      "styleId": "3755d9a1-991d-4861-8878-42148ee446dc:default-style:WebDataGrid",
+      "children": []
+    },
+    {
+      "id": "f25f1e96-eca5-4751-8a52-2b2b41aa8113",
+      "type": "WebPanel",
+      "name": "PNLArquivo",
+      "parentId": "c6388358-1ffc-4ed3-9745-bd66df99af27",
+      "layout": {
+        "container": {
+          "mode": "column",
+          "paddingTop": 16,
+          "paddingRight": 16,
+          "paddingBottom": 16,
+          "paddingLeft": 16,
+          "gap": 10,
+          "wrap": false,
+          "justifyContent": "start",
+          "alignItems": "start"
+        },
+        "item": {
+          "width": "stretch",
+          "height": "fit-content",
+          "minWidth": 0,
+          "maxWidth": null,
+          "minHeight": 0,
+          "maxHeight": null,
+          "grow": 0,
+          "shrink": true,
+          "alignSelf": "auto",
+          "horizontalAnchor": "start",
+          "verticalAnchor": "start",
+          "left": 0,
+          "right": 0,
+          "top": 0,
+          "bottom": 0
+        }
+      },
+      "bounds": {
+        "width": 600,
+        "height": 160,
+        "x": 0,
+        "y": 0
+      },
+      "props": {
+        "caption": "",
+        "enabled": true,
+        "backgroundColor": "transparent",
+        "aspectRatio": "none",
+        "backgroundImage": "",
+        "backgroundPosition": "center",
+        "backgroundRepeat": "no-repeat",
+        "backgroundSize": "cover",
+        "borderColor": "#808080",
+        "collapseWhenHidden": true,
+        "floatingAlignment": "none",
+        "floatingHorizontalAnchor": "left",
+        "floatingVerticalAnchor": "top",
+        "floatingZIndex": 100,
+        "placement": "in-flow",
+        "progressEnabled": false,
+        "progressValue": 0,
+        "visible": true
+      },
+      "events": {
+        "OnClick": null,
+        "OnDblClick": null,
+        "OnMouseEnter": null,
+        "OnMouseLeave": null
+      },
+      "styleId": "3755d9a1-991d-4861-8878-42148ee446dc:default-style:WebPanel",
+      "children": [
+        "8f0a23c1-56d4-4533-b05b-479e91b69ee6"
+      ]
+    },
+    {
+      "id": "8f0a23c1-56d4-4533-b05b-479e91b69ee6",
+      "type": "WebDataGrid",
+      "name": "GRDEncerrados",
+      "parentId": "f25f1e96-eca5-4751-8a52-2b2b41aa8113",
+      "layout": {
+        "container": {
+          "mode": "fixed",
+          "paddingTop": 0,
+          "paddingRight": 0,
+          "paddingBottom": 0,
+          "paddingLeft": 0,
+          "gap": 0,
+          "wrap": false,
+          "justifyContent": "start",
+          "alignItems": "start"
+        },
+        "item": {
+          "width": "stretch",
+          "height": "fixed",
+          "minWidth": 0,
+          "maxWidth": null,
+          "minHeight": 0,
+          "maxHeight": null,
+          "grow": 0,
+          "shrink": false,
+          "alignSelf": "auto",
+          "horizontalAnchor": "start",
+          "verticalAnchor": "start",
+          "left": 0,
+          "right": 0,
+          "top": 0,
+          "bottom": 0
+        }
+      },
+      "bounds": {
+        "width": 640,
+        "height": 560,
+        "x": 0,
+        "y": 0
+      },
+      "props": {
+        "enabled": true,
+        "collapseWhenHidden": true,
+        "dataGridConfig": {
+          "apiClientId": "36d87d96-c7ce-496c-b6f9-eaf10fd31abb",
+          "cellPaddingHorizontal": 10,
+          "cellPaddingVertical": 8,
+          "columnCount": 7,
+          "columns": [
+            {
+              "id": "e34c6a3e-f248-4d8d-a983-a871722f42bd",
+              "width": 80,
+              "minWidth": 80,
+              "maxWidth": null,
+              "buttonIcon": null,
+              "cellAlign": "start",
+              "cellKind": "text",
+              "fieldPath": "/id_chamado",
+              "fixedCaption": "",
+              "flex": 1,
+              "footer": "",
+              "header": "#",
+              "headerAlign": "start",
+              "searchable": true,
+              "sortable": true,
+              "widthMode": "fixed"
+            },
+            {
+              "id": "6c4a2b9b-0851-4a15-a07b-0b4c70ccced9",
+              "width": 170,
+              "minWidth": 90,
+              "maxWidth": null,
+              "buttonIcon": null,
+              "cellAlign": "start",
+              "cellKind": "text",
+              "fieldPath": "/ticket_chamado",
+              "fixedCaption": "",
+              "flex": 1,
+              "footer": "",
+              "header": "Ticket",
+              "headerAlign": "start",
+              "searchable": true,
+              "sortable": true,
+              "widthMode": "fixed"
+            },
+            {
+              "id": "d8e35ddc-8abc-4aba-a3d3-88e93bccd4da",
+              "width": 180,
+              "minWidth": 90,
+              "maxWidth": null,
+              "buttonIcon": null,
+              "cellAlign": "start",
+              "cellKind": "text",
+              "fieldPath": "/nome_solicitante_chamado",
+              "fixedCaption": "",
+              "flex": 1,
+              "footer": "",
+              "header": "Solicitante",
+              "headerAlign": "start",
+              "searchable": true,
+              "sortable": true,
+              "widthMode": "dynamic"
+            },
+            {
+              "id": "298e1765-8826-46aa-a204-f4eae88658fb",
+              "width": 180,
+              "minWidth": 90,
+              "maxWidth": null,
+              "buttonIcon": null,
+              "cellAlign": "start",
+              "cellKind": "text",
+              "fieldPath": "/nome_local",
+              "fixedCaption": "",
+              "flex": 1,
+              "footer": "",
+              "header": "Local",
+              "headerAlign": "start",
+              "searchable": true,
+              "sortable": true,
+              "widthMode": "dynamic"
+            },
+            {
+              "id": "330dd3a5-1fdd-4f53-922f-0e48e5269e57",
+              "width": 140,
+              "minWidth": 90,
+              "maxWidth": null,
+              "buttonIcon": null,
+              "cellAlign": "start",
+              "cellKind": "text",
+              "fieldPath": "/nome_fila",
+              "fixedCaption": "",
+              "flex": 1,
+              "footer": "",
+              "header": "Fila",
+              "headerAlign": "start",
+              "searchable": true,
+              "sortable": true,
+              "widthMode": "fixed"
+            },
+            {
+              "id": "88d9f1c3-0aa7-4f58-b8f6-ed0ac7ef6179",
+              "width": 150,
+              "minWidth": 90,
+              "maxWidth": null,
+              "buttonIcon": null,
+              "cellAlign": "start",
+              "cellKind": "text",
+              "fieldPath": "/data_encerramento_fmt",
+              "fixedCaption": "",
+              "flex": 1,
+              "footer": "",
+              "header": "Encerramento",
+              "headerAlign": "start",
+              "searchable": true,
+              "sortable": true,
+              "widthMode": "fixed"
+            },
+            {
+              "id": "07152b15-82c8-4164-8b65-fb777a658ffb",
+              "width": 170,
+              "minWidth": 90,
+              "maxWidth": null,
+              "buttonIcon": null,
+              "cellAlign": "start",
+              "cellKind": "text",
+              "fieldPath": "/nome_usuario",
+              "fixedCaption": "",
+              "flex": 1,
+              "footer": "",
+              "header": "Finalizado por",
+              "headerAlign": "start",
+              "searchable": true,
+              "sortable": true,
+              "widthMode": "fixed"
+            }
+          ],
+          "emptyMessage": "Nenhum registro",
+          "exportEnabled": true,
+          "fixedRowHeight": 40,
+          "listPath": "/data",
+          "maxRowHeight": null,
+          "minRowHeight": 36,
+          "operationId": "4d696482-4a20-46ee-8514-d5b12febdbff",
+          "pageSize": 25,
+          "pageSizeOptions": [
+            10,
+            25,
+            50,
+            100
+          ],
+          "pagination": "server",
+          "rowHeightMode": "dynamic",
+          "schemaVersion": 2,
+          "searchEnabled": true,
+          "searchPlaceholder": "",
+          "serverDirectionParameter": "dir",
+          "serverSearchParameter": "q",
+          "serverSortParameter": "sort",
+          "showFooter": false,
+          "showHeader": true,
+          "showHorizontalLines": true,
+          "showPageSizeSelector": true,
+          "showVerticalLines": false,
+          "sortEnabled": true,
+          "stickyFooter": true,
+          "stickyHeader": true,
+          "stripedRows": true,
+          "totalPagesPath": "/total_pages",
+          "totalRowsPath": "/total",
+          "wrapText": false
+        },
+        "visible": true
+      },
+      "events": {
+        "OnCellClick": "AbrirEncerrado",
+        "OnPageChange": null,
+        "OnQueryChange": null,
+        "OnSearch": null,
+        "OnSortChange": null
+      },
+      "styleId": "3755d9a1-991d-4861-8878-42148ee446dc:default-style:WebDataGrid",
+      "children": []
+    },
+    {
+      "id": "36d87d96-c7ce-496c-b6f9-eaf10fd31abb",
+      "type": "WebApiClient",
+      "name": "Api",
+      "parentId": "c6388358-1ffc-4ed3-9745-bd66df99af27",
+      "layout": {
+        "container": {
+          "mode": "fixed",
+          "paddingTop": 0,
+          "paddingRight": 0,
+          "paddingBottom": 0,
+          "paddingLeft": 0,
+          "gap": 0,
+          "wrap": false,
+          "justifyContent": "start",
+          "alignItems": "start"
+        },
+        "item": {
+          "width": "stretch",
+          "height": "fixed",
+          "minWidth": 0,
+          "maxWidth": null,
+          "minHeight": 0,
+          "maxHeight": null,
+          "grow": 0,
+          "shrink": false,
+          "alignSelf": "auto",
+          "horizontalAnchor": "start",
+          "verticalAnchor": "start",
+          "left": 0,
+          "right": 0,
+          "top": 0,
+          "bottom": 0
+        }
+      },
+      "bounds": {
+        "width": 112,
+        "height": 52,
+        "x": 0,
+        "y": 0
+      },
+      "props": {
+        "baseUrl": "",
+        "apiClientConfig": {
+          "connection": "restgo-session",
+          "defaultHeaders": [],
+          "operations": [
+            {
+              "id": "e1e2506f-7fab-4333-9800-72a41645159c",
+              "name": "Filas",
+              "apiVersion": 1,
+              "body": {
+                "kind": "none",
+                "content": ""
+              },
+              "credentials": "omit",
+              "headers": [],
+              "method": "GET",
+              "path": "sigat/filas",
+              "query": [],
+              "responseSchema": {
+                "root": {
+                  "id": "10f14048-f115-4fde-947a-353ff4e5bf9d",
+                  "name": "Response",
+                  "children": [
+                    {
+                      "id": "29b67cb4-3025-477b-9649-0a3e15418bbc",
+                      "name": "success",
+                      "children": [],
+                      "kind": "field",
+                      "fieldType": "boolean",
+                      "nullable": false,
+                      "path": "/success"
+                    },
+                    {
+                      "id": "5f3e14d0-970d-4375-bc9f-1bad4671f168",
+                      "name": "data",
+                      "children": [
+                        {
+                          "id": "b830b04e-60f6-4be0-8bee-3415a49b06c4",
+                          "name": "id_fila",
+                          "children": [],
+                          "kind": "field",
+                          "fieldType": "integer",
+                          "nullable": true,
+                          "path": "/data/*/id_fila"
+                        },
+                        {
+                          "id": "e2701fce-da79-44da-8166-27bfa4980148",
+                          "name": "nome_fila",
+                          "children": [],
+                          "kind": "field",
+                          "fieldType": "string",
+                          "nullable": true,
+                          "path": "/data/*/nome_fila"
+                        },
+                        {
+                          "id": "cb3fb272-2b60-41f2-b475-f14abb24d562",
+                          "name": "icone_fila",
+                          "children": [],
+                          "kind": "field",
+                          "fieldType": "string",
+                          "nullable": true,
+                          "path": "/data/*/icone_fila"
+                        }
+                      ],
+                      "kind": "list",
+                      "fieldType": "list",
+                      "nullable": false,
+                      "path": "/data"
+                    },
+                    {
+                      "id": "64359916-9918-4d62-8fb2-26b49a833241",
+                      "name": "page",
+                      "children": [],
+                      "kind": "field",
+                      "fieldType": "integer",
+                      "nullable": true,
+                      "path": "/page"
+                    },
+                    {
+                      "id": "e0003c50-de3e-40e0-8677-9d5a1c8b7e3e",
+                      "name": "page_size",
+                      "children": [],
+                      "kind": "field",
+                      "fieldType": "integer",
+                      "nullable": true,
+                      "path": "/page_size"
+                    },
+                    {
+                      "id": "03dc231d-548d-4ff2-909f-a3dbf83d5781",
+                      "name": "total_pages",
+                      "children": [],
+                      "kind": "field",
+                      "fieldType": "integer",
+                      "nullable": true,
+                      "path": "/total_pages"
+                    },
+                    {
+                      "id": "382486fe-12c1-4f76-9401-7c4226e22e23",
+                      "name": "total",
+                      "children": [],
+                      "kind": "field",
+                      "fieldType": "integer",
+                      "nullable": true,
+                      "path": "/total"
+                    },
+                    {
+                      "id": "bb74d29d-80c7-4eba-bf15-6d7946db78ad",
+                      "name": "has_more",
+                      "children": [],
+                      "kind": "field",
+                      "fieldType": "boolean",
+                      "nullable": true,
+                      "path": "/has_more"
+                    }
+                  ],
+                  "kind": "object",
+                  "fieldType": "object",
+                  "nullable": false,
+                  "path": ""
+                },
+                "version": 1
+              },
+              "timeoutMs": null
+            },
+            {
+              "id": "0f92b92e-f6e6-4c9d-8cbd-f85f0f138e46",
+              "name": "Chamados",
+              "apiVersion": 1,
+              "body": {
+                "kind": "none",
+                "content": ""
+              },
+              "credentials": "omit",
+              "headers": [],
+              "method": "GET",
+              "path": "sigat/painel-chamados",
+              "query": [
+                {
+                  "id": "6e352d13-a58d-4d6d-bc95-5454dfeb50e4",
+                  "name": "fila",
+                  "value": "",
+                  "enabled": false
+                },
+                {
+                  "id": "3d764d53-d6c9-4c57-814c-82492ce28658",
+                  "name": "q",
+                  "value": "",
+                  "enabled": false
+                }
+              ],
+              "responseSchema": {
+                "root": {
+                  "id": "0ce24be1-7a1e-4a8b-89f0-3ae50e79db4a",
+                  "name": "Response",
+                  "children": [
+                    {
+                      "id": "851772d9-288e-41ee-86a8-1fdaaf92ab66",
+                      "name": "success",
+                      "children": [],
+                      "kind": "field",
+                      "fieldType": "boolean",
+                      "nullable": false,
+                      "path": "/success"
+                    },
+                    {
+                      "id": "a0cf219a-d7bd-430b-98f2-c6cde605b517",
+                      "name": "data",
+                      "children": [
+                        {
+                          "id": "e4fe8c14-4418-40ab-a9a7-303620bfb73a",
+                          "name": "id_chamado",
+                          "children": [],
+                          "kind": "field",
+                          "fieldType": "integer",
+                          "nullable": true,
+                          "path": "/data/*/id_chamado"
+                        },
+                        {
+                          "id": "994e8cfa-db42-49d3-b8e3-084e3a9dfcdb",
+                          "name": "status_painel",
+                          "children": [],
+                          "kind": "field",
+                          "fieldType": "string",
+                          "nullable": true,
+                          "path": "/data/*/status_painel"
+                        },
+                        {
+                          "id": "4439a948-3dc8-4b23-9eb5-e8af4b88f515",
+                          "name": "status_chamado",
+                          "children": [],
+                          "kind": "field",
+                          "fieldType": "string",
+                          "nullable": true,
+                          "path": "/data/*/status_chamado"
+                        },
+                        {
+                          "id": "9c62ed50-ac8e-4d3c-a478-9441d9f3f431",
+                          "name": "prioridade_chamado",
+                          "children": [],
+                          "kind": "field",
+                          "fieldType": "integer",
+                          "nullable": true,
+                          "path": "/data/*/prioridade_chamado"
+                        },
+                        {
+                          "id": "868d78d6-a7f0-4088-a227-49cce628d11c",
+                          "name": "ticket_chamado",
+                          "children": [],
+                          "kind": "field",
+                          "fieldType": "string",
+                          "nullable": true,
+                          "path": "/data/*/ticket_chamado"
+                        },
+                        {
+                          "id": "6bc47637-2c05-41a8-a4c3-2e5c10c45a14",
+                          "name": "id_ticket_chamado",
+                          "children": [],
+                          "kind": "field",
+                          "fieldType": "integer",
+                          "nullable": true,
+                          "path": "/data/*/id_ticket_chamado"
+                        },
+                        {
+                          "id": "0e765cec-9002-4fc6-b962-eab62c7870bb",
+                          "name": "nome_solicitante_chamado",
+                          "children": [],
+                          "kind": "field",
+                          "fieldType": "string",
+                          "nullable": true,
+                          "path": "/data/*/nome_solicitante_chamado"
+                        },
+                        {
+                          "id": "0bdad411-516d-49b5-8b9c-4639f76d03c2",
+                          "name": "resumo_chamado",
+                          "children": [],
+                          "kind": "field",
+                          "fieldType": "string",
+                          "nullable": true,
+                          "path": "/data/*/resumo_chamado"
+                        },
+                        {
+                          "id": "253b0400-393e-47ce-9f23-52e38350e0c1",
+                          "name": "nome_local",
+                          "children": [],
+                          "kind": "field",
+                          "fieldType": "string",
+                          "nullable": true,
+                          "path": "/data/*/nome_local"
+                        },
+                        {
+                          "id": "7a0ac76b-8986-4314-8ba8-cb8837ec6f84",
+                          "name": "regiao_local",
+                          "children": [],
+                          "kind": "field",
+                          "fieldType": "string",
+                          "nullable": true,
+                          "path": "/data/*/regiao_local"
+                        },
+                        {
+                          "id": "d56b052e-6ad0-4b32-bc2f-a38940869a7a",
+                          "name": "id_fila_chamado",
+                          "children": [],
+                          "kind": "field",
+                          "fieldType": "integer",
+                          "nullable": true,
+                          "path": "/data/*/id_fila_chamado"
+                        },
+                        {
+                          "id": "7fa7e00c-45fc-418d-a887-02c38e6b0283",
+                          "name": "nome_fila",
+                          "children": [],
+                          "kind": "field",
+                          "fieldType": "string",
+                          "nullable": true,
+                          "path": "/data/*/nome_fila"
+                        },
+                        {
+                          "id": "f5ec77c9-56dd-4445-847b-133043e24bd3",
+                          "name": "icone_fila",
+                          "children": [],
+                          "kind": "field",
+                          "fieldType": "string",
+                          "nullable": true,
+                          "path": "/data/*/icone_fila"
+                        },
+                        {
+                          "id": "4ac8e598-45f1-4cee-adb5-e4372ceb904e",
+                          "name": "data_chamado",
+                          "children": [],
+                          "kind": "field",
+                          "fieldType": "datetime",
+                          "nullable": true,
+                          "path": "/data/*/data_chamado"
+                        },
+                        {
+                          "id": "b3d07aea-cf70-4702-9292-98903070ae64",
+                          "name": "data_chamado_fmt",
+                          "children": [],
+                          "kind": "field",
+                          "fieldType": "string",
+                          "nullable": true,
+                          "path": "/data/*/data_chamado_fmt"
+                        },
+                        {
+                          "id": "4bd43e6e-d94d-45ef-a54a-2715f726fbfe",
+                          "name": "data_ultima_interacao",
+                          "children": [],
+                          "kind": "field",
+                          "fieldType": "datetime",
+                          "nullable": true,
+                          "path": "/data/*/data_ultima_interacao"
+                        },
+                        {
+                          "id": "bfb95c0e-1a4e-4fa8-9eba-7e1a27a69589",
+                          "name": "minutos_espera",
+                          "children": [],
+                          "kind": "field",
+                          "fieldType": "integer",
+                          "nullable": true,
+                          "path": "/data/*/minutos_espera"
+                        },
+                        {
+                          "id": "1a9ffddc-dbb1-483c-aa65-119de0eefcd1",
+                          "name": "nome_responsavel",
+                          "children": [],
+                          "kind": "field",
+                          "fieldType": "string",
+                          "nullable": true,
+                          "path": "/data/*/nome_responsavel"
+                        },
+                        {
+                          "id": "122c5582-e528-409b-87ac-71e9a58b7265",
+                          "name": "id_responsavel",
+                          "children": [],
+                          "kind": "field",
+                          "fieldType": "integer",
+                          "nullable": true,
+                          "path": "/data/*/id_responsavel"
+                        },
+                        {
+                          "id": "cd942949-0161-4da0-b593-a606436db3f9",
+                          "name": "email_nao_lido_chamado",
+                          "children": [],
+                          "kind": "field",
+                          "fieldType": "integer",
+                          "nullable": true,
+                          "path": "/data/*/email_nao_lido_chamado"
+                        },
+                        {
+                          "id": "397b5f38-81eb-4d79-927a-4053fe5297cf",
+                          "name": "entrega_chamado",
+                          "children": [],
+                          "kind": "field",
+                          "fieldType": "integer",
+                          "nullable": true,
+                          "path": "/data/*/entrega_chamado"
+                        },
+                        {
+                          "id": "ae6f770d-ccca-4e08-9735-3de202049f7b",
+                          "name": "equip_pendentes",
+                          "children": [],
+                          "kind": "field",
+                          "fieldType": "integer",
+                          "nullable": true,
+                          "path": "/data/*/equip_pendentes"
+                        }
+                      ],
+                      "kind": "list",
+                      "fieldType": "list",
+                      "nullable": false,
+                      "path": "/data"
+                    },
+                    {
+                      "id": "5043d2c4-4bbb-4262-9da2-05e30915cd6e",
+                      "name": "page",
+                      "children": [],
+                      "kind": "field",
+                      "fieldType": "integer",
+                      "nullable": true,
+                      "path": "/page"
+                    },
+                    {
+                      "id": "41278295-8ad9-4290-90d1-d847ab6fd9e3",
+                      "name": "page_size",
+                      "children": [],
+                      "kind": "field",
+                      "fieldType": "integer",
+                      "nullable": true,
+                      "path": "/page_size"
+                    },
+                    {
+                      "id": "abca80c3-20ab-4203-80e2-500036fd7321",
+                      "name": "total_pages",
+                      "children": [],
+                      "kind": "field",
+                      "fieldType": "integer",
+                      "nullable": true,
+                      "path": "/total_pages"
+                    },
+                    {
+                      "id": "0da2b4a3-f0a2-425a-bab4-62cbcd962b10",
+                      "name": "total",
+                      "children": [],
+                      "kind": "field",
+                      "fieldType": "integer",
+                      "nullable": true,
+                      "path": "/total"
+                    },
+                    {
+                      "id": "7fe7d12a-e3bf-46f7-bf90-9ee49824dde5",
+                      "name": "has_more",
+                      "children": [],
+                      "kind": "field",
+                      "fieldType": "boolean",
+                      "nullable": true,
+                      "path": "/has_more"
+                    }
+                  ],
+                  "kind": "object",
+                  "fieldType": "object",
+                  "nullable": false,
+                  "path": ""
+                },
+                "version": 1
+              },
+              "timeoutMs": null
+            },
+            {
+              "id": "4d696482-4a20-46ee-8514-d5b12febdbff",
+              "name": "Encerrados",
+              "apiVersion": 1,
+              "body": {
+                "kind": "none",
+                "content": ""
+              },
+              "credentials": "omit",
+              "headers": [],
+              "method": "GET",
+              "path": "sigat/painel-encerrados",
+              "query": [
+                {
+                  "id": "e79f3622-241f-443a-be58-6b9755415990",
+                  "name": "q",
+                  "value": "",
+                  "enabled": false
+                }
+              ],
+              "responseSchema": {
+                "root": {
+                  "id": "d5548b15-19a3-4b92-9733-9aea464d7f08",
+                  "name": "Response",
+                  "children": [
+                    {
+                      "id": "21fdae39-3e6f-4bfe-b185-8bb976f752d0",
+                      "name": "success",
+                      "children": [],
+                      "kind": "field",
+                      "fieldType": "boolean",
+                      "nullable": false,
+                      "path": "/success"
+                    },
+                    {
+                      "id": "445593c4-5dee-466d-965a-110919527338",
+                      "name": "data",
+                      "children": [
+                        {
+                          "id": "222019ed-0bac-4a34-b7ec-fbb5ff14518b",
+                          "name": "id_chamado",
+                          "children": [],
+                          "kind": "field",
+                          "fieldType": "integer",
+                          "nullable": true,
+                          "path": "/data/*/id_chamado"
+                        },
+                        {
+                          "id": "569b0aab-7a28-47fa-9149-321fab7b2d32",
+                          "name": "ticket_chamado",
+                          "children": [],
+                          "kind": "field",
+                          "fieldType": "string",
+                          "nullable": true,
+                          "path": "/data/*/ticket_chamado"
+                        },
+                        {
+                          "id": "5168919e-46cf-43b0-bfe5-7945e30834e5",
+                          "name": "nome_solicitante_chamado",
+                          "children": [],
+                          "kind": "field",
+                          "fieldType": "string",
+                          "nullable": true,
+                          "path": "/data/*/nome_solicitante_chamado"
+                        },
+                        {
+                          "id": "a9b47e4f-709e-4987-82d7-af7a4d79d6c9",
+                          "name": "nome_local",
+                          "children": [],
+                          "kind": "field",
+                          "fieldType": "string",
+                          "nullable": true,
+                          "path": "/data/*/nome_local"
+                        },
+                        {
+                          "id": "808bbe03-a0ea-43b7-91e7-f0c50913c1c5",
+                          "name": "nome_fila",
+                          "children": [],
+                          "kind": "field",
+                          "fieldType": "string",
+                          "nullable": true,
+                          "path": "/data/*/nome_fila"
+                        },
+                        {
+                          "id": "13f42c3f-9aff-434e-8736-9616c341f423",
+                          "name": "data_encerramento_chamado",
+                          "children": [],
+                          "kind": "field",
+                          "fieldType": "datetime",
+                          "nullable": true,
+                          "path": "/data/*/data_encerramento_chamado"
+                        },
+                        {
+                          "id": "c53d02f1-45c5-4870-ad9f-426be463df34",
+                          "name": "data_encerramento_fmt",
+                          "children": [],
+                          "kind": "field",
+                          "fieldType": "string",
+                          "nullable": true,
+                          "path": "/data/*/data_encerramento_fmt"
+                        },
+                        {
+                          "id": "d5e79448-ee63-451d-b582-be7435e52079",
+                          "name": "nome_usuario",
+                          "children": [],
+                          "kind": "field",
+                          "fieldType": "string",
+                          "nullable": true,
+                          "path": "/data/*/nome_usuario"
+                        }
+                      ],
+                      "kind": "list",
+                      "fieldType": "list",
+                      "nullable": false,
+                      "path": "/data"
+                    },
+                    {
+                      "id": "5eb90420-6f79-4e54-9455-4e1bb99d05bb",
+                      "name": "page",
+                      "children": [],
+                      "kind": "field",
+                      "fieldType": "integer",
+                      "nullable": true,
+                      "path": "/page"
+                    },
+                    {
+                      "id": "4d3823d3-aff6-418f-a9e9-1257509e0d60",
+                      "name": "page_size",
+                      "children": [],
+                      "kind": "field",
+                      "fieldType": "integer",
+                      "nullable": true,
+                      "path": "/page_size"
+                    },
+                    {
+                      "id": "a835fa2c-334d-46ae-9890-315f13375d65",
+                      "name": "total_pages",
+                      "children": [],
+                      "kind": "field",
+                      "fieldType": "integer",
+                      "nullable": true,
+                      "path": "/total_pages"
+                    },
+                    {
+                      "id": "c8f9866f-3367-4da7-ab5f-65908c0644bb",
+                      "name": "total",
+                      "children": [],
+                      "kind": "field",
+                      "fieldType": "integer",
+                      "nullable": true,
+                      "path": "/total"
+                    },
+                    {
+                      "id": "b093bfc5-c30a-42fe-87fd-39d80a46d680",
+                      "name": "has_more",
+                      "children": [],
+                      "kind": "field",
+                      "fieldType": "boolean",
+                      "nullable": true,
+                      "path": "/has_more"
+                    }
+                  ],
+                  "kind": "object",
+                  "fieldType": "object",
+                  "nullable": false,
+                  "path": ""
+                },
+                "version": 1
+              },
+              "timeoutMs": null
+            },
+            {
+              "id": "7d4a73f4-5c2b-4e8b-a5ef-e197b271334d",
+              "name": "Triagem",
+              "apiVersion": 1,
+              "body": {
+                "kind": "none",
+                "content": ""
+              },
+              "credentials": "omit",
+              "headers": [],
+              "method": "GET",
+              "path": "otobo/triagem",
+              "query": [
+                {
+                  "id": "22aaefba-24a8-4519-b9fc-4d11e63a7ab2",
+                  "name": "q",
+                  "value": "",
+                  "enabled": false
+                }
+              ],
+              "responseSchema": {
+                "root": {
+                  "id": "c4380a69-6574-4cc7-b9a6-dc082ec63ca7",
+                  "name": "Response",
+                  "children": [
+                    {
+                      "id": "52cc3b32-bedc-4d8b-bca8-bcd82e2656cc",
+                      "name": "success",
+                      "children": [],
+                      "kind": "field",
+                      "fieldType": "boolean",
+                      "nullable": false,
+                      "path": "/success"
+                    },
+                    {
+                      "id": "ffc5e213-9d98-412b-aba5-e3f609552bef",
+                      "name": "data",
+                      "children": [
+                        {
+                          "id": "f799f72d-029a-4665-a100-e3c7c506d0fa",
+                          "name": "id",
+                          "children": [],
+                          "kind": "field",
+                          "fieldType": "integer",
+                          "nullable": true,
+                          "path": "/data/*/id"
+                        },
+                        {
+                          "id": "27cee77a-7f97-47d2-a083-83752f39ebe6",
+                          "name": "tn",
+                          "children": [],
+                          "kind": "field",
+                          "fieldType": "string",
+                          "nullable": true,
+                          "path": "/data/*/tn"
+                        },
+                        {
+                          "id": "2452a8a2-e65e-41f5-8fbd-02e5c055e879",
+                          "name": "ticket",
+                          "children": [],
+                          "kind": "field",
+                          "fieldType": "string",
+                          "nullable": true,
+                          "path": "/data/*/ticket"
+                        },
+                        {
+                          "id": "aed3aab2-f859-43ea-84e7-149c78eec183",
+                          "name": "create_time",
+                          "children": [],
+                          "kind": "field",
+                          "fieldType": "datetime",
+                          "nullable": true,
+                          "path": "/data/*/create_time"
+                        },
+                        {
+                          "id": "d8dba30a-c18d-4baf-af33-dfe844c86830",
+                          "name": "create_time_fmt",
+                          "children": [],
+                          "kind": "field",
+                          "fieldType": "string",
+                          "nullable": true,
+                          "path": "/data/*/create_time_fmt"
+                        },
+                        {
+                          "id": "07651920-a6f0-429d-9e6d-78790282b7ff",
+                          "name": "title",
+                          "children": [],
+                          "kind": "field",
+                          "fieldType": "string",
+                          "nullable": true,
+                          "path": "/data/*/title"
+                        },
+                        {
+                          "id": "6317faf0-d76b-49d8-9568-6d179891c422",
+                          "name": "queue_id",
+                          "children": [],
+                          "kind": "field",
+                          "fieldType": "integer",
+                          "nullable": true,
+                          "path": "/data/*/queue_id"
+                        },
+                        {
+                          "id": "ab98859e-1180-420c-b648-ccede5f0e04e",
+                          "name": "id_fila_sigat",
+                          "children": [],
+                          "kind": "field",
+                          "fieldType": "integer",
+                          "nullable": true,
+                          "path": "/data/*/id_fila_sigat"
+                        },
+                        {
+                          "id": "1b5e0842-303e-49bc-b8c4-5674318d41db",
+                          "name": "a_from",
+                          "children": [],
+                          "kind": "field",
+                          "fieldType": "string",
+                          "nullable": true,
+                          "path": "/data/*/a_from"
+                        }
+                      ],
+                      "kind": "list",
+                      "fieldType": "list",
+                      "nullable": false,
+                      "path": "/data"
+                    },
+                    {
+                      "id": "6738c377-2a8e-40bc-a438-552411d1a4f8",
+                      "name": "page",
+                      "children": [],
+                      "kind": "field",
+                      "fieldType": "integer",
+                      "nullable": true,
+                      "path": "/page"
+                    },
+                    {
+                      "id": "7c1721ad-9ffa-40f5-89b4-f7c36c4dc2f0",
+                      "name": "page_size",
+                      "children": [],
+                      "kind": "field",
+                      "fieldType": "integer",
+                      "nullable": true,
+                      "path": "/page_size"
+                    },
+                    {
+                      "id": "195f56b3-bb6e-4f72-a711-ca6eb79e0ad9",
+                      "name": "total_pages",
+                      "children": [],
+                      "kind": "field",
+                      "fieldType": "integer",
+                      "nullable": true,
+                      "path": "/total_pages"
+                    },
+                    {
+                      "id": "6018ca1a-5519-4a96-a407-e3c70525a086",
+                      "name": "total",
+                      "children": [],
+                      "kind": "field",
+                      "fieldType": "integer",
+                      "nullable": true,
+                      "path": "/total"
+                    },
+                    {
+                      "id": "ba82c03d-43ec-4f5e-980c-e7a268e509d5",
+                      "name": "has_more",
+                      "children": [],
+                      "kind": "field",
+                      "fieldType": "boolean",
+                      "nullable": true,
+                      "path": "/has_more"
+                    }
+                  ],
+                  "kind": "object",
+                  "fieldType": "object",
+                  "nullable": false,
+                  "path": ""
+                },
+                "version": 1
+              },
+              "timeoutMs": null
+            }
+          ],
+          "schemaVersion": 1,
+          "timeoutMs": 30000
+        }
+      },
+      "events": {
+        "OnComplete": null,
+        "OnError": null,
+        "OnRequest": null,
+        "OnSuccess": null
+      },
+      "children": []
+    }
+  ]
+}

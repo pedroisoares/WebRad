@@ -1,0 +1,1179 @@
+{
+  "formatVersion": 2,
+  "id": "3755d9a1-991d-4861-8878-42148ee446dc",
+  "name": "Sigat2",
+  "entryPage": "041c3057-162f-46dc-a973-a739f16ed095",
+  "pages": [
+    {
+      "id": "041c3057-162f-46dc-a973-a739f16ed095",
+      "name": "index",
+      "pageFile": "pages/index.wrpage",
+      "generatedFile": "pages/index.generated.ts",
+      "codeFile": "pages/index.ts"
+    },
+    {
+      "id": "07c4cf10-40dc-4669-8dbc-52672053d7ff",
+      "name": "Login",
+      "pageFile": "pages/Login.wrpage",
+      "generatedFile": "pages/Login.generated.ts",
+      "codeFile": "pages/Login.ts"
+    },
+    {
+      "id": "025ac9e4-149f-49f4-920d-ef0c2c79b1de",
+      "name": "Chamado",
+      "pageFile": "pages/Chamado.wrpage",
+      "generatedFile": "pages/Chamado.generated.ts",
+      "codeFile": "pages/Chamado.ts"
+    },
+    {
+      "id": "d9263d69-8b47-4f48-b9d1-15772d47e3ec",
+      "name": "Triagem",
+      "pageFile": "pages/Triagem.wrpage",
+      "generatedFile": "pages/Triagem.generated.ts",
+      "codeFile": "pages/Triagem.ts"
+    },
+    {
+      "id": "d1902eee-9fa1-49bf-b84e-ac584e5b5218",
+      "name": "Equipamento",
+      "pageFile": "pages/Equipamento.wrpage",
+      "generatedFile": "pages/Equipamento.generated.ts",
+      "codeFile": "pages/Equipamento.ts"
+    },
+    {
+      "id": "8e0c0a88-4b7c-486f-bfab-a8967e99d80a",
+      "name": "Busca",
+      "pageFile": "pages/Busca.wrpage",
+      "generatedFile": "pages/Busca.generated.ts",
+      "codeFile": "pages/Busca.ts"
+    },
+    {
+      "id": "b136c031-ef8a-487c-8028-6d16b1c298d1",
+      "name": "Inserviveis",
+      "pageFile": "pages/Inserviveis.wrpage",
+      "generatedFile": "pages/Inserviveis.generated.ts",
+      "codeFile": "pages/Inserviveis.ts"
+    },
+    {
+      "id": "2f9e6a22-ccc8-4037-bbb8-443ab2b390b8",
+      "name": "Remessa",
+      "pageFile": "pages/Remessa.wrpage",
+      "generatedFile": "pages/Remessa.generated.ts",
+      "codeFile": "pages/Remessa.ts"
+    },
+    {
+      "id": "3c712b35-e309-41e4-9fc0-cbce5b544dff",
+      "name": "Admin",
+      "pageFile": "pages/Admin.wrpage",
+      "generatedFile": "pages/Admin.generated.ts",
+      "codeFile": "pages/Admin.ts"
+    },
+    {
+      "id": "f3027957-0b4a-4809-9110-4c521d6d58f7",
+      "name": "Usuario",
+      "pageFile": "pages/Usuario.wrpage",
+      "generatedFile": "pages/Usuario.generated.ts",
+      "codeFile": "pages/Usuario.ts"
+    },
+    {
+      "id": "7c3d3849-217f-4c7c-9c35-304129c1c4a8",
+      "name": "Local",
+      "pageFile": "pages/Local.wrpage",
+      "generatedFile": "pages/Local.generated.ts",
+      "codeFile": "pages/Local.ts"
+    },
+    {
+      "id": "f781d4b2-8fd9-4cb0-8263-108afe7d484d",
+      "name": "Negado",
+      "pageFile": "pages/Negado.wrpage",
+      "generatedFile": "pages/Negado.generated.ts",
+      "codeFile": "pages/Negado.ts"
+    },
+    {
+      "id": "3755d9a1-991d-4861-8878-42148ee446dc:404:page",
+      "name": "404",
+      "pageFile": "pages/404.wrpage",
+      "generatedFile": "pages/404.generated.ts",
+      "codeFile": "pages/404.ts"
+    }
+  ],
+  "reusableElements": [],
+  "menus": [],
+  "styles": [
+    {
+      "id": "3755d9a1-991d-4861-8878-42148ee446dc:default-style:WebPage",
+      "name": "Default Page",
+      "componentType": "WebPage",
+      "preset": "default",
+      "states": {
+        "base": {
+          "backgroundColor": "var(--wr-theme-background)",
+          "borderRadius": {
+            "value": 6,
+            "unit": "px"
+          },
+          "fontFamily": "roboto",
+          "textColor": "var(--wr-theme-text)"
+        },
+        "hover": {},
+        "focus": {},
+        "active": {},
+        "disabled": {}
+      }
+    },
+    {
+      "id": "3755d9a1-991d-4861-8878-42148ee446dc:default-style:WebPanel",
+      "name": "Default Panel",
+      "componentType": "WebPanel",
+      "preset": "default",
+      "states": {
+        "base": {
+          "backgroundColor": "var(--wr-theme-surface)",
+          "borderColor": "var(--wr-theme-border)",
+          "borderRadius": {
+            "value": 8,
+            "unit": "px"
+          },
+          "borderStyle": "solid",
+          "borderWidth": {
+            "value": 1,
+            "unit": "px"
+          },
+          "boxShadow": "none",
+          "fontFamily": "roboto",
+          "panelProgressColor": "var(--wr-theme-primary)",
+          "panelProgressThickness": 3,
+          "panelProgressTrackColor": "var(--wr-theme-border)",
+          "transitionDuration": 200,
+          "transitionProperty": "all",
+          "transitionTimingFunction": "easeOut"
+        },
+        "hover": {
+          "boxShadow": "none"
+        },
+        "focus": {},
+        "active": {},
+        "disabled": {}
+      }
+    },
+    {
+      "id": "3755d9a1-991d-4861-8878-42148ee446dc:default-style:WebPopup",
+      "name": "Default Popup",
+      "componentType": "WebPopup",
+      "preset": "default",
+      "states": {
+        "base": {
+          "backgroundColor": "var(--wr-theme-surface)",
+          "borderColor": "var(--wr-theme-border)",
+          "borderRadius": {
+            "value": 6,
+            "unit": "px"
+          },
+          "borderStyle": "solid",
+          "borderWidth": {
+            "value": 1,
+            "unit": "px"
+          },
+          "boxShadow": "none",
+          "fontFamily": "roboto",
+          "textColor": "var(--wr-theme-text)",
+          "transitionDuration": 200,
+          "transitionProperty": "all",
+          "transitionTimingFunction": "easeOut"
+        },
+        "hover": {},
+        "focus": {},
+        "active": {},
+        "disabled": {}
+      }
+    },
+    {
+      "id": "3755d9a1-991d-4861-8878-42148ee446dc:default-style:WebLabel",
+      "name": "Default Label",
+      "componentType": "WebLabel",
+      "preset": "default",
+      "states": {
+        "base": {
+          "borderRadius": {
+            "value": 6,
+            "unit": "px"
+          },
+          "fontFamily": "roboto",
+          "fontSize": {
+            "value": 14,
+            "unit": "px"
+          },
+          "fontWeight": "semibold",
+          "lineHeight": {
+            "value": 20,
+            "unit": "px"
+          },
+          "textColor": "var(--wr-theme-heading)"
+        },
+        "hover": {},
+        "focus": {},
+        "active": {},
+        "disabled": {}
+      }
+    },
+    {
+      "id": "3755d9a1-991d-4861-8878-42148ee446dc:default-style:WebEdit",
+      "name": "Default Edit",
+      "componentType": "WebEdit",
+      "preset": "default",
+      "states": {
+        "base": {
+          "backgroundColor": "var(--wr-theme-input)",
+          "borderColor": "var(--wr-theme-border)",
+          "borderRadius": {
+            "value": 6,
+            "unit": "px"
+          },
+          "borderStyle": "solid",
+          "borderWidth": {
+            "value": 1,
+            "unit": "px"
+          },
+          "boxShadow": "none",
+          "fontFamily": "roboto",
+          "textColor": "var(--wr-theme-text)",
+          "transitionDuration": 200,
+          "transitionProperty": "all",
+          "transitionTimingFunction": "easeOut"
+        },
+        "hover": {
+          "boxShadow": "none"
+        },
+        "focus": {
+          "boxShadow": "none",
+          "ringColor": "var(--wr-theme-focus)",
+          "ringOffsetColor": "var(--wr-theme-surface)",
+          "ringOffsetWidth": {
+            "value": 2,
+            "unit": "px"
+          },
+          "ringWidth": {
+            "value": 2,
+            "unit": "px"
+          }
+        },
+        "active": {},
+        "disabled": {
+          "backgroundColor": "var(--wr-theme-disabled-surface)",
+          "borderColor": "var(--wr-theme-border)",
+          "boxShadow": "none",
+          "cursor": "not-allowed",
+          "textColor": "var(--wr-theme-disabled-text)"
+        }
+      }
+    },
+    {
+      "id": "3755d9a1-991d-4861-8878-42148ee446dc:default-style:WebTextArea",
+      "name": "Default Text Area",
+      "componentType": "WebTextArea",
+      "preset": "default",
+      "states": {
+        "base": {
+          "backgroundColor": "var(--wr-theme-input)",
+          "borderColor": "var(--wr-theme-border)",
+          "borderRadius": {
+            "value": 6,
+            "unit": "px"
+          },
+          "borderStyle": "solid",
+          "borderWidth": {
+            "value": 1,
+            "unit": "px"
+          },
+          "boxShadow": "none",
+          "fontFamily": "roboto",
+          "textColor": "var(--wr-theme-text)",
+          "transitionDuration": 200,
+          "transitionProperty": "all",
+          "transitionTimingFunction": "easeOut"
+        },
+        "hover": {
+          "boxShadow": "none"
+        },
+        "focus": {
+          "boxShadow": "none",
+          "ringColor": "var(--wr-theme-focus)",
+          "ringOffsetColor": "var(--wr-theme-surface)",
+          "ringOffsetWidth": {
+            "value": 2,
+            "unit": "px"
+          },
+          "ringWidth": {
+            "value": 2,
+            "unit": "px"
+          }
+        },
+        "active": {},
+        "disabled": {
+          "backgroundColor": "var(--wr-theme-disabled-surface)",
+          "borderColor": "var(--wr-theme-border)",
+          "boxShadow": "none",
+          "cursor": "not-allowed",
+          "textColor": "var(--wr-theme-disabled-text)"
+        }
+      }
+    },
+    {
+      "id": "3755d9a1-991d-4861-8878-42148ee446dc:default-style:WebButton",
+      "name": "Default Button",
+      "componentType": "WebButton",
+      "preset": "default",
+      "states": {
+        "base": {
+          "justifyContent": "start",
+          "backgroundColor": "var(--wr-theme-primary)",
+          "borderColor": "var(--wr-theme-border)",
+          "borderRadius": {
+            "value": 8,
+            "unit": "px"
+          },
+          "borderStyle": "solid",
+          "borderWidth": {
+            "value": 1,
+            "unit": "px"
+          },
+          "boxShadow": "none",
+          "buttonContentMode": "text-icon",
+          "buttonIconPosition": "left",
+          "buttonIconSize": {
+            "value": 27,
+            "unit": "px"
+          },
+          "cursor": "pointer",
+          "fontFamily": "roboto",
+          "fontWeight": "medium",
+          "textAlign": "left",
+          "textColor": "var(--wr-theme-on-primary)",
+          "transitionDuration": 200,
+          "transitionProperty": "all",
+          "transitionTimingFunction": "easeOut"
+        },
+        "hover": {
+          "backgroundColor": "var(--wr-theme-primary-hover)",
+          "borderColor": "var(--wr-theme-border)",
+          "boxShadow": "none",
+          "translateY": {
+            "value": -1,
+            "unit": "px"
+          }
+        },
+        "focus": {
+          "ringColor": "var(--wr-theme-focus)",
+          "ringOffsetColor": "var(--wr-theme-surface)",
+          "ringOffsetWidth": {
+            "value": 2,
+            "unit": "px"
+          },
+          "ringWidth": {
+            "value": 2,
+            "unit": "px"
+          }
+        },
+        "active": {
+          "backgroundColor": "var(--wr-theme-primary-active)",
+          "boxShadow": "none",
+          "translateY": {
+            "value": 0,
+            "unit": "px"
+          }
+        },
+        "disabled": {
+          "backgroundColor": "var(--wr-theme-disabled-surface)",
+          "borderColor": "var(--wr-theme-border)",
+          "boxShadow": "none",
+          "cursor": "not-allowed",
+          "textColor": "var(--wr-theme-disabled-text)"
+        }
+      }
+    },
+    {
+      "id": "3755d9a1-991d-4861-8878-42148ee446dc:default-style:WebRepeatingGroup",
+      "name": "Default Repeating Group",
+      "componentType": "WebRepeatingGroup",
+      "preset": "default",
+      "states": {
+        "base": {
+          "backgroundColor": "var(--wr-theme-surface)",
+          "borderColor": "var(--wr-theme-border)",
+          "borderRadius": {
+            "value": 6,
+            "unit": "px"
+          },
+          "borderStyle": "solid",
+          "borderWidth": {
+            "value": 1,
+            "unit": "px"
+          },
+          "fontFamily": "roboto",
+          "fontSize": {
+            "value": 14,
+            "unit": "px"
+          },
+          "textColor": "var(--wr-theme-heading)"
+        },
+        "hover": {},
+        "focus": {},
+        "active": {},
+        "disabled": {}
+      }
+    },
+    {
+      "id": "3755d9a1-991d-4861-8878-42148ee446dc:default-style:WebDataGrid",
+      "name": "Default Data Grid",
+      "componentType": "WebDataGrid",
+      "preset": "default",
+      "states": {
+        "base": {
+          "backgroundColor": "var(--wr-theme-surface)",
+          "borderColor": "var(--wr-theme-border)",
+          "borderRadius": {
+            "value": 6,
+            "unit": "px"
+          },
+          "borderStyle": "solid",
+          "borderWidth": {
+            "value": 1,
+            "unit": "px"
+          },
+          "boxShadow": "none",
+          "dataGridButtonBackgroundColor": "var(--wr-theme-surface-muted)",
+          "dataGridButtonBorderColor": "var(--wr-theme-border)",
+          "dataGridButtonBorderRadius": {
+            "value": 8,
+            "unit": "px"
+          },
+          "dataGridButtonBorderStyle": "solid",
+          "dataGridButtonBorderWidth": {
+            "value": 1,
+            "unit": "px"
+          },
+          "dataGridButtonContentMode": "text-icon",
+          "dataGridButtonFontWeight": "semibold",
+          "dataGridButtonIconColor": "current",
+          "dataGridButtonIconPosition": "left",
+          "dataGridButtonIconSize": {
+            "value": 16,
+            "unit": "px"
+          },
+          "dataGridButtonPaddingX": {
+            "value": 8,
+            "unit": "px"
+          },
+          "dataGridButtonPaddingY": {
+            "value": 4,
+            "unit": "px"
+          },
+          "dataGridButtonTextColor": "var(--wr-theme-primary)",
+          "dataGridCheckboxAccentColor": "var(--wr-theme-primary)",
+          "dataGridCheckboxFontWeight": "medium",
+          "dataGridCheckboxGap": {
+            "value": 6,
+            "unit": "px"
+          },
+          "dataGridCheckboxSize": {
+            "value": 16,
+            "unit": "px"
+          },
+          "dataGridCheckboxTextColor": "var(--wr-theme-heading)",
+          "dataGridFooterBackgroundColor": "var(--wr-theme-surface-end)",
+          "dataGridFooterBorderColor": "var(--wr-theme-border)",
+          "dataGridFooterFontWeight": "medium",
+          "dataGridFooterTextColor": "var(--wr-theme-heading)",
+          "dataGridHeaderBackgroundColor": "var(--wr-theme-surface-muted)",
+          "dataGridHeaderBorderColor": "var(--wr-theme-border)",
+          "dataGridHeaderFontWeight": "semibold",
+          "dataGridHeaderTextColor": "var(--wr-theme-primary)",
+          "fontFamily": "roboto",
+          "fontSize": {
+            "value": 14,
+            "unit": "px"
+          },
+          "textColor": "var(--wr-theme-text)",
+          "toggleCheckedColor": "var(--wr-theme-primary)",
+          "toggleThumbColor": "var(--wr-theme-control-thumb)"
+        },
+        "hover": {},
+        "focus": {},
+        "active": {},
+        "disabled": {}
+      }
+    },
+    {
+      "id": "3755d9a1-991d-4861-8878-42148ee446dc:default-style:WebCheckBox",
+      "name": "Default Check Box",
+      "componentType": "WebCheckBox",
+      "preset": "default",
+      "states": {
+        "base": {
+          "borderRadius": {
+            "value": 6,
+            "unit": "px"
+          },
+          "cursor": "pointer",
+          "fontFamily": "roboto",
+          "fontSize": {
+            "value": 14,
+            "unit": "px"
+          },
+          "fontWeight": "medium",
+          "textColor": "var(--wr-theme-heading)",
+          "transitionDuration": 200,
+          "transitionProperty": "colors",
+          "transitionTimingFunction": "easeOut"
+        },
+        "hover": {},
+        "focus": {
+          "ringColor": "var(--wr-theme-focus)",
+          "ringOffsetColor": "var(--wr-theme-surface)",
+          "ringOffsetWidth": {
+            "value": 2,
+            "unit": "px"
+          },
+          "ringWidth": {
+            "value": 2,
+            "unit": "px"
+          }
+        },
+        "active": {},
+        "disabled": {
+          "cursor": "not-allowed",
+          "textColor": "var(--wr-theme-disabled-text)"
+        }
+      }
+    },
+    {
+      "id": "3755d9a1-991d-4861-8878-42148ee446dc:default-style:WebToggle",
+      "name": "Default Toggle",
+      "componentType": "WebToggle",
+      "preset": "default",
+      "states": {
+        "base": {
+          "backgroundColor": "var(--wr-theme-surface-muted)",
+          "borderColor": "var(--wr-theme-border)",
+          "borderRadius": {
+            "value": 6,
+            "unit": "px"
+          },
+          "borderStyle": "solid",
+          "borderWidth": {
+            "value": 1,
+            "unit": "px"
+          },
+          "boxShadow": "none",
+          "cursor": "pointer",
+          "fontFamily": "roboto",
+          "toggleCheckedColor": "var(--wr-theme-primary)",
+          "toggleThumbColor": "var(--wr-theme-control-thumb)",
+          "transitionDuration": 200,
+          "transitionProperty": "all",
+          "transitionTimingFunction": "easeOut"
+        },
+        "hover": {
+          "boxShadow": "none"
+        },
+        "focus": {
+          "ringColor": "var(--wr-theme-focus)",
+          "ringOffsetColor": "var(--wr-theme-surface)",
+          "ringOffsetWidth": {
+            "value": 2,
+            "unit": "px"
+          },
+          "ringWidth": {
+            "value": 2,
+            "unit": "px"
+          }
+        },
+        "active": {
+          "boxShadow": "none"
+        },
+        "disabled": {
+          "boxShadow": "none",
+          "cursor": "not-allowed",
+          "opacity": 60,
+          "toggleCheckedColor": "#94a3b8",
+          "toggleThumbColor": "var(--wr-theme-control-thumb)"
+        }
+      }
+    },
+    {
+      "id": "3755d9a1-991d-4861-8878-42148ee446dc:default-style:WebIcon",
+      "name": "Default Icons",
+      "componentType": "WebIcon",
+      "preset": "default",
+      "states": {
+        "base": {
+          "borderRadius": {
+            "value": 6,
+            "unit": "px"
+          },
+          "borderWidth": {
+            "value": 0,
+            "unit": "px"
+          },
+          "fontFamily": "roboto",
+          "textColor": "var(--wr-theme-primary)"
+        },
+        "hover": {},
+        "focus": {},
+        "active": {},
+        "disabled": {
+          "cursor": "not-allowed",
+          "opacity": 60
+        }
+      }
+    },
+    {
+      "id": "3755d9a1-991d-4861-8878-42148ee446dc:default-style:WebMenu",
+      "name": "Default Menu",
+      "componentType": "WebMenu",
+      "preset": "default",
+      "states": {
+        "base": {
+          "borderRadius": {
+            "value": 6,
+            "unit": "px"
+          },
+          "borderWidth": {
+            "value": 0,
+            "unit": "px"
+          },
+          "boxShadow": "none",
+          "fontFamily": "roboto"
+        },
+        "hover": {},
+        "focus": {},
+        "active": {},
+        "disabled": {
+          "opacity": 60
+        }
+      }
+    },
+    {
+      "id": "3755d9a1-991d-4861-8878-42148ee446dc:default-style:WebProgressBar",
+      "name": "Default ProgressBar",
+      "componentType": "WebProgressBar",
+      "preset": "default",
+      "states": {
+        "base": {
+          "backgroundColor": "var(--wr-theme-surface)",
+          "borderColor": "var(--wr-theme-border)",
+          "borderRadius": {
+            "value": 6,
+            "unit": "px"
+          },
+          "borderStyle": "solid",
+          "borderWidth": {
+            "value": 1,
+            "unit": "px"
+          },
+          "fontFamily": "roboto",
+          "fontSize": {
+            "value": 12,
+            "unit": "px"
+          },
+          "fontWeight": "semibold",
+          "progressColor": "var(--wr-theme-primary)",
+          "progressThickness": 8,
+          "progressTrackColor": "var(--wr-theme-border)",
+          "textColor": "var(--wr-theme-text)"
+        },
+        "hover": {},
+        "focus": {},
+        "active": {},
+        "disabled": {
+          "opacity": 60,
+          "progressColor": "#94a3b8"
+        }
+      }
+    },
+    {
+      "id": "3755d9a1-991d-4861-8878-42148ee446dc:default-style:WebCharts",
+      "name": "Default Charts",
+      "componentType": "WebCharts",
+      "preset": "default",
+      "states": {
+        "base": {
+          "backgroundColor": "var(--wr-theme-surface)",
+          "borderColor": "var(--wr-theme-border)",
+          "borderRadius": {
+            "value": 6,
+            "unit": "px"
+          },
+          "borderStyle": "solid",
+          "borderWidth": {
+            "value": 1,
+            "unit": "px"
+          },
+          "boxShadow": "none",
+          "fontFamily": "roboto",
+          "fontSize": {
+            "value": 12,
+            "unit": "px"
+          },
+          "textColor": "var(--wr-theme-text)"
+        },
+        "hover": {},
+        "focus": {},
+        "active": {},
+        "disabled": {
+          "opacity": 60
+        }
+      }
+    },
+    {
+      "id": "3755d9a1-991d-4861-8878-42148ee446dc:default-style:WebComboBox",
+      "name": "Default Combo Box",
+      "componentType": "WebComboBox",
+      "preset": "default",
+      "states": {
+        "base": {
+          "backgroundColor": "var(--wr-theme-input)",
+          "borderColor": "var(--wr-theme-border)",
+          "borderRadius": {
+            "value": 6,
+            "unit": "px"
+          },
+          "borderStyle": "solid",
+          "borderWidth": {
+            "value": 1,
+            "unit": "px"
+          },
+          "boxShadow": "none",
+          "fontFamily": "roboto",
+          "textColor": "var(--wr-theme-text)",
+          "transitionDuration": 200,
+          "transitionProperty": "all",
+          "transitionTimingFunction": "easeOut"
+        },
+        "hover": {
+          "boxShadow": "none"
+        },
+        "focus": {
+          "boxShadow": "none",
+          "ringColor": "var(--wr-theme-focus)",
+          "ringOffsetColor": "var(--wr-theme-surface)",
+          "ringOffsetWidth": {
+            "value": 2,
+            "unit": "px"
+          },
+          "ringWidth": {
+            "value": 2,
+            "unit": "px"
+          }
+        },
+        "active": {},
+        "disabled": {
+          "backgroundColor": "var(--wr-theme-disabled-surface)",
+          "borderColor": "var(--wr-theme-border)",
+          "boxShadow": "none",
+          "cursor": "not-allowed",
+          "textColor": "var(--wr-theme-disabled-text)"
+        }
+      }
+    },
+    {
+      "id": "3755d9a1-991d-4861-8878-42148ee446dc:default-style:WebImage",
+      "name": "Default Image",
+      "componentType": "WebImage",
+      "preset": "default",
+      "states": {
+        "base": {
+          "backgroundColor": "var(--wr-theme-surface-end)",
+          "borderColor": "var(--wr-theme-border)",
+          "borderRadius": {
+            "value": 6,
+            "unit": "px"
+          },
+          "borderStyle": "solid",
+          "borderWidth": {
+            "value": 1,
+            "unit": "px"
+          },
+          "boxShadow": "none",
+          "fontFamily": "roboto",
+          "objectFit": "cover",
+          "objectPosition": "center",
+          "transitionDuration": 200,
+          "transitionProperty": "all",
+          "transitionTimingFunction": "easeOut"
+        },
+        "hover": {
+          "boxShadow": "none",
+          "scale": 100
+        },
+        "focus": {},
+        "active": {},
+        "disabled": {}
+      }
+    },
+    {
+      "id": "3755d9a1-991d-4861-8878-42148ee446dc:default-style:WebVideoPlayer",
+      "name": "Default Video Player",
+      "componentType": "WebVideoPlayer",
+      "preset": "default",
+      "states": {
+        "base": {
+          "backgroundColor": "var(--wr-theme-media-background)",
+          "borderColor": "var(--wr-theme-border)",
+          "borderRadius": {
+            "value": 6,
+            "unit": "px"
+          },
+          "borderStyle": "solid",
+          "borderWidth": {
+            "value": 1,
+            "unit": "px"
+          },
+          "boxShadow": "none",
+          "fontFamily": "roboto",
+          "objectFit": "contain",
+          "objectPosition": "center",
+          "textColor": "var(--wr-theme-on-media)",
+          "transitionDuration": 200,
+          "transitionProperty": "shadow",
+          "transitionTimingFunction": "easeOut"
+        },
+        "hover": {
+          "boxShadow": "none"
+        },
+        "focus": {
+          "boxShadow": "none",
+          "ringColor": "var(--wr-theme-focus)",
+          "ringOffsetColor": "var(--wr-theme-surface)",
+          "ringOffsetWidth": {
+            "value": 2,
+            "unit": "px"
+          },
+          "ringWidth": {
+            "value": 2,
+            "unit": "px"
+          }
+        },
+        "active": {},
+        "disabled": {
+          "boxShadow": "none",
+          "opacity": 60
+        }
+      }
+    },
+    {
+      "id": "3755d9a1-991d-4861-8878-42148ee446dc:default-style:WebListBox",
+      "name": "Default List Box",
+      "componentType": "WebListBox",
+      "preset": "default",
+      "states": {
+        "base": {
+          "backgroundColor": "var(--wr-theme-input)",
+          "borderColor": "var(--wr-theme-border)",
+          "borderRadius": {
+            "value": 6,
+            "unit": "px"
+          },
+          "borderStyle": "solid",
+          "borderWidth": {
+            "value": 1,
+            "unit": "px"
+          },
+          "boxShadow": "none",
+          "fontFamily": "roboto",
+          "textColor": "var(--wr-theme-text)",
+          "transitionDuration": 200,
+          "transitionProperty": "all",
+          "transitionTimingFunction": "easeOut"
+        },
+        "hover": {
+          "boxShadow": "none"
+        },
+        "focus": {
+          "boxShadow": "none",
+          "ringColor": "var(--wr-theme-focus)",
+          "ringOffsetColor": "var(--wr-theme-surface)",
+          "ringOffsetWidth": {
+            "value": 2,
+            "unit": "px"
+          },
+          "ringWidth": {
+            "value": 2,
+            "unit": "px"
+          }
+        },
+        "active": {},
+        "disabled": {
+          "backgroundColor": "var(--wr-theme-disabled-surface)",
+          "borderColor": "var(--wr-theme-border)",
+          "boxShadow": "none",
+          "cursor": "not-allowed",
+          "textColor": "var(--wr-theme-disabled-text)"
+        }
+      }
+    }
+  ],
+  "settings": {
+    "themes": {
+      "initialMode": "light",
+      "rememberChoice": true,
+      "customColors": [],
+      "colors": {
+        "focus": {
+          "light": "#4385e5",
+          "dark": "#85beff"
+        },
+        "accent": {
+          "light": "#008577",
+          "dark": "#2dd4bf"
+        },
+        "accent-active": {
+          "light": "#00594f",
+          "dark": "#14b8a6"
+        },
+        "accent-hover": {
+          "light": "#006e63",
+          "dark": "#5eead4"
+        },
+        "background": {
+          "light": "#fafbfc",
+          "dark": "#202124"
+        },
+        "background-end": {
+          "light": "#fafbfc",
+          "dark": "#202124"
+        },
+        "border": {
+          "light": "#d7dfe8",
+          "dark": "#45474f"
+        },
+        "border-accent": {
+          "light": "#93b8f5",
+          "dark": "#586576"
+        },
+        "control-thumb": {
+          "light": "#ffffff",
+          "dark": "#f0f7ff"
+        },
+        "danger": {
+          "light": "#e11d48",
+          "dark": "#fb7185"
+        },
+        "disabled-surface": {
+          "light": "#eef1f5",
+          "dark": "#303238"
+        },
+        "disabled-text": {
+          "light": "#667b96",
+          "dark": "#9aafcc"
+        },
+        "heading": {
+          "light": "#17335b",
+          "dark": "#e8ecf2"
+        },
+        "input": {
+          "light": "#ffffff",
+          "dark": "#242529"
+        },
+        "input-end": {
+          "light": "#ffffff",
+          "dark": "#242529"
+        },
+        "media-background": {
+          "light": "#17335b",
+          "dark": "#25262a"
+        },
+        "media-background-end": {
+          "light": "#17335b",
+          "dark": "#25262a"
+        },
+        "on-accent": {
+          "light": "#ffffff",
+          "dark": "#ffffff"
+        },
+        "on-media": {
+          "light": "#ffffff",
+          "dark": "#edf0f4"
+        },
+        "on-primary": {
+          "light": "#ffffff",
+          "dark": "#ffffff"
+        },
+        "overlay": {
+          "light": "#172c48",
+          "dark": "#111214"
+        },
+        "primary": {
+          "light": "#3777da",
+          "dark": "#3777da"
+        },
+        "primary-active": {
+          "light": "#1e4fb0",
+          "dark": "#1e4fb0"
+        },
+        "primary-hover": {
+          "light": "#5694e8",
+          "dark": "#5694e8"
+        },
+        "scrollbar-thumb": {
+          "light": "#becbdb",
+          "dark": "#50535c"
+        },
+        "scrollbar-thumb-active": {
+          "light": "#4385e5",
+          "dark": "#85beff"
+        },
+        "scrollbar-thumb-hover": {
+          "light": "#9cbbdf",
+          "dark": "#6b707b"
+        },
+        "scrollbar-track": {
+          "light": "#fafbfc",
+          "dark": "#202124"
+        },
+        "success": {
+          "light": "#16a34a",
+          "dark": "#34d399"
+        },
+        "surface": {
+          "light": "#ffffff",
+          "dark": "#292a2e"
+        },
+        "surface-end": {
+          "light": "#ffffff",
+          "dark": "#292a2e"
+        },
+        "surface-muted": {
+          "light": "#f3f5f7",
+          "dark": "#34363b"
+        },
+        "text": {
+          "light": "#172c48",
+          "dark": "#edf0f4"
+        },
+        "text-muted": {
+          "light": "#526784",
+          "dark": "#b7bec9"
+        },
+        "warning": {
+          "light": "#b45309",
+          "dark": "#fbbf24"
+        }
+      }
+    },
+    "applicationName": "Sigat2",
+    "applicationDescription": "",
+    "locale": "pt-BR",
+    "timeZone": "America/Sao_Paulo",
+    "applicationIcon": null,
+    "seo": {
+      "canonicalUrl": "",
+      "keywords": "",
+      "allowIndexing": true,
+      "socialTitle": "",
+      "socialDescription": "",
+      "socialImage": null
+    },
+    "environment": "development",
+    "environmentVariables": [],
+    "restGo": {
+      "enabled": true,
+      "baseUrl": "http://127.0.0.1:8090",
+      "apiVersion": 1,
+      "defaultDatabase": "sigat",
+      "persistSession": true,
+      "sessionStorage": "session",
+      "storageKey": "sigat2",
+      "apiToken": ""
+    },
+    "scrollbar": {
+      "width": 10,
+      "height": 10,
+      "trackColor": "var(--wr-theme-scrollbar-track)",
+      "trackBorderColor": "var(--wr-theme-border)",
+      "trackBorderWidth": 1,
+      "trackBorderRadius": 8,
+      "thumbColor": "var(--wr-theme-scrollbar-thumb)",
+      "thumbHoverColor": "var(--wr-theme-scrollbar-thumb-hover)",
+      "thumbActiveColor": "var(--wr-theme-scrollbar-thumb-active)",
+      "thumbBorderColor": "var(--wr-theme-surface)",
+      "thumbBorderWidth": 2,
+      "thumbBorderRadius": 8,
+      "cornerColor": "var(--wr-theme-scrollbar-track)"
+    },
+    "gridSize": 8,
+    "snapToGrid": true,
+    "showGrid": true,
+    "build": {
+      "environment": "production",
+      "deployDirectory": "",
+      "minify": true,
+      "sourceMaps": false
+    },
+    "pwa": {
+      "enabled": false,
+      "shortName": "",
+      "display": "standalone",
+      "orientation": "any",
+      "themeColor": "#2563eb",
+      "backgroundColor": "#ffffff",
+      "offline": true
+    },
+    "outputDirectory": "dist",
+    "nativeApplication": {
+      "applicationName": "Sigat2",
+      "build": {
+        "outputDirectory": "native-dist",
+        "architecture": "host",
+        "bundleFormat": "nsis",
+        "configuration": "release",
+        "platform": "windows"
+      },
+      "description": "",
+      "desktop": {
+        "width": 1024,
+        "height": 768,
+        "minWidth": 320,
+        "minHeight": 240,
+        "fullscreen": false,
+        "maximizable": true,
+        "resizable": true
+      },
+      "icon": null,
+      "identifier": "com.webrad.application",
+      "mobile": {
+        "orientation": "auto",
+        "fullscreen": false,
+        "icon": null,
+        "safeArea": true,
+        "splashScreen": null,
+        "statusBar": true
+      },
+      "publisher": "",
+      "security": {
+        "networkOrigins": []
+      },
+      "signing": {
+        "androidKeyAliasEnvironmentVariable": "",
+        "androidKeyPasswordEnvironmentVariable": "",
+        "androidKeystorePasswordEnvironmentVariable": "",
+        "androidKeystorePathEnvironmentVariable": "",
+        "appleNotarizationProfile": "",
+        "appleSigningIdentity": "",
+        "appleTeamId": "",
+        "iosExportMethod": "debugging",
+        "windowsCertificateThumbprint": ""
+      },
+      "version": "0.1.0"
+    },
+    "routingBasePath": "/",
+    "routingMode": "history"
+  },
+  "assets": [],
+  "sourceFiles": [
+    {
+      "id": "2aedebc1-fdbc-41a8-8f3e-e5533f84bc0a",
+      "name": "Sigat2",
+      "kind": "unit"
+    }
+  ]
+}
