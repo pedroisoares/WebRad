@@ -17,6 +17,7 @@ import {
   createProject,
   defaultIdFactory,
   parseProject,
+  type ApiClientBodyParameterType,
   type ApiClientFieldType,
   type ApiClientResponseSchema,
   type ComponentLayout,
@@ -205,12 +206,18 @@ function details(name: string, fields: readonly (readonly [string, string])[]): 
   };
 }
 
-function tabs(name: string, captions: readonly string[], panels: readonly string[]): Node {
+function tabs(
+  name: string,
+  captions: readonly string[],
+  panels: readonly string[],
+  onChange?: string,
+): Node {
   return {
     type: 'WebTabs',
     name,
     height: 44,
     props: { tabs: [...captions], panels: [...panels], selectedIndex: 0 },
+    ...(onChange === undefined ? {} : { events: { OnChange: onChange } }),
   };
 }
 
@@ -248,6 +255,8 @@ interface Operation {
   readonly banco?: string;
   readonly params?: readonly string[];
   readonly fields: Fields;
+  /** JSON body parameters of a POST to a HexAPI composite operation. */
+  readonly body?: Readonly<Record<string, ApiClientBodyParameterType>>;
 }
 
 function responseSchema(fields: Fields): ApiClientResponseSchema {
@@ -292,6 +301,50 @@ function responseSchema(fields: Fields): ApiClientResponseSchema {
   };
 }
 
+/** Response of a HexAPI composite operation: { success, data: { passos: {...} } }. */
+function writeSchema(): ApiClientResponseSchema {
+  return {
+    version: 1,
+    root: {
+      id: defaultIdFactory(),
+      name: 'Response',
+      path: '',
+      kind: 'object',
+      fieldType: 'object',
+      nullable: false,
+      children: [
+        {
+          id: defaultIdFactory(),
+          name: 'success',
+          path: '/success',
+          kind: 'field',
+          fieldType: 'boolean',
+          nullable: false,
+          children: [],
+        },
+        {
+          id: defaultIdFactory(),
+          name: 'data',
+          path: '/data',
+          kind: 'field',
+          fieldType: 'unknown',
+          nullable: true,
+          children: [],
+        },
+      ],
+    },
+  };
+}
+
+/** A write: POST to a composite operation published on the sigat-gravacao database. */
+function write(
+  name: string,
+  endpoint: string,
+  body: Readonly<Record<string, ApiClientBodyParameterType>>,
+): Operation {
+  return { id: defaultIdFactory(), name, endpoint, banco: 'sigat-gravacao', fields: {}, body };
+}
+
 function op(
   name: string,
   endpoint: string,
@@ -319,16 +372,34 @@ function apiClient(name: string, id: string, operations: readonly Operation[]): 
           ...template,
           id: operation.id,
           name: operation.name,
-          method: 'GET',
+          method: operation.body === undefined ? 'GET' : 'POST',
           path: `${operation.banco ?? 'sigat'}/${operation.endpoint}`,
           apiVersion: 1,
+          ...(operation.body === undefined
+            ? {}
+            : {
+                body: {
+                  kind: 'json' as const,
+                  content:
+                    '{ ' +
+                    Object.keys(operation.body)
+                      .map((param) => `"${param}": <${param}>`)
+                      .join(', ') +
+                    ' }',
+                  parameters: Object.entries(operation.body).map(([param, type]) => ({
+                    name: param,
+                    type,
+                  })),
+                },
+              }),
           query: (operation.params ?? []).map((param) => ({
             id: defaultIdFactory(),
             name: param,
             value: '',
             enabled: false,
           })),
-          responseSchema: responseSchema(operation.fields),
+          responseSchema:
+            operation.body === undefined ? responseSchema(operation.fields) : writeSchema(),
         })),
       },
     },
@@ -868,6 +939,10 @@ function chamadoPage(): PageSpec {
     reparos: op('Reparos', 'chamado-reparos', F.reparos, ['id']),
     reparoHistorico: op('ReparoHistorico', 'reparo-historico', F.reparoHistorico, ['id']),
     artigos: op('Artigos', 'ticket-artigos', F.artigos, ['id'], 'otobo'),
+    bloquear: write('Bloquear', 'chamado-bloquear', { id_chamado: 'integer' }),
+    desbloquear: write('Desbloquear', 'chamado-desbloquear', { id_chamado: 'integer' }),
+    priorizar: write('Priorizar', 'chamado-priorizar', { id_chamado: 'integer' }),
+    zerarNaoLidos: write('ZerarNaoLidos', 'chamado-zerar-nao-lidos', { id_chamado: 'integer' }),
   };
   return {
     name: 'Chamado',
@@ -880,6 +955,11 @@ function chamadoPage(): PageSpec {
         { ...title('LBLChamado', 'Chamado'), width: 400, item: { width: 'fixed', grow: 1 } },
         button('BTNOtobo', 'Abrir no OTOBO', 'AbrirOtobo', 'external-link'),
         button('BTNRecarregar', 'Recarregar', 'Carregar', 'refresh'),
+      ]),
+      row('Acoes', [
+        button('BTNBloquear', 'Bloquear', 'Bloquear', 'lock'),
+        button('BTNDesbloquear', 'Desbloquear', 'Desbloquear', 'unlock'),
+        button('BTNPrioridade', 'Priorizar', 'Priorizar', 'star', ['admin']),
       ]),
       panel('PNLDados', [
         details('Dados', [
@@ -917,6 +997,7 @@ function chamadoPage(): PageSpec {
           'PNLHistorico',
           'PNLAnexos',
         ],
+        'TrocarAba',
       ),
       panel('PNLInteracoes', [html('HTMLInteracoes', 520)]),
       panel('PNLEquipamentos', [

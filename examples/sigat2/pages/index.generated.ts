@@ -42,48 +42,48 @@ export abstract class indexGenerated extends WebPage {
   public constructor(element: HTMLElement) {
     super(element);
     this.Cabecalho = new WebGroup(
-      this.requireComponentElement('decd27f8-23b6-4282-8ea7-b605a79ec255'),
+      this.requireComponentElement('8490ce1f-5728-477a-81b2-59caf9c88a72'),
     );
-    this.Marca = new WebLabel(this.requireComponentElement('0f068add-16a5-474b-aad9-160dbb39ac42'));
+    this.Marca = new WebLabel(this.requireComponentElement('056692df-793f-49e4-9335-689076ec4024'));
     this.BTNPainel = new WebButton(
-      this.requireComponentElement('3f7c600a-9f59-419e-97ab-7f7f0e297013'),
+      this.requireComponentElement('a8b58cad-d2b5-4423-ad41-5587b547df97'),
     );
     this.EDTBuscaRapida = new WebEdit(
-      this.requireComponentElement('44eeca22-3876-4d46-a171-d6a6aaad4153'),
+      this.requireComponentElement('f25f1e96-eca5-4751-8a52-2b2b41aa8113'),
     );
     this.BTNBuscar = new WebButton(
-      this.requireComponentElement('10ac1128-f4fb-425f-ad00-63262d829f4a'),
+      this.requireComponentElement('8f0a23c1-56d4-4533-b05b-479e91b69ee6'),
     );
     this.BTNInserviveis = new WebButton(
-      this.requireComponentElement('9e029d62-0c4f-4f1a-ab1e-cfdfbfa1b12c'),
+      this.requireComponentElement('07c4cf10-40dc-4669-8dbc-52672053d7ff'),
     );
     this.BTNAdmin = new WebButton(
-      this.requireComponentElement('b9c856db-1982-42d0-9b53-46a56d8e30d8'),
+      this.requireComponentElement('1c5ed026-aeb8-44b0-8a4a-ab824614858b'),
     );
     this.LBLUsuario = new WebLabel(
-      this.requireComponentElement('3681f38a-d736-4999-8aa4-0c97e5c963e2'),
+      this.requireComponentElement('593dd177-f63f-4469-b1dd-b8eb4d3247cc'),
     );
     this.BTNSair = new WebButton(
-      this.requireComponentElement('af5cdb0e-f3fd-41ea-963e-d95ec2a283b2'),
+      this.requireComponentElement('5b8f904f-e004-4477-9a1c-d8e97d66734f'),
     );
-    this.Abas = new WebTabs(this.requireComponentElement('46e5d11f-634f-49be-96ad-b949fd750e71'));
+    this.Abas = new WebTabs(this.requireComponentElement('ebc92ea8-0f43-4eee-899c-2853efd74751'));
     this.PNLChamados = new WebPanel(
-      this.requireComponentElement('748a0139-0b65-43f0-9a0d-b8c452527d81'),
+      this.requireComponentElement('638ffdc2-bf5b-4474-87cd-084b273f85f3'),
     );
     this.Filtros = new WebGroup(
-      this.requireComponentElement('cb7d9c29-f6ce-4411-9903-88f2b0d1295c'),
+      this.requireComponentElement('56b99a78-9f1d-49e7-b221-9175b65be87b'),
     );
     this.CBFila = new WebComboBox(
-      this.requireComponentElement('36d442da-c68c-4747-b0ca-461d05e124d6'),
+      this.requireComponentElement('7031fed8-6717-4c06-adc3-bba7096ea060'),
     );
     this.BTNAtualizar = new WebButton(
-      this.requireComponentElement('d7a37e60-4904-4c40-adba-382477fc7a2d'),
+      this.requireComponentElement('df175d4f-f264-4444-a314-518f36073bd7'),
     );
     this.LBLResumo = new WebLabel(
-      this.requireComponentElement('c90e747b-5f08-4538-9347-9dad51231fe6'),
+      this.requireComponentElement('025ac9e4-149f-49f4-920d-ef0c2c79b1de'),
     );
     this.GRDChamados = new WebDataGrid(
-      this.requireComponentElement('dc1e892c-1050-4d46-a158-d7dfa1124e3e'),
+      this.requireComponentElement('d1ecd4e3-de78-44f4-8153-ccca8e5be67f'),
     );
     this.GRDChamados.dataGridConfig = {
       schemaVersion: 2,
@@ -321,13 +321,13 @@ export abstract class indexGenerated extends WebPage {
       totalRowsPath: '/total',
     };
     this.PNLTriagem = new WebPanel(
-      this.requireComponentElement('8490ce1f-5728-477a-81b2-59caf9c88a72'),
+      this.requireComponentElement('25a27577-38be-4f9f-9cd2-b6ad61b4adf4'),
     );
     this.LBLTriagem = new WebLabel(
-      this.requireComponentElement('056692df-793f-49e4-9335-689076ec4024'),
+      this.requireComponentElement('696d6dec-9d0a-4abe-9baf-099bcedb7cae'),
     );
     this.GRDTriagem = new WebDataGrid(
-      this.requireComponentElement('a8b58cad-d2b5-4423-ad41-5587b547df97'),
+      this.requireComponentElement('d0c0fe09-79d0-4145-a1fd-42d4e77d2b07'),
     );
     this.GRDTriagem.dataGridConfig = {
       schemaVersion: 2,
@@ -439,10 +439,10 @@ export abstract class indexGenerated extends WebPage {
       totalRowsPath: '/total',
     };
     this.PNLArquivo = new WebPanel(
-      this.requireComponentElement('f25f1e96-eca5-4751-8a52-2b2b41aa8113'),
+      this.requireComponentElement('d15bdfb4-dbfd-4abc-8f26-6a693dfdd1b7'),
     );
     this.GRDEncerrados = new WebDataGrid(
-      this.requireComponentElement('8f0a23c1-56d4-4533-b05b-479e91b69ee6'),
+      this.requireComponentElement('4d8f8395-5265-4283-9561-5692b60817ca'),
     );
     this.GRDEncerrados.dataGridConfig = {
       schemaVersion: 2,

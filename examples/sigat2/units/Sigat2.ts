@@ -43,8 +43,66 @@ export function sim(valor: unknown): boolean {
   return valor === true || valor === 1 || valor === '1' || valor === 'true';
 }
 
+/** The HexAPI message ({ success: false, error }) when there is one, else the error text. */
 export function erro(e: unknown): string {
+  if (typeof e === 'object' && e !== null) {
+    const corpo: unknown = Reflect.get(e, 'body');
+    if (typeof corpo === 'object' && corpo !== null) {
+      const mensagem: unknown = Reflect.get(corpo, 'error');
+      if (typeof mensagem === 'string' && mensagem !== '') return mensagem;
+    }
+  }
   return e instanceof Error ? e.message : String(e);
+}
+
+// ---- writes: HexAPI composite operations
+
+type ValorGravacao = string | number | boolean | null;
+
+interface Gravacao {
+  execute(opcoes?: {
+    readonly parameters?: Readonly<Record<string, ValorGravacao>>;
+    readonly headers?: Readonly<Record<string, string>>;
+  }): Promise<unknown>;
+}
+
+function novaChave(): string {
+  try {
+    return crypto.randomUUID();
+  } catch {
+    return Date.now().toString(36) + '-' + Math.random().toString(36).slice(2);
+  }
+}
+
+function deveRepetir(e: unknown): boolean {
+  if (typeof e !== 'object' || e === null) return false;
+  const status: unknown = Reflect.get(e, 'status');
+  // No status: network failure or timeout, so the outcome is unknown.
+  if (typeof status !== 'number') return true;
+  if (status >= 500) return true;
+  // 409 with Retry-After: the same Idempotency-Key is still running.
+  const resposta: unknown = Reflect.get(e, 'response');
+  return status === 409 && resposta instanceof Response && resposta.headers.has('Retry-After');
+}
+
+/**
+ * Runs a write with one Idempotency-Key per user action. Retries after a network
+ * failure, timeout or 5xx reuse the key, so HexAPI never records the action twice.
+ * Business refusals (409 with a message) are not retried.
+ */
+export async function gravar(
+  operacao: Gravacao,
+  valores: Readonly<Record<string, ValorGravacao>>,
+): Promise<unknown> {
+  const chave = novaChave();
+  for (let tentativa = 1; ; tentativa++) {
+    try {
+      return await operacao.execute({ parameters: valores, headers: { 'Idempotency-Key': chave } });
+    } catch (e) {
+      if (tentativa >= 3 || !deveRepetir(e)) throw e;
+      await new Promise((resolver) => setTimeout(resolver, 400 * 2 ** tentativa));
+    }
+  }
 }
 
 /** The same roles the HexAPI derives from the SIGAT usuario table. */

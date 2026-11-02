@@ -45,8 +45,66 @@ export function sim(valor: unknown): boolean {
   return valor === true || valor === 1 || valor === '1' || valor === 'true';
 }
 
+/** The HexAPI message ({ success: false, error }) when there is one, else the error text. */
 export function erro(e: unknown): string {
+  if (typeof e === 'object' && e !== null) {
+    const corpo: unknown = Reflect.get(e, 'body');
+    if (typeof corpo === 'object' && corpo !== null) {
+      const mensagem: unknown = Reflect.get(corpo, 'error');
+      if (typeof mensagem === 'string' && mensagem !== '') return mensagem;
+    }
+  }
   return e instanceof Error ? e.message : String(e);
+}
+
+// ---- writes: HexAPI composite operations
+
+type ValorGravacao = string | number | boolean | null;
+
+interface Gravacao {
+  execute(opcoes?: {
+    readonly parameters?: Readonly<Record<string, ValorGravacao>>;
+    readonly headers?: Readonly<Record<string, string>>;
+  }): Promise<unknown>;
+}
+
+function novaChave(): string {
+  try {
+    return crypto.randomUUID();
+  } catch {
+    return Date.now().toString(36) + '-' + Math.random().toString(36).slice(2);
+  }
+}
+
+function deveRepetir(e: unknown): boolean {
+  if (typeof e !== 'object' || e === null) return false;
+  const status: unknown = Reflect.get(e, 'status');
+  // No status: network failure or timeout, so the outcome is unknown.
+  if (typeof status !== 'number') return true;
+  if (status >= 500) return true;
+  // 409 with Retry-After: the same Idempotency-Key is still running.
+  const resposta: unknown = Reflect.get(e, 'response');
+  return status === 409 && resposta instanceof Response && resposta.headers.has('Retry-After');
+}
+
+/**
+ * Runs a write with one Idempotency-Key per user action. Retries after a network
+ * failure, timeout or 5xx reuse the key, so HexAPI never records the action twice.
+ * Business refusals (409 with a message) are not retried.
+ */
+export async function gravar(
+  operacao: Gravacao,
+  valores: Readonly<Record<string, ValorGravacao>>,
+): Promise<unknown> {
+  const chave = novaChave();
+  for (let tentativa = 1; ; tentativa++) {
+    try {
+      return await operacao.execute({ parameters: valores, headers: { 'Idempotency-Key': chave } });
+    } catch (e) {
+      if (tentativa >= 3 || !deveRepetir(e)) throw e;
+      await new Promise((resolver) => setTimeout(resolver, 400 * 2 ** tentativa));
+    }
+  }
 }
 
 /** The same roles the HexAPI derives from the SIGAT usuario table. */
@@ -336,14 +394,18 @@ const CHAMADO = page(
     'abrirEquipamento',
     'contexto',
     'erro',
+    'gravar',
     'linhas',
     'mostrarArtigos',
     'mostrarInteracoes',
+    'numero',
     'primeira',
     'texto',
+    'type Linha',
   ],
   `
   private ticketId = '';
+  private chamado: Linha | undefined;
 
   public async Mostrar(): Promise<void> {
     preencherCabecalho(this.LBLUsuario);
@@ -360,6 +422,8 @@ const CHAMADO = page(
     const parametros = { id };
     try {
       const c = primeira(await executar(this.Api.Detalhe, parametros));
+      this.chamado = c;
+      this.MostrarAcoes(c);
       if (c === undefined) {
         this.LBLChamado.caption = 'Chamado #' + id + ' não encontrado';
         return;
@@ -396,6 +460,63 @@ const CHAMADO = page(
       ]);
     } catch (e) {
       Toast('Erro ao carregar o chamado: ' + erro(e), { kind: 'error' });
+    }
+  }
+
+  /** Same rules as the SIGAT buttons; HexAPI enforces them again on every write. */
+  private MostrarAcoes(c: Linha | undefined): void {
+    const eu = Access.user?.id ?? '';
+    const nivel = numero(Access.user?.data?.autorizacao_usuario) ?? 0;
+    const responsavel = texto(c?.id_responsavel, '');
+    const aberto = texto(c?.status_chamado, '') === 'ABERTO';
+    this.BTNBloquear.visible = aberto && responsavel === '';
+    this.BTNDesbloquear.visible = aberto && responsavel !== '' && (responsavel === eu || nivel >= 3);
+    this.BTNPrioridade.visible = c !== undefined && Access.hasRole('admin');
+    this.BTNPrioridade.caption = numero(c?.prioridade_chamado) === 1 ? 'Remover prioridade' : 'Priorizar';
+  }
+
+  private async Gravar(operacao: Parameters<typeof gravar>[0], sucesso: string): Promise<void> {
+    const id = numero(this.chamado?.id_chamado);
+    if (id === null) return;
+    const botoes = [this.BTNBloquear, this.BTNDesbloquear, this.BTNPrioridade];
+    for (const botao of botoes) botao.enabled = false;
+    try {
+      await gravar(operacao, { id_chamado: id });
+      Toast(sucesso, { kind: 'success' });
+    } catch (e) {
+      Toast(erro(e), { kind: 'warning' });
+    } finally {
+      for (const botao of botoes) botao.enabled = true;
+      await this.Carregar();
+    }
+  }
+
+  public async Bloquear(): Promise<void> {
+    await this.Gravar(this.Api.Bloquear, 'Chamado bloqueado.');
+  }
+
+  public async Desbloquear(): Promise<void> {
+    await this.Gravar(this.Api.Desbloquear, 'Chamado desbloqueado.');
+  }
+
+  public async Priorizar(): Promise<void> {
+    const remover = numero(this.chamado?.prioridade_chamado) === 1;
+    await this.Gravar(this.Api.Priorizar, remover ? 'Prioridade removida.' : 'Chamado priorizado.');
+  }
+
+  /** Like the SIGAT, opening the e-mails clears the unread count for the user who holds the chamado. */
+  public async TrocarAba(_sender: unknown, event: CustomEvent<{ readonly panel: string }>): Promise<void> {
+    const c = this.chamado;
+    if (event.detail.panel !== 'PNLEmails' || c === undefined) return;
+    if (texto(c.id_responsavel, '') !== (Access.user?.id ?? '')) return;
+    if ((numero(c.email_nao_lido_chamado) ?? 0) === 0) return;
+    const id = numero(c.id_chamado);
+    if (id === null) return;
+    try {
+      await gravar(this.Api.ZerarNaoLidos, { id_chamado: id });
+      this.chamado = { ...c, email_nao_lido_chamado: 0 };
+    } catch {
+      // The SIGAT ignores this failure too; the count is cleared on the next visit.
     }
   }
 
