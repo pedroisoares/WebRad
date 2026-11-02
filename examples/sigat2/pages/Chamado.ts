@@ -5,11 +5,14 @@ import {
   abrirEquipamento,
   contexto,
   erro,
+  gravar,
   linhas,
   mostrarArtigos,
   mostrarInteracoes,
+  numero,
   primeira,
   texto,
+  type Linha,
   executar,
 } from '../units/Sigat2';
 import { ChamadoGenerated } from './Chamado.generated';
@@ -40,6 +43,7 @@ export class Chamado extends ChamadoGenerated {
   }
 
   private ticketId = '';
+  private chamado: Linha | undefined;
 
   public async Mostrar(): Promise<void> {
     preencherCabecalho(this.LBLUsuario);
@@ -56,6 +60,8 @@ export class Chamado extends ChamadoGenerated {
     const parametros = { id };
     try {
       const c = primeira(await executar(this.Api.Detalhe, parametros));
+      this.chamado = c;
+      this.MostrarAcoes(c);
       if (c === undefined) {
         this.LBLChamado.caption = 'Chamado #' + id + ' não encontrado';
         return;
@@ -93,6 +99,68 @@ export class Chamado extends ChamadoGenerated {
       ]);
     } catch (e) {
       Toast('Erro ao carregar o chamado: ' + erro(e), { kind: 'error' });
+    }
+  }
+
+  /** Same rules as the SIGAT buttons; HexAPI enforces them again on every write. */
+  private MostrarAcoes(c: Linha | undefined): void {
+    const eu = Access.user?.id ?? '';
+    const nivel = numero(Access.user?.data?.autorizacao_usuario) ?? 0;
+    const responsavel = texto(c?.id_responsavel, '');
+    const aberto = texto(c?.status_chamado, '') === 'ABERTO';
+    this.BTNBloquear.visible = aberto && responsavel === '';
+    this.BTNDesbloquear.visible =
+      aberto && responsavel !== '' && (responsavel === eu || nivel >= 3);
+    this.BTNPrioridade.visible = c !== undefined && Access.hasRole('admin');
+    this.BTNPrioridade.caption =
+      numero(c?.prioridade_chamado) === 1 ? 'Remover prioridade' : 'Priorizar';
+  }
+
+  private async Gravar(operacao: Parameters<typeof gravar>[0], sucesso: string): Promise<void> {
+    const id = numero(this.chamado?.id_chamado);
+    if (id === null) return;
+    const botoes = [this.BTNBloquear, this.BTNDesbloquear, this.BTNPrioridade];
+    for (const botao of botoes) botao.enabled = false;
+    try {
+      await gravar(operacao, { id_chamado: id });
+      Toast(sucesso, { kind: 'success' });
+    } catch (e) {
+      Toast(erro(e), { kind: 'warning' });
+    } finally {
+      for (const botao of botoes) botao.enabled = true;
+      await this.Carregar();
+    }
+  }
+
+  public async Bloquear(): Promise<void> {
+    await this.Gravar(this.Api.Bloquear, 'Chamado bloqueado.');
+  }
+
+  public async Desbloquear(): Promise<void> {
+    await this.Gravar(this.Api.Desbloquear, 'Chamado desbloqueado.');
+  }
+
+  public async Priorizar(): Promise<void> {
+    const remover = numero(this.chamado?.prioridade_chamado) === 1;
+    await this.Gravar(this.Api.Priorizar, remover ? 'Prioridade removida.' : 'Chamado priorizado.');
+  }
+
+  /** Like the SIGAT, opening the e-mails clears the unread count for the user who holds the chamado. */
+  public async TrocarAba(
+    _sender: unknown,
+    event: CustomEvent<{ readonly panel: string }>,
+  ): Promise<void> {
+    const c = this.chamado;
+    if (event.detail.panel !== 'PNLEmails' || c === undefined) return;
+    if (texto(c.id_responsavel, '') !== (Access.user?.id ?? '')) return;
+    if ((numero(c.email_nao_lido_chamado) ?? 0) === 0) return;
+    const id = numero(c.id_chamado);
+    if (id === null) return;
+    try {
+      await gravar(this.Api.ZerarNaoLidos, { id_chamado: id });
+      this.chamado = { ...c, email_nao_lido_chamado: 0 };
+    } catch {
+      // The SIGAT ignores this failure too; the count is cleared on the next visit.
     }
   }
 

@@ -1,14 +1,14 @@
 {
   "formatVersion": 2,
-  "id": "07c4cf10-40dc-4669-8dbc-52672053d7ff",
+  "id": "217acb4a-1ab8-45c6-a926-a0265fff1e3a",
   "name": "Login",
   "caption": "Login",
   "width": 1280,
   "height": 1200,
-  "rootComponentId": "1c5ed026-aeb8-44b0-8a4a-ab824614858b",
+  "rootComponentId": "e09aa2a0-4208-4693-8651-78659d956db5",
   "components": [
     {
-      "id": "1c5ed026-aeb8-44b0-8a4a-ab824614858b",
+      "id": "e09aa2a0-4208-4693-8651-78659d956db5",
       "type": "WebPage",
       "name": "Login",
       "parentId": null,
@@ -64,15 +64,15 @@
       },
       "styleId": "3755d9a1-991d-4861-8878-42148ee446dc:default-style:WebPage",
       "children": [
-        "593dd177-f63f-4469-b1dd-b8eb4d3247cc",
+        "84129f8a-fed6-46b8-b66f-8a3dea4c7157",
         "1b958790-8f0f-47b9-8e30-fa40b51e8d0b"
       ]
     },
     {
-      "id": "593dd177-f63f-4469-b1dd-b8eb4d3247cc",
+      "id": "84129f8a-fed6-46b8-b66f-8a3dea4c7157",
       "type": "WebPanel",
       "name": "PNLLogin",
-      "parentId": "1c5ed026-aeb8-44b0-8a4a-ab824614858b",
+      "parentId": "e09aa2a0-4208-4693-8651-78659d956db5",
       "layout": {
         "container": {
           "mode": "column",
@@ -137,19 +137,19 @@
       },
       "styleId": "3755d9a1-991d-4861-8878-42148ee446dc:default-style:WebPanel",
       "children": [
-        "5b8f904f-e004-4477-9a1c-d8e97d66734f",
-        "ebc92ea8-0f43-4eee-899c-2853efd74751",
-        "638ffdc2-bf5b-4474-87cd-084b273f85f3",
-        "56b99a78-9f1d-49e7-b221-9175b65be87b",
-        "7031fed8-6717-4c06-adc3-bba7096ea060",
-        "df175d4f-f264-4444-a314-518f36073bd7"
+        "1bd8114d-b8b5-4c41-9a3e-d61c2ac0260f",
+        "e6c84554-9153-4712-837a-859d4fb68c8c",
+        "186ef321-d9bb-4254-ab0e-9712be99e4cc",
+        "22b5faa6-f47c-4e67-8296-e7a4efe20ef8",
+        "1d292058-c20d-4365-b76b-a1f7331b6353",
+        "665a4a15-52dc-4c30-b34a-a0bcbd660d43"
       ]
     },
     {
-      "id": "5b8f904f-e004-4477-9a1c-d8e97d66734f",
+      "id": "1bd8114d-b8b5-4c41-9a3e-d61c2ac0260f",
       "type": "WebLabel",
       "name": "LBLTitulo",
-      "parentId": "593dd177-f63f-4469-b1dd-b8eb4d3247cc",
+      "parentId": "84129f8a-fed6-46b8-b66f-8a3dea4c7157",
       "layout": {
         "container": {
           "mode": "fixed",
@@ -204,10 +204,10 @@
       "children": []
     },
     {
-      "id": "ebc92ea8-0f43-4eee-899c-2853efd74751",
+      "id": "e6c84554-9153-4712-837a-859d4fb68c8c",
       "type": "WebLabel",
       "name": "LBLSubtitulo",
-      "parentId": "593dd177-f63f-4469-b1dd-b8eb4d3247cc",
+      "parentId": "84129f8a-fed6-46b8-b66f-8a3dea4c7157",
       "layout": {
         "container": {
           "mode": "fixed",
@@ -262,10 +262,10 @@
       "children": []
     },
     {
-      "id": "638ffdc2-bf5b-4474-87cd-084b273f85f3",
+      "id": "186ef321-d9bb-4254-ab0e-9712be99e4cc",
       "type": "WebEdit",
       "name": "EDTLogin",
-      "parentId": "593dd177-f63f-4469-b1dd-b8eb4d3247cc",
+      "parentId": "84129f8a-fed6-46b8-b66f-8a3dea4c7157",
       "layout": {
         "container": {
           "mode": "fixed",
@@ -323,10 +323,10 @@
       "children": []
     },
     {
-      "id": "56b99a78-9f1d-49e7-b221-9175b65be87b",
+      "id": "22b5faa6-f47c-4e67-8296-e7a4efe20ef8",
       "type": "WebEdit",
       "name": "EDTSenha",
-      "parentId": "593dd177-f63f-4469-b1dd-b8eb4d3247cc",
+      "parentId": "84129f8a-fed6-46b8-b66f-8a3dea4c7157",
       "layout": {
         "container": {
           "mode": "fixed",
@@ -385,10 +385,10 @@
       "children": []
     },
     {
-      "id": "7031fed8-6717-4c06-adc3-bba7096ea060",
+      "id": "1d292058-c20d-4365-b76b-a1f7331b6353",
       "type": "WebButton",
       "name": "BTNEntrar",
-      "parentId": "593dd177-f63f-4469-b1dd-b8eb4d3247cc",
+      "parentId": "84129f8a-fed6-46b8-b66f-8a3dea4c7157",
       "layout": {
         "container": {
           "mode": "fixed",
@@ -444,10 +444,10 @@
       "children": []
     },
     {
-      "id": "df175d4f-f264-4444-a314-518f36073bd7",
+      "id": "665a4a15-52dc-4c30-b34a-a0bcbd660d43",
       "type": "WebLabel",
       "name": "LBLMensagem",
-      "parentId": "593dd177-f63f-4469-b1dd-b8eb4d3247cc",
+      "parentId": "84129f8a-fed6-46b8-b66f-8a3dea4c7157",
       "layout": {
         "container": {
           "mode": "fixed",
@@ -505,7 +505,7 @@
       "id": "1b958790-8f0f-47b9-8e30-fa40b51e8d0b",
       "type": "WebApiClient",
       "name": "ApiSessao",
-      "parentId": "1c5ed026-aeb8-44b0-8a4a-ab824614858b",
+      "parentId": "e09aa2a0-4208-4693-8651-78659d956db5",
       "layout": {
         "container": {
           "mode": "fixed",
