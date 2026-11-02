@@ -1,0 +1,774 @@
+{
+  "formatVersion": 2,
+  "id": "07c4cf10-40dc-4669-8dbc-52672053d7ff",
+  "name": "Login",
+  "caption": "Login",
+  "width": 1280,
+  "height": 1200,
+  "rootComponentId": "1c5ed026-aeb8-44b0-8a4a-ab824614858b",
+  "components": [
+    {
+      "id": "1c5ed026-aeb8-44b0-8a4a-ab824614858b",
+      "type": "WebPage",
+      "name": "Login",
+      "parentId": null,
+      "layout": {
+        "container": {
+          "mode": "column",
+          "paddingTop": 16,
+          "paddingRight": 24,
+          "paddingBottom": 24,
+          "paddingLeft": 24,
+          "gap": 16,
+          "wrap": false,
+          "justifyContent": "start",
+          "alignItems": "stretch"
+        },
+        "item": {
+          "width": "fixed",
+          "height": "fit-content",
+          "minWidth": 0,
+          "maxWidth": null,
+          "minHeight": 600,
+          "maxHeight": null,
+          "grow": 0,
+          "shrink": true,
+          "alignSelf": "auto",
+          "horizontalAnchor": "start",
+          "verticalAnchor": "start",
+          "left": 0,
+          "right": 0,
+          "top": 0,
+          "bottom": 0
+        }
+      },
+      "bounds": {
+        "width": 1280,
+        "height": 1200,
+        "x": 0,
+        "y": 0
+      },
+      "props": {
+        "caption": "Entrar",
+        "enabled": true,
+        "backgroundColor": "#ffffff",
+        "allowedRoles": [],
+        "browserTitle": "SIGAT2 | Entrar",
+        "visible": true
+      },
+      "events": {
+        "OnCreate": null,
+        "OnHide": null,
+        "OnResize": null,
+        "OnShow": "Mostrar"
+      },
+      "styleId": "3755d9a1-991d-4861-8878-42148ee446dc:default-style:WebPage",
+      "children": [
+        "593dd177-f63f-4469-b1dd-b8eb4d3247cc",
+        "1b958790-8f0f-47b9-8e30-fa40b51e8d0b"
+      ]
+    },
+    {
+      "id": "593dd177-f63f-4469-b1dd-b8eb4d3247cc",
+      "type": "WebPanel",
+      "name": "PNLLogin",
+      "parentId": "1c5ed026-aeb8-44b0-8a4a-ab824614858b",
+      "layout": {
+        "container": {
+          "mode": "column",
+          "paddingTop": 16,
+          "paddingRight": 16,
+          "paddingBottom": 16,
+          "paddingLeft": 16,
+          "gap": 10,
+          "wrap": false,
+          "justifyContent": "start",
+          "alignItems": "start"
+        },
+        "item": {
+          "width": "stretch",
+          "height": "fit-content",
+          "minWidth": 0,
+          "maxWidth": null,
+          "minHeight": 0,
+          "maxHeight": null,
+          "grow": 0,
+          "shrink": true,
+          "alignSelf": "auto",
+          "horizontalAnchor": "start",
+          "verticalAnchor": "start",
+          "left": 0,
+          "right": 0,
+          "top": 0,
+          "bottom": 0
+        }
+      },
+      "bounds": {
+        "width": 600,
+        "height": 160,
+        "x": 0,
+        "y": 0
+      },
+      "props": {
+        "caption": "",
+        "enabled": true,
+        "backgroundColor": "transparent",
+        "aspectRatio": "none",
+        "backgroundImage": "",
+        "backgroundPosition": "center",
+        "backgroundRepeat": "no-repeat",
+        "backgroundSize": "cover",
+        "borderColor": "#808080",
+        "collapseWhenHidden": true,
+        "floatingAlignment": "none",
+        "floatingHorizontalAnchor": "left",
+        "floatingVerticalAnchor": "top",
+        "floatingZIndex": 100,
+        "placement": "in-flow",
+        "progressEnabled": false,
+        "progressValue": 0,
+        "visible": true
+      },
+      "events": {
+        "OnClick": null,
+        "OnDblClick": null,
+        "OnMouseEnter": null,
+        "OnMouseLeave": null
+      },
+      "styleId": "3755d9a1-991d-4861-8878-42148ee446dc:default-style:WebPanel",
+      "children": [
+        "5b8f904f-e004-4477-9a1c-d8e97d66734f",
+        "ebc92ea8-0f43-4eee-899c-2853efd74751",
+        "638ffdc2-bf5b-4474-87cd-084b273f85f3",
+        "56b99a78-9f1d-49e7-b221-9175b65be87b",
+        "7031fed8-6717-4c06-adc3-bba7096ea060",
+        "df175d4f-f264-4444-a314-518f36073bd7"
+      ]
+    },
+    {
+      "id": "5b8f904f-e004-4477-9a1c-d8e97d66734f",
+      "type": "WebLabel",
+      "name": "LBLTitulo",
+      "parentId": "593dd177-f63f-4469-b1dd-b8eb4d3247cc",
+      "layout": {
+        "container": {
+          "mode": "fixed",
+          "paddingTop": 0,
+          "paddingRight": 0,
+          "paddingBottom": 0,
+          "paddingLeft": 0,
+          "gap": 0,
+          "wrap": false,
+          "justifyContent": "start",
+          "alignItems": "start"
+        },
+        "item": {
+          "width": "stretch",
+          "height": "fixed",
+          "minWidth": 0,
+          "maxWidth": null,
+          "minHeight": 0,
+          "maxHeight": null,
+          "grow": 0,
+          "shrink": false,
+          "alignSelf": "auto",
+          "horizontalAnchor": "start",
+          "verticalAnchor": "start",
+          "left": 0,
+          "right": 0,
+          "top": 0,
+          "bottom": 0
+        }
+      },
+      "bounds": {
+        "width": 80,
+        "height": 36,
+        "x": 0,
+        "y": 0
+      },
+      "props": {
+        "caption": "SIGAT2",
+        "enabled": true,
+        "autoSize": false,
+        "collapseWhenHidden": true,
+        "color": "#000000",
+        "visible": true
+      },
+      "events": {
+        "OnClick": null,
+        "OnDblClick": null,
+        "OnMouseEnter": null,
+        "OnMouseLeave": null
+      },
+      "styleId": "3755d9a1-991d-4861-8878-42148ee446dc:default-style:WebLabel",
+      "children": []
+    },
+    {
+      "id": "ebc92ea8-0f43-4eee-899c-2853efd74751",
+      "type": "WebLabel",
+      "name": "LBLSubtitulo",
+      "parentId": "593dd177-f63f-4469-b1dd-b8eb4d3247cc",
+      "layout": {
+        "container": {
+          "mode": "fixed",
+          "paddingTop": 0,
+          "paddingRight": 0,
+          "paddingBottom": 0,
+          "paddingLeft": 0,
+          "gap": 0,
+          "wrap": false,
+          "justifyContent": "start",
+          "alignItems": "start"
+        },
+        "item": {
+          "width": "stretch",
+          "height": "fixed",
+          "minWidth": 0,
+          "maxWidth": null,
+          "minHeight": 0,
+          "maxHeight": null,
+          "grow": 0,
+          "shrink": false,
+          "alignSelf": "auto",
+          "horizontalAnchor": "start",
+          "verticalAnchor": "start",
+          "left": 0,
+          "right": 0,
+          "top": 0,
+          "bottom": 0
+        }
+      },
+      "bounds": {
+        "width": 80,
+        "height": 28,
+        "x": 0,
+        "y": 0
+      },
+      "props": {
+        "caption": "Entre com seu usuário de rede da Prefeitura.",
+        "enabled": true,
+        "autoSize": false,
+        "collapseWhenHidden": true,
+        "color": "#000000",
+        "visible": true
+      },
+      "events": {
+        "OnClick": null,
+        "OnDblClick": null,
+        "OnMouseEnter": null,
+        "OnMouseLeave": null
+      },
+      "styleId": "3755d9a1-991d-4861-8878-42148ee446dc:default-style:WebLabel",
+      "children": []
+    },
+    {
+      "id": "638ffdc2-bf5b-4474-87cd-084b273f85f3",
+      "type": "WebEdit",
+      "name": "EDTLogin",
+      "parentId": "593dd177-f63f-4469-b1dd-b8eb4d3247cc",
+      "layout": {
+        "container": {
+          "mode": "fixed",
+          "paddingTop": 0,
+          "paddingRight": 0,
+          "paddingBottom": 0,
+          "paddingLeft": 0,
+          "gap": 0,
+          "wrap": false,
+          "justifyContent": "start",
+          "alignItems": "start"
+        },
+        "item": {
+          "width": "stretch",
+          "height": "fixed",
+          "minWidth": 0,
+          "maxWidth": null,
+          "minHeight": 0,
+          "maxHeight": null,
+          "grow": 0,
+          "shrink": false,
+          "alignSelf": "auto",
+          "horizontalAnchor": "start",
+          "verticalAnchor": "start",
+          "left": 0,
+          "right": 0,
+          "top": 0,
+          "bottom": 0
+        }
+      },
+      "bounds": {
+        "width": 160,
+        "height": 40,
+        "x": 0,
+        "y": 0
+      },
+      "props": {
+        "value": "",
+        "enabled": true,
+        "collapseWhenHidden": true,
+        "placeholder": "Usuário (ex.: pedro.soares)",
+        "readOnly": false,
+        "tabIndex": 0,
+        "visible": true
+      },
+      "events": {
+        "OnBlur": null,
+        "OnChange": null,
+        "OnFocus": null,
+        "OnInput": null,
+        "OnKeyDown": null,
+        "OnKeyUp": null
+      },
+      "styleId": "3755d9a1-991d-4861-8878-42148ee446dc:default-style:WebEdit",
+      "children": []
+    },
+    {
+      "id": "56b99a78-9f1d-49e7-b221-9175b65be87b",
+      "type": "WebEdit",
+      "name": "EDTSenha",
+      "parentId": "593dd177-f63f-4469-b1dd-b8eb4d3247cc",
+      "layout": {
+        "container": {
+          "mode": "fixed",
+          "paddingTop": 0,
+          "paddingRight": 0,
+          "paddingBottom": 0,
+          "paddingLeft": 0,
+          "gap": 0,
+          "wrap": false,
+          "justifyContent": "start",
+          "alignItems": "start"
+        },
+        "item": {
+          "width": "stretch",
+          "height": "fixed",
+          "minWidth": 0,
+          "maxWidth": null,
+          "minHeight": 0,
+          "maxHeight": null,
+          "grow": 0,
+          "shrink": false,
+          "alignSelf": "auto",
+          "horizontalAnchor": "start",
+          "verticalAnchor": "start",
+          "left": 0,
+          "right": 0,
+          "top": 0,
+          "bottom": 0
+        }
+      },
+      "bounds": {
+        "width": 160,
+        "height": 40,
+        "x": 0,
+        "y": 0
+      },
+      "props": {
+        "value": "",
+        "enabled": true,
+        "collapseWhenHidden": true,
+        "inputType": "password",
+        "placeholder": "Senha",
+        "readOnly": false,
+        "tabIndex": 0,
+        "visible": true
+      },
+      "events": {
+        "OnBlur": null,
+        "OnChange": null,
+        "OnFocus": null,
+        "OnInput": null,
+        "OnKeyDown": "SenhaTecla",
+        "OnKeyUp": null
+      },
+      "styleId": "3755d9a1-991d-4861-8878-42148ee446dc:default-style:WebEdit",
+      "children": []
+    },
+    {
+      "id": "7031fed8-6717-4c06-adc3-bba7096ea060",
+      "type": "WebButton",
+      "name": "BTNEntrar",
+      "parentId": "593dd177-f63f-4469-b1dd-b8eb4d3247cc",
+      "layout": {
+        "container": {
+          "mode": "fixed",
+          "paddingTop": 0,
+          "paddingRight": 0,
+          "paddingBottom": 0,
+          "paddingLeft": 0,
+          "gap": 0,
+          "wrap": false,
+          "justifyContent": "start",
+          "alignItems": "start"
+        },
+        "item": {
+          "width": "fixed",
+          "height": "fixed",
+          "minWidth": 120,
+          "maxWidth": 220,
+          "minHeight": 0,
+          "maxHeight": null,
+          "grow": 0,
+          "shrink": true,
+          "alignSelf": "auto",
+          "horizontalAnchor": "start",
+          "verticalAnchor": "start",
+          "left": 0,
+          "right": 0,
+          "top": 0,
+          "bottom": 0
+        }
+      },
+      "bounds": {
+        "width": 180,
+        "height": 40,
+        "x": 0,
+        "y": 0
+      },
+      "props": {
+        "caption": "Entrar",
+        "enabled": true,
+        "collapseWhenHidden": true,
+        "icon": "login",
+        "tabIndex": 0,
+        "visible": true
+      },
+      "events": {
+        "OnBlur": null,
+        "OnClick": "Entrar",
+        "OnFocus": null,
+        "OnMouseEnter": null,
+        "OnMouseLeave": null
+      },
+      "styleId": "3755d9a1-991d-4861-8878-42148ee446dc:default-style:WebButton",
+      "children": []
+    },
+    {
+      "id": "df175d4f-f264-4444-a314-518f36073bd7",
+      "type": "WebLabel",
+      "name": "LBLMensagem",
+      "parentId": "593dd177-f63f-4469-b1dd-b8eb4d3247cc",
+      "layout": {
+        "container": {
+          "mode": "fixed",
+          "paddingTop": 0,
+          "paddingRight": 0,
+          "paddingBottom": 0,
+          "paddingLeft": 0,
+          "gap": 0,
+          "wrap": false,
+          "justifyContent": "start",
+          "alignItems": "start"
+        },
+        "item": {
+          "width": "stretch",
+          "height": "fixed",
+          "minWidth": 0,
+          "maxWidth": null,
+          "minHeight": 0,
+          "maxHeight": null,
+          "grow": 0,
+          "shrink": false,
+          "alignSelf": "auto",
+          "horizontalAnchor": "start",
+          "verticalAnchor": "start",
+          "left": 0,
+          "right": 0,
+          "top": 0,
+          "bottom": 0
+        }
+      },
+      "bounds": {
+        "width": 80,
+        "height": 44,
+        "x": 0,
+        "y": 0
+      },
+      "props": {
+        "caption": "",
+        "enabled": true,
+        "autoSize": false,
+        "collapseWhenHidden": true,
+        "color": "#000000",
+        "visible": true
+      },
+      "events": {
+        "OnClick": null,
+        "OnDblClick": null,
+        "OnMouseEnter": null,
+        "OnMouseLeave": null
+      },
+      "styleId": "3755d9a1-991d-4861-8878-42148ee446dc:default-style:WebLabel",
+      "children": []
+    },
+    {
+      "id": "1b958790-8f0f-47b9-8e30-fa40b51e8d0b",
+      "type": "WebApiClient",
+      "name": "ApiSessao",
+      "parentId": "1c5ed026-aeb8-44b0-8a4a-ab824614858b",
+      "layout": {
+        "container": {
+          "mode": "fixed",
+          "paddingTop": 0,
+          "paddingRight": 0,
+          "paddingBottom": 0,
+          "paddingLeft": 0,
+          "gap": 0,
+          "wrap": false,
+          "justifyContent": "start",
+          "alignItems": "start"
+        },
+        "item": {
+          "width": "stretch",
+          "height": "fixed",
+          "minWidth": 0,
+          "maxWidth": null,
+          "minHeight": 0,
+          "maxHeight": null,
+          "grow": 0,
+          "shrink": false,
+          "alignSelf": "auto",
+          "horizontalAnchor": "start",
+          "verticalAnchor": "start",
+          "left": 0,
+          "right": 0,
+          "top": 0,
+          "bottom": 0
+        }
+      },
+      "bounds": {
+        "width": 112,
+        "height": 52,
+        "x": 0,
+        "y": 0
+      },
+      "props": {
+        "baseUrl": "",
+        "apiClientConfig": {
+          "connection": "restgo-session",
+          "defaultHeaders": [],
+          "operations": [
+            {
+              "id": "f1c631ca-6f15-4e82-8810-7eebfc11731f",
+              "name": "SessaoUsuario",
+              "apiVersion": 1,
+              "body": {
+                "kind": "none",
+                "content": ""
+              },
+              "credentials": "omit",
+              "headers": [],
+              "method": "GET",
+              "path": "sigat/sessao-usuario",
+              "query": [],
+              "responseSchema": {
+                "root": {
+                  "id": "7fe948c5-7635-4d53-8656-e2ed30f8b0ef",
+                  "name": "Response",
+                  "children": [
+                    {
+                      "id": "b364d10e-bd3b-4a63-a9f6-dc29255b2652",
+                      "name": "success",
+                      "children": [],
+                      "kind": "field",
+                      "fieldType": "boolean",
+                      "nullable": false,
+                      "path": "/success"
+                    },
+                    {
+                      "id": "9ef968b7-8f4d-473a-be92-3857be2bc98d",
+                      "name": "data",
+                      "children": [
+                        {
+                          "id": "82384277-32b4-41b1-a535-927cd7b17195",
+                          "name": "id_usuario",
+                          "children": [],
+                          "kind": "field",
+                          "fieldType": "integer",
+                          "nullable": true,
+                          "path": "/data/*/id_usuario"
+                        },
+                        {
+                          "id": "638d82dd-3ffe-42d9-a9d8-7db1b248037a",
+                          "name": "nome_usuario",
+                          "children": [],
+                          "kind": "field",
+                          "fieldType": "string",
+                          "nullable": true,
+                          "path": "/data/*/nome_usuario"
+                        },
+                        {
+                          "id": "24914ee9-7ae9-43c7-acf3-db79adc90108",
+                          "name": "login_usuario",
+                          "children": [],
+                          "kind": "field",
+                          "fieldType": "string",
+                          "nullable": true,
+                          "path": "/data/*/login_usuario"
+                        },
+                        {
+                          "id": "e30c9af6-1055-4bff-9b4d-abc712ab926e",
+                          "name": "autorizacao_usuario",
+                          "children": [],
+                          "kind": "field",
+                          "fieldType": "integer",
+                          "nullable": true,
+                          "path": "/data/*/autorizacao_usuario"
+                        },
+                        {
+                          "id": "d03ec7b9-ee97-41d7-8754-44c12e1d14f5",
+                          "name": "fila_usuario",
+                          "children": [],
+                          "kind": "field",
+                          "fieldType": "integer",
+                          "nullable": true,
+                          "path": "/data/*/fila_usuario"
+                        },
+                        {
+                          "id": "11e36328-6bd4-424e-a215-3768c152a79e",
+                          "name": "triagem_usuario",
+                          "children": [],
+                          "kind": "field",
+                          "fieldType": "integer",
+                          "nullable": true,
+                          "path": "/data/*/triagem_usuario"
+                        },
+                        {
+                          "id": "2eb1a3b9-b4ec-49f2-b8f6-676c41894143",
+                          "name": "encerramento_usuario",
+                          "children": [],
+                          "kind": "field",
+                          "fieldType": "integer",
+                          "nullable": true,
+                          "path": "/data/*/encerramento_usuario"
+                        },
+                        {
+                          "id": "e6ff0519-f8c2-4b10-af37-326583bd75df",
+                          "name": "inservivel_usuario",
+                          "children": [],
+                          "kind": "field",
+                          "fieldType": "integer",
+                          "nullable": true,
+                          "path": "/data/*/inservivel_usuario"
+                        },
+                        {
+                          "id": "ea84b8db-c1c2-469b-948b-7cae0c4d9c0c",
+                          "name": "status_usuario",
+                          "children": [],
+                          "kind": "field",
+                          "fieldType": "integer",
+                          "nullable": true,
+                          "path": "/data/*/status_usuario"
+                        },
+                        {
+                          "id": "bcd84fc9-2364-40ff-9b69-3c5040297673",
+                          "name": "data_usuario",
+                          "children": [],
+                          "kind": "field",
+                          "fieldType": "string",
+                          "nullable": true,
+                          "path": "/data/*/data_usuario"
+                        },
+                        {
+                          "id": "5c4aa66e-f2c3-45ba-b935-626d09d4e937",
+                          "name": "nome_grupo",
+                          "children": [],
+                          "kind": "field",
+                          "fieldType": "string",
+                          "nullable": true,
+                          "path": "/data/*/nome_grupo"
+                        },
+                        {
+                          "id": "63b61a71-4dff-4d02-b715-53d32c8c8298",
+                          "name": "cor_grupo",
+                          "children": [],
+                          "kind": "field",
+                          "fieldType": "string",
+                          "nullable": true,
+                          "path": "/data/*/cor_grupo"
+                        },
+                        {
+                          "id": "f1705bb0-dd8b-42e3-ab05-b3a70b1fde9c",
+                          "name": "total_bloqueados",
+                          "children": [],
+                          "kind": "field",
+                          "fieldType": "integer",
+                          "nullable": true,
+                          "path": "/data/*/total_bloqueados"
+                        }
+                      ],
+                      "kind": "list",
+                      "fieldType": "list",
+                      "nullable": false,
+                      "path": "/data"
+                    },
+                    {
+                      "id": "da02a9de-effe-41fe-a75d-18111d6cec48",
+                      "name": "page",
+                      "children": [],
+                      "kind": "field",
+                      "fieldType": "integer",
+                      "nullable": true,
+                      "path": "/page"
+                    },
+                    {
+                      "id": "d6d3fb11-142d-43cb-a2b2-f6174f86e1c6",
+                      "name": "page_size",
+                      "children": [],
+                      "kind": "field",
+                      "fieldType": "integer",
+                      "nullable": true,
+                      "path": "/page_size"
+                    },
+                    {
+                      "id": "80dd884b-fc18-4530-b58d-b800cd8287fc",
+                      "name": "total_pages",
+                      "children": [],
+                      "kind": "field",
+                      "fieldType": "integer",
+                      "nullable": true,
+                      "path": "/total_pages"
+                    },
+                    {
+                      "id": "b0543391-6619-4bb4-a5a5-27c547d02c39",
+                      "name": "total",
+                      "children": [],
+                      "kind": "field",
+                      "fieldType": "integer",
+                      "nullable": true,
+                      "path": "/total"
+                    },
+                    {
+                      "id": "e33863a7-b75b-4e78-8825-431aa97c47fb",
+                      "name": "has_more",
+                      "children": [],
+                      "kind": "field",
+                      "fieldType": "boolean",
+                      "nullable": true,
+                      "path": "/has_more"
+                    }
+                  ],
+                  "kind": "object",
+                  "fieldType": "object",
+                  "nullable": false,
+                  "path": ""
+                },
+                "version": 1
+              },
+              "timeoutMs": null
+            }
+          ],
+          "schemaVersion": 1,
+          "timeoutMs": 30000
+        }
+      },
+      "events": {
+        "OnComplete": null,
+        "OnError": null,
+        "OnRequest": null,
+        "OnSuccess": null
+      },
+      "children": []
+    }
+  ]
+}
