@@ -20,41 +20,41 @@ export abstract class NegadoGenerated extends WebPage {
   public constructor(element: HTMLElement) {
     super(element);
     this.Cabecalho = new WebGroup(
-      this.requireComponentElement('f33a643f-bb2d-4e18-aa20-f9043eaf431b'),
+      this.requireComponentElement('42898aa7-2d8a-48be-bd58-e0e758c9811e'),
     );
-    this.Marca = new WebLabel(this.requireComponentElement('7c185fc6-697f-4c9a-a608-0f8481dc8ef5'));
+    this.Marca = new WebLabel(this.requireComponentElement('8b359976-f68a-4f1f-a936-fac814518356'));
     this.BTNPainel = new WebButton(
-      this.requireComponentElement('790da16c-ac21-4fb2-913e-4b2feaa4305c'),
+      this.requireComponentElement('cf019585-31aa-4a9b-ad7c-8020e5a037b5'),
     );
     this.EDTBuscaRapida = new WebEdit(
-      this.requireComponentElement('4b418bb2-9307-4506-abcd-d93e27355527'),
+      this.requireComponentElement('0e85cc12-1cc3-439e-977e-13441a65107a'),
     );
     this.BTNBuscar = new WebButton(
-      this.requireComponentElement('cc0643de-63b8-4f54-99d0-24e975efb3c2'),
+      this.requireComponentElement('8bbd29dd-6a96-4673-8fee-df431eb67e82'),
     );
     this.BTNInserviveis = new WebButton(
-      this.requireComponentElement('fa7160c7-9219-4ff8-9f38-c403e4c0dfe9'),
+      this.requireComponentElement('4d7faaba-5320-4fde-833d-f3f91e7310eb'),
     );
     this.BTNAdmin = new WebButton(
-      this.requireComponentElement('e2783215-03de-4106-b853-09b7243ac6cf'),
+      this.requireComponentElement('68e07632-8abb-4f6a-8cae-095fbd1c2e8f'),
     );
     this.LBLUsuario = new WebLabel(
-      this.requireComponentElement('78dd52d6-c7d4-480e-9840-7df5bce091a0'),
+      this.requireComponentElement('b6398489-7364-4fe4-8971-4d930a756c95'),
     );
     this.BTNSair = new WebButton(
-      this.requireComponentElement('7420d255-2b98-47e9-953f-3d102c5cb71e'),
+      this.requireComponentElement('379df523-8eda-479b-b539-3c47715c40dd'),
     );
     this.PNLNegado = new WebPanel(
-      this.requireComponentElement('0d4da069-b021-41d8-8d9a-6a6a65e46689'),
+      this.requireComponentElement('5bf7d62d-e131-47e5-b6b2-3bea7d2b07f9'),
     );
     this.LBLNegado = new WebLabel(
-      this.requireComponentElement('641f8601-df3a-4833-a999-f6d461925f4e'),
+      this.requireComponentElement('53c2e0dc-6caf-489b-9735-e4e5c434ce12'),
     );
     this.LBLTexto = new WebLabel(
-      this.requireComponentElement('ae06155c-08af-40c9-8d62-90c3c8868cb5'),
+      this.requireComponentElement('c768742d-df77-48a5-b4ad-1695a56274be'),
     );
     this.BTNVoltar = new WebButton(
-      this.requireComponentElement('6437814d-3c2c-417b-9013-5ea9b8dfd129'),
+      this.requireComponentElement('34b3b6b7-5fff-4afd-972a-c23d5c8f873b'),
     );
 
     this.bindGeneratedEvent(this, 'OnShow', 'Mostrar');

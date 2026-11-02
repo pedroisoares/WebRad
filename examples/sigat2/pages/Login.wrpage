@@ -1,14 +1,14 @@
 {
   "formatVersion": 2,
-  "id": "00b68a45-74dc-4d79-9b07-38a3e652bc35",
+  "id": "d95b0182-309e-48a5-9be3-b2122c0041af",
   "name": "Login",
   "caption": "Login",
   "width": 1280,
   "height": 1200,
-  "rootComponentId": "1f83daf9-cec8-47d7-ae46-b71e9a0f8548",
+  "rootComponentId": "6cfabaaf-74ef-4cc3-be54-b938f96715a6",
   "components": [
     {
-      "id": "1f83daf9-cec8-47d7-ae46-b71e9a0f8548",
+      "id": "6cfabaaf-74ef-4cc3-be54-b938f96715a6",
       "type": "WebPage",
       "name": "Login",
       "parentId": null,
@@ -64,15 +64,15 @@
       },
       "styleId": "3755d9a1-991d-4861-8878-42148ee446dc:default-style:WebPage",
       "children": [
-        "690f3287-31be-4f41-a4c1-01f8b199bb32",
-        "1b958790-8f0f-47b9-8e30-fa40b51e8d0b"
+        "d5b1c630-ad5f-4593-a4c5-53e4118f4725",
+        "e33863a7-b75b-4e78-8825-431aa97c47fb"
       ]
     },
     {
-      "id": "690f3287-31be-4f41-a4c1-01f8b199bb32",
+      "id": "d5b1c630-ad5f-4593-a4c5-53e4118f4725",
       "type": "WebPanel",
       "name": "PNLLogin",
-      "parentId": "1f83daf9-cec8-47d7-ae46-b71e9a0f8548",
+      "parentId": "6cfabaaf-74ef-4cc3-be54-b938f96715a6",
       "layout": {
         "container": {
           "mode": "column",
@@ -137,19 +137,19 @@
       },
       "styleId": "3755d9a1-991d-4861-8878-42148ee446dc:default-style:WebPanel",
       "children": [
-        "249e51de-41e9-4ae7-9ac9-bf1877ff0312",
-        "e86e3017-471b-40b9-86de-6f3759e35a09",
-        "bf9a61aa-1f38-4825-99f7-b11787c23f6e",
-        "c29240a6-1d1a-4467-ba86-3004a641ce7a",
-        "6e9e74ce-9beb-4adc-af53-4d9db3e29443",
-        "205625ce-5f06-456c-94ac-4e9ba03df548"
+        "2f34111e-f6d8-48e5-90d0-5e1d8b2fcb48",
+        "5431a13d-a6b7-4c3d-93ad-02160503e9e6",
+        "a9cf1888-be83-4232-a011-a0582ec152cb",
+        "f7d3a8d9-cd33-464e-883f-8d70ea74ce14",
+        "2c1f9d6c-bc71-4a19-87fc-52f2cf645dda",
+        "881d28a9-196d-42c5-8f64-3dce8ce1d46b"
       ]
     },
     {
-      "id": "249e51de-41e9-4ae7-9ac9-bf1877ff0312",
+      "id": "2f34111e-f6d8-48e5-90d0-5e1d8b2fcb48",
       "type": "WebLabel",
       "name": "LBLTitulo",
-      "parentId": "690f3287-31be-4f41-a4c1-01f8b199bb32",
+      "parentId": "d5b1c630-ad5f-4593-a4c5-53e4118f4725",
       "layout": {
         "container": {
           "mode": "fixed",
@@ -204,10 +204,10 @@
       "children": []
     },
     {
-      "id": "e86e3017-471b-40b9-86de-6f3759e35a09",
+      "id": "5431a13d-a6b7-4c3d-93ad-02160503e9e6",
       "type": "WebLabel",
       "name": "LBLSubtitulo",
-      "parentId": "690f3287-31be-4f41-a4c1-01f8b199bb32",
+      "parentId": "d5b1c630-ad5f-4593-a4c5-53e4118f4725",
       "layout": {
         "container": {
           "mode": "fixed",
@@ -262,10 +262,10 @@
       "children": []
     },
     {
-      "id": "bf9a61aa-1f38-4825-99f7-b11787c23f6e",
+      "id": "a9cf1888-be83-4232-a011-a0582ec152cb",
       "type": "WebEdit",
       "name": "EDTLogin",
-      "parentId": "690f3287-31be-4f41-a4c1-01f8b199bb32",
+      "parentId": "d5b1c630-ad5f-4593-a4c5-53e4118f4725",
       "layout": {
         "container": {
           "mode": "fixed",
@@ -323,10 +323,10 @@
       "children": []
     },
     {
-      "id": "c29240a6-1d1a-4467-ba86-3004a641ce7a",
+      "id": "f7d3a8d9-cd33-464e-883f-8d70ea74ce14",
       "type": "WebEdit",
       "name": "EDTSenha",
-      "parentId": "690f3287-31be-4f41-a4c1-01f8b199bb32",
+      "parentId": "d5b1c630-ad5f-4593-a4c5-53e4118f4725",
       "layout": {
         "container": {
           "mode": "fixed",
@@ -385,10 +385,10 @@
       "children": []
     },
     {
-      "id": "6e9e74ce-9beb-4adc-af53-4d9db3e29443",
+      "id": "2c1f9d6c-bc71-4a19-87fc-52f2cf645dda",
       "type": "WebButton",
       "name": "BTNEntrar",
-      "parentId": "690f3287-31be-4f41-a4c1-01f8b199bb32",
+      "parentId": "d5b1c630-ad5f-4593-a4c5-53e4118f4725",
       "layout": {
         "container": {
           "mode": "fixed",
@@ -444,10 +444,10 @@
       "children": []
     },
     {
-      "id": "205625ce-5f06-456c-94ac-4e9ba03df548",
+      "id": "881d28a9-196d-42c5-8f64-3dce8ce1d46b",
       "type": "WebLabel",
       "name": "LBLMensagem",
-      "parentId": "690f3287-31be-4f41-a4c1-01f8b199bb32",
+      "parentId": "d5b1c630-ad5f-4593-a4c5-53e4118f4725",
       "layout": {
         "container": {
           "mode": "fixed",
@@ -502,10 +502,10 @@
       "children": []
     },
     {
-      "id": "1b958790-8f0f-47b9-8e30-fa40b51e8d0b",
+      "id": "e33863a7-b75b-4e78-8825-431aa97c47fb",
       "type": "WebApiClient",
       "name": "ApiSessao",
-      "parentId": "1f83daf9-cec8-47d7-ae46-b71e9a0f8548",
+      "parentId": "6cfabaaf-74ef-4cc3-be54-b938f96715a6",
       "layout": {
         "container": {
           "mode": "fixed",
@@ -549,7 +549,7 @@
           "defaultHeaders": [],
           "operations": [
             {
-              "id": "f1c631ca-6f15-4e82-8810-7eebfc11731f",
+              "id": "b67ed8bf-0961-4e71-884a-bb9f8dce8798",
               "name": "SessaoUsuario",
               "apiVersion": 1,
               "body": {
@@ -563,11 +563,11 @@
               "query": [],
               "responseSchema": {
                 "root": {
-                  "id": "7fe948c5-7635-4d53-8656-e2ed30f8b0ef",
+                  "id": "5db920b1-31c6-4efa-9564-133e0829539b",
                   "name": "Response",
                   "children": [
                     {
-                      "id": "b364d10e-bd3b-4a63-a9f6-dc29255b2652",
+                      "id": "f839aafd-6b1d-471c-9215-4e974b68d865",
                       "name": "success",
                       "children": [],
                       "kind": "field",
@@ -576,11 +576,11 @@
                       "path": "/success"
                     },
                     {
-                      "id": "9ef968b7-8f4d-473a-be92-3857be2bc98d",
+                      "id": "5d69cd0d-935f-4f42-a6fc-b97afe5ef90d",
                       "name": "data",
                       "children": [
                         {
-                          "id": "82384277-32b4-41b1-a535-927cd7b17195",
+                          "id": "87e367de-1dae-4e15-ba36-0809bf1227da",
                           "name": "id_usuario",
                           "children": [],
                           "kind": "field",
@@ -589,7 +589,7 @@
                           "path": "/data/*/id_usuario"
                         },
                         {
-                          "id": "638d82dd-3ffe-42d9-a9d8-7db1b248037a",
+                          "id": "62be2ad7-2cf2-488f-9f96-13c4a0353936",
                           "name": "nome_usuario",
                           "children": [],
                           "kind": "field",
@@ -598,7 +598,7 @@
                           "path": "/data/*/nome_usuario"
                         },
                         {
-                          "id": "24914ee9-7ae9-43c7-acf3-db79adc90108",
+                          "id": "2eeac2e6-071f-468b-920d-4d7d95d83029",
                           "name": "login_usuario",
                           "children": [],
                           "kind": "field",
@@ -607,7 +607,7 @@
                           "path": "/data/*/login_usuario"
                         },
                         {
-                          "id": "e30c9af6-1055-4bff-9b4d-abc712ab926e",
+                          "id": "b505b393-83c7-4041-ba2d-3e19a82a333d",
                           "name": "autorizacao_usuario",
                           "children": [],
                           "kind": "field",
@@ -616,7 +616,7 @@
                           "path": "/data/*/autorizacao_usuario"
                         },
                         {
-                          "id": "d03ec7b9-ee97-41d7-8754-44c12e1d14f5",
+                          "id": "f3123f71-c952-4851-b627-ab2eabfb1b8f",
                           "name": "fila_usuario",
                           "children": [],
                           "kind": "field",
@@ -625,7 +625,7 @@
                           "path": "/data/*/fila_usuario"
                         },
                         {
-                          "id": "11e36328-6bd4-424e-a215-3768c152a79e",
+                          "id": "7e6b1019-e9e8-4b44-9c7e-61a140bd6ebc",
                           "name": "triagem_usuario",
                           "children": [],
                           "kind": "field",
@@ -634,7 +634,7 @@
                           "path": "/data/*/triagem_usuario"
                         },
                         {
-                          "id": "2eb1a3b9-b4ec-49f2-b8f6-676c41894143",
+                          "id": "e4f34935-4468-40f4-8002-38284824133f",
                           "name": "encerramento_usuario",
                           "children": [],
                           "kind": "field",
@@ -643,7 +643,7 @@
                           "path": "/data/*/encerramento_usuario"
                         },
                         {
-                          "id": "e6ff0519-f8c2-4b10-af37-326583bd75df",
+                          "id": "1f4cd226-5f00-4c5b-b0d2-b246317087c1",
                           "name": "inservivel_usuario",
                           "children": [],
                           "kind": "field",
@@ -652,7 +652,7 @@
                           "path": "/data/*/inservivel_usuario"
                         },
                         {
-                          "id": "ea84b8db-c1c2-469b-948b-7cae0c4d9c0c",
+                          "id": "af6b4970-9768-48e9-83a1-c9c8abd3c848",
                           "name": "status_usuario",
                           "children": [],
                           "kind": "field",
@@ -661,7 +661,7 @@
                           "path": "/data/*/status_usuario"
                         },
                         {
-                          "id": "bcd84fc9-2364-40ff-9b69-3c5040297673",
+                          "id": "d3f3fc53-7662-4428-bb48-e4a54f4939a4",
                           "name": "data_usuario",
                           "children": [],
                           "kind": "field",
@@ -670,7 +670,7 @@
                           "path": "/data/*/data_usuario"
                         },
                         {
-                          "id": "5c4aa66e-f2c3-45ba-b935-626d09d4e937",
+                          "id": "d869ad49-0b60-4cee-abec-a1fc2ab6aad6",
                           "name": "nome_grupo",
                           "children": [],
                           "kind": "field",
@@ -679,7 +679,7 @@
                           "path": "/data/*/nome_grupo"
                         },
                         {
-                          "id": "63b61a71-4dff-4d02-b715-53d32c8c8298",
+                          "id": "c827a2ca-7d06-4f0b-a97b-9e10d14b9d12",
                           "name": "cor_grupo",
                           "children": [],
                           "kind": "field",
@@ -688,7 +688,7 @@
                           "path": "/data/*/cor_grupo"
                         },
                         {
-                          "id": "f1705bb0-dd8b-42e3-ab05-b3a70b1fde9c",
+                          "id": "a12dd196-e71b-4fa4-bf5d-ae0140a60c12",
                           "name": "total_bloqueados",
                           "children": [],
                           "kind": "field",
@@ -703,7 +703,7 @@
                       "path": "/data"
                     },
                     {
-                      "id": "da02a9de-effe-41fe-a75d-18111d6cec48",
+                      "id": "3bf39be0-3aa0-4337-ad75-5a8e05e516b6",
                       "name": "page",
                       "children": [],
                       "kind": "field",
@@ -712,7 +712,7 @@
                       "path": "/page"
                     },
                     {
-                      "id": "d6d3fb11-142d-43cb-a2b2-f6174f86e1c6",
+                      "id": "672fa877-15a6-4249-988f-23d1f868da82",
                       "name": "page_size",
                       "children": [],
                       "kind": "field",
@@ -721,7 +721,7 @@
                       "path": "/page_size"
                     },
                     {
-                      "id": "80dd884b-fc18-4530-b58d-b800cd8287fc",
+                      "id": "198a18be-dd4e-444c-9880-73e251ffdac6",
                       "name": "total_pages",
                       "children": [],
                       "kind": "field",
@@ -730,7 +730,7 @@
                       "path": "/total_pages"
                     },
                     {
-                      "id": "b0543391-6619-4bb4-a5a5-27c547d02c39",
+                      "id": "7fed30db-a6ba-462b-929c-da77ab384c3d",
                       "name": "total",
                       "children": [],
                       "kind": "field",
@@ -739,7 +739,7 @@
                       "path": "/total"
                     },
                     {
-                      "id": "e33863a7-b75b-4e78-8825-431aa97c47fb",
+                      "id": "2588624e-4768-4c5f-8f9f-1a0fff31e795",
                       "name": "has_more",
                       "children": [],
                       "kind": "field",

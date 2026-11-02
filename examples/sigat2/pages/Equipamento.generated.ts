@@ -49,92 +49,92 @@ export abstract class EquipamentoGenerated extends WebPage {
   public constructor(element: HTMLElement) {
     super(element);
     this.Cabecalho = new WebGroup(
-      this.requireComponentElement('5a94ff49-e34c-4050-9393-9ee0fb33fbae'),
+      this.requireComponentElement('6de6cbc3-d9e1-49a3-bc04-bc28431c3035'),
     );
-    this.Marca = new WebLabel(this.requireComponentElement('2a3bf081-4902-4fcf-b46b-b533512a4fe1'));
+    this.Marca = new WebLabel(this.requireComponentElement('cc0794f4-90b4-41af-a46d-5f9de8c5d2c8'));
     this.BTNPainel = new WebButton(
-      this.requireComponentElement('c8d446ed-664d-4841-a5e8-e2b90ffe63bb'),
+      this.requireComponentElement('0b9797fd-6a77-4b8f-bb46-41025c43c20c'),
     );
     this.EDTBuscaRapida = new WebEdit(
-      this.requireComponentElement('f5653906-2b5e-4350-83cc-224e6268e5f9'),
+      this.requireComponentElement('f485dcfb-0155-4989-a914-f1ca7b38b787'),
     );
     this.BTNBuscar = new WebButton(
-      this.requireComponentElement('d50cee89-7d20-4585-856d-6eb367e2b8aa'),
+      this.requireComponentElement('90ecd813-7c99-40ce-aeb1-4b91f2063e69'),
     );
     this.BTNInserviveis = new WebButton(
-      this.requireComponentElement('338d9cb8-825a-4aee-8e0f-c368533fc656'),
+      this.requireComponentElement('3c712b35-e309-41e4-9fc0-cbce5b544dff'),
     );
     this.BTNAdmin = new WebButton(
-      this.requireComponentElement('5d53c833-d072-4852-ac32-ca2a22a7f6db'),
+      this.requireComponentElement('2aaaa110-d628-4b86-977a-687754ae6bb0'),
     );
     this.LBLUsuario = new WebLabel(
-      this.requireComponentElement('cb69b8a4-f664-4e00-adaa-519108484f1f'),
+      this.requireComponentElement('3f12858f-1574-4e33-ac47-7d185daa4f83'),
     );
     this.BTNSair = new WebButton(
-      this.requireComponentElement('cd5471c3-8282-426b-89dd-286e8a8b37f6'),
+      this.requireComponentElement('ff10d256-bfd9-46c7-843f-eacdd2cc830c'),
     );
     this.LBLEquipamento = new WebLabel(
-      this.requireComponentElement('141a1c3f-fed0-49ba-bf38-6febf853dde0'),
+      this.requireComponentElement('4e684414-0ca7-4d04-a71b-5495a9ec6955'),
     );
     this.PNLDados = new WebPanel(
-      this.requireComponentElement('2a3cc118-6240-451b-9e45-ed0ce0ecb536'),
+      this.requireComponentElement('1b71b0f5-6d53-4d79-9578-d85bebbbbd83'),
     );
-    this.Dados = new WebGroup(this.requireComponentElement('d0087b3e-cb6a-4f87-9d34-d848572cf1e0'));
+    this.Dados = new WebGroup(this.requireComponentElement('68a26eb4-bc94-442e-94d2-c4fc2e4af91c'));
     this.DadosDescricao = new WebGroup(
-      this.requireComponentElement('23f74fae-1bd8-4dbe-8c30-0a9f775b73e8'),
+      this.requireComponentElement('9151bd04-9d04-4e98-9491-bf21dda918dd'),
     );
     this.LBLDescricao = new WebLabel(
-      this.requireComponentElement('d11abc84-9d0c-41b1-b237-e1386493b01e'),
+      this.requireComponentElement('cd4c7877-ade3-43ed-bd37-33482507bbf3'),
     );
     this.Descricao = new WebLabel(
-      this.requireComponentElement('00b8c344-997b-467f-bae2-f3ce4a35e1fe'),
+      this.requireComponentElement('bf421950-4245-46ac-bba5-c585a819e1bf'),
     );
     this.DadosEtiqueta = new WebGroup(
-      this.requireComponentElement('055d5dc9-596d-45c2-bd4c-5c1bd4b3ebf5'),
+      this.requireComponentElement('9c0a2646-ce67-4e12-940c-34a8132537a3'),
     );
     this.LBLEtiqueta = new WebLabel(
-      this.requireComponentElement('292c49ca-a5d3-4caa-92ea-b2827296560f'),
+      this.requireComponentElement('7284d53f-72c3-4c04-89ae-b184ac3a3d99'),
     );
     this.Etiqueta = new WebLabel(
-      this.requireComponentElement('603c57cb-2200-404c-86a2-4c62a7a5f5e0'),
+      this.requireComponentElement('f0ca1a47-413c-4f35-9d7b-292f0852fd43'),
     );
     this.DadosCadastro = new WebGroup(
-      this.requireComponentElement('e94dec72-f984-46e1-8888-e4be28f4a92c'),
+      this.requireComponentElement('af4e1a77-5c34-45b0-b9ae-d03398a9dc01'),
     );
     this.LBLCadastro = new WebLabel(
-      this.requireComponentElement('010cd95f-eb39-4ef2-8eef-7e40ab224504'),
+      this.requireComponentElement('55d57f15-4755-40b2-97cc-9adee790a438'),
     );
     this.Cadastro = new WebLabel(
-      this.requireComponentElement('d9dd595a-455f-487d-91a3-c9675c90a117'),
+      this.requireComponentElement('d0dbdd7b-a828-4766-a321-dbb2ddc41f27'),
     );
     this.DadosAlteracao = new WebGroup(
-      this.requireComponentElement('ef0f464c-3fd7-43e4-86e9-41195bb26f88'),
+      this.requireComponentElement('64051240-037c-4191-bc30-97e446c76d53'),
     );
     this.LBLAlteracao = new WebLabel(
-      this.requireComponentElement('fd229f25-a574-4733-a73e-fe564a807afd'),
+      this.requireComponentElement('1c2d0766-336e-4ac5-868e-44e66e535587'),
     );
     this.Alteracao = new WebLabel(
-      this.requireComponentElement('dee35afe-cab7-464b-90f8-1c941a85c9e6'),
+      this.requireComponentElement('75a0b235-d573-45fa-969f-5124429ee265'),
     );
     this.PNLChamados = new WebPanel(
-      this.requireComponentElement('0c4b782f-2f4f-4666-95a1-117d49adf714'),
+      this.requireComponentElement('6d019d22-806e-48d7-b22e-9997e59f46a4'),
     );
     this.Filtro = new WebGroup(
-      this.requireComponentElement('f860f36d-cb10-4e6f-b233-256dc8306014'),
+      this.requireComponentElement('6f89acfe-91ff-4ce0-81c2-7216807f8f3f'),
     );
     this.TGLAtendidos = new WebToggle(
-      this.requireComponentElement('a983ad9d-fd71-48d7-9b30-553c8d01b886'),
+      this.requireComponentElement('1e6c9f74-a781-41b1-9683-62e4af7cc547'),
     );
     this.LBLAtendidos = new WebLabel(
-      this.requireComponentElement('e267dd17-2bd8-410d-acf9-8e9233ac4f0c'),
+      this.requireComponentElement('da6b537d-431c-430c-a773-2cb0dffe1b21'),
     );
     this.GRDChamados = new WebDataGrid(
-      this.requireComponentElement('6de6cbc3-d9e1-49a3-bc04-bc28431c3035'),
+      this.requireComponentElement('79370fd4-6966-4366-8b85-5ecb6b501629'),
     );
     this.GRDChamados.dataGridConfig = {
       schemaVersion: 2,
-      apiClientId: '2fd971ee-baa9-4597-91f9-a031d6610674',
-      operationId: '30516d15-463c-4370-8370-5d69f3f4faea',
+      apiClientId: '5196e744-aef1-4050-9a09-3602f20aa8bf',
+      operationId: '2a1030e2-d546-4fcd-81a7-53b4b53148cf',
       listPath: '/data',
       columnCount: 6,
       showHeader: true,
@@ -154,7 +154,7 @@ export abstract class EquipamentoGenerated extends WebPage {
       emptyMessage: 'Nenhum registro',
       columns: [
         {
-          id: '1adb891c-e660-4298-a731-cc399f805b37',
+          id: '97542457-836e-44eb-ad37-b70f2302d17e',
           header: '#',
           fieldPath: '/id_chamado',
           cellKind: 'text',
@@ -172,7 +172,7 @@ export abstract class EquipamentoGenerated extends WebPage {
           searchable: true,
         },
         {
-          id: '3e08f8c3-8ab3-4e50-9941-13d7de9006a0',
+          id: '267ba1da-ed8c-40e3-b6b9-31a8eed41e53',
           header: 'Ticket',
           fieldPath: '/ticket_chamado',
           cellKind: 'text',
@@ -190,7 +190,7 @@ export abstract class EquipamentoGenerated extends WebPage {
           searchable: true,
         },
         {
-          id: '529e2b99-e8f4-439f-9c5b-cedfb23a264c',
+          id: '87ed0811-e7e2-41b2-a0dc-58adb9972673',
           header: 'Resumo',
           fieldPath: '/resumo_chamado',
           cellKind: 'text',
@@ -208,7 +208,7 @@ export abstract class EquipamentoGenerated extends WebPage {
           searchable: true,
         },
         {
-          id: '261faa25-7a74-4bd7-8818-d9bde7bc67f4',
+          id: 'f9274270-7014-4219-a4b4-f7858f042136',
           header: 'Abertura',
           fieldPath: '/data_chamado_fmt',
           cellKind: 'text',
@@ -226,7 +226,7 @@ export abstract class EquipamentoGenerated extends WebPage {
           searchable: true,
         },
         {
-          id: 'a92a7daf-8eca-40cf-a67c-78dc50ca13d6',
+          id: '53653812-d7d7-4fb0-af9e-62433721915d',
           header: 'Status no chamado',
           fieldPath: '/status_equipamento_chamado',
           cellKind: 'text',
@@ -244,7 +244,7 @@ export abstract class EquipamentoGenerated extends WebPage {
           searchable: true,
         },
         {
-          id: '4ad85d32-ea89-46ad-a22e-e741df88b688',
+          id: '43f85044-37c3-4d76-a721-6ee6278dd3b6',
           header: 'Chamado',
           fieldPath: '/status_chamado',
           cellKind: 'text',
@@ -285,7 +285,7 @@ export abstract class EquipamentoGenerated extends WebPage {
         timeoutMs: 30000,
         operations: [
           {
-            id: '6dc63539-783d-48a6-893a-cfa4c2a040f0',
+            id: '7caf38ab-19db-4829-ad0e-137aaa0bcbb1',
             name: 'Equipamento',
             method: 'GET',
             path: 'sigat/equipamento',
@@ -293,7 +293,7 @@ export abstract class EquipamentoGenerated extends WebPage {
             headers: [],
             query: [
               {
-                id: 'e93af517-2671-4afe-90eb-22632cccd5f2',
+                id: 'd5f784e7-649e-4f74-8703-b0ee52914d37',
                 name: 'num',
                 value: '',
                 enabled: false,
@@ -305,7 +305,7 @@ export abstract class EquipamentoGenerated extends WebPage {
             responseSchema: {
               version: 1,
               root: {
-                id: '907e3202-c133-4f2e-aff5-afad2acd8935',
+                id: 'ebda2213-7c54-49fc-8df1-9fea02968479',
                 name: 'Response',
                 path: '',
                 kind: 'object',
@@ -313,7 +313,7 @@ export abstract class EquipamentoGenerated extends WebPage {
                 nullable: false,
                 children: [
                   {
-                    id: 'fb3968ab-63f7-4a7e-bdad-92c5e5e11ea3',
+                    id: '3ac6f0a3-07b3-425d-b5db-d26a1dd0636f',
                     name: 'success',
                     path: '/success',
                     kind: 'field',
@@ -322,7 +322,7 @@ export abstract class EquipamentoGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: '876346dd-c18e-4e47-bd46-b0fc2b3518c3',
+                    id: '94a3c717-700c-48ad-be0e-033b4cc7b686',
                     name: 'data',
                     path: '/data',
                     kind: 'list',
@@ -330,7 +330,7 @@ export abstract class EquipamentoGenerated extends WebPage {
                     nullable: false,
                     children: [
                       {
-                        id: '45999b12-c654-4e32-a3d4-31818597808d',
+                        id: '5a47d18b-ef60-486a-94c6-3db069645a5d',
                         name: 'num_equipamento',
                         path: '/data/*/num_equipamento',
                         kind: 'field',
@@ -339,7 +339,7 @@ export abstract class EquipamentoGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: '4a00d1c9-244e-4049-99b9-ca8c13c8badc',
+                        id: '470c9cae-fb84-4949-9af4-d7ad7b965c51',
                         name: 'descricao_equipamento',
                         path: '/data/*/descricao_equipamento',
                         kind: 'field',
@@ -348,7 +348,7 @@ export abstract class EquipamentoGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: '311405c2-c600-44f9-80b8-1e76c1341445',
+                        id: '175b2532-5c15-4843-9ff5-b71901e4c351',
                         name: 'tag_equipamento',
                         path: '/data/*/tag_equipamento',
                         kind: 'field',
@@ -357,7 +357,7 @@ export abstract class EquipamentoGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: '352c74cb-7ec3-41b4-a387-8093c0f18d97',
+                        id: '21679642-567b-49d5-9dbe-e188100bc568',
                         name: 'data_equipamento',
                         path: '/data/*/data_equipamento',
                         kind: 'field',
@@ -366,7 +366,7 @@ export abstract class EquipamentoGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: 'fdd8b1fd-fb73-4e16-a53f-783a6a2f947c',
+                        id: 'aee2d48e-a9ae-47c5-b3d2-7efeb234edb0',
                         name: 'data_alteracao_equipamento',
                         path: '/data/*/data_alteracao_equipamento',
                         kind: 'field',
@@ -377,7 +377,7 @@ export abstract class EquipamentoGenerated extends WebPage {
                     ],
                   },
                   {
-                    id: '474990e6-459a-448f-a778-81fccf1bf88a',
+                    id: '57ae5722-7305-4525-9719-ea8d2d1cc966',
                     name: 'page',
                     path: '/page',
                     kind: 'field',
@@ -386,7 +386,7 @@ export abstract class EquipamentoGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: '4a43b804-b8d6-4409-a50e-e44ee676474f',
+                    id: 'ef48b4fd-8a9f-4c29-9d8a-c8b1ada0464e',
                     name: 'page_size',
                     path: '/page_size',
                     kind: 'field',
@@ -395,7 +395,7 @@ export abstract class EquipamentoGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: '55b19d4a-9ac3-4a60-9c11-503aedd6097d',
+                    id: '47f993b1-3f84-4fa7-ad39-abcf13b1768c',
                     name: 'total_pages',
                     path: '/total_pages',
                     kind: 'field',
@@ -404,7 +404,7 @@ export abstract class EquipamentoGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: '4de31f2d-5170-4eb1-ae43-ca37fd8d7315',
+                    id: '616cbe9f-d090-4a41-aa4f-912376f7e02d',
                     name: 'total',
                     path: '/total',
                     kind: 'field',
@@ -413,7 +413,7 @@ export abstract class EquipamentoGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: '95621da3-87a4-4e51-bf80-e805e312f7a0',
+                    id: 'cba42867-29e1-4f61-bcf8-442c789ddd1a',
                     name: 'has_more',
                     path: '/has_more',
                     kind: 'field',
@@ -426,7 +426,7 @@ export abstract class EquipamentoGenerated extends WebPage {
             },
           },
           {
-            id: '30516d15-463c-4370-8370-5d69f3f4faea',
+            id: '2a1030e2-d546-4fcd-81a7-53b4b53148cf',
             name: 'Chamados',
             method: 'GET',
             path: 'sigat/equipamento-chamados',
@@ -434,13 +434,13 @@ export abstract class EquipamentoGenerated extends WebPage {
             headers: [],
             query: [
               {
-                id: '0826128a-763d-4816-a7a4-2b040b0381ea',
+                id: '082b6c83-a148-4a33-a88d-0b8842d042db',
                 name: 'num',
                 value: '',
                 enabled: false,
               },
               {
-                id: '5196e744-aef1-4050-9a09-3602f20aa8bf',
+                id: '0e4bb58a-f7e1-44bf-98b0-eeb19b965b08',
                 name: 'atendidos',
                 value: '',
                 enabled: false,
@@ -452,7 +452,7 @@ export abstract class EquipamentoGenerated extends WebPage {
             responseSchema: {
               version: 1,
               root: {
-                id: '7caf38ab-19db-4829-ad0e-137aaa0bcbb1',
+                id: 'dfc684de-fe02-45e7-a34c-e09cf30c45ee',
                 name: 'Response',
                 path: '',
                 kind: 'object',
@@ -460,7 +460,7 @@ export abstract class EquipamentoGenerated extends WebPage {
                 nullable: false,
                 children: [
                   {
-                    id: '2a1030e2-d546-4fcd-81a7-53b4b53148cf',
+                    id: '5013a5a9-afd5-4744-b344-d98af62ec4e4',
                     name: 'success',
                     path: '/success',
                     kind: 'field',
@@ -469,7 +469,7 @@ export abstract class EquipamentoGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: '97542457-836e-44eb-ad37-b70f2302d17e',
+                    id: '34023484-b4dc-4925-a9f8-f0fc1e511835',
                     name: 'data',
                     path: '/data',
                     kind: 'list',
@@ -477,7 +477,7 @@ export abstract class EquipamentoGenerated extends WebPage {
                     nullable: false,
                     children: [
                       {
-                        id: '267ba1da-ed8c-40e3-b6b9-31a8eed41e53',
+                        id: '46c582f1-81e2-482c-a76b-0d9e267235d0',
                         name: 'status_equipamento_chamado',
                         path: '/data/*/status_equipamento_chamado',
                         kind: 'field',
@@ -486,7 +486,7 @@ export abstract class EquipamentoGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: '87ed0811-e7e2-41b2-a0dc-58adb9972673',
+                        id: 'f0efaf77-d274-4885-b715-a0319dd01a26',
                         name: 'id_chamado',
                         path: '/data/*/id_chamado',
                         kind: 'field',
@@ -495,7 +495,7 @@ export abstract class EquipamentoGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: 'f9274270-7014-4219-a4b4-f7858f042136',
+                        id: '1738ad02-fb66-4455-aff8-9ad1e7925c94',
                         name: 'resumo_chamado',
                         path: '/data/*/resumo_chamado',
                         kind: 'field',
@@ -504,7 +504,7 @@ export abstract class EquipamentoGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: '53653812-d7d7-4fb0-af9e-62433721915d',
+                        id: '72d9c974-4ce8-446f-a1eb-206d9aa5406a',
                         name: 'data_chamado',
                         path: '/data/*/data_chamado',
                         kind: 'field',
@@ -513,7 +513,7 @@ export abstract class EquipamentoGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: '43f85044-37c3-4d76-a721-6ee6278dd3b6',
+                        id: '25268ba9-5671-4030-9781-ab0b5d0f0883',
                         name: 'data_chamado_fmt',
                         path: '/data/*/data_chamado_fmt',
                         kind: 'field',
@@ -522,7 +522,7 @@ export abstract class EquipamentoGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: 'd5f784e7-649e-4f74-8703-b0ee52914d37',
+                        id: '90cf5eee-2c4c-4d43-9a84-c62b6a49d379',
                         name: 'ticket_chamado',
                         path: '/data/*/ticket_chamado',
                         kind: 'field',
@@ -531,7 +531,7 @@ export abstract class EquipamentoGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: 'ebda2213-7c54-49fc-8df1-9fea02968479',
+                        id: 'e93f40ae-7706-4552-a5df-30627f4bcfbf',
                         name: 'id_ticket_chamado',
                         path: '/data/*/id_ticket_chamado',
                         kind: 'field',
@@ -540,7 +540,7 @@ export abstract class EquipamentoGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: '3ac6f0a3-07b3-425d-b5db-d26a1dd0636f',
+                        id: '8299b7be-53b6-49f5-ba03-af5489e49398',
                         name: 'status_chamado',
                         path: '/data/*/status_chamado',
                         kind: 'field',
@@ -551,7 +551,7 @@ export abstract class EquipamentoGenerated extends WebPage {
                     ],
                   },
                   {
-                    id: '94a3c717-700c-48ad-be0e-033b4cc7b686',
+                    id: 'bcc4e62b-d285-46ba-85e2-9306f92e269a',
                     name: 'page',
                     path: '/page',
                     kind: 'field',
@@ -560,7 +560,7 @@ export abstract class EquipamentoGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: '5a47d18b-ef60-486a-94c6-3db069645a5d',
+                    id: '69c347da-fd73-4aa8-8951-e01013a897dd',
                     name: 'page_size',
                     path: '/page_size',
                     kind: 'field',
@@ -569,7 +569,7 @@ export abstract class EquipamentoGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: '470c9cae-fb84-4949-9af4-d7ad7b965c51',
+                    id: '81031654-93da-4e53-83a1-888eebdc1510',
                     name: 'total_pages',
                     path: '/total_pages',
                     kind: 'field',
@@ -578,7 +578,7 @@ export abstract class EquipamentoGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: '175b2532-5c15-4843-9ff5-b71901e4c351',
+                    id: 'f2291380-27cf-4adc-bd04-881585b00bbe',
                     name: 'total',
                     path: '/total',
                     kind: 'field',
@@ -587,7 +587,7 @@ export abstract class EquipamentoGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: '21679642-567b-49d5-9dbe-e188100bc568',
+                    id: '17ef1210-6a41-4465-90e9-6930a7814c42',
                     name: 'has_more',
                     path: '/has_more',
                     kind: 'field',
@@ -601,7 +601,7 @@ export abstract class EquipamentoGenerated extends WebPage {
           },
         ],
       },
-      id: '2fd971ee-baa9-4597-91f9-a031d6610674',
+      id: '5196e744-aef1-4050-9a09-3602f20aa8bf',
       name: 'Api',
     }).withRequests();
 

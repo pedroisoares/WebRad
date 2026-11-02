@@ -60,22 +60,23 @@
       },
       "events": {
         "OnCreate": null,
-        "OnHide": null,
+        "OnHide": "Ocultar",
         "OnResize": null,
         "OnShow": "Mostrar"
       },
       "styleId": "3755d9a1-991d-4861-8878-42148ee446dc:default-style:WebPage",
       "children": [
-        "18cfe43c-3cd7-44eb-ac46-c747f6fabede",
-        "dac9149d-5d79-450f-b48e-de714aeb3166",
-        "8b13d23e-6aef-4113-9b0f-1acd1b0ea868",
-        "d5ee0681-5137-4c4f-ad52-abc6221cd772",
-        "ec5c61f6-dacc-44dc-9683-601b6d66bfaf",
-        "36d87d96-c7ce-496c-b6f9-eaf10fd31abb"
+        "249e51de-41e9-4ae7-9ac9-bf1877ff0312",
+        "a0476a81-95b6-472a-bf1f-73b1b14bdaf3",
+        "d41d5bf2-0819-43fd-945f-946aed8e3993",
+        "345e05fc-f15b-4213-b607-f9f6d87843b5",
+        "2de7b5ba-0c42-48d9-9988-6840bac41b1e",
+        "36d87d96-c7ce-496c-b6f9-eaf10fd31abb",
+        "cfc9712f-372d-4bfb-9a3e-6e490c463f30"
       ]
     },
     {
-      "id": "18cfe43c-3cd7-44eb-ac46-c747f6fabede",
+      "id": "249e51de-41e9-4ae7-9ac9-bf1877ff0312",
       "type": "WebGroup",
       "name": "Cabecalho",
       "parentId": "c6388358-1ffc-4ed3-9745-bd66df99af27",
@@ -128,21 +129,21 @@
         "OnMouseLeave": null
       },
       "children": [
-        "9855d3a5-f22d-4d01-8cd1-001ea5498da6",
-        "95f76f99-6c6b-4b7e-b939-200ef1bfe690",
-        "0fa8652f-cfec-410b-ba48-fc8cf23f2080",
-        "26b07bd4-af6d-4b5a-9922-7e0db36b1910",
-        "60e333f7-de88-4247-a60a-614d7c5a2e40",
-        "cf3702e6-3a9a-4cb1-a53c-8b5292b555fd",
-        "b3a921bc-4914-4b61-805e-e2c02c4dd859",
-        "51db09e2-d387-4019-af80-c5c435ac8f75"
+        "e86e3017-471b-40b9-86de-6f3759e35a09",
+        "bf9a61aa-1f38-4825-99f7-b11787c23f6e",
+        "c29240a6-1d1a-4467-ba86-3004a641ce7a",
+        "6e9e74ce-9beb-4adc-af53-4d9db3e29443",
+        "205625ce-5f06-456c-94ac-4e9ba03df548",
+        "a3527967-3f72-4012-8049-b7515c4d3df0",
+        "e19cbdb0-9e9c-45bd-991e-284e7328c4a8",
+        "51e3f584-d651-4ac2-9393-e5fc6d816654"
       ]
     },
     {
-      "id": "9855d3a5-f22d-4d01-8cd1-001ea5498da6",
+      "id": "e86e3017-471b-40b9-86de-6f3759e35a09",
       "type": "WebLabel",
       "name": "Marca",
-      "parentId": "18cfe43c-3cd7-44eb-ac46-c747f6fabede",
+      "parentId": "249e51de-41e9-4ae7-9ac9-bf1877ff0312",
       "layout": {
         "container": {
           "mode": "fixed",
@@ -197,10 +198,10 @@
       "children": []
     },
     {
-      "id": "95f76f99-6c6b-4b7e-b939-200ef1bfe690",
+      "id": "bf9a61aa-1f38-4825-99f7-b11787c23f6e",
       "type": "WebButton",
       "name": "BTNPainel",
-      "parentId": "18cfe43c-3cd7-44eb-ac46-c747f6fabede",
+      "parentId": "249e51de-41e9-4ae7-9ac9-bf1877ff0312",
       "layout": {
         "container": {
           "mode": "fixed",
@@ -256,10 +257,10 @@
       "children": []
     },
     {
-      "id": "0fa8652f-cfec-410b-ba48-fc8cf23f2080",
+      "id": "c29240a6-1d1a-4467-ba86-3004a641ce7a",
       "type": "WebEdit",
       "name": "EDTBuscaRapida",
-      "parentId": "18cfe43c-3cd7-44eb-ac46-c747f6fabede",
+      "parentId": "249e51de-41e9-4ae7-9ac9-bf1877ff0312",
       "layout": {
         "container": {
           "mode": "fixed",
@@ -317,10 +318,10 @@
       "children": []
     },
     {
-      "id": "26b07bd4-af6d-4b5a-9922-7e0db36b1910",
+      "id": "6e9e74ce-9beb-4adc-af53-4d9db3e29443",
       "type": "WebButton",
       "name": "BTNBuscar",
-      "parentId": "18cfe43c-3cd7-44eb-ac46-c747f6fabede",
+      "parentId": "249e51de-41e9-4ae7-9ac9-bf1877ff0312",
       "layout": {
         "container": {
           "mode": "fixed",
@@ -376,10 +377,10 @@
       "children": []
     },
     {
-      "id": "60e333f7-de88-4247-a60a-614d7c5a2e40",
+      "id": "205625ce-5f06-456c-94ac-4e9ba03df548",
       "type": "WebButton",
       "name": "BTNInserviveis",
-      "parentId": "18cfe43c-3cd7-44eb-ac46-c747f6fabede",
+      "parentId": "249e51de-41e9-4ae7-9ac9-bf1877ff0312",
       "layout": {
         "container": {
           "mode": "fixed",
@@ -438,10 +439,10 @@
       "children": []
     },
     {
-      "id": "cf3702e6-3a9a-4cb1-a53c-8b5292b555fd",
+      "id": "a3527967-3f72-4012-8049-b7515c4d3df0",
       "type": "WebButton",
       "name": "BTNAdmin",
-      "parentId": "18cfe43c-3cd7-44eb-ac46-c747f6fabede",
+      "parentId": "249e51de-41e9-4ae7-9ac9-bf1877ff0312",
       "layout": {
         "container": {
           "mode": "fixed",
@@ -500,10 +501,10 @@
       "children": []
     },
     {
-      "id": "b3a921bc-4914-4b61-805e-e2c02c4dd859",
+      "id": "e19cbdb0-9e9c-45bd-991e-284e7328c4a8",
       "type": "WebLabel",
       "name": "LBLUsuario",
-      "parentId": "18cfe43c-3cd7-44eb-ac46-c747f6fabede",
+      "parentId": "249e51de-41e9-4ae7-9ac9-bf1877ff0312",
       "layout": {
         "container": {
           "mode": "fixed",
@@ -558,10 +559,10 @@
       "children": []
     },
     {
-      "id": "51db09e2-d387-4019-af80-c5c435ac8f75",
+      "id": "51e3f584-d651-4ac2-9393-e5fc6d816654",
       "type": "WebButton",
       "name": "BTNSair",
-      "parentId": "18cfe43c-3cd7-44eb-ac46-c747f6fabede",
+      "parentId": "249e51de-41e9-4ae7-9ac9-bf1877ff0312",
       "layout": {
         "container": {
           "mode": "fixed",
@@ -617,7 +618,7 @@
       "children": []
     },
     {
-      "id": "dac9149d-5d79-450f-b48e-de714aeb3166",
+      "id": "a0476a81-95b6-472a-bf1f-73b1b14bdaf3",
       "type": "WebTabs",
       "name": "Abas",
       "parentId": "c6388358-1ffc-4ed3-9745-bd66df99af27",
@@ -679,7 +680,7 @@
       "children": []
     },
     {
-      "id": "8b13d23e-6aef-4113-9b0f-1acd1b0ea868",
+      "id": "d41d5bf2-0819-43fd-945f-946aed8e3993",
       "type": "WebPanel",
       "name": "PNLChamados",
       "parentId": "c6388358-1ffc-4ed3-9745-bd66df99af27",
@@ -747,15 +748,17 @@
       },
       "styleId": "3755d9a1-991d-4861-8878-42148ee446dc:default-style:WebPanel",
       "children": [
-        "84006676-24e8-4fad-bc19-4e394f8796ce",
-        "486067ac-c3d6-4d07-8c61-ae51a433c445"
+        "f64205ba-9688-4157-807c-4f1fc4646f7f",
+        "79779c7f-1826-458c-8c0a-4aed020d0feb",
+        "53406b9f-86eb-448f-b75f-eabfcd971213",
+        "8e286273-af98-4ed4-ad31-2a109f29b2da"
       ]
     },
     {
-      "id": "84006676-24e8-4fad-bc19-4e394f8796ce",
+      "id": "f64205ba-9688-4157-807c-4f1fc4646f7f",
       "type": "WebGroup",
       "name": "Filtros",
-      "parentId": "8b13d23e-6aef-4113-9b0f-1acd1b0ea868",
+      "parentId": "d41d5bf2-0819-43fd-945f-946aed8e3993",
       "layout": {
         "container": {
           "mode": "row",
@@ -805,16 +808,16 @@
         "OnMouseLeave": null
       },
       "children": [
-        "0633bd81-310d-487b-9205-8c8bbbea72d3",
-        "f0be536f-2e4e-447e-9988-393d42fdbe3f",
-        "bdb7cb4b-4827-4f22-9eca-db5709cd6916"
+        "41da468d-7fc0-463d-bd0b-fc9f3a945220",
+        "b7cb0aca-7794-457b-a5b9-e12746e8a0ca",
+        "1663adaa-93d5-4c61-a8d3-04c688496314"
       ]
     },
     {
-      "id": "0633bd81-310d-487b-9205-8c8bbbea72d3",
+      "id": "41da468d-7fc0-463d-bd0b-fc9f3a945220",
       "type": "WebComboBox",
       "name": "CBFila",
-      "parentId": "84006676-24e8-4fad-bc19-4e394f8796ce",
+      "parentId": "f64205ba-9688-4157-807c-4f1fc4646f7f",
       "layout": {
         "container": {
           "mode": "fixed",
@@ -875,10 +878,10 @@
       "children": []
     },
     {
-      "id": "f0be536f-2e4e-447e-9988-393d42fdbe3f",
+      "id": "b7cb0aca-7794-457b-a5b9-e12746e8a0ca",
       "type": "WebButton",
       "name": "BTNAtualizar",
-      "parentId": "84006676-24e8-4fad-bc19-4e394f8796ce",
+      "parentId": "f64205ba-9688-4157-807c-4f1fc4646f7f",
       "layout": {
         "container": {
           "mode": "fixed",
@@ -934,10 +937,10 @@
       "children": []
     },
     {
-      "id": "bdb7cb4b-4827-4f22-9eca-db5709cd6916",
+      "id": "1663adaa-93d5-4c61-a8d3-04c688496314",
       "type": "WebLabel",
       "name": "LBLResumo",
-      "parentId": "84006676-24e8-4fad-bc19-4e394f8796ce",
+      "parentId": "f64205ba-9688-4157-807c-4f1fc4646f7f",
       "layout": {
         "container": {
           "mode": "fixed",
@@ -992,10 +995,64 @@
       "children": []
     },
     {
-      "id": "486067ac-c3d6-4d07-8c61-ae51a433c445",
+      "id": "79779c7f-1826-458c-8c0a-4aed020d0feb",
+      "type": "WebHtml",
+      "name": "HTMLIndicadores",
+      "parentId": "d41d5bf2-0819-43fd-945f-946aed8e3993",
+      "layout": {
+        "container": {
+          "mode": "fixed",
+          "paddingTop": 0,
+          "paddingRight": 0,
+          "paddingBottom": 0,
+          "paddingLeft": 0,
+          "gap": 0,
+          "wrap": false,
+          "justifyContent": "start",
+          "alignItems": "start"
+        },
+        "item": {
+          "width": "stretch",
+          "height": "fixed",
+          "minWidth": 0,
+          "maxWidth": null,
+          "minHeight": 0,
+          "maxHeight": null,
+          "grow": 0,
+          "shrink": false,
+          "alignSelf": "auto",
+          "horizontalAnchor": "start",
+          "verticalAnchor": "start",
+          "left": 0,
+          "right": 0,
+          "top": 0,
+          "bottom": 0
+        }
+      },
+      "bounds": {
+        "width": 320,
+        "height": 76,
+        "x": 0,
+        "y": 0
+      },
+      "props": {
+        "enabled": true,
+        "aspectRatio": "none",
+        "collapseWhenHidden": true,
+        "html": "",
+        "title": "Indicadores da fila",
+        "visible": true
+      },
+      "events": {
+        "OnLoad": null
+      },
+      "children": []
+    },
+    {
+      "id": "53406b9f-86eb-448f-b75f-eabfcd971213",
       "type": "WebDataGrid",
       "name": "GRDChamados",
-      "parentId": "8b13d23e-6aef-4113-9b0f-1acd1b0ea868",
+      "parentId": "d41d5bf2-0819-43fd-945f-946aed8e3993",
       "layout": {
         "container": {
           "mode": "fixed",
@@ -1039,12 +1096,12 @@
           "apiClientId": "36d87d96-c7ce-496c-b6f9-eaf10fd31abb",
           "cellPaddingHorizontal": 10,
           "cellPaddingVertical": 8,
-          "columnCount": 11,
+          "columnCount": 12,
           "columns": [
             {
-              "id": "391d10a1-6e78-42ca-aa3c-9ded49058738",
-              "width": 80,
-              "minWidth": 80,
+              "id": "18e7962c-52eb-4ccf-8de6-d5e545391b79",
+              "width": 64,
+              "minWidth": 64,
               "maxWidth": null,
               "buttonIcon": null,
               "cellAlign": "start",
@@ -1060,43 +1117,43 @@
               "widthMode": "fixed"
             },
             {
-              "id": "18e7962c-52eb-4ccf-8de6-d5e545391b79",
-              "width": 110,
-              "minWidth": 90,
+              "id": "4650a8d1-e7df-45c0-a548-5da5484d7d29",
+              "width": 72,
+              "minWidth": 72,
               "maxWidth": null,
               "buttonIcon": null,
-              "cellAlign": "start",
-              "cellKind": "text",
-              "fieldPath": "/status_painel",
+              "cellAlign": "center",
+              "cellKind": "image",
+              "fieldPath": "/sinal_status",
               "fixedCaption": "",
               "flex": 1,
               "footer": "",
               "header": "Status",
-              "headerAlign": "start",
-              "searchable": true,
-              "sortable": true,
+              "headerAlign": "center",
+              "searchable": false,
+              "sortable": false,
               "widthMode": "fixed"
             },
             {
-              "id": "4650a8d1-e7df-45c0-a548-5da5484d7d29",
-              "width": 170,
+              "id": "7280f32a-7144-40cd-b870-2ee588af092b",
+              "width": 200,
               "minWidth": 90,
               "maxWidth": null,
               "buttonIcon": null,
               "cellAlign": "start",
               "cellKind": "text",
-              "fieldPath": "/ticket_chamado",
+              "fieldPath": "/situacao",
               "fixedCaption": "",
               "flex": 1,
               "footer": "",
-              "header": "Ticket",
+              "header": "Situação",
               "headerAlign": "start",
-              "searchable": true,
-              "sortable": true,
+              "searchable": false,
+              "sortable": false,
               "widthMode": "fixed"
             },
             {
-              "id": "7280f32a-7144-40cd-b870-2ee588af092b",
+              "id": "1902956c-6dd0-48d0-aaf7-70d180918a5a",
               "width": 180,
               "minWidth": 90,
               "maxWidth": null,
@@ -1114,7 +1171,25 @@
               "widthMode": "dynamic"
             },
             {
-              "id": "1902956c-6dd0-48d0-aaf7-70d180918a5a",
+              "id": "4b2c6592-f8c1-42d0-96e4-6d4434c12bb7",
+              "width": 96,
+              "minWidth": 90,
+              "maxWidth": null,
+              "buttonIcon": null,
+              "cellAlign": "center",
+              "cellKind": "image",
+              "fieldPath": "/sinal_alertas",
+              "fixedCaption": "",
+              "flex": 1,
+              "footer": "",
+              "header": "Alertas",
+              "headerAlign": "center",
+              "searchable": false,
+              "sortable": false,
+              "widthMode": "fixed"
+            },
+            {
+              "id": "745f3489-4e4f-4e95-88b5-51e46377aba7",
               "width": 180,
               "minWidth": 90,
               "maxWidth": null,
@@ -1132,7 +1207,7 @@
               "widthMode": "dynamic"
             },
             {
-              "id": "4b2c6592-f8c1-42d0-96e4-6d4434c12bb7",
+              "id": "08f683bb-bb10-4a8e-8c65-a33c64299054",
               "width": 180,
               "minWidth": 90,
               "maxWidth": null,
@@ -1150,26 +1225,26 @@
               "widthMode": "dynamic"
             },
             {
-              "id": "745f3489-4e4f-4e95-88b5-51e46377aba7",
-              "width": 130,
+              "id": "eb93e934-b374-47b8-a881-8d4fdb56cf24",
+              "width": 160,
               "minWidth": 90,
               "maxWidth": null,
               "buttonIcon": null,
-              "cellAlign": "start",
-              "cellKind": "text",
-              "fieldPath": "/nome_fila",
+              "cellAlign": "center",
+              "cellKind": "image",
+              "fieldPath": "/sinal_fila",
               "fixedCaption": "",
               "flex": 1,
               "footer": "",
               "header": "Fila",
-              "headerAlign": "start",
-              "searchable": true,
-              "sortable": true,
+              "headerAlign": "center",
+              "searchable": false,
+              "sortable": false,
               "widthMode": "fixed"
             },
             {
-              "id": "08f683bb-bb10-4a8e-8c65-a33c64299054",
-              "width": 100,
+              "id": "54028191-0f12-4c39-b409-8c75fff28a23",
+              "width": 90,
               "minWidth": 90,
               "maxWidth": null,
               "buttonIcon": null,
@@ -1186,8 +1261,8 @@
               "widthMode": "fixed"
             },
             {
-              "id": "eb93e934-b374-47b8-a881-8d4fdb56cf24",
-              "width": 140,
+              "id": "8549f78c-ce18-46b1-9289-8dda40afe31a",
+              "width": 145,
               "minWidth": 90,
               "maxWidth": null,
               "buttonIcon": null,
@@ -1204,26 +1279,26 @@
               "widthMode": "fixed"
             },
             {
-              "id": "54028191-0f12-4c39-b409-8c75fff28a23",
-              "width": 110,
+              "id": "f7558cc1-b386-44a9-8520-6f2defe8f5c8",
+              "width": 130,
               "minWidth": 90,
               "maxWidth": null,
               "buttonIcon": null,
               "cellAlign": "start",
               "cellKind": "text",
-              "fieldPath": "/minutos_espera",
+              "fieldPath": "/espera_fmt",
               "fixedCaption": "",
               "flex": 1,
               "footer": "",
-              "header": "Espera (min)",
+              "header": "Última interação",
               "headerAlign": "start",
-              "searchable": true,
-              "sortable": true,
+              "searchable": false,
+              "sortable": false,
               "widthMode": "fixed"
             },
             {
-              "id": "8549f78c-ce18-46b1-9289-8dda40afe31a",
-              "width": 160,
+              "id": "8d9e704c-f7b8-43e8-9f5c-dc4b06c8384d",
+              "width": 130,
               "minWidth": 90,
               "maxWidth": null,
               "buttonIcon": null,
@@ -1288,7 +1363,61 @@
       "children": []
     },
     {
-      "id": "d5ee0681-5137-4c4f-ad52-abc6221cd772",
+      "id": "8e286273-af98-4ed4-ad31-2a109f29b2da",
+      "type": "WebHtml",
+      "name": "HTMLLegenda",
+      "parentId": "d41d5bf2-0819-43fd-945f-946aed8e3993",
+      "layout": {
+        "container": {
+          "mode": "fixed",
+          "paddingTop": 0,
+          "paddingRight": 0,
+          "paddingBottom": 0,
+          "paddingLeft": 0,
+          "gap": 0,
+          "wrap": false,
+          "justifyContent": "start",
+          "alignItems": "start"
+        },
+        "item": {
+          "width": "stretch",
+          "height": "fixed",
+          "minWidth": 0,
+          "maxWidth": null,
+          "minHeight": 0,
+          "maxHeight": null,
+          "grow": 0,
+          "shrink": false,
+          "alignSelf": "auto",
+          "horizontalAnchor": "start",
+          "verticalAnchor": "start",
+          "left": 0,
+          "right": 0,
+          "top": 0,
+          "bottom": 0
+        }
+      },
+      "bounds": {
+        "width": 320,
+        "height": 112,
+        "x": 0,
+        "y": 0
+      },
+      "props": {
+        "enabled": true,
+        "aspectRatio": "none",
+        "collapseWhenHidden": true,
+        "html": "",
+        "title": "Legenda dos ícones do painel",
+        "visible": true
+      },
+      "events": {
+        "OnLoad": null
+      },
+      "children": []
+    },
+    {
+      "id": "345e05fc-f15b-4213-b607-f9f6d87843b5",
       "type": "WebPanel",
       "name": "PNLTriagem",
       "parentId": "c6388358-1ffc-4ed3-9745-bd66df99af27",
@@ -1359,15 +1488,15 @@
       },
       "styleId": "3755d9a1-991d-4861-8878-42148ee446dc:default-style:WebPanel",
       "children": [
-        "fe4d415f-13b6-47ae-8753-4c776ba10981",
-        "158b939f-6c91-48de-9c49-275fc061a942"
+        "664eaab4-be8c-4930-9f7b-24065947c9e6",
+        "44c2d3df-772d-4ecf-8425-a649e1e1886b"
       ]
     },
     {
-      "id": "fe4d415f-13b6-47ae-8753-4c776ba10981",
+      "id": "664eaab4-be8c-4930-9f7b-24065947c9e6",
       "type": "WebLabel",
       "name": "LBLTriagem",
-      "parentId": "d5ee0681-5137-4c4f-ad52-abc6221cd772",
+      "parentId": "345e05fc-f15b-4213-b607-f9f6d87843b5",
       "layout": {
         "container": {
           "mode": "fixed",
@@ -1422,10 +1551,10 @@
       "children": []
     },
     {
-      "id": "158b939f-6c91-48de-9c49-275fc061a942",
+      "id": "44c2d3df-772d-4ecf-8425-a649e1e1886b",
       "type": "WebDataGrid",
       "name": "GRDTriagem",
-      "parentId": "d5ee0681-5137-4c4f-ad52-abc6221cd772",
+      "parentId": "345e05fc-f15b-4213-b607-f9f6d87843b5",
       "layout": {
         "container": {
           "mode": "fixed",
@@ -1472,7 +1601,7 @@
           "columnCount": 4,
           "columns": [
             {
-              "id": "f7558cc1-b386-44a9-8520-6f2defe8f5c8",
+              "id": "cb81c3fd-871d-4734-a068-f00e2ee03532",
               "width": 200,
               "minWidth": 90,
               "maxWidth": null,
@@ -1490,7 +1619,7 @@
               "widthMode": "fixed"
             },
             {
-              "id": "8d9e704c-f7b8-43e8-9f5c-dc4b06c8384d",
+              "id": "ac7e6fbc-e262-470a-8230-665c4ea4a2aa",
               "width": 150,
               "minWidth": 90,
               "maxWidth": null,
@@ -1508,7 +1637,7 @@
               "widthMode": "fixed"
             },
             {
-              "id": "cb81c3fd-871d-4734-a068-f00e2ee03532",
+              "id": "e34c6a3e-f248-4d8d-a983-a871722f42bd",
               "width": 180,
               "minWidth": 90,
               "maxWidth": null,
@@ -1526,7 +1655,7 @@
               "widthMode": "dynamic"
             },
             {
-              "id": "ac7e6fbc-e262-470a-8230-665c4ea4a2aa",
+              "id": "6c4a2b9b-0851-4a15-a07b-0b4c70ccced9",
               "width": 180,
               "minWidth": 90,
               "maxWidth": null,
@@ -1550,7 +1679,7 @@
           "listPath": "/data",
           "maxRowHeight": null,
           "minRowHeight": 36,
-          "operationId": "7d4a73f4-5c2b-4e8b-a5ef-e197b271334d",
+          "operationId": "391d10a1-6e78-42ca-aa3c-9ded49058738",
           "pageSize": 25,
           "pageSizeOptions": [
             10,
@@ -1592,7 +1721,7 @@
       "children": []
     },
     {
-      "id": "ec5c61f6-dacc-44dc-9683-601b6d66bfaf",
+      "id": "2de7b5ba-0c42-48d9-9988-6840bac41b1e",
       "type": "WebPanel",
       "name": "PNLArquivo",
       "parentId": "c6388358-1ffc-4ed3-9745-bd66df99af27",
@@ -1660,14 +1789,14 @@
       },
       "styleId": "3755d9a1-991d-4861-8878-42148ee446dc:default-style:WebPanel",
       "children": [
-        "0ec82448-2864-44a6-8dde-b55ba9924899"
+        "a76937fe-4880-4038-86e6-61deb2807b54"
       ]
     },
     {
-      "id": "0ec82448-2864-44a6-8dde-b55ba9924899",
+      "id": "a76937fe-4880-4038-86e6-61deb2807b54",
       "type": "WebDataGrid",
       "name": "GRDEncerrados",
-      "parentId": "ec5c61f6-dacc-44dc-9683-601b6d66bfaf",
+      "parentId": "2de7b5ba-0c42-48d9-9988-6840bac41b1e",
       "layout": {
         "container": {
           "mode": "fixed",
@@ -1714,7 +1843,7 @@
           "columnCount": 7,
           "columns": [
             {
-              "id": "e34c6a3e-f248-4d8d-a983-a871722f42bd",
+              "id": "d8e35ddc-8abc-4aba-a3d3-88e93bccd4da",
               "width": 80,
               "minWidth": 80,
               "maxWidth": null,
@@ -1732,7 +1861,7 @@
               "widthMode": "fixed"
             },
             {
-              "id": "6c4a2b9b-0851-4a15-a07b-0b4c70ccced9",
+              "id": "298e1765-8826-46aa-a204-f4eae88658fb",
               "width": 170,
               "minWidth": 90,
               "maxWidth": null,
@@ -1750,7 +1879,7 @@
               "widthMode": "fixed"
             },
             {
-              "id": "d8e35ddc-8abc-4aba-a3d3-88e93bccd4da",
+              "id": "330dd3a5-1fdd-4f53-922f-0e48e5269e57",
               "width": 180,
               "minWidth": 90,
               "maxWidth": null,
@@ -1768,7 +1897,7 @@
               "widthMode": "dynamic"
             },
             {
-              "id": "298e1765-8826-46aa-a204-f4eae88658fb",
+              "id": "88d9f1c3-0aa7-4f58-b8f6-ed0ac7ef6179",
               "width": 180,
               "minWidth": 90,
               "maxWidth": null,
@@ -1786,7 +1915,7 @@
               "widthMode": "dynamic"
             },
             {
-              "id": "330dd3a5-1fdd-4f53-922f-0e48e5269e57",
+              "id": "07152b15-82c8-4164-8b65-fb777a658ffb",
               "width": 140,
               "minWidth": 90,
               "maxWidth": null,
@@ -1804,7 +1933,7 @@
               "widthMode": "fixed"
             },
             {
-              "id": "88d9f1c3-0aa7-4f58-b8f6-ed0ac7ef6179",
+              "id": "10f14048-f115-4fde-947a-353ff4e5bf9d",
               "width": 150,
               "minWidth": 90,
               "maxWidth": null,
@@ -1822,7 +1951,7 @@
               "widthMode": "fixed"
             },
             {
-              "id": "07152b15-82c8-4164-8b65-fb777a658ffb",
+              "id": "29b67cb4-3025-477b-9649-0a3e15418bbc",
               "width": 170,
               "minWidth": 90,
               "maxWidth": null,
@@ -1846,7 +1975,7 @@
           "listPath": "/data",
           "maxRowHeight": null,
           "minRowHeight": 36,
-          "operationId": "4d696482-4a20-46ee-8514-d5b12febdbff",
+          "operationId": "7d4a73f4-5c2b-4e8b-a5ef-e197b271334d",
           "pageSize": 25,
           "pageSizeOptions": [
             10,
@@ -1949,11 +2078,11 @@
               "query": [],
               "responseSchema": {
                 "root": {
-                  "id": "10f14048-f115-4fde-947a-353ff4e5bf9d",
+                  "id": "5f3e14d0-970d-4375-bc9f-1bad4671f168",
                   "name": "Response",
                   "children": [
                     {
-                      "id": "29b67cb4-3025-477b-9649-0a3e15418bbc",
+                      "id": "b830b04e-60f6-4be0-8bee-3415a49b06c4",
                       "name": "success",
                       "children": [],
                       "kind": "field",
@@ -1962,11 +2091,11 @@
                       "path": "/success"
                     },
                     {
-                      "id": "5f3e14d0-970d-4375-bc9f-1bad4671f168",
+                      "id": "e2701fce-da79-44da-8166-27bfa4980148",
                       "name": "data",
                       "children": [
                         {
-                          "id": "b830b04e-60f6-4be0-8bee-3415a49b06c4",
+                          "id": "cb3fb272-2b60-41f2-b475-f14abb24d562",
                           "name": "id_fila",
                           "children": [],
                           "kind": "field",
@@ -1975,7 +2104,7 @@
                           "path": "/data/*/id_fila"
                         },
                         {
-                          "id": "e2701fce-da79-44da-8166-27bfa4980148",
+                          "id": "64359916-9918-4d62-8fb2-26b49a833241",
                           "name": "nome_fila",
                           "children": [],
                           "kind": "field",
@@ -1984,7 +2113,7 @@
                           "path": "/data/*/nome_fila"
                         },
                         {
-                          "id": "cb3fb272-2b60-41f2-b475-f14abb24d562",
+                          "id": "e0003c50-de3e-40e0-8677-9d5a1c8b7e3e",
                           "name": "icone_fila",
                           "children": [],
                           "kind": "field",
@@ -1999,7 +2128,7 @@
                       "path": "/data"
                     },
                     {
-                      "id": "64359916-9918-4d62-8fb2-26b49a833241",
+                      "id": "03dc231d-548d-4ff2-909f-a3dbf83d5781",
                       "name": "page",
                       "children": [],
                       "kind": "field",
@@ -2008,7 +2137,7 @@
                       "path": "/page"
                     },
                     {
-                      "id": "e0003c50-de3e-40e0-8677-9d5a1c8b7e3e",
+                      "id": "382486fe-12c1-4f76-9401-7c4226e22e23",
                       "name": "page_size",
                       "children": [],
                       "kind": "field",
@@ -2017,7 +2146,7 @@
                       "path": "/page_size"
                     },
                     {
-                      "id": "03dc231d-548d-4ff2-909f-a3dbf83d5781",
+                      "id": "bb74d29d-80c7-4eba-bf15-6d7946db78ad",
                       "name": "total_pages",
                       "children": [],
                       "kind": "field",
@@ -2026,7 +2155,7 @@
                       "path": "/total_pages"
                     },
                     {
-                      "id": "382486fe-12c1-4f76-9401-7c4226e22e23",
+                      "id": "6e352d13-a58d-4d6d-bc95-5454dfeb50e4",
                       "name": "total",
                       "children": [],
                       "kind": "field",
@@ -2035,7 +2164,7 @@
                       "path": "/total"
                     },
                     {
-                      "id": "bb74d29d-80c7-4eba-bf15-6d7946db78ad",
+                      "id": "3d764d53-d6c9-4c57-814c-82492ce28658",
                       "name": "has_more",
                       "children": [],
                       "kind": "field",
@@ -2067,13 +2196,13 @@
               "path": "sigat/painel-chamados",
               "query": [
                 {
-                  "id": "6e352d13-a58d-4d6d-bc95-5454dfeb50e4",
+                  "id": "0ce24be1-7a1e-4a8b-89f0-3ae50e79db4a",
                   "name": "fila",
                   "value": "",
                   "enabled": false
                 },
                 {
-                  "id": "3d764d53-d6c9-4c57-814c-82492ce28658",
+                  "id": "851772d9-288e-41ee-86a8-1fdaaf92ab66",
                   "name": "q",
                   "value": "",
                   "enabled": false
@@ -2081,11 +2210,11 @@
               ],
               "responseSchema": {
                 "root": {
-                  "id": "0ce24be1-7a1e-4a8b-89f0-3ae50e79db4a",
+                  "id": "a0cf219a-d7bd-430b-98f2-c6cde605b517",
                   "name": "Response",
                   "children": [
                     {
-                      "id": "851772d9-288e-41ee-86a8-1fdaaf92ab66",
+                      "id": "e4fe8c14-4418-40ab-a9a7-303620bfb73a",
                       "name": "success",
                       "children": [],
                       "kind": "field",
@@ -2094,11 +2223,11 @@
                       "path": "/success"
                     },
                     {
-                      "id": "a0cf219a-d7bd-430b-98f2-c6cde605b517",
+                      "id": "994e8cfa-db42-49d3-b8e3-084e3a9dfcdb",
                       "name": "data",
                       "children": [
                         {
-                          "id": "e4fe8c14-4418-40ab-a9a7-303620bfb73a",
+                          "id": "4439a948-3dc8-4b23-9eb5-e8af4b88f515",
                           "name": "id_chamado",
                           "children": [],
                           "kind": "field",
@@ -2107,7 +2236,7 @@
                           "path": "/data/*/id_chamado"
                         },
                         {
-                          "id": "994e8cfa-db42-49d3-b8e3-084e3a9dfcdb",
+                          "id": "9c62ed50-ac8e-4d3c-a478-9441d9f3f431",
                           "name": "status_painel",
                           "children": [],
                           "kind": "field",
@@ -2116,7 +2245,7 @@
                           "path": "/data/*/status_painel"
                         },
                         {
-                          "id": "4439a948-3dc8-4b23-9eb5-e8af4b88f515",
+                          "id": "868d78d6-a7f0-4088-a227-49cce628d11c",
                           "name": "status_chamado",
                           "children": [],
                           "kind": "field",
@@ -2125,7 +2254,7 @@
                           "path": "/data/*/status_chamado"
                         },
                         {
-                          "id": "9c62ed50-ac8e-4d3c-a478-9441d9f3f431",
+                          "id": "6bc47637-2c05-41a8-a4c3-2e5c10c45a14",
                           "name": "prioridade_chamado",
                           "children": [],
                           "kind": "field",
@@ -2134,7 +2263,7 @@
                           "path": "/data/*/prioridade_chamado"
                         },
                         {
-                          "id": "868d78d6-a7f0-4088-a227-49cce628d11c",
+                          "id": "0e765cec-9002-4fc6-b962-eab62c7870bb",
                           "name": "ticket_chamado",
                           "children": [],
                           "kind": "field",
@@ -2143,7 +2272,7 @@
                           "path": "/data/*/ticket_chamado"
                         },
                         {
-                          "id": "6bc47637-2c05-41a8-a4c3-2e5c10c45a14",
+                          "id": "0bdad411-516d-49b5-8b9c-4639f76d03c2",
                           "name": "id_ticket_chamado",
                           "children": [],
                           "kind": "field",
@@ -2152,7 +2281,7 @@
                           "path": "/data/*/id_ticket_chamado"
                         },
                         {
-                          "id": "0e765cec-9002-4fc6-b962-eab62c7870bb",
+                          "id": "253b0400-393e-47ce-9f23-52e38350e0c1",
                           "name": "nome_solicitante_chamado",
                           "children": [],
                           "kind": "field",
@@ -2161,7 +2290,7 @@
                           "path": "/data/*/nome_solicitante_chamado"
                         },
                         {
-                          "id": "0bdad411-516d-49b5-8b9c-4639f76d03c2",
+                          "id": "7a0ac76b-8986-4314-8ba8-cb8837ec6f84",
                           "name": "resumo_chamado",
                           "children": [],
                           "kind": "field",
@@ -2170,7 +2299,7 @@
                           "path": "/data/*/resumo_chamado"
                         },
                         {
-                          "id": "253b0400-393e-47ce-9f23-52e38350e0c1",
+                          "id": "d56b052e-6ad0-4b32-bc2f-a38940869a7a",
                           "name": "nome_local",
                           "children": [],
                           "kind": "field",
@@ -2179,7 +2308,7 @@
                           "path": "/data/*/nome_local"
                         },
                         {
-                          "id": "7a0ac76b-8986-4314-8ba8-cb8837ec6f84",
+                          "id": "7fa7e00c-45fc-418d-a887-02c38e6b0283",
                           "name": "regiao_local",
                           "children": [],
                           "kind": "field",
@@ -2188,7 +2317,7 @@
                           "path": "/data/*/regiao_local"
                         },
                         {
-                          "id": "d56b052e-6ad0-4b32-bc2f-a38940869a7a",
+                          "id": "f5ec77c9-56dd-4445-847b-133043e24bd3",
                           "name": "id_fila_chamado",
                           "children": [],
                           "kind": "field",
@@ -2197,7 +2326,7 @@
                           "path": "/data/*/id_fila_chamado"
                         },
                         {
-                          "id": "7fa7e00c-45fc-418d-a887-02c38e6b0283",
+                          "id": "4ac8e598-45f1-4cee-adb5-e4372ceb904e",
                           "name": "nome_fila",
                           "children": [],
                           "kind": "field",
@@ -2206,7 +2335,7 @@
                           "path": "/data/*/nome_fila"
                         },
                         {
-                          "id": "f5ec77c9-56dd-4445-847b-133043e24bd3",
+                          "id": "b3d07aea-cf70-4702-9292-98903070ae64",
                           "name": "icone_fila",
                           "children": [],
                           "kind": "field",
@@ -2215,7 +2344,7 @@
                           "path": "/data/*/icone_fila"
                         },
                         {
-                          "id": "4ac8e598-45f1-4cee-adb5-e4372ceb904e",
+                          "id": "4bd43e6e-d94d-45ef-a54a-2715f726fbfe",
                           "name": "data_chamado",
                           "children": [],
                           "kind": "field",
@@ -2224,7 +2353,7 @@
                           "path": "/data/*/data_chamado"
                         },
                         {
-                          "id": "b3d07aea-cf70-4702-9292-98903070ae64",
+                          "id": "bfb95c0e-1a4e-4fa8-9eba-7e1a27a69589",
                           "name": "data_chamado_fmt",
                           "children": [],
                           "kind": "field",
@@ -2233,7 +2362,7 @@
                           "path": "/data/*/data_chamado_fmt"
                         },
                         {
-                          "id": "4bd43e6e-d94d-45ef-a54a-2715f726fbfe",
+                          "id": "1a9ffddc-dbb1-483c-aa65-119de0eefcd1",
                           "name": "data_ultima_interacao",
                           "children": [],
                           "kind": "field",
@@ -2242,7 +2371,7 @@
                           "path": "/data/*/data_ultima_interacao"
                         },
                         {
-                          "id": "bfb95c0e-1a4e-4fa8-9eba-7e1a27a69589",
+                          "id": "122c5582-e528-409b-87ac-71e9a58b7265",
                           "name": "minutos_espera",
                           "children": [],
                           "kind": "field",
@@ -2251,7 +2380,7 @@
                           "path": "/data/*/minutos_espera"
                         },
                         {
-                          "id": "1a9ffddc-dbb1-483c-aa65-119de0eefcd1",
+                          "id": "cd942949-0161-4da0-b593-a606436db3f9",
                           "name": "nome_responsavel",
                           "children": [],
                           "kind": "field",
@@ -2260,7 +2389,7 @@
                           "path": "/data/*/nome_responsavel"
                         },
                         {
-                          "id": "122c5582-e528-409b-87ac-71e9a58b7265",
+                          "id": "397b5f38-81eb-4d79-927a-4053fe5297cf",
                           "name": "id_responsavel",
                           "children": [],
                           "kind": "field",
@@ -2269,7 +2398,7 @@
                           "path": "/data/*/id_responsavel"
                         },
                         {
-                          "id": "cd942949-0161-4da0-b593-a606436db3f9",
+                          "id": "ae6f770d-ccca-4e08-9735-3de202049f7b",
                           "name": "email_nao_lido_chamado",
                           "children": [],
                           "kind": "field",
@@ -2278,7 +2407,7 @@
                           "path": "/data/*/email_nao_lido_chamado"
                         },
                         {
-                          "id": "397b5f38-81eb-4d79-927a-4053fe5297cf",
+                          "id": "5043d2c4-4bbb-4262-9da2-05e30915cd6e",
                           "name": "entrega_chamado",
                           "children": [],
                           "kind": "field",
@@ -2287,7 +2416,7 @@
                           "path": "/data/*/entrega_chamado"
                         },
                         {
-                          "id": "ae6f770d-ccca-4e08-9735-3de202049f7b",
+                          "id": "41278295-8ad9-4290-90d1-d847ab6fd9e3",
                           "name": "equip_pendentes",
                           "children": [],
                           "kind": "field",
@@ -2302,7 +2431,7 @@
                       "path": "/data"
                     },
                     {
-                      "id": "5043d2c4-4bbb-4262-9da2-05e30915cd6e",
+                      "id": "abca80c3-20ab-4203-80e2-500036fd7321",
                       "name": "page",
                       "children": [],
                       "kind": "field",
@@ -2311,7 +2440,7 @@
                       "path": "/page"
                     },
                     {
-                      "id": "41278295-8ad9-4290-90d1-d847ab6fd9e3",
+                      "id": "0da2b4a3-f0a2-425a-bab4-62cbcd962b10",
                       "name": "page_size",
                       "children": [],
                       "kind": "field",
@@ -2320,7 +2449,7 @@
                       "path": "/page_size"
                     },
                     {
-                      "id": "abca80c3-20ab-4203-80e2-500036fd7321",
+                      "id": "7fe7d12a-e3bf-46f7-bf90-9ee49824dde5",
                       "name": "total_pages",
                       "children": [],
                       "kind": "field",
@@ -2329,7 +2458,7 @@
                       "path": "/total_pages"
                     },
                     {
-                      "id": "0da2b4a3-f0a2-425a-bab4-62cbcd962b10",
+                      "id": "e79f3622-241f-443a-be58-6b9755415990",
                       "name": "total",
                       "children": [],
                       "kind": "field",
@@ -2338,7 +2467,7 @@
                       "path": "/total"
                     },
                     {
-                      "id": "7fe7d12a-e3bf-46f7-bf90-9ee49824dde5",
+                      "id": "d5548b15-19a3-4b92-9733-9aea464d7f08",
                       "name": "has_more",
                       "children": [],
                       "kind": "field",
@@ -2358,7 +2487,7 @@
             },
             {
               "id": "4d696482-4a20-46ee-8514-d5b12febdbff",
-              "name": "Encerrados",
+              "name": "Indicadores",
               "apiVersion": 1,
               "body": {
                 "kind": "none",
@@ -2367,22 +2496,22 @@
               "credentials": "omit",
               "headers": [],
               "method": "GET",
-              "path": "sigat/painel-encerrados",
+              "path": "sigat/painel-indicadores",
               "query": [
                 {
-                  "id": "e79f3622-241f-443a-be58-6b9755415990",
-                  "name": "q",
+                  "id": "21fdae39-3e6f-4bfe-b185-8bb976f752d0",
+                  "name": "fila",
                   "value": "",
                   "enabled": false
                 }
               ],
               "responseSchema": {
                 "root": {
-                  "id": "d5548b15-19a3-4b92-9733-9aea464d7f08",
+                  "id": "445593c4-5dee-466d-965a-110919527338",
                   "name": "Response",
                   "children": [
                     {
-                      "id": "21fdae39-3e6f-4bfe-b185-8bb976f752d0",
+                      "id": "222019ed-0bac-4a34-b7ec-fbb5ff14518b",
                       "name": "success",
                       "children": [],
                       "kind": "field",
@@ -2391,80 +2520,107 @@
                       "path": "/success"
                     },
                     {
-                      "id": "445593c4-5dee-466d-965a-110919527338",
+                      "id": "569b0aab-7a28-47fa-9149-321fab7b2d32",
                       "name": "data",
                       "children": [
                         {
-                          "id": "222019ed-0bac-4a34-b7ec-fbb5ff14518b",
-                          "name": "id_chamado",
+                          "id": "5168919e-46cf-43b0-bfe5-7945e30834e5",
+                          "name": "total",
                           "children": [],
                           "kind": "field",
                           "fieldType": "integer",
                           "nullable": true,
-                          "path": "/data/*/id_chamado"
-                        },
-                        {
-                          "id": "569b0aab-7a28-47fa-9149-321fab7b2d32",
-                          "name": "ticket_chamado",
-                          "children": [],
-                          "kind": "field",
-                          "fieldType": "string",
-                          "nullable": true,
-                          "path": "/data/*/ticket_chamado"
-                        },
-                        {
-                          "id": "5168919e-46cf-43b0-bfe5-7945e30834e5",
-                          "name": "nome_solicitante_chamado",
-                          "children": [],
-                          "kind": "field",
-                          "fieldType": "string",
-                          "nullable": true,
-                          "path": "/data/*/nome_solicitante_chamado"
+                          "path": "/data/*/total"
                         },
                         {
                           "id": "a9b47e4f-709e-4987-82d7-af7a4d79d6c9",
-                          "name": "nome_local",
+                          "name": "abertos",
                           "children": [],
                           "kind": "field",
-                          "fieldType": "string",
+                          "fieldType": "integer",
                           "nullable": true,
-                          "path": "/data/*/nome_local"
+                          "path": "/data/*/abertos"
                         },
                         {
                           "id": "808bbe03-a0ea-43b7-91e7-f0c50913c1c5",
-                          "name": "nome_fila",
+                          "name": "prioritarios",
                           "children": [],
                           "kind": "field",
-                          "fieldType": "string",
+                          "fieldType": "integer",
                           "nullable": true,
-                          "path": "/data/*/nome_fila"
+                          "path": "/data/*/prioritarios"
                         },
                         {
                           "id": "13f42c3f-9aff-434e-8736-9616c341f423",
-                          "name": "data_encerramento_chamado",
+                          "name": "sem_interacao_6h",
                           "children": [],
                           "kind": "field",
-                          "fieldType": "datetime",
+                          "fieldType": "integer",
                           "nullable": true,
-                          "path": "/data/*/data_encerramento_chamado"
+                          "path": "/data/*/sem_interacao_6h"
                         },
                         {
                           "id": "c53d02f1-45c5-4870-ad9f-426be463df34",
-                          "name": "data_encerramento_fmt",
+                          "name": "sem_interacao_24h",
                           "children": [],
                           "kind": "field",
-                          "fieldType": "string",
+                          "fieldType": "integer",
                           "nullable": true,
-                          "path": "/data/*/data_encerramento_fmt"
+                          "path": "/data/*/sem_interacao_24h"
                         },
                         {
                           "id": "d5e79448-ee63-451d-b582-be7435e52079",
-                          "name": "nome_usuario",
+                          "name": "sem_responsavel",
                           "children": [],
                           "kind": "field",
-                          "fieldType": "string",
+                          "fieldType": "integer",
                           "nullable": true,
-                          "path": "/data/*/nome_usuario"
+                          "path": "/data/*/sem_responsavel"
+                        },
+                        {
+                          "id": "5eb90420-6f79-4e54-9455-4e1bb99d05bb",
+                          "name": "emails_nao_lidos",
+                          "children": [],
+                          "kind": "field",
+                          "fieldType": "integer",
+                          "nullable": true,
+                          "path": "/data/*/emails_nao_lidos"
+                        },
+                        {
+                          "id": "4d3823d3-aff6-418f-a9e9-1257509e0d60",
+                          "name": "prontos_entrega",
+                          "children": [],
+                          "kind": "field",
+                          "fieldType": "integer",
+                          "nullable": true,
+                          "path": "/data/*/prontos_entrega"
+                        },
+                        {
+                          "id": "a835fa2c-334d-46ae-9890-315f13375d65",
+                          "name": "entrega_parcial",
+                          "children": [],
+                          "kind": "field",
+                          "fieldType": "integer",
+                          "nullable": true,
+                          "path": "/data/*/entrega_parcial"
+                        },
+                        {
+                          "id": "c8f9866f-3367-4da7-ab5f-65908c0644bb",
+                          "name": "meus_bloqueados",
+                          "children": [],
+                          "kind": "field",
+                          "fieldType": "integer",
+                          "nullable": true,
+                          "path": "/data/*/meus_bloqueados"
+                        },
+                        {
+                          "id": "b093bfc5-c30a-42fe-87fd-39d80a46d680",
+                          "name": "meus_bloqueados_remoto",
+                          "children": [],
+                          "kind": "field",
+                          "fieldType": "integer",
+                          "nullable": true,
+                          "path": "/data/*/meus_bloqueados_remoto"
                         }
                       ],
                       "kind": "list",
@@ -2473,7 +2629,7 @@
                       "path": "/data"
                     },
                     {
-                      "id": "5eb90420-6f79-4e54-9455-4e1bb99d05bb",
+                      "id": "22aaefba-24a8-4519-b9fc-4d11e63a7ab2",
                       "name": "page",
                       "children": [],
                       "kind": "field",
@@ -2482,7 +2638,7 @@
                       "path": "/page"
                     },
                     {
-                      "id": "4d3823d3-aff6-418f-a9e9-1257509e0d60",
+                      "id": "c4380a69-6574-4cc7-b9a6-dc082ec63ca7",
                       "name": "page_size",
                       "children": [],
                       "kind": "field",
@@ -2491,7 +2647,7 @@
                       "path": "/page_size"
                     },
                     {
-                      "id": "a835fa2c-334d-46ae-9890-315f13375d65",
+                      "id": "52cc3b32-bedc-4d8b-bca8-bcd82e2656cc",
                       "name": "total_pages",
                       "children": [],
                       "kind": "field",
@@ -2500,7 +2656,7 @@
                       "path": "/total_pages"
                     },
                     {
-                      "id": "c8f9866f-3367-4da7-ab5f-65908c0644bb",
+                      "id": "ffc5e213-9d98-412b-aba5-e3f609552bef",
                       "name": "total",
                       "children": [],
                       "kind": "field",
@@ -2509,7 +2665,7 @@
                       "path": "/total"
                     },
                     {
-                      "id": "b093bfc5-c30a-42fe-87fd-39d80a46d680",
+                      "id": "f799f72d-029a-4665-a100-e3c7c506d0fa",
                       "name": "has_more",
                       "children": [],
                       "kind": "field",
@@ -2529,6 +2685,177 @@
             },
             {
               "id": "7d4a73f4-5c2b-4e8b-a5ef-e197b271334d",
+              "name": "Encerrados",
+              "apiVersion": 1,
+              "body": {
+                "kind": "none",
+                "content": ""
+              },
+              "credentials": "omit",
+              "headers": [],
+              "method": "GET",
+              "path": "sigat/painel-encerrados",
+              "query": [
+                {
+                  "id": "27cee77a-7f97-47d2-a083-83752f39ebe6",
+                  "name": "q",
+                  "value": "",
+                  "enabled": false
+                }
+              ],
+              "responseSchema": {
+                "root": {
+                  "id": "2452a8a2-e65e-41f5-8fbd-02e5c055e879",
+                  "name": "Response",
+                  "children": [
+                    {
+                      "id": "aed3aab2-f859-43ea-84e7-149c78eec183",
+                      "name": "success",
+                      "children": [],
+                      "kind": "field",
+                      "fieldType": "boolean",
+                      "nullable": false,
+                      "path": "/success"
+                    },
+                    {
+                      "id": "d8dba30a-c18d-4baf-af33-dfe844c86830",
+                      "name": "data",
+                      "children": [
+                        {
+                          "id": "07651920-a6f0-429d-9e6d-78790282b7ff",
+                          "name": "id_chamado",
+                          "children": [],
+                          "kind": "field",
+                          "fieldType": "integer",
+                          "nullable": true,
+                          "path": "/data/*/id_chamado"
+                        },
+                        {
+                          "id": "6317faf0-d76b-49d8-9568-6d179891c422",
+                          "name": "ticket_chamado",
+                          "children": [],
+                          "kind": "field",
+                          "fieldType": "string",
+                          "nullable": true,
+                          "path": "/data/*/ticket_chamado"
+                        },
+                        {
+                          "id": "ab98859e-1180-420c-b648-ccede5f0e04e",
+                          "name": "nome_solicitante_chamado",
+                          "children": [],
+                          "kind": "field",
+                          "fieldType": "string",
+                          "nullable": true,
+                          "path": "/data/*/nome_solicitante_chamado"
+                        },
+                        {
+                          "id": "1b5e0842-303e-49bc-b8c4-5674318d41db",
+                          "name": "nome_local",
+                          "children": [],
+                          "kind": "field",
+                          "fieldType": "string",
+                          "nullable": true,
+                          "path": "/data/*/nome_local"
+                        },
+                        {
+                          "id": "6738c377-2a8e-40bc-a438-552411d1a4f8",
+                          "name": "nome_fila",
+                          "children": [],
+                          "kind": "field",
+                          "fieldType": "string",
+                          "nullable": true,
+                          "path": "/data/*/nome_fila"
+                        },
+                        {
+                          "id": "7c1721ad-9ffa-40f5-89b4-f7c36c4dc2f0",
+                          "name": "data_encerramento_chamado",
+                          "children": [],
+                          "kind": "field",
+                          "fieldType": "datetime",
+                          "nullable": true,
+                          "path": "/data/*/data_encerramento_chamado"
+                        },
+                        {
+                          "id": "195f56b3-bb6e-4f72-a711-ca6eb79e0ad9",
+                          "name": "data_encerramento_fmt",
+                          "children": [],
+                          "kind": "field",
+                          "fieldType": "string",
+                          "nullable": true,
+                          "path": "/data/*/data_encerramento_fmt"
+                        },
+                        {
+                          "id": "6018ca1a-5519-4a96-a407-e3c70525a086",
+                          "name": "nome_usuario",
+                          "children": [],
+                          "kind": "field",
+                          "fieldType": "string",
+                          "nullable": true,
+                          "path": "/data/*/nome_usuario"
+                        }
+                      ],
+                      "kind": "list",
+                      "fieldType": "list",
+                      "nullable": false,
+                      "path": "/data"
+                    },
+                    {
+                      "id": "ba82c03d-43ec-4f5e-980c-e7a268e509d5",
+                      "name": "page",
+                      "children": [],
+                      "kind": "field",
+                      "fieldType": "integer",
+                      "nullable": true,
+                      "path": "/page"
+                    },
+                    {
+                      "id": "1b958790-8f0f-47b9-8e30-fa40b51e8d0b",
+                      "name": "page_size",
+                      "children": [],
+                      "kind": "field",
+                      "fieldType": "integer",
+                      "nullable": true,
+                      "path": "/page_size"
+                    },
+                    {
+                      "id": "f1c631ca-6f15-4e82-8810-7eebfc11731f",
+                      "name": "total_pages",
+                      "children": [],
+                      "kind": "field",
+                      "fieldType": "integer",
+                      "nullable": true,
+                      "path": "/total_pages"
+                    },
+                    {
+                      "id": "7fe948c5-7635-4d53-8656-e2ed30f8b0ef",
+                      "name": "total",
+                      "children": [],
+                      "kind": "field",
+                      "fieldType": "integer",
+                      "nullable": true,
+                      "path": "/total"
+                    },
+                    {
+                      "id": "b364d10e-bd3b-4a63-a9f6-dc29255b2652",
+                      "name": "has_more",
+                      "children": [],
+                      "kind": "field",
+                      "fieldType": "boolean",
+                      "nullable": true,
+                      "path": "/has_more"
+                    }
+                  ],
+                  "kind": "object",
+                  "fieldType": "object",
+                  "nullable": false,
+                  "path": ""
+                },
+                "version": 1
+              },
+              "timeoutMs": null
+            },
+            {
+              "id": "391d10a1-6e78-42ca-aa3c-9ded49058738",
               "name": "Triagem",
               "apiVersion": 1,
               "body": {
@@ -2541,7 +2868,7 @@
               "path": "otobo/triagem",
               "query": [
                 {
-                  "id": "22aaefba-24a8-4519-b9fc-4d11e63a7ab2",
+                  "id": "9ef968b7-8f4d-473a-be92-3857be2bc98d",
                   "name": "q",
                   "value": "",
                   "enabled": false
@@ -2549,11 +2876,11 @@
               ],
               "responseSchema": {
                 "root": {
-                  "id": "c4380a69-6574-4cc7-b9a6-dc082ec63ca7",
+                  "id": "82384277-32b4-41b1-a535-927cd7b17195",
                   "name": "Response",
                   "children": [
                     {
-                      "id": "52cc3b32-bedc-4d8b-bca8-bcd82e2656cc",
+                      "id": "638d82dd-3ffe-42d9-a9d8-7db1b248037a",
                       "name": "success",
                       "children": [],
                       "kind": "field",
@@ -2562,11 +2889,11 @@
                       "path": "/success"
                     },
                     {
-                      "id": "ffc5e213-9d98-412b-aba5-e3f609552bef",
+                      "id": "24914ee9-7ae9-43c7-acf3-db79adc90108",
                       "name": "data",
                       "children": [
                         {
-                          "id": "f799f72d-029a-4665-a100-e3c7c506d0fa",
+                          "id": "e30c9af6-1055-4bff-9b4d-abc712ab926e",
                           "name": "id",
                           "children": [],
                           "kind": "field",
@@ -2575,7 +2902,7 @@
                           "path": "/data/*/id"
                         },
                         {
-                          "id": "27cee77a-7f97-47d2-a083-83752f39ebe6",
+                          "id": "d03ec7b9-ee97-41d7-8754-44c12e1d14f5",
                           "name": "tn",
                           "children": [],
                           "kind": "field",
@@ -2584,7 +2911,7 @@
                           "path": "/data/*/tn"
                         },
                         {
-                          "id": "2452a8a2-e65e-41f5-8fbd-02e5c055e879",
+                          "id": "11e36328-6bd4-424e-a215-3768c152a79e",
                           "name": "ticket",
                           "children": [],
                           "kind": "field",
@@ -2593,7 +2920,7 @@
                           "path": "/data/*/ticket"
                         },
                         {
-                          "id": "aed3aab2-f859-43ea-84e7-149c78eec183",
+                          "id": "2eb1a3b9-b4ec-49f2-b8f6-676c41894143",
                           "name": "create_time",
                           "children": [],
                           "kind": "field",
@@ -2602,7 +2929,7 @@
                           "path": "/data/*/create_time"
                         },
                         {
-                          "id": "d8dba30a-c18d-4baf-af33-dfe844c86830",
+                          "id": "e6ff0519-f8c2-4b10-af37-326583bd75df",
                           "name": "create_time_fmt",
                           "children": [],
                           "kind": "field",
@@ -2611,7 +2938,7 @@
                           "path": "/data/*/create_time_fmt"
                         },
                         {
-                          "id": "07651920-a6f0-429d-9e6d-78790282b7ff",
+                          "id": "ea84b8db-c1c2-469b-948b-7cae0c4d9c0c",
                           "name": "title",
                           "children": [],
                           "kind": "field",
@@ -2620,7 +2947,7 @@
                           "path": "/data/*/title"
                         },
                         {
-                          "id": "6317faf0-d76b-49d8-9568-6d179891c422",
+                          "id": "bcd84fc9-2364-40ff-9b69-3c5040297673",
                           "name": "queue_id",
                           "children": [],
                           "kind": "field",
@@ -2629,7 +2956,7 @@
                           "path": "/data/*/queue_id"
                         },
                         {
-                          "id": "ab98859e-1180-420c-b648-ccede5f0e04e",
+                          "id": "5c4aa66e-f2c3-45ba-b935-626d09d4e937",
                           "name": "id_fila_sigat",
                           "children": [],
                           "kind": "field",
@@ -2638,7 +2965,7 @@
                           "path": "/data/*/id_fila_sigat"
                         },
                         {
-                          "id": "1b5e0842-303e-49bc-b8c4-5674318d41db",
+                          "id": "63b61a71-4dff-4d02-b715-53d32c8c8298",
                           "name": "a_from",
                           "children": [],
                           "kind": "field",
@@ -2653,7 +2980,7 @@
                       "path": "/data"
                     },
                     {
-                      "id": "6738c377-2a8e-40bc-a438-552411d1a4f8",
+                      "id": "f1705bb0-dd8b-42e3-ab05-b3a70b1fde9c",
                       "name": "page",
                       "children": [],
                       "kind": "field",
@@ -2662,7 +2989,7 @@
                       "path": "/page"
                     },
                     {
-                      "id": "7c1721ad-9ffa-40f5-89b4-f7c36c4dc2f0",
+                      "id": "da02a9de-effe-41fe-a75d-18111d6cec48",
                       "name": "page_size",
                       "children": [],
                       "kind": "field",
@@ -2671,7 +2998,7 @@
                       "path": "/page_size"
                     },
                     {
-                      "id": "195f56b3-bb6e-4f72-a711-ca6eb79e0ad9",
+                      "id": "d6d3fb11-142d-43cb-a2b2-f6174f86e1c6",
                       "name": "total_pages",
                       "children": [],
                       "kind": "field",
@@ -2680,7 +3007,7 @@
                       "path": "/total_pages"
                     },
                     {
-                      "id": "6018ca1a-5519-4a96-a407-e3c70525a086",
+                      "id": "80dd884b-fc18-4530-b58d-b800cd8287fc",
                       "name": "total",
                       "children": [],
                       "kind": "field",
@@ -2689,7 +3016,7 @@
                       "path": "/total"
                     },
                     {
-                      "id": "ba82c03d-43ec-4f5e-980c-e7a268e509d5",
+                      "id": "b0543391-6619-4bb4-a5a5-27c547d02c39",
                       "name": "has_more",
                       "children": [],
                       "kind": "field",
@@ -2717,6 +3044,59 @@
         "OnError": null,
         "OnRequest": null,
         "OnSuccess": null
+      },
+      "children": []
+    },
+    {
+      "id": "cfc9712f-372d-4bfb-9a3e-6e490c463f30",
+      "type": "WebTimer",
+      "name": "TMRAtualizar",
+      "parentId": "c6388358-1ffc-4ed3-9745-bd66df99af27",
+      "layout": {
+        "container": {
+          "mode": "fixed",
+          "paddingTop": 0,
+          "paddingRight": 0,
+          "paddingBottom": 0,
+          "paddingLeft": 0,
+          "gap": 0,
+          "wrap": false,
+          "justifyContent": "start",
+          "alignItems": "start"
+        },
+        "item": {
+          "width": "stretch",
+          "height": "fixed",
+          "minWidth": 0,
+          "maxWidth": null,
+          "minHeight": 0,
+          "maxHeight": null,
+          "grow": 0,
+          "shrink": false,
+          "alignSelf": "auto",
+          "horizontalAnchor": "start",
+          "verticalAnchor": "start",
+          "left": 0,
+          "right": 0,
+          "top": 0,
+          "bottom": 0
+        }
+      },
+      "bounds": {
+        "width": 112,
+        "height": 52,
+        "x": 0,
+        "y": 0
+      },
+      "props": {
+        "enabled": false,
+        "loop": true,
+        "time": 120000
+      },
+      "events": {
+        "OnStart": null,
+        "OnStop": null,
+        "OnTimer": "Atualizar"
       },
       "children": []
     }

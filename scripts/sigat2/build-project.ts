@@ -246,8 +246,8 @@ function tabs(
   };
 }
 
-function html(name: string, height = 420): Node {
-  return { type: 'WebHtml', name, height, props: { html: '', title: name } };
+function html(name: string, height = 420, title = name): Node {
+  return { type: 'WebHtml', name, height, props: { html: '', title } };
 }
 
 /** The SIGAT header: navigation, quick search and sign-out, shown on every signed-in page. */
@@ -431,7 +431,18 @@ function apiClient(name: string, id: string, operations: readonly Operation[]): 
   };
 }
 
-type Column = readonly [header: string, field: string, width?: number];
+/**
+ * A grid column. `computed` columns are filled by page code from the row (for example the
+ * SIGAT signal icons), so they are not part of the endpoint contract and the server cannot
+ * sort or search them.
+ */
+interface ColumnOptions {
+  readonly image?: boolean;
+  readonly computed?: boolean;
+  readonly align?: 'start' | 'center' | 'end';
+}
+
+type Column = readonly [header: string, field: string, width?: number, options?: ColumnOptions];
 
 function grid(
   name: string,
@@ -448,8 +459,8 @@ function grid(
   const base = createDefaultDataGridConfiguration();
   const column = base.columns[0];
   if (!column) throw new Error('Default Data Grid column is missing.');
-  for (const [, field] of columns)
-    if (!(field in operation.fields))
+  for (const [, field, , extra] of columns)
+    if (extra?.computed !== true && !(field in operation.fields))
       throw new Error(`${name}: field ${field} is not returned by ${operation.endpoint}.`);
   return {
     type: 'WebDataGrid',
@@ -469,7 +480,7 @@ function grid(
         searchEnabled: true,
         sortEnabled: true,
         exportEnabled: true,
-        columns: columns.map(([headerText, field, width]): DataGridColumn => ({
+        columns: columns.map(([headerText, field, width, extra]): DataGridColumn => ({
           ...column,
           id: defaultIdFactory(),
           header: headerText,
@@ -477,6 +488,11 @@ function grid(
           ...(width === undefined
             ? { widthMode: 'dynamic', minWidth: 90 }
             : { widthMode: 'fixed', width, minWidth: Math.min(width, 90) }),
+          ...(extra?.image === true ? { cellKind: 'image' as const } : {}),
+          ...(extra?.computed === true ? { sortable: false, searchable: false } : {}),
+          ...(extra?.align === undefined
+            ? {}
+            : { headerAlign: extra.align, cellAlign: extra.align }),
         })),
       },
     },
@@ -531,6 +547,19 @@ const F = {
     email_nao_lido_chamado: I,
     entrega_chamado: I,
     equip_pendentes: I,
+  },
+  indicadores: {
+    total: I,
+    abertos: I,
+    prioritarios: I,
+    sem_interacao_6h: I,
+    sem_interacao_24h: I,
+    sem_responsavel: I,
+    emails_nao_lidos: I,
+    prontos_entrega: I,
+    entrega_parcial: I,
+    meus_bloqueados: I,
+    meus_bloqueados_remoto: I,
   },
   encerrados: {
     id_chamado: I,
@@ -600,6 +629,8 @@ const F = {
     email_nao_lido_chamado: I,
     entrega_chamado: I,
     equip_espera: I,
+    minutos_espera: I,
+    equip_pendentes: I,
   },
   equipamentos: {
     num_equipamento: S,
@@ -866,13 +897,14 @@ function painelPage(): PageSpec {
   const id = defaultIdFactory();
   const filas = op('Filas', 'filas', F.filas);
   const painel = op('Chamados', 'painel-chamados', F.painel, ['fila', 'q']);
+  const indicadores = op('Indicadores', 'painel-indicadores', F.indicadores, ['fila']);
   const encerrados = op('Encerrados', 'painel-encerrados', F.encerrados, ['q']);
   const triagem = op('Triagem', 'triagem', F.triagem, ['q'], 'otobo');
   return {
     name: 'index',
     caption: 'Painel',
     roles: ['*'],
-    events: { OnShow: 'Mostrar' },
+    events: { OnShow: 'Mostrar', OnHide: 'Ocultar' },
     header: true,
     children: [
       tabs('Abas', ['Chamados', 'Triagem', 'Arquivo'], ['PNLChamados', 'PNLTriagem', 'PNLArquivo']),
@@ -890,25 +922,28 @@ function painelPage(): PageSpec {
           button('BTNAtualizar', 'Atualizar', 'Atualizar', 'refresh'),
           { ...label('LBLResumo', '', 28), width: 320, item: { width: 'fixed', grow: 1 } },
         ]),
+        html('HTMLIndicadores', 76, 'Indicadores da fila'),
         grid(
           'GRDChamados',
           id,
           painel,
           [
-            ['#', 'id_chamado', 80],
-            ['Status', 'status_painel', 110],
-            ['Ticket', 'ticket_chamado', 170],
+            ['#', 'id_chamado', 64],
+            ['Status', 'sinal_status', 72, { image: true, computed: true, align: 'center' }],
+            ['Situação', 'situacao', 200, { computed: true }],
             ['Solicitante', 'nome_solicitante_chamado'],
+            ['Alertas', 'sinal_alertas', 96, { image: true, computed: true, align: 'center' }],
             ['Solicitação', 'resumo_chamado'],
             ['Local', 'nome_local'],
-            ['Fila', 'nome_fila', 130],
-            ['Região', 'regiao_local', 100],
-            ['Abertura', 'data_chamado_fmt', 140],
-            ['Espera (min)', 'minutos_espera', 110],
-            ['Responsável', 'nome_responsavel', 160],
+            ['Fila', 'sinal_fila', 160, { image: true, computed: true, align: 'center' }],
+            ['Região', 'regiao_local', 90],
+            ['Abertura', 'data_chamado_fmt', 145],
+            ['Última interação', 'espera_fmt', 130, { computed: true }],
+            ['Responsável', 'nome_responsavel', 130],
           ],
           { server: true, height: 620, onCell: 'AbrirChamadoDaGrade' },
         ),
+        html('HTMLLegenda', 112, 'Legenda dos ícones do painel'),
       ]),
       {
         ...panel('PNLTriagem', [
@@ -945,7 +980,13 @@ function painelPage(): PageSpec {
           { server: true, height: 560, onCell: 'AbrirEncerrado' },
         ),
       ]),
-      apiClient('Api', id, [filas, painel, encerrados, triagem]),
+      apiClient('Api', id, [filas, painel, indicadores, encerrados, triagem]),
+      {
+        type: 'WebTimer',
+        name: 'TMRAtualizar',
+        props: { time: 120_000, loop: true, enabled: false },
+        events: { OnTimer: 'Atualizar' },
+      },
     ],
   };
 }
@@ -1008,6 +1049,7 @@ function chamadoPage(): PageSpec {
         button('BTNOtobo', 'Abrir no OTOBO', 'AbrirOtobo', 'external-link'),
         button('BTNRecarregar', 'Recarregar', 'Carregar', 'refresh'),
       ]),
+      html('HTMLSinais', 44, 'Situação do chamado'),
       row('Acoes', [
         button('BTNBloquear', 'Bloquear', 'Bloquear', 'lock'),
         button('BTNDesbloquear', 'Desbloquear', 'Desbloquear', 'unlock'),
