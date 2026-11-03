@@ -1,14 +1,14 @@
 {
   "formatVersion": 2,
-  "id": "d0dbdd7b-a828-4766-a321-dbb2ddc41f27",
+  "id": "2be566bb-ba0a-4d77-91bf-fb5283b986e6",
   "name": "Inserviveis",
   "caption": "Inserviveis",
   "width": 1280,
   "height": 1200,
-  "rootComponentId": "64051240-037c-4191-bc30-97e446c76d53",
+  "rootComponentId": "c91ac11d-c8e8-496b-a939-6e31404eaf68",
   "components": [
     {
-      "id": "64051240-037c-4191-bc30-97e446c76d53",
+      "id": "c91ac11d-c8e8-496b-a939-6e31404eaf68",
       "type": "WebPage",
       "name": "Inserviveis",
       "parentId": null,
@@ -66,17 +66,17 @@
       },
       "styleId": "3755d9a1-991d-4861-8878-42148ee446dc:default-style:WebPage",
       "children": [
-        "1c2d0766-336e-4ac5-868e-44e66e535587",
-        "63ebe04b-a908-47b9-8873-7458f3b5a3a5",
-        "8f2f4a91-1525-41e7-9da1-0b8912b8120a",
-        "8c11e23b-fac5-4c64-93d7-74057c3f69f4"
+        "9f249795-b018-4332-bf26-031a7a03f583",
+        "56be07e4-83d1-4943-b64e-7e9ca13d0950",
+        "01e58491-3d15-4327-8d29-20851dfcec17",
+        "2592ce82-779c-4ba7-b37f-78fa7db93707"
       ]
     },
     {
-      "id": "1c2d0766-336e-4ac5-868e-44e66e535587",
+      "id": "9f249795-b018-4332-bf26-031a7a03f583",
       "type": "WebGroup",
       "name": "Cabecalho",
-      "parentId": "64051240-037c-4191-bc30-97e446c76d53",
+      "parentId": "c91ac11d-c8e8-496b-a939-6e31404eaf68",
       "layout": {
         "container": {
           "mode": "row",
@@ -126,21 +126,21 @@
         "OnMouseLeave": null
       },
       "children": [
-        "75a0b235-d573-45fa-969f-5124429ee265",
-        "6d019d22-806e-48d7-b22e-9997e59f46a4",
-        "6f89acfe-91ff-4ce0-81c2-7216807f8f3f",
-        "1e6c9f74-a781-41b1-9683-62e4af7cc547",
-        "da6b537d-431c-430c-a773-2cb0dffe1b21",
-        "79370fd4-6966-4366-8b85-5ecb6b501629",
-        "0e57197e-d263-4aef-8ee2-a8706564051a",
-        "8380c22d-b463-45fa-9b18-16da39127221"
+        "5f2f1a77-46fb-4e18-b067-c2c6218cf57b",
+        "86d2e1e5-5de8-4068-b03f-4f1c970c335a",
+        "e6b43f63-3a96-490e-8391-5c5949320b59",
+        "6fda350e-85ba-47c3-9a83-976f54d165c9",
+        "6b0ff36e-d2b5-4793-af93-0772e6c419d3",
+        "97a7dce4-b3c9-48a1-a050-20e0f13c7521",
+        "ba47dde3-d22c-45e9-b099-e52c5144975f",
+        "bf444150-8afc-4f68-88f9-e30fe21dd7e6"
       ]
     },
     {
-      "id": "75a0b235-d573-45fa-969f-5124429ee265",
+      "id": "5f2f1a77-46fb-4e18-b067-c2c6218cf57b",
       "type": "WebLabel",
       "name": "Marca",
-      "parentId": "1c2d0766-336e-4ac5-868e-44e66e535587",
+      "parentId": "9f249795-b018-4332-bf26-031a7a03f583",
       "layout": {
         "container": {
           "mode": "fixed",
@@ -195,10 +195,10 @@
       "children": []
     },
     {
-      "id": "6d019d22-806e-48d7-b22e-9997e59f46a4",
+      "id": "86d2e1e5-5de8-4068-b03f-4f1c970c335a",
       "type": "WebButton",
       "name": "BTNPainel",
-      "parentId": "1c2d0766-336e-4ac5-868e-44e66e535587",
+      "parentId": "9f249795-b018-4332-bf26-031a7a03f583",
       "layout": {
         "container": {
           "mode": "fixed",
@@ -254,10 +254,10 @@
       "children": []
     },
     {
-      "id": "6f89acfe-91ff-4ce0-81c2-7216807f8f3f",
+      "id": "e6b43f63-3a96-490e-8391-5c5949320b59",
       "type": "WebEdit",
       "name": "EDTBuscaRapida",
-      "parentId": "1c2d0766-336e-4ac5-868e-44e66e535587",
+      "parentId": "9f249795-b018-4332-bf26-031a7a03f583",
       "layout": {
         "container": {
           "mode": "fixed",
@@ -315,10 +315,10 @@
       "children": []
     },
     {
-      "id": "1e6c9f74-a781-41b1-9683-62e4af7cc547",
+      "id": "6fda350e-85ba-47c3-9a83-976f54d165c9",
       "type": "WebButton",
       "name": "BTNBuscar",
-      "parentId": "1c2d0766-336e-4ac5-868e-44e66e535587",
+      "parentId": "9f249795-b018-4332-bf26-031a7a03f583",
       "layout": {
         "container": {
           "mode": "fixed",
@@ -374,10 +374,10 @@
       "children": []
     },
     {
-      "id": "da6b537d-431c-430c-a773-2cb0dffe1b21",
+      "id": "6b0ff36e-d2b5-4793-af93-0772e6c419d3",
       "type": "WebButton",
       "name": "BTNInserviveis",
-      "parentId": "1c2d0766-336e-4ac5-868e-44e66e535587",
+      "parentId": "9f249795-b018-4332-bf26-031a7a03f583",
       "layout": {
         "container": {
           "mode": "fixed",
@@ -436,10 +436,10 @@
       "children": []
     },
     {
-      "id": "79370fd4-6966-4366-8b85-5ecb6b501629",
+      "id": "97a7dce4-b3c9-48a1-a050-20e0f13c7521",
       "type": "WebButton",
       "name": "BTNAdmin",
-      "parentId": "1c2d0766-336e-4ac5-868e-44e66e535587",
+      "parentId": "9f249795-b018-4332-bf26-031a7a03f583",
       "layout": {
         "container": {
           "mode": "fixed",
@@ -498,10 +498,10 @@
       "children": []
     },
     {
-      "id": "0e57197e-d263-4aef-8ee2-a8706564051a",
+      "id": "ba47dde3-d22c-45e9-b099-e52c5144975f",
       "type": "WebLabel",
       "name": "LBLUsuario",
-      "parentId": "1c2d0766-336e-4ac5-868e-44e66e535587",
+      "parentId": "9f249795-b018-4332-bf26-031a7a03f583",
       "layout": {
         "container": {
           "mode": "fixed",
@@ -556,10 +556,10 @@
       "children": []
     },
     {
-      "id": "8380c22d-b463-45fa-9b18-16da39127221",
+      "id": "bf444150-8afc-4f68-88f9-e30fe21dd7e6",
       "type": "WebButton",
       "name": "BTNSair",
-      "parentId": "1c2d0766-336e-4ac5-868e-44e66e535587",
+      "parentId": "9f249795-b018-4332-bf26-031a7a03f583",
       "layout": {
         "container": {
           "mode": "fixed",
@@ -615,10 +615,10 @@
       "children": []
     },
     {
-      "id": "63ebe04b-a908-47b9-8873-7458f3b5a3a5",
+      "id": "56be07e4-83d1-4943-b64e-7e9ca13d0950",
       "type": "WebLabel",
       "name": "LBLTitulo",
-      "parentId": "64051240-037c-4191-bc30-97e446c76d53",
+      "parentId": "c91ac11d-c8e8-496b-a939-6e31404eaf68",
       "layout": {
         "container": {
           "mode": "fixed",
@@ -673,10 +673,10 @@
       "children": []
     },
     {
-      "id": "8f2f4a91-1525-41e7-9da1-0b8912b8120a",
+      "id": "01e58491-3d15-4327-8d29-20851dfcec17",
       "type": "WebDataGrid",
       "name": "GRDRemessas",
-      "parentId": "64051240-037c-4191-bc30-97e446c76d53",
+      "parentId": "c91ac11d-c8e8-496b-a939-6e31404eaf68",
       "layout": {
         "container": {
           "mode": "fixed",
@@ -717,13 +717,13 @@
         "enabled": true,
         "collapseWhenHidden": true,
         "dataGridConfig": {
-          "apiClientId": "8c11e23b-fac5-4c64-93d7-74057c3f69f4",
+          "apiClientId": "2592ce82-779c-4ba7-b37f-78fa7db93707",
           "cellPaddingHorizontal": 10,
           "cellPaddingVertical": 8,
           "columnCount": 8,
           "columns": [
             {
-              "id": "bd74e58d-5ca7-49ee-a2f9-16a7694d2bbf",
+              "id": "c91e07bf-ab2a-4484-b25a-b99ebe76fcd2",
               "width": 80,
               "minWidth": 80,
               "maxWidth": null,
@@ -741,7 +741,7 @@
               "widthMode": "fixed"
             },
             {
-              "id": "78f52022-bdd1-44fa-87fc-d94a0d3ecbb0",
+              "id": "83659acb-fb80-4749-b0bd-67cf3cebe813",
               "width": 100,
               "minWidth": 90,
               "maxWidth": null,
@@ -759,7 +759,7 @@
               "widthMode": "fixed"
             },
             {
-              "id": "b075cd3e-50f7-4bd0-a027-450a9cb6ef8b",
+              "id": "e8e9f60a-0979-427a-a1d2-5112ad25b7d1",
               "width": 150,
               "minWidth": 90,
               "maxWidth": null,
@@ -777,7 +777,7 @@
               "widthMode": "fixed"
             },
             {
-              "id": "7c389b6b-4a19-4e00-b5d2-d6f112035837",
+              "id": "d2b45c46-234e-4dae-9c66-ee2a9df7bc58",
               "width": 150,
               "minWidth": 90,
               "maxWidth": null,
@@ -795,7 +795,7 @@
               "widthMode": "fixed"
             },
             {
-              "id": "33fa1101-955d-4187-98ba-8f12990840a6",
+              "id": "ac9971ff-4a0d-415f-95dd-5a3f1b385082",
               "width": 120,
               "minWidth": 90,
               "maxWidth": null,
@@ -813,7 +813,7 @@
               "widthMode": "fixed"
             },
             {
-              "id": "e804456c-7159-4ffe-a882-1c97333499cb",
+              "id": "c5ba46d0-93e6-4b99-92c6-0d75824010dc",
               "width": 180,
               "minWidth": 90,
               "maxWidth": null,
@@ -831,7 +831,7 @@
               "widthMode": "dynamic"
             },
             {
-              "id": "d1584cae-5f63-4cd4-8226-71754ad282c9",
+              "id": "57bedfa9-b0b9-4025-ab25-976c475a9ce6",
               "width": 130,
               "minWidth": 90,
               "maxWidth": null,
@@ -849,7 +849,7 @@
               "widthMode": "fixed"
             },
             {
-              "id": "51ae8705-5cf2-46df-9ed7-70b930832900",
+              "id": "3820873b-f1ff-4d9e-8194-0ba2530e86e5",
               "width": 170,
               "minWidth": 90,
               "maxWidth": null,
@@ -873,7 +873,7 @@
           "listPath": "/data",
           "maxRowHeight": null,
           "minRowHeight": 36,
-          "operationId": "1ac7744a-3409-4dc2-9760-6541459acd1c",
+          "operationId": "8b447e91-d83a-45be-877c-01cc17092e95",
           "pageSize": 25,
           "pageSizeOptions": [
             10,
@@ -915,10 +915,10 @@
       "children": []
     },
     {
-      "id": "8c11e23b-fac5-4c64-93d7-74057c3f69f4",
+      "id": "2592ce82-779c-4ba7-b37f-78fa7db93707",
       "type": "WebApiClient",
       "name": "Api",
-      "parentId": "64051240-037c-4191-bc30-97e446c76d53",
+      "parentId": "c91ac11d-c8e8-496b-a939-6e31404eaf68",
       "layout": {
         "container": {
           "mode": "fixed",
@@ -962,7 +962,7 @@
           "defaultHeaders": [],
           "operations": [
             {
-              "id": "1ac7744a-3409-4dc2-9760-6541459acd1c",
+              "id": "8b447e91-d83a-45be-877c-01cc17092e95",
               "name": "Remessas",
               "apiVersion": 1,
               "body": {
@@ -976,11 +976,11 @@
               "query": [],
               "responseSchema": {
                 "root": {
-                  "id": "e4abaade-80fc-4cbf-a265-d389c6d31dcc",
+                  "id": "5e46a83a-284f-4d08-964e-200340afbcd8",
                   "name": "Response",
                   "children": [
                     {
-                      "id": "453749ce-60ad-4c9d-95d2-32a1b4432863",
+                      "id": "29cd1659-2df3-410d-9b96-1acc15f39581",
                       "name": "success",
                       "children": [],
                       "kind": "field",
@@ -989,11 +989,11 @@
                       "path": "/success"
                     },
                     {
-                      "id": "76f7e5d4-39a6-457b-9dae-98b5e79153fd",
+                      "id": "ef16141f-3090-4366-9a1b-2ea37326e19b",
                       "name": "data",
                       "children": [
                         {
-                          "id": "8c544b00-31c8-4bb7-b309-89ed2241ae9e",
+                          "id": "08742dc8-fa46-4e24-9264-557c9c4e71b5",
                           "name": "id_remessa_inservivel",
                           "children": [],
                           "kind": "field",
@@ -1002,7 +1002,7 @@
                           "path": "/data/*/id_remessa_inservivel"
                         },
                         {
-                          "id": "f1a032ed-e186-4bb0-901e-c1b7c332fbc4",
+                          "id": "4dc1d913-b19c-4758-87db-49aca7c6d3f4",
                           "name": "cod_divisao",
                           "children": [],
                           "kind": "field",
@@ -1011,7 +1011,7 @@
                           "path": "/data/*/cod_divisao"
                         },
                         {
-                          "id": "a8df2b86-3494-4dee-a62a-9ce1b9106da0",
+                          "id": "10b310e1-a379-4b43-8ffa-6e271c56cab6",
                           "name": "divisao_remessa",
                           "children": [],
                           "kind": "field",
@@ -1020,7 +1020,7 @@
                           "path": "/data/*/divisao_remessa"
                         },
                         {
-                          "id": "a9c40246-ce0c-48f1-8d2a-c12383a5434a",
+                          "id": "81a2954d-b299-4789-83c5-2e24a63e7c81",
                           "name": "data_abertura",
                           "children": [],
                           "kind": "field",
@@ -1029,7 +1029,7 @@
                           "path": "/data/*/data_abertura"
                         },
                         {
-                          "id": "991bd715-f119-45b2-a932-9fe33565b428",
+                          "id": "c1e14ca7-bb13-43a9-bd19-d904a57dd64e",
                           "name": "data_fechamento",
                           "children": [],
                           "kind": "field",
@@ -1038,7 +1038,7 @@
                           "path": "/data/*/data_fechamento"
                         },
                         {
-                          "id": "67407da1-8195-45be-805d-921d167cb70b",
+                          "id": "cd65eac0-cf3c-44dd-8eb9-6a86b5b4f5df",
                           "name": "data_entrega",
                           "children": [],
                           "kind": "field",
@@ -1047,7 +1047,7 @@
                           "path": "/data/*/data_entrega"
                         },
                         {
-                          "id": "bc538e9d-7bca-420f-90ed-65432500c5c5",
+                          "id": "83253d3c-10ea-45b5-86a6-cace13916d6a",
                           "name": "nome_recebedor",
                           "children": [],
                           "kind": "field",
@@ -1056,7 +1056,7 @@
                           "path": "/data/*/nome_recebedor"
                         },
                         {
-                          "id": "3104bffa-6f40-405d-aaf6-4d685da2d912",
+                          "id": "b791ce86-7828-4d10-963e-a1e54106593c",
                           "name": "falha_envio",
                           "children": [],
                           "kind": "field",
@@ -1065,7 +1065,7 @@
                           "path": "/data/*/falha_envio"
                         },
                         {
-                          "id": "f8efb5fd-847a-4fd6-86ef-245cfa52df13",
+                          "id": "dcbf033a-1d9b-4193-9f5f-43747cff936b",
                           "name": "id_termo",
                           "children": [],
                           "kind": "field",
@@ -1074,7 +1074,7 @@
                           "path": "/data/*/id_termo"
                         },
                         {
-                          "id": "a0fda5f9-9d08-4c48-b140-37706fd8fa5b",
+                          "id": "240b100a-7550-4468-8c9c-a64759dd5b9c",
                           "name": "nome_usuario",
                           "children": [],
                           "kind": "field",
@@ -1083,7 +1083,7 @@
                           "path": "/data/*/nome_usuario"
                         },
                         {
-                          "id": "1df538f9-49ab-4c46-843f-0521715ed756",
+                          "id": "a91ff8c4-97e4-46b5-abd3-4b833373574f",
                           "name": "qtd_equipamentos",
                           "children": [],
                           "kind": "field",
@@ -1098,7 +1098,7 @@
                       "path": "/data"
                     },
                     {
-                      "id": "2592ce82-779c-4ba7-b37f-78fa7db93707",
+                      "id": "78e3bbe8-ef50-4913-876c-3d1b06888bf5",
                       "name": "page",
                       "children": [],
                       "kind": "field",
@@ -1107,7 +1107,7 @@
                       "path": "/page"
                     },
                     {
-                      "id": "8b447e91-d83a-45be-877c-01cc17092e95",
+                      "id": "60341b29-7656-4bb9-a3b2-29780087576e",
                       "name": "page_size",
                       "children": [],
                       "kind": "field",
@@ -1116,7 +1116,7 @@
                       "path": "/page_size"
                     },
                     {
-                      "id": "c91e07bf-ab2a-4484-b25a-b99ebe76fcd2",
+                      "id": "12422f0d-ff60-4931-b03a-7030f75237ee",
                       "name": "total_pages",
                       "children": [],
                       "kind": "field",
@@ -1125,7 +1125,7 @@
                       "path": "/total_pages"
                     },
                     {
-                      "id": "83659acb-fb80-4749-b0bd-67cf3cebe813",
+                      "id": "6c95b187-ff27-41ad-9359-fc66b8848592",
                       "name": "total",
                       "children": [],
                       "kind": "field",
@@ -1134,7 +1134,7 @@
                       "path": "/total"
                     },
                     {
-                      "id": "e8e9f60a-0979-427a-a1d2-5112ad25b7d1",
+                      "id": "5c2672c5-5615-4e0d-a1a8-f4dbff32bf05",
                       "name": "has_more",
                       "children": [],
                       "kind": "field",

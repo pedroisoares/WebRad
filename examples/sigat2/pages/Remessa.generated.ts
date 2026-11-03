@@ -52,100 +52,100 @@ export abstract class RemessaGenerated extends WebPage {
   public constructor(element: HTMLElement) {
     super(element);
     this.Cabecalho = new WebGroup(
-      this.requireComponentElement('ff5759c8-5b70-4e11-a75f-7043aed44a9c'),
-    );
-    this.Marca = new WebLabel(this.requireComponentElement('32df29e5-a43f-4aa9-b65d-03b7ecbd8801'));
-    this.BTNPainel = new WebButton(
-      this.requireComponentElement('1856a888-f846-4829-bbc7-b9fb3383ed79'),
-    );
-    this.EDTBuscaRapida = new WebEdit(
-      this.requireComponentElement('f0ca895d-c5a0-4261-ab52-e6797ee52e77'),
-    );
-    this.BTNBuscar = new WebButton(
-      this.requireComponentElement('c5b7a695-3c22-49e6-8ad2-5ffb89a370e1'),
-    );
-    this.BTNInserviveis = new WebButton(
-      this.requireComponentElement('f5d069b6-b0a7-43a9-a747-89d9e39dc286'),
-    );
-    this.BTNAdmin = new WebButton(
-      this.requireComponentElement('6fb0f029-705d-4f70-aa3e-bef44727a5d0'),
-    );
-    this.LBLUsuario = new WebLabel(
-      this.requireComponentElement('65eeab57-8179-4b5f-8907-3ac7abf85712'),
-    );
-    this.BTNSair = new WebButton(
-      this.requireComponentElement('b7360441-3de7-4606-ac5a-4d64e864bac3'),
-    );
-    this.Topo = new WebGroup(this.requireComponentElement('32d229aa-a064-426b-a861-396b4aded80f'));
-    this.LBLRemessa = new WebLabel(
-      this.requireComponentElement('523eb88e-b56f-4fa0-9757-3514ef2e3db4'),
-    );
-    this.BTNVoltar = new WebButton(
-      this.requireComponentElement('c8734bf2-8c3e-400d-b6b4-b34fdde2179a'),
-    );
-    this.PNLDados = new WebPanel(
-      this.requireComponentElement('363b406d-cf71-458c-b05c-8d3da8ba6706'),
-    );
-    this.Dados = new WebGroup(this.requireComponentElement('2be566bb-ba0a-4d77-91bf-fb5283b986e6'));
-    this.DadosSituacao = new WebGroup(
-      this.requireComponentElement('c91ac11d-c8e8-496b-a939-6e31404eaf68'),
-    );
-    this.LBLSituacao = new WebLabel(
-      this.requireComponentElement('9f249795-b018-4332-bf26-031a7a03f583'),
-    );
-    this.Situacao = new WebLabel(
-      this.requireComponentElement('5f2f1a77-46fb-4e18-b067-c2c6218cf57b'),
-    );
-    this.DadosAbertura = new WebGroup(
-      this.requireComponentElement('86d2e1e5-5de8-4068-b03f-4f1c970c335a'),
-    );
-    this.LBLAbertura = new WebLabel(
-      this.requireComponentElement('e6b43f63-3a96-490e-8391-5c5949320b59'),
-    );
-    this.Abertura = new WebLabel(
-      this.requireComponentElement('6fda350e-85ba-47c3-9a83-976f54d165c9'),
-    );
-    this.DadosFechamento = new WebGroup(
-      this.requireComponentElement('6b0ff36e-d2b5-4793-af93-0772e6c419d3'),
-    );
-    this.LBLFechamento = new WebLabel(
-      this.requireComponentElement('97a7dce4-b3c9-48a1-a050-20e0f13c7521'),
-    );
-    this.Fechamento = new WebLabel(
-      this.requireComponentElement('ba47dde3-d22c-45e9-b099-e52c5144975f'),
-    );
-    this.DadosEntrega = new WebGroup(
-      this.requireComponentElement('bf444150-8afc-4f68-88f9-e30fe21dd7e6'),
-    );
-    this.LBLEntrega = new WebLabel(
-      this.requireComponentElement('56be07e4-83d1-4943-b64e-7e9ca13d0950'),
-    );
-    this.Entrega = new WebLabel(
-      this.requireComponentElement('01e58491-3d15-4327-8d29-20851dfcec17'),
-    );
-    this.DadosRecebedor = new WebGroup(
-      this.requireComponentElement('11189fb8-05a2-4a80-8ac8-5b8f398f9e5e'),
-    );
-    this.LBLRecebedor = new WebLabel(
-      this.requireComponentElement('c12108c3-4f5e-460d-8d1d-1e290e940f28'),
-    );
-    this.Recebedor = new WebLabel(
       this.requireComponentElement('aaca620b-d9c1-418f-8fdf-678cc6ddbb50'),
     );
-    this.DadosTermo = new WebGroup(
-      this.requireComponentElement('c9c6f2ba-2651-4396-9d15-75becea21f9e'),
-    );
-    this.LBLTermo = new WebLabel(
+    this.Marca = new WebLabel(this.requireComponentElement('c9c6f2ba-2651-4396-9d15-75becea21f9e'));
+    this.BTNPainel = new WebButton(
       this.requireComponentElement('1ebdf439-6900-4123-9163-3093b046978e'),
     );
-    this.Termo = new WebLabel(this.requireComponentElement('b8f98382-1de4-46ea-983c-74e6c7c49343'));
-    this.GRDEquipamentos = new WebDataGrid(
+    this.EDTBuscaRapida = new WebEdit(
+      this.requireComponentElement('b8f98382-1de4-46ea-983c-74e6c7c49343'),
+    );
+    this.BTNBuscar = new WebButton(
       this.requireComponentElement('608c0587-2119-4f3d-acc2-999170a635f2'),
+    );
+    this.BTNInserviveis = new WebButton(
+      this.requireComponentElement('979583b2-41ea-453b-b589-b1ea976257a2'),
+    );
+    this.BTNAdmin = new WebButton(
+      this.requireComponentElement('3a6eb704-c388-4ee0-85ae-64aae9e7dd05'),
+    );
+    this.LBLUsuario = new WebLabel(
+      this.requireComponentElement('a0c708c4-6528-4170-a13e-165353e5360a'),
+    );
+    this.BTNSair = new WebButton(
+      this.requireComponentElement('7c3d3849-217f-4c7c-9c35-304129c1c4a8'),
+    );
+    this.Topo = new WebGroup(this.requireComponentElement('f895ab88-278f-476a-b210-2485af4cb011'));
+    this.LBLRemessa = new WebLabel(
+      this.requireComponentElement('582be749-e002-474a-a5b2-cbb5da695d56'),
+    );
+    this.BTNVoltar = new WebButton(
+      this.requireComponentElement('4369e5d8-d85f-416b-a0d1-ed63b81a781b'),
+    );
+    this.PNLDados = new WebPanel(
+      this.requireComponentElement('b3292542-9320-4ec7-9ebe-92dd844db57c'),
+    );
+    this.Dados = new WebGroup(this.requireComponentElement('878af721-df35-486b-ba41-b37796e2a93c'));
+    this.DadosSituacao = new WebGroup(
+      this.requireComponentElement('ff1ab590-3ce8-42cb-a548-2c58de458fc3'),
+    );
+    this.LBLSituacao = new WebLabel(
+      this.requireComponentElement('ac2b927c-e94e-4749-af28-0e8e2cc0f08a'),
+    );
+    this.Situacao = new WebLabel(
+      this.requireComponentElement('ecef369e-8e25-4892-a635-035f54f06fb4'),
+    );
+    this.DadosAbertura = new WebGroup(
+      this.requireComponentElement('23621527-be15-448d-81d7-5a9bdbc1ffec'),
+    );
+    this.LBLAbertura = new WebLabel(
+      this.requireComponentElement('4e1d42b0-4291-48e4-8926-55ec05672f5a'),
+    );
+    this.Abertura = new WebLabel(
+      this.requireComponentElement('e0e3ee84-b8e8-4c8f-8740-7980aa358e0f'),
+    );
+    this.DadosFechamento = new WebGroup(
+      this.requireComponentElement('6522c6ba-cfbf-40af-9e24-7cbf90f11bda'),
+    );
+    this.LBLFechamento = new WebLabel(
+      this.requireComponentElement('fe59d077-5765-49a0-ba8b-78e4de78a5e7'),
+    );
+    this.Fechamento = new WebLabel(
+      this.requireComponentElement('c706d526-2576-4c61-9fad-64112aa1df33'),
+    );
+    this.DadosEntrega = new WebGroup(
+      this.requireComponentElement('3b4bdfc8-c54f-4d03-b207-4c6ca8fccddd'),
+    );
+    this.LBLEntrega = new WebLabel(
+      this.requireComponentElement('6f1d5d3d-d986-4d8b-bb2c-b36c2ba6b21f'),
+    );
+    this.Entrega = new WebLabel(
+      this.requireComponentElement('e519a101-caa2-4b06-b3c0-d2b0aaf66b8a'),
+    );
+    this.DadosRecebedor = new WebGroup(
+      this.requireComponentElement('f5b18486-8294-4940-a702-ea603c90aa05'),
+    );
+    this.LBLRecebedor = new WebLabel(
+      this.requireComponentElement('3852a87a-1f27-47c1-83e7-00592a87f01e'),
+    );
+    this.Recebedor = new WebLabel(
+      this.requireComponentElement('589010ba-6f5c-4e4a-b49b-07d751335c5b'),
+    );
+    this.DadosTermo = new WebGroup(
+      this.requireComponentElement('ede380a9-42b7-4aa3-94dc-4b847a0b0628'),
+    );
+    this.LBLTermo = new WebLabel(
+      this.requireComponentElement('02e1b012-81b9-4c12-9f14-bc18ea92e272'),
+    );
+    this.Termo = new WebLabel(this.requireComponentElement('e7129493-9e5d-4bdc-9d99-e73803ed25d0'));
+    this.GRDEquipamentos = new WebDataGrid(
+      this.requireComponentElement('ff4452c8-c237-45e0-b7c2-12921c85c5ed'),
     );
     this.GRDEquipamentos.dataGridConfig = {
       schemaVersion: 2,
-      apiClientId: 'd2b45c46-234e-4dae-9c66-ee2a9df7bc58',
-      operationId: 'c5ba46d0-93e6-4b99-92c6-0d75824010dc',
+      apiClientId: 'fa42a68b-90e5-4b2a-b943-1f1e1b87fb62',
+      operationId: '39c0b6fb-795b-4a8f-bd65-814d268b5016',
       listPath: '/data',
       columnCount: 4,
       showHeader: true,
@@ -165,7 +165,7 @@ export abstract class RemessaGenerated extends WebPage {
       emptyMessage: 'Nenhum registro',
       columns: [
         {
-          id: '57bedfa9-b0b9-4025-ab25-976c475a9ce6',
+          id: 'bcb70bf4-9b36-46d9-8554-a2df32df8188',
           header: 'Patrimônio',
           fieldPath: '/numero_equipamento',
           cellKind: 'text',
@@ -183,7 +183,7 @@ export abstract class RemessaGenerated extends WebPage {
           searchable: true,
         },
         {
-          id: '3820873b-f1ff-4d9e-8194-0ba2530e86e5',
+          id: 'bd1a35e9-c696-4f4c-8a46-09b7e3c4b036',
           header: 'Descrição',
           fieldPath: '/descricao_equipamento',
           cellKind: 'text',
@@ -201,7 +201,7 @@ export abstract class RemessaGenerated extends WebPage {
           searchable: true,
         },
         {
-          id: '5e46a83a-284f-4d08-964e-200340afbcd8',
+          id: '2019f4c3-bd2b-4cc5-a86b-76696d75330f',
           header: 'Chamado',
           fieldPath: '/id_chamado',
           cellKind: 'text',
@@ -219,7 +219,7 @@ export abstract class RemessaGenerated extends WebPage {
           searchable: true,
         },
         {
-          id: '29cd1659-2df3-410d-9b96-1acc15f39581',
+          id: '2b041ea1-395f-47ef-815f-e71737e65b4f',
           header: 'Local',
           fieldPath: '/nome_local',
           cellKind: 'text',
@@ -260,14 +260,14 @@ export abstract class RemessaGenerated extends WebPage {
         timeoutMs: 30000,
         operations: [
           {
-            id: 'ac9971ff-4a0d-415f-95dd-5a3f1b385082',
+            id: 'f9af7317-220f-4d3e-a690-ed334d07cf05',
             name: 'Remessa',
             method: 'GET',
             path: 'sigat/remessa',
             apiVersion: 1,
             headers: [],
             query: [
-              { id: 'ef16141f-3090-4366-9a1b-2ea37326e19b', name: 'id', value: '', enabled: false },
+              { id: 'd6522f93-5dfc-4823-90f1-079933084f19', name: 'id', value: '', enabled: false },
             ],
             body: { kind: 'none', content: '' },
             credentials: 'omit',
@@ -275,7 +275,7 @@ export abstract class RemessaGenerated extends WebPage {
             responseSchema: {
               version: 1,
               root: {
-                id: '08742dc8-fa46-4e24-9264-557c9c4e71b5',
+                id: 'db0746ca-bcc5-4f61-96b7-6a2efcf625c8',
                 name: 'Response',
                 path: '',
                 kind: 'object',
@@ -283,7 +283,7 @@ export abstract class RemessaGenerated extends WebPage {
                 nullable: false,
                 children: [
                   {
-                    id: '4dc1d913-b19c-4758-87db-49aca7c6d3f4',
+                    id: '683db3a8-5003-41ed-86a0-b53ecdfb7cb9',
                     name: 'success',
                     path: '/success',
                     kind: 'field',
@@ -292,7 +292,7 @@ export abstract class RemessaGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: '10b310e1-a379-4b43-8ffa-6e271c56cab6',
+                    id: '5d95a538-f2d0-4ff0-aee4-25b09d56c0b0',
                     name: 'data',
                     path: '/data',
                     kind: 'list',
@@ -300,7 +300,7 @@ export abstract class RemessaGenerated extends WebPage {
                     nullable: false,
                     children: [
                       {
-                        id: '81a2954d-b299-4789-83c5-2e24a63e7c81',
+                        id: '53288858-21a7-4aac-8c5a-af061ba0bcf7',
                         name: 'id_remessa_inservivel',
                         path: '/data/*/id_remessa_inservivel',
                         kind: 'field',
@@ -309,7 +309,7 @@ export abstract class RemessaGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: 'c1e14ca7-bb13-43a9-bd19-d904a57dd64e',
+                        id: 'cec1c4a3-c704-4091-91d4-d1e39ed75a95',
                         name: 'data_abertura',
                         path: '/data/*/data_abertura',
                         kind: 'field',
@@ -318,7 +318,7 @@ export abstract class RemessaGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: 'cd65eac0-cf3c-44dd-8eb9-6a86b5b4f5df',
+                        id: 'bc255c70-9dac-4ce2-a125-fc1dd96bb484',
                         name: 'data_fechamento',
                         path: '/data/*/data_fechamento',
                         kind: 'field',
@@ -327,7 +327,7 @@ export abstract class RemessaGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: '83253d3c-10ea-45b5-86a6-cace13916d6a',
+                        id: 'f5d77684-1e85-45df-adbc-cddca21292de',
                         name: 'data_entrega',
                         path: '/data/*/data_entrega',
                         kind: 'field',
@@ -336,237 +336,11 @@ export abstract class RemessaGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: 'b791ce86-7828-4d10-963e-a1e54106593c',
+                        id: '7159a357-7e00-43d3-92bd-1c91b77259d4',
                         name: 'nome_recebedor',
                         path: '/data/*/nome_recebedor',
                         kind: 'field',
                         fieldType: 'string',
-                        nullable: true,
-                        children: [],
-                      },
-                      {
-                        id: 'dcbf033a-1d9b-4193-9f5f-43747cff936b',
-                        name: 'falha_envio',
-                        path: '/data/*/falha_envio',
-                        kind: 'field',
-                        fieldType: 'integer',
-                        nullable: true,
-                        children: [],
-                      },
-                      {
-                        id: '240b100a-7550-4468-8c9c-a64759dd5b9c',
-                        name: 'divisao_remessa',
-                        path: '/data/*/divisao_remessa',
-                        kind: 'field',
-                        fieldType: 'integer',
-                        nullable: true,
-                        children: [],
-                      },
-                      {
-                        id: 'a91ff8c4-97e4-46b5-abd3-4b833373574f',
-                        name: 'pool_equipamentos',
-                        path: '/data/*/pool_equipamentos',
-                        kind: 'field',
-                        fieldType: 'string',
-                        nullable: true,
-                        children: [],
-                      },
-                      {
-                        id: '78e3bbe8-ef50-4913-876c-3d1b06888bf5',
-                        name: 'nome_usuario',
-                        path: '/data/*/nome_usuario',
-                        kind: 'field',
-                        fieldType: 'string',
-                        nullable: true,
-                        children: [],
-                      },
-                      {
-                        id: '60341b29-7656-4bb9-a3b2-29780087576e',
-                        name: 'id_termo',
-                        path: '/data/*/id_termo',
-                        kind: 'field',
-                        fieldType: 'integer',
-                        nullable: true,
-                        children: [],
-                      },
-                      {
-                        id: '12422f0d-ff60-4931-b03a-7030f75237ee',
-                        name: 'nome_termo',
-                        path: '/data/*/nome_termo',
-                        kind: 'field',
-                        fieldType: 'string',
-                        nullable: true,
-                        children: [],
-                      },
-                    ],
-                  },
-                  {
-                    id: '6c95b187-ff27-41ad-9359-fc66b8848592',
-                    name: 'page',
-                    path: '/page',
-                    kind: 'field',
-                    fieldType: 'integer',
-                    nullable: true,
-                    children: [],
-                  },
-                  {
-                    id: '5c2672c5-5615-4e0d-a1a8-f4dbff32bf05',
-                    name: 'page_size',
-                    path: '/page_size',
-                    kind: 'field',
-                    fieldType: 'integer',
-                    nullable: true,
-                    children: [],
-                  },
-                  {
-                    id: 'fa42a68b-90e5-4b2a-b943-1f1e1b87fb62',
-                    name: 'total_pages',
-                    path: '/total_pages',
-                    kind: 'field',
-                    fieldType: 'integer',
-                    nullable: true,
-                    children: [],
-                  },
-                  {
-                    id: 'f9af7317-220f-4d3e-a690-ed334d07cf05',
-                    name: 'total',
-                    path: '/total',
-                    kind: 'field',
-                    fieldType: 'integer',
-                    nullable: true,
-                    children: [],
-                  },
-                  {
-                    id: '39c0b6fb-795b-4a8f-bd65-814d268b5016',
-                    name: 'has_more',
-                    path: '/has_more',
-                    kind: 'field',
-                    fieldType: 'boolean',
-                    nullable: true,
-                    children: [],
-                  },
-                ],
-              },
-            },
-          },
-          {
-            id: 'c5ba46d0-93e6-4b99-92c6-0d75824010dc',
-            name: 'Equipamentos',
-            method: 'GET',
-            path: 'sigat/remessa-equipamentos',
-            apiVersion: 1,
-            headers: [],
-            query: [
-              { id: 'bcb70bf4-9b36-46d9-8554-a2df32df8188', name: 'id', value: '', enabled: false },
-            ],
-            body: { kind: 'none', content: '' },
-            credentials: 'omit',
-            timeoutMs: null,
-            responseSchema: {
-              version: 1,
-              root: {
-                id: 'bd1a35e9-c696-4f4c-8a46-09b7e3c4b036',
-                name: 'Response',
-                path: '',
-                kind: 'object',
-                fieldType: 'object',
-                nullable: false,
-                children: [
-                  {
-                    id: '2019f4c3-bd2b-4cc5-a86b-76696d75330f',
-                    name: 'success',
-                    path: '/success',
-                    kind: 'field',
-                    fieldType: 'boolean',
-                    nullable: false,
-                    children: [],
-                  },
-                  {
-                    id: '2b041ea1-395f-47ef-815f-e71737e65b4f',
-                    name: 'data',
-                    path: '/data',
-                    kind: 'list',
-                    fieldType: 'list',
-                    nullable: false,
-                    children: [
-                      {
-                        id: 'd6522f93-5dfc-4823-90f1-079933084f19',
-                        name: 'numero_equipamento',
-                        path: '/data/*/numero_equipamento',
-                        kind: 'field',
-                        fieldType: 'string',
-                        nullable: true,
-                        children: [],
-                      },
-                      {
-                        id: 'db0746ca-bcc5-4f61-96b7-6a2efcf625c8',
-                        name: 'descricao_equipamento',
-                        path: '/data/*/descricao_equipamento',
-                        kind: 'field',
-                        fieldType: 'string',
-                        nullable: true,
-                        children: [],
-                      },
-                      {
-                        id: '683db3a8-5003-41ed-86a0-b53ecdfb7cb9',
-                        name: 'id_chamado',
-                        path: '/data/*/id_chamado',
-                        kind: 'field',
-                        fieldType: 'integer',
-                        nullable: true,
-                        children: [],
-                      },
-                      {
-                        id: '5d95a538-f2d0-4ff0-aee4-25b09d56c0b0',
-                        name: 'id_interacao',
-                        path: '/data/*/id_interacao',
-                        kind: 'field',
-                        fieldType: 'integer',
-                        nullable: true,
-                        children: [],
-                      },
-                      {
-                        id: '53288858-21a7-4aac-8c5a-af061ba0bcf7',
-                        name: 'texto_interacao',
-                        path: '/data/*/texto_interacao',
-                        kind: 'field',
-                        fieldType: 'string',
-                        nullable: true,
-                        children: [],
-                      },
-                      {
-                        id: 'cec1c4a3-c704-4091-91d4-d1e39ed75a95',
-                        name: 'nome_local',
-                        path: '/data/*/nome_local',
-                        kind: 'field',
-                        fieldType: 'string',
-                        nullable: true,
-                        children: [],
-                      },
-                      {
-                        id: 'bc255c70-9dac-4ce2-a125-fc1dd96bb484',
-                        name: 'nome_usuario',
-                        path: '/data/*/nome_usuario',
-                        kind: 'field',
-                        fieldType: 'string',
-                        nullable: true,
-                        children: [],
-                      },
-                      {
-                        id: 'f5d77684-1e85-45df-adbc-cddca21292de',
-                        name: 'data_abertura',
-                        path: '/data/*/data_abertura',
-                        kind: 'field',
-                        fieldType: 'datetime',
-                        nullable: true,
-                        children: [],
-                      },
-                      {
-                        id: '7159a357-7e00-43d3-92bd-1c91b77259d4',
-                        name: 'data_fechamento',
-                        path: '/data/*/data_fechamento',
-                        kind: 'field',
-                        fieldType: 'datetime',
                         nullable: true,
                         children: [],
                       },
@@ -581,6 +355,232 @@ export abstract class RemessaGenerated extends WebPage {
                       },
                       {
                         id: 'd4e56ba4-9a4e-4e22-897f-5aa2e50f5740',
+                        name: 'divisao_remessa',
+                        path: '/data/*/divisao_remessa',
+                        kind: 'field',
+                        fieldType: 'integer',
+                        nullable: true,
+                        children: [],
+                      },
+                      {
+                        id: 'fc461c34-5074-427b-b186-d209b8aef0fd',
+                        name: 'pool_equipamentos',
+                        path: '/data/*/pool_equipamentos',
+                        kind: 'field',
+                        fieldType: 'string',
+                        nullable: true,
+                        children: [],
+                      },
+                      {
+                        id: 'a30b6376-d9e9-4de4-a49f-0db662f337df',
+                        name: 'nome_usuario',
+                        path: '/data/*/nome_usuario',
+                        kind: 'field',
+                        fieldType: 'string',
+                        nullable: true,
+                        children: [],
+                      },
+                      {
+                        id: '57e112bd-179d-4258-9d39-183de2f20ef3',
+                        name: 'id_termo',
+                        path: '/data/*/id_termo',
+                        kind: 'field',
+                        fieldType: 'integer',
+                        nullable: true,
+                        children: [],
+                      },
+                      {
+                        id: 'abe405c4-2018-49ca-bc70-0bb8073771aa',
+                        name: 'nome_termo',
+                        path: '/data/*/nome_termo',
+                        kind: 'field',
+                        fieldType: 'string',
+                        nullable: true,
+                        children: [],
+                      },
+                    ],
+                  },
+                  {
+                    id: '350b9a9e-299e-4ec4-856c-cdf81e367793',
+                    name: 'page',
+                    path: '/page',
+                    kind: 'field',
+                    fieldType: 'integer',
+                    nullable: true,
+                    children: [],
+                  },
+                  {
+                    id: 'e7c5c1f9-eec6-4e8b-8167-09522138e118',
+                    name: 'page_size',
+                    path: '/page_size',
+                    kind: 'field',
+                    fieldType: 'integer',
+                    nullable: true,
+                    children: [],
+                  },
+                  {
+                    id: '8fb62f6a-6232-42bd-96fc-0829672472bf',
+                    name: 'total_pages',
+                    path: '/total_pages',
+                    kind: 'field',
+                    fieldType: 'integer',
+                    nullable: true,
+                    children: [],
+                  },
+                  {
+                    id: '0d52731e-7cec-473e-9b9e-26a008b4362e',
+                    name: 'total',
+                    path: '/total',
+                    kind: 'field',
+                    fieldType: 'integer',
+                    nullable: true,
+                    children: [],
+                  },
+                  {
+                    id: 'a7de1aff-80ef-42f3-a751-d15784454cde',
+                    name: 'has_more',
+                    path: '/has_more',
+                    kind: 'field',
+                    fieldType: 'boolean',
+                    nullable: true,
+                    children: [],
+                  },
+                ],
+              },
+            },
+          },
+          {
+            id: '39c0b6fb-795b-4a8f-bd65-814d268b5016',
+            name: 'Equipamentos',
+            method: 'GET',
+            path: 'sigat/remessa-equipamentos',
+            apiVersion: 1,
+            headers: [],
+            query: [
+              { id: 'b3b39b85-0f15-4744-a2ea-f72591713726', name: 'id', value: '', enabled: false },
+            ],
+            body: { kind: 'none', content: '' },
+            credentials: 'omit',
+            timeoutMs: null,
+            responseSchema: {
+              version: 1,
+              root: {
+                id: '889c78d5-f828-4cae-96e3-f4c0a31274fc',
+                name: 'Response',
+                path: '',
+                kind: 'object',
+                fieldType: 'object',
+                nullable: false,
+                children: [
+                  {
+                    id: 'fb00d809-92b4-42d7-9ecf-49112aff66cc',
+                    name: 'success',
+                    path: '/success',
+                    kind: 'field',
+                    fieldType: 'boolean',
+                    nullable: false,
+                    children: [],
+                  },
+                  {
+                    id: 'dd879c7c-bfd8-4061-b514-366e921a737d',
+                    name: 'data',
+                    path: '/data',
+                    kind: 'list',
+                    fieldType: 'list',
+                    nullable: false,
+                    children: [
+                      {
+                        id: '6d4b2e09-93b4-48f0-89f7-d929dd5989ba',
+                        name: 'numero_equipamento',
+                        path: '/data/*/numero_equipamento',
+                        kind: 'field',
+                        fieldType: 'string',
+                        nullable: true,
+                        children: [],
+                      },
+                      {
+                        id: 'bb3db075-0b2b-4cc4-8d05-5491d785027b',
+                        name: 'descricao_equipamento',
+                        path: '/data/*/descricao_equipamento',
+                        kind: 'field',
+                        fieldType: 'string',
+                        nullable: true,
+                        children: [],
+                      },
+                      {
+                        id: 'c4c88cca-8961-4e28-a449-a5d8966908b0',
+                        name: 'id_chamado',
+                        path: '/data/*/id_chamado',
+                        kind: 'field',
+                        fieldType: 'integer',
+                        nullable: true,
+                        children: [],
+                      },
+                      {
+                        id: 'f68b5355-b25c-476c-ac57-6f624d3c4056',
+                        name: 'id_interacao',
+                        path: '/data/*/id_interacao',
+                        kind: 'field',
+                        fieldType: 'integer',
+                        nullable: true,
+                        children: [],
+                      },
+                      {
+                        id: '88516d3e-932a-4133-a143-5f96e2d22ae6',
+                        name: 'texto_interacao',
+                        path: '/data/*/texto_interacao',
+                        kind: 'field',
+                        fieldType: 'string',
+                        nullable: true,
+                        children: [],
+                      },
+                      {
+                        id: 'f6e56a80-8516-453c-a38a-d2a528757b5a',
+                        name: 'nome_local',
+                        path: '/data/*/nome_local',
+                        kind: 'field',
+                        fieldType: 'string',
+                        nullable: true,
+                        children: [],
+                      },
+                      {
+                        id: '25311fcf-6e6a-44d5-be7f-fe5160b7dadb',
+                        name: 'nome_usuario',
+                        path: '/data/*/nome_usuario',
+                        kind: 'field',
+                        fieldType: 'string',
+                        nullable: true,
+                        children: [],
+                      },
+                      {
+                        id: '171c8681-458c-4f0c-b583-d839a16bfa44',
+                        name: 'data_abertura',
+                        path: '/data/*/data_abertura',
+                        kind: 'field',
+                        fieldType: 'datetime',
+                        nullable: true,
+                        children: [],
+                      },
+                      {
+                        id: '8a126094-9907-4a38-9974-fa98607c901b',
+                        name: 'data_fechamento',
+                        path: '/data/*/data_fechamento',
+                        kind: 'field',
+                        fieldType: 'datetime',
+                        nullable: true,
+                        children: [],
+                      },
+                      {
+                        id: '4a329dd7-5685-402f-8570-5938927e7a47',
+                        name: 'falha_envio',
+                        path: '/data/*/falha_envio',
+                        kind: 'field',
+                        fieldType: 'integer',
+                        nullable: true,
+                        children: [],
+                      },
+                      {
+                        id: '270fcd2b-eca1-4e03-9948-d2c39d140436',
                         name: 'id_termo',
                         path: '/data/*/id_termo',
                         kind: 'field',
@@ -591,7 +591,7 @@ export abstract class RemessaGenerated extends WebPage {
                     ],
                   },
                   {
-                    id: 'fc461c34-5074-427b-b186-d209b8aef0fd',
+                    id: 'beab1424-dedc-43d6-a867-b52f47dd4105',
                     name: 'page',
                     path: '/page',
                     kind: 'field',
@@ -600,7 +600,7 @@ export abstract class RemessaGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: 'a30b6376-d9e9-4de4-a49f-0db662f337df',
+                    id: 'ccb9ea67-05cd-4e20-a0c1-dbf4d2a9bd18',
                     name: 'page_size',
                     path: '/page_size',
                     kind: 'field',
@@ -609,7 +609,7 @@ export abstract class RemessaGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: '57e112bd-179d-4258-9d39-183de2f20ef3',
+                    id: 'e05662d3-c60d-414c-8cda-d76f2b4afce3',
                     name: 'total_pages',
                     path: '/total_pages',
                     kind: 'field',
@@ -618,7 +618,7 @@ export abstract class RemessaGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: 'abe405c4-2018-49ca-bc70-0bb8073771aa',
+                    id: '87052a8d-6726-4001-89f5-358a60634a08',
                     name: 'total',
                     path: '/total',
                     kind: 'field',
@@ -627,7 +627,7 @@ export abstract class RemessaGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: '350b9a9e-299e-4ec4-856c-cdf81e367793',
+                    id: '5c958f20-b9bc-439d-bef2-34482aa2ac1d',
                     name: 'has_more',
                     path: '/has_more',
                     kind: 'field',
@@ -641,7 +641,7 @@ export abstract class RemessaGenerated extends WebPage {
           },
         ],
       },
-      id: 'd2b45c46-234e-4dae-9c66-ee2a9df7bc58',
+      id: 'fa42a68b-90e5-4b2a-b943-1f1e1b87fb62',
       name: 'Api',
     }).withRequests();
 

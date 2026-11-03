@@ -36,49 +36,49 @@ export abstract class BuscaGenerated extends WebPage {
   public constructor(element: HTMLElement) {
     super(element);
     this.Cabecalho = new WebGroup(
-      this.requireComponentElement('f485dcfb-0155-4989-a914-f1ca7b38b787'),
+      this.requireComponentElement('63ebe04b-a908-47b9-8873-7458f3b5a3a5'),
     );
-    this.Marca = new WebLabel(this.requireComponentElement('90ecd813-7c99-40ce-aeb1-4b91f2063e69'));
+    this.Marca = new WebLabel(this.requireComponentElement('8f2f4a91-1525-41e7-9da1-0b8912b8120a'));
     this.BTNPainel = new WebButton(
-      this.requireComponentElement('3c712b35-e309-41e4-9fc0-cbce5b544dff'),
+      this.requireComponentElement('151862cb-9f25-4cd0-9c4c-2d2eff24eb21'),
     );
     this.EDTBuscaRapida = new WebEdit(
-      this.requireComponentElement('2aaaa110-d628-4b86-977a-687754ae6bb0'),
+      this.requireComponentElement('f3027957-0b4a-4809-9110-4c521d6d58f7'),
     );
     this.BTNBuscar = new WebButton(
-      this.requireComponentElement('3f12858f-1574-4e33-ac47-7d185daa4f83'),
+      this.requireComponentElement('ff5759c8-5b70-4e11-a75f-7043aed44a9c'),
     );
     this.BTNInserviveis = new WebButton(
-      this.requireComponentElement('ff10d256-bfd9-46c7-843f-eacdd2cc830c'),
+      this.requireComponentElement('32df29e5-a43f-4aa9-b65d-03b7ecbd8801'),
     );
     this.BTNAdmin = new WebButton(
-      this.requireComponentElement('4e684414-0ca7-4d04-a71b-5495a9ec6955'),
+      this.requireComponentElement('1856a888-f846-4829-bbc7-b9fb3383ed79'),
     );
     this.LBLUsuario = new WebLabel(
-      this.requireComponentElement('1b71b0f5-6d53-4d79-9578-d85bebbbbd83'),
+      this.requireComponentElement('f0ca895d-c5a0-4261-ab52-e6797ee52e77'),
     );
     this.BTNSair = new WebButton(
-      this.requireComponentElement('68a26eb4-bc94-442e-94d2-c4fc2e4af91c'),
+      this.requireComponentElement('c5b7a695-3c22-49e6-8ad2-5ffb89a370e1'),
     );
     this.LBLBusca = new WebLabel(
-      this.requireComponentElement('9151bd04-9d04-4e98-9491-bf21dda918dd'),
+      this.requireComponentElement('f5d069b6-b0a7-43a9-a747-89d9e39dc286'),
     );
     this.LBLTermo = new WebLabel(
-      this.requireComponentElement('cd4c7877-ade3-43ed-bd37-33482507bbf3'),
+      this.requireComponentElement('6fb0f029-705d-4f70-aa3e-bef44727a5d0'),
     );
     this.PNLEquipamentos = new WebPanel(
-      this.requireComponentElement('bf421950-4245-46ac-bba5-c585a819e1bf'),
+      this.requireComponentElement('65eeab57-8179-4b5f-8907-3ac7abf85712'),
     );
     this.LBLEquipamentos = new WebLabel(
-      this.requireComponentElement('9c0a2646-ce67-4e12-940c-34a8132537a3'),
+      this.requireComponentElement('b7360441-3de7-4606-ac5a-4d64e864bac3'),
     );
     this.GRDEquipamentos = new WebDataGrid(
-      this.requireComponentElement('7284d53f-72c3-4c04-89ae-b184ac3a3d99'),
+      this.requireComponentElement('32d229aa-a064-426b-a861-396b4aded80f'),
     );
     this.GRDEquipamentos.dataGridConfig = {
       schemaVersion: 2,
-      apiClientId: 'aee2d48e-a9ae-47c5-b3d2-7efeb234edb0',
-      operationId: '57ae5722-7305-4525-9719-ea8d2d1cc966',
+      apiClientId: 'f4c35cf7-81a2-4a7c-9334-6306a9d75add',
+      operationId: '2257868f-5144-4bbc-860a-305c65c8022e',
       listPath: '/data',
       columnCount: 3,
       showHeader: true,
@@ -98,7 +98,7 @@ export abstract class BuscaGenerated extends WebPage {
       emptyMessage: 'Nenhum registro',
       columns: [
         {
-          id: '47f993b1-3f84-4fa7-ad39-abcf13b1768c',
+          id: 'c5d4885d-6b9e-4e02-8ec7-0599360dd1ef',
           header: 'Patrimônio',
           fieldPath: '/num_equipamento',
           cellKind: 'text',
@@ -116,7 +116,7 @@ export abstract class BuscaGenerated extends WebPage {
           searchable: true,
         },
         {
-          id: '616cbe9f-d090-4a41-aa4f-912376f7e02d',
+          id: '9c268ff7-dc74-4f9c-a59f-9e922cf0a866',
           header: 'Descrição',
           fieldPath: '/descricao_equipamento',
           cellKind: 'text',
@@ -134,7 +134,7 @@ export abstract class BuscaGenerated extends WebPage {
           searchable: true,
         },
         {
-          id: 'cba42867-29e1-4f61-bcf8-442c789ddd1a',
+          id: 'c10ee8a5-fff2-4653-b31b-6c24a7cbb189',
           header: 'Etiqueta',
           fieldPath: '/tag_equipamento',
           cellKind: 'text',
@@ -167,18 +167,18 @@ export abstract class BuscaGenerated extends WebPage {
       totalRowsPath: '/total',
     };
     this.PNLChamados = new WebPanel(
-      this.requireComponentElement('f0ca1a47-413c-4f35-9d7b-292f0852fd43'),
+      this.requireComponentElement('523eb88e-b56f-4fa0-9757-3514ef2e3db4'),
     );
     this.LBLChamados = new WebLabel(
-      this.requireComponentElement('af4e1a77-5c34-45b0-b9ae-d03398a9dc01'),
+      this.requireComponentElement('c8734bf2-8c3e-400d-b6b4-b34fdde2179a'),
     );
     this.GRDChamados = new WebDataGrid(
-      this.requireComponentElement('55d57f15-4755-40b2-97cc-9adee790a438'),
+      this.requireComponentElement('363b406d-cf71-458c-b05c-8d3da8ba6706'),
     );
     this.GRDChamados.dataGridConfig = {
       schemaVersion: 2,
-      apiClientId: 'aee2d48e-a9ae-47c5-b3d2-7efeb234edb0',
-      operationId: 'ef48b4fd-8a9f-4c29-9d8a-c8b1ada0464e',
+      apiClientId: 'f4c35cf7-81a2-4a7c-9334-6306a9d75add',
+      operationId: '63a68a14-0ce9-47e6-b0f0-e8b927381ed5',
       listPath: '/data',
       columnCount: 6,
       showHeader: true,
@@ -198,7 +198,7 @@ export abstract class BuscaGenerated extends WebPage {
       emptyMessage: 'Nenhum registro',
       columns: [
         {
-          id: '082b6c83-a148-4a33-a88d-0b8842d042db',
+          id: '19f5696d-dcba-4adf-bcc1-a37c0ef56780',
           header: '#',
           fieldPath: '/id',
           cellKind: 'text',
@@ -216,7 +216,7 @@ export abstract class BuscaGenerated extends WebPage {
           searchable: true,
         },
         {
-          id: '0e4bb58a-f7e1-44bf-98b0-eeb19b965b08',
+          id: 'c80de375-f86a-40c7-a2ea-8a2b1f921482',
           header: 'Ticket',
           fieldPath: '/ticket',
           cellKind: 'text',
@@ -234,7 +234,7 @@ export abstract class BuscaGenerated extends WebPage {
           searchable: true,
         },
         {
-          id: 'dfc684de-fe02-45e7-a34c-e09cf30c45ee',
+          id: '3d34d53d-bc39-4bf5-8541-84ead800443e',
           header: 'Solicitante',
           fieldPath: '/nome_solicitante',
           cellKind: 'text',
@@ -252,7 +252,7 @@ export abstract class BuscaGenerated extends WebPage {
           searchable: true,
         },
         {
-          id: '5013a5a9-afd5-4744-b344-d98af62ec4e4',
+          id: '001213c7-9f46-4161-a0c1-f72f3f524f92',
           header: 'Local',
           fieldPath: '/nome_local',
           cellKind: 'text',
@@ -270,7 +270,7 @@ export abstract class BuscaGenerated extends WebPage {
           searchable: true,
         },
         {
-          id: '34023484-b4dc-4925-a9f8-f0fc1e511835',
+          id: '2ba2605a-6c24-4628-b475-c8130e8df9da',
           header: 'Status',
           fieldPath: '/status',
           cellKind: 'text',
@@ -288,7 +288,7 @@ export abstract class BuscaGenerated extends WebPage {
           searchable: true,
         },
         {
-          id: '46c582f1-81e2-482c-a76b-0d9e267235d0',
+          id: 'f04d7f55-714c-4388-94d4-cfafd4898ce8',
           header: 'Responsável',
           fieldPath: '/responsavel',
           cellKind: 'text',
@@ -329,14 +329,14 @@ export abstract class BuscaGenerated extends WebPage {
         timeoutMs: 30000,
         operations: [
           {
-            id: '57ae5722-7305-4525-9719-ea8d2d1cc966',
+            id: '2257868f-5144-4bbc-860a-305c65c8022e',
             name: 'Equipamentos',
             method: 'GET',
             path: 'sigat/busca-equipamentos',
             apiVersion: 1,
             headers: [],
             query: [
-              { id: 'f0efaf77-d274-4885-b715-a0319dd01a26', name: 'q', value: '', enabled: false },
+              { id: '249e789c-f4d1-4e74-95cd-c8673849d86a', name: 'q', value: '', enabled: false },
             ],
             body: { kind: 'none', content: '' },
             credentials: 'omit',
@@ -344,7 +344,7 @@ export abstract class BuscaGenerated extends WebPage {
             responseSchema: {
               version: 1,
               root: {
-                id: '1738ad02-fb66-4455-aff8-9ad1e7925c94',
+                id: '4ad84d3e-cf8f-4bb6-a9c9-cb6dec4a617c',
                 name: 'Response',
                 path: '',
                 kind: 'object',
@@ -352,7 +352,7 @@ export abstract class BuscaGenerated extends WebPage {
                 nullable: false,
                 children: [
                   {
-                    id: '72d9c974-4ce8-446f-a1eb-206d9aa5406a',
+                    id: 'cade08f4-6eae-4acb-a362-14bbb997e973',
                     name: 'success',
                     path: '/success',
                     kind: 'field',
@@ -361,7 +361,7 @@ export abstract class BuscaGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: '25268ba9-5671-4030-9781-ab0b5d0f0883',
+                    id: '75a6b830-3abe-45bf-b6bc-e846a3d6cd97',
                     name: 'data',
                     path: '/data',
                     kind: 'list',
@@ -369,7 +369,7 @@ export abstract class BuscaGenerated extends WebPage {
                     nullable: false,
                     children: [
                       {
-                        id: '90cf5eee-2c4c-4d43-9a84-c62b6a49d379',
+                        id: 'a3f816b8-456c-420d-8ce4-dc07f9f5047b',
                         name: 'num_equipamento',
                         path: '/data/*/num_equipamento',
                         kind: 'field',
@@ -378,7 +378,7 @@ export abstract class BuscaGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: 'e93f40ae-7706-4552-a5df-30627f4bcfbf',
+                        id: '8c11e23b-fac5-4c64-93d7-74057c3f69f4',
                         name: 'descricao_equipamento',
                         path: '/data/*/descricao_equipamento',
                         kind: 'field',
@@ -387,7 +387,7 @@ export abstract class BuscaGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: '8299b7be-53b6-49f5-ba03-af5489e49398',
+                        id: '1ac7744a-3409-4dc2-9760-6541459acd1c',
                         name: 'tag_equipamento',
                         path: '/data/*/tag_equipamento',
                         kind: 'field',
@@ -398,7 +398,7 @@ export abstract class BuscaGenerated extends WebPage {
                     ],
                   },
                   {
-                    id: 'bcc4e62b-d285-46ba-85e2-9306f92e269a',
+                    id: 'bd74e58d-5ca7-49ee-a2f9-16a7694d2bbf',
                     name: 'page',
                     path: '/page',
                     kind: 'field',
@@ -407,7 +407,7 @@ export abstract class BuscaGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: '69c347da-fd73-4aa8-8951-e01013a897dd',
+                    id: '78f52022-bdd1-44fa-87fc-d94a0d3ecbb0',
                     name: 'page_size',
                     path: '/page_size',
                     kind: 'field',
@@ -416,7 +416,7 @@ export abstract class BuscaGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: '81031654-93da-4e53-83a1-888eebdc1510',
+                    id: 'b075cd3e-50f7-4bd0-a027-450a9cb6ef8b',
                     name: 'total_pages',
                     path: '/total_pages',
                     kind: 'field',
@@ -425,7 +425,7 @@ export abstract class BuscaGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: 'f2291380-27cf-4adc-bd04-881585b00bbe',
+                    id: '7c389b6b-4a19-4e00-b5d2-d6f112035837',
                     name: 'total',
                     path: '/total',
                     kind: 'field',
@@ -434,7 +434,7 @@ export abstract class BuscaGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: '17ef1210-6a41-4465-90e9-6930a7814c42',
+                    id: '33fa1101-955d-4187-98ba-8f12990840a6',
                     name: 'has_more',
                     path: '/has_more',
                     kind: 'field',
@@ -447,14 +447,14 @@ export abstract class BuscaGenerated extends WebPage {
             },
           },
           {
-            id: 'ef48b4fd-8a9f-4c29-9d8a-c8b1ada0464e',
+            id: '63a68a14-0ce9-47e6-b0f0-e8b927381ed5',
             name: 'Chamados',
             method: 'GET',
             path: 'sigat/busca-chamados',
             apiVersion: 1,
             headers: [],
             query: [
-              { id: 'f4c35cf7-81a2-4a7c-9334-6306a9d75add', name: 'q', value: '', enabled: false },
+              { id: 'e804456c-7159-4ffe-a882-1c97333499cb', name: 'q', value: '', enabled: false },
             ],
             body: { kind: 'none', content: '' },
             credentials: 'omit',
@@ -462,7 +462,7 @@ export abstract class BuscaGenerated extends WebPage {
             responseSchema: {
               version: 1,
               root: {
-                id: '2257868f-5144-4bbc-860a-305c65c8022e',
+                id: 'd1584cae-5f63-4cd4-8226-71754ad282c9',
                 name: 'Response',
                 path: '',
                 kind: 'object',
@@ -470,7 +470,7 @@ export abstract class BuscaGenerated extends WebPage {
                 nullable: false,
                 children: [
                   {
-                    id: '63a68a14-0ce9-47e6-b0f0-e8b927381ed5',
+                    id: '51ae8705-5cf2-46df-9ed7-70b930832900',
                     name: 'success',
                     path: '/success',
                     kind: 'field',
@@ -479,7 +479,7 @@ export abstract class BuscaGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: 'c5d4885d-6b9e-4e02-8ec7-0599360dd1ef',
+                    id: 'e4abaade-80fc-4cbf-a265-d389c6d31dcc',
                     name: 'data',
                     path: '/data',
                     kind: 'list',
@@ -487,7 +487,7 @@ export abstract class BuscaGenerated extends WebPage {
                     nullable: false,
                     children: [
                       {
-                        id: '9c268ff7-dc74-4f9c-a59f-9e922cf0a866',
+                        id: '453749ce-60ad-4c9d-95d2-32a1b4432863',
                         name: 'id',
                         path: '/data/*/id',
                         kind: 'field',
@@ -496,7 +496,7 @@ export abstract class BuscaGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: 'c10ee8a5-fff2-4653-b31b-6c24a7cbb189',
+                        id: '76f7e5d4-39a6-457b-9dae-98b5e79153fd',
                         name: 'ticket',
                         path: '/data/*/ticket',
                         kind: 'field',
@@ -505,7 +505,7 @@ export abstract class BuscaGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: '19f5696d-dcba-4adf-bcc1-a37c0ef56780',
+                        id: '8c544b00-31c8-4bb7-b309-89ed2241ae9e',
                         name: 'nome_solicitante',
                         path: '/data/*/nome_solicitante',
                         kind: 'field',
@@ -514,7 +514,7 @@ export abstract class BuscaGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: 'c80de375-f86a-40c7-a2ea-8a2b1f921482',
+                        id: 'f1a032ed-e186-4bb0-901e-c1b7c332fbc4',
                         name: 'nome_local',
                         path: '/data/*/nome_local',
                         kind: 'field',
@@ -523,7 +523,7 @@ export abstract class BuscaGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: '3d34d53d-bc39-4bf5-8541-84ead800443e',
+                        id: 'a8df2b86-3494-4dee-a62a-9ce1b9106da0',
                         name: 'status',
                         path: '/data/*/status',
                         kind: 'field',
@@ -532,7 +532,7 @@ export abstract class BuscaGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: '001213c7-9f46-4161-a0c1-f72f3f524f92',
+                        id: 'a9c40246-ce0c-48f1-8d2a-c12383a5434a',
                         name: 'data_abertura',
                         path: '/data/*/data_abertura',
                         kind: 'field',
@@ -541,7 +541,7 @@ export abstract class BuscaGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: '2ba2605a-6c24-4628-b475-c8130e8df9da',
+                        id: '991bd715-f119-45b2-a932-9fe33565b428',
                         name: 'data_encerramento',
                         path: '/data/*/data_encerramento',
                         kind: 'field',
@@ -550,7 +550,7 @@ export abstract class BuscaGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: 'f04d7f55-714c-4388-94d4-cfafd4898ce8',
+                        id: '67407da1-8195-45be-805d-921d167cb70b',
                         name: 'responsavel',
                         path: '/data/*/responsavel',
                         kind: 'field',
@@ -561,7 +561,7 @@ export abstract class BuscaGenerated extends WebPage {
                     ],
                   },
                   {
-                    id: '249e789c-f4d1-4e74-95cd-c8673849d86a',
+                    id: 'bc538e9d-7bca-420f-90ed-65432500c5c5',
                     name: 'page',
                     path: '/page',
                     kind: 'field',
@@ -570,7 +570,7 @@ export abstract class BuscaGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: '4ad84d3e-cf8f-4bb6-a9c9-cb6dec4a617c',
+                    id: '3104bffa-6f40-405d-aaf6-4d685da2d912',
                     name: 'page_size',
                     path: '/page_size',
                     kind: 'field',
@@ -579,7 +579,7 @@ export abstract class BuscaGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: 'cade08f4-6eae-4acb-a362-14bbb997e973',
+                    id: 'f8efb5fd-847a-4fd6-86ef-245cfa52df13',
                     name: 'total_pages',
                     path: '/total_pages',
                     kind: 'field',
@@ -588,7 +588,7 @@ export abstract class BuscaGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: '75a6b830-3abe-45bf-b6bc-e846a3d6cd97',
+                    id: 'a0fda5f9-9d08-4c48-b140-37706fd8fa5b',
                     name: 'total',
                     path: '/total',
                     kind: 'field',
@@ -597,7 +597,7 @@ export abstract class BuscaGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: 'a3f816b8-456c-420d-8ce4-dc07f9f5047b',
+                    id: '1df538f9-49ab-4c46-843f-0521715ed756',
                     name: 'has_more',
                     path: '/has_more',
                     kind: 'field',
@@ -611,7 +611,7 @@ export abstract class BuscaGenerated extends WebPage {
           },
         ],
       },
-      id: 'aee2d48e-a9ae-47c5-b3d2-7efeb234edb0',
+      id: 'f4c35cf7-81a2-4a7c-9334-6306a9d75add',
       name: 'Api',
     }).withRequests();
 

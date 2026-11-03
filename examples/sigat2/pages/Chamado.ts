@@ -9,6 +9,7 @@ import {
   linhas,
   mostrarArtigos,
   mostrarInteracoes,
+  mostrarSinaisDoChamado,
   numero,
   primeira,
   texto,
@@ -65,6 +66,7 @@ export class Chamado extends ChamadoGenerated {
       const c = primeira(await executar(this.Api.Detalhe, parametros));
       this.chamado = c;
       this.MostrarAcoes(c);
+      mostrarSinaisDoChamado(this.HTMLSinais, c);
       if (c === undefined) {
         this.LBLChamado.caption = 'Chamado #' + id + ' não encontrado';
         return;

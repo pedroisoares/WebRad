@@ -84,12 +84,52 @@ queue 1) comes back as a 409 with the SIGAT message, shown in a toast.
 header, one key per click. After a network failure, a timeout or a 5xx it retries
 with the same key, so HexAPI never records the action twice.
 
+## Visual signals
+
+SIGAT attendants read a chamado's state from a fixed set of icons and badges
+(see the SIGAT manual on ConsulTIC and `painel.js`, `Chamado::listar_chamados_painel`
+and `ver_chamado.php`). SIGAT2 draws the same signals, in the same Bootstrap 4
+colours, with the Lucide shapes WebRAD bundles. Every icon also has a text form,
+so colour is never the only cue.
+
+| Signal                     | SIGAT                                        | Meaning                                    |
+| -------------------------- | -------------------------------------------- | ------------------------------------------ |
+| Red star                   | `fa-star text-danger` (yellow before 1.9.1)  | Priority: serve before the others          |
+| Yellow circle              | `fa-circle text-warning`                     | Open, waiting for service                  |
+| Green circle               | `fa-circle text-success`                     | Closed (not yet ended)                     |
+| Yellow clock               | `fa-clock text-warning`                      | No interaction for more than 6 h           |
+| Red clock                  | `fa-clock text-danger`                       | No interaction for 24 h or more            |
+| Blue envelope badge        | `badge-info fa-envelope`                     | Unread requester e-mail                    |
+| Green / yellow truck badge | `badge-success` / `badge-warning` `fa-truck` | Ready / partly ready for delivery          |
+| Grey queue badge           | `badge-secondary` + `fila.icone_fila`        | The chamado's queue                        |
+| Lock                       | `fa-lock` count in the header                | Chamados the user holds (3 max in queue 1) |
+
+Where they appear:
+
+- **Painel**: Status icon, a text Situação column, an Alertas strip (clock,
+  e-mail, truck), the queue badge and the time since the last interaction, as in
+  SIGAT. The page computes these columns from each `painel-chamados` row
+  (`prepararLinhasDoPainel` in `units/Sigat2.ts`) before the grid draws it, so
+  they are not sortable on the server. Above the grid, `painel-indicadores` feeds
+  counters for the selected queue: open, priority, 24 h+ and 6 to 24 h without
+  interaction, without anyone assigned, unread e-mails, deliveries and the user's
+  locks. A legend below the grid explains each icon. The painel refreshes every
+  2 minutes while it is open.
+- **Chamado**: a strip under the title with the status, queue, who holds the
+  chamado (or "Livre: bloqueie antes de atender"), the time without interaction,
+  unread e-mails, delivery, equipment on hold and the SIGAT "Este local não acessa
+  a infovia" warning.
+
+SIGAT showed no clock when the wait was exactly 24 hours (it compared whole
+hours with `>= 6 && < 24` and `> 24`). SIGAT2 uses 6 h and 24 h as the
+boundaries.
+
 ## Pages
 
 | Page                | SIGAT screen                        | Endpoints                                                                                                                                                                                                                                                                                                                            |
 | ------------------- | ----------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | Login               | Login                               | `sessao-usuario`                                                                                                                                                                                                                                                                                                                     |
-| Painel (`index`)    | Painel (chamados, triagem, arquivo) | `filas`, `painel-chamados`, `triagem`, `painel-encerrados`                                                                                                                                                                                                                                                                           |
+| Painel (`index`)    | Painel (chamados, triagem, arquivo) | `filas`, `painel-chamados`, `painel-indicadores`, `triagem`, `painel-encerrados`                                                                                                                                                                                                                                                     |
 | Chamado             | Chamado                             | writes: `chamado-bloquear`, `chamado-desbloquear`, `chamado-priorizar`, `chamado-zerar-nao-lidos`; reads: `chamado-detalhe`, `chamado-interacoes`, `chamado-equipamentos`, `chamado-servicos`, `chamado-reparos`, `reparo-historico`, `ticket-artigos`, `chamado-historico`, `chamado-anexos`, `chamado-termos`, `chamado-telefones` |
 | Triagem             | Triagem of an OTOBO ticket          | `triagem-ticket`, `ticket-artigos`, `ticket-anexos`, `ticket-importado`                                                                                                                                                                                                                                                              |
 | Equipamento         | Equipment history                   | `equipamento`, `equipamento-chamados`                                                                                                                                                                                                                                                                                                |
