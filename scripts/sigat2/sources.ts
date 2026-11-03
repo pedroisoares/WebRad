@@ -1826,23 +1826,62 @@ const REMESSA = page(
 const ADMIN = page(
   'Admin',
   'Admin',
-  ['abrir', 'erro'],
+  ['abrir', 'destacarLinhas', 'erro'],
   `
   private carregado = false;
+  /** The tabs loaded so far; each list is read the first time its tab opens. */
+  private readonly abertas = new Set<number>();
 
   public async Mostrar(): Promise<void> {
     preencherCabecalho(this);
-    if (this.carregado) return;
-    this.carregado = true;
+    if (!this.carregado) {
+      this.carregado = true;
+      for (const grade of [
+        this.GRDEventos, this.GRDUsuarios, this.GRDModelos, this.GRDLocais,
+        this.GRDSecretarias, this.GRDServicos, this.GRDBancadas, this.GRDFilas,
+      ]) destacarLinhas(grade);
+      // SIGAT orders the log by ID, newest first.
+      this.GRDEventos.sortBy('id_evento', 'desc');
+    }
+    await this.CarregarAba(this.Abas.selectedIndex);
+    this.TMREventos.Start();
+  }
+
+  public Ocultar(): void {
+    this.TMREventos.Stop();
+  }
+
+  public async TrocarAba(): Promise<void> {
+    await this.CarregarAba(this.Abas.selectedIndex);
+  }
+
+  private async CarregarAba(indice: number): Promise<void> {
+    // The log is read again whenever its tab opens; the other lists once.
+    if (indice !== 0 && this.abertas.has(indice)) return;
+    this.abertas.add(indice);
     try {
-      await Promise.all([
-        this.Api.Secretarias.execute(),
-        this.Api.Bancadas.execute(),
-        this.Api.Modelos.execute(),
-        this.Api.Filas.execute(),
-      ]);
+      switch (indice) {
+        case 0: await this.Api.Eventos.execute(); break;
+        case 2: await this.Api.Modelos.execute(); break;
+        case 4: await this.Api.Secretarias.execute(); break;
+        case 6: await this.Api.Bancadas.execute(); break;
+        case 7: await this.Api.Filas.execute(); break;
+        // Usuários, Locais and Serviços page on the server and load themselves.
+        default: break;
+      }
     } catch (e) {
-      Toast('Erro ao carregar os cadastros: ' + erro(e), { kind: 'error' });
+      this.abertas.delete(indice);
+      Toast('Erro ao carregar a lista: ' + erro(e), { kind: 'error' });
+    }
+  }
+
+  /** SIGAT reloads the log every 30 seconds and keeps the page, sort and filters. */
+  public async AtualizarEventos(): Promise<void> {
+    if (this.Abas.selectedIndex !== 0) return;
+    try {
+      await this.Api.Eventos.execute();
+    } catch {
+      // The next tick tries again; the list keeps the last events read.
     }
   }
 

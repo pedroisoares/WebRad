@@ -142,6 +142,8 @@ ${chartsTypings.source}
     readonly searchPlaceholder: string;
     readonly sortEnabled: boolean;
     readonly exportEnabled: boolean;
+    /** Filter row under the header, one box per searchable column (client and none paging). */
+    readonly columnFilters: boolean;
     readonly serverSearchParameter: string;
     readonly serverSortParameter: string;
     readonly serverDirectionParameter: string;
@@ -165,6 +167,7 @@ ${chartsTypings.source}
     | 'searchPlaceholder'
     | 'sortEnabled'
     | 'exportEnabled'
+    | 'columnFilters'
     | 'serverSearchParameter'
     | 'serverSortParameter'
     | 'serverDirectionParameter'
@@ -182,6 +185,7 @@ ${chartsTypings.source}
         | 'searchPlaceholder'
         | 'sortEnabled'
         | 'exportEnabled'
+        | 'columnFilters'
         | 'serverSearchParameter'
         | 'serverSortParameter'
         | 'serverDirectionParameter'
@@ -250,6 +254,11 @@ ${chartsTypings.source}
     sortBy(column: string | null, direction?: WebDataGridSortDirection): void;
     clearSort(): void;
     search(text: string): void;
+    /** Text of each column filter, by column ID. */
+    readonly columnFilterValues: Readonly<Record<string, string>>;
+    /** Filters the loaded rows by one column (ID, header or Field); empty text removes it. */
+    filterColumn(column: string, text: string): void;
+    clearColumnFilters(): void;
     /** Server mode: re-executes the bound operation with the current page, sort and search. */
     refresh(): Promise<void>;
     /** Returns the CSV; with a file name the browser also downloads it. */

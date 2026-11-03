@@ -60,7 +60,7 @@
       },
       "events": {
         "OnCreate": null,
-        "OnHide": null,
+        "OnHide": "Ocultar",
         "OnResize": null,
         "OnShow": "Mostrar"
       },
@@ -68,7 +68,7 @@
       "children": [
         "c0f779d1-1095-4a93-a576-708d6a8eb33e",
         "0f34fe15-128e-4909-b2d4-26466fb28272",
-        "5e359e16-bb52-4c48-9d49-b7aa02e5a144"
+        "bbf52667-30b3-4ce4-bd26-eb25111c8a01"
       ]
     },
     {
@@ -1019,23 +1019,83 @@
       "styleId": "sigat2-conteudo",
       "children": [
         "842f71e9-a878-452b-bcaa-8c44c26661c0",
-        "17530c48-9dea-4771-98d0-a9147e6417d0",
-        "40fd2adb-47fe-4191-99d1-a4d820d22a0b",
+        "f521a2d3-72aa-4574-be21-295f21fd06dc",
         "9934a23a-a467-4535-be52-0c1e35cab4ed",
-        "faa4d3c4-8cec-4cfc-9c7a-289e704d3cad",
-        "7801b239-112d-413a-9818-e872eb4c6192",
-        "3c18f37d-9823-47a0-9092-f62c6c8ab40d",
-        "c1c4293c-c249-4d58-aea8-2adac01611c6",
-        "26a88812-fb92-4228-800a-0d51c26c81e6",
-        "a56ec7e7-60a7-4cb4-a733-8378f30810e3",
-        "5c727ab8-4f68-4f6c-b396-6e265d7afedc"
+        "931885ee-eb60-46f9-b220-1f147be79c6f",
+        "5fcc2138-6297-44a7-88a6-f0fa2fae457d",
+        "b12264ff-12cb-461b-916f-8da642b72e37",
+        "40104f03-41cf-42ab-80b2-191298eeb86f",
+        "ca9f60e0-8e8b-4e6e-bab5-6215d84acb7f",
+        "a38eb588-98d8-4a64-b528-104768d7fb57",
+        "4930786a-78b9-452c-8840-f4de048b7c0a",
+        "a81031fb-91f2-4f55-b201-72540416285c",
+        "5c727ab8-4f68-4f6c-b396-6e265d7afedc",
+        "3f0eff8e-8a60-4cd8-9023-1085fc21d332"
       ]
     },
     {
       "id": "842f71e9-a878-452b-bcaa-8c44c26661c0",
-      "type": "WebLabel",
-      "name": "LBLTitulo",
+      "type": "WebGroup",
+      "name": "GRPTitulo",
       "parentId": "0f34fe15-128e-4909-b2d4-26466fb28272",
+      "layout": {
+        "container": {
+          "mode": "row",
+          "paddingTop": 0,
+          "paddingRight": 0,
+          "paddingBottom": 0,
+          "paddingLeft": 0,
+          "gap": 10,
+          "wrap": false,
+          "justifyContent": "start",
+          "alignItems": "center"
+        },
+        "item": {
+          "width": "stretch",
+          "height": "fit-content",
+          "minWidth": 0,
+          "maxWidth": null,
+          "minHeight": 0,
+          "maxHeight": null,
+          "grow": 0,
+          "shrink": false,
+          "alignSelf": "auto",
+          "horizontalAnchor": "start",
+          "verticalAnchor": "start",
+          "left": 0,
+          "right": 0,
+          "top": 0,
+          "bottom": 0
+        }
+      },
+      "bounds": {
+        "width": 240,
+        "height": 160,
+        "x": 0,
+        "y": 0
+      },
+      "props": {
+        "enabled": true,
+        "aspectRatio": "none",
+        "collapseWhenHidden": true,
+        "visible": true
+      },
+      "events": {
+        "OnClick": null,
+        "OnDblClick": null,
+        "OnMouseEnter": null,
+        "OnMouseLeave": null
+      },
+      "children": [
+        "17530c48-9dea-4771-98d0-a9147e6417d0",
+        "40fd2adb-47fe-4191-99d1-a4d820d22a0b"
+      ]
+    },
+    {
+      "id": "17530c48-9dea-4771-98d0-a9147e6417d0",
+      "type": "WebIcon",
+      "name": "ICOAdmin",
+      "parentId": "842f71e9-a878-452b-bcaa-8c44c26661c0",
       "layout": {
         "container": {
           "mode": "fixed",
@@ -1049,7 +1109,71 @@
           "alignItems": "start"
         },
         "item": {
-          "width": "stretch",
+          "width": "fixed",
+          "height": "fixed",
+          "minWidth": 0,
+          "maxWidth": null,
+          "minHeight": 0,
+          "maxHeight": null,
+          "grow": 0,
+          "shrink": false,
+          "alignSelf": "auto",
+          "horizontalAnchor": "start",
+          "verticalAnchor": "start",
+          "left": 0,
+          "right": 0,
+          "top": 0,
+          "bottom": 0
+        }
+      },
+      "bounds": {
+        "width": 32,
+        "height": 32,
+        "x": 0,
+        "y": 0
+      },
+      "props": {
+        "mode": "icon",
+        "enabled": true,
+        "accessibleLabel": "Administração",
+        "collapseWhenHidden": true,
+        "icon": "settings",
+        "strokeWidth": 2.5,
+        "tabIndex": 0,
+        "visible": true
+      },
+      "events": {
+        "OnBlur": null,
+        "OnClick": null,
+        "OnDblClick": null,
+        "OnFocus": null,
+        "OnKeyDown": null,
+        "OnKeyUp": null,
+        "OnMouseEnter": null,
+        "OnMouseLeave": null
+      },
+      "styleId": "sigat2-chamado-icone-fila",
+      "children": []
+    },
+    {
+      "id": "40fd2adb-47fe-4191-99d1-a4d820d22a0b",
+      "type": "WebLabel",
+      "name": "LBLTitulo",
+      "parentId": "842f71e9-a878-452b-bcaa-8c44c26661c0",
+      "layout": {
+        "container": {
+          "mode": "fixed",
+          "paddingTop": 0,
+          "paddingRight": 0,
+          "paddingBottom": 0,
+          "paddingLeft": 0,
+          "gap": 0,
+          "wrap": false,
+          "justifyContent": "start",
+          "alignItems": "start"
+        },
+        "item": {
+          "width": "fit-content",
           "height": "fixed",
           "minWidth": 0,
           "maxWidth": null,
@@ -1068,7 +1192,7 @@
       },
       "bounds": {
         "width": 80,
-        "height": 36,
+        "height": 40,
         "x": 0,
         "y": 0
       },
@@ -1086,11 +1210,67 @@
         "OnMouseEnter": null,
         "OnMouseLeave": null
       },
-      "styleId": "3755d9a1-991d-4861-8878-42148ee446dc:default-style:WebLabel",
+      "styleId": "sigat2-chamado-titulo",
       "children": []
     },
     {
-      "id": "17530c48-9dea-4771-98d0-a9147e6417d0",
+      "id": "f521a2d3-72aa-4574-be21-295f21fd06dc",
+      "type": "WebGroup",
+      "name": "GRPLinha",
+      "parentId": "0f34fe15-128e-4909-b2d4-26466fb28272",
+      "layout": {
+        "container": {
+          "mode": "column",
+          "paddingTop": 0,
+          "paddingRight": 0,
+          "paddingBottom": 0,
+          "paddingLeft": 0,
+          "gap": 0,
+          "wrap": false,
+          "justifyContent": "start",
+          "alignItems": "start"
+        },
+        "item": {
+          "width": "stretch",
+          "height": "fixed",
+          "minWidth": 0,
+          "maxWidth": null,
+          "minHeight": 1,
+          "maxHeight": null,
+          "grow": 0,
+          "shrink": false,
+          "alignSelf": "auto",
+          "horizontalAnchor": "start",
+          "verticalAnchor": "start",
+          "left": 0,
+          "right": 0,
+          "top": 0,
+          "bottom": 0
+        }
+      },
+      "bounds": {
+        "width": 240,
+        "height": 1,
+        "x": 0,
+        "y": 0
+      },
+      "props": {
+        "enabled": true,
+        "aspectRatio": "none",
+        "collapseWhenHidden": true,
+        "visible": true
+      },
+      "events": {
+        "OnClick": null,
+        "OnDblClick": null,
+        "OnMouseEnter": null,
+        "OnMouseLeave": null
+      },
+      "styleId": "sigat2-chamado-linha",
+      "children": []
+    },
+    {
+      "id": "9934a23a-a467-4535-be52-0c1e35cab4ed",
       "type": "WebTabs",
       "name": "Abas",
       "parentId": "0f34fe15-128e-4909-b2d4-26466fb28272",
@@ -1126,7 +1306,7 @@
       },
       "bounds": {
         "width": 480,
-        "height": 44,
+        "height": 46,
         "x": 0,
         "y": 0
       },
@@ -1134,48 +1314,319 @@
         "enabled": true,
         "badges": [],
         "collapseWhenHidden": true,
-        "icons": [],
+        "icons": [
+          "list",
+          "users",
+          "messages-square",
+          "house",
+          "building",
+          "wrench",
+          "layers",
+          "list-ordered"
+        ],
         "panels": [
+          "PNLEventos",
           "PNLUsuarios",
+          "PNLModelos",
           "PNLLocais",
           "PNLSecretarias",
           "PNLServicos",
           "PNLBancadas",
-          "PNLModelos",
-          "PNLFilas",
-          "PNLEventos"
+          "PNLFilas"
         ],
         "selectedIndex": 0,
         "tabs": [
+          "Log de Eventos",
           "Usuários",
+          "Modelos de Mensagem",
           "Locais",
           "Secretarias",
           "Serviços",
           "Bancadas",
-          "Modelos de mensagem",
-          "Filas",
-          "Eventos"
+          "Filas"
         ],
         "visible": true
       },
       "events": {
-        "OnChange": null
+        "OnChange": "TrocarAba"
       },
+      "styleId": "sigat2-admin-abas",
       "children": []
     },
     {
-      "id": "40fd2adb-47fe-4191-99d1-a4d820d22a0b",
+      "id": "931885ee-eb60-46f9-b220-1f147be79c6f",
+      "type": "WebPanel",
+      "name": "PNLEventos",
+      "parentId": "0f34fe15-128e-4909-b2d4-26466fb28272",
+      "layout": {
+        "container": {
+          "mode": "column",
+          "paddingTop": 0,
+          "paddingRight": 0,
+          "paddingBottom": 0,
+          "paddingLeft": 0,
+          "gap": 8,
+          "wrap": false,
+          "justifyContent": "start",
+          "alignItems": "start"
+        },
+        "item": {
+          "width": "stretch",
+          "height": "stretch",
+          "minWidth": 0,
+          "maxWidth": null,
+          "minHeight": 0,
+          "maxHeight": null,
+          "grow": 1,
+          "shrink": true,
+          "alignSelf": "auto",
+          "horizontalAnchor": "start",
+          "verticalAnchor": "start",
+          "left": 0,
+          "right": 0,
+          "top": 0,
+          "bottom": 0
+        }
+      },
+      "bounds": {
+        "width": 600,
+        "height": 160,
+        "x": 0,
+        "y": 0
+      },
+      "props": {
+        "caption": "",
+        "enabled": true,
+        "backgroundColor": "transparent",
+        "aspectRatio": "none",
+        "backgroundImage": "",
+        "backgroundPosition": "center",
+        "backgroundRepeat": "no-repeat",
+        "backgroundSize": "cover",
+        "borderColor": "#808080",
+        "collapseWhenHidden": true,
+        "floatingAlignment": "none",
+        "floatingHorizontalAnchor": "left",
+        "floatingVerticalAnchor": "top",
+        "floatingZIndex": 100,
+        "placement": "in-flow",
+        "progressEnabled": false,
+        "progressValue": 0,
+        "visible": true
+      },
+      "events": {
+        "OnClick": null,
+        "OnDblClick": null,
+        "OnMouseEnter": null,
+        "OnMouseLeave": null
+      },
+      "styleId": "sigat2-quadro",
+      "children": [
+        "faa4d3c4-8cec-4cfc-9c7a-289e704d3cad"
+      ]
+    },
+    {
+      "id": "faa4d3c4-8cec-4cfc-9c7a-289e704d3cad",
+      "type": "WebDataGrid",
+      "name": "GRDEventos",
+      "parentId": "931885ee-eb60-46f9-b220-1f147be79c6f",
+      "layout": {
+        "container": {
+          "mode": "fixed",
+          "paddingTop": 0,
+          "paddingRight": 0,
+          "paddingBottom": 0,
+          "paddingLeft": 0,
+          "gap": 0,
+          "wrap": false,
+          "justifyContent": "start",
+          "alignItems": "start"
+        },
+        "item": {
+          "width": "stretch",
+          "height": "stretch",
+          "minWidth": 0,
+          "maxWidth": null,
+          "minHeight": 360,
+          "maxHeight": null,
+          "grow": 0,
+          "shrink": true,
+          "alignSelf": "auto",
+          "horizontalAnchor": "start",
+          "verticalAnchor": "start",
+          "left": 0,
+          "right": 0,
+          "top": 0,
+          "bottom": 0
+        }
+      },
+      "bounds": {
+        "width": 640,
+        "height": 460,
+        "x": 0,
+        "y": 0
+      },
+      "props": {
+        "enabled": true,
+        "collapseWhenHidden": true,
+        "dataGridConfig": {
+          "apiClientId": "5c727ab8-4f68-4f6c-b396-6e265d7afedc",
+          "cellPaddingHorizontal": 10,
+          "cellPaddingVertical": 8,
+          "columnCount": 5,
+          "columnFilters": true,
+          "columns": [
+            {
+              "id": "d355ebb5-b6c9-4133-b950-a9989d1983c7",
+              "width": 130,
+              "minWidth": 90,
+              "maxWidth": null,
+              "buttonIcon": null,
+              "cellAlign": "start",
+              "cellKind": "text",
+              "fieldPath": "/id_evento",
+              "fixedCaption": "",
+              "flex": 1,
+              "footer": "",
+              "header": "ID",
+              "headerAlign": "start",
+              "searchable": true,
+              "sortable": true,
+              "widthMode": "fixed"
+            },
+            {
+              "id": "7d1d97dd-d817-4fae-b95b-be6635994506",
+              "width": 260,
+              "minWidth": 90,
+              "maxWidth": null,
+              "buttonIcon": null,
+              "cellAlign": "start",
+              "cellKind": "text",
+              "fieldPath": "/acao_evento",
+              "fixedCaption": "",
+              "flex": 1,
+              "footer": "",
+              "header": "Ação",
+              "headerAlign": "start",
+              "searchable": true,
+              "sortable": true,
+              "widthMode": "fixed"
+            },
+            {
+              "id": "07982d6a-46f5-4aa7-bde7-48067cecfd2a",
+              "width": 180,
+              "minWidth": 320,
+              "maxWidth": null,
+              "buttonIcon": null,
+              "cellAlign": "start",
+              "cellKind": "text",
+              "fieldPath": "/desc_evento",
+              "fixedCaption": "",
+              "flex": 1,
+              "footer": "",
+              "header": "Descrição",
+              "headerAlign": "start",
+              "searchable": true,
+              "sortable": true,
+              "widthMode": "dynamic"
+            },
+            {
+              "id": "e8811e01-fbe4-4f4c-b1a5-946f3c3bed68",
+              "width": 200,
+              "minWidth": 90,
+              "maxWidth": null,
+              "buttonIcon": null,
+              "cellAlign": "start",
+              "cellKind": "text",
+              "fieldPath": "/data_evento_fmt",
+              "fixedCaption": "",
+              "flex": 1,
+              "footer": "",
+              "header": "Data/Hora",
+              "headerAlign": "start",
+              "searchable": true,
+              "sortable": true,
+              "widthMode": "fixed"
+            },
+            {
+              "id": "58c1f884-a17d-434a-9558-24336501d45c",
+              "width": 260,
+              "minWidth": 90,
+              "maxWidth": null,
+              "buttonIcon": null,
+              "cellAlign": "start",
+              "cellKind": "text",
+              "fieldPath": "/nome_usuario",
+              "fixedCaption": "",
+              "flex": 1,
+              "footer": "",
+              "header": "Usuário",
+              "headerAlign": "start",
+              "searchable": true,
+              "sortable": true,
+              "widthMode": "fixed"
+            }
+          ],
+          "emptyMessage": "(vazio)",
+          "exportEnabled": false,
+          "fixedRowHeight": 40,
+          "listPath": "/data",
+          "maxRowHeight": null,
+          "minRowHeight": 40,
+          "operationId": "2ac136d9-c101-4682-987c-4fcadc40f54f",
+          "pageSize": 10,
+          "pageSizeOptions": [
+            10,
+            25,
+            50,
+            100
+          ],
+          "pagination": "client",
+          "rowHeightMode": "dynamic",
+          "schemaVersion": 2,
+          "searchEnabled": true,
+          "searchPlaceholder": "Busca:",
+          "serverDirectionParameter": "dir",
+          "serverSearchParameter": "q",
+          "serverSortParameter": "sort",
+          "showFooter": false,
+          "showHeader": true,
+          "showHorizontalLines": true,
+          "showPageSizeSelector": true,
+          "showVerticalLines": false,
+          "sortEnabled": true,
+          "stickyFooter": true,
+          "stickyHeader": true,
+          "stripedRows": true,
+          "totalPagesPath": "/total_pages",
+          "totalRowsPath": "/total",
+          "wrapText": true
+        },
+        "visible": true
+      },
+      "events": {
+        "OnCellClick": null,
+        "OnPageChange": null,
+        "OnQueryChange": null,
+        "OnSearch": null,
+        "OnSortChange": null
+      },
+      "styleId": "sigat2-lista",
+      "children": []
+    },
+    {
+      "id": "5fcc2138-6297-44a7-88a6-f0fa2fae457d",
       "type": "WebPanel",
       "name": "PNLUsuarios",
       "parentId": "0f34fe15-128e-4909-b2d4-26466fb28272",
       "layout": {
         "container": {
           "mode": "column",
-          "paddingTop": 16,
-          "paddingRight": 16,
-          "paddingBottom": 16,
-          "paddingLeft": 16,
-          "gap": 10,
+          "paddingTop": 0,
+          "paddingRight": 0,
+          "paddingBottom": 0,
+          "paddingLeft": 0,
+          "gap": 8,
           "wrap": false,
           "justifyContent": "start",
           "alignItems": "start"
@@ -1230,16 +1681,16 @@
         "OnMouseEnter": null,
         "OnMouseLeave": null
       },
-      "styleId": "3755d9a1-991d-4861-8878-42148ee446dc:default-style:WebPanel",
+      "styleId": "sigat2-quadro",
       "children": [
-        "f521a2d3-72aa-4574-be21-295f21fd06dc"
+        "7801b239-112d-413a-9818-e872eb4c6192"
       ]
     },
     {
-      "id": "f521a2d3-72aa-4574-be21-295f21fd06dc",
+      "id": "7801b239-112d-413a-9818-e872eb4c6192",
       "type": "WebDataGrid",
       "name": "GRDUsuarios",
-      "parentId": "40fd2adb-47fe-4191-99d1-a4d820d22a0b",
+      "parentId": "5fcc2138-6297-44a7-88a6-f0fa2fae457d",
       "layout": {
         "container": {
           "mode": "fixed",
@@ -1284,9 +1735,10 @@
           "cellPaddingHorizontal": 10,
           "cellPaddingVertical": 8,
           "columnCount": 8,
+          "columnFilters": false,
           "columns": [
             {
-              "id": "d355ebb5-b6c9-4133-b950-a9989d1983c7",
+              "id": "91c9ff33-8446-4214-b304-b89dcd71e05b",
               "width": 180,
               "minWidth": 90,
               "maxWidth": null,
@@ -1304,7 +1756,7 @@
               "widthMode": "dynamic"
             },
             {
-              "id": "7d1d97dd-d817-4fae-b95b-be6635994506",
+              "id": "e368fe33-fa55-4e7e-89af-6c6a1a61210d",
               "width": 180,
               "minWidth": 90,
               "maxWidth": null,
@@ -1322,7 +1774,7 @@
               "widthMode": "fixed"
             },
             {
-              "id": "07982d6a-46f5-4aa7-bde7-48067cecfd2a",
+              "id": "c50c889f-2a80-4b34-8d2e-945ff08ea3d6",
               "width": 110,
               "minWidth": 90,
               "maxWidth": null,
@@ -1340,7 +1792,7 @@
               "widthMode": "fixed"
             },
             {
-              "id": "e8811e01-fbe4-4f4c-b1a5-946f3c3bed68",
+              "id": "ccb20ff9-4280-4cdb-8032-fcffdb1f88c1",
               "width": 80,
               "minWidth": 80,
               "maxWidth": null,
@@ -1358,7 +1810,7 @@
               "widthMode": "fixed"
             },
             {
-              "id": "58c1f884-a17d-434a-9558-24336501d45c",
+              "id": "e9517655-3ecd-471c-bb80-43e9b3a66f21",
               "width": 90,
               "minWidth": 90,
               "maxWidth": null,
@@ -1376,7 +1828,7 @@
               "widthMode": "fixed"
             },
             {
-              "id": "91c9ff33-8446-4214-b304-b89dcd71e05b",
+              "id": "c5d7906a-ab12-4052-9c9e-e57dc3dc7525",
               "width": 120,
               "minWidth": 90,
               "maxWidth": null,
@@ -1394,7 +1846,7 @@
               "widthMode": "fixed"
             },
             {
-              "id": "e368fe33-fa55-4e7e-89af-6c6a1a61210d",
+              "id": "ec1e170e-9794-4362-ad49-42636f498b01",
               "width": 100,
               "minWidth": 90,
               "maxWidth": null,
@@ -1412,7 +1864,7 @@
               "widthMode": "fixed"
             },
             {
-              "id": "c50c889f-2a80-4b34-8d2e-945ff08ea3d6",
+              "id": "c4986339-d99f-44fa-be6b-978e24f13206",
               "width": 80,
               "minWidth": 80,
               "maxWidth": null,
@@ -1436,7 +1888,7 @@
           "listPath": "/data",
           "maxRowHeight": null,
           "minRowHeight": 36,
-          "operationId": "2ac136d9-c101-4682-987c-4fcadc40f54f",
+          "operationId": "ecf32132-c001-4993-9cb4-75031a1e03e0",
           "pageSize": 25,
           "pageSizeOptions": [
             10,
@@ -1448,7 +1900,7 @@
           "rowHeightMode": "dynamic",
           "schemaVersion": 2,
           "searchEnabled": true,
-          "searchPlaceholder": "",
+          "searchPlaceholder": "Busca:",
           "serverDirectionParameter": "dir",
           "serverSearchParameter": "q",
           "serverSortParameter": "sort",
@@ -1474,22 +1926,22 @@
         "OnSearch": null,
         "OnSortChange": null
       },
-      "styleId": "3755d9a1-991d-4861-8878-42148ee446dc:default-style:WebDataGrid",
+      "styleId": "sigat2-lista",
       "children": []
     },
     {
-      "id": "9934a23a-a467-4535-be52-0c1e35cab4ed",
+      "id": "b12264ff-12cb-461b-916f-8da642b72e37",
       "type": "WebPanel",
-      "name": "PNLLocais",
+      "name": "PNLModelos",
       "parentId": "0f34fe15-128e-4909-b2d4-26466fb28272",
       "layout": {
         "container": {
           "mode": "column",
-          "paddingTop": 16,
-          "paddingRight": 16,
-          "paddingBottom": 16,
-          "paddingLeft": 16,
-          "gap": 10,
+          "paddingTop": 0,
+          "paddingRight": 0,
+          "paddingBottom": 0,
+          "paddingLeft": 0,
+          "gap": 8,
           "wrap": false,
           "justifyContent": "start",
           "alignItems": "start"
@@ -1544,16 +1996,277 @@
         "OnMouseEnter": null,
         "OnMouseLeave": null
       },
-      "styleId": "3755d9a1-991d-4861-8878-42148ee446dc:default-style:WebPanel",
+      "styleId": "sigat2-quadro",
       "children": [
-        "931885ee-eb60-46f9-b220-1f147be79c6f"
+        "3c18f37d-9823-47a0-9092-f62c6c8ab40d"
       ]
     },
     {
-      "id": "931885ee-eb60-46f9-b220-1f147be79c6f",
+      "id": "3c18f37d-9823-47a0-9092-f62c6c8ab40d",
+      "type": "WebDataGrid",
+      "name": "GRDModelos",
+      "parentId": "b12264ff-12cb-461b-916f-8da642b72e37",
+      "layout": {
+        "container": {
+          "mode": "fixed",
+          "paddingTop": 0,
+          "paddingRight": 0,
+          "paddingBottom": 0,
+          "paddingLeft": 0,
+          "gap": 0,
+          "wrap": false,
+          "justifyContent": "start",
+          "alignItems": "start"
+        },
+        "item": {
+          "width": "stretch",
+          "height": "fixed",
+          "minWidth": 0,
+          "maxWidth": null,
+          "minHeight": 0,
+          "maxHeight": null,
+          "grow": 0,
+          "shrink": false,
+          "alignSelf": "auto",
+          "horizontalAnchor": "start",
+          "verticalAnchor": "start",
+          "left": 0,
+          "right": 0,
+          "top": 0,
+          "bottom": 0
+        }
+      },
+      "bounds": {
+        "width": 640,
+        "height": 520,
+        "x": 0,
+        "y": 0
+      },
+      "props": {
+        "enabled": true,
+        "collapseWhenHidden": true,
+        "dataGridConfig": {
+          "apiClientId": "5c727ab8-4f68-4f6c-b396-6e265d7afedc",
+          "cellPaddingHorizontal": 10,
+          "cellPaddingVertical": 8,
+          "columnCount": 5,
+          "columnFilters": false,
+          "columns": [
+            {
+              "id": "506a5743-8d1a-44f2-ac36-51d14e55457a",
+              "width": 80,
+              "minWidth": 80,
+              "maxWidth": null,
+              "buttonIcon": null,
+              "cellAlign": "start",
+              "cellKind": "text",
+              "fieldPath": "/id_modelo_mensagem",
+              "fixedCaption": "",
+              "flex": 1,
+              "footer": "",
+              "header": "#",
+              "headerAlign": "start",
+              "searchable": true,
+              "sortable": true,
+              "widthMode": "fixed"
+            },
+            {
+              "id": "54025d48-8824-4945-bd8f-eaf98764bcb0",
+              "width": 160,
+              "minWidth": 90,
+              "maxWidth": null,
+              "buttonIcon": null,
+              "cellAlign": "start",
+              "cellKind": "text",
+              "fieldPath": "/tipo_modelo_mensagem",
+              "fixedCaption": "",
+              "flex": 1,
+              "footer": "",
+              "header": "Tipo",
+              "headerAlign": "start",
+              "searchable": true,
+              "sortable": true,
+              "widthMode": "fixed"
+            },
+            {
+              "id": "b958221b-9cd5-4fea-906d-682f33e65663",
+              "width": 160,
+              "minWidth": 90,
+              "maxWidth": null,
+              "buttonIcon": null,
+              "cellAlign": "start",
+              "cellKind": "text",
+              "fieldPath": "/nome_fila",
+              "fixedCaption": "",
+              "flex": 1,
+              "footer": "",
+              "header": "Fila",
+              "headerAlign": "start",
+              "searchable": true,
+              "sortable": true,
+              "widthMode": "fixed"
+            },
+            {
+              "id": "eef4a88d-10ef-4d75-b164-32cf63304bf3",
+              "width": 180,
+              "minWidth": 90,
+              "maxWidth": null,
+              "buttonIcon": null,
+              "cellAlign": "start",
+              "cellKind": "text",
+              "fieldPath": "/mensagem_modelo_mensagem",
+              "fixedCaption": "",
+              "flex": 1,
+              "footer": "",
+              "header": "Mensagem",
+              "headerAlign": "start",
+              "searchable": true,
+              "sortable": true,
+              "widthMode": "dynamic"
+            },
+            {
+              "id": "c3973372-80d8-4e6c-8dda-b3e700a7aafa",
+              "width": 80,
+              "minWidth": 80,
+              "maxWidth": null,
+              "buttonIcon": null,
+              "cellAlign": "start",
+              "cellKind": "text",
+              "fieldPath": "/status_modelo_mensagem",
+              "fixedCaption": "",
+              "flex": 1,
+              "footer": "",
+              "header": "Ativo",
+              "headerAlign": "start",
+              "searchable": true,
+              "sortable": true,
+              "widthMode": "fixed"
+            }
+          ],
+          "emptyMessage": "Nenhum registro",
+          "exportEnabled": true,
+          "fixedRowHeight": 40,
+          "listPath": "/data",
+          "maxRowHeight": null,
+          "minRowHeight": 36,
+          "operationId": "3efd4e93-af44-4cb4-be1d-0f488827c018",
+          "pageSize": 25,
+          "pageSizeOptions": [
+            10,
+            25,
+            50,
+            100
+          ],
+          "pagination": "client",
+          "rowHeightMode": "dynamic",
+          "schemaVersion": 2,
+          "searchEnabled": true,
+          "searchPlaceholder": "Busca:",
+          "serverDirectionParameter": "dir",
+          "serverSearchParameter": "q",
+          "serverSortParameter": "sort",
+          "showFooter": false,
+          "showHeader": true,
+          "showHorizontalLines": true,
+          "showPageSizeSelector": true,
+          "showVerticalLines": false,
+          "sortEnabled": true,
+          "stickyFooter": true,
+          "stickyHeader": true,
+          "stripedRows": true,
+          "totalPagesPath": "/total_pages",
+          "totalRowsPath": "/total",
+          "wrapText": false
+        },
+        "visible": true
+      },
+      "events": {
+        "OnCellClick": null,
+        "OnPageChange": null,
+        "OnQueryChange": null,
+        "OnSearch": null,
+        "OnSortChange": null
+      },
+      "styleId": "sigat2-lista",
+      "children": []
+    },
+    {
+      "id": "40104f03-41cf-42ab-80b2-191298eeb86f",
+      "type": "WebPanel",
+      "name": "PNLLocais",
+      "parentId": "0f34fe15-128e-4909-b2d4-26466fb28272",
+      "layout": {
+        "container": {
+          "mode": "column",
+          "paddingTop": 0,
+          "paddingRight": 0,
+          "paddingBottom": 0,
+          "paddingLeft": 0,
+          "gap": 8,
+          "wrap": false,
+          "justifyContent": "start",
+          "alignItems": "start"
+        },
+        "item": {
+          "width": "stretch",
+          "height": "fit-content",
+          "minWidth": 0,
+          "maxWidth": null,
+          "minHeight": 0,
+          "maxHeight": null,
+          "grow": 0,
+          "shrink": true,
+          "alignSelf": "auto",
+          "horizontalAnchor": "start",
+          "verticalAnchor": "start",
+          "left": 0,
+          "right": 0,
+          "top": 0,
+          "bottom": 0
+        }
+      },
+      "bounds": {
+        "width": 600,
+        "height": 160,
+        "x": 0,
+        "y": 0
+      },
+      "props": {
+        "caption": "",
+        "enabled": true,
+        "backgroundColor": "transparent",
+        "aspectRatio": "none",
+        "backgroundImage": "",
+        "backgroundPosition": "center",
+        "backgroundRepeat": "no-repeat",
+        "backgroundSize": "cover",
+        "borderColor": "#808080",
+        "collapseWhenHidden": true,
+        "floatingAlignment": "none",
+        "floatingHorizontalAnchor": "left",
+        "floatingVerticalAnchor": "top",
+        "floatingZIndex": 100,
+        "placement": "in-flow",
+        "progressEnabled": false,
+        "progressValue": 0,
+        "visible": true
+      },
+      "events": {
+        "OnClick": null,
+        "OnDblClick": null,
+        "OnMouseEnter": null,
+        "OnMouseLeave": null
+      },
+      "styleId": "sigat2-quadro",
+      "children": [
+        "c1c4293c-c249-4d58-aea8-2adac01611c6"
+      ]
+    },
+    {
+      "id": "c1c4293c-c249-4d58-aea8-2adac01611c6",
       "type": "WebDataGrid",
       "name": "GRDLocais",
-      "parentId": "9934a23a-a467-4535-be52-0c1e35cab4ed",
+      "parentId": "40104f03-41cf-42ab-80b2-191298eeb86f",
       "layout": {
         "container": {
           "mode": "fixed",
@@ -1598,9 +2311,10 @@
           "cellPaddingHorizontal": 10,
           "cellPaddingVertical": 8,
           "columnCount": 7,
+          "columnFilters": false,
           "columns": [
             {
-              "id": "ccb20ff9-4280-4cdb-8032-fcffdb1f88c1",
+              "id": "8288481a-f861-4aa3-89f1-4bb173ae0831",
               "width": 80,
               "minWidth": 80,
               "maxWidth": null,
@@ -1618,7 +2332,7 @@
               "widthMode": "fixed"
             },
             {
-              "id": "e9517655-3ecd-471c-bb80-43e9b3a66f21",
+              "id": "dd827fbb-02bc-4538-921e-abcd1c7c543a",
               "width": 180,
               "minWidth": 90,
               "maxWidth": null,
@@ -1636,7 +2350,7 @@
               "widthMode": "dynamic"
             },
             {
-              "id": "c5d7906a-ab12-4052-9c9e-e57dc3dc7525",
+              "id": "11c3f06a-bbef-43e0-9292-b916174eac60",
               "width": 180,
               "minWidth": 90,
               "maxWidth": null,
@@ -1654,7 +2368,7 @@
               "widthMode": "dynamic"
             },
             {
-              "id": "ec1e170e-9794-4362-ad49-42636f498b01",
+              "id": "4387d476-d585-4e24-a7d9-85e8a5011da2",
               "width": 120,
               "minWidth": 90,
               "maxWidth": null,
@@ -1672,7 +2386,7 @@
               "widthMode": "fixed"
             },
             {
-              "id": "c4986339-d99f-44fa-be6b-978e24f13206",
+              "id": "334de251-3b5d-40ba-85e2-f474d3619136",
               "width": 110,
               "minWidth": 90,
               "maxWidth": null,
@@ -1690,7 +2404,7 @@
               "widthMode": "fixed"
             },
             {
-              "id": "506a5743-8d1a-44f2-ac36-51d14e55457a",
+              "id": "97513f4b-5218-4ef9-84e7-42c721747a2c",
               "width": 80,
               "minWidth": 80,
               "maxWidth": null,
@@ -1708,7 +2422,7 @@
               "widthMode": "fixed"
             },
             {
-              "id": "54025d48-8824-4945-bd8f-eaf98764bcb0",
+              "id": "7272278c-d4ef-4280-8bda-1be645675b67",
               "width": 80,
               "minWidth": 80,
               "maxWidth": null,
@@ -1732,7 +2446,7 @@
           "listPath": "/data",
           "maxRowHeight": null,
           "minRowHeight": 36,
-          "operationId": "ecf32132-c001-4993-9cb4-75031a1e03e0",
+          "operationId": "298a0448-95b8-4f23-8da7-844d3455dba2",
           "pageSize": 25,
           "pageSizeOptions": [
             10,
@@ -1744,7 +2458,7 @@
           "rowHeightMode": "dynamic",
           "schemaVersion": 2,
           "searchEnabled": true,
-          "searchPlaceholder": "",
+          "searchPlaceholder": "Busca:",
           "serverDirectionParameter": "dir",
           "serverSearchParameter": "q",
           "serverSortParameter": "sort",
@@ -1770,22 +2484,22 @@
         "OnSearch": null,
         "OnSortChange": null
       },
-      "styleId": "3755d9a1-991d-4861-8878-42148ee446dc:default-style:WebDataGrid",
+      "styleId": "sigat2-lista",
       "children": []
     },
     {
-      "id": "faa4d3c4-8cec-4cfc-9c7a-289e704d3cad",
+      "id": "ca9f60e0-8e8b-4e6e-bab5-6215d84acb7f",
       "type": "WebPanel",
       "name": "PNLSecretarias",
       "parentId": "0f34fe15-128e-4909-b2d4-26466fb28272",
       "layout": {
         "container": {
           "mode": "column",
-          "paddingTop": 16,
-          "paddingRight": 16,
-          "paddingBottom": 16,
-          "paddingLeft": 16,
-          "gap": 10,
+          "paddingTop": 0,
+          "paddingRight": 0,
+          "paddingBottom": 0,
+          "paddingLeft": 0,
+          "gap": 8,
           "wrap": false,
           "justifyContent": "start",
           "alignItems": "start"
@@ -1840,16 +2554,16 @@
         "OnMouseEnter": null,
         "OnMouseLeave": null
       },
-      "styleId": "3755d9a1-991d-4861-8878-42148ee446dc:default-style:WebPanel",
+      "styleId": "sigat2-quadro",
       "children": [
-        "5fcc2138-6297-44a7-88a6-f0fa2fae457d"
+        "26a88812-fb92-4228-800a-0d51c26c81e6"
       ]
     },
     {
-      "id": "5fcc2138-6297-44a7-88a6-f0fa2fae457d",
+      "id": "26a88812-fb92-4228-800a-0d51c26c81e6",
       "type": "WebDataGrid",
       "name": "GRDSecretarias",
-      "parentId": "faa4d3c4-8cec-4cfc-9c7a-289e704d3cad",
+      "parentId": "ca9f60e0-8e8b-4e6e-bab5-6215d84acb7f",
       "layout": {
         "container": {
           "mode": "fixed",
@@ -1894,9 +2608,10 @@
           "cellPaddingHorizontal": 10,
           "cellPaddingVertical": 8,
           "columnCount": 4,
+          "columnFilters": false,
           "columns": [
             {
-              "id": "b958221b-9cd5-4fea-906d-682f33e65663",
+              "id": "26fc1acd-8deb-4c9d-88ea-5a5b0dd81a63",
               "width": 80,
               "minWidth": 80,
               "maxWidth": null,
@@ -1914,7 +2629,7 @@
               "widthMode": "fixed"
             },
             {
-              "id": "eef4a88d-10ef-4d75-b164-32cf63304bf3",
+              "id": "2b4ff2c3-e3f6-49be-9275-1e0b52d10a74",
               "width": 140,
               "minWidth": 90,
               "maxWidth": null,
@@ -1932,7 +2647,7 @@
               "widthMode": "fixed"
             },
             {
-              "id": "c3973372-80d8-4e6c-8dda-b3e700a7aafa",
+              "id": "6d63456c-5b67-46cc-a1bf-d0c663e2d77d",
               "width": 180,
               "minWidth": 90,
               "maxWidth": null,
@@ -1950,7 +2665,7 @@
               "widthMode": "dynamic"
             },
             {
-              "id": "8288481a-f861-4aa3-89f1-4bb173ae0831",
+              "id": "03823790-5222-4c2f-9673-6e1971b0705b",
               "width": 80,
               "minWidth": 80,
               "maxWidth": null,
@@ -1958,544 +2673,6 @@
               "cellAlign": "start",
               "cellKind": "text",
               "fieldPath": "/status_secretaria",
-              "fixedCaption": "",
-              "flex": 1,
-              "footer": "",
-              "header": "Ativa",
-              "headerAlign": "start",
-              "searchable": true,
-              "sortable": true,
-              "widthMode": "fixed"
-            }
-          ],
-          "emptyMessage": "Nenhum registro",
-          "exportEnabled": true,
-          "fixedRowHeight": 40,
-          "listPath": "/data",
-          "maxRowHeight": null,
-          "minRowHeight": 36,
-          "operationId": "3efd4e93-af44-4cb4-be1d-0f488827c018",
-          "pageSize": 25,
-          "pageSizeOptions": [
-            10,
-            25,
-            50,
-            100
-          ],
-          "pagination": "client",
-          "rowHeightMode": "dynamic",
-          "schemaVersion": 2,
-          "searchEnabled": true,
-          "searchPlaceholder": "",
-          "serverDirectionParameter": "dir",
-          "serverSearchParameter": "q",
-          "serverSortParameter": "sort",
-          "showFooter": false,
-          "showHeader": true,
-          "showHorizontalLines": true,
-          "showPageSizeSelector": true,
-          "showVerticalLines": false,
-          "sortEnabled": true,
-          "stickyFooter": true,
-          "stickyHeader": true,
-          "stripedRows": true,
-          "totalPagesPath": "/total_pages",
-          "totalRowsPath": "/total",
-          "wrapText": false
-        },
-        "visible": true
-      },
-      "events": {
-        "OnCellClick": null,
-        "OnPageChange": null,
-        "OnQueryChange": null,
-        "OnSearch": null,
-        "OnSortChange": null
-      },
-      "styleId": "3755d9a1-991d-4861-8878-42148ee446dc:default-style:WebDataGrid",
-      "children": []
-    },
-    {
-      "id": "7801b239-112d-413a-9818-e872eb4c6192",
-      "type": "WebPanel",
-      "name": "PNLServicos",
-      "parentId": "0f34fe15-128e-4909-b2d4-26466fb28272",
-      "layout": {
-        "container": {
-          "mode": "column",
-          "paddingTop": 16,
-          "paddingRight": 16,
-          "paddingBottom": 16,
-          "paddingLeft": 16,
-          "gap": 10,
-          "wrap": false,
-          "justifyContent": "start",
-          "alignItems": "start"
-        },
-        "item": {
-          "width": "stretch",
-          "height": "fit-content",
-          "minWidth": 0,
-          "maxWidth": null,
-          "minHeight": 0,
-          "maxHeight": null,
-          "grow": 0,
-          "shrink": true,
-          "alignSelf": "auto",
-          "horizontalAnchor": "start",
-          "verticalAnchor": "start",
-          "left": 0,
-          "right": 0,
-          "top": 0,
-          "bottom": 0
-        }
-      },
-      "bounds": {
-        "width": 600,
-        "height": 160,
-        "x": 0,
-        "y": 0
-      },
-      "props": {
-        "caption": "",
-        "enabled": true,
-        "backgroundColor": "transparent",
-        "aspectRatio": "none",
-        "backgroundImage": "",
-        "backgroundPosition": "center",
-        "backgroundRepeat": "no-repeat",
-        "backgroundSize": "cover",
-        "borderColor": "#808080",
-        "collapseWhenHidden": true,
-        "floatingAlignment": "none",
-        "floatingHorizontalAnchor": "left",
-        "floatingVerticalAnchor": "top",
-        "floatingZIndex": 100,
-        "placement": "in-flow",
-        "progressEnabled": false,
-        "progressValue": 0,
-        "visible": true
-      },
-      "events": {
-        "OnClick": null,
-        "OnDblClick": null,
-        "OnMouseEnter": null,
-        "OnMouseLeave": null
-      },
-      "styleId": "3755d9a1-991d-4861-8878-42148ee446dc:default-style:WebPanel",
-      "children": [
-        "b12264ff-12cb-461b-916f-8da642b72e37"
-      ]
-    },
-    {
-      "id": "b12264ff-12cb-461b-916f-8da642b72e37",
-      "type": "WebDataGrid",
-      "name": "GRDServicos",
-      "parentId": "7801b239-112d-413a-9818-e872eb4c6192",
-      "layout": {
-        "container": {
-          "mode": "fixed",
-          "paddingTop": 0,
-          "paddingRight": 0,
-          "paddingBottom": 0,
-          "paddingLeft": 0,
-          "gap": 0,
-          "wrap": false,
-          "justifyContent": "start",
-          "alignItems": "start"
-        },
-        "item": {
-          "width": "stretch",
-          "height": "fixed",
-          "minWidth": 0,
-          "maxWidth": null,
-          "minHeight": 0,
-          "maxHeight": null,
-          "grow": 0,
-          "shrink": false,
-          "alignSelf": "auto",
-          "horizontalAnchor": "start",
-          "verticalAnchor": "start",
-          "left": 0,
-          "right": 0,
-          "top": 0,
-          "bottom": 0
-        }
-      },
-      "bounds": {
-        "width": 640,
-        "height": 560,
-        "x": 0,
-        "y": 0
-      },
-      "props": {
-        "enabled": true,
-        "collapseWhenHidden": true,
-        "dataGridConfig": {
-          "apiClientId": "5c727ab8-4f68-4f6c-b396-6e265d7afedc",
-          "cellPaddingHorizontal": 10,
-          "cellPaddingVertical": 8,
-          "columnCount": 7,
-          "columns": [
-            {
-              "id": "dd827fbb-02bc-4538-921e-abcd1c7c543a",
-              "width": 80,
-              "minWidth": 80,
-              "maxWidth": null,
-              "buttonIcon": null,
-              "cellAlign": "start",
-              "cellKind": "text",
-              "fieldPath": "/id_servico",
-              "fixedCaption": "",
-              "flex": 1,
-              "footer": "",
-              "header": "#",
-              "headerAlign": "start",
-              "searchable": true,
-              "sortable": true,
-              "widthMode": "fixed"
-            },
-            {
-              "id": "11c3f06a-bbef-43e0-9292-b916174eac60",
-              "width": 180,
-              "minWidth": 90,
-              "maxWidth": null,
-              "buttonIcon": null,
-              "cellAlign": "start",
-              "cellKind": "text",
-              "fieldPath": "/nome_servico",
-              "fixedCaption": "",
-              "flex": 1,
-              "footer": "",
-              "header": "Serviço",
-              "headerAlign": "start",
-              "searchable": true,
-              "sortable": true,
-              "widthMode": "dynamic"
-            },
-            {
-              "id": "4387d476-d585-4e24-a7d9-85e8a5011da2",
-              "width": 160,
-              "minWidth": 90,
-              "maxWidth": null,
-              "buttonIcon": null,
-              "cellAlign": "start",
-              "cellKind": "text",
-              "fieldPath": "/nome_fila",
-              "fixedCaption": "",
-              "flex": 1,
-              "footer": "",
-              "header": "Fila",
-              "headerAlign": "start",
-              "searchable": true,
-              "sortable": true,
-              "widthMode": "fixed"
-            },
-            {
-              "id": "334de251-3b5d-40ba-85e2-f474d3619136",
-              "width": 100,
-              "minWidth": 90,
-              "maxWidth": null,
-              "buttonIcon": null,
-              "cellAlign": "start",
-              "cellKind": "text",
-              "fieldPath": "/valor_servico",
-              "fixedCaption": "",
-              "flex": 1,
-              "footer": "",
-              "header": "Valor",
-              "headerAlign": "start",
-              "searchable": true,
-              "sortable": true,
-              "widthMode": "fixed"
-            },
-            {
-              "id": "97513f4b-5218-4ef9-84e7-42c721747a2c",
-              "width": 90,
-              "minWidth": 90,
-              "maxWidth": null,
-              "buttonIcon": null,
-              "cellAlign": "start",
-              "cellKind": "text",
-              "fieldPath": "/pontuacao_servico",
-              "fixedCaption": "",
-              "flex": 1,
-              "footer": "",
-              "header": "Pontos",
-              "headerAlign": "start",
-              "searchable": true,
-              "sortable": true,
-              "widthMode": "fixed"
-            },
-            {
-              "id": "7272278c-d4ef-4280-8bda-1be645675b67",
-              "width": 90,
-              "minWidth": 90,
-              "maxWidth": null,
-              "buttonIcon": null,
-              "cellAlign": "start",
-              "cellKind": "text",
-              "fieldPath": "/unidade_medida",
-              "fixedCaption": "",
-              "flex": 1,
-              "footer": "",
-              "header": "Unidade",
-              "headerAlign": "start",
-              "searchable": true,
-              "sortable": true,
-              "widthMode": "fixed"
-            },
-            {
-              "id": "26fc1acd-8deb-4c9d-88ea-5a5b0dd81a63",
-              "width": 80,
-              "minWidth": 80,
-              "maxWidth": null,
-              "buttonIcon": null,
-              "cellAlign": "start",
-              "cellKind": "text",
-              "fieldPath": "/status_servico",
-              "fixedCaption": "",
-              "flex": 1,
-              "footer": "",
-              "header": "Ativo",
-              "headerAlign": "start",
-              "searchable": true,
-              "sortable": true,
-              "widthMode": "fixed"
-            }
-          ],
-          "emptyMessage": "Nenhum registro",
-          "exportEnabled": true,
-          "fixedRowHeight": 40,
-          "listPath": "/data",
-          "maxRowHeight": null,
-          "minRowHeight": 36,
-          "operationId": "298a0448-95b8-4f23-8da7-844d3455dba2",
-          "pageSize": 25,
-          "pageSizeOptions": [
-            10,
-            25,
-            50,
-            100
-          ],
-          "pagination": "server",
-          "rowHeightMode": "dynamic",
-          "schemaVersion": 2,
-          "searchEnabled": true,
-          "searchPlaceholder": "",
-          "serverDirectionParameter": "dir",
-          "serverSearchParameter": "q",
-          "serverSortParameter": "sort",
-          "showFooter": false,
-          "showHeader": true,
-          "showHorizontalLines": true,
-          "showPageSizeSelector": true,
-          "showVerticalLines": false,
-          "sortEnabled": true,
-          "stickyFooter": true,
-          "stickyHeader": true,
-          "stripedRows": true,
-          "totalPagesPath": "/total_pages",
-          "totalRowsPath": "/total",
-          "wrapText": false
-        },
-        "visible": true
-      },
-      "events": {
-        "OnCellClick": null,
-        "OnPageChange": null,
-        "OnQueryChange": null,
-        "OnSearch": null,
-        "OnSortChange": null
-      },
-      "styleId": "3755d9a1-991d-4861-8878-42148ee446dc:default-style:WebDataGrid",
-      "children": []
-    },
-    {
-      "id": "3c18f37d-9823-47a0-9092-f62c6c8ab40d",
-      "type": "WebPanel",
-      "name": "PNLBancadas",
-      "parentId": "0f34fe15-128e-4909-b2d4-26466fb28272",
-      "layout": {
-        "container": {
-          "mode": "column",
-          "paddingTop": 16,
-          "paddingRight": 16,
-          "paddingBottom": 16,
-          "paddingLeft": 16,
-          "gap": 10,
-          "wrap": false,
-          "justifyContent": "start",
-          "alignItems": "start"
-        },
-        "item": {
-          "width": "stretch",
-          "height": "fit-content",
-          "minWidth": 0,
-          "maxWidth": null,
-          "minHeight": 0,
-          "maxHeight": null,
-          "grow": 0,
-          "shrink": true,
-          "alignSelf": "auto",
-          "horizontalAnchor": "start",
-          "verticalAnchor": "start",
-          "left": 0,
-          "right": 0,
-          "top": 0,
-          "bottom": 0
-        }
-      },
-      "bounds": {
-        "width": 600,
-        "height": 160,
-        "x": 0,
-        "y": 0
-      },
-      "props": {
-        "caption": "",
-        "enabled": true,
-        "backgroundColor": "transparent",
-        "aspectRatio": "none",
-        "backgroundImage": "",
-        "backgroundPosition": "center",
-        "backgroundRepeat": "no-repeat",
-        "backgroundSize": "cover",
-        "borderColor": "#808080",
-        "collapseWhenHidden": true,
-        "floatingAlignment": "none",
-        "floatingHorizontalAnchor": "left",
-        "floatingVerticalAnchor": "top",
-        "floatingZIndex": 100,
-        "placement": "in-flow",
-        "progressEnabled": false,
-        "progressValue": 0,
-        "visible": true
-      },
-      "events": {
-        "OnClick": null,
-        "OnDblClick": null,
-        "OnMouseEnter": null,
-        "OnMouseLeave": null
-      },
-      "styleId": "3755d9a1-991d-4861-8878-42148ee446dc:default-style:WebPanel",
-      "children": [
-        "40104f03-41cf-42ab-80b2-191298eeb86f"
-      ]
-    },
-    {
-      "id": "40104f03-41cf-42ab-80b2-191298eeb86f",
-      "type": "WebDataGrid",
-      "name": "GRDBancadas",
-      "parentId": "3c18f37d-9823-47a0-9092-f62c6c8ab40d",
-      "layout": {
-        "container": {
-          "mode": "fixed",
-          "paddingTop": 0,
-          "paddingRight": 0,
-          "paddingBottom": 0,
-          "paddingLeft": 0,
-          "gap": 0,
-          "wrap": false,
-          "justifyContent": "start",
-          "alignItems": "start"
-        },
-        "item": {
-          "width": "stretch",
-          "height": "fixed",
-          "minWidth": 0,
-          "maxWidth": null,
-          "minHeight": 0,
-          "maxHeight": null,
-          "grow": 0,
-          "shrink": false,
-          "alignSelf": "auto",
-          "horizontalAnchor": "start",
-          "verticalAnchor": "start",
-          "left": 0,
-          "right": 0,
-          "top": 0,
-          "bottom": 0
-        }
-      },
-      "bounds": {
-        "width": 640,
-        "height": 420,
-        "x": 0,
-        "y": 0
-      },
-      "props": {
-        "enabled": true,
-        "collapseWhenHidden": true,
-        "dataGridConfig": {
-          "apiClientId": "5c727ab8-4f68-4f6c-b396-6e265d7afedc",
-          "cellPaddingHorizontal": 10,
-          "cellPaddingVertical": 8,
-          "columnCount": 4,
-          "columns": [
-            {
-              "id": "2b4ff2c3-e3f6-49be-9275-1e0b52d10a74",
-              "width": 80,
-              "minWidth": 80,
-              "maxWidth": null,
-              "buttonIcon": null,
-              "cellAlign": "start",
-              "cellKind": "text",
-              "fieldPath": "/id_bancada",
-              "fixedCaption": "",
-              "flex": 1,
-              "footer": "",
-              "header": "#",
-              "headerAlign": "start",
-              "searchable": true,
-              "sortable": true,
-              "widthMode": "fixed"
-            },
-            {
-              "id": "6d63456c-5b67-46cc-a1bf-d0c663e2d77d",
-              "width": 180,
-              "minWidth": 90,
-              "maxWidth": null,
-              "buttonIcon": null,
-              "cellAlign": "start",
-              "cellKind": "text",
-              "fieldPath": "/nome_bancada",
-              "fixedCaption": "",
-              "flex": 1,
-              "footer": "",
-              "header": "Bancada",
-              "headerAlign": "start",
-              "searchable": true,
-              "sortable": true,
-              "widthMode": "dynamic"
-            },
-            {
-              "id": "03823790-5222-4c2f-9673-6e1971b0705b",
-              "width": 100,
-              "minWidth": 90,
-              "maxWidth": null,
-              "buttonIcon": null,
-              "cellAlign": "start",
-              "cellKind": "text",
-              "fieldPath": "/ocupado_bancada",
-              "fixedCaption": "",
-              "flex": 1,
-              "footer": "",
-              "header": "Ocupada",
-              "headerAlign": "start",
-              "searchable": true,
-              "sortable": true,
-              "widthMode": "fixed"
-            },
-            {
-              "id": "55e5af12-f3de-45aa-9a01-ac093cb2d6ba",
-              "width": 100,
-              "minWidth": 90,
-              "maxWidth": null,
-              "buttonIcon": null,
-              "cellAlign": "start",
-              "cellKind": "text",
-              "fieldPath": "/status_bancada",
               "fixedCaption": "",
               "flex": 1,
               "footer": "",
@@ -2524,7 +2701,7 @@
           "rowHeightMode": "dynamic",
           "schemaVersion": 2,
           "searchEnabled": true,
-          "searchPlaceholder": "",
+          "searchPlaceholder": "Busca:",
           "serverDirectionParameter": "dir",
           "serverSearchParameter": "q",
           "serverSortParameter": "sort",
@@ -2550,22 +2727,22 @@
         "OnSearch": null,
         "OnSortChange": null
       },
-      "styleId": "3755d9a1-991d-4861-8878-42148ee446dc:default-style:WebDataGrid",
+      "styleId": "sigat2-lista",
       "children": []
     },
     {
-      "id": "c1c4293c-c249-4d58-aea8-2adac01611c6",
+      "id": "a38eb588-98d8-4a64-b528-104768d7fb57",
       "type": "WebPanel",
-      "name": "PNLModelos",
+      "name": "PNLServicos",
       "parentId": "0f34fe15-128e-4909-b2d4-26466fb28272",
       "layout": {
         "container": {
           "mode": "column",
-          "paddingTop": 16,
-          "paddingRight": 16,
-          "paddingBottom": 16,
-          "paddingLeft": 16,
-          "gap": 10,
+          "paddingTop": 0,
+          "paddingRight": 0,
+          "paddingBottom": 0,
+          "paddingLeft": 0,
+          "gap": 8,
           "wrap": false,
           "justifyContent": "start",
           "alignItems": "start"
@@ -2620,16 +2797,16 @@
         "OnMouseEnter": null,
         "OnMouseLeave": null
       },
-      "styleId": "3755d9a1-991d-4861-8878-42148ee446dc:default-style:WebPanel",
+      "styleId": "sigat2-quadro",
       "children": [
-        "ca9f60e0-8e8b-4e6e-bab5-6215d84acb7f"
+        "a56ec7e7-60a7-4cb4-a733-8378f30810e3"
       ]
     },
     {
-      "id": "ca9f60e0-8e8b-4e6e-bab5-6215d84acb7f",
+      "id": "a56ec7e7-60a7-4cb4-a733-8378f30810e3",
       "type": "WebDataGrid",
-      "name": "GRDModelos",
-      "parentId": "c1c4293c-c249-4d58-aea8-2adac01611c6",
+      "name": "GRDServicos",
+      "parentId": "a38eb588-98d8-4a64-b528-104768d7fb57",
       "layout": {
         "container": {
           "mode": "fixed",
@@ -2662,7 +2839,7 @@
       },
       "bounds": {
         "width": 640,
-        "height": 520,
+        "height": 560,
         "x": 0,
         "y": 0
       },
@@ -2673,17 +2850,18 @@
           "apiClientId": "5c727ab8-4f68-4f6c-b396-6e265d7afedc",
           "cellPaddingHorizontal": 10,
           "cellPaddingVertical": 8,
-          "columnCount": 5,
+          "columnCount": 7,
+          "columnFilters": false,
           "columns": [
             {
-              "id": "3d7368c2-310b-4769-ae5b-797299d6eda1",
+              "id": "55e5af12-f3de-45aa-9a01-ac093cb2d6ba",
               "width": 80,
               "minWidth": 80,
               "maxWidth": null,
               "buttonIcon": null,
               "cellAlign": "start",
               "cellKind": "text",
-              "fieldPath": "/id_modelo_mensagem",
+              "fieldPath": "/id_servico",
               "fixedCaption": "",
               "flex": 1,
               "footer": "",
@@ -2694,25 +2872,25 @@
               "widthMode": "fixed"
             },
             {
-              "id": "4c3bbe0f-0166-4b2d-9783-7eab1eac208a",
-              "width": 160,
+              "id": "3d7368c2-310b-4769-ae5b-797299d6eda1",
+              "width": 180,
               "minWidth": 90,
               "maxWidth": null,
               "buttonIcon": null,
               "cellAlign": "start",
               "cellKind": "text",
-              "fieldPath": "/tipo_modelo_mensagem",
+              "fieldPath": "/nome_servico",
               "fixedCaption": "",
               "flex": 1,
               "footer": "",
-              "header": "Tipo",
+              "header": "Serviço",
               "headerAlign": "start",
               "searchable": true,
               "sortable": true,
-              "widthMode": "fixed"
+              "widthMode": "dynamic"
             },
             {
-              "id": "061d6286-8a1e-4597-bc82-0d3fe52f06f9",
+              "id": "4c3bbe0f-0166-4b2d-9783-7eab1eac208a",
               "width": 160,
               "minWidth": 90,
               "maxWidth": null,
@@ -2730,32 +2908,68 @@
               "widthMode": "fixed"
             },
             {
-              "id": "9cb77808-6ef9-4548-b962-2ebd3568cc2b",
-              "width": 180,
+              "id": "061d6286-8a1e-4597-bc82-0d3fe52f06f9",
+              "width": 100,
               "minWidth": 90,
               "maxWidth": null,
               "buttonIcon": null,
               "cellAlign": "start",
               "cellKind": "text",
-              "fieldPath": "/mensagem_modelo_mensagem",
+              "fieldPath": "/valor_servico",
               "fixedCaption": "",
               "flex": 1,
               "footer": "",
-              "header": "Mensagem",
+              "header": "Valor",
               "headerAlign": "start",
               "searchable": true,
               "sortable": true,
-              "widthMode": "dynamic"
+              "widthMode": "fixed"
+            },
+            {
+              "id": "9cb77808-6ef9-4548-b962-2ebd3568cc2b",
+              "width": 90,
+              "minWidth": 90,
+              "maxWidth": null,
+              "buttonIcon": null,
+              "cellAlign": "start",
+              "cellKind": "text",
+              "fieldPath": "/pontuacao_servico",
+              "fixedCaption": "",
+              "flex": 1,
+              "footer": "",
+              "header": "Pontos",
+              "headerAlign": "start",
+              "searchable": true,
+              "sortable": true,
+              "widthMode": "fixed"
             },
             {
               "id": "b97f88db-e3a7-43aa-b2d7-b40cce0f9ed3",
+              "width": 90,
+              "minWidth": 90,
+              "maxWidth": null,
+              "buttonIcon": null,
+              "cellAlign": "start",
+              "cellKind": "text",
+              "fieldPath": "/unidade_medida",
+              "fixedCaption": "",
+              "flex": 1,
+              "footer": "",
+              "header": "Unidade",
+              "headerAlign": "start",
+              "searchable": true,
+              "sortable": true,
+              "widthMode": "fixed"
+            },
+            {
+              "id": "a9b946dd-1d15-483b-b60f-845db578a7d1",
               "width": 80,
               "minWidth": 80,
               "maxWidth": null,
               "buttonIcon": null,
               "cellAlign": "start",
               "cellKind": "text",
-              "fieldPath": "/status_modelo_mensagem",
+              "fieldPath": "/status_servico",
               "fixedCaption": "",
               "flex": 1,
               "footer": "",
@@ -2780,11 +2994,11 @@
             50,
             100
           ],
-          "pagination": "client",
+          "pagination": "server",
           "rowHeightMode": "dynamic",
           "schemaVersion": 2,
           "searchEnabled": true,
-          "searchPlaceholder": "",
+          "searchPlaceholder": "Busca:",
           "serverDirectionParameter": "dir",
           "serverSearchParameter": "q",
           "serverSortParameter": "sort",
@@ -2810,22 +3024,22 @@
         "OnSearch": null,
         "OnSortChange": null
       },
-      "styleId": "3755d9a1-991d-4861-8878-42148ee446dc:default-style:WebDataGrid",
+      "styleId": "sigat2-lista",
       "children": []
     },
     {
-      "id": "26a88812-fb92-4228-800a-0d51c26c81e6",
+      "id": "4930786a-78b9-452c-8840-f4de048b7c0a",
       "type": "WebPanel",
-      "name": "PNLFilas",
+      "name": "PNLBancadas",
       "parentId": "0f34fe15-128e-4909-b2d4-26466fb28272",
       "layout": {
         "container": {
           "mode": "column",
-          "paddingTop": 16,
-          "paddingRight": 16,
-          "paddingBottom": 16,
-          "paddingLeft": 16,
-          "gap": 10,
+          "paddingTop": 0,
+          "paddingRight": 0,
+          "paddingBottom": 0,
+          "paddingLeft": 0,
+          "gap": 8,
           "wrap": false,
           "justifyContent": "start",
           "alignItems": "start"
@@ -2880,16 +3094,16 @@
         "OnMouseEnter": null,
         "OnMouseLeave": null
       },
-      "styleId": "3755d9a1-991d-4861-8878-42148ee446dc:default-style:WebPanel",
+      "styleId": "sigat2-quadro",
       "children": [
-        "a38eb588-98d8-4a64-b528-104768d7fb57"
+        "5e359e16-bb52-4c48-9d49-b7aa02e5a144"
       ]
     },
     {
-      "id": "a38eb588-98d8-4a64-b528-104768d7fb57",
+      "id": "5e359e16-bb52-4c48-9d49-b7aa02e5a144",
       "type": "WebDataGrid",
-      "name": "GRDFilas",
-      "parentId": "26a88812-fb92-4228-800a-0d51c26c81e6",
+      "name": "GRDBancadas",
+      "parentId": "4930786a-78b9-452c-8840-f4de048b7c0a",
       "layout": {
         "container": {
           "mode": "fixed",
@@ -2934,16 +3148,17 @@
           "cellPaddingHorizontal": 10,
           "cellPaddingVertical": 8,
           "columnCount": 4,
+          "columnFilters": false,
           "columns": [
             {
-              "id": "a9b946dd-1d15-483b-b60f-845db578a7d1",
+              "id": "219dcfcc-1b65-4c0b-ac7b-8cb3b0dd033d",
               "width": 80,
               "minWidth": 80,
               "maxWidth": null,
               "buttonIcon": null,
               "cellAlign": "start",
               "cellKind": "text",
-              "fieldPath": "/id_fila",
+              "fieldPath": "/id_bancada",
               "fixedCaption": "",
               "flex": 1,
               "footer": "",
@@ -2954,54 +3169,54 @@
               "widthMode": "fixed"
             },
             {
-              "id": "219dcfcc-1b65-4c0b-ac7b-8cb3b0dd033d",
+              "id": "95dc10b2-5bfc-491c-abbd-a34c4bf51883",
               "width": 180,
               "minWidth": 90,
               "maxWidth": null,
               "buttonIcon": null,
               "cellAlign": "start",
               "cellKind": "text",
-              "fieldPath": "/nome_fila",
+              "fieldPath": "/nome_bancada",
               "fixedCaption": "",
               "flex": 1,
               "footer": "",
-              "header": "Fila",
+              "header": "Bancada",
               "headerAlign": "start",
               "searchable": true,
               "sortable": true,
               "widthMode": "dynamic"
             },
             {
-              "id": "95dc10b2-5bfc-491c-abbd-a34c4bf51883",
-              "width": 120,
+              "id": "7a5ce407-84ed-4518-990c-458e2d080e50",
+              "width": 100,
               "minWidth": 90,
               "maxWidth": null,
               "buttonIcon": null,
               "cellAlign": "start",
               "cellKind": "text",
-              "fieldPath": "/status_fila",
+              "fieldPath": "/ocupado_bancada",
               "fixedCaption": "",
               "flex": 1,
               "footer": "",
-              "header": "Status",
+              "header": "Ocupada",
               "headerAlign": "start",
               "searchable": true,
               "sortable": true,
               "widthMode": "fixed"
             },
             {
-              "id": "7a5ce407-84ed-4518-990c-458e2d080e50",
-              "width": 200,
+              "id": "56550f84-404c-4cc5-8d1d-82e3870de2ea",
+              "width": 100,
               "minWidth": 90,
               "maxWidth": null,
               "buttonIcon": null,
               "cellAlign": "start",
               "cellKind": "text",
-              "fieldPath": "/icone_fila",
+              "fieldPath": "/status_bancada",
               "fixedCaption": "",
               "flex": 1,
               "footer": "",
-              "header": "Ícone",
+              "header": "Ativa",
               "headerAlign": "start",
               "searchable": true,
               "sortable": true,
@@ -3026,7 +3241,7 @@
           "rowHeightMode": "dynamic",
           "schemaVersion": 2,
           "searchEnabled": true,
-          "searchPlaceholder": "",
+          "searchPlaceholder": "Busca:",
           "serverDirectionParameter": "dir",
           "serverSearchParameter": "q",
           "serverSortParameter": "sort",
@@ -3052,22 +3267,22 @@
         "OnSearch": null,
         "OnSortChange": null
       },
-      "styleId": "3755d9a1-991d-4861-8878-42148ee446dc:default-style:WebDataGrid",
+      "styleId": "sigat2-lista",
       "children": []
     },
     {
-      "id": "a56ec7e7-60a7-4cb4-a733-8378f30810e3",
+      "id": "a81031fb-91f2-4f55-b201-72540416285c",
       "type": "WebPanel",
-      "name": "PNLEventos",
+      "name": "PNLFilas",
       "parentId": "0f34fe15-128e-4909-b2d4-26466fb28272",
       "layout": {
         "container": {
           "mode": "column",
-          "paddingTop": 16,
-          "paddingRight": 16,
-          "paddingBottom": 16,
-          "paddingLeft": 16,
-          "gap": 10,
+          "paddingTop": 0,
+          "paddingRight": 0,
+          "paddingBottom": 0,
+          "paddingLeft": 0,
+          "gap": 8,
           "wrap": false,
           "justifyContent": "start",
           "alignItems": "start"
@@ -3122,16 +3337,16 @@
         "OnMouseEnter": null,
         "OnMouseLeave": null
       },
-      "styleId": "3755d9a1-991d-4861-8878-42148ee446dc:default-style:WebPanel",
+      "styleId": "sigat2-quadro",
       "children": [
-        "4930786a-78b9-452c-8840-f4de048b7c0a"
+        "f8cbda57-2965-4b8a-86b4-05eb11517594"
       ]
     },
     {
-      "id": "4930786a-78b9-452c-8840-f4de048b7c0a",
+      "id": "f8cbda57-2965-4b8a-86b4-05eb11517594",
       "type": "WebDataGrid",
-      "name": "GRDEventos",
-      "parentId": "a56ec7e7-60a7-4cb4-a733-8378f30810e3",
+      "name": "GRDFilas",
+      "parentId": "a81031fb-91f2-4f55-b201-72540416285c",
       "layout": {
         "container": {
           "mode": "fixed",
@@ -3164,7 +3379,7 @@
       },
       "bounds": {
         "width": 640,
-        "height": 560,
+        "height": 420,
         "x": 0,
         "y": 0
       },
@@ -3175,17 +3390,18 @@
           "apiClientId": "5c727ab8-4f68-4f6c-b396-6e265d7afedc",
           "cellPaddingHorizontal": 10,
           "cellPaddingVertical": 8,
-          "columnCount": 5,
+          "columnCount": 4,
+          "columnFilters": false,
           "columns": [
             {
-              "id": "56550f84-404c-4cc5-8d1d-82e3870de2ea",
-              "width": 100,
-              "minWidth": 90,
+              "id": "426fb211-8f6c-480a-a3f3-7ed20994fe0b",
+              "width": 80,
+              "minWidth": 80,
               "maxWidth": null,
               "buttonIcon": null,
               "cellAlign": "start",
               "cellKind": "text",
-              "fieldPath": "/id_evento",
+              "fieldPath": "/id_fila",
               "fixedCaption": "",
               "flex": 1,
               "footer": "",
@@ -3196,54 +3412,36 @@
               "widthMode": "fixed"
             },
             {
-              "id": "426fb211-8f6c-480a-a3f3-7ed20994fe0b",
-              "width": 170,
-              "minWidth": 90,
-              "maxWidth": null,
-              "buttonIcon": null,
-              "cellAlign": "start",
-              "cellKind": "text",
-              "fieldPath": "/data_evento_fmt",
-              "fixedCaption": "",
-              "flex": 1,
-              "footer": "",
-              "header": "Data",
-              "headerAlign": "start",
-              "searchable": true,
-              "sortable": true,
-              "widthMode": "fixed"
-            },
-            {
               "id": "19d225e3-7c99-466e-af99-0b64ce1e3b81",
-              "width": 200,
+              "width": 180,
               "minWidth": 90,
               "maxWidth": null,
               "buttonIcon": null,
               "cellAlign": "start",
               "cellKind": "text",
-              "fieldPath": "/nome_usuario",
+              "fieldPath": "/nome_fila",
               "fixedCaption": "",
               "flex": 1,
               "footer": "",
-              "header": "Usuário",
+              "header": "Fila",
               "headerAlign": "start",
               "searchable": true,
               "sortable": true,
-              "widthMode": "fixed"
+              "widthMode": "dynamic"
             },
             {
               "id": "3d045c37-a47e-42a0-865c-ec3931574d65",
-              "width": 220,
+              "width": 120,
               "minWidth": 90,
               "maxWidth": null,
               "buttonIcon": null,
               "cellAlign": "start",
               "cellKind": "text",
-              "fieldPath": "/acao_evento",
+              "fieldPath": "/status_fila",
               "fixedCaption": "",
               "flex": 1,
               "footer": "",
-              "header": "Ação",
+              "header": "Status",
               "headerAlign": "start",
               "searchable": true,
               "sortable": true,
@@ -3251,21 +3449,21 @@
             },
             {
               "id": "5cff4ca5-f3c1-46b1-886a-792204c9ccae",
-              "width": 180,
+              "width": 200,
               "minWidth": 90,
               "maxWidth": null,
               "buttonIcon": null,
               "cellAlign": "start",
               "cellKind": "text",
-              "fieldPath": "/desc_evento",
+              "fieldPath": "/icone_fila",
               "fixedCaption": "",
               "flex": 1,
               "footer": "",
-              "header": "Descrição",
+              "header": "Ícone",
               "headerAlign": "start",
               "searchable": true,
               "sortable": true,
-              "widthMode": "dynamic"
+              "widthMode": "fixed"
             }
           ],
           "emptyMessage": "Nenhum registro",
@@ -3282,11 +3480,11 @@
             50,
             100
           ],
-          "pagination": "server",
+          "pagination": "client",
           "rowHeightMode": "dynamic",
           "schemaVersion": 2,
           "searchEnabled": true,
-          "searchPlaceholder": "",
+          "searchPlaceholder": "Busca:",
           "serverDirectionParameter": "dir",
           "serverSearchParameter": "q",
           "serverSortParameter": "sort",
@@ -3312,7 +3510,7 @@
         "OnSearch": null,
         "OnSortChange": null
       },
-      "styleId": "3755d9a1-991d-4861-8878-42148ee446dc:default-style:WebDataGrid",
+      "styleId": "sigat2-lista",
       "children": []
     },
     {
@@ -3364,7 +3562,7 @@
           "operations": [
             {
               "id": "2ac136d9-c101-4682-987c-4fcadc40f54f",
-              "name": "Usuarios",
+              "name": "Eventos",
               "apiVersion": 1,
               "body": {
                 "kind": "none",
@@ -3373,7 +3571,7 @@
               "credentials": "omit",
               "headers": [],
               "method": "GET",
-              "path": "sigat/admin-usuarios",
+              "path": "sigat/admin-eventos",
               "query": [
                 {
                   "id": "25fb742d-7f18-4620-b97a-73588851094a",
@@ -3402,15 +3600,33 @@
                       "children": [
                         {
                           "id": "74e4fdb7-1746-43f9-ae28-918b1d1ad51d",
-                          "name": "id_usuario",
+                          "name": "id_evento",
                           "children": [],
                           "kind": "field",
                           "fieldType": "integer",
                           "nullable": true,
-                          "path": "/data/*/id_usuario"
+                          "path": "/data/*/id_evento"
                         },
                         {
                           "id": "ff031e98-37d6-4711-92a3-a9f3140eae93",
+                          "name": "acao_evento",
+                          "children": [],
+                          "kind": "field",
+                          "fieldType": "string",
+                          "nullable": true,
+                          "path": "/data/*/acao_evento"
+                        },
+                        {
+                          "id": "405b9839-c02e-478c-9956-609967ad9160",
+                          "name": "desc_evento",
+                          "children": [],
+                          "kind": "field",
+                          "fieldType": "string",
+                          "nullable": true,
+                          "path": "/data/*/desc_evento"
+                        },
+                        {
+                          "id": "08cf7a54-38b9-4151-91f2-d4d5589bb9ff",
                           "name": "nome_usuario",
                           "children": [],
                           "kind": "field",
@@ -3419,85 +3635,22 @@
                           "path": "/data/*/nome_usuario"
                         },
                         {
-                          "id": "405b9839-c02e-478c-9956-609967ad9160",
-                          "name": "login_usuario",
+                          "id": "57d58452-67ba-4df0-b234-571572d8f0aa",
+                          "name": "data_evento",
+                          "children": [],
+                          "kind": "field",
+                          "fieldType": "datetime",
+                          "nullable": true,
+                          "path": "/data/*/data_evento"
+                        },
+                        {
+                          "id": "662d6de7-e846-413a-8e17-d69dc62cd6f1",
+                          "name": "data_evento_fmt",
                           "children": [],
                           "kind": "field",
                           "fieldType": "string",
                           "nullable": true,
-                          "path": "/data/*/login_usuario"
-                        },
-                        {
-                          "id": "08cf7a54-38b9-4151-91f2-d4d5589bb9ff",
-                          "name": "autorizacao_usuario",
-                          "children": [],
-                          "kind": "field",
-                          "fieldType": "integer",
-                          "nullable": true,
-                          "path": "/data/*/autorizacao_usuario"
-                        },
-                        {
-                          "id": "57d58452-67ba-4df0-b234-571572d8f0aa",
-                          "name": "fila_usuario",
-                          "children": [],
-                          "kind": "field",
-                          "fieldType": "integer",
-                          "nullable": true,
-                          "path": "/data/*/fila_usuario"
-                        },
-                        {
-                          "id": "662d6de7-e846-413a-8e17-d69dc62cd6f1",
-                          "name": "triagem_usuario",
-                          "children": [],
-                          "kind": "field",
-                          "fieldType": "integer",
-                          "nullable": true,
-                          "path": "/data/*/triagem_usuario"
-                        },
-                        {
-                          "id": "aa564ea3-3c5c-410d-a451-76009a6b08a5",
-                          "name": "encerramento_usuario",
-                          "children": [],
-                          "kind": "field",
-                          "fieldType": "integer",
-                          "nullable": true,
-                          "path": "/data/*/encerramento_usuario"
-                        },
-                        {
-                          "id": "e273b94e-805a-4c2d-92c8-14dc7cda6f15",
-                          "name": "inservivel_usuario",
-                          "children": [],
-                          "kind": "field",
-                          "fieldType": "integer",
-                          "nullable": true,
-                          "path": "/data/*/inservivel_usuario"
-                        },
-                        {
-                          "id": "7aa24d52-aeb0-4b25-b572-377cd623593b",
-                          "name": "status_usuario",
-                          "children": [],
-                          "kind": "field",
-                          "fieldType": "integer",
-                          "nullable": true,
-                          "path": "/data/*/status_usuario"
-                        },
-                        {
-                          "id": "f7fc246d-7845-4fe1-a121-bff214b429c5",
-                          "name": "data_usuario",
-                          "children": [],
-                          "kind": "field",
-                          "fieldType": "datetime",
-                          "nullable": true,
-                          "path": "/data/*/data_usuario"
-                        },
-                        {
-                          "id": "f133ffa1-6637-4445-bb1a-0331ec2d549d",
-                          "name": "alteracao_usuario",
-                          "children": [],
-                          "kind": "field",
-                          "fieldType": "datetime",
-                          "nullable": true,
-                          "path": "/data/*/alteracao_usuario"
+                          "path": "/data/*/data_evento_fmt"
                         }
                       ],
                       "kind": "list",
@@ -3506,7 +3659,7 @@
                       "path": "/data"
                     },
                     {
-                      "id": "a3b7005f-f645-4e13-9386-4ac2101a1de0",
+                      "id": "aa564ea3-3c5c-410d-a451-76009a6b08a5",
                       "name": "page",
                       "children": [],
                       "kind": "field",
@@ -3515,7 +3668,7 @@
                       "path": "/page"
                     },
                     {
-                      "id": "e2ebe1ca-2d0b-4e55-9911-705ff47313f5",
+                      "id": "e273b94e-805a-4c2d-92c8-14dc7cda6f15",
                       "name": "page_size",
                       "children": [],
                       "kind": "field",
@@ -3524,7 +3677,7 @@
                       "path": "/page_size"
                     },
                     {
-                      "id": "da62ce74-2e47-4458-ad30-46bb3de0850c",
+                      "id": "7aa24d52-aeb0-4b25-b572-377cd623593b",
                       "name": "total_pages",
                       "children": [],
                       "kind": "field",
@@ -3533,7 +3686,7 @@
                       "path": "/total_pages"
                     },
                     {
-                      "id": "1d01c137-adef-4179-8eb5-90cee2ee3b3f",
+                      "id": "f7fc246d-7845-4fe1-a121-bff214b429c5",
                       "name": "total",
                       "children": [],
                       "kind": "field",
@@ -3542,7 +3695,7 @@
                       "path": "/total"
                     },
                     {
-                      "id": "613e005b-533e-4f54-a801-d11d576983d3",
+                      "id": "f133ffa1-6637-4445-bb1a-0331ec2d549d",
                       "name": "has_more",
                       "children": [],
                       "kind": "field",
@@ -3562,7 +3715,7 @@
             },
             {
               "id": "ecf32132-c001-4993-9cb4-75031a1e03e0",
-              "name": "Locais",
+              "name": "Usuarios",
               "apiVersion": 1,
               "body": {
                 "kind": "none",
@@ -3571,10 +3724,10 @@
               "credentials": "omit",
               "headers": [],
               "method": "GET",
-              "path": "sigat/admin-locais",
+              "path": "sigat/admin-usuarios",
               "query": [
                 {
-                  "id": "7e190511-7248-42fa-94e4-22c7623cddd4",
+                  "id": "a3b7005f-f645-4e13-9386-4ac2101a1de0",
                   "name": "q",
                   "value": "",
                   "enabled": false
@@ -3582,11 +3735,11 @@
               ],
               "responseSchema": {
                 "root": {
-                  "id": "6e672d8f-5fc3-4e76-bee7-2f742c240496",
+                  "id": "e2ebe1ca-2d0b-4e55-9911-705ff47313f5",
                   "name": "Response",
                   "children": [
                     {
-                      "id": "ea5828e1-4ffb-4744-99ec-421245f8c2f1",
+                      "id": "da62ce74-2e47-4458-ad30-46bb3de0850c",
                       "name": "success",
                       "children": [],
                       "kind": "field",
@@ -3595,98 +3748,107 @@
                       "path": "/success"
                     },
                     {
-                      "id": "137eaf77-17ed-4597-86e7-ea63ccecb469",
+                      "id": "1d01c137-adef-4179-8eb5-90cee2ee3b3f",
                       "name": "data",
                       "children": [
                         {
-                          "id": "52b4351f-e9e7-4815-a155-e5b17fedf61d",
-                          "name": "id_local",
+                          "id": "613e005b-533e-4f54-a801-d11d576983d3",
+                          "name": "id_usuario",
                           "children": [],
                           "kind": "field",
                           "fieldType": "integer",
                           "nullable": true,
-                          "path": "/data/*/id_local"
+                          "path": "/data/*/id_usuario"
+                        },
+                        {
+                          "id": "7e190511-7248-42fa-94e4-22c7623cddd4",
+                          "name": "nome_usuario",
+                          "children": [],
+                          "kind": "field",
+                          "fieldType": "string",
+                          "nullable": true,
+                          "path": "/data/*/nome_usuario"
+                        },
+                        {
+                          "id": "6e672d8f-5fc3-4e76-bee7-2f742c240496",
+                          "name": "login_usuario",
+                          "children": [],
+                          "kind": "field",
+                          "fieldType": "string",
+                          "nullable": true,
+                          "path": "/data/*/login_usuario"
+                        },
+                        {
+                          "id": "ea5828e1-4ffb-4744-99ec-421245f8c2f1",
+                          "name": "autorizacao_usuario",
+                          "children": [],
+                          "kind": "field",
+                          "fieldType": "integer",
+                          "nullable": true,
+                          "path": "/data/*/autorizacao_usuario"
+                        },
+                        {
+                          "id": "137eaf77-17ed-4597-86e7-ea63ccecb469",
+                          "name": "fila_usuario",
+                          "children": [],
+                          "kind": "field",
+                          "fieldType": "integer",
+                          "nullable": true,
+                          "path": "/data/*/fila_usuario"
+                        },
+                        {
+                          "id": "52b4351f-e9e7-4815-a155-e5b17fedf61d",
+                          "name": "triagem_usuario",
+                          "children": [],
+                          "kind": "field",
+                          "fieldType": "integer",
+                          "nullable": true,
+                          "path": "/data/*/triagem_usuario"
                         },
                         {
                           "id": "f9c906d2-c0bd-413c-ac6c-797f3a57c27c",
-                          "name": "nome_local",
+                          "name": "encerramento_usuario",
                           "children": [],
                           "kind": "field",
-                          "fieldType": "string",
+                          "fieldType": "integer",
                           "nullable": true,
-                          "path": "/data/*/nome_local"
+                          "path": "/data/*/encerramento_usuario"
                         },
                         {
                           "id": "5bd57fcb-b35d-418b-a3db-1e2e3d207588",
-                          "name": "endereco_local",
+                          "name": "inservivel_usuario",
                           "children": [],
                           "kind": "field",
-                          "fieldType": "string",
+                          "fieldType": "integer",
                           "nullable": true,
-                          "path": "/data/*/endereco_local"
+                          "path": "/data/*/inservivel_usuario"
                         },
                         {
                           "id": "de104d7c-4edd-4077-9659-dcceeb8a7452",
-                          "name": "regiao_local",
+                          "name": "status_usuario",
                           "children": [],
                           "kind": "field",
-                          "fieldType": "string",
+                          "fieldType": "integer",
                           "nullable": true,
-                          "path": "/data/*/regiao_local"
+                          "path": "/data/*/status_usuario"
                         },
                         {
                           "id": "6b07190e-698e-4084-96d0-8bb6d8a47edb",
-                          "name": "status_local",
-                          "children": [],
-                          "kind": "field",
-                          "fieldType": "integer",
-                          "nullable": true,
-                          "path": "/data/*/status_local"
-                        },
-                        {
-                          "id": "489d1e36-a1b3-401a-8f57-d162a1d336c6",
-                          "name": "infovia",
-                          "children": [],
-                          "kind": "field",
-                          "fieldType": "integer",
-                          "nullable": true,
-                          "path": "/data/*/infovia"
-                        },
-                        {
-                          "id": "d18be97c-cefd-4265-bcf9-034084917730",
-                          "name": "alteracao_local",
+                          "name": "data_usuario",
                           "children": [],
                           "kind": "field",
                           "fieldType": "datetime",
                           "nullable": true,
-                          "path": "/data/*/alteracao_local"
+                          "path": "/data/*/data_usuario"
                         },
                         {
-                          "id": "06e73b1c-20ef-4b3d-b088-6e299adfa357",
-                          "name": "id_secretaria",
+                          "id": "489d1e36-a1b3-401a-8f57-d162a1d336c6",
+                          "name": "alteracao_usuario",
                           "children": [],
                           "kind": "field",
-                          "fieldType": "integer",
+                          "fieldType": "datetime",
                           "nullable": true,
-                          "path": "/data/*/id_secretaria"
-                        },
-                        {
-                          "id": "f4c50162-a8ce-41b2-b02e-04a79137491a",
-                          "name": "nome_secretaria",
-                          "children": [],
-                          "kind": "field",
-                          "fieldType": "string",
-                          "nullable": true,
-                          "path": "/data/*/nome_secretaria"
-                        },
-                        {
-                          "id": "5acc50ec-12ee-4db3-9a0b-f559f187fe65",
-                          "name": "sigla_secretaria",
-                          "children": [],
-                          "kind": "field",
-                          "fieldType": "string",
-                          "nullable": true,
-                          "path": "/data/*/sigla_secretaria"
+                          "path": "/data/*/alteracao_usuario"
                         }
                       ],
                       "kind": "list",
@@ -3695,7 +3857,7 @@
                       "path": "/data"
                     },
                     {
-                      "id": "b1e60e69-b54c-416b-985f-aa8ced5874f8",
+                      "id": "d18be97c-cefd-4265-bcf9-034084917730",
                       "name": "page",
                       "children": [],
                       "kind": "field",
@@ -3704,7 +3866,7 @@
                       "path": "/page"
                     },
                     {
-                      "id": "dc7acf7c-53f9-4071-ac43-3f38b578470b",
+                      "id": "06e73b1c-20ef-4b3d-b088-6e299adfa357",
                       "name": "page_size",
                       "children": [],
                       "kind": "field",
@@ -3713,7 +3875,7 @@
                       "path": "/page_size"
                     },
                     {
-                      "id": "a7d37c8c-cfb5-4f16-b839-0a1e7dad109b",
+                      "id": "f4c50162-a8ce-41b2-b02e-04a79137491a",
                       "name": "total_pages",
                       "children": [],
                       "kind": "field",
@@ -3722,7 +3884,7 @@
                       "path": "/total_pages"
                     },
                     {
-                      "id": "346b1260-6a3f-475b-aa3f-b2dade409cea",
+                      "id": "5acc50ec-12ee-4db3-9a0b-f559f187fe65",
                       "name": "total",
                       "children": [],
                       "kind": "field",
@@ -3731,7 +3893,7 @@
                       "path": "/total"
                     },
                     {
-                      "id": "c7400898-b18a-49c5-925e-a5e382866978",
+                      "id": "b1e60e69-b54c-416b-985f-aa8ced5874f8",
                       "name": "has_more",
                       "children": [],
                       "kind": "field",
@@ -3751,7 +3913,7 @@
             },
             {
               "id": "3efd4e93-af44-4cb4-be1d-0f488827c018",
-              "name": "Secretarias",
+              "name": "Modelos",
               "apiVersion": 1,
               "body": {
                 "kind": "none",
@@ -3760,22 +3922,28 @@
               "credentials": "omit",
               "headers": [],
               "method": "GET",
-              "path": "sigat/secretarias",
+              "path": "sigat/modelos-mensagem",
               "query": [
                 {
-                  "id": "865749c1-ee2c-4814-9abd-dae004405aa8",
-                  "name": "ativas",
+                  "id": "dc7acf7c-53f9-4071-ac43-3f38b578470b",
+                  "name": "tipo",
+                  "value": "",
+                  "enabled": false
+                },
+                {
+                  "id": "a7d37c8c-cfb5-4f16-b839-0a1e7dad109b",
+                  "name": "fila",
                   "value": "",
                   "enabled": false
                 }
               ],
               "responseSchema": {
                 "root": {
-                  "id": "be568e21-f6d9-41bf-a5b1-41b8588c4a27",
+                  "id": "346b1260-6a3f-475b-aa3f-b2dade409cea",
                   "name": "Response",
                   "children": [
                     {
-                      "id": "4b4f9465-9be1-4feb-a023-40bc710fff75",
+                      "id": "c7400898-b18a-49c5-925e-a5e382866978",
                       "name": "success",
                       "children": [],
                       "kind": "field",
@@ -3784,53 +3952,80 @@
                       "path": "/success"
                     },
                     {
-                      "id": "585d32df-e4c9-4c7f-aa73-66b18364fe7b",
+                      "id": "865749c1-ee2c-4814-9abd-dae004405aa8",
                       "name": "data",
                       "children": [
                         {
-                          "id": "a3b3d936-ec71-44d5-b554-dfc2ceed4635",
-                          "name": "id_secretaria",
+                          "id": "be568e21-f6d9-41bf-a5b1-41b8588c4a27",
+                          "name": "id_modelo_mensagem",
                           "children": [],
                           "kind": "field",
                           "fieldType": "integer",
                           "nullable": true,
-                          "path": "/data/*/id_secretaria"
+                          "path": "/data/*/id_modelo_mensagem"
+                        },
+                        {
+                          "id": "4b4f9465-9be1-4feb-a023-40bc710fff75",
+                          "name": "status_modelo_mensagem",
+                          "children": [],
+                          "kind": "field",
+                          "fieldType": "integer",
+                          "nullable": true,
+                          "path": "/data/*/status_modelo_mensagem"
+                        },
+                        {
+                          "id": "585d32df-e4c9-4c7f-aa73-66b18364fe7b",
+                          "name": "fila_modelo_mensagem",
+                          "children": [],
+                          "kind": "field",
+                          "fieldType": "integer",
+                          "nullable": true,
+                          "path": "/data/*/fila_modelo_mensagem"
+                        },
+                        {
+                          "id": "a3b3d936-ec71-44d5-b554-dfc2ceed4635",
+                          "name": "nome_fila",
+                          "children": [],
+                          "kind": "field",
+                          "fieldType": "string",
+                          "nullable": true,
+                          "path": "/data/*/nome_fila"
                         },
                         {
                           "id": "c6f24675-2179-4d99-96d9-9c35f40ce345",
-                          "name": "nome_secretaria",
+                          "name": "mensagem_modelo_mensagem",
                           "children": [],
                           "kind": "field",
                           "fieldType": "string",
                           "nullable": true,
-                          "path": "/data/*/nome_secretaria"
+                          "path": "/data/*/mensagem_modelo_mensagem"
                         },
                         {
                           "id": "aeaa66fe-8cc5-4371-bc11-cc8a08404880",
-                          "name": "sigla_secretaria",
+                          "name": "tipo_modelo_mensagem",
                           "children": [],
                           "kind": "field",
                           "fieldType": "string",
                           "nullable": true,
-                          "path": "/data/*/sigla_secretaria"
+                          "path": "/data/*/tipo_modelo_mensagem"
                         },
                         {
                           "id": "fe6351da-bde9-49a7-921b-154cb2de5510",
-                          "name": "status_secretaria",
-                          "children": [],
-                          "kind": "field",
-                          "fieldType": "integer",
-                          "nullable": true,
-                          "path": "/data/*/status_secretaria"
-                        },
-                        {
-                          "id": "817bc860-781d-47cf-8bc5-18ed2445b15b",
-                          "name": "ultima_alteracao",
+                          "name": "data_modelo_mensagem",
                           "children": [],
                           "kind": "field",
                           "fieldType": "datetime",
                           "nullable": true,
-                          "path": "/data/*/ultima_alteracao"
+                          "path": "/data/*/data_modelo_mensagem"
+                        },
+                        {
+                          "id": "817bc860-781d-47cf-8bc5-18ed2445b15b",
+                          "name": "alterado_modelo_mensagem",
+                          "children": [],
+                          "kind": "field",
+                          "fieldType": "datetime",
+                          "nullable": true,
+                          "path": "/data/*/alterado_modelo_mensagem"
                         }
                       ],
                       "kind": "list",
@@ -3895,7 +4090,7 @@
             },
             {
               "id": "298a0448-95b8-4f23-8da7-844d3455dba2",
-              "name": "Servicos",
+              "name": "Locais",
               "apiVersion": 1,
               "body": {
                 "kind": "none",
@@ -3904,34 +4099,22 @@
               "credentials": "omit",
               "headers": [],
               "method": "GET",
-              "path": "sigat/admin-servicos",
+              "path": "sigat/admin-locais",
               "query": [
                 {
                   "id": "bf2cfdd3-c8e2-4222-a783-5469cdc784a4",
                   "name": "q",
                   "value": "",
                   "enabled": false
-                },
-                {
-                  "id": "06799dd7-d143-45ba-ab5e-05885b7a4696",
-                  "name": "fila",
-                  "value": "",
-                  "enabled": false
-                },
-                {
-                  "id": "6f62c979-116d-4339-bf65-b346a00d7ec0",
-                  "name": "status",
-                  "value": "",
-                  "enabled": false
                 }
               ],
               "responseSchema": {
                 "root": {
-                  "id": "172e3b03-efbe-4989-a6c3-62aea0da157d",
+                  "id": "06799dd7-d143-45ba-ab5e-05885b7a4696",
                   "name": "Response",
                   "children": [
                     {
-                      "id": "35435b40-11d2-432b-8c52-95d5c7f74606",
+                      "id": "6f62c979-116d-4339-bf65-b346a00d7ec0",
                       "name": "success",
                       "children": [],
                       "kind": "field",
@@ -3940,89 +4123,98 @@
                       "path": "/success"
                     },
                     {
-                      "id": "eb714108-35c7-49f6-9123-a306569419aa",
+                      "id": "172e3b03-efbe-4989-a6c3-62aea0da157d",
                       "name": "data",
                       "children": [
                         {
-                          "id": "f169d37e-812b-42b0-a0ba-8c37d6fd5483",
-                          "name": "id_servico",
+                          "id": "35435b40-11d2-432b-8c52-95d5c7f74606",
+                          "name": "id_local",
                           "children": [],
                           "kind": "field",
                           "fieldType": "integer",
                           "nullable": true,
-                          "path": "/data/*/id_servico"
+                          "path": "/data/*/id_local"
+                        },
+                        {
+                          "id": "eb714108-35c7-49f6-9123-a306569419aa",
+                          "name": "nome_local",
+                          "children": [],
+                          "kind": "field",
+                          "fieldType": "string",
+                          "nullable": true,
+                          "path": "/data/*/nome_local"
+                        },
+                        {
+                          "id": "f169d37e-812b-42b0-a0ba-8c37d6fd5483",
+                          "name": "endereco_local",
+                          "children": [],
+                          "kind": "field",
+                          "fieldType": "string",
+                          "nullable": true,
+                          "path": "/data/*/endereco_local"
                         },
                         {
                           "id": "57d0b42f-0932-41bd-980f-459ae50bc302",
-                          "name": "id_fila_servico",
+                          "name": "regiao_local",
                           "children": [],
                           "kind": "field",
-                          "fieldType": "integer",
+                          "fieldType": "string",
                           "nullable": true,
-                          "path": "/data/*/id_fila_servico"
+                          "path": "/data/*/regiao_local"
                         },
                         {
                           "id": "258b4773-64f7-47a4-a407-cec95bd70c61",
-                          "name": "nome_fila",
+                          "name": "status_local",
                           "children": [],
                           "kind": "field",
-                          "fieldType": "string",
+                          "fieldType": "integer",
                           "nullable": true,
-                          "path": "/data/*/nome_fila"
+                          "path": "/data/*/status_local"
                         },
                         {
                           "id": "aa32a338-a30e-4855-8db0-a22145844db7",
-                          "name": "nome_servico",
+                          "name": "infovia",
                           "children": [],
                           "kind": "field",
-                          "fieldType": "string",
+                          "fieldType": "integer",
                           "nullable": true,
-                          "path": "/data/*/nome_servico"
+                          "path": "/data/*/infovia"
                         },
                         {
                           "id": "91c47465-0465-4155-b057-16f5dc933924",
-                          "name": "valor_servico",
-                          "children": [],
-                          "kind": "field",
-                          "fieldType": "number",
-                          "nullable": true,
-                          "path": "/data/*/valor_servico"
-                        },
-                        {
-                          "id": "ae7c2e9d-794b-44b3-b5e9-c9359fbb64c2",
-                          "name": "pontuacao_servico",
-                          "children": [],
-                          "kind": "field",
-                          "fieldType": "integer",
-                          "nullable": true,
-                          "path": "/data/*/pontuacao_servico"
-                        },
-                        {
-                          "id": "435024bd-ec75-42e5-a9d6-fb8996c37ce0",
-                          "name": "status_servico",
-                          "children": [],
-                          "kind": "field",
-                          "fieldType": "integer",
-                          "nullable": true,
-                          "path": "/data/*/status_servico"
-                        },
-                        {
-                          "id": "28e61f5d-ad5c-422a-9e25-9f167ed187df",
-                          "name": "unidade_medida",
-                          "children": [],
-                          "kind": "field",
-                          "fieldType": "string",
-                          "nullable": true,
-                          "path": "/data/*/unidade_medida"
-                        },
-                        {
-                          "id": "ed841ab0-5e6b-450d-a358-23e17222a334",
-                          "name": "data_ultima_alteracao",
+                          "name": "alteracao_local",
                           "children": [],
                           "kind": "field",
                           "fieldType": "datetime",
                           "nullable": true,
-                          "path": "/data/*/data_ultima_alteracao"
+                          "path": "/data/*/alteracao_local"
+                        },
+                        {
+                          "id": "ae7c2e9d-794b-44b3-b5e9-c9359fbb64c2",
+                          "name": "id_secretaria",
+                          "children": [],
+                          "kind": "field",
+                          "fieldType": "integer",
+                          "nullable": true,
+                          "path": "/data/*/id_secretaria"
+                        },
+                        {
+                          "id": "435024bd-ec75-42e5-a9d6-fb8996c37ce0",
+                          "name": "nome_secretaria",
+                          "children": [],
+                          "kind": "field",
+                          "fieldType": "string",
+                          "nullable": true,
+                          "path": "/data/*/nome_secretaria"
+                        },
+                        {
+                          "id": "28e61f5d-ad5c-422a-9e25-9f167ed187df",
+                          "name": "sigla_secretaria",
+                          "children": [],
+                          "kind": "field",
+                          "fieldType": "string",
+                          "nullable": true,
+                          "path": "/data/*/sigla_secretaria"
                         }
                       ],
                       "kind": "list",
@@ -4031,7 +4223,7 @@
                       "path": "/data"
                     },
                     {
-                      "id": "9a30c272-392a-432e-b04c-7f39b6475f43",
+                      "id": "ed841ab0-5e6b-450d-a358-23e17222a334",
                       "name": "page",
                       "children": [],
                       "kind": "field",
@@ -4040,7 +4232,7 @@
                       "path": "/page"
                     },
                     {
-                      "id": "702fbd31-d2dc-46f3-8af9-83486a21498f",
+                      "id": "9a30c272-392a-432e-b04c-7f39b6475f43",
                       "name": "page_size",
                       "children": [],
                       "kind": "field",
@@ -4049,7 +4241,7 @@
                       "path": "/page_size"
                     },
                     {
-                      "id": "b9fa0b51-fc3f-4745-b5b4-2d3020c5fe0e",
+                      "id": "702fbd31-d2dc-46f3-8af9-83486a21498f",
                       "name": "total_pages",
                       "children": [],
                       "kind": "field",
@@ -4058,7 +4250,7 @@
                       "path": "/total_pages"
                     },
                     {
-                      "id": "d6e3e069-7c81-43ca-b684-908ff4fefd5d",
+                      "id": "b9fa0b51-fc3f-4745-b5b4-2d3020c5fe0e",
                       "name": "total",
                       "children": [],
                       "kind": "field",
@@ -4067,7 +4259,7 @@
                       "path": "/total"
                     },
                     {
-                      "id": "e7ab75ef-db05-4559-aa68-3fe8fb43c970",
+                      "id": "d6e3e069-7c81-43ca-b684-908ff4fefd5d",
                       "name": "has_more",
                       "children": [],
                       "kind": "field",
@@ -4087,7 +4279,7 @@
             },
             {
               "id": "5f347cbb-529f-4480-ac10-669d9be108d4",
-              "name": "Bancadas",
+              "name": "Secretarias",
               "apiVersion": 1,
               "body": {
                 "kind": "none",
@@ -4096,22 +4288,22 @@
               "credentials": "omit",
               "headers": [],
               "method": "GET",
-              "path": "sigat/bancadas",
+              "path": "sigat/secretarias",
               "query": [
                 {
-                  "id": "f45d1e15-11dc-4342-b99c-7f75b78bd527",
-                  "name": "livres",
+                  "id": "e7ab75ef-db05-4559-aa68-3fe8fb43c970",
+                  "name": "ativas",
                   "value": "",
                   "enabled": false
                 }
               ],
               "responseSchema": {
                 "root": {
-                  "id": "64935240-437c-4a22-b5f5-1d6b092d53d8",
+                  "id": "f45d1e15-11dc-4342-b99c-7f75b78bd527",
                   "name": "Response",
                   "children": [
                     {
-                      "id": "5c743630-8f08-4177-91bf-31e999d235dc",
+                      "id": "64935240-437c-4a22-b5f5-1d6b092d53d8",
                       "name": "success",
                       "children": [],
                       "kind": "field",
@@ -4120,44 +4312,53 @@
                       "path": "/success"
                     },
                     {
-                      "id": "c600bd40-1793-4427-8183-0ecfae758e27",
+                      "id": "5c743630-8f08-4177-91bf-31e999d235dc",
                       "name": "data",
                       "children": [
                         {
-                          "id": "a5361b07-b5a4-4c3d-a214-cfd8306932db",
-                          "name": "id_bancada",
+                          "id": "c600bd40-1793-4427-8183-0ecfae758e27",
+                          "name": "id_secretaria",
                           "children": [],
                           "kind": "field",
                           "fieldType": "integer",
                           "nullable": true,
-                          "path": "/data/*/id_bancada"
+                          "path": "/data/*/id_secretaria"
                         },
                         {
-                          "id": "27f92082-cd57-4037-879b-0e01691ef1fa",
-                          "name": "nome_bancada",
+                          "id": "a5361b07-b5a4-4c3d-a214-cfd8306932db",
+                          "name": "nome_secretaria",
                           "children": [],
                           "kind": "field",
                           "fieldType": "string",
                           "nullable": true,
-                          "path": "/data/*/nome_bancada"
+                          "path": "/data/*/nome_secretaria"
+                        },
+                        {
+                          "id": "27f92082-cd57-4037-879b-0e01691ef1fa",
+                          "name": "sigla_secretaria",
+                          "children": [],
+                          "kind": "field",
+                          "fieldType": "string",
+                          "nullable": true,
+                          "path": "/data/*/sigla_secretaria"
                         },
                         {
                           "id": "ad8388ab-9de6-4806-a9d2-17df49f197e5",
-                          "name": "status_bancada",
+                          "name": "status_secretaria",
                           "children": [],
                           "kind": "field",
                           "fieldType": "integer",
                           "nullable": true,
-                          "path": "/data/*/status_bancada"
+                          "path": "/data/*/status_secretaria"
                         },
                         {
                           "id": "0d625e59-abe5-4e54-b3f3-e00c112740db",
-                          "name": "ocupado_bancada",
+                          "name": "ultima_alteracao",
                           "children": [],
                           "kind": "field",
-                          "fieldType": "integer",
+                          "fieldType": "datetime",
                           "nullable": true,
-                          "path": "/data/*/ocupado_bancada"
+                          "path": "/data/*/ultima_alteracao"
                         }
                       ],
                       "kind": "list",
@@ -4222,7 +4423,7 @@
             },
             {
               "id": "f264b4c4-7b39-4472-899f-d66f1520e49d",
-              "name": "Modelos",
+              "name": "Servicos",
               "apiVersion": 1,
               "body": {
                 "kind": "none",
@@ -4231,11 +4432,11 @@
               "credentials": "omit",
               "headers": [],
               "method": "GET",
-              "path": "sigat/modelos-mensagem",
+              "path": "sigat/admin-servicos",
               "query": [
                 {
                   "id": "f84c9ca9-6abb-4f5d-a69d-462269fc1962",
-                  "name": "tipo",
+                  "name": "q",
                   "value": "",
                   "enabled": false
                 },
@@ -4244,15 +4445,21 @@
                   "name": "fila",
                   "value": "",
                   "enabled": false
+                },
+                {
+                  "id": "2f9b9f26-8e2a-4136-b562-6725d3017303",
+                  "name": "status",
+                  "value": "",
+                  "enabled": false
                 }
               ],
               "responseSchema": {
                 "root": {
-                  "id": "2f9b9f26-8e2a-4136-b562-6725d3017303",
+                  "id": "3196946e-1df5-46fa-9457-23afa738d9d2",
                   "name": "Response",
                   "children": [
                     {
-                      "id": "3196946e-1df5-46fa-9457-23afa738d9d2",
+                      "id": "64d0afa6-9b64-4d69-8b28-a08c4a8b25d6",
                       "name": "success",
                       "children": [],
                       "kind": "field",
@@ -4261,35 +4468,26 @@
                       "path": "/success"
                     },
                     {
-                      "id": "64d0afa6-9b64-4d69-8b28-a08c4a8b25d6",
+                      "id": "164cb775-4c0c-4768-a7b2-2d895c1d6c10",
                       "name": "data",
                       "children": [
                         {
-                          "id": "164cb775-4c0c-4768-a7b2-2d895c1d6c10",
-                          "name": "id_modelo_mensagem",
-                          "children": [],
-                          "kind": "field",
-                          "fieldType": "integer",
-                          "nullable": true,
-                          "path": "/data/*/id_modelo_mensagem"
-                        },
-                        {
                           "id": "d5d965ce-007f-4756-b0e3-cf644912e30c",
-                          "name": "status_modelo_mensagem",
+                          "name": "id_servico",
                           "children": [],
                           "kind": "field",
                           "fieldType": "integer",
                           "nullable": true,
-                          "path": "/data/*/status_modelo_mensagem"
+                          "path": "/data/*/id_servico"
                         },
                         {
                           "id": "07468978-3b33-4dd3-a665-71bd53baa7af",
-                          "name": "fila_modelo_mensagem",
+                          "name": "id_fila_servico",
                           "children": [],
                           "kind": "field",
                           "fieldType": "integer",
                           "nullable": true,
-                          "path": "/data/*/fila_modelo_mensagem"
+                          "path": "/data/*/id_fila_servico"
                         },
                         {
                           "id": "a140cc44-4812-44f1-87bb-1e709b6dac9f",
@@ -4302,39 +4500,57 @@
                         },
                         {
                           "id": "41663ef5-def7-42c7-8f9c-3866ed72d2d0",
-                          "name": "mensagem_modelo_mensagem",
+                          "name": "nome_servico",
                           "children": [],
                           "kind": "field",
                           "fieldType": "string",
                           "nullable": true,
-                          "path": "/data/*/mensagem_modelo_mensagem"
+                          "path": "/data/*/nome_servico"
                         },
                         {
                           "id": "94b2a5f3-2648-4064-b68f-f329360d0050",
-                          "name": "tipo_modelo_mensagem",
+                          "name": "valor_servico",
+                          "children": [],
+                          "kind": "field",
+                          "fieldType": "number",
+                          "nullable": true,
+                          "path": "/data/*/valor_servico"
+                        },
+                        {
+                          "id": "7d6baf57-e018-402b-bd62-8af4eab2e684",
+                          "name": "pontuacao_servico",
+                          "children": [],
+                          "kind": "field",
+                          "fieldType": "integer",
+                          "nullable": true,
+                          "path": "/data/*/pontuacao_servico"
+                        },
+                        {
+                          "id": "0658cf63-559d-4c5d-97ca-5c65fd36d4f9",
+                          "name": "status_servico",
+                          "children": [],
+                          "kind": "field",
+                          "fieldType": "integer",
+                          "nullable": true,
+                          "path": "/data/*/status_servico"
+                        },
+                        {
+                          "id": "b3df1fe9-6d74-4704-89c9-580c3954e415",
+                          "name": "unidade_medida",
                           "children": [],
                           "kind": "field",
                           "fieldType": "string",
                           "nullable": true,
-                          "path": "/data/*/tipo_modelo_mensagem"
+                          "path": "/data/*/unidade_medida"
                         },
                         {
-                          "id": "7d6baf57-e018-402b-bd62-8af4eab2e684",
-                          "name": "data_modelo_mensagem",
+                          "id": "25ccc543-b1cd-4d72-aa92-1786b6e56ae1",
+                          "name": "data_ultima_alteracao",
                           "children": [],
                           "kind": "field",
                           "fieldType": "datetime",
                           "nullable": true,
-                          "path": "/data/*/data_modelo_mensagem"
-                        },
-                        {
-                          "id": "0658cf63-559d-4c5d-97ca-5c65fd36d4f9",
-                          "name": "alterado_modelo_mensagem",
-                          "children": [],
-                          "kind": "field",
-                          "fieldType": "datetime",
-                          "nullable": true,
-                          "path": "/data/*/alterado_modelo_mensagem"
+                          "path": "/data/*/data_ultima_alteracao"
                         }
                       ],
                       "kind": "list",
@@ -4343,7 +4559,7 @@
                       "path": "/data"
                     },
                     {
-                      "id": "b3df1fe9-6d74-4704-89c9-580c3954e415",
+                      "id": "6f39ba97-2105-42f4-a3e7-d375a8f1b2e7",
                       "name": "page",
                       "children": [],
                       "kind": "field",
@@ -4352,7 +4568,7 @@
                       "path": "/page"
                     },
                     {
-                      "id": "25ccc543-b1cd-4d72-aa92-1786b6e56ae1",
+                      "id": "25cba440-2549-49ee-a74c-1e79bcb0b54d",
                       "name": "page_size",
                       "children": [],
                       "kind": "field",
@@ -4361,7 +4577,7 @@
                       "path": "/page_size"
                     },
                     {
-                      "id": "6f39ba97-2105-42f4-a3e7-d375a8f1b2e7",
+                      "id": "925681ed-decb-4751-aa54-98509b276552",
                       "name": "total_pages",
                       "children": [],
                       "kind": "field",
@@ -4370,7 +4586,7 @@
                       "path": "/total_pages"
                     },
                     {
-                      "id": "25cba440-2549-49ee-a74c-1e79bcb0b54d",
+                      "id": "522906ed-fce9-4667-9a47-ec08ba4125a2",
                       "name": "total",
                       "children": [],
                       "kind": "field",
@@ -4379,7 +4595,7 @@
                       "path": "/total"
                     },
                     {
-                      "id": "925681ed-decb-4751-aa54-98509b276552",
+                      "id": "9983e775-b65a-480f-9367-352fdcee5103",
                       "name": "has_more",
                       "children": [],
                       "kind": "field",
@@ -4399,7 +4615,7 @@
             },
             {
               "id": "df8820e9-4c08-4ea1-a822-7db1faab3c5d",
-              "name": "Filas",
+              "name": "Bancadas",
               "apiVersion": 1,
               "body": {
                 "kind": "none",
@@ -4408,15 +4624,22 @@
               "credentials": "omit",
               "headers": [],
               "method": "GET",
-              "path": "sigat/admin-filas",
-              "query": [],
+              "path": "sigat/bancadas",
+              "query": [
+                {
+                  "id": "63543752-4772-4b23-aed8-5f3150d29f06",
+                  "name": "livres",
+                  "value": "",
+                  "enabled": false
+                }
+              ],
               "responseSchema": {
                 "root": {
-                  "id": "522906ed-fce9-4667-9a47-ec08ba4125a2",
+                  "id": "d6e75d3b-e1d6-4990-94dd-420cfbfcbdb1",
                   "name": "Response",
                   "children": [
                     {
-                      "id": "9983e775-b65a-480f-9367-352fdcee5103",
+                      "id": "1c97dc29-cce1-4707-a5fa-5ee565999841",
                       "name": "success",
                       "children": [],
                       "kind": "field",
@@ -4425,44 +4648,44 @@
                       "path": "/success"
                     },
                     {
-                      "id": "63543752-4772-4b23-aed8-5f3150d29f06",
+                      "id": "09e3a3d9-e1b5-4d8c-81a9-4d53de629627",
                       "name": "data",
                       "children": [
                         {
-                          "id": "d6e75d3b-e1d6-4990-94dd-420cfbfcbdb1",
-                          "name": "id_fila",
+                          "id": "30f4ce6a-2948-4b54-bc2b-347d5a6c4167",
+                          "name": "id_bancada",
                           "children": [],
                           "kind": "field",
                           "fieldType": "integer",
                           "nullable": true,
-                          "path": "/data/*/id_fila"
+                          "path": "/data/*/id_bancada"
                         },
                         {
-                          "id": "1c97dc29-cce1-4707-a5fa-5ee565999841",
-                          "name": "nome_fila",
+                          "id": "9ff5077f-f71b-427a-82bc-bd0be4982e7c",
+                          "name": "nome_bancada",
                           "children": [],
                           "kind": "field",
                           "fieldType": "string",
                           "nullable": true,
-                          "path": "/data/*/nome_fila"
+                          "path": "/data/*/nome_bancada"
                         },
                         {
-                          "id": "09e3a3d9-e1b5-4d8c-81a9-4d53de629627",
-                          "name": "status_fila",
+                          "id": "02663797-5729-4ed8-a074-f4c26ee3279d",
+                          "name": "status_bancada",
                           "children": [],
                           "kind": "field",
-                          "fieldType": "string",
+                          "fieldType": "integer",
                           "nullable": true,
-                          "path": "/data/*/status_fila"
+                          "path": "/data/*/status_bancada"
                         },
                         {
-                          "id": "30f4ce6a-2948-4b54-bc2b-347d5a6c4167",
-                          "name": "icone_fila",
+                          "id": "92f29345-6fbd-4450-8500-522953d53e83",
+                          "name": "ocupado_bancada",
                           "children": [],
                           "kind": "field",
-                          "fieldType": "string",
+                          "fieldType": "integer",
                           "nullable": true,
-                          "path": "/data/*/icone_fila"
+                          "path": "/data/*/ocupado_bancada"
                         }
                       ],
                       "kind": "list",
@@ -4471,7 +4694,7 @@
                       "path": "/data"
                     },
                     {
-                      "id": "9ff5077f-f71b-427a-82bc-bd0be4982e7c",
+                      "id": "34405ed9-2dda-4c60-a052-306443788398",
                       "name": "page",
                       "children": [],
                       "kind": "field",
@@ -4480,7 +4703,7 @@
                       "path": "/page"
                     },
                     {
-                      "id": "02663797-5729-4ed8-a074-f4c26ee3279d",
+                      "id": "0c85fff9-f1ab-4b4c-b81a-c357f8aa2d99",
                       "name": "page_size",
                       "children": [],
                       "kind": "field",
@@ -4489,7 +4712,7 @@
                       "path": "/page_size"
                     },
                     {
-                      "id": "92f29345-6fbd-4450-8500-522953d53e83",
+                      "id": "e64029fe-79f0-49c5-954a-0e909fd12815",
                       "name": "total_pages",
                       "children": [],
                       "kind": "field",
@@ -4498,7 +4721,7 @@
                       "path": "/total_pages"
                     },
                     {
-                      "id": "34405ed9-2dda-4c60-a052-306443788398",
+                      "id": "b37ca94b-bc3a-4fcd-aeb2-06b5885d5a7c",
                       "name": "total",
                       "children": [],
                       "kind": "field",
@@ -4507,7 +4730,7 @@
                       "path": "/total"
                     },
                     {
-                      "id": "0c85fff9-f1ab-4b4c-b81a-c357f8aa2d99",
+                      "id": "ab214671-8033-4afa-a77d-af1a61b139ba",
                       "name": "has_more",
                       "children": [],
                       "kind": "field",
@@ -4527,7 +4750,7 @@
             },
             {
               "id": "482f8e73-9da6-406a-96eb-1d358cc089ee",
-              "name": "Eventos",
+              "name": "Filas",
               "apiVersion": 1,
               "body": {
                 "kind": "none",
@@ -4536,22 +4759,15 @@
               "credentials": "omit",
               "headers": [],
               "method": "GET",
-              "path": "sigat/admin-eventos",
-              "query": [
-                {
-                  "id": "e64029fe-79f0-49c5-954a-0e909fd12815",
-                  "name": "q",
-                  "value": "",
-                  "enabled": false
-                }
-              ],
+              "path": "sigat/admin-filas",
+              "query": [],
               "responseSchema": {
                 "root": {
-                  "id": "b37ca94b-bc3a-4fcd-aeb2-06b5885d5a7c",
+                  "id": "50002ea4-3e1d-4d46-a880-90465bff2f26",
                   "name": "Response",
                   "children": [
                     {
-                      "id": "ab214671-8033-4afa-a77d-af1a61b139ba",
+                      "id": "0a348797-e11e-4cd6-bd99-b6ce59c07235",
                       "name": "success",
                       "children": [],
                       "kind": "field",
@@ -4560,62 +4776,44 @@
                       "path": "/success"
                     },
                     {
-                      "id": "50002ea4-3e1d-4d46-a880-90465bff2f26",
+                      "id": "c6e1e693-3214-40be-917d-c5007b4c6ceb",
                       "name": "data",
                       "children": [
                         {
-                          "id": "0a348797-e11e-4cd6-bd99-b6ce59c07235",
-                          "name": "id_evento",
+                          "id": "e83a588e-ff3e-4135-bea6-f7a4782500da",
+                          "name": "id_fila",
                           "children": [],
                           "kind": "field",
                           "fieldType": "integer",
                           "nullable": true,
-                          "path": "/data/*/id_evento"
-                        },
-                        {
-                          "id": "c6e1e693-3214-40be-917d-c5007b4c6ceb",
-                          "name": "acao_evento",
-                          "children": [],
-                          "kind": "field",
-                          "fieldType": "string",
-                          "nullable": true,
-                          "path": "/data/*/acao_evento"
-                        },
-                        {
-                          "id": "e83a588e-ff3e-4135-bea6-f7a4782500da",
-                          "name": "desc_evento",
-                          "children": [],
-                          "kind": "field",
-                          "fieldType": "string",
-                          "nullable": true,
-                          "path": "/data/*/desc_evento"
+                          "path": "/data/*/id_fila"
                         },
                         {
                           "id": "f6ec42a5-7620-4db3-81d8-e58f05fa3087",
-                          "name": "nome_usuario",
+                          "name": "nome_fila",
                           "children": [],
                           "kind": "field",
                           "fieldType": "string",
                           "nullable": true,
-                          "path": "/data/*/nome_usuario"
+                          "path": "/data/*/nome_fila"
                         },
                         {
                           "id": "81129d18-1299-4be6-8d09-7a98dc172e97",
-                          "name": "data_evento",
-                          "children": [],
-                          "kind": "field",
-                          "fieldType": "datetime",
-                          "nullable": true,
-                          "path": "/data/*/data_evento"
-                        },
-                        {
-                          "id": "58cea8c1-49dc-4515-9156-ec4c3902652d",
-                          "name": "data_evento_fmt",
+                          "name": "status_fila",
                           "children": [],
                           "kind": "field",
                           "fieldType": "string",
                           "nullable": true,
-                          "path": "/data/*/data_evento_fmt"
+                          "path": "/data/*/status_fila"
+                        },
+                        {
+                          "id": "58cea8c1-49dc-4515-9156-ec4c3902652d",
+                          "name": "icone_fila",
+                          "children": [],
+                          "kind": "field",
+                          "fieldType": "string",
+                          "nullable": true,
+                          "path": "/data/*/icone_fila"
                         }
                       ],
                       "kind": "list",
@@ -4692,7 +4890,60 @@
       "children": []
     },
     {
-      "id": "5e359e16-bb52-4c48-9d49-b7aa02e5a144",
+      "id": "3f0eff8e-8a60-4cd8-9023-1085fc21d332",
+      "type": "WebTimer",
+      "name": "TMREventos",
+      "parentId": "0f34fe15-128e-4909-b2d4-26466fb28272",
+      "layout": {
+        "container": {
+          "mode": "fixed",
+          "paddingTop": 0,
+          "paddingRight": 0,
+          "paddingBottom": 0,
+          "paddingLeft": 0,
+          "gap": 0,
+          "wrap": false,
+          "justifyContent": "start",
+          "alignItems": "start"
+        },
+        "item": {
+          "width": "stretch",
+          "height": "fixed",
+          "minWidth": 0,
+          "maxWidth": null,
+          "minHeight": 0,
+          "maxHeight": null,
+          "grow": 0,
+          "shrink": false,
+          "alignSelf": "auto",
+          "horizontalAnchor": "start",
+          "verticalAnchor": "start",
+          "left": 0,
+          "right": 0,
+          "top": 0,
+          "bottom": 0
+        }
+      },
+      "bounds": {
+        "width": 112,
+        "height": 52,
+        "x": 0,
+        "y": 0
+      },
+      "props": {
+        "enabled": false,
+        "loop": true,
+        "time": 30000
+      },
+      "events": {
+        "OnStart": null,
+        "OnStop": null,
+        "OnTimer": "AtualizarEventos"
+      },
+      "children": []
+    },
+    {
+      "id": "bbf52667-30b3-4ce4-bd26-eb25111c8a01",
       "type": "WebGroup",
       "name": "Rodape",
       "parentId": "4535f902-a93b-4119-b315-a1f9eb00ac80",
@@ -4746,16 +4997,16 @@
       },
       "styleId": "sigat2-barra",
       "children": [
-        "a81031fb-91f2-4f55-b201-72540416285c",
-        "f8cbda57-2965-4b8a-86b4-05eb11517594",
-        "3f0eff8e-8a60-4cd8-9023-1085fc21d332"
+        "d76ce495-10df-4725-882f-aacc46b4cce3",
+        "07cb52be-372f-4a4a-b1ee-305c89b443b5",
+        "0a7af8de-5712-41b1-abcd-1ca733b2bfc3"
       ]
     },
     {
-      "id": "a81031fb-91f2-4f55-b201-72540416285c",
+      "id": "d76ce495-10df-4725-882f-aacc46b4cce3",
       "type": "WebLabel",
       "name": "LBLRodapeAutorizacao",
-      "parentId": "5e359e16-bb52-4c48-9d49-b7aa02e5a144",
+      "parentId": "bbf52667-30b3-4ce4-bd26-eb25111c8a01",
       "layout": {
         "container": {
           "mode": "fixed",
@@ -4810,10 +5061,10 @@
       "children": []
     },
     {
-      "id": "f8cbda57-2965-4b8a-86b4-05eb11517594",
+      "id": "07cb52be-372f-4a4a-b1ee-305c89b443b5",
       "type": "WebLabel",
       "name": "LBLRodapeGrupo",
-      "parentId": "5e359e16-bb52-4c48-9d49-b7aa02e5a144",
+      "parentId": "bbf52667-30b3-4ce4-bd26-eb25111c8a01",
       "layout": {
         "container": {
           "mode": "fixed",
@@ -4868,10 +5119,10 @@
       "children": []
     },
     {
-      "id": "3f0eff8e-8a60-4cd8-9023-1085fc21d332",
+      "id": "0a7af8de-5712-41b1-abcd-1ca733b2bfc3",
       "type": "WebLabel",
       "name": "LBLRodapeAmbiente",
-      "parentId": "5e359e16-bb52-4c48-9d49-b7aa02e5a144",
+      "parentId": "bbf52667-30b3-4ce4-bd26-eb25111c8a01",
       "layout": {
         "container": {
           "mode": "fixed",

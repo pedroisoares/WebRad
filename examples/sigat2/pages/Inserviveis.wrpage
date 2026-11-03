@@ -1130,6 +1130,7 @@
           "cellPaddingHorizontal": 10,
           "cellPaddingVertical": 8,
           "columnCount": 8,
+          "columnFilters": false,
           "columns": [
             {
               "id": "60341b29-7656-4bb9-a3b2-29780087576e",

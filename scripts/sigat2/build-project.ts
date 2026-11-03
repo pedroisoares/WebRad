@@ -2973,174 +2973,305 @@ function remessaPage(): PageSpec {
   };
 }
 
+// ---------------------------------------------------------------- Administração (legacy SIGAT look)
+
+/**
+ * The Administração page copies `paginas/admin.php`: the "Administração" title with the
+ * cogs icon over a rule, then Bootstrap nav-pills in the SIGAT order (Log de Eventos,
+ * Usuários, Modelos de Mensagem, Locais, Secretarias, Serviços, Bancadas). Log de Eventos
+ * is the SIGAT DataTable: the last 2,000 events, newest first, 10 per page, a search box,
+ * one filter box per column and a reload every 30 seconds.
+ */
+const ADMIN_STYLE = {
+  abas: 'sigat2-admin-abas',
+} as const;
+
+function adminStyles(): readonly ComponentStyleModel[] {
+  return [
+    loginStyle(ADMIN_STYLE.abas, 'Admin Abas', 'WebTabs', {
+      // Bootstrap 4 nav-pills: link-blue tabs, the active one filled blue with white text.
+      base: {
+        ...SYSTEM_FONT,
+        textColor: BOOTSTRAP.primario,
+        fontSize: px(16),
+        fontWeight: 'normal',
+        backgroundColor: 'transparent',
+        tabSelectedTextColor: '#ffffff',
+        tabSelectedBackgroundColor: BOOTSTRAP.primario,
+        tabBorderColor: 'transparent',
+        tabIdleOpacity: 100,
+        overflow: 'hidden',
+        cursor: 'pointer',
+      },
+    }),
+  ];
+}
+
 function adminPage(): PageSpec {
   const id = defaultIdFactory();
   const ops = {
+    eventos: op('Eventos', 'admin-eventos', F.eventos, ['q']),
     usuarios: op('Usuarios', 'admin-usuarios', F.adminUsuarios, ['q']),
+    modelos: op('Modelos', 'modelos-mensagem', F.modelos, ['tipo', 'fila']),
     locais: op('Locais', 'admin-locais', F.locais, ['q']),
     secretarias: op('Secretarias', 'secretarias', F.secretarias, ['ativas']),
     servicos: op('Servicos', 'admin-servicos', F.servicosAdmin, ['q', 'fila', 'status']),
     bancadas: op('Bancadas', 'bancadas', F.bancadas, ['livres']),
-    modelos: op('Modelos', 'modelos-mensagem', F.modelos, ['tipo', 'fila']),
     filas: op('Filas', 'admin-filas', { id_fila: I, nome_fila: S, status_fila: S, icone_fila: S }),
-    eventos: op('Eventos', 'admin-eventos', F.eventos, ['q']),
   };
+  const aba = (name: string, children: readonly Node[]): Node => ({
+    ...panel(name, children),
+    styleId: SIGAT_STYLE.quadro,
+    item: { width: 'stretch', height: 'fit-content', minWidth: 0, grow: 0, shrink: true },
+    container: { paddingTop: 0, paddingRight: 0, paddingBottom: 0, paddingLeft: 0, gap: 8 },
+  });
+  const lista = (node: Node, extra: Record<string, unknown> = {}): Node => {
+    const config = (node.props as { dataGridConfig: Record<string, unknown> }).dataGridConfig;
+    return {
+      ...node,
+      styleId: SIGAT_STYLE.lista,
+      props: {
+        dataGridConfig: {
+          ...config,
+          searchPlaceholder: 'Busca:',
+          cellPaddingVertical: 8,
+          ...extra,
+        },
+      },
+    };
+  };
+  const paineis: readonly (readonly [caption: string, panel: string, icon: string])[] = [
+    ['Log de Eventos', 'PNLEventos', 'list'],
+    ['Usuários', 'PNLUsuarios', 'users'],
+    ['Modelos de Mensagem', 'PNLModelos', 'messages-square'],
+    ['Locais', 'PNLLocais', 'house'],
+    ['Secretarias', 'PNLSecretarias', 'building'],
+    ['Serviços', 'PNLServicos', 'wrench'],
+    ['Bancadas', 'PNLBancadas', 'layers'],
+    // SIGAT has no Filas tab; SIGAT2 adds one.
+    ['Filas', 'PNLFilas', 'list-ordered'],
+  ];
   return {
     name: 'Admin',
     caption: 'Administração',
     roles: ['admin'],
-    events: { OnShow: 'Mostrar' },
+    events: { OnShow: 'Mostrar', OnHide: 'Ocultar' },
     header: true,
     children: [
-      title('LBLTitulo', 'Administração'),
-      tabs(
-        'Abas',
-        [
-          'Usuários',
-          'Locais',
-          'Secretarias',
-          'Serviços',
-          'Bancadas',
-          'Modelos de mensagem',
-          'Filas',
-          'Eventos',
+      {
+        type: 'WebGroup',
+        name: 'GRPTitulo',
+        item: { height: 'fit-content', shrink: false },
+        container: { mode: 'row', gap: 10, alignItems: 'center' },
+        children: [
+          {
+            type: 'WebIcon',
+            name: 'ICOAdmin',
+            width: 32,
+            height: 32,
+            props: { icon: 'settings', accessibleLabel: 'Administração', strokeWidth: 2.5 },
+            styleId: CHAMADO_STYLE.iconeFila,
+            item: { width: 'fixed', grow: 0 },
+          },
+          texto('LBLTitulo', 'Administração', CHAMADO_STYLE.titulo, undefined, 40),
         ],
-        [
-          'PNLUsuarios',
-          'PNLLocais',
-          'PNLSecretarias',
-          'PNLServicos',
-          'PNLBancadas',
-          'PNLModelos',
-          'PNLFilas',
-          'PNLEventos',
-        ],
-      ),
-      panel('PNLUsuarios', [
-        grid(
-          'GRDUsuarios',
-          id,
-          ops.usuarios,
-          [
-            ['Nome', 'nome_usuario'],
-            ['Login', 'login_usuario', 180],
-            ['Autorização', 'autorizacao_usuario', 110],
-            ['Fila', 'fila_usuario', 80],
-            ['Triagem', 'triagem_usuario', 90],
-            ['Encerramento', 'encerramento_usuario', 120],
-            ['Inservível', 'inservivel_usuario', 100],
-            ['Ativo', 'status_usuario', 80],
-          ],
-          { server: true, height: 560, onCell: 'AbrirUsuario' },
+      },
+      {
+        type: 'WebGroup',
+        name: 'GRPLinha',
+        height: 1,
+        styleId: CHAMADO_STYLE.linha,
+        item: { height: 'fixed', minHeight: 1, shrink: false },
+        container: { gap: 0 },
+        children: [],
+      },
+      {
+        ...tabs(
+          'Abas',
+          paineis.map(([caption]) => caption),
+          paineis.map(([, name]) => name),
+          'TrocarAba',
+        ),
+        styleId: ADMIN_STYLE.abas,
+        height: 46,
+        props: {
+          tabs: paineis.map(([caption]) => caption),
+          panels: paineis.map(([, name]) => name),
+          icons: paineis.map(([, , icon]) => icon),
+          badges: [],
+          selectedIndex: 0,
+        },
+        item: { shrink: false },
+      },
+      {
+        ...aba('PNLEventos', [
+          {
+            ...lista(
+              grid(
+                'GRDEventos',
+                id,
+                ops.eventos,
+                [
+                  ['ID', 'id_evento', 130],
+                  ['Ação', 'acao_evento', 260],
+                  ['Descrição', 'desc_evento', undefined, { minWidth: 320 }],
+                  ['Data/Hora', 'data_evento_fmt', 200],
+                  ['Usuário', 'nome_usuario', 260],
+                ],
+                { empty: '(vazio)' },
+              ),
+              {
+                pageSize: 10,
+                pageSizeOptions: [10, 25, 50, 100],
+                columnFilters: true,
+                exportEnabled: false,
+                rowHeightMode: 'dynamic',
+                minRowHeight: 40,
+                wrapText: true,
+              },
+            ),
+            item: { height: 'stretch', minHeight: 360, shrink: true },
+          },
+        ]),
+        item: {
+          width: 'stretch',
+          height: 'stretch',
+          minWidth: 0,
+          minHeight: 0,
+          grow: 1,
+          shrink: true,
+        },
+      },
+      aba('PNLUsuarios', [
+        lista(
+          grid(
+            'GRDUsuarios',
+            id,
+            ops.usuarios,
+            [
+              ['Nome', 'nome_usuario'],
+              ['Login', 'login_usuario', 180],
+              ['Autorização', 'autorizacao_usuario', 110],
+              ['Fila', 'fila_usuario', 80],
+              ['Triagem', 'triagem_usuario', 90],
+              ['Encerramento', 'encerramento_usuario', 120],
+              ['Inservível', 'inservivel_usuario', 100],
+              ['Ativo', 'status_usuario', 80],
+            ],
+            { server: true, height: 560, onCell: 'AbrirUsuario' },
+          ),
         ),
       ]),
-      panel('PNLLocais', [
-        grid(
-          'GRDLocais',
-          id,
-          ops.locais,
-          [
-            ['#', 'id_local', 80],
-            ['Local', 'nome_local'],
-            ['Endereço', 'endereco_local'],
-            ['Secretaria', 'sigla_secretaria', 120],
-            ['Região', 'regiao_local', 110],
-            ['Ativo', 'status_local', 80],
-            ['Infovia', 'infovia', 80],
-          ],
-          { server: true, height: 560, onCell: 'AbrirLocal' },
+      aba('PNLModelos', [
+        lista(
+          grid(
+            'GRDModelos',
+            id,
+            ops.modelos,
+            [
+              ['#', 'id_modelo_mensagem', 80],
+              ['Tipo', 'tipo_modelo_mensagem', 160],
+              ['Fila', 'nome_fila', 160],
+              ['Mensagem', 'mensagem_modelo_mensagem'],
+              ['Ativo', 'status_modelo_mensagem', 80],
+            ],
+            { height: 520 },
+          ),
         ),
       ]),
-      panel('PNLSecretarias', [
-        grid(
-          'GRDSecretarias',
-          id,
-          ops.secretarias,
-          [
-            ['#', 'id_secretaria', 80],
-            ['Sigla', 'sigla_secretaria', 140],
-            ['Nome', 'nome_secretaria'],
-            ['Ativa', 'status_secretaria', 80],
-          ],
-          { height: 520 },
+      aba('PNLLocais', [
+        lista(
+          grid(
+            'GRDLocais',
+            id,
+            ops.locais,
+            [
+              ['#', 'id_local', 80],
+              ['Local', 'nome_local'],
+              ['Endereço', 'endereco_local'],
+              ['Secretaria', 'sigla_secretaria', 120],
+              ['Região', 'regiao_local', 110],
+              ['Ativo', 'status_local', 80],
+              ['Infovia', 'infovia', 80],
+            ],
+            { server: true, height: 560, onCell: 'AbrirLocal' },
+          ),
         ),
       ]),
-      panel('PNLServicos', [
-        grid(
-          'GRDServicos',
-          id,
-          ops.servicos,
-          [
-            ['#', 'id_servico', 80],
-            ['Serviço', 'nome_servico'],
-            ['Fila', 'nome_fila', 160],
-            ['Valor', 'valor_servico', 100],
-            ['Pontos', 'pontuacao_servico', 90],
-            ['Unidade', 'unidade_medida', 90],
-            ['Ativo', 'status_servico', 80],
-          ],
-          { server: true, height: 560 },
+      aba('PNLSecretarias', [
+        lista(
+          grid(
+            'GRDSecretarias',
+            id,
+            ops.secretarias,
+            [
+              ['#', 'id_secretaria', 80],
+              ['Sigla', 'sigla_secretaria', 140],
+              ['Nome', 'nome_secretaria'],
+              ['Ativa', 'status_secretaria', 80],
+            ],
+            { height: 520 },
+          ),
         ),
       ]),
-      panel('PNLBancadas', [
-        grid(
-          'GRDBancadas',
-          id,
-          ops.bancadas,
-          [
-            ['#', 'id_bancada', 80],
-            ['Bancada', 'nome_bancada'],
-            ['Ocupada', 'ocupado_bancada', 100],
-            ['Ativa', 'status_bancada', 100],
-          ],
-          { height: 420 },
+      aba('PNLServicos', [
+        lista(
+          grid(
+            'GRDServicos',
+            id,
+            ops.servicos,
+            [
+              ['#', 'id_servico', 80],
+              ['Serviço', 'nome_servico'],
+              ['Fila', 'nome_fila', 160],
+              ['Valor', 'valor_servico', 100],
+              ['Pontos', 'pontuacao_servico', 90],
+              ['Unidade', 'unidade_medida', 90],
+              ['Ativo', 'status_servico', 80],
+            ],
+            { server: true, height: 560 },
+          ),
         ),
       ]),
-      panel('PNLModelos', [
-        grid(
-          'GRDModelos',
-          id,
-          ops.modelos,
-          [
-            ['#', 'id_modelo_mensagem', 80],
-            ['Tipo', 'tipo_modelo_mensagem', 160],
-            ['Fila', 'nome_fila', 160],
-            ['Mensagem', 'mensagem_modelo_mensagem'],
-            ['Ativo', 'status_modelo_mensagem', 80],
-          ],
-          { height: 520 },
+      aba('PNLBancadas', [
+        lista(
+          grid(
+            'GRDBancadas',
+            id,
+            ops.bancadas,
+            [
+              ['#', 'id_bancada', 80],
+              ['Bancada', 'nome_bancada'],
+              ['Ocupada', 'ocupado_bancada', 100],
+              ['Ativa', 'status_bancada', 100],
+            ],
+            { height: 420 },
+          ),
         ),
       ]),
-      panel('PNLFilas', [
-        grid(
-          'GRDFilas',
-          id,
-          ops.filas,
-          [
-            ['#', 'id_fila', 80],
-            ['Fila', 'nome_fila'],
-            ['Status', 'status_fila', 120],
-            ['Ícone', 'icone_fila', 200],
-          ],
-          { height: 420 },
-        ),
-      ]),
-      panel('PNLEventos', [
-        grid(
-          'GRDEventos',
-          id,
-          ops.eventos,
-          [
-            ['#', 'id_evento', 100],
-            ['Data', 'data_evento_fmt', 170],
-            ['Usuário', 'nome_usuario', 200],
-            ['Ação', 'acao_evento', 220],
-            ['Descrição', 'desc_evento'],
-          ],
-          { server: true, height: 560 },
+      aba('PNLFilas', [
+        lista(
+          grid(
+            'GRDFilas',
+            id,
+            ops.filas,
+            [
+              ['#', 'id_fila', 80],
+              ['Fila', 'nome_fila'],
+              ['Status', 'status_fila', 120],
+              ['Ícone', 'icone_fila', 200],
+            ],
+            { height: 420 },
+          ),
         ),
       ]),
       apiClient('Api', id, Object.values(ops)),
+      {
+        type: 'WebTimer',
+        name: 'TMREventos',
+        props: { time: 30_000, loop: true, enabled: false },
+        events: { OnTimer: 'AtualizarEventos' },
+      },
     ],
   };
 }
@@ -3294,7 +3425,13 @@ export function buildSigat2Project(): {
   const index = base.pages.find((page) => page.id === base.entryPage);
   const notFound = base.pages.find((page) => page.name === '404');
   if (!index || !notFound) throw new Error('The mandatory index and 404 pages are missing.');
-  const styles = [...base.styles, ...loginStyles(), ...sigatStyles(), ...chamadoStyles()];
+  const styles = [
+    ...base.styles,
+    ...loginStyles(),
+    ...sigatStyles(),
+    ...chamadoStyles(),
+    ...adminStyles(),
+  ];
   const version = base.settings.nativeApplication.version;
   const specs = [
     painelPage(),

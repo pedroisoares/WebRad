@@ -1321,6 +1321,7 @@
           "cellPaddingHorizontal": 10,
           "cellPaddingVertical": 8,
           "columnCount": 3,
+          "columnFilters": false,
           "columns": [
             {
               "id": "51ae8705-5cf2-46df-9ed7-70b930832900",
@@ -1604,6 +1605,7 @@
           "cellPaddingHorizontal": 10,
           "cellPaddingVertical": 8,
           "columnCount": 6,
+          "columnFilters": false,
           "columns": [
             {
               "id": "76f7e5d4-39a6-457b-9dae-98b5e79153fd",

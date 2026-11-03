@@ -25,6 +25,7 @@ const queryToggleValues = [
   ['Enable Data Grid search', 'searchEnabled', true],
   ['Enable Data Grid sorting', 'sortEnabled', true],
   ['Enable Data Grid CSV export', 'exportEnabled', true],
+  ['Enable Data Grid column filters', 'columnFilters', true],
   ['Show Data Grid page size selector', 'showPageSizeSelector', true],
   ['Sortable Data Grid column 1', 'sortable', false],
 ] as const;
@@ -309,7 +310,7 @@ export async function runDataGridConfigurationSmoke(
     // Paging, sorting, search and export: invalid server parameter names block Save.
     await setField(window, 'Data Grid pagination', 'client');
     await setField(window, 'Data Grid rows per page', '25');
-    for (const [label] of queryToggleValues.slice(0, 4)) {
+    for (const [label] of queryToggleValues.slice(0, 5)) {
       await setChecked(window, label, false);
       await setChecked(window, label, true);
     }

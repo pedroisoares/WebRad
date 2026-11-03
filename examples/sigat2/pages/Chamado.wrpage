@@ -5303,6 +5303,7 @@
           "cellPaddingHorizontal": 10,
           "cellPaddingVertical": 8,
           "columnCount": 2,
+          "columnFilters": false,
           "columns": [
             {
               "id": "d10b623e-2a75-4d02-a59c-ad4d45872590",
@@ -5497,6 +5498,7 @@
           "cellPaddingHorizontal": 10,
           "cellPaddingVertical": 8,
           "columnCount": 6,
+          "columnFilters": false,
           "columns": [
             {
               "id": "9ec9bf1b-29c4-4935-809d-5ed6fb6ba5b1",
@@ -5761,6 +5763,7 @@
           "cellPaddingHorizontal": 10,
           "cellPaddingVertical": 8,
           "columnCount": 5,
+          "columnFilters": false,
           "columns": [
             {
               "id": "a92cf6f1-d95f-4322-94e5-759b406b318c",
@@ -6947,6 +6950,7 @@
           "cellPaddingHorizontal": 10,
           "cellPaddingVertical": 8,
           "columnCount": 4,
+          "columnFilters": false,
           "columns": [
             {
               "id": "86ea0498-a270-4573-ad04-0bc9efc8cd52",
@@ -7175,6 +7179,7 @@
           "cellPaddingHorizontal": 10,
           "cellPaddingVertical": 8,
           "columnCount": 4,
+          "columnFilters": false,
           "columns": [
             {
               "id": "ac7d5ed3-4a24-4da6-a645-a69df29283ab",
@@ -7403,6 +7408,7 @@
           "cellPaddingHorizontal": 10,
           "cellPaddingVertical": 8,
           "columnCount": 4,
+          "columnFilters": false,
           "columns": [
             {
               "id": "194b3b0a-9c1b-49a2-9fe4-eb74ffc96dbc",
@@ -7862,6 +7868,7 @@
           "cellPaddingHorizontal": 10,
           "cellPaddingVertical": 8,
           "columnCount": 2,
+          "columnFilters": false,
           "columns": [
             {
               "id": "c9f19de4-8df3-49c1-b287-60e3aafa0b35",

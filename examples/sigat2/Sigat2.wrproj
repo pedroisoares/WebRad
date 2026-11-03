@@ -68,21 +68,21 @@
       "codeFile": "pages/Admin.ts"
     },
     {
-      "id": "bbf52667-30b3-4ce4-bd26-eb25111c8a01",
+      "id": "3ea3a705-4d9f-4200-b2d4-61789552e885",
       "name": "Usuario",
       "pageFile": "pages/Usuario.wrpage",
       "generatedFile": "pages/Usuario.generated.ts",
       "codeFile": "pages/Usuario.ts"
     },
     {
-      "id": "cd7e93ab-bf9a-48d7-878c-347b090e90cb",
+      "id": "ae3a7bb2-74fd-4681-a5ea-7ca141dc1860",
       "name": "Local",
       "pageFile": "pages/Local.wrpage",
       "generatedFile": "pages/Local.generated.ts",
       "codeFile": "pages/Local.ts"
     },
     {
-      "id": "fe8c0b8f-b8d3-4e55-8862-ec3b073cffb9",
+      "id": "3e30571d-6eca-4b7c-9720-1976683f94f7",
       "name": "Negado",
       "pageFile": "pages/Negado.wrpage",
       "generatedFile": "pages/Negado.generated.ts",
@@ -3317,6 +3317,33 @@
         "active": {},
         "disabled": {}
       }
+    },
+    {
+      "id": "sigat2-admin-abas",
+      "name": "Admin Abas",
+      "componentType": "WebTabs",
+      "states": {
+        "base": {
+          "backgroundColor": "transparent",
+          "cursor": "pointer",
+          "fontFamily": "ide",
+          "fontSize": {
+            "value": 16,
+            "unit": "px"
+          },
+          "fontWeight": "normal",
+          "overflow": "hidden",
+          "tabBorderColor": "transparent",
+          "tabIdleOpacity": 100,
+          "tabSelectedBackgroundColor": "#007bff",
+          "tabSelectedTextColor": "#ffffff",
+          "textColor": "#007bff"
+        },
+        "hover": {},
+        "focus": {},
+        "active": {},
+        "disabled": {}
+      }
     }
   ],
   "settings": {
@@ -3597,7 +3624,7 @@
   ],
   "sourceFiles": [
     {
-      "id": "c79a833d-4807-43b5-84c4-ca526c77f791",
+      "id": "14003961-5f95-41e5-abd8-4718ccf8485d",
       "name": "Sigat2",
       "kind": "unit"
     }

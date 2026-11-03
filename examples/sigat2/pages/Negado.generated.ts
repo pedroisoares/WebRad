@@ -39,76 +39,76 @@ export abstract class NegadoGenerated extends WebPage {
   public constructor(element: HTMLElement) {
     super(element);
     this.Cabecalho = new WebGroup(
-      this.requireComponentElement('bb592523-673d-4964-8620-5964e1f41e29'),
-    );
-    this.GRPMarca = new WebGroup(
-      this.requireComponentElement('d2e199da-c4dd-4a68-a0a3-61e59458156f'),
-    );
-    this.IMGMarca = new WebImage(
-      this.requireComponentElement('3e30571d-6eca-4b7c-9720-1976683f94f7'),
-    );
-    this.LBLMarca = new WebLabel(
-      this.requireComponentElement('3401dc29-2f5f-4158-b124-d9b83d2e93f9'),
-    );
-    this.GRPBusca = new WebGroup(
       this.requireComponentElement('c286a0b9-e82a-4dc5-87ca-6ab72b79f7e9'),
     );
-    this.EDTBuscaRapida = new WebEdit(
+    this.GRPMarca = new WebGroup(
       this.requireComponentElement('9e89dfcb-74ba-41a3-8e78-55aee93e19e6'),
     );
-    this.BTNBuscar = new WebButton(
+    this.IMGMarca = new WebImage(
       this.requireComponentElement('5b67e419-9843-4d38-8206-f596f32f536c'),
     );
-    this.GRPUsuario = new WebGroup(
+    this.LBLMarca = new WebLabel(
       this.requireComponentElement('0c3823e4-59f9-473a-a836-2b560e942e80'),
     );
-    this.LBLOla = new WebLabel(
+    this.GRPBusca = new WebGroup(
       this.requireComponentElement('046fc2f9-aa63-4a47-945e-495932df47f8'),
     );
-    this.LBLUsuario = new WebLabel(
+    this.EDTBuscaRapida = new WebEdit(
       this.requireComponentElement('b569e3f0-64f2-4368-af92-b4961dcd567c'),
     );
-    this.BTNBloqueados = new WebButton(
+    this.BTNBuscar = new WebButton(
       this.requireComponentElement('a94c30d2-f6bc-4444-9726-8bc8f23b1774'),
     );
-    this.BTNPainel = new WebButton(
+    this.GRPUsuario = new WebGroup(
       this.requireComponentElement('856e975a-ccac-4f23-8489-93055bb96af7'),
     );
-    this.BTNInserviveis = new WebButton(
+    this.LBLOla = new WebLabel(
       this.requireComponentElement('f71567e4-b382-4ed5-949c-002a61361f14'),
     );
-    this.BTNAdmin = new WebButton(
+    this.LBLUsuario = new WebLabel(
       this.requireComponentElement('436467d1-3c0d-4550-8c61-3de9cd307be8'),
     );
-    this.BTNSair = new WebButton(
+    this.BTNBloqueados = new WebButton(
       this.requireComponentElement('fd964026-6b46-4652-a96a-ee6beae3c52c'),
     );
-    this.Conteudo = new WebGroup(
+    this.BTNPainel = new WebButton(
       this.requireComponentElement('354b2a86-0f99-49f6-9512-ecea81edbb26'),
     );
-    this.PNLNegado = new WebPanel(
+    this.BTNInserviveis = new WebButton(
       this.requireComponentElement('0a081425-bcb2-41fc-b56d-0178cc53e798'),
     );
-    this.LBLNegado = new WebLabel(
+    this.BTNAdmin = new WebButton(
       this.requireComponentElement('99dd73de-c18a-46fb-9cf8-a5d9d51cf666'),
     );
-    this.LBLTexto = new WebLabel(
+    this.BTNSair = new WebButton(
       this.requireComponentElement('b77af7db-f86b-4fd6-bfb7-bd2edd353d24'),
     );
-    this.BTNVoltar = new WebButton(
+    this.Conteudo = new WebGroup(
       this.requireComponentElement('09ac2c29-4198-4f59-9104-509c34fe17a0'),
     );
-    this.Rodape = new WebGroup(
+    this.PNLNegado = new WebPanel(
       this.requireComponentElement('b771b02d-ff73-4a10-b4af-00b7c95627b9'),
     );
-    this.LBLRodapeAutorizacao = new WebLabel(
+    this.LBLNegado = new WebLabel(
       this.requireComponentElement('7f5447d2-df69-4990-91db-8ede1f43cc6d'),
     );
-    this.LBLRodapeGrupo = new WebLabel(
+    this.LBLTexto = new WebLabel(
       this.requireComponentElement('487b419f-3be1-4dff-bce5-178d008d9f2b'),
     );
-    this.LBLRodapeAmbiente = new WebLabel(
+    this.BTNVoltar = new WebButton(
       this.requireComponentElement('e3b50e1d-6d21-43c8-9e12-de83db749119'),
+    );
+    this.Rodape = new WebGroup(
+      this.requireComponentElement('c79a833d-4807-43b5-84c4-ca526c77f791'),
+    );
+    this.LBLRodapeAutorizacao = new WebLabel(
+      this.requireComponentElement('ce58b91e-76ce-428f-a639-ac62b962e5a5'),
+    );
+    this.LBLRodapeGrupo = new WebLabel(
+      this.requireComponentElement('de659f2f-09b0-40ca-b874-d1f8786b5d7e'),
+    );
+    this.LBLRodapeAmbiente = new WebLabel(
+      this.requireComponentElement('0e1ab113-7ccf-4b90-b063-d32d655e6917'),
     );
 
     this.bindGeneratedEvent(this, 'OnShow', 'Mostrar');
