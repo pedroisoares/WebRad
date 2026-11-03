@@ -5,17 +5,20 @@ import {
   type WebApiClientInstance,
   type WebApiQueryValue,
   type WebApiTemplateValue,
+  WebAutocomplete,
   WebButton,
+  WebCheckBox,
   WebComboBox,
   WebDataGrid,
   WebEdit,
   WebGroup,
   WebHtml,
+  WebIcon,
   WebImage,
   WebLabel,
   WebListBox,
   WebPage,
-  WebPanel,
+  WebPopup,
   WebRichTextEditor,
   WebTabs,
 } from '@webrad/runtime';
@@ -37,78 +40,88 @@ export abstract class ChamadoGenerated extends WebPage {
   public readonly BTNAdmin: WebButton;
   public readonly BTNSair: WebButton;
   public readonly Conteudo: WebGroup;
-  public readonly Topo: WebGroup;
-  public readonly LBLChamado: WebLabel;
+  public readonly GRPTrilha: WebGroup;
+  public readonly BTNTrilhaPainel: WebButton;
+  public readonly LBLTrilhaSeparador1: WebLabel;
+  public readonly LBLTrilhaVer: WebLabel;
+  public readonly LBLTrilhaSeparador2: WebLabel;
+  public readonly LBLTrilhaNumero: WebLabel;
+  public readonly GRPChamado: WebGroup;
+  public readonly GRPCabecalhoChamado: WebGroup;
+  public readonly ICOFila: WebIcon;
+  public readonly LBLTicket: WebLabel;
   public readonly BTNOtobo: WebButton;
-  public readonly BTNRecarregar: WebButton;
-  public readonly HTMLSinais: WebHtml;
-  public readonly Acoes: WebGroup;
+  public readonly LBLNumero: WebLabel;
+  public readonly BTNImprimir: WebButton;
+  public readonly BTNRelatorio: WebButton;
+  public readonly ICOPrioridade: WebIcon;
+  public readonly GRPAcoesChamado: WebGroup;
+  public readonly CHKPrioridade: WebCheckBox;
   public readonly BTNBloquear: WebButton;
   public readonly BTNDesbloquear: WebButton;
-  public readonly BTNPrioridade: WebButton;
-  public readonly PNLDados: WebPanel;
-  public readonly Dados: WebGroup;
-  public readonly DadosStatus: WebGroup;
-  public readonly LBLStatus: WebLabel;
-  public readonly Status: WebLabel;
-  public readonly DadosTicket: WebGroup;
-  public readonly LBLTicket: WebLabel;
-  public readonly Ticket: WebLabel;
-  public readonly DadosFila: WebGroup;
-  public readonly LBLFila: WebLabel;
-  public readonly Fila: WebLabel;
-  public readonly DadosResponsavel: WebGroup;
-  public readonly LBLResponsavel: WebLabel;
-  public readonly Responsavel: WebLabel;
-  public readonly DadosSolicitante: WebGroup;
-  public readonly LBLSolicitante: WebLabel;
-  public readonly Solicitante: WebLabel;
-  public readonly DadosTelefone: WebGroup;
-  public readonly LBLTelefone: WebLabel;
-  public readonly Telefone: WebLabel;
-  public readonly DadosLocal: WebGroup;
-  public readonly LBLLocal: WebLabel;
-  public readonly Local: WebLabel;
-  public readonly DadosEndereco: WebGroup;
-  public readonly LBLEndereco: WebLabel;
-  public readonly Endereco: WebLabel;
-  public readonly DadosRegiao: WebGroup;
-  public readonly LBLRegiao: WebLabel;
-  public readonly Regiao: WebLabel;
-  public readonly DadosAbertura: WebGroup;
-  public readonly LBLAbertura: WebLabel;
-  public readonly Abertura: WebLabel;
-  public readonly DadosEncerramento: WebGroup;
-  public readonly LBLEncerramento: WebLabel;
-  public readonly Encerramento: WebLabel;
-  public readonly DadosResumo: WebGroup;
-  public readonly LBLResumo: WebLabel;
-  public readonly Resumo: WebLabel;
+  public readonly LBLInfovia: WebLabel;
+  public readonly GRPLinha: WebGroup;
   public readonly Abas: WebTabs;
-  public readonly PNLInteracoes: WebPanel;
-  public readonly HTMLInteracoes: WebHtml;
-  public readonly PNLEquipamentos: WebPanel;
-  public readonly GRDEquipamentos: WebDataGrid;
-  public readonly PNLServicos: WebPanel;
-  public readonly GRDServicos: WebDataGrid;
-  public readonly PNLReparos: WebPanel;
+  public readonly PNLInformacoes: WebGroup;
+  public readonly GRPBotoesChamado: WebGroup;
+  public readonly BTNEditar: WebButton;
+  public readonly BTNSalvar: WebButton;
+  public readonly BTNCancelar: WebButton;
+  public readonly LinhaResumo: WebGroup;
+  public readonly GRPResumo: WebGroup;
+  public readonly LBLResumo: WebLabel;
+  public readonly EDTResumo: WebEdit;
+  public readonly LinhaSituacao: WebGroup;
+  public readonly GRPStatus: WebGroup;
+  public readonly LBLStatus: WebLabel;
+  public readonly EDTStatus: WebEdit;
+  public readonly GRPFila: WebGroup;
+  public readonly LBLFila: WebLabel;
+  public readonly EDTFila: WebEdit;
+  public readonly GRPAbertura: WebGroup;
+  public readonly LBLAbertura: WebLabel;
+  public readonly EDTAbertura: WebEdit;
+  public readonly GRPResponsavel: WebGroup;
+  public readonly LBLResponsavel: WebLabel;
+  public readonly CMBResponsavel: WebComboBox;
+  public readonly LinhaSolicitante: WebGroup;
+  public readonly GRPSolicitante: WebGroup;
+  public readonly LBLSolicitante: WebLabel;
+  public readonly EDTSolicitante: WebEdit;
+  public readonly GRPCelular: WebGroup;
+  public readonly LBLCelular: WebLabel;
+  public readonly EDTCelular: WebEdit;
+  public readonly GRPTelefone: WebGroup;
+  public readonly LBLTelefone: WebLabel;
+  public readonly EDTTelefone: WebEdit;
+  public readonly LinhaLocal: WebGroup;
+  public readonly GRPLocal: WebGroup;
+  public readonly GRPRotuloLocal: WebGroup;
+  public readonly LBLLocal: WebLabel;
+  public readonly BTNVerEndereco: WebButton;
+  public readonly GRPCampoLocal: WebGroup;
+  public readonly EDTLocal: WebEdit;
+  public readonly ACPLocal: WebAutocomplete;
+  public readonly GRPRegiao: WebGroup;
+  public readonly LBLRegiao: WebLabel;
+  public readonly EDTRegiao: WebEdit;
+  public readonly GRPComplemento: WebGroup;
+  public readonly LBLComplemento: WebLabel;
+  public readonly EDTComplemento: WebEdit;
+  public readonly PNLComunicacao: WebGroup;
+  public readonly HTMLEmails: WebHtml;
+  public readonly LBLAnexos: WebLabel;
+  public readonly GRDAnexos: WebDataGrid;
+  public readonly PNLReparos: WebGroup;
   public readonly GRDReparos: WebDataGrid;
   public readonly LBLReparo: WebLabel;
   public readonly GRDReparoHistorico: WebDataGrid;
-  public readonly PNLEmails: WebPanel;
-  public readonly HTMLEmails: WebHtml;
-  public readonly PNLHistorico: WebPanel;
-  public readonly GRDHistorico: WebDataGrid;
-  public readonly PNLAnexos: WebPanel;
-  public readonly LBLAnexos: WebLabel;
-  public readonly GRDAnexos: WebDataGrid;
-  public readonly LBLTermos: WebLabel;
-  public readonly GRDTermos: WebDataGrid;
-  public readonly LBLTelefones: WebLabel;
-  public readonly GRDTelefones: WebDataGrid;
-  public readonly PNLRegistrar: WebPanel;
+  public readonly PNLInteracoes: WebGroup;
+  public readonly GRPBotoesInteracao: WebGroup;
+  public readonly BTNNovaInteracao: WebButton;
   public readonly LBLRegistrar: WebLabel;
   public readonly GRPRegistrar: WebGroup;
+  public readonly LBLNovaInteracao: WebLabel;
   public readonly TipoInteracao: WebGroup;
   public readonly CMBTipo: WebComboBox;
   public readonly CMBFila: WebComboBox;
@@ -116,7 +129,24 @@ export abstract class ChamadoGenerated extends WebPage {
   public readonly LSTItens: WebListBox;
   public readonly RTEInteracao: WebRichTextEditor;
   public readonly AcoesInteracao: WebGroup;
+  public readonly BTNFecharInteracao: WebButton;
   public readonly BTNRegistrar: WebButton;
+  public readonly HTMLInteracoes: WebHtml;
+  public readonly PNLEquipamentos: WebGroup;
+  public readonly GRDEquipamentos: WebDataGrid;
+  public readonly LBLTermos: WebLabel;
+  public readonly GRDTermos: WebDataGrid;
+  public readonly PNLInfraestrutura: WebGroup;
+  public readonly GRDServicos: WebDataGrid;
+  public readonly PNLHistorico: WebGroup;
+  public readonly HTMLHistorico: WebHtml;
+  public readonly POPLocal: WebPopup;
+  public readonly LBLLocalNome: WebLabel;
+  public readonly LBLLocalEndereco: WebLabel;
+  public readonly GRDTelefones: WebDataGrid;
+  public readonly GRPFecharLocal: WebGroup;
+  public readonly BTNAbrirLocal: WebButton;
+  public readonly BTNFecharLocal: WebButton;
   public readonly Api: WebApiClientInstance<ApiApiOutputs, ApiApiInputs, ApiApiDefaultHeaders>;
   public readonly Rodape: WebGroup;
   public readonly LBLRodapeAutorizacao: WebLabel;
@@ -126,852 +156,266 @@ export abstract class ChamadoGenerated extends WebPage {
   public constructor(element: HTMLElement) {
     super(element);
     this.Cabecalho = new WebGroup(
-      this.requireComponentElement('fc38af6e-e1ff-4284-950d-637b2250efeb'),
+      this.requireComponentElement('15e01257-8530-48e7-bd92-b266ee288396'),
     );
     this.GRPMarca = new WebGroup(
-      this.requireComponentElement('8d00c568-93c5-4c7a-b639-a17280c30ee7'),
-    );
-    this.IMGMarca = new WebImage(
-      this.requireComponentElement('0323cff5-0722-40c0-bbe4-dd160c48b6a6'),
-    );
-    this.LBLMarca = new WebLabel(
-      this.requireComponentElement('b5bdeb96-215c-468d-8c47-722276369a4b'),
-    );
-    this.GRPBusca = new WebGroup(
-      this.requireComponentElement('0f3ecf79-0116-4c3b-98ca-b95aa50df30a'),
-    );
-    this.EDTBuscaRapida = new WebEdit(
-      this.requireComponentElement('5d8b9a22-dff1-461e-b759-f238b3808bcb'),
-    );
-    this.BTNBuscar = new WebButton(
-      this.requireComponentElement('e1ae51cc-f6d6-4e7d-a26e-43e20f8988e7'),
-    );
-    this.GRPUsuario = new WebGroup(
-      this.requireComponentElement('830540b7-4755-4ebe-b7fe-68a4a001e27d'),
-    );
-    this.LBLOla = new WebLabel(
-      this.requireComponentElement('60907507-cff6-4469-b557-c33b523724d0'),
-    );
-    this.LBLUsuario = new WebLabel(
-      this.requireComponentElement('aaead21c-74ca-47cc-b63b-707792c40e60'),
-    );
-    this.BTNBloqueados = new WebButton(
-      this.requireComponentElement('677d96d3-3f02-4f0c-8742-2fe6dc836110'),
-    );
-    this.BTNPainel = new WebButton(
-      this.requireComponentElement('9d951651-761e-48fe-bf4d-7f88a6c513c6'),
-    );
-    this.BTNInserviveis = new WebButton(
-      this.requireComponentElement('a2d53966-7c6e-4085-a065-4ac0f64072ed'),
-    );
-    this.BTNAdmin = new WebButton(
-      this.requireComponentElement('e04adde0-a3b2-4c8d-8212-921a0231e6cd'),
-    );
-    this.BTNSair = new WebButton(
-      this.requireComponentElement('79c99aeb-3e4c-48c1-b063-24073f520e59'),
-    );
-    this.Conteudo = new WebGroup(
-      this.requireComponentElement('343c0e9a-e431-4f14-9b59-cd6f2c2bc437'),
-    );
-    this.Topo = new WebGroup(this.requireComponentElement('d1902eee-9fa1-49bf-b84e-ac584e5b5218'));
-    this.LBLChamado = new WebLabel(
-      this.requireComponentElement('4940dce0-d07a-4630-9943-af80777ec1f2'),
-    );
-    this.BTNOtobo = new WebButton(
-      this.requireComponentElement('fe4a7da4-2246-4a8d-88df-cf97258ee347'),
-    );
-    this.BTNRecarregar = new WebButton(
-      this.requireComponentElement('a103d6c8-15c5-4521-ad19-ec9081df4d07'),
-    );
-    this.HTMLSinais = new WebHtml(
-      this.requireComponentElement('07aa4e01-64dc-46f4-9c73-d3379a1c3f4e'),
-    );
-    this.Acoes = new WebGroup(this.requireComponentElement('6984fa62-66c1-4188-bb4d-f8a1aa0bf55a'));
-    this.BTNBloquear = new WebButton(
-      this.requireComponentElement('2ce3d933-d875-44d0-a129-878d564b87db'),
-    );
-    this.BTNDesbloquear = new WebButton(
-      this.requireComponentElement('e2924bd9-3c87-4302-aac9-546f81f57e01'),
-    );
-    this.BTNPrioridade = new WebButton(
-      this.requireComponentElement('b7c51394-c65d-43b4-9d3c-2d4b1ce119d4'),
-    );
-    this.PNLDados = new WebPanel(
-      this.requireComponentElement('24d7e666-749c-4e75-8619-9dadb50ae9f1'),
-    );
-    this.Dados = new WebGroup(this.requireComponentElement('15e01257-8530-48e7-bd92-b266ee288396'));
-    this.DadosStatus = new WebGroup(
       this.requireComponentElement('5e444df7-fce3-475e-84ed-7ce2b3a9ea0c'),
     );
-    this.LBLStatus = new WebLabel(
+    this.IMGMarca = new WebImage(
       this.requireComponentElement('b7582e23-a41e-4fd5-b807-aaa747d90ae5'),
     );
-    this.Status = new WebLabel(
+    this.LBLMarca = new WebLabel(
       this.requireComponentElement('a0b66e27-a65f-4bb6-9d5e-b1ffec25ec6a'),
     );
-    this.DadosTicket = new WebGroup(
+    this.GRPBusca = new WebGroup(
       this.requireComponentElement('41e7f868-72e5-4b28-9da7-b957367d9d5d'),
     );
-    this.LBLTicket = new WebLabel(
+    this.EDTBuscaRapida = new WebEdit(
       this.requireComponentElement('d35a16f1-e4e0-47b9-a95f-2b1f92e22ada'),
     );
-    this.Ticket = new WebLabel(
+    this.BTNBuscar = new WebButton(
       this.requireComponentElement('c344bdcf-5bea-4916-af77-3e7fc646541e'),
     );
-    this.DadosFila = new WebGroup(
+    this.GRPUsuario = new WebGroup(
       this.requireComponentElement('486232ab-72c6-41d1-887e-4feafffe5a95'),
     );
-    this.LBLFila = new WebLabel(
+    this.LBLOla = new WebLabel(
       this.requireComponentElement('1726aef1-c8b2-413d-a896-8aadde19f43a'),
     );
-    this.Fila = new WebLabel(this.requireComponentElement('22db05c0-b437-4e5c-90e2-188a2b98edbd'));
-    this.DadosResponsavel = new WebGroup(
+    this.LBLUsuario = new WebLabel(
+      this.requireComponentElement('22db05c0-b437-4e5c-90e2-188a2b98edbd'),
+    );
+    this.BTNBloqueados = new WebButton(
       this.requireComponentElement('a9803d7c-2e8e-48c4-97e1-9d0d709617b1'),
     );
-    this.LBLResponsavel = new WebLabel(
+    this.BTNPainel = new WebButton(
       this.requireComponentElement('d3bb9d35-7739-4e24-8448-200953029335'),
     );
-    this.Responsavel = new WebLabel(
+    this.BTNInserviveis = new WebButton(
       this.requireComponentElement('f3c93262-d7d0-43f2-a50d-c1c443241a2d'),
     );
-    this.DadosSolicitante = new WebGroup(
+    this.BTNAdmin = new WebButton(
       this.requireComponentElement('ef4be685-4590-4111-b8bc-4e09d063e7ae'),
     );
-    this.LBLSolicitante = new WebLabel(
+    this.BTNSair = new WebButton(
       this.requireComponentElement('adc61bb7-f255-4b67-b39e-3d4c7ec4a16a'),
     );
-    this.Solicitante = new WebLabel(
+    this.Conteudo = new WebGroup(
       this.requireComponentElement('f5a29631-9942-476e-bd7d-37713a8df7ce'),
     );
-    this.DadosTelefone = new WebGroup(
+    this.GRPTrilha = new WebGroup(
       this.requireComponentElement('babdff29-a3ed-485d-9513-826bcbe6479a'),
     );
-    this.LBLTelefone = new WebLabel(
+    this.BTNTrilhaPainel = new WebButton(
       this.requireComponentElement('f4e24c15-4b3c-4723-a0a5-000b3418a4f0'),
     );
-    this.Telefone = new WebLabel(
+    this.LBLTrilhaSeparador1 = new WebLabel(
       this.requireComponentElement('7ffa96e9-4f29-4e35-8495-d0ddb2cf3208'),
     );
-    this.DadosLocal = new WebGroup(
+    this.LBLTrilhaVer = new WebLabel(
       this.requireComponentElement('43a7da6c-6aa4-4625-8e55-c7226ff89483'),
     );
-    this.LBLLocal = new WebLabel(
+    this.LBLTrilhaSeparador2 = new WebLabel(
       this.requireComponentElement('fe3981e6-32ee-497d-b759-0824d521206e'),
     );
-    this.Local = new WebLabel(this.requireComponentElement('8e0c0a88-4b7c-486f-bfab-a8967e99d80a'));
-    this.DadosEndereco = new WebGroup(
+    this.LBLTrilhaNumero = new WebLabel(
+      this.requireComponentElement('8e0c0a88-4b7c-486f-bfab-a8967e99d80a'),
+    );
+    this.GRPChamado = new WebGroup(
       this.requireComponentElement('854b92f4-463b-4ee9-9a08-e60328551cac'),
     );
-    this.LBLEndereco = new WebLabel(
+    this.GRPCabecalhoChamado = new WebGroup(
       this.requireComponentElement('44e0780d-91e7-40e6-a39b-f4f598170551'),
     );
-    this.Endereco = new WebLabel(
+    this.ICOFila = new WebIcon(
       this.requireComponentElement('37a90189-cbff-4673-b207-74f108e40047'),
     );
-    this.DadosRegiao = new WebGroup(
+    this.LBLTicket = new WebLabel(
       this.requireComponentElement('3690c0fe-43b9-4ea4-9853-c08fe0f90d1e'),
     );
-    this.LBLRegiao = new WebLabel(
+    this.BTNOtobo = new WebButton(
       this.requireComponentElement('71abbaf9-d13d-4738-9b9b-7bfe49358a2e'),
     );
-    this.Regiao = new WebLabel(
+    this.LBLNumero = new WebLabel(
       this.requireComponentElement('1a844d48-23b0-4ab9-a759-dcfa2eb9eab0'),
     );
-    this.DadosAbertura = new WebGroup(
+    this.BTNImprimir = new WebButton(
       this.requireComponentElement('953bd1d2-208a-4e95-8955-8ac4241bd286'),
     );
-    this.LBLAbertura = new WebLabel(
+    this.BTNRelatorio = new WebButton(
       this.requireComponentElement('4f6e225d-3b77-4d81-a639-dc69698e044f'),
     );
-    this.Abertura = new WebLabel(
+    this.ICOPrioridade = new WebIcon(
       this.requireComponentElement('62d94b86-69dd-443d-8ee9-763841511dd1'),
     );
-    this.DadosEncerramento = new WebGroup(
+    this.GRPAcoesChamado = new WebGroup(
       this.requireComponentElement('f16f2bc2-db11-4edf-a6fa-5bb9260eb6ef'),
     );
-    this.LBLEncerramento = new WebLabel(
+    this.CHKPrioridade = new WebCheckBox(
       this.requireComponentElement('ffa48eaa-8590-4c6a-9327-80f7d9d4ae3b'),
     );
-    this.Encerramento = new WebLabel(
+    this.BTNBloquear = new WebButton(
       this.requireComponentElement('81c8af35-ccc1-411c-8486-3ede1c874d48'),
     );
-    this.DadosResumo = new WebGroup(
+    this.BTNDesbloquear = new WebButton(
       this.requireComponentElement('dd4fba2d-887e-45de-a99d-0facb501f01c'),
     );
-    this.LBLResumo = new WebLabel(
+    this.LBLInfovia = new WebLabel(
       this.requireComponentElement('bb4439ed-dc15-4e98-93ee-986f56dee70c'),
     );
-    this.Resumo = new WebLabel(
+    this.GRPLinha = new WebGroup(
       this.requireComponentElement('1bee131d-f88c-4392-89f5-b711720985a2'),
     );
     this.Abas = new WebTabs(this.requireComponentElement('f219b5a8-672d-469a-9ab2-d4af4454ae47'));
-    this.PNLInteracoes = new WebPanel(
+    this.PNLInformacoes = new WebGroup(
       this.requireComponentElement('b43e04ae-3334-4f7c-ba19-07cf37eb2f62'),
     );
-    this.HTMLInteracoes = new WebHtml(
+    this.GRPBotoesChamado = new WebGroup(
       this.requireComponentElement('7d2ac783-66eb-42dd-89a3-01378d46aaa6'),
     );
-    this.PNLEquipamentos = new WebPanel(
+    this.BTNEditar = new WebButton(
       this.requireComponentElement('b136c031-ef8a-487c-8028-6d16b1c298d1'),
     );
-    this.GRDEquipamentos = new WebDataGrid(
+    this.BTNSalvar = new WebButton(
       this.requireComponentElement('c24de564-1722-4c12-abc1-0caba1916948'),
     );
-    this.GRDEquipamentos.dataGridConfig = {
-      schemaVersion: 2,
-      apiClientId: '198a18be-dd4e-444c-9880-73e251ffdac6',
-      operationId: '2588624e-4768-4c5f-8f9f-1a0fff31e795',
-      listPath: '/data',
-      columnCount: 4,
-      showHeader: true,
-      stickyHeader: true,
-      showFooter: false,
-      stickyFooter: true,
-      rowHeightMode: 'dynamic',
-      fixedRowHeight: 40,
-      minRowHeight: 36,
-      maxRowHeight: null,
-      cellPaddingHorizontal: 10,
-      cellPaddingVertical: 8,
-      wrapText: false,
-      stripedRows: true,
-      showHorizontalLines: true,
-      showVerticalLines: false,
-      emptyMessage: 'Nenhum registro',
-      columns: [
-        {
-          id: '12ff215b-c717-4c6e-a156-c5bb595d9892',
-          header: 'Patrimônio',
-          fieldPath: '/num_equipamento',
-          cellKind: 'text',
-          fixedCaption: '',
-          buttonIcon: null,
-          footer: '',
-          widthMode: 'fixed',
-          width: 140,
-          minWidth: 90,
-          maxWidth: null,
-          flex: 1,
-          headerAlign: 'start',
-          cellAlign: 'start',
-          sortable: true,
-          searchable: true,
-        },
-        {
-          id: '2482bc18-8340-4176-919c-aeb4dc78a24c',
-          header: 'Descrição',
-          fieldPath: '/descricao_equipamento',
-          cellKind: 'text',
-          fixedCaption: '',
-          buttonIcon: null,
-          footer: '',
-          widthMode: 'dynamic',
-          width: 180,
-          minWidth: 90,
-          maxWidth: null,
-          flex: 1,
-          headerAlign: 'start',
-          cellAlign: 'start',
-          sortable: true,
-          searchable: true,
-        },
-        {
-          id: 'd891be5c-4322-4c42-9289-f21cd9994591',
-          header: 'Etiqueta',
-          fieldPath: '/tag_equipamento',
-          cellKind: 'text',
-          fixedCaption: '',
-          buttonIcon: null,
-          footer: '',
-          widthMode: 'fixed',
-          width: 140,
-          minWidth: 90,
-          maxWidth: null,
-          flex: 1,
-          headerAlign: 'start',
-          cellAlign: 'start',
-          sortable: true,
-          searchable: true,
-        },
-        {
-          id: 'd10b623e-2a75-4d02-a59c-ad4d45872590',
-          header: 'Status',
-          fieldPath: '/status_equipamento_chamado',
-          cellKind: 'text',
-          fixedCaption: '',
-          buttonIcon: null,
-          footer: '',
-          widthMode: 'fixed',
-          width: 140,
-          minWidth: 90,
-          maxWidth: null,
-          flex: 1,
-          headerAlign: 'start',
-          cellAlign: 'start',
-          sortable: true,
-          searchable: true,
-        },
-      ],
-      pagination: 'client',
-      pageSize: 25,
-      pageSizeOptions: [10, 25, 50, 100],
-      showPageSizeSelector: true,
-      searchEnabled: true,
-      searchPlaceholder: '',
-      sortEnabled: true,
-      exportEnabled: true,
-      serverSearchParameter: 'q',
-      serverSortParameter: 'sort',
-      serverDirectionParameter: 'dir',
-      totalPagesPath: '/total_pages',
-      totalRowsPath: '/total',
-    };
-    this.PNLServicos = new WebPanel(
+    this.BTNCancelar = new WebButton(
       this.requireComponentElement('5fb9e9e9-1fc6-4a8d-aab7-35b22d3f94df'),
     );
-    this.GRDServicos = new WebDataGrid(
+    this.LinhaResumo = new WebGroup(
       this.requireComponentElement('a4fe6b2c-2d85-4b9d-888b-181829d35376'),
     );
-    this.GRDServicos.dataGridConfig = {
-      schemaVersion: 2,
-      apiClientId: '198a18be-dd4e-444c-9880-73e251ffdac6',
-      operationId: '28f4acfb-57dc-46ea-a6f8-84ccda1e5c4c',
-      listPath: '/data',
-      columnCount: 4,
-      showHeader: true,
-      stickyHeader: true,
-      showFooter: false,
-      stickyFooter: true,
-      rowHeightMode: 'dynamic',
-      fixedRowHeight: 40,
-      minRowHeight: 36,
-      maxRowHeight: null,
-      cellPaddingHorizontal: 10,
-      cellPaddingVertical: 8,
-      wrapText: false,
-      stripedRows: true,
-      showHorizontalLines: true,
-      showVerticalLines: false,
-      emptyMessage: 'Nenhum registro',
-      columns: [
-        {
-          id: '73878794-5c7f-40c4-a57f-3f8bc4573d6a',
-          header: 'Serviço',
-          fieldPath: '/nome_servico',
-          cellKind: 'text',
-          fixedCaption: '',
-          buttonIcon: null,
-          footer: '',
-          widthMode: 'dynamic',
-          width: 180,
-          minWidth: 90,
-          maxWidth: null,
-          flex: 1,
-          headerAlign: 'start',
-          cellAlign: 'start',
-          sortable: true,
-          searchable: true,
-        },
-        {
-          id: '9ec9bf1b-29c4-4935-809d-5ed6fb6ba5b1',
-          header: 'Qtde',
-          fieldPath: '/quantidade',
-          cellKind: 'text',
-          fixedCaption: '',
-          buttonIcon: null,
-          footer: '',
-          widthMode: 'fixed',
-          width: 90,
-          minWidth: 90,
-          maxWidth: null,
-          flex: 1,
-          headerAlign: 'start',
-          cellAlign: 'start',
-          sortable: true,
-          searchable: true,
-        },
-        {
-          id: '4f12c619-41bd-4b0b-aa2e-3276ac851afd',
-          header: 'Unidade',
-          fieldPath: '/unidade_medida',
-          cellKind: 'text',
-          fixedCaption: '',
-          buttonIcon: null,
-          footer: '',
-          widthMode: 'fixed',
-          width: 100,
-          minWidth: 90,
-          maxWidth: null,
-          flex: 1,
-          headerAlign: 'start',
-          cellAlign: 'start',
-          sortable: true,
-          searchable: true,
-        },
-        {
-          id: '284b89d2-952c-4670-b5fd-0fb1ebc9e1da',
-          header: 'Status',
-          fieldPath: '/status_servico',
-          cellKind: 'text',
-          fixedCaption: '',
-          buttonIcon: null,
-          footer: '',
-          widthMode: 'fixed',
-          width: 120,
-          minWidth: 90,
-          maxWidth: null,
-          flex: 1,
-          headerAlign: 'start',
-          cellAlign: 'start',
-          sortable: true,
-          searchable: true,
-        },
-      ],
-      pagination: 'client',
-      pageSize: 25,
-      pageSizeOptions: [10, 25, 50, 100],
-      showPageSizeSelector: true,
-      searchEnabled: true,
-      searchPlaceholder: '',
-      sortEnabled: true,
-      exportEnabled: true,
-      serverSearchParameter: 'q',
-      serverSortParameter: 'sort',
-      serverDirectionParameter: 'dir',
-      totalPagesPath: '/total_pages',
-      totalRowsPath: '/total',
-    };
-    this.PNLReparos = new WebPanel(
+    this.GRPResumo = new WebGroup(
       this.requireComponentElement('f1bad240-cb3c-49a8-ac61-a58e378522c0'),
     );
-    this.GRDReparos = new WebDataGrid(
+    this.LBLResumo = new WebLabel(
       this.requireComponentElement('bf06cd57-857f-4b1c-8c54-9635577d1e53'),
     );
-    this.GRDReparos.dataGridConfig = {
-      schemaVersion: 2,
-      apiClientId: '198a18be-dd4e-444c-9880-73e251ffdac6',
-      operationId: 'ae29c420-2aba-4ace-819c-abfde86b0bb5',
-      listPath: '/data',
-      columnCount: 8,
-      showHeader: true,
-      stickyHeader: true,
-      showFooter: false,
-      stickyFooter: true,
-      rowHeightMode: 'dynamic',
-      fixedRowHeight: 40,
-      minRowHeight: 36,
-      maxRowHeight: null,
-      cellPaddingHorizontal: 10,
-      cellPaddingVertical: 8,
-      wrapText: false,
-      stripedRows: true,
-      showHorizontalLines: true,
-      showVerticalLines: false,
-      emptyMessage: 'Nenhum registro',
-      columns: [
-        {
-          id: '1d7b91d3-f6fd-4da4-9aed-2e09d8ab070c',
-          header: '#',
-          fieldPath: '/id_reparo',
-          cellKind: 'text',
-          fixedCaption: '',
-          buttonIcon: null,
-          footer: '',
-          widthMode: 'fixed',
-          width: 80,
-          minWidth: 80,
-          maxWidth: null,
-          flex: 1,
-          headerAlign: 'start',
-          cellAlign: 'start',
-          sortable: true,
-          searchable: true,
-        },
-        {
-          id: 'b9831c36-c727-4ccb-9e23-36d2a6cbf12f',
-          header: 'Patrimônio',
-          fieldPath: '/num_equipamento_reparo',
-          cellKind: 'text',
-          fixedCaption: '',
-          buttonIcon: null,
-          footer: '',
-          widthMode: 'fixed',
-          width: 130,
-          minWidth: 90,
-          maxWidth: null,
-          flex: 1,
-          headerAlign: 'start',
-          cellAlign: 'start',
-          sortable: true,
-          searchable: true,
-        },
-        {
-          id: 'deef84bb-c6fd-4a45-bd0d-e06e4561c6e7',
-          header: 'Bancada',
-          fieldPath: '/nome_bancada',
-          cellKind: 'text',
-          fixedCaption: '',
-          buttonIcon: null,
-          footer: '',
-          widthMode: 'fixed',
-          width: 140,
-          minWidth: 90,
-          maxWidth: null,
-          flex: 1,
-          headerAlign: 'start',
-          cellAlign: 'start',
-          sortable: true,
-          searchable: true,
-        },
-        {
-          id: 'a92cf6f1-d95f-4322-94e5-759b406b318c',
-          header: 'Status',
-          fieldPath: '/status_reparo',
-          cellKind: 'text',
-          fixedCaption: '',
-          buttonIcon: null,
-          footer: '',
-          widthMode: 'fixed',
-          width: 120,
-          minWidth: 90,
-          maxWidth: null,
-          flex: 1,
-          headerAlign: 'start',
-          cellAlign: 'start',
-          sortable: true,
-          searchable: true,
-        },
-        {
-          id: '463b6bca-6fb1-4335-961c-5897d50cf9f5',
-          header: 'Início',
-          fieldPath: '/data_inicio_reparo',
-          cellKind: 'text',
-          fixedCaption: '',
-          buttonIcon: null,
-          footer: '',
-          widthMode: 'fixed',
-          width: 160,
-          minWidth: 90,
-          maxWidth: null,
-          flex: 1,
-          headerAlign: 'start',
-          cellAlign: 'start',
-          sortable: true,
-          searchable: true,
-        },
-        {
-          id: '461f47e7-b816-4e5a-b2ee-8db5e1d3cda7',
-          header: 'Fim',
-          fieldPath: '/data_fim_reparo',
-          cellKind: 'text',
-          fixedCaption: '',
-          buttonIcon: null,
-          footer: '',
-          widthMode: 'fixed',
-          width: 160,
-          minWidth: 90,
-          maxWidth: null,
-          flex: 1,
-          headerAlign: 'start',
-          cellAlign: 'start',
-          sortable: true,
-          searchable: true,
-        },
-        {
-          id: 'f5ec0f5d-2143-4c12-9ade-baba874beedb',
-          header: 'Finalizado por',
-          fieldPath: '/nome_usuario',
-          cellKind: 'text',
-          fixedCaption: '',
-          buttonIcon: null,
-          footer: '',
-          widthMode: 'dynamic',
-          width: 180,
-          minWidth: 90,
-          maxWidth: null,
-          flex: 1,
-          headerAlign: 'start',
-          cellAlign: 'start',
-          sortable: true,
-          searchable: true,
-        },
-        {
-          id: '7cabd649-3fe4-4a53-a001-eb3cf2cd4988',
-          header: 'Valor (R$)',
-          fieldPath: '/soma_servico',
-          cellKind: 'text',
-          fixedCaption: '',
-          buttonIcon: null,
-          footer: '',
-          widthMode: 'fixed',
-          width: 110,
-          minWidth: 90,
-          maxWidth: null,
-          flex: 1,
-          headerAlign: 'start',
-          cellAlign: 'start',
-          sortable: true,
-          searchable: true,
-        },
-      ],
-      pagination: 'client',
-      pageSize: 25,
-      pageSizeOptions: [10, 25, 50, 100],
-      showPageSizeSelector: true,
-      searchEnabled: true,
-      searchPlaceholder: '',
-      sortEnabled: true,
-      exportEnabled: true,
-      serverSearchParameter: 'q',
-      serverSortParameter: 'sort',
-      serverDirectionParameter: 'dir',
-      totalPagesPath: '/total_pages',
-      totalRowsPath: '/total',
-    };
-    this.LBLReparo = new WebLabel(
+    this.EDTResumo = new WebEdit(
       this.requireComponentElement('0ba7456b-f4e8-4084-8022-eb9f03d8062e'),
     );
-    this.GRDReparoHistorico = new WebDataGrid(
+    this.LinhaSituacao = new WebGroup(
       this.requireComponentElement('0ac80fb8-46c3-4f0b-bbba-1ddfdc72b161'),
     );
-    this.GRDReparoHistorico.dataGridConfig = {
-      schemaVersion: 2,
-      apiClientId: '198a18be-dd4e-444c-9880-73e251ffdac6',
-      operationId: '73f3626f-f87f-44f9-9279-5d9baad087c2',
-      listPath: '/data',
-      columnCount: 5,
-      showHeader: true,
-      stickyHeader: true,
-      showFooter: false,
-      stickyFooter: true,
-      rowHeightMode: 'dynamic',
-      fixedRowHeight: 40,
-      minRowHeight: 36,
-      maxRowHeight: null,
-      cellPaddingHorizontal: 10,
-      cellPaddingVertical: 8,
-      wrapText: false,
-      stripedRows: true,
-      showHorizontalLines: true,
-      showVerticalLines: false,
-      emptyMessage: 'Nenhum registro',
-      columns: [
-        {
-          id: '86ea0498-a270-4573-ad04-0bc9efc8cd52',
-          header: 'Data',
-          fieldPath: '/data_reparo_servico',
-          cellKind: 'text',
-          fixedCaption: '',
-          buttonIcon: null,
-          footer: '',
-          widthMode: 'fixed',
-          width: 160,
-          minWidth: 90,
-          maxWidth: null,
-          flex: 1,
-          headerAlign: 'start',
-          cellAlign: 'start',
-          sortable: true,
-          searchable: true,
-        },
-        {
-          id: '85586d88-6108-4ac5-b2a7-a9ac9a2ef7fb',
-          header: 'Serviço / anotação',
-          fieldPath: '/nome_servico',
-          cellKind: 'text',
-          fixedCaption: '',
-          buttonIcon: null,
-          footer: '',
-          widthMode: 'dynamic',
-          width: 180,
-          minWidth: 90,
-          maxWidth: null,
-          flex: 1,
-          headerAlign: 'start',
-          cellAlign: 'start',
-          sortable: true,
-          searchable: true,
-        },
-        {
-          id: '723c5e2f-3ace-4a3f-b24c-0ed591491f0b',
-          header: 'Aberto por',
-          fieldPath: '/nome_abertura_usuario',
-          cellKind: 'text',
-          fixedCaption: '',
-          buttonIcon: null,
-          footer: '',
-          widthMode: 'fixed',
-          width: 170,
-          minWidth: 90,
-          maxWidth: null,
-          flex: 1,
-          headerAlign: 'start',
-          cellAlign: 'start',
-          sortable: true,
-          searchable: true,
-        },
-        {
-          id: '32e7b3d8-5942-40f2-bc88-9b8a00ab08da',
-          header: 'Encerrado em',
-          fieldPath: '/data_encerramento_reparo_servico',
-          cellKind: 'text',
-          fixedCaption: '',
-          buttonIcon: null,
-          footer: '',
-          widthMode: 'fixed',
-          width: 160,
-          minWidth: 90,
-          maxWidth: null,
-          flex: 1,
-          headerAlign: 'start',
-          cellAlign: 'start',
-          sortable: true,
-          searchable: true,
-        },
-        {
-          id: 'ac7d5ed3-4a24-4da6-a645-a69df29283ab',
-          header: 'Encerrado por',
-          fieldPath: '/nome_fechamento_usuario',
-          cellKind: 'text',
-          fixedCaption: '',
-          buttonIcon: null,
-          footer: '',
-          widthMode: 'fixed',
-          width: 170,
-          minWidth: 90,
-          maxWidth: null,
-          flex: 1,
-          headerAlign: 'start',
-          cellAlign: 'start',
-          sortable: true,
-          searchable: true,
-        },
-      ],
-      pagination: 'client',
-      pageSize: 25,
-      pageSizeOptions: [10, 25, 50, 100],
-      showPageSizeSelector: true,
-      searchEnabled: true,
-      searchPlaceholder: '',
-      sortEnabled: true,
-      exportEnabled: true,
-      serverSearchParameter: 'q',
-      serverSortParameter: 'sort',
-      serverDirectionParameter: 'dir',
-      totalPagesPath: '/total_pages',
-      totalRowsPath: '/total',
-    };
-    this.PNLEmails = new WebPanel(
+    this.GRPStatus = new WebGroup(
       this.requireComponentElement('e514f8a0-f6fc-4cb8-bdd1-f3292a017f74'),
     );
-    this.HTMLEmails = new WebHtml(
+    this.LBLStatus = new WebLabel(
       this.requireComponentElement('c5114e3d-fb59-47c9-b568-8416f503f95a'),
     );
-    this.PNLHistorico = new WebPanel(
+    this.EDTStatus = new WebEdit(
       this.requireComponentElement('615c120c-5ba4-43b4-b764-4d470582ee7f'),
     );
-    this.GRDHistorico = new WebDataGrid(
+    this.GRPFila = new WebGroup(
       this.requireComponentElement('9fa1ce07-88ec-424b-9a80-26d44f5ff9da'),
     );
-    this.GRDHistorico.dataGridConfig = {
-      schemaVersion: 2,
-      apiClientId: '198a18be-dd4e-444c-9880-73e251ffdac6',
-      operationId: 'c08f04c8-4d20-447c-a352-4da9133007ca',
-      listPath: '/data',
-      columnCount: 3,
-      showHeader: true,
-      stickyHeader: true,
-      showFooter: false,
-      stickyFooter: true,
-      rowHeightMode: 'dynamic',
-      fixedRowHeight: 40,
-      minRowHeight: 36,
-      maxRowHeight: null,
-      cellPaddingHorizontal: 10,
-      cellPaddingVertical: 8,
-      wrapText: false,
-      stripedRows: true,
-      showHorizontalLines: true,
-      showVerticalLines: false,
-      emptyMessage: 'Nenhum registro',
-      columns: [
-        {
-          id: '2a971606-7cfd-4b98-a546-6acb75044d59',
-          header: 'Data',
-          fieldPath: '/data_alteracao_fmt',
-          cellKind: 'text',
-          fixedCaption: '',
-          buttonIcon: null,
-          footer: '',
-          widthMode: 'fixed',
-          width: 170,
-          minWidth: 90,
-          maxWidth: null,
-          flex: 1,
-          headerAlign: 'start',
-          cellAlign: 'start',
-          sortable: true,
-          searchable: true,
-        },
-        {
-          id: '58f4e804-9d79-4e31-817f-8129cc228c88',
-          header: 'Usuário',
-          fieldPath: '/nome_usuario',
-          cellKind: 'text',
-          fixedCaption: '',
-          buttonIcon: null,
-          footer: '',
-          widthMode: 'fixed',
-          width: 200,
-          minWidth: 90,
-          maxWidth: null,
-          flex: 1,
-          headerAlign: 'start',
-          cellAlign: 'start',
-          sortable: true,
-          searchable: true,
-        },
-        {
-          id: '69059e39-5ec4-4df9-b569-c8dcdda8e8ca',
-          header: 'Alteração',
-          fieldPath: '/texto_alteracao',
-          cellKind: 'text',
-          fixedCaption: '',
-          buttonIcon: null,
-          footer: '',
-          widthMode: 'dynamic',
-          width: 180,
-          minWidth: 90,
-          maxWidth: null,
-          flex: 1,
-          headerAlign: 'start',
-          cellAlign: 'start',
-          sortable: true,
-          searchable: true,
-        },
-      ],
-      pagination: 'client',
-      pageSize: 25,
-      pageSizeOptions: [10, 25, 50, 100],
-      showPageSizeSelector: true,
-      searchEnabled: true,
-      searchPlaceholder: '',
-      sortEnabled: true,
-      exportEnabled: true,
-      serverSearchParameter: 'q',
-      serverSortParameter: 'sort',
-      serverDirectionParameter: 'dir',
-      totalPagesPath: '/total_pages',
-      totalRowsPath: '/total',
-    };
-    this.PNLAnexos = new WebPanel(
+    this.LBLFila = new WebLabel(
       this.requireComponentElement('3bbd9a15-4e54-4ae4-9a95-d3a8c5934796'),
     );
-    this.LBLAnexos = new WebLabel(
+    this.EDTFila = new WebEdit(
       this.requireComponentElement('2f9e6a22-ccc8-4037-bbb8-443ab2b390b8'),
     );
-    this.GRDAnexos = new WebDataGrid(
+    this.GRPAbertura = new WebGroup(
       this.requireComponentElement('2f480886-228f-4f6c-91cb-493d5226ea9a'),
+    );
+    this.LBLAbertura = new WebLabel(
+      this.requireComponentElement('5a94ff49-e34c-4050-9393-9ee0fb33fbae'),
+    );
+    this.EDTAbertura = new WebEdit(
+      this.requireComponentElement('2a3bf081-4902-4fcf-b46b-b533512a4fe1'),
+    );
+    this.GRPResponsavel = new WebGroup(
+      this.requireComponentElement('c8d446ed-664d-4841-a5e8-e2b90ffe63bb'),
+    );
+    this.LBLResponsavel = new WebLabel(
+      this.requireComponentElement('f5653906-2b5e-4350-83cc-224e6268e5f9'),
+    );
+    this.CMBResponsavel = new WebComboBox(
+      this.requireComponentElement('d50cee89-7d20-4585-856d-6eb367e2b8aa'),
+    );
+    this.LinhaSolicitante = new WebGroup(
+      this.requireComponentElement('338d9cb8-825a-4aee-8e0f-c368533fc656'),
+    );
+    this.GRPSolicitante = new WebGroup(
+      this.requireComponentElement('5d53c833-d072-4852-ac32-ca2a22a7f6db'),
+    );
+    this.LBLSolicitante = new WebLabel(
+      this.requireComponentElement('cb69b8a4-f664-4e00-adaa-519108484f1f'),
+    );
+    this.EDTSolicitante = new WebEdit(
+      this.requireComponentElement('cd5471c3-8282-426b-89dd-286e8a8b37f6'),
+    );
+    this.GRPCelular = new WebGroup(
+      this.requireComponentElement('141a1c3f-fed0-49ba-bf38-6febf853dde0'),
+    );
+    this.LBLCelular = new WebLabel(
+      this.requireComponentElement('2a3cc118-6240-451b-9e45-ed0ce0ecb536'),
+    );
+    this.EDTCelular = new WebEdit(
+      this.requireComponentElement('d0087b3e-cb6a-4f87-9d34-d848572cf1e0'),
+    );
+    this.GRPTelefone = new WebGroup(
+      this.requireComponentElement('23f74fae-1bd8-4dbe-8c30-0a9f775b73e8'),
+    );
+    this.LBLTelefone = new WebLabel(
+      this.requireComponentElement('d11abc84-9d0c-41b1-b237-e1386493b01e'),
+    );
+    this.EDTTelefone = new WebEdit(
+      this.requireComponentElement('00b8c344-997b-467f-bae2-f3ce4a35e1fe'),
+    );
+    this.LinhaLocal = new WebGroup(
+      this.requireComponentElement('055d5dc9-596d-45c2-bd4c-5c1bd4b3ebf5'),
+    );
+    this.GRPLocal = new WebGroup(
+      this.requireComponentElement('292c49ca-a5d3-4caa-92ea-b2827296560f'),
+    );
+    this.GRPRotuloLocal = new WebGroup(
+      this.requireComponentElement('603c57cb-2200-404c-86a2-4c62a7a5f5e0'),
+    );
+    this.LBLLocal = new WebLabel(
+      this.requireComponentElement('e94dec72-f984-46e1-8888-e4be28f4a92c'),
+    );
+    this.BTNVerEndereco = new WebButton(
+      this.requireComponentElement('010cd95f-eb39-4ef2-8eef-7e40ab224504'),
+    );
+    this.GRPCampoLocal = new WebGroup(
+      this.requireComponentElement('d9dd595a-455f-487d-91a3-c9675c90a117'),
+    );
+    this.EDTLocal = new WebEdit(
+      this.requireComponentElement('ef0f464c-3fd7-43e4-86e9-41195bb26f88'),
+    );
+    this.ACPLocal = new WebAutocomplete(
+      this.requireComponentElement('fd229f25-a574-4733-a73e-fe564a807afd'),
+    );
+    this.GRPRegiao = new WebGroup(
+      this.requireComponentElement('dee35afe-cab7-464b-90f8-1c941a85c9e6'),
+    );
+    this.LBLRegiao = new WebLabel(
+      this.requireComponentElement('0c4b782f-2f4f-4666-95a1-117d49adf714'),
+    );
+    this.EDTRegiao = new WebEdit(
+      this.requireComponentElement('f860f36d-cb10-4e6f-b233-256dc8306014'),
+    );
+    this.GRPComplemento = new WebGroup(
+      this.requireComponentElement('a983ad9d-fd71-48d7-9b30-553c8d01b886'),
+    );
+    this.LBLComplemento = new WebLabel(
+      this.requireComponentElement('e267dd17-2bd8-410d-acf9-8e9233ac4f0c'),
+    );
+    this.EDTComplemento = new WebEdit(
+      this.requireComponentElement('6de6cbc3-d9e1-49a3-bc04-bc28431c3035'),
+    );
+    this.PNLComunicacao = new WebGroup(
+      this.requireComponentElement('cc0794f4-90b4-41af-a46d-5f9de8c5d2c8'),
+    );
+    this.HTMLEmails = new WebHtml(
+      this.requireComponentElement('0b9797fd-6a77-4b8f-bb46-41025c43c20c'),
+    );
+    this.LBLAnexos = new WebLabel(
+      this.requireComponentElement('f485dcfb-0155-4989-a914-f1ca7b38b787'),
+    );
+    this.GRDAnexos = new WebDataGrid(
+      this.requireComponentElement('90ecd813-7c99-40ce-aeb1-4b91f2063e69'),
     );
     this.GRDAnexos.dataGridConfig = {
       schemaVersion: 2,
@@ -993,10 +437,10 @@ export abstract class ChamadoGenerated extends WebPage {
       stripedRows: true,
       showHorizontalLines: true,
       showVerticalLines: false,
-      emptyMessage: 'Nenhum registro',
+      emptyMessage: 'Nenhum anexo.',
       columns: [
         {
-          id: '194b3b0a-9c1b-49a2-9fe4-eb74ffc96dbc',
+          id: 'd10b623e-2a75-4d02-a59c-ad4d45872590',
           header: '#',
           fieldPath: '/id_anexo_otrs',
           cellKind: 'text',
@@ -1014,7 +458,7 @@ export abstract class ChamadoGenerated extends WebPage {
           searchable: true,
         },
         {
-          id: '11094999-361e-4fde-8707-d99d009f9904',
+          id: '73878794-5c7f-40c4-a57f-3f8bc4573d6a',
           header: 'Arquivo',
           fieldPath: '/nome_arquivo_otrs',
           cellKind: 'text',
@@ -1046,11 +490,458 @@ export abstract class ChamadoGenerated extends WebPage {
       totalPagesPath: '/total_pages',
       totalRowsPath: '/total',
     };
+    this.PNLReparos = new WebGroup(
+      this.requireComponentElement('3c712b35-e309-41e4-9fc0-cbce5b544dff'),
+    );
+    this.GRDReparos = new WebDataGrid(
+      this.requireComponentElement('2aaaa110-d628-4b86-977a-687754ae6bb0'),
+    );
+    this.GRDReparos.dataGridConfig = {
+      schemaVersion: 2,
+      apiClientId: '198a18be-dd4e-444c-9880-73e251ffdac6',
+      operationId: 'ae29c420-2aba-4ace-819c-abfde86b0bb5',
+      listPath: '/data',
+      columnCount: 6,
+      showHeader: true,
+      stickyHeader: true,
+      showFooter: false,
+      stickyFooter: true,
+      rowHeightMode: 'dynamic',
+      fixedRowHeight: 40,
+      minRowHeight: 36,
+      maxRowHeight: null,
+      cellPaddingHorizontal: 10,
+      cellPaddingVertical: 8,
+      wrapText: false,
+      stripedRows: true,
+      showHorizontalLines: true,
+      showVerticalLines: false,
+      emptyMessage: 'Lista vazia.',
+      columns: [
+        {
+          id: '9ec9bf1b-29c4-4935-809d-5ed6fb6ba5b1',
+          header: 'Equipamento',
+          fieldPath: '/num_equipamento_reparo',
+          cellKind: 'text',
+          fixedCaption: '',
+          buttonIcon: null,
+          footer: '',
+          widthMode: 'fixed',
+          width: 220,
+          minWidth: 90,
+          maxWidth: null,
+          flex: 1,
+          headerAlign: 'start',
+          cellAlign: 'start',
+          sortable: true,
+          searchable: true,
+        },
+        {
+          id: '4f12c619-41bd-4b0b-aa2e-3276ac851afd',
+          header: 'Bancada',
+          fieldPath: '/nome_bancada',
+          cellKind: 'text',
+          fixedCaption: '',
+          buttonIcon: null,
+          footer: '',
+          widthMode: 'fixed',
+          width: 160,
+          minWidth: 90,
+          maxWidth: null,
+          flex: 1,
+          headerAlign: 'start',
+          cellAlign: 'start',
+          sortable: true,
+          searchable: true,
+        },
+        {
+          id: '284b89d2-952c-4670-b5fd-0fb1ebc9e1da',
+          header: 'Status',
+          fieldPath: '/status_reparo',
+          cellKind: 'text',
+          fixedCaption: '',
+          buttonIcon: null,
+          footer: '',
+          widthMode: 'fixed',
+          width: 130,
+          minWidth: 90,
+          maxWidth: null,
+          flex: 1,
+          headerAlign: 'start',
+          cellAlign: 'start',
+          sortable: true,
+          searchable: true,
+        },
+        {
+          id: '1d7b91d3-f6fd-4da4-9aed-2e09d8ab070c',
+          header: 'Iniciado',
+          fieldPath: '/data_inicio_reparo',
+          cellKind: 'text',
+          fixedCaption: '',
+          buttonIcon: null,
+          footer: '',
+          widthMode: 'fixed',
+          width: 160,
+          minWidth: 90,
+          maxWidth: null,
+          flex: 1,
+          headerAlign: 'start',
+          cellAlign: 'start',
+          sortable: true,
+          searchable: true,
+        },
+        {
+          id: 'b9831c36-c727-4ccb-9e23-36d2a6cbf12f',
+          header: 'Finalizado',
+          fieldPath: '/data_fim_reparo',
+          cellKind: 'text',
+          fixedCaption: '',
+          buttonIcon: null,
+          footer: '',
+          widthMode: 'fixed',
+          width: 160,
+          minWidth: 90,
+          maxWidth: null,
+          flex: 1,
+          headerAlign: 'start',
+          cellAlign: 'start',
+          sortable: true,
+          searchable: true,
+        },
+        {
+          id: 'deef84bb-c6fd-4a45-bd0d-e06e4561c6e7',
+          header: 'Finalizado por',
+          fieldPath: '/nome_usuario',
+          cellKind: 'text',
+          fixedCaption: '',
+          buttonIcon: null,
+          footer: '',
+          widthMode: 'dynamic',
+          width: 180,
+          minWidth: 90,
+          maxWidth: null,
+          flex: 1,
+          headerAlign: 'start',
+          cellAlign: 'start',
+          sortable: true,
+          searchable: true,
+        },
+      ],
+      pagination: 'client',
+      pageSize: 25,
+      pageSizeOptions: [10, 25, 50, 100],
+      showPageSizeSelector: true,
+      searchEnabled: true,
+      searchPlaceholder: '',
+      sortEnabled: true,
+      exportEnabled: true,
+      serverSearchParameter: 'q',
+      serverSortParameter: 'sort',
+      serverDirectionParameter: 'dir',
+      totalPagesPath: '/total_pages',
+      totalRowsPath: '/total',
+    };
+    this.LBLReparo = new WebLabel(
+      this.requireComponentElement('3f12858f-1574-4e33-ac47-7d185daa4f83'),
+    );
+    this.GRDReparoHistorico = new WebDataGrid(
+      this.requireComponentElement('ff10d256-bfd9-46c7-843f-eacdd2cc830c'),
+    );
+    this.GRDReparoHistorico.dataGridConfig = {
+      schemaVersion: 2,
+      apiClientId: '198a18be-dd4e-444c-9880-73e251ffdac6',
+      operationId: '73f3626f-f87f-44f9-9279-5d9baad087c2',
+      listPath: '/data',
+      columnCount: 5,
+      showHeader: true,
+      stickyHeader: true,
+      showFooter: false,
+      stickyFooter: true,
+      rowHeightMode: 'dynamic',
+      fixedRowHeight: 40,
+      minRowHeight: 36,
+      maxRowHeight: null,
+      cellPaddingHorizontal: 10,
+      cellPaddingVertical: 8,
+      wrapText: false,
+      stripedRows: true,
+      showHorizontalLines: true,
+      showVerticalLines: false,
+      emptyMessage: 'Lista vazia.',
+      columns: [
+        {
+          id: 'a92cf6f1-d95f-4322-94e5-759b406b318c',
+          header: 'Data',
+          fieldPath: '/data_reparo_servico',
+          cellKind: 'text',
+          fixedCaption: '',
+          buttonIcon: null,
+          footer: '',
+          widthMode: 'fixed',
+          width: 160,
+          minWidth: 90,
+          maxWidth: null,
+          flex: 1,
+          headerAlign: 'start',
+          cellAlign: 'start',
+          sortable: true,
+          searchable: true,
+        },
+        {
+          id: '463b6bca-6fb1-4335-961c-5897d50cf9f5',
+          header: 'Serviço / anotação',
+          fieldPath: '/nome_servico',
+          cellKind: 'text',
+          fixedCaption: '',
+          buttonIcon: null,
+          footer: '',
+          widthMode: 'dynamic',
+          width: 180,
+          minWidth: 90,
+          maxWidth: null,
+          flex: 1,
+          headerAlign: 'start',
+          cellAlign: 'start',
+          sortable: true,
+          searchable: true,
+        },
+        {
+          id: '461f47e7-b816-4e5a-b2ee-8db5e1d3cda7',
+          header: 'Aberto por',
+          fieldPath: '/nome_abertura_usuario',
+          cellKind: 'text',
+          fixedCaption: '',
+          buttonIcon: null,
+          footer: '',
+          widthMode: 'fixed',
+          width: 170,
+          minWidth: 90,
+          maxWidth: null,
+          flex: 1,
+          headerAlign: 'start',
+          cellAlign: 'start',
+          sortable: true,
+          searchable: true,
+        },
+        {
+          id: 'f5ec0f5d-2143-4c12-9ade-baba874beedb',
+          header: 'Encerrado em',
+          fieldPath: '/data_encerramento_reparo_servico',
+          cellKind: 'text',
+          fixedCaption: '',
+          buttonIcon: null,
+          footer: '',
+          widthMode: 'fixed',
+          width: 160,
+          minWidth: 90,
+          maxWidth: null,
+          flex: 1,
+          headerAlign: 'start',
+          cellAlign: 'start',
+          sortable: true,
+          searchable: true,
+        },
+        {
+          id: '7cabd649-3fe4-4a53-a001-eb3cf2cd4988',
+          header: 'Encerrado por',
+          fieldPath: '/nome_fechamento_usuario',
+          cellKind: 'text',
+          fixedCaption: '',
+          buttonIcon: null,
+          footer: '',
+          widthMode: 'fixed',
+          width: 170,
+          minWidth: 90,
+          maxWidth: null,
+          flex: 1,
+          headerAlign: 'start',
+          cellAlign: 'start',
+          sortable: true,
+          searchable: true,
+        },
+      ],
+      pagination: 'client',
+      pageSize: 25,
+      pageSizeOptions: [10, 25, 50, 100],
+      showPageSizeSelector: true,
+      searchEnabled: true,
+      searchPlaceholder: '',
+      sortEnabled: true,
+      exportEnabled: true,
+      serverSearchParameter: 'q',
+      serverSortParameter: 'sort',
+      serverDirectionParameter: 'dir',
+      totalPagesPath: '/total_pages',
+      totalRowsPath: '/total',
+    };
+    this.PNLInteracoes = new WebGroup(
+      this.requireComponentElement('4e684414-0ca7-4d04-a71b-5495a9ec6955'),
+    );
+    this.GRPBotoesInteracao = new WebGroup(
+      this.requireComponentElement('1b71b0f5-6d53-4d79-9578-d85bebbbbd83'),
+    );
+    this.BTNNovaInteracao = new WebButton(
+      this.requireComponentElement('68a26eb4-bc94-442e-94d2-c4fc2e4af91c'),
+    );
+    this.LBLRegistrar = new WebLabel(
+      this.requireComponentElement('9151bd04-9d04-4e98-9491-bf21dda918dd'),
+    );
+    this.GRPRegistrar = new WebGroup(
+      this.requireComponentElement('cd4c7877-ade3-43ed-bd37-33482507bbf3'),
+    );
+    this.LBLNovaInteracao = new WebLabel(
+      this.requireComponentElement('bf421950-4245-46ac-bba5-c585a819e1bf'),
+    );
+    this.TipoInteracao = new WebGroup(
+      this.requireComponentElement('9c0a2646-ce67-4e12-940c-34a8132537a3'),
+    );
+    this.CMBTipo = new WebComboBox(
+      this.requireComponentElement('7284d53f-72c3-4c04-89ae-b184ac3a3d99'),
+    );
+    this.CMBFila = new WebComboBox(
+      this.requireComponentElement('f0ca1a47-413c-4f35-9d7b-292f0852fd43'),
+    );
+    this.LBLItens = new WebLabel(
+      this.requireComponentElement('af4e1a77-5c34-45b0-b9ae-d03398a9dc01'),
+    );
+    this.LSTItens = new WebListBox(
+      this.requireComponentElement('55d57f15-4755-40b2-97cc-9adee790a438'),
+    );
+    this.RTEInteracao = new WebRichTextEditor(
+      this.requireComponentElement('d0dbdd7b-a828-4766-a321-dbb2ddc41f27'),
+    );
+    this.AcoesInteracao = new WebGroup(
+      this.requireComponentElement('64051240-037c-4191-bc30-97e446c76d53'),
+    );
+    this.BTNFecharInteracao = new WebButton(
+      this.requireComponentElement('1c2d0766-336e-4ac5-868e-44e66e535587'),
+    );
+    this.BTNRegistrar = new WebButton(
+      this.requireComponentElement('75a0b235-d573-45fa-969f-5124429ee265'),
+    );
+    this.HTMLInteracoes = new WebHtml(
+      this.requireComponentElement('6d019d22-806e-48d7-b22e-9997e59f46a4'),
+    );
+    this.PNLEquipamentos = new WebGroup(
+      this.requireComponentElement('6f89acfe-91ff-4ce0-81c2-7216807f8f3f'),
+    );
+    this.GRDEquipamentos = new WebDataGrid(
+      this.requireComponentElement('1e6c9f74-a781-41b1-9683-62e4af7cc547'),
+    );
+    this.GRDEquipamentos.dataGridConfig = {
+      schemaVersion: 2,
+      apiClientId: '198a18be-dd4e-444c-9880-73e251ffdac6',
+      operationId: '2588624e-4768-4c5f-8f9f-1a0fff31e795',
+      listPath: '/data',
+      columnCount: 4,
+      showHeader: true,
+      stickyHeader: true,
+      showFooter: false,
+      stickyFooter: true,
+      rowHeightMode: 'dynamic',
+      fixedRowHeight: 40,
+      minRowHeight: 36,
+      maxRowHeight: null,
+      cellPaddingHorizontal: 10,
+      cellPaddingVertical: 8,
+      wrapText: false,
+      stripedRows: true,
+      showHorizontalLines: true,
+      showVerticalLines: false,
+      emptyMessage: 'Vazio',
+      columns: [
+        {
+          id: '86ea0498-a270-4573-ad04-0bc9efc8cd52',
+          header: 'Núm. de identificação',
+          fieldPath: '/num_equipamento',
+          cellKind: 'text',
+          fixedCaption: '',
+          buttonIcon: null,
+          footer: '',
+          widthMode: 'fixed',
+          width: 220,
+          minWidth: 90,
+          maxWidth: null,
+          flex: 1,
+          headerAlign: 'start',
+          cellAlign: 'start',
+          sortable: true,
+          searchable: true,
+        },
+        {
+          id: '85586d88-6108-4ac5-b2a7-a9ac9a2ef7fb',
+          header: 'Descrição',
+          fieldPath: '/descricao_equipamento',
+          cellKind: 'text',
+          fixedCaption: '',
+          buttonIcon: null,
+          footer: '',
+          widthMode: 'dynamic',
+          width: 180,
+          minWidth: 90,
+          maxWidth: null,
+          flex: 1,
+          headerAlign: 'start',
+          cellAlign: 'start',
+          sortable: true,
+          searchable: true,
+        },
+        {
+          id: '723c5e2f-3ace-4a3f-b24c-0ed591491f0b',
+          header: 'Lacre',
+          fieldPath: '/tag_equipamento',
+          cellKind: 'text',
+          fixedCaption: '',
+          buttonIcon: null,
+          footer: '',
+          widthMode: 'fixed',
+          width: 160,
+          minWidth: 90,
+          maxWidth: null,
+          flex: 1,
+          headerAlign: 'start',
+          cellAlign: 'start',
+          sortable: true,
+          searchable: true,
+        },
+        {
+          id: '32e7b3d8-5942-40f2-bc88-9b8a00ab08da',
+          header: 'Status',
+          fieldPath: '/status_equipamento_chamado',
+          cellKind: 'text',
+          fixedCaption: '',
+          buttonIcon: null,
+          footer: '',
+          widthMode: 'fixed',
+          width: 160,
+          minWidth: 90,
+          maxWidth: null,
+          flex: 1,
+          headerAlign: 'start',
+          cellAlign: 'start',
+          sortable: true,
+          searchable: true,
+        },
+      ],
+      pagination: 'client',
+      pageSize: 25,
+      pageSizeOptions: [10, 25, 50, 100],
+      showPageSizeSelector: true,
+      searchEnabled: true,
+      searchPlaceholder: '',
+      sortEnabled: true,
+      exportEnabled: true,
+      serverSearchParameter: 'q',
+      serverSortParameter: 'sort',
+      serverDirectionParameter: 'dir',
+      totalPagesPath: '/total_pages',
+      totalRowsPath: '/total',
+    };
     this.LBLTermos = new WebLabel(
-      this.requireComponentElement('5a94ff49-e34c-4050-9393-9ee0fb33fbae'),
+      this.requireComponentElement('da6b537d-431c-430c-a773-2cb0dffe1b21'),
     );
     this.GRDTermos = new WebDataGrid(
-      this.requireComponentElement('2a3bf081-4902-4fcf-b46b-b533512a4fe1'),
+      this.requireComponentElement('79370fd4-6966-4366-8b85-5ecb6b501629'),
     );
     this.GRDTermos.dataGridConfig = {
       schemaVersion: 2,
@@ -1072,10 +963,10 @@ export abstract class ChamadoGenerated extends WebPage {
       stripedRows: true,
       showHorizontalLines: true,
       showVerticalLines: false,
-      emptyMessage: 'Nenhum registro',
+      emptyMessage: 'Nenhum termo.',
       columns: [
         {
-          id: '2f5db9b4-84da-4c2a-9f44-57b660187b73',
+          id: 'ac7d5ed3-4a24-4da6-a645-a69df29283ab',
           header: '#',
           fieldPath: '/id_termo',
           cellKind: 'text',
@@ -1093,7 +984,7 @@ export abstract class ChamadoGenerated extends WebPage {
           searchable: true,
         },
         {
-          id: '9dda49b5-6bab-4c3b-90bc-2f8104055774',
+          id: '2a971606-7cfd-4b98-a546-6acb75044d59',
           header: 'Arquivo',
           fieldPath: '/nome_termo',
           cellKind: 'text',
@@ -1111,7 +1002,7 @@ export abstract class ChamadoGenerated extends WebPage {
           searchable: true,
         },
         {
-          id: 'c9f19de4-8df3-49c1-b287-60e3aafa0b35',
+          id: '58f4e804-9d79-4e31-817f-8129cc228c88',
           header: 'Tipo',
           fieldPath: '/tipo_termo',
           cellKind: 'text',
@@ -1129,7 +1020,7 @@ export abstract class ChamadoGenerated extends WebPage {
           searchable: true,
         },
         {
-          id: '0f7b99ce-d909-4025-9fa9-37b78047bf99',
+          id: '69059e39-5ec4-4df9-b569-c8dcdda8e8ca',
           header: 'Data',
           fieldPath: '/data_termo',
           cellKind: 'text',
@@ -1161,11 +1052,138 @@ export abstract class ChamadoGenerated extends WebPage {
       totalPagesPath: '/total_pages',
       totalRowsPath: '/total',
     };
-    this.LBLTelefones = new WebLabel(
-      this.requireComponentElement('c8d446ed-664d-4841-a5e8-e2b90ffe63bb'),
+    this.PNLInfraestrutura = new WebGroup(
+      this.requireComponentElement('0e57197e-d263-4aef-8ee2-a8706564051a'),
+    );
+    this.GRDServicos = new WebDataGrid(
+      this.requireComponentElement('8380c22d-b463-45fa-9b18-16da39127221'),
+    );
+    this.GRDServicos.dataGridConfig = {
+      schemaVersion: 2,
+      apiClientId: '198a18be-dd4e-444c-9880-73e251ffdac6',
+      operationId: '28f4acfb-57dc-46ea-a6f8-84ccda1e5c4c',
+      listPath: '/data',
+      columnCount: 4,
+      showHeader: true,
+      stickyHeader: true,
+      showFooter: false,
+      stickyFooter: true,
+      rowHeightMode: 'dynamic',
+      fixedRowHeight: 40,
+      minRowHeight: 36,
+      maxRowHeight: null,
+      cellPaddingHorizontal: 10,
+      cellPaddingVertical: 8,
+      wrapText: false,
+      stripedRows: true,
+      showHorizontalLines: true,
+      showVerticalLines: false,
+      emptyMessage: 'Vazio',
+      columns: [
+        {
+          id: '194b3b0a-9c1b-49a2-9fe4-eb74ffc96dbc',
+          header: 'Nome do Serviço',
+          fieldPath: '/nome_servico',
+          cellKind: 'text',
+          fixedCaption: '',
+          buttonIcon: null,
+          footer: '',
+          widthMode: 'dynamic',
+          width: 180,
+          minWidth: 90,
+          maxWidth: null,
+          flex: 1,
+          headerAlign: 'start',
+          cellAlign: 'start',
+          sortable: true,
+          searchable: true,
+        },
+        {
+          id: '11094999-361e-4fde-8707-d99d009f9904',
+          header: 'Quantidade',
+          fieldPath: '/quantidade',
+          cellKind: 'text',
+          fixedCaption: '',
+          buttonIcon: null,
+          footer: '',
+          widthMode: 'fixed',
+          width: 130,
+          minWidth: 90,
+          maxWidth: null,
+          flex: 1,
+          headerAlign: 'start',
+          cellAlign: 'start',
+          sortable: true,
+          searchable: true,
+        },
+        {
+          id: '2f5db9b4-84da-4c2a-9f44-57b660187b73',
+          header: 'Unidade de medida',
+          fieldPath: '/unidade_medida',
+          cellKind: 'text',
+          fixedCaption: '',
+          buttonIcon: null,
+          footer: '',
+          widthMode: 'fixed',
+          width: 170,
+          minWidth: 90,
+          maxWidth: null,
+          flex: 1,
+          headerAlign: 'start',
+          cellAlign: 'start',
+          sortable: true,
+          searchable: true,
+        },
+        {
+          id: '9dda49b5-6bab-4c3b-90bc-2f8104055774',
+          header: 'Status',
+          fieldPath: '/status_servico',
+          cellKind: 'text',
+          fixedCaption: '',
+          buttonIcon: null,
+          footer: '',
+          widthMode: 'fixed',
+          width: 170,
+          minWidth: 90,
+          maxWidth: null,
+          flex: 1,
+          headerAlign: 'start',
+          cellAlign: 'start',
+          sortable: true,
+          searchable: true,
+        },
+      ],
+      pagination: 'client',
+      pageSize: 25,
+      pageSizeOptions: [10, 25, 50, 100],
+      showPageSizeSelector: true,
+      searchEnabled: true,
+      searchPlaceholder: '',
+      sortEnabled: true,
+      exportEnabled: true,
+      serverSearchParameter: 'q',
+      serverSortParameter: 'sort',
+      serverDirectionParameter: 'dir',
+      totalPagesPath: '/total_pages',
+      totalRowsPath: '/total',
+    };
+    this.PNLHistorico = new WebGroup(
+      this.requireComponentElement('63ebe04b-a908-47b9-8873-7458f3b5a3a5'),
+    );
+    this.HTMLHistorico = new WebHtml(
+      this.requireComponentElement('8f2f4a91-1525-41e7-9da1-0b8912b8120a'),
+    );
+    this.POPLocal = new WebPopup(
+      this.requireComponentElement('151862cb-9f25-4cd0-9c4c-2d2eff24eb21'),
+    );
+    this.LBLLocalNome = new WebLabel(
+      this.requireComponentElement('f3027957-0b4a-4809-9110-4c521d6d58f7'),
+    );
+    this.LBLLocalEndereco = new WebLabel(
+      this.requireComponentElement('ff5759c8-5b70-4e11-a75f-7043aed44a9c'),
     );
     this.GRDTelefones = new WebDataGrid(
-      this.requireComponentElement('f5653906-2b5e-4350-83cc-224e6268e5f9'),
+      this.requireComponentElement('32df29e5-a43f-4aa9-b65d-03b7ecbd8801'),
     );
     this.GRDTelefones.dataGridConfig = {
       schemaVersion: 2,
@@ -1187,10 +1205,10 @@ export abstract class ChamadoGenerated extends WebPage {
       stripedRows: true,
       showHorizontalLines: true,
       showVerticalLines: false,
-      emptyMessage: 'Nenhum registro',
+      emptyMessage: 'Nenhum telefone cadastrado.',
       columns: [
         {
-          id: '9aa6e0af-ae36-4752-b228-5a536ef253db',
+          id: 'c9f19de4-8df3-49c1-b287-60e3aafa0b35',
           header: 'Setor',
           fieldPath: '/setor',
           cellKind: 'text',
@@ -1208,7 +1226,7 @@ export abstract class ChamadoGenerated extends WebPage {
           searchable: true,
         },
         {
-          id: '10344f02-9bbe-4745-ac35-33012b4e7661',
+          id: '0f7b99ce-d909-4025-9fa9-37b78047bf99',
           header: 'Telefone',
           fieldPath: '/telefone',
           cellKind: 'text',
@@ -1240,38 +1258,14 @@ export abstract class ChamadoGenerated extends WebPage {
       totalPagesPath: '/total_pages',
       totalRowsPath: '/total',
     };
-    this.PNLRegistrar = new WebPanel(
-      this.requireComponentElement('d50cee89-7d20-4585-856d-6eb367e2b8aa'),
+    this.GRPFecharLocal = new WebGroup(
+      this.requireComponentElement('1856a888-f846-4829-bbc7-b9fb3383ed79'),
     );
-    this.LBLRegistrar = new WebLabel(
-      this.requireComponentElement('338d9cb8-825a-4aee-8e0f-c368533fc656'),
+    this.BTNAbrirLocal = new WebButton(
+      this.requireComponentElement('f0ca895d-c5a0-4261-ab52-e6797ee52e77'),
     );
-    this.GRPRegistrar = new WebGroup(
-      this.requireComponentElement('5d53c833-d072-4852-ac32-ca2a22a7f6db'),
-    );
-    this.TipoInteracao = new WebGroup(
-      this.requireComponentElement('cb69b8a4-f664-4e00-adaa-519108484f1f'),
-    );
-    this.CMBTipo = new WebComboBox(
-      this.requireComponentElement('cd5471c3-8282-426b-89dd-286e8a8b37f6'),
-    );
-    this.CMBFila = new WebComboBox(
-      this.requireComponentElement('141a1c3f-fed0-49ba-bf38-6febf853dde0'),
-    );
-    this.LBLItens = new WebLabel(
-      this.requireComponentElement('2a3cc118-6240-451b-9e45-ed0ce0ecb536'),
-    );
-    this.LSTItens = new WebListBox(
-      this.requireComponentElement('d0087b3e-cb6a-4f87-9d34-d848572cf1e0'),
-    );
-    this.RTEInteracao = new WebRichTextEditor(
-      this.requireComponentElement('23f74fae-1bd8-4dbe-8c30-0a9f775b73e8'),
-    );
-    this.AcoesInteracao = new WebGroup(
-      this.requireComponentElement('d11abc84-9d0c-41b1-b237-e1386493b01e'),
-    );
-    this.BTNRegistrar = new WebButton(
-      this.requireComponentElement('00b8c344-997b-467f-bae2-f3ce4a35e1fe'),
+    this.BTNFecharLocal = new WebButton(
+      this.requireComponentElement('c5b7a695-3c22-49e6-8ad2-5ffb89a370e1'),
     );
     this.Api = new WebApiClient<ApiApiOutputs, ApiApiInputs, ApiApiDefaultHeaders>({
       baseUrl: '',
@@ -1289,7 +1283,7 @@ export abstract class ChamadoGenerated extends WebPage {
             apiVersion: 1,
             headers: [],
             query: [
-              { id: '49a9104b-9ed0-42e4-914d-61a6e6ccde75', name: 'id', value: '', enabled: false },
+              { id: '9aa6e0af-ae36-4752-b228-5a536ef253db', name: 'id', value: '', enabled: false },
             ],
             body: { kind: 'none', content: '' },
             credentials: 'omit',
@@ -1297,7 +1291,7 @@ export abstract class ChamadoGenerated extends WebPage {
             responseSchema: {
               version: 1,
               root: {
-                id: '026884f4-77a9-4ebd-8ea0-f15ab00a4e9b',
+                id: '10344f02-9bbe-4745-ac35-33012b4e7661',
                 name: 'Response',
                 path: '',
                 kind: 'object',
@@ -1305,7 +1299,7 @@ export abstract class ChamadoGenerated extends WebPage {
                 nullable: false,
                 children: [
                   {
-                    id: '03b0a407-95ed-46e1-a8a3-d85c54ad94ea',
+                    id: '49a9104b-9ed0-42e4-914d-61a6e6ccde75',
                     name: 'success',
                     path: '/success',
                     kind: 'field',
@@ -1314,7 +1308,7 @@ export abstract class ChamadoGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: 'd99aad09-3766-4810-86ea-5344d30e3fb9',
+                    id: '026884f4-77a9-4ebd-8ea0-f15ab00a4e9b',
                     name: 'data',
                     path: '/data',
                     kind: 'list',
@@ -1322,7 +1316,7 @@ export abstract class ChamadoGenerated extends WebPage {
                     nullable: false,
                     children: [
                       {
-                        id: '557da7af-655a-4a35-b7cc-736d4ca15f4a',
+                        id: '03b0a407-95ed-46e1-a8a3-d85c54ad94ea',
                         name: 'id_chamado',
                         path: '/data/*/id_chamado',
                         kind: 'field',
@@ -1331,7 +1325,7 @@ export abstract class ChamadoGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: '3fe08af9-4c26-425a-bed1-5c0b2cd55d64',
+                        id: 'd99aad09-3766-4810-86ea-5344d30e3fb9',
                         name: 'status_chamado',
                         path: '/data/*/status_chamado',
                         kind: 'field',
@@ -1340,7 +1334,7 @@ export abstract class ChamadoGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: 'f667f523-c484-4ac8-81b3-9bcf8964a738',
+                        id: '557da7af-655a-4a35-b7cc-736d4ca15f4a',
                         name: 'complemento_chamado',
                         path: '/data/*/complemento_chamado',
                         kind: 'field',
@@ -1349,7 +1343,7 @@ export abstract class ChamadoGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: '09f175c6-6fd5-484e-93bc-a1a89e394a3e',
+                        id: '3fe08af9-4c26-425a-bed1-5c0b2cd55d64',
                         name: 'id_ticket_chamado',
                         path: '/data/*/id_ticket_chamado',
                         kind: 'field',
@@ -1358,7 +1352,7 @@ export abstract class ChamadoGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: 'd1505784-581c-492a-9e39-f0be55dea1f1',
+                        id: 'f667f523-c484-4ac8-81b3-9bcf8964a738',
                         name: 'ticket_chamado',
                         path: '/data/*/ticket_chamado',
                         kind: 'field',
@@ -1367,7 +1361,7 @@ export abstract class ChamadoGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: '428a1261-19f9-4846-8b5b-91f91d87c795',
+                        id: '09f175c6-6fd5-484e-93bc-a1a89e394a3e',
                         name: 'id_fila',
                         path: '/data/*/id_fila',
                         kind: 'field',
@@ -1376,7 +1370,7 @@ export abstract class ChamadoGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: 'fc9e4a48-4204-4f56-955b-edab2efe21d4',
+                        id: 'd1505784-581c-492a-9e39-f0be55dea1f1',
                         name: 'nome_fila_chamado',
                         path: '/data/*/nome_fila_chamado',
                         kind: 'field',
@@ -1385,7 +1379,7 @@ export abstract class ChamadoGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: 'ea0f522f-600a-49ec-a917-9b52e211f14c',
+                        id: '428a1261-19f9-4846-8b5b-91f91d87c795',
                         name: 'icone_fila',
                         path: '/data/*/icone_fila',
                         kind: 'field',
@@ -1394,7 +1388,7 @@ export abstract class ChamadoGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: '34f5b43c-9d1b-4efb-a9b7-7ca9b3355513',
+                        id: 'fc9e4a48-4204-4f56-955b-edab2efe21d4',
                         name: 'nome_solicitante_chamado',
                         path: '/data/*/nome_solicitante_chamado',
                         kind: 'field',
@@ -1403,7 +1397,7 @@ export abstract class ChamadoGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: 'eade76c0-cf3a-4779-ad45-2d433d6721aa',
+                        id: 'ea0f522f-600a-49ec-a917-9b52e211f14c',
                         name: 'descricao_chamado',
                         path: '/data/*/descricao_chamado',
                         kind: 'field',
@@ -1412,7 +1406,7 @@ export abstract class ChamadoGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: 'e025cee7-7397-4c29-b518-31287dde5ff0',
+                        id: '34f5b43c-9d1b-4efb-a9b7-7ca9b3355513',
                         name: 'email_chamado',
                         path: '/data/*/email_chamado',
                         kind: 'field',
@@ -1421,7 +1415,7 @@ export abstract class ChamadoGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: 'cd2f2b5b-4278-43ed-a404-09c79616e912',
+                        id: 'eade76c0-cf3a-4779-ad45-2d433d6721aa',
                         name: 'id_local',
                         path: '/data/*/id_local',
                         kind: 'field',
@@ -1430,7 +1424,7 @@ export abstract class ChamadoGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: 'ad5f14a7-6d99-4340-b5f8-71dfffb1a6e7',
+                        id: 'e025cee7-7397-4c29-b518-31287dde5ff0',
                         name: 'nome_local',
                         path: '/data/*/nome_local',
                         kind: 'field',
@@ -1439,7 +1433,7 @@ export abstract class ChamadoGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: '589100c5-0b23-41fb-9ff4-fd45d51d3c76',
+                        id: 'cd2f2b5b-4278-43ed-a404-09c79616e912',
                         name: 'endereco_local',
                         path: '/data/*/endereco_local',
                         kind: 'field',
@@ -1448,7 +1442,7 @@ export abstract class ChamadoGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: '5ef67cb4-f64b-47e5-8ef4-8796090cc00c',
+                        id: 'ad5f14a7-6d99-4340-b5f8-71dfffb1a6e7',
                         name: 'regiao_local',
                         path: '/data/*/regiao_local',
                         kind: 'field',
@@ -1457,7 +1451,7 @@ export abstract class ChamadoGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: '01911703-7fc9-4625-92d0-632c8bee7a50',
+                        id: '589100c5-0b23-41fb-9ff4-fd45d51d3c76',
                         name: 'infovia',
                         path: '/data/*/infovia',
                         kind: 'field',
@@ -1466,7 +1460,7 @@ export abstract class ChamadoGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: 'c10d23c0-00e7-4626-87a1-37ff59bb04a5',
+                        id: '5ef67cb4-f64b-47e5-8ef4-8796090cc00c',
                         name: 'data_chamado',
                         path: '/data/*/data_chamado',
                         kind: 'field',
@@ -1475,7 +1469,7 @@ export abstract class ChamadoGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: '5d703fb4-7f6b-4bd9-b869-f3612d57162e',
+                        id: '01911703-7fc9-4625-92d0-632c8bee7a50',
                         name: 'data_encerramento_chamado',
                         path: '/data/*/data_encerramento_chamado',
                         kind: 'field',
@@ -1484,7 +1478,7 @@ export abstract class ChamadoGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: 'cb1fc718-972e-4524-b367-ebcaa21c1253',
+                        id: 'c10d23c0-00e7-4626-87a1-37ff59bb04a5',
                         name: 'telefone_chamado',
                         path: '/data/*/telefone_chamado',
                         kind: 'field',
@@ -1493,7 +1487,7 @@ export abstract class ChamadoGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: '9d0d303f-7a9e-4bf0-9f9c-709625823376',
+                        id: '5d703fb4-7f6b-4bd9-b869-f3612d57162e',
                         name: 'celular_chamado',
                         path: '/data/*/celular_chamado',
                         kind: 'field',
@@ -1502,7 +1496,7 @@ export abstract class ChamadoGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: 'b6685a6b-a84d-438c-9706-667398fccd87',
+                        id: 'cb1fc718-972e-4524-b367-ebcaa21c1253',
                         name: 'id_responsavel',
                         path: '/data/*/id_responsavel',
                         kind: 'field',
@@ -1511,7 +1505,7 @@ export abstract class ChamadoGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: 'dc42a1dc-8b63-4c81-afc0-1add6e8efbee',
+                        id: '9d0d303f-7a9e-4bf0-9f9c-709625823376',
                         name: 'nome_responsavel',
                         path: '/data/*/nome_responsavel',
                         kind: 'field',
@@ -1520,7 +1514,7 @@ export abstract class ChamadoGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: 'f11a7929-b4ad-4430-a2e4-82be5c1916b5',
+                        id: 'b6685a6b-a84d-438c-9706-667398fccd87',
                         name: 'prioridade_chamado',
                         path: '/data/*/prioridade_chamado',
                         kind: 'field',
@@ -1529,7 +1523,7 @@ export abstract class ChamadoGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: 'aa3488e9-1aca-4a09-bc40-807863683743',
+                        id: 'dc42a1dc-8b63-4c81-afc0-1add6e8efbee',
                         name: 'resumo_chamado',
                         path: '/data/*/resumo_chamado',
                         kind: 'field',
@@ -1538,7 +1532,7 @@ export abstract class ChamadoGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: '26fc7541-7ddb-4f12-a3b2-fb1553f30316',
+                        id: 'f11a7929-b4ad-4430-a2e4-82be5c1916b5',
                         name: 'email_nao_lido_chamado',
                         path: '/data/*/email_nao_lido_chamado',
                         kind: 'field',
@@ -1547,7 +1541,7 @@ export abstract class ChamadoGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: 'df6a3d02-cd61-4244-9349-3b5bd6541b47',
+                        id: 'aa3488e9-1aca-4a09-bc40-807863683743',
                         name: 'entrega_chamado',
                         path: '/data/*/entrega_chamado',
                         kind: 'field',
@@ -1556,7 +1550,7 @@ export abstract class ChamadoGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: 'd5b1fd5e-c3f6-46a5-ba4e-eb598d7f23c5',
+                        id: '26fc7541-7ddb-4f12-a3b2-fb1553f30316',
                         name: 'equip_espera',
                         path: '/data/*/equip_espera',
                         kind: 'field',
@@ -1565,7 +1559,7 @@ export abstract class ChamadoGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: '8734614c-395c-48c6-852a-e10fb6d08322',
+                        id: 'df6a3d02-cd61-4244-9349-3b5bd6541b47',
                         name: 'minutos_espera',
                         path: '/data/*/minutos_espera',
                         kind: 'field',
@@ -1574,7 +1568,7 @@ export abstract class ChamadoGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: 'fd44445a-b6de-4e20-bc75-c31ca41c47d8',
+                        id: 'd5b1fd5e-c3f6-46a5-ba4e-eb598d7f23c5',
                         name: 'equip_pendentes',
                         path: '/data/*/equip_pendentes',
                         kind: 'field',
@@ -1585,7 +1579,7 @@ export abstract class ChamadoGenerated extends WebPage {
                     ],
                   },
                   {
-                    id: '5b36acc5-6791-49da-a339-a704c0365cfe',
+                    id: '8734614c-395c-48c6-852a-e10fb6d08322',
                     name: 'page',
                     path: '/page',
                     kind: 'field',
@@ -1594,7 +1588,7 @@ export abstract class ChamadoGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: '4c16365c-a4d1-4a59-b0bc-2342f254006b',
+                    id: 'fd44445a-b6de-4e20-bc75-c31ca41c47d8',
                     name: 'page_size',
                     path: '/page_size',
                     kind: 'field',
@@ -1603,7 +1597,7 @@ export abstract class ChamadoGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: '00f1fb03-0ca9-4ebd-a17d-a5a6d48f8b86',
+                    id: '5b36acc5-6791-49da-a339-a704c0365cfe',
                     name: 'total_pages',
                     path: '/total_pages',
                     kind: 'field',
@@ -1612,7 +1606,7 @@ export abstract class ChamadoGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: '8a253d66-d882-4dbe-8a81-d04a8f63d213',
+                    id: '4c16365c-a4d1-4a59-b0bc-2342f254006b',
                     name: 'total',
                     path: '/total',
                     kind: 'field',
@@ -1621,7 +1615,7 @@ export abstract class ChamadoGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: 'a038ad00-4eb1-4875-9174-88b985981c8d',
+                    id: '00f1fb03-0ca9-4ebd-a17d-a5a6d48f8b86',
                     name: 'has_more',
                     path: '/has_more',
                     kind: 'field',
@@ -1641,9 +1635,9 @@ export abstract class ChamadoGenerated extends WebPage {
             apiVersion: 1,
             headers: [],
             query: [
-              { id: 'f95e14a3-0ea1-4dfd-80d2-8fc6729f3955', name: 'id', value: '', enabled: false },
+              { id: '8a253d66-d882-4dbe-8a81-d04a8f63d213', name: 'id', value: '', enabled: false },
               {
-                id: '4a82d632-9954-40d8-be0e-dec52c49961e',
+                id: 'a038ad00-4eb1-4875-9174-88b985981c8d',
                 name: 'status',
                 value: '',
                 enabled: false,
@@ -1655,7 +1649,7 @@ export abstract class ChamadoGenerated extends WebPage {
             responseSchema: {
               version: 1,
               root: {
-                id: '1c226546-9254-4050-90df-7d60c1140fc9',
+                id: 'f95e14a3-0ea1-4dfd-80d2-8fc6729f3955',
                 name: 'Response',
                 path: '',
                 kind: 'object',
@@ -1663,7 +1657,7 @@ export abstract class ChamadoGenerated extends WebPage {
                 nullable: false,
                 children: [
                   {
-                    id: 'f20071fe-1d20-4ae3-be1e-08d6413bcff5',
+                    id: '4a82d632-9954-40d8-be0e-dec52c49961e',
                     name: 'success',
                     path: '/success',
                     kind: 'field',
@@ -1672,7 +1666,7 @@ export abstract class ChamadoGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: '6126cd05-8a89-41e7-8d16-fb5f65d5c533',
+                    id: '1c226546-9254-4050-90df-7d60c1140fc9',
                     name: 'data',
                     path: '/data',
                     kind: 'list',
@@ -1680,7 +1674,7 @@ export abstract class ChamadoGenerated extends WebPage {
                     nullable: false,
                     children: [
                       {
-                        id: '17dc5ab9-44e3-4a0f-8742-2d52beb20ec4',
+                        id: 'f20071fe-1d20-4ae3-be1e-08d6413bcff5',
                         name: 'num_equipamento',
                         path: '/data/*/num_equipamento',
                         kind: 'field',
@@ -1689,7 +1683,7 @@ export abstract class ChamadoGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: '1eba9eb2-e0c5-46ee-b597-7c452050d980',
+                        id: '6126cd05-8a89-41e7-8d16-fb5f65d5c533',
                         name: 'descricao_equipamento',
                         path: '/data/*/descricao_equipamento',
                         kind: 'field',
@@ -1698,7 +1692,7 @@ export abstract class ChamadoGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: '7478fd91-b577-44f4-aa03-6126c3ed93f6',
+                        id: '17dc5ab9-44e3-4a0f-8742-2d52beb20ec4',
                         name: 'tag_equipamento',
                         path: '/data/*/tag_equipamento',
                         kind: 'field',
@@ -1707,7 +1701,7 @@ export abstract class ChamadoGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: 'f010d977-fe23-48e1-bcf0-d50172528ef2',
+                        id: '1eba9eb2-e0c5-46ee-b597-7c452050d980',
                         name: 'status_equipamento_chamado',
                         path: '/data/*/status_equipamento_chamado',
                         kind: 'field',
@@ -1716,7 +1710,7 @@ export abstract class ChamadoGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: '19936a76-13da-4370-9809-18aba52d1c3e',
+                        id: '7478fd91-b577-44f4-aa03-6126c3ed93f6',
                         name: 'status_equipamento_chamado_ant',
                         path: '/data/*/status_equipamento_chamado_ant',
                         kind: 'field',
@@ -1725,7 +1719,7 @@ export abstract class ChamadoGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: 'e1b3b9f6-fd70-4717-9a67-ffe96a2b2b54',
+                        id: 'f010d977-fe23-48e1-bcf0-d50172528ef2',
                         name: 'ultima_alteracao_equipamento_chamado',
                         path: '/data/*/ultima_alteracao_equipamento_chamado',
                         kind: 'field',
@@ -1736,7 +1730,7 @@ export abstract class ChamadoGenerated extends WebPage {
                     ],
                   },
                   {
-                    id: '9ade3e19-7857-46db-8c6a-9d0ef972bbec',
+                    id: '19936a76-13da-4370-9809-18aba52d1c3e',
                     name: 'page',
                     path: '/page',
                     kind: 'field',
@@ -1745,7 +1739,7 @@ export abstract class ChamadoGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: '89169301-f8be-4679-8689-5b1495901a2b',
+                    id: 'e1b3b9f6-fd70-4717-9a67-ffe96a2b2b54',
                     name: 'page_size',
                     path: '/page_size',
                     kind: 'field',
@@ -1754,7 +1748,7 @@ export abstract class ChamadoGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: '8efebf49-4cc4-4de8-b44d-6d1195e812d5',
+                    id: '9ade3e19-7857-46db-8c6a-9d0ef972bbec',
                     name: 'total_pages',
                     path: '/total_pages',
                     kind: 'field',
@@ -1763,7 +1757,7 @@ export abstract class ChamadoGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: 'ff5181a9-4a24-46a8-8a3d-954346cd12c3',
+                    id: '89169301-f8be-4679-8689-5b1495901a2b',
                     name: 'total',
                     path: '/total',
                     kind: 'field',
@@ -1772,7 +1766,7 @@ export abstract class ChamadoGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: 'ed6c1b95-4ff8-4da6-838e-f8671251bcfc',
+                    id: '8efebf49-4cc4-4de8-b44d-6d1195e812d5',
                     name: 'has_more',
                     path: '/has_more',
                     kind: 'field',
@@ -1792,7 +1786,7 @@ export abstract class ChamadoGenerated extends WebPage {
             apiVersion: 1,
             headers: [],
             query: [
-              { id: 'e0f39cfa-0ce6-4365-9430-fed574dfc194', name: 'id', value: '', enabled: false },
+              { id: 'ff5181a9-4a24-46a8-8a3d-954346cd12c3', name: 'id', value: '', enabled: false },
             ],
             body: { kind: 'none', content: '' },
             credentials: 'omit',
@@ -1800,7 +1794,7 @@ export abstract class ChamadoGenerated extends WebPage {
             responseSchema: {
               version: 1,
               root: {
-                id: 'f1612f24-4834-41ae-83bc-19e10a8d161f',
+                id: 'ed6c1b95-4ff8-4da6-838e-f8671251bcfc',
                 name: 'Response',
                 path: '',
                 kind: 'object',
@@ -1808,7 +1802,7 @@ export abstract class ChamadoGenerated extends WebPage {
                 nullable: false,
                 children: [
                   {
-                    id: '041bdd05-2a57-46a7-9248-2feacaf8f979',
+                    id: 'e0f39cfa-0ce6-4365-9430-fed574dfc194',
                     name: 'success',
                     path: '/success',
                     kind: 'field',
@@ -1817,7 +1811,7 @@ export abstract class ChamadoGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: '13a036e2-e2d1-457e-8cd2-f416ff33caa5',
+                    id: 'f1612f24-4834-41ae-83bc-19e10a8d161f',
                     name: 'data',
                     path: '/data',
                     kind: 'list',
@@ -1825,7 +1819,7 @@ export abstract class ChamadoGenerated extends WebPage {
                     nullable: false,
                     children: [
                       {
-                        id: '1c44913a-052a-4418-a0d5-9aeaef7c1811',
+                        id: '041bdd05-2a57-46a7-9248-2feacaf8f979',
                         name: 'id',
                         path: '/data/*/id',
                         kind: 'field',
@@ -1834,7 +1828,7 @@ export abstract class ChamadoGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: 'c7c65bfd-b9c0-4e0e-93af-2378ddd1d95b',
+                        id: '13a036e2-e2d1-457e-8cd2-f416ff33caa5',
                         name: 'id_servico',
                         path: '/data/*/id_servico',
                         kind: 'field',
@@ -1843,7 +1837,7 @@ export abstract class ChamadoGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: '9dbbb23b-a11e-4a31-8a96-6cad178bfa80',
+                        id: '1c44913a-052a-4418-a0d5-9aeaef7c1811',
                         name: 'nome_servico',
                         path: '/data/*/nome_servico',
                         kind: 'field',
@@ -1852,7 +1846,7 @@ export abstract class ChamadoGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: '73d2892b-1da4-459a-8b2f-d62323c89369',
+                        id: 'c7c65bfd-b9c0-4e0e-93af-2378ddd1d95b',
                         name: 'unidade_medida',
                         path: '/data/*/unidade_medida',
                         kind: 'field',
@@ -1861,7 +1855,7 @@ export abstract class ChamadoGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: 'acb8f065-0f6a-49a0-8019-1f9fa0e25b2c',
+                        id: '9dbbb23b-a11e-4a31-8a96-6cad178bfa80',
                         name: 'quantidade',
                         path: '/data/*/quantidade',
                         kind: 'field',
@@ -1870,7 +1864,7 @@ export abstract class ChamadoGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: 'e19614b4-07bd-4afc-99d1-65da795527ff',
+                        id: '73d2892b-1da4-459a-8b2f-d62323c89369',
                         name: 'status_servico',
                         path: '/data/*/status_servico',
                         kind: 'field',
@@ -1879,7 +1873,7 @@ export abstract class ChamadoGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: 'c6c56dc4-d87f-4330-8f86-3f00729e6e24',
+                        id: 'acb8f065-0f6a-49a0-8019-1f9fa0e25b2c',
                         name: 'data_ult_alteracao_servico_chamado',
                         path: '/data/*/data_ult_alteracao_servico_chamado',
                         kind: 'field',
@@ -1890,7 +1884,7 @@ export abstract class ChamadoGenerated extends WebPage {
                     ],
                   },
                   {
-                    id: '8068b2b6-3420-4d57-b252-740a3c0759b7',
+                    id: 'e19614b4-07bd-4afc-99d1-65da795527ff',
                     name: 'page',
                     path: '/page',
                     kind: 'field',
@@ -1899,7 +1893,7 @@ export abstract class ChamadoGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: 'e70e1980-19a3-43c3-a928-faed645bc1dc',
+                    id: 'c6c56dc4-d87f-4330-8f86-3f00729e6e24',
                     name: 'page_size',
                     path: '/page_size',
                     kind: 'field',
@@ -1908,7 +1902,7 @@ export abstract class ChamadoGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: '030bf73e-7ff3-43db-bedf-c361f0848468',
+                    id: '8068b2b6-3420-4d57-b252-740a3c0759b7',
                     name: 'total_pages',
                     path: '/total_pages',
                     kind: 'field',
@@ -1917,7 +1911,7 @@ export abstract class ChamadoGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: 'b2516263-af6d-4a33-9a8a-ec371db38f1a',
+                    id: 'e70e1980-19a3-43c3-a928-faed645bc1dc',
                     name: 'total',
                     path: '/total',
                     kind: 'field',
@@ -1926,7 +1920,7 @@ export abstract class ChamadoGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: '1a628b11-8738-41e5-bd18-e1206aa8abc5',
+                    id: '030bf73e-7ff3-43db-bedf-c361f0848468',
                     name: 'has_more',
                     path: '/has_more',
                     kind: 'field',
@@ -1946,7 +1940,7 @@ export abstract class ChamadoGenerated extends WebPage {
             apiVersion: 1,
             headers: [],
             query: [
-              { id: '90811ba3-2965-4080-be32-0fe4e71a7aa2', name: 'id', value: '', enabled: false },
+              { id: 'b2516263-af6d-4a33-9a8a-ec371db38f1a', name: 'id', value: '', enabled: false },
             ],
             body: { kind: 'none', content: '' },
             credentials: 'omit',
@@ -1954,7 +1948,7 @@ export abstract class ChamadoGenerated extends WebPage {
             responseSchema: {
               version: 1,
               root: {
-                id: 'aff636a3-d32a-4412-8dcd-af8308113f4e',
+                id: '1a628b11-8738-41e5-bd18-e1206aa8abc5',
                 name: 'Response',
                 path: '',
                 kind: 'object',
@@ -1962,7 +1956,7 @@ export abstract class ChamadoGenerated extends WebPage {
                 nullable: false,
                 children: [
                   {
-                    id: '6e520d78-a461-4170-bf91-7afadbfb7342',
+                    id: '90811ba3-2965-4080-be32-0fe4e71a7aa2',
                     name: 'success',
                     path: '/success',
                     kind: 'field',
@@ -1971,7 +1965,7 @@ export abstract class ChamadoGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: '22e7cbc8-ab24-408e-92fc-65c800361724',
+                    id: 'aff636a3-d32a-4412-8dcd-af8308113f4e',
                     name: 'data',
                     path: '/data',
                     kind: 'list',
@@ -1979,7 +1973,7 @@ export abstract class ChamadoGenerated extends WebPage {
                     nullable: false,
                     children: [
                       {
-                        id: '165b351a-2528-4d40-9b82-568cd87433d6',
+                        id: '6e520d78-a461-4170-bf91-7afadbfb7342',
                         name: 'id_interacao',
                         path: '/data/*/id_interacao',
                         kind: 'field',
@@ -1988,7 +1982,7 @@ export abstract class ChamadoGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: 'eab510a9-94b6-4867-8d21-45ffd3f9582e',
+                        id: '22e7cbc8-ab24-408e-92fc-65c800361724',
                         name: 'tipo_interacao',
                         path: '/data/*/tipo_interacao',
                         kind: 'field',
@@ -1997,7 +1991,7 @@ export abstract class ChamadoGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: '8527e1d1-65af-4469-a5bb-7b7b287cbdf7',
+                        id: '165b351a-2528-4d40-9b82-568cd87433d6',
                         name: 'id_chamado_interacao',
                         path: '/data/*/id_chamado_interacao',
                         kind: 'field',
@@ -2006,7 +2000,7 @@ export abstract class ChamadoGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: '67406a9e-d1eb-4217-b373-f56bcbbe45cd',
+                        id: 'eab510a9-94b6-4867-8d21-45ffd3f9582e',
                         name: 'data_interacao',
                         path: '/data/*/data_interacao',
                         kind: 'field',
@@ -2015,7 +2009,7 @@ export abstract class ChamadoGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: '756fa805-c0ae-4d94-9d5e-fcefe0c0a259',
+                        id: '8527e1d1-65af-4469-a5bb-7b7b287cbdf7',
                         name: 'data_interacao_iso',
                         path: '/data/*/data_interacao_iso',
                         kind: 'field',
@@ -2024,7 +2018,7 @@ export abstract class ChamadoGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: '5ee4ec7b-a3d8-4f77-9c4b-ced1e22efa72',
+                        id: '67406a9e-d1eb-4217-b373-f56bcbbe45cd',
                         name: 'texto_interacao',
                         path: '/data/*/texto_interacao',
                         kind: 'field',
@@ -2033,7 +2027,7 @@ export abstract class ChamadoGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: '63e93cc7-2adb-4e68-9945-f26ef6e724bf',
+                        id: '756fa805-c0ae-4d94-9d5e-fcefe0c0a259',
                         name: 'nome_usuario',
                         path: '/data/*/nome_usuario',
                         kind: 'field',
@@ -2042,7 +2036,7 @@ export abstract class ChamadoGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: '7ffd5273-9f40-448c-8787-299123c60ec1',
+                        id: '5ee4ec7b-a3d8-4f77-9c4b-ced1e22efa72',
                         name: 'id_usuario_interacao',
                         path: '/data/*/id_usuario_interacao',
                         kind: 'field',
@@ -2051,7 +2045,7 @@ export abstract class ChamadoGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: 'f353fb67-3634-4257-95f3-1dc831e4695d',
+                        id: '63e93cc7-2adb-4e68-9945-f26ef6e724bf',
                         name: 'pool_equipamentos',
                         path: '/data/*/pool_equipamentos',
                         kind: 'field',
@@ -2060,7 +2054,7 @@ export abstract class ChamadoGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: 'c2dc623a-364e-4d45-b665-4b49fe88c549',
+                        id: '7ffd5273-9f40-448c-8787-299123c60ec1',
                         name: 'pool_servicos',
                         path: '/data/*/pool_servicos',
                         kind: 'field',
@@ -2069,7 +2063,7 @@ export abstract class ChamadoGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: '1a137ef0-784b-49ba-9da3-ab43bfbe3b41',
+                        id: 'f353fb67-3634-4257-95f3-1dc831e4695d',
                         name: 'status_chamado',
                         path: '/data/*/status_chamado',
                         kind: 'field',
@@ -2078,7 +2072,7 @@ export abstract class ChamadoGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: '18af7203-4414-4476-9c71-0a32906c00bc',
+                        id: 'c2dc623a-364e-4d45-b665-4b49fe88c549',
                         name: 'pode_desfazer',
                         path: '/data/*/pode_desfazer',
                         kind: 'field',
@@ -2087,7 +2081,7 @@ export abstract class ChamadoGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: '58b925a1-9eb6-42f0-ac7a-9a2e951bcfd9',
+                        id: '1a137ef0-784b-49ba-9da3-ab43bfbe3b41',
                         name: 'tem_laudo',
                         path: '/data/*/tem_laudo',
                         kind: 'field',
@@ -2098,7 +2092,7 @@ export abstract class ChamadoGenerated extends WebPage {
                     ],
                   },
                   {
-                    id: '2edfec39-5224-4e36-ab3c-b432cf9337e4',
+                    id: '18af7203-4414-4476-9c71-0a32906c00bc',
                     name: 'page',
                     path: '/page',
                     kind: 'field',
@@ -2107,7 +2101,7 @@ export abstract class ChamadoGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: '5726f350-5894-4238-935f-3a4b0678bb57',
+                    id: '58b925a1-9eb6-42f0-ac7a-9a2e951bcfd9',
                     name: 'page_size',
                     path: '/page_size',
                     kind: 'field',
@@ -2116,7 +2110,7 @@ export abstract class ChamadoGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: 'e27eff69-b1ea-4549-946a-b4ec3568cda7',
+                    id: '2edfec39-5224-4e36-ab3c-b432cf9337e4',
                     name: 'total_pages',
                     path: '/total_pages',
                     kind: 'field',
@@ -2125,7 +2119,7 @@ export abstract class ChamadoGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: 'f3119303-5aa4-4694-8efd-9f2958559a21',
+                    id: '5726f350-5894-4238-935f-3a4b0678bb57',
                     name: 'total',
                     path: '/total',
                     kind: 'field',
@@ -2134,7 +2128,7 @@ export abstract class ChamadoGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: 'ee64ce05-8f44-4521-90d7-90debd8c3c80',
+                    id: 'e27eff69-b1ea-4549-946a-b4ec3568cda7',
                     name: 'has_more',
                     path: '/has_more',
                     kind: 'field',
@@ -2154,7 +2148,7 @@ export abstract class ChamadoGenerated extends WebPage {
             apiVersion: 1,
             headers: [],
             query: [
-              { id: '6c213135-0c79-460a-98c8-95e6c322a9b0', name: 'id', value: '', enabled: false },
+              { id: 'f3119303-5aa4-4694-8efd-9f2958559a21', name: 'id', value: '', enabled: false },
             ],
             body: { kind: 'none', content: '' },
             credentials: 'omit',
@@ -2162,7 +2156,7 @@ export abstract class ChamadoGenerated extends WebPage {
             responseSchema: {
               version: 1,
               root: {
-                id: '2c8c600b-6803-4f18-8d4c-901123473087',
+                id: 'ee64ce05-8f44-4521-90d7-90debd8c3c80',
                 name: 'Response',
                 path: '',
                 kind: 'object',
@@ -2170,7 +2164,7 @@ export abstract class ChamadoGenerated extends WebPage {
                 nullable: false,
                 children: [
                   {
-                    id: '039752a9-a00c-4196-882a-db3d770a1790',
+                    id: '6c213135-0c79-460a-98c8-95e6c322a9b0',
                     name: 'success',
                     path: '/success',
                     kind: 'field',
@@ -2179,7 +2173,7 @@ export abstract class ChamadoGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: 'acec9bbd-94b3-4adc-8347-80e2a686d24c',
+                    id: '2c8c600b-6803-4f18-8d4c-901123473087',
                     name: 'data',
                     path: '/data',
                     kind: 'list',
@@ -2187,7 +2181,7 @@ export abstract class ChamadoGenerated extends WebPage {
                     nullable: false,
                     children: [
                       {
-                        id: 'a1df55e2-8c45-4161-8e58-b045e57662b5',
+                        id: '039752a9-a00c-4196-882a-db3d770a1790',
                         name: 'id_alteracao',
                         path: '/data/*/id_alteracao',
                         kind: 'field',
@@ -2196,7 +2190,7 @@ export abstract class ChamadoGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: '89dfd7f4-fe86-4d96-a543-d8c28f04cc71',
+                        id: 'acec9bbd-94b3-4adc-8347-80e2a686d24c',
                         name: 'nome_usuario',
                         path: '/data/*/nome_usuario',
                         kind: 'field',
@@ -2205,7 +2199,7 @@ export abstract class ChamadoGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: 'd9e42d16-895a-4024-85be-86bc8a580f82',
+                        id: 'a1df55e2-8c45-4161-8e58-b045e57662b5',
                         name: 'texto_alteracao',
                         path: '/data/*/texto_alteracao',
                         kind: 'field',
@@ -2214,7 +2208,7 @@ export abstract class ChamadoGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: '5e1cbd20-dd5c-438e-9edd-00540deb789b',
+                        id: '89dfd7f4-fe86-4d96-a543-d8c28f04cc71',
                         name: 'data_alteracao',
                         path: '/data/*/data_alteracao',
                         kind: 'field',
@@ -2223,7 +2217,7 @@ export abstract class ChamadoGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: '7054516f-5cfc-4552-b9a0-23b7bddb9617',
+                        id: 'd9e42d16-895a-4024-85be-86bc8a580f82',
                         name: 'data_alteracao_fmt',
                         path: '/data/*/data_alteracao_fmt',
                         kind: 'field',
@@ -2234,7 +2228,7 @@ export abstract class ChamadoGenerated extends WebPage {
                     ],
                   },
                   {
-                    id: '467b98fc-c7e5-4307-b8c2-4b8f9a7f8c57',
+                    id: '5e1cbd20-dd5c-438e-9edd-00540deb789b',
                     name: 'page',
                     path: '/page',
                     kind: 'field',
@@ -2243,7 +2237,7 @@ export abstract class ChamadoGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: 'b17528f6-7639-4341-a68b-1c139fa7ff34',
+                    id: '7054516f-5cfc-4552-b9a0-23b7bddb9617',
                     name: 'page_size',
                     path: '/page_size',
                     kind: 'field',
@@ -2252,7 +2246,7 @@ export abstract class ChamadoGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: 'd57da507-5458-4fd6-85b1-497e74538a52',
+                    id: '467b98fc-c7e5-4307-b8c2-4b8f9a7f8c57',
                     name: 'total_pages',
                     path: '/total_pages',
                     kind: 'field',
@@ -2261,7 +2255,7 @@ export abstract class ChamadoGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: '5ab68951-d559-461e-8ce4-0ff4a7918fe3',
+                    id: 'b17528f6-7639-4341-a68b-1c139fa7ff34',
                     name: 'total',
                     path: '/total',
                     kind: 'field',
@@ -2270,7 +2264,7 @@ export abstract class ChamadoGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: '681034a1-fdf1-4fd1-be30-cfd5b53d7b43',
+                    id: 'd57da507-5458-4fd6-85b1-497e74538a52',
                     name: 'has_more',
                     path: '/has_more',
                     kind: 'field',
@@ -2290,7 +2284,7 @@ export abstract class ChamadoGenerated extends WebPage {
             apiVersion: 1,
             headers: [],
             query: [
-              { id: 'c60408a8-4fd9-4ca4-bc8e-e4fae247d456', name: 'id', value: '', enabled: false },
+              { id: '5ab68951-d559-461e-8ce4-0ff4a7918fe3', name: 'id', value: '', enabled: false },
             ],
             body: { kind: 'none', content: '' },
             credentials: 'omit',
@@ -2298,7 +2292,7 @@ export abstract class ChamadoGenerated extends WebPage {
             responseSchema: {
               version: 1,
               root: {
-                id: 'ea811e6b-b371-46b1-aacf-8019105be733',
+                id: '681034a1-fdf1-4fd1-be30-cfd5b53d7b43',
                 name: 'Response',
                 path: '',
                 kind: 'object',
@@ -2306,7 +2300,7 @@ export abstract class ChamadoGenerated extends WebPage {
                 nullable: false,
                 children: [
                   {
-                    id: '3a5f50e4-aabc-4ea2-a2de-8c4437047193',
+                    id: 'c60408a8-4fd9-4ca4-bc8e-e4fae247d456',
                     name: 'success',
                     path: '/success',
                     kind: 'field',
@@ -2315,7 +2309,7 @@ export abstract class ChamadoGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: 'f27119f6-4f75-4a7f-836f-a216991e4f30',
+                    id: 'ea811e6b-b371-46b1-aacf-8019105be733',
                     name: 'data',
                     path: '/data',
                     kind: 'list',
@@ -2323,7 +2317,7 @@ export abstract class ChamadoGenerated extends WebPage {
                     nullable: false,
                     children: [
                       {
-                        id: 'ce94bd7c-1757-4450-88bb-bfc8dc1fb16d',
+                        id: '3a5f50e4-aabc-4ea2-a2de-8c4437047193',
                         name: 'id_anexo_otrs',
                         path: '/data/*/id_anexo_otrs',
                         kind: 'field',
@@ -2332,7 +2326,7 @@ export abstract class ChamadoGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: '51543801-ce69-4803-b227-1f5951f83d6a',
+                        id: 'f27119f6-4f75-4a7f-836f-a216991e4f30',
                         name: 'nome_arquivo_otrs',
                         path: '/data/*/nome_arquivo_otrs',
                         kind: 'field',
@@ -2341,7 +2335,7 @@ export abstract class ChamadoGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: 'bee8d2ea-f7ae-42df-837e-4313a9e21aba',
+                        id: 'ce94bd7c-1757-4450-88bb-bfc8dc1fb16d',
                         name: 'id_triagem_sigat',
                         path: '/data/*/id_triagem_sigat',
                         kind: 'field',
@@ -2352,7 +2346,7 @@ export abstract class ChamadoGenerated extends WebPage {
                     ],
                   },
                   {
-                    id: '13780c74-d12e-4d68-8bde-e43385d17ae4',
+                    id: '51543801-ce69-4803-b227-1f5951f83d6a',
                     name: 'page',
                     path: '/page',
                     kind: 'field',
@@ -2361,7 +2355,7 @@ export abstract class ChamadoGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: 'e34a9986-b6f6-436b-8a37-58096502fa18',
+                    id: 'bee8d2ea-f7ae-42df-837e-4313a9e21aba',
                     name: 'page_size',
                     path: '/page_size',
                     kind: 'field',
@@ -2370,7 +2364,7 @@ export abstract class ChamadoGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: '2c30ff5c-8692-4f9d-a47c-1812ee338c73',
+                    id: '13780c74-d12e-4d68-8bde-e43385d17ae4',
                     name: 'total_pages',
                     path: '/total_pages',
                     kind: 'field',
@@ -2379,7 +2373,7 @@ export abstract class ChamadoGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: '93fb2901-30b2-474e-aac1-5ea9dd29eb31',
+                    id: 'e34a9986-b6f6-436b-8a37-58096502fa18',
                     name: 'total',
                     path: '/total',
                     kind: 'field',
@@ -2388,7 +2382,7 @@ export abstract class ChamadoGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: '76b9b31c-1e63-4391-824d-4a23f1fd5bf7',
+                    id: '2c30ff5c-8692-4f9d-a47c-1812ee338c73',
                     name: 'has_more',
                     path: '/has_more',
                     kind: 'field',
@@ -2408,7 +2402,7 @@ export abstract class ChamadoGenerated extends WebPage {
             apiVersion: 1,
             headers: [],
             query: [
-              { id: 'b08c275a-da2e-4d7f-8269-7e879ad83c13', name: 'id', value: '', enabled: false },
+              { id: '93fb2901-30b2-474e-aac1-5ea9dd29eb31', name: 'id', value: '', enabled: false },
             ],
             body: { kind: 'none', content: '' },
             credentials: 'omit',
@@ -2416,7 +2410,7 @@ export abstract class ChamadoGenerated extends WebPage {
             responseSchema: {
               version: 1,
               root: {
-                id: '657b415b-0ad0-4190-93d7-7dead5b89392',
+                id: '76b9b31c-1e63-4391-824d-4a23f1fd5bf7',
                 name: 'Response',
                 path: '',
                 kind: 'object',
@@ -2424,7 +2418,7 @@ export abstract class ChamadoGenerated extends WebPage {
                 nullable: false,
                 children: [
                   {
-                    id: '945a2db3-5e98-40ed-8720-5515a9f0b504',
+                    id: 'b08c275a-da2e-4d7f-8269-7e879ad83c13',
                     name: 'success',
                     path: '/success',
                     kind: 'field',
@@ -2433,7 +2427,7 @@ export abstract class ChamadoGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: '6f705139-9720-499e-ae81-f7b3b51a899a',
+                    id: '657b415b-0ad0-4190-93d7-7dead5b89392',
                     name: 'data',
                     path: '/data',
                     kind: 'list',
@@ -2441,7 +2435,7 @@ export abstract class ChamadoGenerated extends WebPage {
                     nullable: false,
                     children: [
                       {
-                        id: '0cc6663f-366b-4ccb-90f5-8dccb3957673',
+                        id: '945a2db3-5e98-40ed-8720-5515a9f0b504',
                         name: 'id',
                         path: '/data/*/id',
                         kind: 'field',
@@ -2450,7 +2444,7 @@ export abstract class ChamadoGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: '87b89f70-fddc-4646-9f75-e958880f3f70',
+                        id: '6f705139-9720-499e-ae81-f7b3b51a899a',
                         name: 'setor',
                         path: '/data/*/setor',
                         kind: 'field',
@@ -2459,7 +2453,7 @@ export abstract class ChamadoGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: 'dc367842-1509-42e4-8bc5-1b28e7b0b794',
+                        id: '0cc6663f-366b-4ccb-90f5-8dccb3957673',
                         name: 'telefone',
                         path: '/data/*/telefone',
                         kind: 'field',
@@ -2468,7 +2462,7 @@ export abstract class ChamadoGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: '64b38394-eeb3-4a3b-9689-4e22cb9ac6fd',
+                        id: '87b89f70-fddc-4646-9f75-e958880f3f70',
                         name: 'id_local',
                         path: '/data/*/id_local',
                         kind: 'field',
@@ -2479,7 +2473,7 @@ export abstract class ChamadoGenerated extends WebPage {
                     ],
                   },
                   {
-                    id: '5e744a92-1d7d-43c7-9a08-c05c63500451',
+                    id: 'dc367842-1509-42e4-8bc5-1b28e7b0b794',
                     name: 'page',
                     path: '/page',
                     kind: 'field',
@@ -2488,7 +2482,7 @@ export abstract class ChamadoGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: 'fc2cb73c-3a47-439e-97b7-c0712a0d1e9d',
+                    id: '64b38394-eeb3-4a3b-9689-4e22cb9ac6fd',
                     name: 'page_size',
                     path: '/page_size',
                     kind: 'field',
@@ -2497,7 +2491,7 @@ export abstract class ChamadoGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: '2c0af8f0-92c9-440f-9eea-cab3eb5a1d94',
+                    id: '5e744a92-1d7d-43c7-9a08-c05c63500451',
                     name: 'total_pages',
                     path: '/total_pages',
                     kind: 'field',
@@ -2506,7 +2500,7 @@ export abstract class ChamadoGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: '70c982eb-2273-4cdd-8b0b-521114ee33a8',
+                    id: 'fc2cb73c-3a47-439e-97b7-c0712a0d1e9d',
                     name: 'total',
                     path: '/total',
                     kind: 'field',
@@ -2515,7 +2509,7 @@ export abstract class ChamadoGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: '207bb7bd-f49e-4012-8cf1-610da86d2900',
+                    id: '2c0af8f0-92c9-440f-9eea-cab3eb5a1d94',
                     name: 'has_more',
                     path: '/has_more',
                     kind: 'field',
@@ -2535,7 +2529,7 @@ export abstract class ChamadoGenerated extends WebPage {
             apiVersion: 1,
             headers: [],
             query: [
-              { id: '5091ed3b-744e-40e2-8115-8cdc06a0f153', name: 'id', value: '', enabled: false },
+              { id: '70c982eb-2273-4cdd-8b0b-521114ee33a8', name: 'id', value: '', enabled: false },
             ],
             body: { kind: 'none', content: '' },
             credentials: 'omit',
@@ -2543,7 +2537,7 @@ export abstract class ChamadoGenerated extends WebPage {
             responseSchema: {
               version: 1,
               root: {
-                id: 'b90187ce-2fee-4620-80f3-899772c3d03e',
+                id: '207bb7bd-f49e-4012-8cf1-610da86d2900',
                 name: 'Response',
                 path: '',
                 kind: 'object',
@@ -2551,7 +2545,7 @@ export abstract class ChamadoGenerated extends WebPage {
                 nullable: false,
                 children: [
                   {
-                    id: '1f00f06f-06cd-4fe0-97cc-70df0238891f',
+                    id: '5091ed3b-744e-40e2-8115-8cdc06a0f153',
                     name: 'success',
                     path: '/success',
                     kind: 'field',
@@ -2560,7 +2554,7 @@ export abstract class ChamadoGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: '67875417-16a8-4425-91a5-15ee574d1dba',
+                    id: 'b90187ce-2fee-4620-80f3-899772c3d03e',
                     name: 'data',
                     path: '/data',
                     kind: 'list',
@@ -2568,7 +2562,7 @@ export abstract class ChamadoGenerated extends WebPage {
                     nullable: false,
                     children: [
                       {
-                        id: '9a496856-fd15-49f7-b9d3-891da181f188',
+                        id: '1f00f06f-06cd-4fe0-97cc-70df0238891f',
                         name: 'id_termo',
                         path: '/data/*/id_termo',
                         kind: 'field',
@@ -2577,7 +2571,7 @@ export abstract class ChamadoGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: 'ef4f5356-5db2-4923-a5c2-995b1e466a9a',
+                        id: '67875417-16a8-4425-91a5-15ee574d1dba',
                         name: 'nome_termo',
                         path: '/data/*/nome_termo',
                         kind: 'field',
@@ -2586,7 +2580,7 @@ export abstract class ChamadoGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: 'a38b3923-522f-41f0-a66e-5b7c206677bd',
+                        id: '9a496856-fd15-49f7-b9d3-891da181f188',
                         name: 'tipo_termo',
                         path: '/data/*/tipo_termo',
                         kind: 'field',
@@ -2595,7 +2589,7 @@ export abstract class ChamadoGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: '81e91cd8-72c5-48c3-bc62-85a6f6e31eaa',
+                        id: 'ef4f5356-5db2-4923-a5c2-995b1e466a9a',
                         name: 'data_termo',
                         path: '/data/*/data_termo',
                         kind: 'field',
@@ -2604,7 +2598,7 @@ export abstract class ChamadoGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: 'a5836849-dc36-43fb-9d85-d7dfe232b995',
+                        id: 'a38b3923-522f-41f0-a66e-5b7c206677bd',
                         name: 'id_chamado_termo',
                         path: '/data/*/id_chamado_termo',
                         kind: 'field',
@@ -2615,7 +2609,7 @@ export abstract class ChamadoGenerated extends WebPage {
                     ],
                   },
                   {
-                    id: 'c5797142-38b0-4f8b-bc49-3286e04b6eed',
+                    id: '81e91cd8-72c5-48c3-bc62-85a6f6e31eaa',
                     name: 'page',
                     path: '/page',
                     kind: 'field',
@@ -2624,7 +2618,7 @@ export abstract class ChamadoGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: 'c49fab6c-3275-4855-8581-2dd6c5cb9778',
+                    id: 'a5836849-dc36-43fb-9d85-d7dfe232b995',
                     name: 'page_size',
                     path: '/page_size',
                     kind: 'field',
@@ -2633,7 +2627,7 @@ export abstract class ChamadoGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: 'ac5b063f-0fe5-4d9b-bfc7-7242f2741e76',
+                    id: 'c5797142-38b0-4f8b-bc49-3286e04b6eed',
                     name: 'total_pages',
                     path: '/total_pages',
                     kind: 'field',
@@ -2642,7 +2636,7 @@ export abstract class ChamadoGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: '8e9f54bf-5e09-4647-bf8f-860072d69427',
+                    id: 'c49fab6c-3275-4855-8581-2dd6c5cb9778',
                     name: 'total',
                     path: '/total',
                     kind: 'field',
@@ -2651,7 +2645,7 @@ export abstract class ChamadoGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: '27a31c64-d08a-4a4f-ac81-5aa0868328a2',
+                    id: 'ac5b063f-0fe5-4d9b-bfc7-7242f2741e76',
                     name: 'has_more',
                     path: '/has_more',
                     kind: 'field',
@@ -2671,7 +2665,7 @@ export abstract class ChamadoGenerated extends WebPage {
             apiVersion: 1,
             headers: [],
             query: [
-              { id: 'a04b2616-5f44-42ba-b7a3-9e456222c889', name: 'id', value: '', enabled: false },
+              { id: '8e9f54bf-5e09-4647-bf8f-860072d69427', name: 'id', value: '', enabled: false },
             ],
             body: { kind: 'none', content: '' },
             credentials: 'omit',
@@ -2679,7 +2673,7 @@ export abstract class ChamadoGenerated extends WebPage {
             responseSchema: {
               version: 1,
               root: {
-                id: '71d7bd3f-bbd0-4194-ab8e-5c2bfcadbb75',
+                id: '27a31c64-d08a-4a4f-ac81-5aa0868328a2',
                 name: 'Response',
                 path: '',
                 kind: 'object',
@@ -2687,7 +2681,7 @@ export abstract class ChamadoGenerated extends WebPage {
                 nullable: false,
                 children: [
                   {
-                    id: '506e070c-c706-440f-b36d-0c077f120c29',
+                    id: 'a04b2616-5f44-42ba-b7a3-9e456222c889',
                     name: 'success',
                     path: '/success',
                     kind: 'field',
@@ -2696,7 +2690,7 @@ export abstract class ChamadoGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: '7c93983b-003d-4088-9875-27b233c70841',
+                    id: '71d7bd3f-bbd0-4194-ab8e-5c2bfcadbb75',
                     name: 'data',
                     path: '/data',
                     kind: 'list',
@@ -2704,7 +2698,7 @@ export abstract class ChamadoGenerated extends WebPage {
                     nullable: false,
                     children: [
                       {
-                        id: '30149517-33ac-4003-81cc-84989e867135',
+                        id: '506e070c-c706-440f-b36d-0c077f120c29',
                         name: 'id_reparo',
                         path: '/data/*/id_reparo',
                         kind: 'field',
@@ -2713,7 +2707,7 @@ export abstract class ChamadoGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: '40000c49-cf5c-4197-bd84-ebf6b3a39c68',
+                        id: '7c93983b-003d-4088-9875-27b233c70841',
                         name: 'num_equipamento_reparo',
                         path: '/data/*/num_equipamento_reparo',
                         kind: 'field',
@@ -2722,7 +2716,7 @@ export abstract class ChamadoGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: 'b70b9ab3-a849-42a9-ae69-e4c7bb8c7073',
+                        id: '30149517-33ac-4003-81cc-84989e867135',
                         name: 'status_reparo',
                         path: '/data/*/status_reparo',
                         kind: 'field',
@@ -2731,7 +2725,7 @@ export abstract class ChamadoGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: '8d4e64fd-a8c1-46d0-a652-32700e0faf4e',
+                        id: '40000c49-cf5c-4197-bd84-ebf6b3a39c68',
                         name: 'nome_bancada',
                         path: '/data/*/nome_bancada',
                         kind: 'field',
@@ -2740,7 +2734,7 @@ export abstract class ChamadoGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: 'e0ff09af-481f-4e39-b97d-906472fadb3f',
+                        id: 'b70b9ab3-a849-42a9-ae69-e4c7bb8c7073',
                         name: 'nome_usuario',
                         path: '/data/*/nome_usuario',
                         kind: 'field',
@@ -2749,7 +2743,7 @@ export abstract class ChamadoGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: '71150eb3-73a4-4716-bd9b-95e0a334200f',
+                        id: '8d4e64fd-a8c1-46d0-a652-32700e0faf4e',
                         name: 'data_inicio_reparo',
                         path: '/data/*/data_inicio_reparo',
                         kind: 'field',
@@ -2758,7 +2752,7 @@ export abstract class ChamadoGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: '60664e29-577a-4f8a-ac19-58489b6c2b97',
+                        id: 'e0ff09af-481f-4e39-b97d-906472fadb3f',
                         name: 'data_fim_reparo',
                         path: '/data/*/data_fim_reparo',
                         kind: 'field',
@@ -2767,7 +2761,7 @@ export abstract class ChamadoGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: '188c80ce-7466-4890-b7c3-38a99e36fab3',
+                        id: '71150eb3-73a4-4716-bd9b-95e0a334200f',
                         name: 'justificativa_reparo',
                         path: '/data/*/justificativa_reparo',
                         kind: 'field',
@@ -2776,7 +2770,7 @@ export abstract class ChamadoGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: '162bf729-761a-40ba-8f09-3520763d910f',
+                        id: '60664e29-577a-4f8a-ac19-58489b6c2b97',
                         name: 'id_remessa',
                         path: '/data/*/id_remessa',
                         kind: 'field',
@@ -2785,7 +2779,7 @@ export abstract class ChamadoGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: '595fd04e-ff9e-4ba5-a84f-55d9eac16589',
+                        id: '188c80ce-7466-4890-b7c3-38a99e36fab3',
                         name: 'id_laudo_tecnico',
                         path: '/data/*/id_laudo_tecnico',
                         kind: 'field',
@@ -2794,7 +2788,7 @@ export abstract class ChamadoGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: '5dcf8fcb-a7f0-4196-a114-7916a0310c7a',
+                        id: '162bf729-761a-40ba-8f09-3520763d910f',
                         name: 'soma_servico',
                         path: '/data/*/soma_servico',
                         kind: 'field',
@@ -2805,7 +2799,7 @@ export abstract class ChamadoGenerated extends WebPage {
                     ],
                   },
                   {
-                    id: 'f60e5e5d-0314-461f-a373-757895896c66',
+                    id: '595fd04e-ff9e-4ba5-a84f-55d9eac16589',
                     name: 'page',
                     path: '/page',
                     kind: 'field',
@@ -2814,7 +2808,7 @@ export abstract class ChamadoGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: '61f05fba-aedb-4b61-ae63-f84e17995a97',
+                    id: '5dcf8fcb-a7f0-4196-a114-7916a0310c7a',
                     name: 'page_size',
                     path: '/page_size',
                     kind: 'field',
@@ -2823,7 +2817,7 @@ export abstract class ChamadoGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: '1f520df6-1d98-4d39-a7c0-d162fbdcfaac',
+                    id: 'f60e5e5d-0314-461f-a373-757895896c66',
                     name: 'total_pages',
                     path: '/total_pages',
                     kind: 'field',
@@ -2832,7 +2826,7 @@ export abstract class ChamadoGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: '83844ada-7183-4fc6-8e56-03eb3715b660',
+                    id: '61f05fba-aedb-4b61-ae63-f84e17995a97',
                     name: 'total',
                     path: '/total',
                     kind: 'field',
@@ -2841,7 +2835,7 @@ export abstract class ChamadoGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: 'ed6e1061-a15e-428d-8605-cf34185d0d21',
+                    id: '1f520df6-1d98-4d39-a7c0-d162fbdcfaac',
                     name: 'has_more',
                     path: '/has_more',
                     kind: 'field',
@@ -2861,7 +2855,7 @@ export abstract class ChamadoGenerated extends WebPage {
             apiVersion: 1,
             headers: [],
             query: [
-              { id: '091622c4-b9b5-4848-a60c-b63ecfc1e312', name: 'id', value: '', enabled: false },
+              { id: '83844ada-7183-4fc6-8e56-03eb3715b660', name: 'id', value: '', enabled: false },
             ],
             body: { kind: 'none', content: '' },
             credentials: 'omit',
@@ -2869,7 +2863,7 @@ export abstract class ChamadoGenerated extends WebPage {
             responseSchema: {
               version: 1,
               root: {
-                id: '3346b2e4-08af-4bde-b657-cf92902cbc08',
+                id: 'ed6e1061-a15e-428d-8605-cf34185d0d21',
                 name: 'Response',
                 path: '',
                 kind: 'object',
@@ -2877,7 +2871,7 @@ export abstract class ChamadoGenerated extends WebPage {
                 nullable: false,
                 children: [
                   {
-                    id: 'ac3d3f55-ed91-4b20-a78e-f9554d081a04',
+                    id: '091622c4-b9b5-4848-a60c-b63ecfc1e312',
                     name: 'success',
                     path: '/success',
                     kind: 'field',
@@ -2886,7 +2880,7 @@ export abstract class ChamadoGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: '900c9ef9-2212-44c9-84de-31d2b66d2eee',
+                    id: '3346b2e4-08af-4bde-b657-cf92902cbc08',
                     name: 'data',
                     path: '/data',
                     kind: 'list',
@@ -2894,7 +2888,7 @@ export abstract class ChamadoGenerated extends WebPage {
                     nullable: false,
                     children: [
                       {
-                        id: '39b500ad-0aff-4a26-a03a-47bcbcbd4e7b',
+                        id: 'ac3d3f55-ed91-4b20-a78e-f9554d081a04',
                         name: 'subquery',
                         path: '/data/*/subquery',
                         kind: 'field',
@@ -2903,7 +2897,7 @@ export abstract class ChamadoGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: '9cc2201f-b71b-4340-92ce-b6e011b37710',
+                        id: '900c9ef9-2212-44c9-84de-31d2b66d2eee',
                         name: 'id_reparo_servico',
                         path: '/data/*/id_reparo_servico',
                         kind: 'field',
@@ -2912,7 +2906,7 @@ export abstract class ChamadoGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: '80ee22a8-a9c0-4a13-8dd2-0ebf7a05192c',
+                        id: '39b500ad-0aff-4a26-a03a-47bcbcbd4e7b',
                         name: 'realizado_reparo_servico',
                         path: '/data/*/realizado_reparo_servico',
                         kind: 'field',
@@ -2921,7 +2915,7 @@ export abstract class ChamadoGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: '12e4b7e7-20d3-4f7b-b73b-254189154dcc',
+                        id: '9cc2201f-b71b-4340-92ce-b6e011b37710',
                         name: 'status_reparo_servico',
                         path: '/data/*/status_reparo_servico',
                         kind: 'field',
@@ -2930,7 +2924,7 @@ export abstract class ChamadoGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: '262cbefe-bf2b-4381-9007-c934ac018d05',
+                        id: '80ee22a8-a9c0-4a13-8dd2-0ebf7a05192c',
                         name: 'data_reparo_servico',
                         path: '/data/*/data_reparo_servico',
                         kind: 'field',
@@ -2939,7 +2933,7 @@ export abstract class ChamadoGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: 'bc6f216c-3a92-4be1-a7cc-5d786cbdb073',
+                        id: '12e4b7e7-20d3-4f7b-b73b-254189154dcc',
                         name: 'data_encerramento_reparo_servico',
                         path: '/data/*/data_encerramento_reparo_servico',
                         kind: 'field',
@@ -2948,7 +2942,7 @@ export abstract class ChamadoGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: '4e4fe5ad-1542-4397-bdcf-c0856ddb6346',
+                        id: '262cbefe-bf2b-4381-9007-c934ac018d05',
                         name: 'data',
                         path: '/data/*/data',
                         kind: 'field',
@@ -2957,7 +2951,7 @@ export abstract class ChamadoGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: 'e9df1fab-d4c5-41be-8d09-13a3600dd7c9',
+                        id: 'bc6f216c-3a92-4be1-a7cc-5d786cbdb073',
                         name: 'id_abertura_usuario',
                         path: '/data/*/id_abertura_usuario',
                         kind: 'field',
@@ -2966,7 +2960,7 @@ export abstract class ChamadoGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: '6598d825-a7fc-4ae4-b260-82321e5cd65b',
+                        id: '4e4fe5ad-1542-4397-bdcf-c0856ddb6346',
                         name: 'nome_abertura_usuario',
                         path: '/data/*/nome_abertura_usuario',
                         kind: 'field',
@@ -2975,7 +2969,7 @@ export abstract class ChamadoGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: '9b81fd29-be4e-4abb-82e0-3c37cffc8bec',
+                        id: 'e9df1fab-d4c5-41be-8d09-13a3600dd7c9',
                         name: 'id_fechamento_usuario',
                         path: '/data/*/id_fechamento_usuario',
                         kind: 'field',
@@ -2984,7 +2978,7 @@ export abstract class ChamadoGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: 'eda451fe-d681-413d-955c-8a43b3bd0cba',
+                        id: '6598d825-a7fc-4ae4-b260-82321e5cd65b',
                         name: 'nome_fechamento_usuario',
                         path: '/data/*/nome_fechamento_usuario',
                         kind: 'field',
@@ -2993,7 +2987,7 @@ export abstract class ChamadoGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: 'b57a7458-546a-4fb1-8dbd-a50970034576',
+                        id: '9b81fd29-be4e-4abb-82e0-3c37cffc8bec',
                         name: 'id_servico',
                         path: '/data/*/id_servico',
                         kind: 'field',
@@ -3002,7 +2996,7 @@ export abstract class ChamadoGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: '97235ea3-2ca2-4c1f-8c3e-ca5a1e08b237',
+                        id: 'eda451fe-d681-413d-955c-8a43b3bd0cba',
                         name: 'nome_servico',
                         path: '/data/*/nome_servico',
                         kind: 'field',
@@ -3013,7 +3007,7 @@ export abstract class ChamadoGenerated extends WebPage {
                     ],
                   },
                   {
-                    id: '7fa9a220-e7f9-483a-a84b-6711846667ef',
+                    id: 'b57a7458-546a-4fb1-8dbd-a50970034576',
                     name: 'page',
                     path: '/page',
                     kind: 'field',
@@ -3022,7 +3016,7 @@ export abstract class ChamadoGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: '6f3b6ea9-2288-4ed4-be03-36663b68746c',
+                    id: '97235ea3-2ca2-4c1f-8c3e-ca5a1e08b237',
                     name: 'page_size',
                     path: '/page_size',
                     kind: 'field',
@@ -3031,7 +3025,7 @@ export abstract class ChamadoGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: 'faad324b-6080-421c-a7c3-49f10c27e759',
+                    id: '7fa9a220-e7f9-483a-a84b-6711846667ef',
                     name: 'total_pages',
                     path: '/total_pages',
                     kind: 'field',
@@ -3040,7 +3034,7 @@ export abstract class ChamadoGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: '51ab0f56-10b1-4386-a876-42a6e9da09ab',
+                    id: '6f3b6ea9-2288-4ed4-be03-36663b68746c',
                     name: 'total',
                     path: '/total',
                     kind: 'field',
@@ -3049,7 +3043,7 @@ export abstract class ChamadoGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: '4160dda6-768e-4f52-897c-2e1b85ac76a8',
+                    id: 'faad324b-6080-421c-a7c3-49f10c27e759',
                     name: 'has_more',
                     path: '/has_more',
                     kind: 'field',
@@ -3069,7 +3063,7 @@ export abstract class ChamadoGenerated extends WebPage {
             apiVersion: 1,
             headers: [],
             query: [
-              { id: 'dd19e174-3186-475e-9279-14cce271f166', name: 'id', value: '', enabled: false },
+              { id: '51ab0f56-10b1-4386-a876-42a6e9da09ab', name: 'id', value: '', enabled: false },
             ],
             body: { kind: 'none', content: '' },
             credentials: 'omit',
@@ -3077,7 +3071,7 @@ export abstract class ChamadoGenerated extends WebPage {
             responseSchema: {
               version: 1,
               root: {
-                id: '7e8e96d7-a2b0-4449-a3e5-be7f243fa76f',
+                id: '4160dda6-768e-4f52-897c-2e1b85ac76a8',
                 name: 'Response',
                 path: '',
                 kind: 'object',
@@ -3085,7 +3079,7 @@ export abstract class ChamadoGenerated extends WebPage {
                 nullable: false,
                 children: [
                   {
-                    id: '3736c618-33af-4c3b-9144-7c78a64e0e32',
+                    id: 'dd19e174-3186-475e-9279-14cce271f166',
                     name: 'success',
                     path: '/success',
                     kind: 'field',
@@ -3094,7 +3088,7 @@ export abstract class ChamadoGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: '4f71d006-feb6-44c3-a9a3-4a8b34ba467b',
+                    id: '7e8e96d7-a2b0-4449-a3e5-be7f243fa76f',
                     name: 'data',
                     path: '/data',
                     kind: 'list',
@@ -3102,7 +3096,7 @@ export abstract class ChamadoGenerated extends WebPage {
                     nullable: false,
                     children: [
                       {
-                        id: '4d3dd99f-442e-46b4-91f5-afb3adaeab28',
+                        id: '3736c618-33af-4c3b-9144-7c78a64e0e32',
                         name: 'article_id',
                         path: '/data/*/article_id',
                         kind: 'field',
@@ -3111,7 +3105,7 @@ export abstract class ChamadoGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: '51f439f5-25a8-4d1b-a39c-a8f1da6f1b90',
+                        id: '4f71d006-feb6-44c3-a9a3-4a8b34ba467b',
                         name: 'a_from',
                         path: '/data/*/a_from',
                         kind: 'field',
@@ -3120,7 +3114,7 @@ export abstract class ChamadoGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: 'c6c86934-ff38-413e-b617-d9169cd042a6',
+                        id: '4d3dd99f-442e-46b4-91f5-afb3adaeab28',
                         name: 'a_subject',
                         path: '/data/*/a_subject',
                         kind: 'field',
@@ -3129,7 +3123,7 @@ export abstract class ChamadoGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: '807d9db4-e39c-47f0-990a-4f757bd780ef',
+                        id: '51f439f5-25a8-4d1b-a39c-a8f1da6f1b90',
                         name: 'a_body',
                         path: '/data/*/a_body',
                         kind: 'field',
@@ -3138,7 +3132,7 @@ export abstract class ChamadoGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: 'dbdbe6a4-39f2-4826-b9cb-9191d0787fd9',
+                        id: 'c6c86934-ff38-413e-b617-d9169cd042a6',
                         name: 'create_time',
                         path: '/data/*/create_time',
                         kind: 'field',
@@ -3147,7 +3141,7 @@ export abstract class ChamadoGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: 'bad914af-d4eb-45c4-a2df-b88213bfc50e',
+                        id: '807d9db4-e39c-47f0-990a-4f757bd780ef',
                         name: 'create_time_fmt',
                         path: '/data/*/create_time_fmt',
                         kind: 'field',
@@ -3158,7 +3152,7 @@ export abstract class ChamadoGenerated extends WebPage {
                     ],
                   },
                   {
-                    id: 'fb977549-6ed2-4369-8680-3b4d5581cf64',
+                    id: 'dbdbe6a4-39f2-4826-b9cb-9191d0787fd9',
                     name: 'page',
                     path: '/page',
                     kind: 'field',
@@ -3167,7 +3161,7 @@ export abstract class ChamadoGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: '8221107f-c084-4158-b420-d341eed78b6b',
+                    id: 'bad914af-d4eb-45c4-a2df-b88213bfc50e',
                     name: 'page_size',
                     path: '/page_size',
                     kind: 'field',
@@ -3176,7 +3170,7 @@ export abstract class ChamadoGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: '60674385-4465-4b1a-840e-fc3e3c6809db',
+                    id: 'fb977549-6ed2-4369-8680-3b4d5581cf64',
                     name: 'total_pages',
                     path: '/total_pages',
                     kind: 'field',
@@ -3185,7 +3179,7 @@ export abstract class ChamadoGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: '6bee9bd1-1e74-47d5-af1c-812dbded79b0',
+                    id: '8221107f-c084-4158-b420-d341eed78b6b',
                     name: 'total',
                     path: '/total',
                     kind: 'field',
@@ -3194,7 +3188,7 @@ export abstract class ChamadoGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: '4630a891-315f-4c0e-91e1-f9fe982577d6',
+                    id: '60674385-4465-4b1a-840e-fc3e3c6809db',
                     name: 'has_more',
                     path: '/has_more',
                     kind: 'field',
@@ -3208,23 +3202,19 @@ export abstract class ChamadoGenerated extends WebPage {
           },
           {
             id: '09609ac7-a3de-424f-ab34-f1c46130b772',
-            name: 'Bloquear',
-            method: 'POST',
-            path: 'sigat-gravacao/chamado-bloquear',
+            name: 'Usuarios',
+            method: 'GET',
+            path: 'sigat/usuarios-ativos',
             apiVersion: 1,
             headers: [],
             query: [],
-            body: {
-              kind: 'json',
-              content: '{ "id_chamado": <id_chamado> }',
-              parameters: [{ name: 'id_chamado', type: 'integer' }],
-            },
+            body: { kind: 'none', content: '' },
             credentials: 'omit',
             timeoutMs: null,
             responseSchema: {
               version: 1,
               root: {
-                id: '2af1b9a4-8ac6-4d77-9f60-d6b5603adfc0',
+                id: '6bee9bd1-1e74-47d5-af1c-812dbded79b0',
                 name: 'Response',
                 path: '',
                 kind: 'object',
@@ -3232,7 +3222,7 @@ export abstract class ChamadoGenerated extends WebPage {
                 nullable: false,
                 children: [
                   {
-                    id: '462b33f8-33cb-4069-bd91-78ba4a14541e',
+                    id: '4630a891-315f-4c0e-91e1-f9fe982577d6',
                     name: 'success',
                     path: '/success',
                     kind: 'field',
@@ -3241,11 +3231,102 @@ export abstract class ChamadoGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: '05296f93-5519-44e4-b624-657b651eea14',
+                    id: '2af1b9a4-8ac6-4d77-9f60-d6b5603adfc0',
                     name: 'data',
                     path: '/data',
+                    kind: 'list',
+                    fieldType: 'list',
+                    nullable: false,
+                    children: [
+                      {
+                        id: '462b33f8-33cb-4069-bd91-78ba4a14541e',
+                        name: 'id_usuario',
+                        path: '/data/*/id_usuario',
+                        kind: 'field',
+                        fieldType: 'integer',
+                        nullable: true,
+                        children: [],
+                      },
+                      {
+                        id: '05296f93-5519-44e4-b624-657b651eea14',
+                        name: 'nome_usuario',
+                        path: '/data/*/nome_usuario',
+                        kind: 'field',
+                        fieldType: 'string',
+                        nullable: true,
+                        children: [],
+                      },
+                      {
+                        id: '5fe08b79-004e-4f65-ae2c-6a06086ed03d',
+                        name: 'login_usuario',
+                        path: '/data/*/login_usuario',
+                        kind: 'field',
+                        fieldType: 'string',
+                        nullable: true,
+                        children: [],
+                      },
+                      {
+                        id: 'b062f6c2-1fe9-495d-a704-ec16d6062ab5',
+                        name: 'autorizacao_usuario',
+                        path: '/data/*/autorizacao_usuario',
+                        kind: 'field',
+                        fieldType: 'integer',
+                        nullable: true,
+                        children: [],
+                      },
+                      {
+                        id: 'dc43ec5c-64d6-4b0d-b9b9-b56b413415aa',
+                        name: 'fila_usuario',
+                        path: '/data/*/fila_usuario',
+                        kind: 'field',
+                        fieldType: 'integer',
+                        nullable: true,
+                        children: [],
+                      },
+                    ],
+                  },
+                  {
+                    id: '1bdbe3b6-e27b-455c-a039-c5af7f6df389',
+                    name: 'page',
+                    path: '/page',
                     kind: 'field',
-                    fieldType: 'unknown',
+                    fieldType: 'integer',
+                    nullable: true,
+                    children: [],
+                  },
+                  {
+                    id: 'caf0829a-38ba-42d0-b81a-1b3c67c7202c',
+                    name: 'page_size',
+                    path: '/page_size',
+                    kind: 'field',
+                    fieldType: 'integer',
+                    nullable: true,
+                    children: [],
+                  },
+                  {
+                    id: '8c4ffc3e-b07d-47ec-ad61-5ceb07f650c1',
+                    name: 'total_pages',
+                    path: '/total_pages',
+                    kind: 'field',
+                    fieldType: 'integer',
+                    nullable: true,
+                    children: [],
+                  },
+                  {
+                    id: 'f0b73ab8-30c3-4c1e-ba3a-695342071ed1',
+                    name: 'total',
+                    path: '/total',
+                    kind: 'field',
+                    fieldType: 'integer',
+                    nullable: true,
+                    children: [],
+                  },
+                  {
+                    id: 'eed85757-7579-49f3-bc02-f2038927aa07',
+                    name: 'has_more',
+                    path: '/has_more',
+                    kind: 'field',
+                    fieldType: 'boolean',
                     nullable: true,
                     children: [],
                   },
@@ -3255,153 +3336,14 @@ export abstract class ChamadoGenerated extends WebPage {
           },
           {
             id: 'e6e00060-801a-4bcd-95d7-ef6bd9c2450b',
-            name: 'Desbloquear',
-            method: 'POST',
-            path: 'sigat-gravacao/chamado-desbloquear',
-            apiVersion: 1,
-            headers: [],
-            query: [],
-            body: {
-              kind: 'json',
-              content: '{ "id_chamado": <id_chamado> }',
-              parameters: [{ name: 'id_chamado', type: 'integer' }],
-            },
-            credentials: 'omit',
-            timeoutMs: null,
-            responseSchema: {
-              version: 1,
-              root: {
-                id: '5fe08b79-004e-4f65-ae2c-6a06086ed03d',
-                name: 'Response',
-                path: '',
-                kind: 'object',
-                fieldType: 'object',
-                nullable: false,
-                children: [
-                  {
-                    id: 'b062f6c2-1fe9-495d-a704-ec16d6062ab5',
-                    name: 'success',
-                    path: '/success',
-                    kind: 'field',
-                    fieldType: 'boolean',
-                    nullable: false,
-                    children: [],
-                  },
-                  {
-                    id: 'dc43ec5c-64d6-4b0d-b9b9-b56b413415aa',
-                    name: 'data',
-                    path: '/data',
-                    kind: 'field',
-                    fieldType: 'unknown',
-                    nullable: true,
-                    children: [],
-                  },
-                ],
-              },
-            },
-          },
-          {
-            id: '4d7a2ed9-2f02-4802-9e3d-eae6b6289f42',
-            name: 'Priorizar',
-            method: 'POST',
-            path: 'sigat-gravacao/chamado-priorizar',
-            apiVersion: 1,
-            headers: [],
-            query: [],
-            body: {
-              kind: 'json',
-              content: '{ "id_chamado": <id_chamado> }',
-              parameters: [{ name: 'id_chamado', type: 'integer' }],
-            },
-            credentials: 'omit',
-            timeoutMs: null,
-            responseSchema: {
-              version: 1,
-              root: {
-                id: '1bdbe3b6-e27b-455c-a039-c5af7f6df389',
-                name: 'Response',
-                path: '',
-                kind: 'object',
-                fieldType: 'object',
-                nullable: false,
-                children: [
-                  {
-                    id: 'caf0829a-38ba-42d0-b81a-1b3c67c7202c',
-                    name: 'success',
-                    path: '/success',
-                    kind: 'field',
-                    fieldType: 'boolean',
-                    nullable: false,
-                    children: [],
-                  },
-                  {
-                    id: '8c4ffc3e-b07d-47ec-ad61-5ceb07f650c1',
-                    name: 'data',
-                    path: '/data',
-                    kind: 'field',
-                    fieldType: 'unknown',
-                    nullable: true,
-                    children: [],
-                  },
-                ],
-              },
-            },
-          },
-          {
-            id: 'd22cd128-5992-4aa3-8b91-54732f19eb2e',
-            name: 'ZerarNaoLidos',
-            method: 'POST',
-            path: 'sigat-gravacao/chamado-zerar-nao-lidos',
-            apiVersion: 1,
-            headers: [],
-            query: [],
-            body: {
-              kind: 'json',
-              content: '{ "id_chamado": <id_chamado> }',
-              parameters: [{ name: 'id_chamado', type: 'integer' }],
-            },
-            credentials: 'omit',
-            timeoutMs: null,
-            responseSchema: {
-              version: 1,
-              root: {
-                id: 'f0b73ab8-30c3-4c1e-ba3a-695342071ed1',
-                name: 'Response',
-                path: '',
-                kind: 'object',
-                fieldType: 'object',
-                nullable: false,
-                children: [
-                  {
-                    id: 'eed85757-7579-49f3-bc02-f2038927aa07',
-                    name: 'success',
-                    path: '/success',
-                    kind: 'field',
-                    fieldType: 'boolean',
-                    nullable: false,
-                    children: [],
-                  },
-                  {
-                    id: 'c8beb65d-d005-4d39-af8f-7c11a31d0001',
-                    name: 'data',
-                    path: '/data',
-                    kind: 'field',
-                    fieldType: 'unknown',
-                    nullable: true,
-                    children: [],
-                  },
-                ],
-              },
-            },
-          },
-          {
-            id: '7838f5eb-c958-4ca7-9f8f-9430b12d4a2c',
-            name: 'Filas',
+            name: 'Locais',
             method: 'GET',
-            path: 'sigat/filas',
+            path: 'sigat/locais-nomes',
             apiVersion: 1,
             headers: [],
-            query: [],
+            query: [
+              { id: 'c8beb65d-d005-4d39-af8f-7c11a31d0001', name: 'q', value: '', enabled: false },
+            ],
             body: { kind: 'none', content: '' },
             credentials: 'omit',
             timeoutMs: null,
@@ -3434,8 +3376,8 @@ export abstract class ChamadoGenerated extends WebPage {
                     children: [
                       {
                         id: '40a61226-d1de-4e39-ad08-0b60945737c6',
-                        name: 'id_fila',
-                        path: '/data/*/id_fila',
+                        name: 'id_local',
+                        path: '/data/*/id_local',
                         kind: 'field',
                         fieldType: 'integer',
                         nullable: true,
@@ -3443,8 +3385,8 @@ export abstract class ChamadoGenerated extends WebPage {
                       },
                       {
                         id: '922ea000-0374-40d5-a271-1707aa8cc7c9',
-                        name: 'nome_fila',
-                        path: '/data/*/nome_fila',
+                        name: 'nome_local',
+                        path: '/data/*/nome_local',
                         kind: 'field',
                         fieldType: 'string',
                         nullable: true,
@@ -3452,8 +3394,8 @@ export abstract class ChamadoGenerated extends WebPage {
                       },
                       {
                         id: 'fcdbd564-bc53-4a5d-a537-bed834b459ce',
-                        name: 'icone_fila',
-                        path: '/data/*/icone_fila',
+                        name: 'regiao_local',
+                        path: '/data/*/regiao_local',
                         kind: 'field',
                         fieldType: 'string',
                         nullable: true,
@@ -3511,20 +3453,17 @@ export abstract class ChamadoGenerated extends WebPage {
             },
           },
           {
-            id: '925b6394-3b64-496d-b8ba-2d0780e85cd7',
-            name: 'Observacao',
+            id: '4d7a2ed9-2f02-4802-9e3d-eae6b6289f42',
+            name: 'Bloquear',
             method: 'POST',
-            path: 'sigat-gravacao/interacao-observacao',
+            path: 'sigat-gravacao/chamado-bloquear',
             apiVersion: 1,
             headers: [],
             query: [],
             body: {
               kind: 'json',
-              content: '{ "id_chamado": <id_chamado>, "texto": <texto> }',
-              parameters: [
-                { name: 'id_chamado', type: 'integer' },
-                { name: 'texto', type: 'string' },
-              ],
+              content: '{ "id_chamado": <id_chamado> }',
+              parameters: [{ name: 'id_chamado', type: 'integer' }],
             },
             credentials: 'omit',
             timeoutMs: null,
@@ -3561,21 +3500,17 @@ export abstract class ChamadoGenerated extends WebPage {
             },
           },
           {
-            id: 'f1d7ca52-35b2-45ac-92fd-03fd69af655b',
-            name: 'AlterarFila',
+            id: 'd22cd128-5992-4aa3-8b91-54732f19eb2e',
+            name: 'Desbloquear',
             method: 'POST',
-            path: 'sigat-gravacao/interacao-alterar-fila',
+            path: 'sigat-gravacao/chamado-desbloquear',
             apiVersion: 1,
             headers: [],
             query: [],
             body: {
               kind: 'json',
-              content: '{ "id_chamado": <id_chamado>, "id_fila": <id_fila>, "texto": <texto> }',
-              parameters: [
-                { name: 'id_chamado', type: 'integer' },
-                { name: 'id_fila', type: 'integer' },
-                { name: 'texto', type: 'string' },
-              ],
+              content: '{ "id_chamado": <id_chamado> }',
+              parameters: [{ name: 'id_chamado', type: 'integer' }],
             },
             credentials: 'omit',
             timeoutMs: null,
@@ -3612,21 +3547,17 @@ export abstract class ChamadoGenerated extends WebPage {
             },
           },
           {
-            id: '573728b4-f1ff-4084-850a-d4ef342833f5',
-            name: 'Atendimento',
+            id: '7838f5eb-c958-4ca7-9f8f-9430b12d4a2c',
+            name: 'Priorizar',
             method: 'POST',
-            path: 'sigat-gravacao/interacao-atendimento',
+            path: 'sigat-gravacao/chamado-priorizar',
             apiVersion: 1,
             headers: [],
             query: [],
             body: {
               kind: 'json',
-              content: '{ "id_chamado": <id_chamado>, "texto": <texto>, "servicos": <servicos> }',
-              parameters: [
-                { name: 'id_chamado', type: 'integer' },
-                { name: 'texto', type: 'string' },
-                { name: 'servicos', type: 'array' },
-              ],
+              content: '{ "id_chamado": <id_chamado> }',
+              parameters: [{ name: 'id_chamado', type: 'integer' }],
             },
             credentials: 'omit',
             timeoutMs: null,
@@ -3663,23 +3594,17 @@ export abstract class ChamadoGenerated extends WebPage {
             },
           },
           {
-            id: 'd4bd0438-ee40-497d-b4c1-86ad0ef8d478',
-            name: 'Espera',
+            id: '925b6394-3b64-496d-b8ba-2d0780e85cd7',
+            name: 'ZerarNaoLidos',
             method: 'POST',
-            path: 'sigat-gravacao/interacao-espera',
+            path: 'sigat-gravacao/chamado-zerar-nao-lidos',
             apiVersion: 1,
             headers: [],
             query: [],
             body: {
               kind: 'json',
-              content:
-                '{ "id_chamado": <id_chamado>, "texto": <texto>, "equipamentos": <equipamentos>, "servicos": <servicos> }',
-              parameters: [
-                { name: 'id_chamado', type: 'integer' },
-                { name: 'texto', type: 'string' },
-                { name: 'equipamentos', type: 'array' },
-                { name: 'servicos', type: 'array' },
-              ],
+              content: '{ "id_chamado": <id_chamado> }',
+              parameters: [{ name: 'id_chamado', type: 'integer' }],
             },
             credentials: 'omit',
             timeoutMs: null,
@@ -3716,22 +3641,24 @@ export abstract class ChamadoGenerated extends WebPage {
             },
           },
           {
-            id: '221f529f-f0f0-49b5-b9e0-566dc7d3a0f7',
-            name: 'RemoverEspera',
+            id: 'f1d7ca52-35b2-45ac-92fd-03fd69af655b',
+            name: 'Alterar',
             method: 'POST',
-            path: 'sigat-gravacao/interacao-remover-espera',
+            path: 'sigat-gravacao/chamado-alterar',
             apiVersion: 1,
             headers: [],
             query: [],
             body: {
               kind: 'json',
               content:
-                '{ "id_chamado": <id_chamado>, "texto": <texto>, "equipamentos": <equipamentos>, "servicos": <servicos> }',
+                '{ "id_chamado": <id_chamado>, "nome_solicitante": <nome_solicitante>, "telefone": <telefone>, "celular": <celular>, "id_local": <id_local>, "id_responsavel": <id_responsavel> }',
               parameters: [
                 { name: 'id_chamado', type: 'integer' },
-                { name: 'texto', type: 'string' },
-                { name: 'equipamentos', type: 'array' },
-                { name: 'servicos', type: 'array' },
+                { name: 'nome_solicitante', type: 'string' },
+                { name: 'telefone', type: 'string' },
+                { name: 'celular', type: 'string' },
+                { name: 'id_local', type: 'integer' },
+                { name: 'id_responsavel', type: 'integer' },
               ],
             },
             credentials: 'omit',
@@ -3768,31 +3695,404 @@ export abstract class ChamadoGenerated extends WebPage {
               },
             },
           },
+          {
+            id: '573728b4-f1ff-4084-850a-d4ef342833f5',
+            name: 'Filas',
+            method: 'GET',
+            path: 'sigat/filas',
+            apiVersion: 1,
+            headers: [],
+            query: [],
+            body: { kind: 'none', content: '' },
+            credentials: 'omit',
+            timeoutMs: null,
+            responseSchema: {
+              version: 1,
+              root: {
+                id: 'aa572f39-edf2-4ad0-aa50-1e9a4e77f5b3',
+                name: 'Response',
+                path: '',
+                kind: 'object',
+                fieldType: 'object',
+                nullable: false,
+                children: [
+                  {
+                    id: '4e358914-2e6c-4a3a-9f79-42cef0f638da',
+                    name: 'success',
+                    path: '/success',
+                    kind: 'field',
+                    fieldType: 'boolean',
+                    nullable: false,
+                    children: [],
+                  },
+                  {
+                    id: '4e70cf6d-ec80-49cb-90d8-4508874880b7',
+                    name: 'data',
+                    path: '/data',
+                    kind: 'list',
+                    fieldType: 'list',
+                    nullable: false,
+                    children: [
+                      {
+                        id: '72cdb0d8-12d8-4bb9-b25b-747eaf358aad',
+                        name: 'id_fila',
+                        path: '/data/*/id_fila',
+                        kind: 'field',
+                        fieldType: 'integer',
+                        nullable: true,
+                        children: [],
+                      },
+                      {
+                        id: 'ed3ac9cd-a51f-4e3a-85e9-1d32977892f5',
+                        name: 'nome_fila',
+                        path: '/data/*/nome_fila',
+                        kind: 'field',
+                        fieldType: 'string',
+                        nullable: true,
+                        children: [],
+                      },
+                      {
+                        id: '5f1ab952-17b4-406b-aef8-6e11989f2fa6',
+                        name: 'icone_fila',
+                        path: '/data/*/icone_fila',
+                        kind: 'field',
+                        fieldType: 'string',
+                        nullable: true,
+                        children: [],
+                      },
+                    ],
+                  },
+                  {
+                    id: 'f1182c5b-d3d5-4ebb-9499-db194a76f2f6',
+                    name: 'page',
+                    path: '/page',
+                    kind: 'field',
+                    fieldType: 'integer',
+                    nullable: true,
+                    children: [],
+                  },
+                  {
+                    id: '844dfd14-d795-40f5-bc83-1cbb09afd125',
+                    name: 'page_size',
+                    path: '/page_size',
+                    kind: 'field',
+                    fieldType: 'integer',
+                    nullable: true,
+                    children: [],
+                  },
+                  {
+                    id: '60c54303-e24c-4777-b160-268a08c2897b',
+                    name: 'total_pages',
+                    path: '/total_pages',
+                    kind: 'field',
+                    fieldType: 'integer',
+                    nullable: true,
+                    children: [],
+                  },
+                  {
+                    id: '81d16bb0-4d11-42fc-ab09-0eda03e9172f',
+                    name: 'total',
+                    path: '/total',
+                    kind: 'field',
+                    fieldType: 'integer',
+                    nullable: true,
+                    children: [],
+                  },
+                  {
+                    id: 'df2d7dcd-a1e2-4b61-9615-caa1eb520741',
+                    name: 'has_more',
+                    path: '/has_more',
+                    kind: 'field',
+                    fieldType: 'boolean',
+                    nullable: true,
+                    children: [],
+                  },
+                ],
+              },
+            },
+          },
+          {
+            id: 'd4bd0438-ee40-497d-b4c1-86ad0ef8d478',
+            name: 'Observacao',
+            method: 'POST',
+            path: 'sigat-gravacao/interacao-observacao',
+            apiVersion: 1,
+            headers: [],
+            query: [],
+            body: {
+              kind: 'json',
+              content: '{ "id_chamado": <id_chamado>, "texto": <texto> }',
+              parameters: [
+                { name: 'id_chamado', type: 'integer' },
+                { name: 'texto', type: 'string' },
+              ],
+            },
+            credentials: 'omit',
+            timeoutMs: null,
+            responseSchema: {
+              version: 1,
+              root: {
+                id: '673231f5-4e9f-444b-bad1-fbe95409078a',
+                name: 'Response',
+                path: '',
+                kind: 'object',
+                fieldType: 'object',
+                nullable: false,
+                children: [
+                  {
+                    id: '29e3d305-fa80-4371-90b6-eebef19839e1',
+                    name: 'success',
+                    path: '/success',
+                    kind: 'field',
+                    fieldType: 'boolean',
+                    nullable: false,
+                    children: [],
+                  },
+                  {
+                    id: '92ca26d5-df4a-4ce1-b5e5-a4e37a06795e',
+                    name: 'data',
+                    path: '/data',
+                    kind: 'field',
+                    fieldType: 'unknown',
+                    nullable: true,
+                    children: [],
+                  },
+                ],
+              },
+            },
+          },
+          {
+            id: '221f529f-f0f0-49b5-b9e0-566dc7d3a0f7',
+            name: 'AlterarFila',
+            method: 'POST',
+            path: 'sigat-gravacao/interacao-alterar-fila',
+            apiVersion: 1,
+            headers: [],
+            query: [],
+            body: {
+              kind: 'json',
+              content: '{ "id_chamado": <id_chamado>, "id_fila": <id_fila>, "texto": <texto> }',
+              parameters: [
+                { name: 'id_chamado', type: 'integer' },
+                { name: 'id_fila', type: 'integer' },
+                { name: 'texto', type: 'string' },
+              ],
+            },
+            credentials: 'omit',
+            timeoutMs: null,
+            responseSchema: {
+              version: 1,
+              root: {
+                id: '3eae6efb-088f-4714-b5b6-f7dcf1dfba32',
+                name: 'Response',
+                path: '',
+                kind: 'object',
+                fieldType: 'object',
+                nullable: false,
+                children: [
+                  {
+                    id: 'f5de332b-2d32-46a8-a6b7-749dca4facc3',
+                    name: 'success',
+                    path: '/success',
+                    kind: 'field',
+                    fieldType: 'boolean',
+                    nullable: false,
+                    children: [],
+                  },
+                  {
+                    id: 'cac40ea4-92bc-4e20-bf90-d557883dbfdd',
+                    name: 'data',
+                    path: '/data',
+                    kind: 'field',
+                    fieldType: 'unknown',
+                    nullable: true,
+                    children: [],
+                  },
+                ],
+              },
+            },
+          },
+          {
+            id: '12ff215b-c717-4c6e-a156-c5bb595d9892',
+            name: 'Atendimento',
+            method: 'POST',
+            path: 'sigat-gravacao/interacao-atendimento',
+            apiVersion: 1,
+            headers: [],
+            query: [],
+            body: {
+              kind: 'json',
+              content: '{ "id_chamado": <id_chamado>, "texto": <texto>, "servicos": <servicos> }',
+              parameters: [
+                { name: 'id_chamado', type: 'integer' },
+                { name: 'texto', type: 'string' },
+                { name: 'servicos', type: 'array' },
+              ],
+            },
+            credentials: 'omit',
+            timeoutMs: null,
+            responseSchema: {
+              version: 1,
+              root: {
+                id: '480d7516-bea5-47c0-b220-eb1abc2d169f',
+                name: 'Response',
+                path: '',
+                kind: 'object',
+                fieldType: 'object',
+                nullable: false,
+                children: [
+                  {
+                    id: 'febcb77f-bb55-4e4c-8e9c-d5898ba53fd8',
+                    name: 'success',
+                    path: '/success',
+                    kind: 'field',
+                    fieldType: 'boolean',
+                    nullable: false,
+                    children: [],
+                  },
+                  {
+                    id: '2386b1a7-593e-4ee6-adae-c9ab062f1638',
+                    name: 'data',
+                    path: '/data',
+                    kind: 'field',
+                    fieldType: 'unknown',
+                    nullable: true,
+                    children: [],
+                  },
+                ],
+              },
+            },
+          },
+          {
+            id: '2482bc18-8340-4176-919c-aeb4dc78a24c',
+            name: 'Espera',
+            method: 'POST',
+            path: 'sigat-gravacao/interacao-espera',
+            apiVersion: 1,
+            headers: [],
+            query: [],
+            body: {
+              kind: 'json',
+              content:
+                '{ "id_chamado": <id_chamado>, "texto": <texto>, "equipamentos": <equipamentos>, "servicos": <servicos> }',
+              parameters: [
+                { name: 'id_chamado', type: 'integer' },
+                { name: 'texto', type: 'string' },
+                { name: 'equipamentos', type: 'array' },
+                { name: 'servicos', type: 'array' },
+              ],
+            },
+            credentials: 'omit',
+            timeoutMs: null,
+            responseSchema: {
+              version: 1,
+              root: {
+                id: 'ac032609-bd10-4ae6-9ee7-6cad82726f54',
+                name: 'Response',
+                path: '',
+                kind: 'object',
+                fieldType: 'object',
+                nullable: false,
+                children: [
+                  {
+                    id: '29e01954-d983-4a57-91ac-ce570e948928',
+                    name: 'success',
+                    path: '/success',
+                    kind: 'field',
+                    fieldType: 'boolean',
+                    nullable: false,
+                    children: [],
+                  },
+                  {
+                    id: '3699f6fe-5e7a-4808-9a78-b4b8830c391e',
+                    name: 'data',
+                    path: '/data',
+                    kind: 'field',
+                    fieldType: 'unknown',
+                    nullable: true,
+                    children: [],
+                  },
+                ],
+              },
+            },
+          },
+          {
+            id: 'd891be5c-4322-4c42-9289-f21cd9994591',
+            name: 'RemoverEspera',
+            method: 'POST',
+            path: 'sigat-gravacao/interacao-remover-espera',
+            apiVersion: 1,
+            headers: [],
+            query: [],
+            body: {
+              kind: 'json',
+              content:
+                '{ "id_chamado": <id_chamado>, "texto": <texto>, "equipamentos": <equipamentos>, "servicos": <servicos> }',
+              parameters: [
+                { name: 'id_chamado', type: 'integer' },
+                { name: 'texto', type: 'string' },
+                { name: 'equipamentos', type: 'array' },
+                { name: 'servicos', type: 'array' },
+              ],
+            },
+            credentials: 'omit',
+            timeoutMs: null,
+            responseSchema: {
+              version: 1,
+              root: {
+                id: 'b98d379a-d44e-4a36-a26b-ffb22c583d0b',
+                name: 'Response',
+                path: '',
+                kind: 'object',
+                fieldType: 'object',
+                nullable: false,
+                children: [
+                  {
+                    id: '9759314a-ae63-4787-9517-5471baa5568f',
+                    name: 'success',
+                    path: '/success',
+                    kind: 'field',
+                    fieldType: 'boolean',
+                    nullable: false,
+                    children: [],
+                  },
+                  {
+                    id: 'e5d4c0a1-9524-467e-b230-fd41c6d1a936',
+                    name: 'data',
+                    path: '/data',
+                    kind: 'field',
+                    fieldType: 'unknown',
+                    nullable: true,
+                    children: [],
+                  },
+                ],
+              },
+            },
+          },
         ],
       },
       id: '198a18be-dd4e-444c-9880-73e251ffdac6',
       name: 'Api',
     }).withRequests();
     this.Rodape = new WebGroup(
-      this.requireComponentElement('055d5dc9-596d-45c2-bd4c-5c1bd4b3ebf5'),
+      this.requireComponentElement('f5d069b6-b0a7-43a9-a747-89d9e39dc286'),
     );
     this.LBLRodapeAutorizacao = new WebLabel(
-      this.requireComponentElement('292c49ca-a5d3-4caa-92ea-b2827296560f'),
+      this.requireComponentElement('6fb0f029-705d-4f70-aa3e-bef44727a5d0'),
     );
     this.LBLRodapeGrupo = new WebLabel(
-      this.requireComponentElement('603c57cb-2200-404c-86a2-4c62a7a5f5e0'),
+      this.requireComponentElement('65eeab57-8179-4b5f-8907-3ac7abf85712'),
     );
     this.LBLRodapeAmbiente = new WebLabel(
-      this.requireComponentElement('e94dec72-f984-46e1-8888-e4be28f4a92c'),
+      this.requireComponentElement('b7360441-3de7-4606-ac5a-4d64e864bac3'),
     );
 
-    this.GRDEquipamentos.bindApiClient(this.Api);
-    this.GRDServicos.bindApiClient(this.Api);
+    this.GRDAnexos.bindApiClient(this.Api);
     this.GRDReparos.bindApiClient(this.Api);
     this.GRDReparoHistorico.bindApiClient(this.Api);
-    this.GRDHistorico.bindApiClient(this.Api);
-    this.GRDAnexos.bindApiClient(this.Api);
+    this.GRDEquipamentos.bindApiClient(this.Api);
     this.GRDTermos.bindApiClient(this.Api);
+    this.GRDServicos.bindApiClient(this.Api);
     this.GRDTelefones.bindApiClient(this.Api);
 
     this.bindGeneratedEvent(this, 'OnShow', 'Mostrar');
@@ -3803,16 +4103,26 @@ export abstract class ChamadoGenerated extends WebPage {
     this.bindGeneratedEvent(this.BTNInserviveis, 'OnClick', 'AbrirInserviveis');
     this.bindGeneratedEvent(this.BTNAdmin, 'OnClick', 'AbrirAdmin');
     this.bindGeneratedEvent(this.BTNSair, 'OnClick', 'Sair');
+    this.bindGeneratedEvent(this.BTNTrilhaPainel, 'OnClick', 'AbrirPainel');
     this.bindGeneratedEvent(this.BTNOtobo, 'OnClick', 'AbrirOtobo');
-    this.bindGeneratedEvent(this.BTNRecarregar, 'OnClick', 'Carregar');
+    this.bindGeneratedEvent(this.BTNImprimir, 'OnClick', 'Imprimir');
+    this.bindGeneratedEvent(this.BTNRelatorio, 'OnClick', 'Relatorio');
+    this.bindGeneratedEvent(this.CHKPrioridade, 'OnChange', 'Priorizar');
     this.bindGeneratedEvent(this.BTNBloquear, 'OnClick', 'Bloquear');
     this.bindGeneratedEvent(this.BTNDesbloquear, 'OnClick', 'Desbloquear');
-    this.bindGeneratedEvent(this.BTNPrioridade, 'OnClick', 'Priorizar');
     this.bindGeneratedEvent(this.Abas, 'OnChange', 'TrocarAba');
-    this.bindGeneratedEvent(this.GRDEquipamentos, 'OnCellClick', 'AbrirEquipamento');
+    this.bindGeneratedEvent(this.BTNEditar, 'OnClick', 'Editar');
+    this.bindGeneratedEvent(this.BTNSalvar, 'OnClick', 'Salvar');
+    this.bindGeneratedEvent(this.BTNCancelar, 'OnClick', 'Cancelar');
+    this.bindGeneratedEvent(this.BTNVerEndereco, 'OnClick', 'VerEndereco');
     this.bindGeneratedEvent(this.GRDReparos, 'OnCellClick', 'SelecionarReparo');
+    this.bindGeneratedEvent(this.BTNNovaInteracao, 'OnClick', 'NovaInteracao');
     this.bindGeneratedEvent(this.CMBTipo, 'OnChange', 'MudarTipo');
+    this.bindGeneratedEvent(this.BTNFecharInteracao, 'OnClick', 'FecharInteracao');
     this.bindGeneratedEvent(this.BTNRegistrar, 'OnClick', 'Registrar');
+    this.bindGeneratedEvent(this.GRDEquipamentos, 'OnCellClick', 'AbrirEquipamento');
+    this.bindGeneratedEvent(this.BTNAbrirLocal, 'OnClick', 'AbrirLocal');
+    this.bindGeneratedEvent(this.BTNFecharLocal, 'OnClick', 'FecharEndereco');
   }
 
   public override dispose(): void {
@@ -4066,35 +4376,17 @@ export interface ApiArtigosResponseObject21 {
   readonly has_more: boolean | null;
 }
 
-export interface ApiBloquearResponseObject23 {
-  readonly success: boolean;
-  readonly data: unknown | null;
+export interface ApiUsuariosResponseObject23dataItemObject24 {
+  readonly id_usuario: number | null;
+  readonly nome_usuario: string | null;
+  readonly login_usuario: string | null;
+  readonly autorizacao_usuario: number | null;
+  readonly fila_usuario: number | null;
 }
 
-export interface ApiDesbloquearResponseObject24 {
+export interface ApiUsuariosResponseObject23 {
   readonly success: boolean;
-  readonly data: unknown | null;
-}
-
-export interface ApiPriorizarResponseObject25 {
-  readonly success: boolean;
-  readonly data: unknown | null;
-}
-
-export interface ApiZerarNaoLidosResponseObject26 {
-  readonly success: boolean;
-  readonly data: unknown | null;
-}
-
-export interface ApiFilasResponseObject27dataItemObject28 {
-  readonly id_fila: number | null;
-  readonly nome_fila: string | null;
-  readonly icone_fila: string | null;
-}
-
-export interface ApiFilasResponseObject27 {
-  readonly success: boolean;
-  readonly data: ReadonlyArray<ApiFilasResponseObject27dataItemObject28>;
+  readonly data: ReadonlyArray<ApiUsuariosResponseObject23dataItemObject24>;
   readonly page: number | null;
   readonly page_size: number | null;
   readonly total_pages: number | null;
@@ -4102,27 +4394,84 @@ export interface ApiFilasResponseObject27 {
   readonly has_more: boolean | null;
 }
 
-export interface ApiObservacaoResponseObject29 {
+export interface ApiLocaisResponseObject25dataItemObject26 {
+  readonly id_local: number | null;
+  readonly nome_local: string | null;
+  readonly regiao_local: string | null;
+}
+
+export interface ApiLocaisResponseObject25 {
+  readonly success: boolean;
+  readonly data: ReadonlyArray<ApiLocaisResponseObject25dataItemObject26>;
+  readonly page: number | null;
+  readonly page_size: number | null;
+  readonly total_pages: number | null;
+  readonly total: number | null;
+  readonly has_more: boolean | null;
+}
+
+export interface ApiBloquearResponseObject27 {
   readonly success: boolean;
   readonly data: unknown | null;
 }
 
-export interface ApiAlterarFilaResponseObject30 {
+export interface ApiDesbloquearResponseObject28 {
   readonly success: boolean;
   readonly data: unknown | null;
 }
 
-export interface ApiAtendimentoResponseObject31 {
+export interface ApiPriorizarResponseObject29 {
   readonly success: boolean;
   readonly data: unknown | null;
 }
 
-export interface ApiEsperaResponseObject32 {
+export interface ApiZerarNaoLidosResponseObject30 {
   readonly success: boolean;
   readonly data: unknown | null;
 }
 
-export interface ApiRemoverEsperaResponseObject33 {
+export interface ApiAlterarResponseObject31 {
+  readonly success: boolean;
+  readonly data: unknown | null;
+}
+
+export interface ApiFilasResponseObject32dataItemObject33 {
+  readonly id_fila: number | null;
+  readonly nome_fila: string | null;
+  readonly icone_fila: string | null;
+}
+
+export interface ApiFilasResponseObject32 {
+  readonly success: boolean;
+  readonly data: ReadonlyArray<ApiFilasResponseObject32dataItemObject33>;
+  readonly page: number | null;
+  readonly page_size: number | null;
+  readonly total_pages: number | null;
+  readonly total: number | null;
+  readonly has_more: boolean | null;
+}
+
+export interface ApiObservacaoResponseObject34 {
+  readonly success: boolean;
+  readonly data: unknown | null;
+}
+
+export interface ApiAlterarFilaResponseObject35 {
+  readonly success: boolean;
+  readonly data: unknown | null;
+}
+
+export interface ApiAtendimentoResponseObject36 {
+  readonly success: boolean;
+  readonly data: unknown | null;
+}
+
+export interface ApiEsperaResponseObject37 {
+  readonly success: boolean;
+  readonly data: unknown | null;
+}
+
+export interface ApiRemoverEsperaResponseObject38 {
   readonly success: boolean;
   readonly data: unknown | null;
 }
@@ -4139,16 +4488,19 @@ export interface ApiApiOutputs {
   readonly Reparos: ApiReparosResponseObject17;
   readonly ReparoHistorico: ApiReparoHistoricoResponseObject19;
   readonly Artigos: ApiArtigosResponseObject21;
-  readonly Bloquear: ApiBloquearResponseObject23;
-  readonly Desbloquear: ApiDesbloquearResponseObject24;
-  readonly Priorizar: ApiPriorizarResponseObject25;
-  readonly ZerarNaoLidos: ApiZerarNaoLidosResponseObject26;
-  readonly Filas: ApiFilasResponseObject27;
-  readonly Observacao: ApiObservacaoResponseObject29;
-  readonly AlterarFila: ApiAlterarFilaResponseObject30;
-  readonly Atendimento: ApiAtendimentoResponseObject31;
-  readonly Espera: ApiEsperaResponseObject32;
-  readonly RemoverEspera: ApiRemoverEsperaResponseObject33;
+  readonly Usuarios: ApiUsuariosResponseObject23;
+  readonly Locais: ApiLocaisResponseObject25;
+  readonly Bloquear: ApiBloquearResponseObject27;
+  readonly Desbloquear: ApiDesbloquearResponseObject28;
+  readonly Priorizar: ApiPriorizarResponseObject29;
+  readonly ZerarNaoLidos: ApiZerarNaoLidosResponseObject30;
+  readonly Alterar: ApiAlterarResponseObject31;
+  readonly Filas: ApiFilasResponseObject32;
+  readonly Observacao: ApiObservacaoResponseObject34;
+  readonly AlterarFila: ApiAlterarFilaResponseObject35;
+  readonly Atendimento: ApiAtendimentoResponseObject36;
+  readonly Espera: ApiEsperaResponseObject37;
+  readonly RemoverEspera: ApiRemoverEsperaResponseObject38;
 }
 
 export interface ApiApiInputs {
@@ -4253,6 +4605,20 @@ export interface ApiApiInputs {
     };
     readonly Headers: Readonly<Record<string, never>>;
   };
+  readonly Usuarios: {
+    readonly Parameter: Readonly<Record<string, never>>;
+    readonly Query: Readonly<Record<string, never>>;
+    readonly Headers: Readonly<Record<string, never>>;
+  };
+  readonly Locais: {
+    readonly Parameter: {
+      readonly q: WebApiQueryValue;
+    };
+    readonly Query: {
+      readonly q: WebApiQueryValue;
+    };
+    readonly Headers: Readonly<Record<string, never>>;
+  };
   readonly Bloquear: {
     readonly Parameter: {
       readonly id_chamado: number;
@@ -4277,6 +4643,18 @@ export interface ApiApiInputs {
   readonly ZerarNaoLidos: {
     readonly Parameter: {
       readonly id_chamado: number;
+    };
+    readonly Query: Readonly<Record<string, never>>;
+    readonly Headers: Readonly<Record<string, never>>;
+  };
+  readonly Alterar: {
+    readonly Parameter: {
+      readonly id_chamado: number;
+      readonly nome_solicitante: string;
+      readonly telefone: string;
+      readonly celular: string;
+      readonly id_local: number;
+      readonly id_responsavel: number;
     };
     readonly Query: Readonly<Record<string, never>>;
     readonly Headers: Readonly<Record<string, never>>;

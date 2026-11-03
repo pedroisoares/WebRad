@@ -3,14 +3,18 @@ import {
   buscar,
   sair,
   preencherCabecalho,
+  abrir,
   abrirEquipamento,
   contexto,
   erro,
+  formaDaFila,
   gravar,
+  imprimirChamado,
+  imprimirRelatorio,
   linhas,
-  mostrarArtigos,
-  mostrarInteracoes,
-  mostrarSinaisDoChamado,
+  mostrarComunicacao,
+  mostrarHistorico,
+  mostrarInteracoesDoChamado,
   numero,
   primeira,
   texto,
@@ -52,48 +56,107 @@ export class Chamado extends ChamadoGenerated {
   private chamado: Linha | undefined;
   private equipamentos: Linha[] = [];
   private servicos: Linha[] = [];
+  private interacoes: Linha[] = [];
+  private historico: Linha[] = [];
+  private termos: Linha[] = [];
+  private reparos: Linha[] = [];
   private filas: Linha[] = [];
+  private usuarios: Linha[] = [];
+  private editando = false;
+  private gravandoPrioridade = false;
 
   public async Mostrar(): Promise<void> {
     preencherCabecalho(this);
+    this.ACPLocal.bindOperation(this.Api, 'Locais', {
+      listPath: '/data',
+      displayField: '/nome_local',
+      keyField: '/id_local',
+      detailField: '/regiao_local',
+      searchParameter: 'q',
+      limitParameter: '',
+    });
+    this.POPLocal.hide();
+    this.GRPRegistrar.visible = false;
     await this.Carregar();
+  }
+
+  private MostrarCampos(c: Linha | undefined): void {
+    this.EDTResumo.value = texto(c?.resumo_chamado, '');
+    this.EDTStatus.value = texto(c?.status_chamado, '');
+    this.EDTFila.value = texto(c?.nome_fila_chamado, '');
+    this.EDTAbertura.value = texto(c?.data_chamado, '');
+    this.EDTSolicitante.value = texto(c?.nome_solicitante_chamado, '');
+    this.EDTCelular.value = texto(c?.celular_chamado, '');
+    this.EDTTelefone.value = texto(c?.telefone_chamado, '');
+    this.EDTLocal.value = texto(c?.nome_local, '');
+    this.EDTRegiao.value = texto(c?.regiao_local, '');
+    this.EDTComplemento.value = texto(c?.complemento_chamado, '');
+    const responsavel = texto(c?.id_responsavel, '');
+    this.CMBResponsavel.items =
+      responsavel === ''
+        ? [{ value: '', label: '' }]
+        : [{ value: responsavel, label: texto(c?.nome_responsavel) }];
+    this.CMBResponsavel.value = responsavel;
+  }
+
+  /** Read-only like the SIGAT form until Editar; Salvar and Cancelar only while editing. */
+  private ModoEdicao(editando: boolean): void {
+    this.editando = editando;
+    for (const campo of [
+      this.EDTResumo,
+      this.EDTStatus,
+      this.EDTFila,
+      this.EDTAbertura,
+      this.EDTRegiao,
+      this.EDTComplemento,
+    ])
+      campo.enabled = false;
+    for (const campo of [this.EDTSolicitante, this.EDTCelular, this.EDTTelefone]) {
+      campo.enabled = editando;
+      campo.clearValidation();
+    }
+    this.CMBResponsavel.enabled = editando && this.Nivel() >= 3;
+    this.EDTLocal.visible = !editando;
+    this.EDTLocal.enabled = false;
+    this.ACPLocal.visible = editando;
+    this.BTNSalvar.visible = editando;
+    this.BTNCancelar.visible = editando;
+    this.MostrarAcoes(this.chamado);
+  }
+
+  private Nivel(): number {
+    return numero(Access.user?.data?.autorizacao_usuario) ?? 0;
   }
 
   public async Carregar(): Promise<void> {
     const id = Number(contexto('chamado'));
+    this.editando = false;
     if (!Number.isInteger(id) || id <= 0) {
-      this.LBLChamado.caption = 'Nenhum chamado selecionado';
+      this.LBLTicket.caption = 'Nenhum chamado selecionado';
+      this.LBLTrilhaNumero.caption = '';
+      this.MostrarCabecalho(undefined);
       return;
     }
-    this.LBLChamado.caption = 'Chamado #' + id + ' (carregando...)';
+    this.LBLTrilhaNumero.caption = '#' + id;
+    this.LBLNumero.caption = '(#' + id + ')';
     const parametros = { id };
     try {
       const c = primeira(await executar(this.Api.Detalhe, parametros));
       this.chamado = c;
-      this.MostrarAcoes(c);
-      mostrarSinaisDoChamado(this.HTMLSinais, c);
+      this.MostrarCabecalho(c);
+      this.MostrarCampos(c);
+      this.ModoEdicao(false);
       if (c === undefined) {
-        this.LBLChamado.caption = 'Chamado #' + id + ' não encontrado';
+        this.LBLTicket.caption = 'Chamado #' + id + ' não encontrado';
         return;
       }
-      this.LBLChamado.caption = 'Chamado #' + id + ' - ' + texto(c.resumo_chamado);
-      this.Status.caption =
-        texto(c.status_chamado) + (Number(c.prioridade_chamado) === 1 ? ' (prioridade)' : '');
-      this.Ticket.caption = texto(c.ticket_chamado);
-      this.Fila.caption = texto(c.nome_fila_chamado);
-      this.Responsavel.caption = texto(c.nome_responsavel, 'Ninguém');
-      this.Solicitante.caption = texto(c.nome_solicitante_chamado);
-      this.Telefone.caption = texto(c.telefone_chamado) + ' / ' + texto(c.celular_chamado);
-      this.Local.caption = texto(c.nome_local);
-      this.Endereco.caption = texto(c.endereco_local);
-      this.Regiao.caption = texto(c.regiao_local);
-      this.Abertura.caption = texto(c.data_chamado);
-      this.Encerramento.caption = texto(c.data_encerramento_chamado);
-      this.Resumo.caption = texto(c.resumo_chamado);
       this.ticketId = texto(c.id_ticket_chamado, '');
-      const interacoes = executar(this.Api.Interacoes, parametros);
+      const naoLidos = numero(c.email_nao_lido_chamado) ?? 0;
       await Promise.all([
-        interacoes.then((r) => mostrarInteracoes(this.HTMLInteracoes, linhas(r))),
+        executar(this.Api.Interacoes, parametros).then((r) => {
+          this.interacoes = linhas(r);
+          mostrarInteracoesDoChamado(this.HTMLInteracoes, this.interacoes);
+        }),
         executar(this.Api.Equipamentos, parametros).then((r) => {
           this.equipamentos = linhas(r);
         }),
@@ -105,16 +168,28 @@ export class Chamado extends ChamadoGenerated {
           : this.Api.Filas.execute().then((r) => {
               this.filas = linhas(r);
             }),
-        executar(this.Api.Reparos, parametros),
-        executar(this.Api.Historico, parametros),
-        executar(this.Api.Anexos, parametros),
-        executar(this.Api.Termos, parametros),
-        executar(this.Api.Telefones, parametros),
+        executar(this.Api.Reparos, parametros).then((r) => {
+          this.reparos = linhas(r);
+        }),
+        executar(this.Api.Historico, parametros).then((r) => {
+          this.historico = linhas(r);
+          mostrarHistorico(this.HTMLHistorico, this.historico);
+        }),
+        executar(this.Api.Anexos, parametros).then((r) => {
+          const comAnexos = linhas(r).length > 0;
+          this.LBLAnexos.visible = comAnexos;
+          this.GRDAnexos.visible = comAnexos;
+        }),
+        executar(this.Api.Termos, parametros).then((r) => {
+          this.termos = linhas(r);
+          this.LBLTermos.visible = this.termos.length > 0;
+          this.GRDTermos.visible = this.termos.length > 0;
+        }),
         Number(this.ticketId) > 0
           ? executar(this.Api.Artigos, { id: Number(this.ticketId) }).then((r) =>
-              mostrarArtigos(this.HTMLEmails, linhas(r)),
+              mostrarComunicacao(this.HTMLEmails, linhas(r), naoLidos),
             )
-          : Promise.resolve(mostrarArtigos(this.HTMLEmails, [])),
+          : Promise.resolve(mostrarComunicacao(this.HTMLEmails, [], 0)),
       ]);
       this.MostrarRegistro();
     } catch (e) {
@@ -122,24 +197,43 @@ export class Chamado extends ChamadoGenerated {
     }
   }
 
-  /** Same rules as the SIGAT buttons; HexAPI enforces them again on every write. */
+  /** Title, queue icon, priority star, unread badge and the infovia warning of ver_chamado.php. */
+  private MostrarCabecalho(c: Linha | undefined): void {
+    this.LBLTicket.caption = c === undefined ? this.LBLTicket.caption : texto(c.ticket_chamado);
+    this.ICOFila.icon = formaDaFila(c?.icone_fila) as typeof this.ICOFila.icon;
+    this.ICOFila.accessibleLabel = 'Fila ' + texto(c?.nome_fila_chamado, '');
+    const prioridade = numero(c?.prioridade_chamado) === 1;
+    this.ICOPrioridade.visible = prioridade;
+    this.gravandoPrioridade = true;
+    this.CHKPrioridade.checked = prioridade;
+    this.gravandoPrioridade = false;
+    this.CHKPrioridade.visible = c !== undefined && this.Nivel() > 3;
+    this.BTNRelatorio.visible = c !== undefined && this.Nivel() > 3;
+    this.BTNImprimir.visible = c !== undefined;
+    this.BTNOtobo.visible = Number(texto(c?.id_ticket_chamado, '0')) > 0;
+    this.LBLInfovia.visible = c !== undefined && numero(c.infovia) === 0;
+    const naoLidos = numero(c?.email_nao_lido_chamado) ?? 0;
+    this.Abas.badges = ['', naoLidos > 0 ? String(naoLidos) : ''];
+  }
+
+  /** The button rules of chamado.js (carregaChamado); HexAPI enforces them again on every write. */
   private MostrarAcoes(c: Linha | undefined): void {
     const eu = Access.user?.id ?? '';
-    const nivel = numero(Access.user?.data?.autorizacao_usuario) ?? 0;
+    const nivel = this.Nivel();
     const responsavel = texto(c?.id_responsavel, '');
     const aberto = texto(c?.status_chamado, '') === 'ABERTO';
-    this.BTNBloquear.visible = aberto && responsavel === '';
+    const edicao = this.editando;
+    this.BTNBloquear.visible = !edicao && aberto && responsavel === '';
     this.BTNDesbloquear.visible =
-      aberto && responsavel !== '' && (responsavel === eu || nivel >= 3);
-    this.BTNPrioridade.visible = c !== undefined && Access.hasRole('admin');
-    this.BTNPrioridade.caption =
-      numero(c?.prioridade_chamado) === 1 ? 'Remover prioridade' : 'Priorizar';
+      !edicao && aberto && responsavel !== '' && (responsavel === eu || nivel >= 3);
+    this.BTNEditar.visible =
+      !edicao && aberto && (nivel >= 3 || (responsavel !== '' && responsavel === eu));
   }
 
   private async Gravar(operacao: Parameters<typeof gravar>[0], sucesso: string): Promise<void> {
     const id = numero(this.chamado?.id_chamado);
     if (id === null) return;
-    const botoes = [this.BTNBloquear, this.BTNDesbloquear, this.BTNPrioridade];
+    const botoes = [this.BTNBloquear, this.BTNDesbloquear, this.CHKPrioridade];
     for (const botao of botoes) botao.enabled = false;
     try {
       await gravar(operacao, { id_chamado: id });
@@ -160,9 +254,133 @@ export class Chamado extends ChamadoGenerated {
     await this.Gravar(this.Api.Desbloquear, 'Chamado desbloqueado.');
   }
 
+  /** The Prioridade checkbox toggles chamado.prioridade_chamado (Chamado::priorizar_chamado). */
   public async Priorizar(): Promise<void> {
+    if (this.gravandoPrioridade) return;
     const remover = numero(this.chamado?.prioridade_chamado) === 1;
     await this.Gravar(this.Api.Priorizar, remover ? 'Prioridade removida.' : 'Chamado priorizado.');
+  }
+
+  // ---- editar (Chamado::alterar_chamado)
+
+  public async Editar(): Promise<void> {
+    const c = this.chamado;
+    if (c === undefined) return;
+    this.ModoEdicao(true);
+    this.ACPLocal.selectedItem = {
+      value: texto(c.id_local, ''),
+      label: texto(c.nome_local, ''),
+      detail: texto(c.regiao_local, ''),
+    };
+    if (this.Nivel() < 3) return;
+    try {
+      if (this.usuarios.length === 0) this.usuarios = linhas(await this.Api.Usuarios.execute());
+      const atual = texto(c.id_responsavel, '');
+      this.CMBResponsavel.items = [
+        { value: '', label: '' },
+        ...this.usuarios.map((u) => ({
+          value: texto(u.id_usuario, ''),
+          label: texto(u.nome_usuario),
+        })),
+      ];
+      this.CMBResponsavel.value = atual;
+    } catch (e) {
+      Toast('Erro ao carregar os usuários: ' + erro(e), { kind: 'error' });
+    }
+  }
+
+  public async Cancelar(): Promise<void> {
+    this.ModoEdicao(false);
+    this.MostrarCampos(this.chamado);
+  }
+
+  /** Same rules as the SIGAT form (jQuery validate); HexAPI checks them again. */
+  private Validar(): boolean {
+    let valido = true;
+    const regra = (campo: typeof this.EDTTelefone, mensagem: string, ok: boolean): void => {
+      campo.element.setCustomValidity(ok ? '' : mensagem);
+      campo.element.setAttribute('aria-invalid', String(!ok));
+      campo.element.title = ok ? '' : mensagem;
+      if (!ok && valido) {
+        Toast(mensagem, { kind: 'warning' });
+        campo.focus();
+        valido = false;
+      }
+    };
+    const telefone = this.EDTTelefone.value.trim();
+    const celular = this.EDTCelular.value.trim();
+    regra(
+      this.EDTSolicitante,
+      'Solicitante: campo obrigatório!',
+      this.EDTSolicitante.value.trim() !== '',
+    );
+    regra(
+      this.EDTTelefone,
+      telefone === ''
+        ? 'Telefone: campo obrigatório!'
+        : 'Telefone: somente dígitos (0-9), mínimo 3 dígitos!',
+      /^[0-9]{3,}$/.test(telefone),
+    );
+    regra(
+      this.EDTCelular,
+      'Celular: somente dígitos (0-9), mínimo 9 dígitos!',
+      celular === '' || /^[0-9]{9,}$/.test(celular),
+    );
+    if (valido && numero(this.ACPLocal.selectedItem?.value) === null) {
+      Toast('Local: escolha um local da lista!', { kind: 'warning' });
+      this.ACPLocal.focus();
+      valido = false;
+    }
+    return valido;
+  }
+
+  public async Salvar(): Promise<void> {
+    const id = numero(this.chamado?.id_chamado);
+    if (id === null || !this.Validar()) return;
+    const responsavel = numero(this.CMBResponsavel.value);
+    this.BTNSalvar.enabled = false;
+    this.BTNCancelar.enabled = false;
+    try {
+      await gravar(this.Api.Alterar, {
+        id_chamado: id,
+        nome_solicitante: this.EDTSolicitante.value.trim(),
+        telefone: this.EDTTelefone.value.trim(),
+        celular: this.EDTCelular.value.trim(),
+        id_local: numero(this.ACPLocal.selectedItem?.value) ?? 0,
+        id_responsavel: this.Nivel() >= 3 && responsavel !== null ? responsavel : null,
+      });
+      Toast('Chamado alterado.', { kind: 'success' });
+      await this.Carregar();
+    } catch (e) {
+      Toast(erro(e), { kind: 'warning' });
+    } finally {
+      this.BTNSalvar.enabled = true;
+      this.BTNCancelar.enabled = true;
+    }
+  }
+
+  // ---- local (modal de endereço)
+
+  public async VerEndereco(): Promise<void> {
+    const c = this.chamado;
+    if (c === undefined) return;
+    this.LBLLocalNome.caption = texto(c.nome_local);
+    this.LBLLocalEndereco.caption = texto(c.endereco_local, 'Endereço não cadastrado');
+    this.POPLocal.show();
+    try {
+      await executar(this.Api.Telefones, { id: numero(c.id_chamado) ?? 0 });
+    } catch (e) {
+      Toast('Erro ao carregar os telefones: ' + erro(e), { kind: 'error' });
+    }
+  }
+
+  public FecharEndereco(): void {
+    this.POPLocal.hide();
+  }
+
+  public AbrirLocal(): void {
+    this.POPLocal.hide();
+    abrir('Local', 'local', this.chamado?.id_local);
   }
 
   /** Like the SIGAT, opening the e-mails clears the unread count for the user who holds the chamado. */
@@ -171,7 +389,7 @@ export class Chamado extends ChamadoGenerated {
     event: CustomEvent<{ readonly panel: string }>,
   ): Promise<void> {
     const c = this.chamado;
-    if (event.detail.panel !== 'PNLEmails' || c === undefined) return;
+    if (event.detail.panel !== 'PNLComunicacao' || c === undefined) return;
     if (texto(c.id_responsavel, '') !== (Access.user?.id ?? '')) return;
     if ((numero(c.email_nao_lido_chamado) ?? 0) === 0) return;
     const id = numero(c.id_chamado);
@@ -179,30 +397,83 @@ export class Chamado extends ChamadoGenerated {
     try {
       await gravar(this.Api.ZerarNaoLidos, { id_chamado: id });
       this.chamado = { ...c, email_nao_lido_chamado: 0 };
+      this.Abas.badges = ['', ''];
     } catch {
       // The SIGAT ignores this failure too; the count is cleared on the next visit.
+    }
+  }
+
+  // ---- impressão
+
+  public Imprimir(): void {
+    const c = this.chamado;
+    if (c === undefined) return;
+    imprimirChamado({
+      chamado: c,
+      equipamentos: this.equipamentos,
+      servicos: this.servicos,
+      interacoes: this.interacoes,
+    });
+  }
+
+  public async Relatorio(): Promise<void> {
+    const c = this.chamado;
+    if (c === undefined) return;
+    this.BTNRelatorio.enabled = false;
+    try {
+      const reparos = await Promise.all(
+        this.reparos.map(async (reparo) => ({
+          reparo,
+          historico: linhas(
+            await executar(this.Api.ReparoHistorico, { id: numero(reparo.id_reparo) ?? 0 }),
+          ),
+        })),
+      );
+      imprimirRelatorio({
+        chamado: c,
+        equipamentos: this.equipamentos,
+        servicos: this.servicos,
+        interacoes: this.interacoes,
+        historico: this.historico,
+        termos: this.termos,
+        reparos,
+        usuario: texto(Access.user?.name, ''),
+      });
+    } catch (e) {
+      Toast('Erro ao montar o relatório: ' + erro(e), { kind: 'error' });
+    } finally {
+      this.BTNRelatorio.enabled = true;
     }
   }
 
   // ---- registrar interação (Interacao::registrar_interacao do SIGAT)
 
   private PodeRegistrar(c: Linha | undefined): boolean {
-    const nivel = numero(Access.user?.data?.autorizacao_usuario) ?? 0;
     return (
       c !== undefined &&
       texto(c.status_chamado, '') === 'ABERTO' &&
-      (texto(c.id_responsavel, '') === (Access.user?.id ?? '') || nivel >= 3)
+      (texto(c.id_responsavel, '') === (Access.user?.id ?? '') || this.Nivel() >= 3)
     );
+  }
+
+  public NovaInteracao(): void {
+    this.GRPRegistrar.visible = true;
+    this.BTNNovaInteracao.visible = false;
+  }
+
+  public FecharInteracao(): void {
+    this.GRPRegistrar.visible = false;
+    this.BTNNovaInteracao.visible = this.PodeRegistrar(this.chamado);
   }
 
   /** Types offered by the SIGAT form; Atendimento only in queues 5 to 8. */
   private MostrarRegistro(): void {
     const c = this.chamado;
     const pode = this.PodeRegistrar(c);
-    this.GRPRegistrar.visible = pode;
-    this.LBLRegistrar.caption = pode
-      ? ''
-      : 'Para registrar uma interação, o chamado precisa estar aberto e bloqueado por você (ou você precisa ter autorização 3 ou mais).';
+    this.BTNNovaInteracao.visible = pode && !this.GRPRegistrar.visible;
+    if (!pode) this.GRPRegistrar.visible = false;
+    this.LBLRegistrar.visible = !pode && texto(c?.status_chamado, '') === 'ABERTO';
+    this.LBLRegistrar.caption = 'Para registrar uma interação, bloqueie o chamado.';
     if (!pode || c === undefined) return;
     const fila = numero(c.id_fila) ?? 0;
     const tipos = [
@@ -296,6 +567,7 @@ export class Chamado extends ChamadoGenerated {
       }
       Toast('Interação registrada.', { kind: 'success' });
       this.RTEInteracao.value = '';
+      this.GRPRegistrar.visible = false;
       this.Abas.selectTab('PNLInteracoes');
       await this.Carregar();
     } catch (e) {

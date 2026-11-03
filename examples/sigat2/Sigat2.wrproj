@@ -12,77 +12,77 @@
       "codeFile": "pages/index.ts"
     },
     {
-      "id": "eafe94b6-a178-4ae5-ad22-2853174d291d",
+      "id": "343c0e9a-e431-4f14-9b59-cd6f2c2bc437",
       "name": "Login",
       "pageFile": "pages/Login.wrpage",
       "generatedFile": "pages/Login.generated.ts",
       "codeFile": "pages/Login.ts"
     },
     {
-      "id": "24edcff0-0b05-48a1-a4e5-88cb45087e85",
+      "id": "b7c51394-c65d-43b4-9d3c-2d4b1ce119d4",
       "name": "Chamado",
       "pageFile": "pages/Chamado.wrpage",
       "generatedFile": "pages/Chamado.generated.ts",
       "codeFile": "pages/Chamado.ts"
     },
     {
-      "id": "010cd95f-eb39-4ef2-8eef-7e40ab224504",
+      "id": "32d229aa-a064-426b-a861-396b4aded80f",
       "name": "Triagem",
       "pageFile": "pages/Triagem.wrpage",
       "generatedFile": "pages/Triagem.generated.ts",
       "codeFile": "pages/Triagem.ts"
     },
     {
-      "id": "f0ca895d-c5a0-4261-ab52-e6797ee52e77",
+      "id": "589010ba-6f5c-4e4a-b49b-07d751335c5b",
       "name": "Equipamento",
       "pageFile": "pages/Equipamento.wrpage",
       "generatedFile": "pages/Equipamento.generated.ts",
       "codeFile": "pages/Equipamento.ts"
     },
     {
-      "id": "23621527-be15-448d-81d7-5a9bdbc1ffec",
+      "id": "7f31c69a-931a-4e66-9c08-d469776cb15c",
       "name": "Busca",
       "pageFile": "pages/Busca.wrpage",
       "generatedFile": "pages/Busca.generated.ts",
       "codeFile": "pages/Busca.ts"
     },
     {
-      "id": "a5332c54-e36d-4d9f-a1d7-32cb24d86a89",
+      "id": "b94a8e7c-5464-4c19-b85a-8ecad04a4da7",
       "name": "Inserviveis",
       "pageFile": "pages/Inserviveis.wrpage",
       "generatedFile": "pages/Inserviveis.generated.ts",
       "codeFile": "pages/Inserviveis.ts"
     },
     {
-      "id": "db863eb8-c72c-45e5-ad42-53bd9547384e",
+      "id": "3e56a2bd-b6ae-4ca2-b357-80a0365d9350",
       "name": "Remessa",
       "pageFile": "pages/Remessa.wrpage",
       "generatedFile": "pages/Remessa.generated.ts",
       "codeFile": "pages/Remessa.ts"
     },
     {
-      "id": "641f8601-df3a-4833-a999-f6d461925f4e",
+      "id": "a58f525a-81bb-4d8e-80c2-5cdef81fa667",
       "name": "Admin",
       "pageFile": "pages/Admin.wrpage",
       "generatedFile": "pages/Admin.generated.ts",
       "codeFile": "pages/Admin.ts"
     },
     {
-      "id": "1f54b7fd-7616-47cd-9168-988c8d2fcaf2",
+      "id": "bbf52667-30b3-4ce4-bd26-eb25111c8a01",
       "name": "Usuario",
       "pageFile": "pages/Usuario.wrpage",
       "generatedFile": "pages/Usuario.generated.ts",
       "codeFile": "pages/Usuario.ts"
     },
     {
-      "id": "4930786a-78b9-452c-8840-f4de048b7c0a",
+      "id": "cd7e93ab-bf9a-48d7-878c-347b090e90cb",
       "name": "Local",
       "pageFile": "pages/Local.wrpage",
       "generatedFile": "pages/Local.generated.ts",
       "codeFile": "pages/Local.ts"
     },
     {
-      "id": "2a931bd9-efc2-426b-8d2b-34c9a6fd6990",
+      "id": "fe8c0b8f-b8d3-4e55-8862-ec3b073cffb9",
       "name": "Negado",
       "pageFile": "pages/Negado.wrpage",
       "generatedFile": "pages/Negado.generated.ts",
@@ -2213,6 +2213,1110 @@
         "active": {},
         "disabled": {}
       }
+    },
+    {
+      "id": "sigat2-chamado-trilha",
+      "name": "Chamado Trilha",
+      "componentType": "WebGroup",
+      "states": {
+        "base": {
+          "backgroundColor": "#e9ecef",
+          "borderRadius": {
+            "value": 0,
+            "unit": "px"
+          }
+        },
+        "hover": {},
+        "focus": {},
+        "active": {},
+        "disabled": {}
+      }
+    },
+    {
+      "id": "sigat2-chamado-trilha-link",
+      "name": "Chamado Trilha Link",
+      "componentType": "WebButton",
+      "states": {
+        "base": {
+          "paddingRight": {
+            "value": 0,
+            "unit": "px"
+          },
+          "paddingLeft": {
+            "value": 0,
+            "unit": "px"
+          },
+          "backgroundColor": "transparent",
+          "borderStyle": "none",
+          "borderWidth": {
+            "value": 0,
+            "unit": "px"
+          },
+          "boxShadow": "none",
+          "buttonContentMode": "text",
+          "cursor": "pointer",
+          "fontFamily": "ide",
+          "fontSize": {
+            "value": 16,
+            "unit": "px"
+          },
+          "fontWeight": "normal",
+          "textColor": "#007bff"
+        },
+        "hover": {
+          "textColor": "#0056b3",
+          "textDecoration": "underline"
+        },
+        "focus": {},
+        "active": {},
+        "disabled": {}
+      }
+    },
+    {
+      "id": "sigat2-chamado-trilha-texto",
+      "name": "Chamado Trilha Texto",
+      "componentType": "WebLabel",
+      "states": {
+        "base": {
+          "fontFamily": "ide",
+          "fontSize": {
+            "value": 16,
+            "unit": "px"
+          },
+          "lineHeight": {
+            "value": 24,
+            "unit": "px"
+          },
+          "textColor": "#212529"
+        },
+        "hover": {},
+        "focus": {},
+        "active": {},
+        "disabled": {}
+      }
+    },
+    {
+      "id": "sigat2-chamado-trilha-separador",
+      "name": "Chamado Trilha Separador",
+      "componentType": "WebLabel",
+      "states": {
+        "base": {
+          "justifyContent": "center",
+          "fontFamily": "ide",
+          "fontSize": {
+            "value": 16,
+            "unit": "px"
+          },
+          "lineHeight": {
+            "value": 24,
+            "unit": "px"
+          },
+          "textAlign": "center",
+          "textColor": "#6c757d"
+        },
+        "hover": {},
+        "focus": {},
+        "active": {},
+        "disabled": {}
+      }
+    },
+    {
+      "id": "sigat2-chamado-titulo",
+      "name": "Chamado Titulo",
+      "componentType": "WebLabel",
+      "states": {
+        "base": {
+          "fontFamily": "ide",
+          "fontSize": {
+            "value": 28,
+            "unit": "px"
+          },
+          "fontWeight": "medium",
+          "lineHeight": {
+            "value": 34,
+            "unit": "px"
+          },
+          "textColor": "#212529"
+        },
+        "hover": {},
+        "focus": {},
+        "active": {},
+        "disabled": {}
+      }
+    },
+    {
+      "id": "sigat2-chamado-numero",
+      "name": "Chamado Numero",
+      "componentType": "WebLabel",
+      "states": {
+        "base": {
+          "fontFamily": "ide",
+          "fontSize": {
+            "value": 22,
+            "unit": "px"
+          },
+          "lineHeight": {
+            "value": 34,
+            "unit": "px"
+          },
+          "textColor": "#212529"
+        },
+        "hover": {},
+        "focus": {},
+        "active": {},
+        "disabled": {}
+      }
+    },
+    {
+      "id": "sigat2-chamado-icone-fila",
+      "name": "Chamado Icone Fila",
+      "componentType": "WebIcon",
+      "states": {
+        "base": {
+          "backgroundColor": "transparent",
+          "borderStyle": "none",
+          "borderWidth": {
+            "value": 0,
+            "unit": "px"
+          },
+          "textColor": "#212529"
+        },
+        "hover": {},
+        "focus": {},
+        "active": {},
+        "disabled": {}
+      }
+    },
+    {
+      "id": "sigat2-chamado-estrela",
+      "name": "Chamado Estrela",
+      "componentType": "WebIcon",
+      "states": {
+        "base": {
+          "backgroundColor": "transparent",
+          "borderStyle": "none",
+          "borderWidth": {
+            "value": 0,
+            "unit": "px"
+          },
+          "textColor": "#dc3545"
+        },
+        "hover": {},
+        "focus": {},
+        "active": {},
+        "disabled": {}
+      }
+    },
+    {
+      "id": "sigat2-chamado-link",
+      "name": "Chamado Link",
+      "componentType": "WebButton",
+      "states": {
+        "base": {
+          "paddingRight": {
+            "value": 0,
+            "unit": "px"
+          },
+          "paddingLeft": {
+            "value": 0,
+            "unit": "px"
+          },
+          "backgroundColor": "transparent",
+          "borderStyle": "none",
+          "borderWidth": {
+            "value": 0,
+            "unit": "px"
+          },
+          "boxShadow": "none",
+          "buttonContentMode": "icon",
+          "buttonIconColor": "#007bff",
+          "buttonIconSize": {
+            "value": 18,
+            "unit": "px"
+          },
+          "cursor": "pointer",
+          "textColor": "#007bff"
+        },
+        "hover": {
+          "buttonIconColor": "#0056b3"
+        },
+        "focus": {},
+        "active": {},
+        "disabled": {}
+      }
+    },
+    {
+      "id": "sigat2-chamado-linha",
+      "name": "Chamado Linha",
+      "componentType": "WebGroup",
+      "states": {
+        "base": {
+          "backgroundColor": "#dee2e6"
+        },
+        "hover": {},
+        "focus": {},
+        "active": {},
+        "disabled": {}
+      }
+    },
+    {
+      "id": "sigat2-chamado-abas",
+      "name": "Chamado Abas",
+      "componentType": "WebTabs",
+      "states": {
+        "base": {
+          "backgroundColor": "transparent",
+          "cursor": "pointer",
+          "fontFamily": "ide",
+          "fontSize": {
+            "value": 16,
+            "unit": "px"
+          },
+          "fontWeight": "normal",
+          "overflow": "hidden",
+          "tabBadgeColor": "#007bff",
+          "tabBorderColor": "#dee2e6",
+          "tabIdleOpacity": 100,
+          "tabSelectedBackgroundColor": "#ffffff",
+          "tabSelectedTextColor": "#495057",
+          "textColor": "#007bff"
+        },
+        "hover": {},
+        "focus": {},
+        "active": {},
+        "disabled": {}
+      }
+    },
+    {
+      "id": "sigat2-chamado-botao-primario-sm",
+      "name": "Chamado Botao Primario Sm",
+      "componentType": "WebButton",
+      "states": {
+        "base": {
+          "paddingRight": {
+            "value": 8,
+            "unit": "px"
+          },
+          "paddingLeft": {
+            "value": 8,
+            "unit": "px"
+          },
+          "justifyContent": "center",
+          "backgroundColor": "#007bff",
+          "borderColor": "#007bff",
+          "borderRadius": {
+            "value": 3,
+            "unit": "px"
+          },
+          "borderStyle": "solid",
+          "borderWidth": {
+            "value": 1,
+            "unit": "px"
+          },
+          "boxShadow": "none",
+          "buttonContentMode": "text-icon",
+          "buttonIconColor": "#ffffff",
+          "buttonIconSize": {
+            "value": 14,
+            "unit": "px"
+          },
+          "cursor": "pointer",
+          "fontFamily": "ide",
+          "fontSize": {
+            "value": 14,
+            "unit": "px"
+          },
+          "fontWeight": "normal",
+          "textAlign": "center",
+          "textColor": "#ffffff",
+          "transitionDuration": 150,
+          "transitionProperty": "all",
+          "transitionTimingFunction": "easeOut"
+        },
+        "hover": {
+          "backgroundColor": "#0069d9",
+          "borderColor": "#0069d9"
+        },
+        "focus": {
+          "ringColor": "#80bdff",
+          "ringOffsetWidth": {
+            "value": 0,
+            "unit": "px"
+          },
+          "ringWidth": {
+            "value": 3,
+            "unit": "px"
+          }
+        },
+        "active": {
+          "backgroundColor": "#0069d9",
+          "borderColor": "#0069d9"
+        },
+        "disabled": {
+          "cursor": "not-allowed",
+          "opacity": 65
+        }
+      }
+    },
+    {
+      "id": "sigat2-chamado-botao-secundario-sm",
+      "name": "Chamado Botao Secundario Sm",
+      "componentType": "WebButton",
+      "states": {
+        "base": {
+          "paddingRight": {
+            "value": 8,
+            "unit": "px"
+          },
+          "paddingLeft": {
+            "value": 8,
+            "unit": "px"
+          },
+          "justifyContent": "center",
+          "backgroundColor": "#6c757d",
+          "borderColor": "#6c757d",
+          "borderRadius": {
+            "value": 3,
+            "unit": "px"
+          },
+          "borderStyle": "solid",
+          "borderWidth": {
+            "value": 1,
+            "unit": "px"
+          },
+          "boxShadow": "none",
+          "buttonContentMode": "icon",
+          "buttonIconColor": "#ffffff",
+          "buttonIconSize": {
+            "value": 14,
+            "unit": "px"
+          },
+          "cursor": "pointer",
+          "fontFamily": "ide",
+          "fontSize": {
+            "value": 14,
+            "unit": "px"
+          },
+          "fontWeight": "normal",
+          "textAlign": "center",
+          "textColor": "#ffffff",
+          "transitionDuration": 150,
+          "transitionProperty": "all",
+          "transitionTimingFunction": "easeOut"
+        },
+        "hover": {
+          "backgroundColor": "#5a6268",
+          "borderColor": "#5a6268"
+        },
+        "focus": {
+          "ringColor": "#80bdff",
+          "ringOffsetWidth": {
+            "value": 0,
+            "unit": "px"
+          },
+          "ringWidth": {
+            "value": 3,
+            "unit": "px"
+          }
+        },
+        "active": {
+          "backgroundColor": "#5a6268",
+          "borderColor": "#5a6268"
+        },
+        "disabled": {
+          "cursor": "not-allowed",
+          "opacity": 65
+        }
+      }
+    },
+    {
+      "id": "sigat2-chamado-botao-primario",
+      "name": "Chamado Botao Primario",
+      "componentType": "WebButton",
+      "states": {
+        "base": {
+          "paddingRight": {
+            "value": 12,
+            "unit": "px"
+          },
+          "paddingLeft": {
+            "value": 12,
+            "unit": "px"
+          },
+          "justifyContent": "center",
+          "backgroundColor": "#007bff",
+          "borderColor": "#007bff",
+          "borderRadius": {
+            "value": 4,
+            "unit": "px"
+          },
+          "borderStyle": "solid",
+          "borderWidth": {
+            "value": 1,
+            "unit": "px"
+          },
+          "boxShadow": "none",
+          "buttonContentMode": "text-icon",
+          "buttonIconColor": "#ffffff",
+          "buttonIconSize": {
+            "value": 16,
+            "unit": "px"
+          },
+          "cursor": "pointer",
+          "fontFamily": "ide",
+          "fontSize": {
+            "value": 16,
+            "unit": "px"
+          },
+          "fontWeight": "normal",
+          "textAlign": "center",
+          "textColor": "#ffffff",
+          "transitionDuration": 150,
+          "transitionProperty": "all",
+          "transitionTimingFunction": "easeOut"
+        },
+        "hover": {
+          "backgroundColor": "#0069d9",
+          "borderColor": "#0069d9"
+        },
+        "focus": {
+          "ringColor": "#80bdff",
+          "ringOffsetWidth": {
+            "value": 0,
+            "unit": "px"
+          },
+          "ringWidth": {
+            "value": 3,
+            "unit": "px"
+          }
+        },
+        "active": {
+          "backgroundColor": "#0069d9",
+          "borderColor": "#0069d9"
+        },
+        "disabled": {
+          "cursor": "not-allowed",
+          "opacity": 65
+        }
+      }
+    },
+    {
+      "id": "sigat2-chamado-botao-info",
+      "name": "Chamado Botao Info",
+      "componentType": "WebButton",
+      "states": {
+        "base": {
+          "paddingRight": {
+            "value": 12,
+            "unit": "px"
+          },
+          "paddingLeft": {
+            "value": 12,
+            "unit": "px"
+          },
+          "justifyContent": "center",
+          "backgroundColor": "#17a2b8",
+          "borderColor": "#17a2b8",
+          "borderRadius": {
+            "value": 4,
+            "unit": "px"
+          },
+          "borderStyle": "solid",
+          "borderWidth": {
+            "value": 1,
+            "unit": "px"
+          },
+          "boxShadow": "none",
+          "buttonContentMode": "text-icon",
+          "buttonIconColor": "#ffffff",
+          "buttonIconSize": {
+            "value": 16,
+            "unit": "px"
+          },
+          "cursor": "pointer",
+          "fontFamily": "ide",
+          "fontSize": {
+            "value": 16,
+            "unit": "px"
+          },
+          "fontWeight": "normal",
+          "textAlign": "center",
+          "textColor": "#ffffff",
+          "transitionDuration": 150,
+          "transitionProperty": "all",
+          "transitionTimingFunction": "easeOut"
+        },
+        "hover": {
+          "backgroundColor": "#138496",
+          "borderColor": "#138496"
+        },
+        "focus": {
+          "ringColor": "#80bdff",
+          "ringOffsetWidth": {
+            "value": 0,
+            "unit": "px"
+          },
+          "ringWidth": {
+            "value": 3,
+            "unit": "px"
+          }
+        },
+        "active": {
+          "backgroundColor": "#138496",
+          "borderColor": "#138496"
+        },
+        "disabled": {
+          "cursor": "not-allowed",
+          "opacity": 65
+        }
+      }
+    },
+    {
+      "id": "sigat2-chamado-botao-sucesso",
+      "name": "Chamado Botao Sucesso",
+      "componentType": "WebButton",
+      "states": {
+        "base": {
+          "paddingRight": {
+            "value": 12,
+            "unit": "px"
+          },
+          "paddingLeft": {
+            "value": 12,
+            "unit": "px"
+          },
+          "justifyContent": "center",
+          "backgroundColor": "#28a745",
+          "borderColor": "#28a745",
+          "borderRadius": {
+            "value": 4,
+            "unit": "px"
+          },
+          "borderStyle": "solid",
+          "borderWidth": {
+            "value": 1,
+            "unit": "px"
+          },
+          "boxShadow": "none",
+          "buttonContentMode": "text-icon",
+          "buttonIconColor": "#ffffff",
+          "buttonIconSize": {
+            "value": 16,
+            "unit": "px"
+          },
+          "cursor": "pointer",
+          "fontFamily": "ide",
+          "fontSize": {
+            "value": 16,
+            "unit": "px"
+          },
+          "fontWeight": "normal",
+          "textAlign": "center",
+          "textColor": "#ffffff",
+          "transitionDuration": 150,
+          "transitionProperty": "all",
+          "transitionTimingFunction": "easeOut"
+        },
+        "hover": {
+          "backgroundColor": "#218838",
+          "borderColor": "#218838"
+        },
+        "focus": {
+          "ringColor": "#80bdff",
+          "ringOffsetWidth": {
+            "value": 0,
+            "unit": "px"
+          },
+          "ringWidth": {
+            "value": 3,
+            "unit": "px"
+          }
+        },
+        "active": {
+          "backgroundColor": "#218838",
+          "borderColor": "#218838"
+        },
+        "disabled": {
+          "cursor": "not-allowed",
+          "opacity": 65
+        }
+      }
+    },
+    {
+      "id": "sigat2-chamado-botao-perigo",
+      "name": "Chamado Botao Perigo",
+      "componentType": "WebButton",
+      "states": {
+        "base": {
+          "paddingRight": {
+            "value": 12,
+            "unit": "px"
+          },
+          "paddingLeft": {
+            "value": 12,
+            "unit": "px"
+          },
+          "justifyContent": "center",
+          "backgroundColor": "#dc3545",
+          "borderColor": "#dc3545",
+          "borderRadius": {
+            "value": 4,
+            "unit": "px"
+          },
+          "borderStyle": "solid",
+          "borderWidth": {
+            "value": 1,
+            "unit": "px"
+          },
+          "boxShadow": "none",
+          "buttonContentMode": "text-icon",
+          "buttonIconColor": "#ffffff",
+          "buttonIconSize": {
+            "value": 16,
+            "unit": "px"
+          },
+          "cursor": "pointer",
+          "fontFamily": "ide",
+          "fontSize": {
+            "value": 16,
+            "unit": "px"
+          },
+          "fontWeight": "normal",
+          "textAlign": "center",
+          "textColor": "#ffffff",
+          "transitionDuration": 150,
+          "transitionProperty": "all",
+          "transitionTimingFunction": "easeOut"
+        },
+        "hover": {
+          "backgroundColor": "#c82333",
+          "borderColor": "#c82333"
+        },
+        "focus": {
+          "ringColor": "#80bdff",
+          "ringOffsetWidth": {
+            "value": 0,
+            "unit": "px"
+          },
+          "ringWidth": {
+            "value": 3,
+            "unit": "px"
+          }
+        },
+        "active": {
+          "backgroundColor": "#c82333",
+          "borderColor": "#c82333"
+        },
+        "disabled": {
+          "cursor": "not-allowed",
+          "opacity": 65
+        }
+      }
+    },
+    {
+      "id": "sigat2-chamado-marcador-local",
+      "name": "Chamado Marcador Local",
+      "componentType": "WebButton",
+      "states": {
+        "base": {
+          "paddingRight": {
+            "value": 8,
+            "unit": "px"
+          },
+          "paddingLeft": {
+            "value": 8,
+            "unit": "px"
+          },
+          "justifyContent": "center",
+          "backgroundColor": "#dc3545",
+          "borderColor": "#dc3545",
+          "borderRadius": {
+            "value": 3,
+            "unit": "px"
+          },
+          "borderStyle": "solid",
+          "borderWidth": {
+            "value": 1,
+            "unit": "px"
+          },
+          "boxShadow": "none",
+          "buttonContentMode": "icon",
+          "buttonIconColor": "#ffffff",
+          "buttonIconSize": {
+            "value": 14,
+            "unit": "px"
+          },
+          "cursor": "pointer",
+          "fontFamily": "ide",
+          "fontSize": {
+            "value": 14,
+            "unit": "px"
+          },
+          "fontWeight": "normal",
+          "textAlign": "center",
+          "textColor": "#ffffff",
+          "transitionDuration": 150,
+          "transitionProperty": "all",
+          "transitionTimingFunction": "easeOut"
+        },
+        "hover": {
+          "backgroundColor": "#c82333",
+          "borderColor": "#c82333"
+        },
+        "focus": {
+          "ringColor": "#80bdff",
+          "ringOffsetWidth": {
+            "value": 0,
+            "unit": "px"
+          },
+          "ringWidth": {
+            "value": 3,
+            "unit": "px"
+          }
+        },
+        "active": {
+          "backgroundColor": "#c82333",
+          "borderColor": "#c82333"
+        },
+        "disabled": {
+          "cursor": "not-allowed",
+          "opacity": 65
+        }
+      }
+    },
+    {
+      "id": "sigat2-chamado-checagem",
+      "name": "Chamado Checagem",
+      "componentType": "WebCheckBox",
+      "states": {
+        "base": {
+          "cursor": "pointer",
+          "fontFamily": "ide",
+          "fontSize": {
+            "value": 14,
+            "unit": "px"
+          },
+          "textColor": "#212529"
+        },
+        "hover": {},
+        "focus": {},
+        "active": {},
+        "disabled": {}
+      }
+    },
+    {
+      "id": "sigat2-chamado-rotulo",
+      "name": "Chamado Rotulo",
+      "componentType": "WebLabel",
+      "states": {
+        "base": {
+          "fontFamily": "ide",
+          "fontSize": {
+            "value": 16,
+            "unit": "px"
+          },
+          "lineHeight": {
+            "value": 24,
+            "unit": "px"
+          },
+          "textColor": "#212529"
+        },
+        "hover": {},
+        "focus": {},
+        "active": {},
+        "disabled": {}
+      }
+    },
+    {
+      "id": "sigat2-chamado-campo",
+      "name": "Chamado Campo",
+      "componentType": "WebEdit",
+      "states": {
+        "base": {
+          "paddingRight": {
+            "value": 12,
+            "unit": "px"
+          },
+          "paddingLeft": {
+            "value": 12,
+            "unit": "px"
+          },
+          "backgroundColor": "#ffffff",
+          "borderColor": "#ced4da",
+          "borderRadius": {
+            "value": 4,
+            "unit": "px"
+          },
+          "borderStyle": "solid",
+          "borderWidth": {
+            "value": 1,
+            "unit": "px"
+          },
+          "boxShadow": "none",
+          "fontFamily": "ide",
+          "fontSize": {
+            "value": 16,
+            "unit": "px"
+          },
+          "textColor": "#495057"
+        },
+        "hover": {},
+        "focus": {
+          "borderColor": "#80bdff",
+          "ringColor": "#bfdeff",
+          "ringOffsetWidth": {
+            "value": 0,
+            "unit": "px"
+          },
+          "ringWidth": {
+            "value": 3,
+            "unit": "px"
+          }
+        },
+        "active": {},
+        "disabled": {
+          "backgroundColor": "#e9ecef",
+          "cursor": "default",
+          "opacity": 100,
+          "textColor": "#495057"
+        }
+      }
+    },
+    {
+      "id": "sigat2-chamado-lista",
+      "name": "Chamado Lista",
+      "componentType": "WebComboBox",
+      "states": {
+        "base": {
+          "paddingRight": {
+            "value": 12,
+            "unit": "px"
+          },
+          "paddingLeft": {
+            "value": 12,
+            "unit": "px"
+          },
+          "backgroundColor": "#ffffff",
+          "borderColor": "#ced4da",
+          "borderRadius": {
+            "value": 4,
+            "unit": "px"
+          },
+          "borderStyle": "solid",
+          "borderWidth": {
+            "value": 1,
+            "unit": "px"
+          },
+          "boxShadow": "none",
+          "fontFamily": "ide",
+          "fontSize": {
+            "value": 16,
+            "unit": "px"
+          },
+          "textColor": "#495057"
+        },
+        "hover": {},
+        "focus": {
+          "borderColor": "#80bdff",
+          "ringColor": "#bfdeff",
+          "ringOffsetWidth": {
+            "value": 0,
+            "unit": "px"
+          },
+          "ringWidth": {
+            "value": 3,
+            "unit": "px"
+          }
+        },
+        "active": {},
+        "disabled": {
+          "backgroundColor": "#e9ecef",
+          "cursor": "default",
+          "opacity": 100,
+          "textColor": "#495057"
+        }
+      }
+    },
+    {
+      "id": "sigat2-chamado-busca",
+      "name": "Chamado Busca",
+      "componentType": "WebAutocomplete",
+      "states": {
+        "base": {
+          "paddingRight": {
+            "value": 12,
+            "unit": "px"
+          },
+          "paddingLeft": {
+            "value": 12,
+            "unit": "px"
+          },
+          "backgroundColor": "#ffffff",
+          "borderColor": "#ced4da",
+          "borderRadius": {
+            "value": 4,
+            "unit": "px"
+          },
+          "borderStyle": "solid",
+          "borderWidth": {
+            "value": 1,
+            "unit": "px"
+          },
+          "boxShadow": "none",
+          "fontFamily": "ide",
+          "fontSize": {
+            "value": 16,
+            "unit": "px"
+          },
+          "textColor": "#495057"
+        },
+        "hover": {},
+        "focus": {
+          "borderColor": "#80bdff",
+          "ringColor": "#bfdeff",
+          "ringOffsetWidth": {
+            "value": 0,
+            "unit": "px"
+          },
+          "ringWidth": {
+            "value": 3,
+            "unit": "px"
+          }
+        },
+        "active": {},
+        "disabled": {}
+      }
+    },
+    {
+      "id": "sigat2-chamado-alerta",
+      "name": "Chamado Alerta",
+      "componentType": "WebLabel",
+      "states": {
+        "base": {
+          "paddingRight": {
+            "value": 12,
+            "unit": "px"
+          },
+          "paddingLeft": {
+            "value": 12,
+            "unit": "px"
+          },
+          "backgroundColor": "#f8d7da",
+          "borderColor": "#f5c6cb",
+          "borderRadius": {
+            "value": 4,
+            "unit": "px"
+          },
+          "borderStyle": "solid",
+          "borderWidth": {
+            "value": 1,
+            "unit": "px"
+          },
+          "fontFamily": "ide",
+          "fontSize": {
+            "value": 15,
+            "unit": "px"
+          },
+          "lineHeight": {
+            "value": 24,
+            "unit": "px"
+          },
+          "textColor": "#721c24"
+        },
+        "hover": {},
+        "focus": {},
+        "active": {},
+        "disabled": {}
+      }
+    },
+    {
+      "id": "sigat2-chamado-aviso",
+      "name": "Chamado Aviso",
+      "componentType": "WebLabel",
+      "states": {
+        "base": {
+          "fontFamily": "ide",
+          "fontSize": {
+            "value": 16,
+            "unit": "px"
+          },
+          "lineHeight": {
+            "value": 24,
+            "unit": "px"
+          },
+          "textColor": "#6c757d"
+        },
+        "hover": {},
+        "focus": {},
+        "active": {},
+        "disabled": {}
+      }
+    },
+    {
+      "id": "sigat2-chamado-secao",
+      "name": "Chamado Secao",
+      "componentType": "WebLabel",
+      "states": {
+        "base": {
+          "fontFamily": "ide",
+          "fontSize": {
+            "value": 20,
+            "unit": "px"
+          },
+          "fontWeight": "medium",
+          "lineHeight": {
+            "value": 28,
+            "unit": "px"
+          },
+          "textColor": "#212529"
+        },
+        "hover": {},
+        "focus": {},
+        "active": {},
+        "disabled": {}
+      }
+    },
+    {
+      "id": "sigat2-chamado-grupo",
+      "name": "Chamado Grupo",
+      "componentType": "WebGroup",
+      "states": {
+        "base": {
+          "backgroundColor": "transparent",
+          "fontFamily": "ide",
+          "textColor": "#212529"
+        },
+        "hover": {},
+        "focus": {},
+        "active": {},
+        "disabled": {}
+      }
+    },
+    {
+      "id": "sigat2-chamado-janela",
+      "name": "Chamado Janela",
+      "componentType": "WebPopup",
+      "states": {
+        "base": {
+          "backgroundColor": "#ffffff",
+          "borderColor": "#cccccc",
+          "borderRadius": {
+            "value": 5,
+            "unit": "px"
+          },
+          "borderStyle": "solid",
+          "borderWidth": {
+            "value": 1,
+            "unit": "px"
+          },
+          "fontFamily": "ide",
+          "textColor": "#212529"
+        },
+        "hover": {},
+        "focus": {},
+        "active": {},
+        "disabled": {}
+      }
     }
   ],
   "settings": {
@@ -2481,7 +3585,7 @@
   ],
   "sourceFiles": [
     {
-      "id": "c06021f1-a49a-4087-8515-1316535b2795",
+      "id": "c79a833d-4807-43b5-84c4-ca526c77f791",
       "name": "Sigat2",
       "kind": "unit"
     }

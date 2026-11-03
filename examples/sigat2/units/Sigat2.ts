@@ -265,68 +265,6 @@ export function escapar(valor: unknown): string {
   );
 }
 
-const CORES: Readonly<Record<string, string>> = {
-  ATENDIMENTO: '#e0edff',
-  ATENDIMENTO_INS: '#e0edff',
-  ALT_FILA: '#fff4d6',
-  OBSERVACAO: '#e0f5f9',
-  FECHAMENTO: '#ddf5e3',
-  FECHAMENTO_EQUIP: '#ddf5e3',
-  FECHAMENTO_INS: '#ddf5e3',
-  FECHAMENTO_MAN: '#ddf5e3',
-  ENTREGA: '#ddf5e3',
-  TENTATIVA_ENTREGA: '#e0f5f9',
-  FALHA_ENTREGA: '#fde2e2',
-  ESPERA: '#ffd9cc',
-  REM_ESPERA: '#fff0fe',
-};
-
-const ACOES: Readonly<Record<string, string>> = {
-  ATENDIMENTO: 'realizou um atendimento',
-  ATENDIMENTO_INS: 'realizou um atendimento',
-  ALT: 'alterou dados do chamado',
-  ALT_FILA: 'alterou a fila',
-  OBSERVACAO: 'fez uma observação',
-  FECHAMENTO: 'finalizou o chamado',
-  FECHAMENTO_EQUIP: 'finalizou o chamado',
-  FECHAMENTO_INS: 'finalizou o chamado',
-  FECHAMENTO_MAN: 'finalizou o chamado',
-  ENTREGA: 'realizou a entrega',
-  TENTATIVA_ENTREGA: 'registrou uma tentativa de entrega',
-  FALHA_ENTREGA: 'registrou uma falha na entrega',
-  ESPERA: 'deixou equipamentos em espera',
-  REM_ESPERA: 'retirou equipamentos da espera',
-  INSERVIVEL_REPARO: 'registrou um inservível',
-};
-
-/** Interaction texts are HTML written by SIGAT; WebHtml renders them in a sandboxed frame. */
-export function mostrarInteracoes(destino: WebHtml, interacoes: readonly Linha[]): void {
-  const itens = interacoes.map((i) => {
-    const tipo = texto(i.tipo_interacao, '');
-    const acao = ACOES[tipo];
-    const cabecalho = '<strong>' + escapar(i.nome_usuario) + '</strong> ' + escapar(acao ?? '');
-    const marcas =
-      (sim(i.pode_desfazer) ? ' <span class="tag">pode ser desfeita no SIGAT</span>' : '') +
-      (sim(i.tem_laudo) ? ' <span class="tag">laudo técnico</span>' : '');
-    return (
-      '<div class="item" style="background:' +
-      (CORES[tipo] ?? '#f3f4f6') +
-      '">' +
-      '<div class="topo"><span>' +
-      cabecalho +
-      marcas +
-      '</span><span>' +
-      escapar(i.data_interacao) +
-      '</span></div>' +
-      (acao === undefined ? '' : '<hr>') +
-      texto(i.texto_interacao, '') +
-      '</div>'
-    );
-  });
-  destino.html =
-    ESTILO + (itens.length > 0 ? itens.join('') : '<p class="vazio">Nenhuma interação.</p>');
-}
-
 export function mostrarArtigos(destino: WebHtml, artigos: readonly Linha[]): void {
   const itens = artigos.map(
     (a) =>
@@ -946,111 +884,433 @@ function chip(
   );
 }
 
-/** The chamado header signals of ver_chamado.php, with text, as one strip. */
-export function mostrarSinaisDoChamado(destino: WebHtml, c: Linha | undefined): void {
-  if (c === undefined) {
-    destino.html = '';
+// ---- Ver chamado: the SIGAT tab contents, in Bootstrap 4 colours, inside sandboxed frames
+
+const ESTILO_BOOTSTRAP =
+  '<style>body{font-family:-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;' +
+  'font-size:16px;line-height:1.5;margin:0;padding:0 1px;color:#212529}' +
+  'hr{border:0;border-top:1px solid rgba(0,0,0,.1);margin:0}' +
+  '.interacao{margin:0 0 16px;padding:4px;border-radius:4px;overflow:hidden}.interacao .data{float:right}' +
+  '.alteracao{margin:0 0 24px;padding:12px;border:1px solid rgba(0,0,0,.125);border-radius:4px}' +
+  '.alteracao .data{display:inline-block;padding:4px 7px;margin-right:4px;border-radius:4px;background:#17a2b8;color:#fff;font-size:12px;font-weight:700;line-height:1}' +
+  '.artigos{border:1px solid rgba(0,0,0,.125);border-radius:4px;overflow:hidden}' +
+  'details{border-bottom:1px solid rgba(0,0,0,.125)}details:last-child{border-bottom:0}' +
+  'summary{display:flex;justify-content:space-between;gap:12px;padding:12px 48px;background:rgba(0,0,0,.03);color:#007bff;cursor:pointer;list-style:none}' +
+  'summary::-webkit-details-marker{display:none}summary:hover{text-decoration:underline}' +
+  'details[open] summary{border-bottom:1px solid rgba(0,0,0,.125)}' +
+  'pre{margin:0;padding:20px 30px;font-size:14px;white-space:pre-wrap;word-break:break-word;font-family:SFMono-Regular,Menlo,Monaco,Consolas,monospace}' +
+  '.vazio{color:#6c757d;margin:8px 0}</style>';
+
+/** Bootstrap table-* backgrounds used by Json::interacoes for each interaction type. */
+const FUNDO_INTERACAO: Readonly<Record<string, string>> = {
+  ABERTURA: '#d6d8db',
+  ALT: '#d6d8db',
+  ATENDIMENTO: '#b8daff',
+  ATENDIMENTO_INS: '#b8daff',
+  ALT_FILA: '#ffeeba',
+  OBSERVACAO: '#bee5eb',
+  TENTATIVA_ENTREGA: '#bee5eb',
+  FECHAMENTO: '#c3e6cb',
+  FECHAMENTO_EQUIP: '#c3e6cb',
+  FECHAMENTO_INS: '#c3e6cb',
+  FECHAMENTO_MAN: '#c3e6cb',
+  ENTREGA: '#c3e6cb',
+  FALHA_ENTREGA: '#f5c6cb',
+  ESPERA: '#ffa789',
+  REM_ESPERA: '#fff0fe',
+  INSERVIVEL_REPARO: '#f5c6cb',
+};
+
+/** The sentence after the user's name in Json::interacoes (already HTML). */
+const ACAO_INTERACAO: Readonly<Record<string, string>> = {
+  ATENDIMENTO: 'realizou um <strong>atendimento</strong>',
+  ATENDIMENTO_INS: 'realizou um <strong>atendimento</strong>',
+  ALT: 'alterou dados do chamado',
+  ALT_FILA: 'alterou a <strong>fila</strong>',
+  OBSERVACAO: 'fez uma <strong>observação</strong>',
+  FECHAMENTO: 'finalizou o chamado',
+  FECHAMENTO_EQUIP: 'finalizou o chamado',
+  FECHAMENTO_INS: 'finalizou o chamado',
+  FECHAMENTO_MAN: 'finalizou o chamado',
+  ENTREGA: 'realizou a entrega',
+  TENTATIVA_ENTREGA: 'registrou uma <b>tentativa</b> de entrega',
+  FALHA_ENTREGA: 'registrou uma <b>falha</b> na <b>entrega</b>',
+  ESPERA: 'deixou equipamentos em <b>espera</b>',
+  REM_ESPERA: 'retirou equipamentos da <b>espera</b>',
+  INSERVIVEL_REPARO: 'registrou um <b>inservível</b>',
+};
+
+/**
+ * The Interações tab as Json::interacoes draws it: one coloured box per interaction, newest
+ * first. Texts are HTML saved by SIGAT; the sandboxed frame runs no scripts.
+ */
+export function mostrarInteracoesDoChamado(destino: WebHtml, interacoes: readonly Linha[]): void {
+  const itens = interacoes.map((i) => {
+    const tipo = texto(i.tipo_interacao, '');
+    const acao = ACAO_INTERACAO[tipo];
+    return (
+      '<div class="interacao" style="background:' +
+      (FUNDO_INTERACAO[tipo] ?? '#d6d8db') +
+      '">' +
+      '<span class="data">' +
+      escapar(i.data_interacao) +
+      '</span><strong>' +
+      escapar(i.nome_usuario) +
+      '</strong>' +
+      (acao === undefined
+        ? texto(i.texto_interacao, '')
+        : ' ' + acao + '<hr>' + texto(i.texto_interacao, '')) +
+      '</div>'
+    );
+  });
+  destino.html =
+    ESTILO_BOOTSTRAP +
+    (itens.length > 0 ? itens.join('') : '<p class="vazio">Nenhuma interação.</p>');
+}
+
+/** OTOBO dates are UTC in the database; ver_chamado.php subtracts 3 hours and shows d/m/y - H:i:s. */
+function dataDoArtigo(valor: unknown): string {
+  const data = new Date(texto(valor, ''));
+  if (Number.isNaN(data.getTime())) return texto(valor, '');
+  const local = new Date(data.getTime() - 3 * 60 * 60 * 1000);
+  const dois = (n: number): string => String(n).padStart(2, '0');
+  return (
+    dois(local.getUTCDate()) +
+    '/' +
+    dois(local.getUTCMonth() + 1) +
+    '/' +
+    dois(local.getUTCFullYear() % 100) +
+    ' - ' +
+    dois(local.getUTCHours()) +
+    ':' +
+    dois(local.getUTCMinutes()) +
+    ':' +
+    dois(local.getUTCSeconds())
+  );
+}
+
+/**
+ * The Comunicação tab as ver_chamado.php draws it: an accordion of the ticket e-mails,
+ * newest first and open, with the sender without the address. The unread ones are bold.
+ */
+export function mostrarComunicacao(
+  destino: WebHtml,
+  artigos: readonly Linha[],
+  naoLidos: number,
+): void {
+  const itens = artigos.map((a, indice) => {
+    const remetente = escapar(texto(a.a_from, '').replace(/\s<.+>/, ''));
+    return (
+      '<details' +
+      (indice === 0 ? ' open' : '') +
+      '><summary><span>' +
+      (indice < naoLidos ? '<strong>' + remetente + '</strong>' : remetente) +
+      '</span><span>' +
+      escapar(dataDoArtigo(a.create_time)) +
+      '</span></summary>' +
+      '<pre>' +
+      escapar(a.a_body) +
+      '</pre></details>'
+    );
+  });
+  destino.html =
+    ESTILO_BOOTSTRAP +
+    (itens.length > 0
+      ? '<div class="artigos">' + itens.join('') + '</div>'
+      : '<p class="vazio">Nenhuma mensagem.</p>');
+}
+
+/** The Histórico tab as Json::carrega_historico draws it: date badge, user and the change. */
+export function mostrarHistorico(destino: WebHtml, historico: readonly Linha[]): void {
+  const itens = historico.map(
+    (h) =>
+      '<div class="alteracao"><span class="data">' +
+      escapar(h.data_alteracao_fmt) +
+      '</span> <strong>' +
+      escapar(h.nome_usuario) +
+      '</strong> ' +
+      texto(h.texto_alteracao, '') +
+      '</div>',
+  );
+  destino.html =
+    ESTILO_BOOTSTRAP + (itens.length > 0 ? itens.join('') : '<p class="vazio">Sem histórico.</p>');
+}
+
+// ---- Ver chamado: printing (chamado/imprimir_chamados and imprimir_relatorio_chamado)
+
+const ESTILO_IMPRESSAO =
+  '<style>body{font-family:Arial,Helvetica,sans-serif;font-size:13px;color:#000;margin:24px}' +
+  'h1{font-size:20px;text-align:center;margin:0 0 4px}h2{font-size:15px;text-align:center;margin:18px 0 8px}' +
+  '.emitido{text-align:right;margin:0}.ticket{text-align:center;font-weight:700;font-size:11px;margin:0 0 8px}' +
+  'table{width:100%;border-collapse:collapse;margin:0 0 8px}td,th{border:1px solid #000;padding:4px 6px;vertical-align:top;text-align:left}' +
+  'th{width:1%;white-space:nowrap;text-align:right}.campos td,.campos th{border:0;padding:2px 6px}.campos th{text-align:left}' +
+  '.titulo{text-align:right;font-weight:700;border-bottom:1px solid #000;padding:4px 0;margin:0 0 8px}' +
+  '.bloco{border-top:1px solid #000;margin-top:12px;padding-top:4px}.interacao{margin:0 0 10px}' +
+  '@media print{body{margin:0}}</style>';
+
+function agoraFormatado(): string {
+  const d = new Date();
+  const dois = (n: number): string => String(n).padStart(2, '0');
+  return (
+    dois(d.getDate()) +
+    '/' +
+    dois(d.getMonth() + 1) +
+    '/' +
+    d.getFullYear() +
+    ' - ' +
+    dois(d.getHours()) +
+    ':' +
+    dois(d.getMinutes()) +
+    ':' +
+    dois(d.getSeconds())
+  );
+}
+
+/** Text before the first <hr> of an interaction (imprimir_chamados keeps only the note). */
+function textoSemResumo(html: string): string {
+  const fim = html.indexOf('<hr');
+  return fim >= 0 ? html.slice(0, fim) : html;
+}
+
+function janelaDeImpressao(titulo: string, corpo: string): void {
+  const janela = window.open('', '_blank');
+  if (janela === null) {
+    Toast('O navegador bloqueou a janela de impressão. Permita pop-ups para o SIGAT2.', {
+      kind: 'warning',
+    });
     return;
   }
-  const statusChamado = texto(c.status_chamado, '');
-  const prioridade = numero(c.prioridade_chamado) === 1;
-  const status = prioridade && statusChamado !== 'FECHADO' ? 'PRIORIDADE' : statusChamado;
-  const minutos = numero(c.minutos_espera);
-  const nivel = nivelDeEspera(minutos);
-  const naoLidos = numero(c.email_nao_lido_chamado) ?? 0;
-  const espera = numero(c.equip_espera) ?? 0;
-  const responsavel = texto(c.nome_responsavel, '');
-  const eu = texto(Access.user?.id, '');
-  const itens = [
-    chip(
-      iconeStatus(status, 3, 3),
-      escapar(
-        statusChamado === '' ? '-' : statusChamado.charAt(0) + statusChamado.slice(1).toLowerCase(),
-      ) + (prioridade ? ' · <b>prioridade</b>' : ''),
-      status === 'PRIORIDADE' ? 'perigo' : status === 'FECHADO' ? 'sucesso' : 'alerta',
-    ),
-    chip(
-      selo(formaDaFila(c.icone_fila), 0, 2, COR.secundario, '#ffffff'),
-      'Fila ' + escapar(texto(c.nome_fila_chamado)),
-      'neutro',
-      26,
-    ),
-  ];
-  if (statusChamado === 'ABERTO') {
-    itens.push(
-      responsavel === ''
-        ? chip(
-            forma('lock-open', 3, 3, 18, TRACO + ' stroke="' + COR.secundario + '"'),
-            'Livre: bloqueie antes de atender',
-            'neutro',
-          )
-        : chip(
-            forma('lock', 3, 3, 18, TRACO + ' stroke="' + COR.escuro + '"'),
-            texto(c.id_responsavel, '') === eu
-              ? 'Bloqueado por você'
-              : 'Bloqueado por ' + escapar(responsavel),
-            texto(c.id_responsavel, '') === eu ? 'info' : 'neutro',
-          ),
-    );
-    if (minutos !== null)
-      itens.push(
-        nivel === 0
-          ? chip(
-              forma('circle', 3, 3, 18, TRACO + ' stroke="' + COR.secundario + '"') +
-                forma('hands', 3, 3, 18, TRACO + ' stroke="' + COR.secundario + '"'),
-              'Última interação há ' + tempoDeEspera(minutos),
-              'neutro',
-            )
-          : chip(
-              relogio(3, 3, 18, nivel === 2),
-              'Sem interação há ' + tempoDeEspera(minutos),
-              nivel === 2 ? 'perigo' : 'alerta',
-            ),
+  janela.document.open();
+  janela.document.write(
+    '<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><title>' +
+      escapar(titulo) +
+      '</title>' +
+      ESTILO_IMPRESSAO +
+      '</head><body>' +
+      corpo +
+      '</body></html>',
+  );
+  janela.document.close();
+  janela.focus();
+  janela.print();
+}
+
+export interface DadosDoChamado {
+  readonly chamado: Linha;
+  readonly equipamentos: readonly Linha[];
+  readonly servicos: readonly Linha[];
+  readonly interacoes: readonly Linha[];
+}
+
+/** The SIGAT "CHAMADOS" sheet for one chamado: data, pending items and the last interaction. */
+export function imprimirChamado(d: DadosDoChamado): void {
+  const c = d.chamado;
+  const pendentes = d.equipamentos.filter(
+    (e) => texto(e.status_equipamento_chamado, '') !== 'ENTREGUE',
+  );
+  const servicos = d.servicos.filter((s) => texto(s.status_servico, '') !== 'FECHADO');
+  const ultima = d.interacoes[0];
+  const linha = (rotulo: string, valor: unknown): string =>
+    '<th>' + rotulo + '</th><td>' + escapar(valor) + '</td>';
+  const corpoUltima =
+    ultima === undefined
+      ? '<table><tr><td>Sem interações.</td></tr></table>'
+      : '<p class="titulo" style="text-align:left;border:0">Última interação <span style="float:right;font-weight:400">' +
+        escapar(ultima.data_interacao) +
+        ' - ' +
+        escapar(ultima.nome_usuario) +
+        '</span></p>' +
+        (texto(ultima.tipo_interacao, '') === 'OBSERVACAO'
+          ? texto(ultima.texto_interacao, '')
+          : textoSemResumo(texto(ultima.texto_interacao, '')));
+  janelaDeImpressao(
+    'Chamado ' + texto(c.id_chamado),
+    '<h1>CHAMADOS</h1><p class="emitido">Emitido em ' +
+      agoraFormatado() +
+      '</p>' +
+      '<p class="titulo">' +
+      escapar(c.ticket_chamado) +
+      ' - Chamado #' +
+      escapar(c.id_chamado) +
+      '</p>' +
+      '<table><tr>' +
+      linha('Data', c.data_chamado) +
+      linha('Fila', c.nome_fila_chamado) +
+      '</tr>' +
+      '<tr>' +
+      linha('Solicitante', c.nome_solicitante_chamado) +
+      linha('Telefone', c.telefone_chamado) +
+      '</tr>' +
+      '<tr><th>Local</th><td colspan="3">' +
+      escapar(c.nome_local) +
+      '</td></tr>' +
+      '<tr>' +
+      linha('Endereço', c.endereco_local) +
+      linha('Região', c.regiao_local) +
+      '</tr>' +
+      '<tr><th>Complemento</th><td colspan="3">' +
+      escapar(c.complemento_chamado) +
+      '</td></tr>' +
+      '<tr><th colspan="4" style="text-align:left">Resumo</th></tr><tr><td colspan="4">' +
+      escapar(c.resumo_chamado) +
+      '</td></tr>' +
+      '<tr><th colspan="4" style="text-align:left">Equipamentos pendentes</th></tr><tr><td colspan="4">' +
+      pendentes
+        .map((e) => escapar(e.num_equipamento) + ' - ' + escapar(e.descricao_equipamento))
+        .join('<br>') +
+      '&nbsp;</td></tr>' +
+      '<tr><th colspan="4" style="text-align:left">Serviços pendentes</th></tr><tr><td colspan="4">' +
+      servicos
+        .map(
+          (s) =>
+            escapar(s.nome_servico) +
+            ' (' +
+            escapar(s.quantidade) +
+            ' ' +
+            escapar(s.unidade_medida) +
+            ')',
+        )
+        .join('<br>') +
+      '&nbsp;</td></tr>' +
+      '</table>' +
+      corpoUltima,
+  );
+}
+
+export interface RelatorioDoChamado extends DadosDoChamado {
+  readonly usuario: string;
+  readonly reparos: readonly { readonly reparo: Linha; readonly historico: readonly Linha[] }[];
+  readonly historico: readonly Linha[];
+  readonly termos: readonly Linha[];
+}
+
+/** The SIGAT "Relatório detalhado" (imprimir_relatorio_chamado), without the BGInfo inventory. */
+export function imprimirRelatorio(r: RelatorioDoChamado): void {
+  const c = r.chamado;
+  const campo = (rotulo: string, valor: unknown): string =>
+    '<tr><th>' + rotulo + '</th><td>' + escapar(valor) + '</td></tr>';
+  const equipamentos = r.equipamentos
+    .map((e) => {
+      const reparos = r.reparos.filter(
+        (x) => texto(x.reparo.num_equipamento_reparo, '') === texto(e.num_equipamento, ''),
       );
-  }
-  if (naoLidos > 0)
-    itens.push(
-      chip(
-        selo('mail', 0, 2, COR.primario, '#ffffff'),
-        '<b>' + naoLidos + '</b> ' + (naoLidos === 1 ? 'e-mail não lido' : 'e-mails não lidos'),
-        'info',
-        26,
-      ),
-    );
-  const entrega = situacaoDaEntrega(c.entrega_chamado, c.equip_pendentes);
-  if (entrega !== '')
-    itens.push(
-      entrega === 'PRONTO'
-        ? chip(selo('truck', 0, 2, COR.sucesso, '#ffffff'), 'Pronto para entrega', 'sucesso', 26)
-        : chip(
-            selo('truck', 0, 2, COR.alerta, COR.escuro),
-            'Parcialmente pronto para entrega',
-            'alerta',
-            26,
-          ),
-    );
-  if (espera > 0)
-    itens.push(
-      chip(
-        forma('pause', 3, 3, 18, TRACO + ' stroke="' + COR.alertaBorda + '"'),
-        '<b>' +
-          espera +
-          '</b> ' +
-          (espera === 1 ? 'equipamento em espera' : 'equipamentos em espera'),
-        'alerta',
-      ),
-    );
-  if (numero(c.infovia) === 0)
-    itens.push(
-      chip(
-        forma('alert', 3, 3, 18, TRACO + ' stroke="' + COR.perigo + '"'),
-        'Este local não acessa a infovia',
-        'perigo',
-      ),
-    );
-  destino.html =
-    ESTILO_SINAIS +
-    '<div class="faixa" role="list">' +
-    itens.map((i) => i.replace('<span class="chip', '<span role="listitem" class="chip')).join('') +
-    '</div>';
+      return (
+        '<table class="campos">' +
+        campo('Nº de identificação:', e.num_equipamento) +
+        campo('Descrição:', e.descricao_equipamento) +
+        campo('Lacre:', e.tag_equipamento) +
+        campo('Status:', e.status_equipamento_chamado) +
+        '</table>' +
+        reparos
+          .map(
+            (x) =>
+              '<p><strong>Reparos</strong></p><table class="campos">' +
+              campo('Reparo:', x.reparo.id_reparo) +
+              campo('Início:', x.reparo.data_inicio_reparo) +
+              campo('Término:', x.reparo.data_fim_reparo) +
+              campo('Bancada:', x.reparo.nome_bancada) +
+              campo('Status:', x.reparo.status_reparo) +
+              '</table>' +
+              (x.historico.length === 0
+                ? ''
+                : '<p><strong>Histórico</strong></p><table class="campos">' +
+                  x.historico
+                    .map(
+                      (h) =>
+                        '<tr><td>' +
+                        escapar(h.data_reparo_servico) +
+                        '</td><td>' +
+                        escapar(texto(h.nome_abertura_usuario, '')) +
+                        ' — ' +
+                        escapar(h.nome_servico) +
+                        (texto(h.data_encerramento_reparo_servico, '') === ''
+                          ? ''
+                          : ' (encerrado em ' +
+                            escapar(h.data_encerramento_reparo_servico) +
+                            ' por ' +
+                            escapar(h.nome_fechamento_usuario) +
+                            ')') +
+                        '</td></tr>',
+                    )
+                    .join('') +
+                  '</table>'),
+          )
+          .join('')
+      );
+    })
+    .join('<div class="bloco"></div>');
+  const servicos = r.servicos
+    .map(
+      (s) =>
+        '<table class="campos">' +
+        campo('Serviço:', s.nome_servico) +
+        campo('Status:', s.status_servico) +
+        campo('Quantidade:', texto(s.quantidade) + ' ' + texto(s.unidade_medida, '')) +
+        '</table>',
+    )
+    .join('');
+  const interacoes = r.interacoes
+    .map(
+      (i) =>
+        '<div class="interacao"><strong>' +
+        escapar(i.data_interacao) +
+        ' - ' +
+        escapar(i.nome_usuario) +
+        '</strong><br>' +
+        texto(i.texto_interacao, '') +
+        '</div>',
+    )
+    .join('');
+  const historico = r.historico
+    .map(
+      (h) =>
+        '<div class="interacao"><strong>' +
+        escapar(h.data_alteracao_fmt) +
+        '</strong> ' +
+        escapar(h.nome_usuario) +
+        ' ' +
+        texto(h.texto_alteracao, '') +
+        '</div>',
+    )
+    .join('');
+  const termos = r.termos
+    .map(
+      (t) =>
+        '<tr><td>' + escapar(t.nome_termo) + '</td><td>' + escapar(t.tipo_termo) + '</td></tr>',
+    )
+    .join('');
+  janelaDeImpressao(
+    'Relatório do chamado ' + texto(c.id_chamado),
+    '<h1>CHAMADO - ' +
+      escapar(c.id_chamado) +
+      '</h1><p class="ticket">' +
+      escapar(c.ticket_chamado) +
+      '</p>' +
+      '<p class="emitido">Emitido em ' +
+      agoraFormatado() +
+      '</p><p class="emitido">Por: ' +
+      escapar(r.usuario) +
+      '</p>' +
+      '<h2>Informações</h2><table class="campos">' +
+      campo('Solicitante:', c.nome_solicitante_chamado) +
+      campo('Telefone:', c.telefone_chamado) +
+      campo('Celular:', c.celular_chamado) +
+      campo('Local:', c.nome_local) +
+      campo('Endereço:', c.endereco_local) +
+      campo('Complemento:', c.complemento_chamado) +
+      campo('Região:', c.regiao_local) +
+      campo('Resumo:', c.resumo_chamado) +
+      campo('Aberto em:', c.data_chamado) +
+      campo('Encerrado em:', c.data_encerramento_chamado) +
+      campo('Status:', c.status_chamado) +
+      campo('Responsável:', c.nome_responsavel) +
+      '</table>' +
+      (equipamentos === '' ? '' : '<div class="bloco"></div><h2>Equipamentos</h2>' + equipamentos) +
+      (servicos === '' ? '' : '<div class="bloco"></div><h2>Serviços</h2>' + servicos) +
+      (interacoes === '' ? '' : '<div class="bloco"></div><h2>Interações</h2>' + interacoes) +
+      (historico === '' ? '' : '<div class="bloco"></div><h2>Histórico</h2>' + historico) +
+      (termos === ''
+        ? ''
+        : '<div class="bloco"></div><h2>Termos</h2><table>' + termos + '</table>'),
+  );
 }

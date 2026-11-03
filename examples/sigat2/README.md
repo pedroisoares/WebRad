@@ -53,12 +53,13 @@ database: one transaction that changes the chamado and writes the SIGAT history
 (`alteracao_chamado` and `evento`) with the same texts as the PHP code. The page
 cannot skip the history, because the steps are defined on the server.
 
-| Button (Chamado page)                 | Operation                 | Shown when                                                             |
-| ------------------------------------- | ------------------------- | ---------------------------------------------------------------------- |
-| Bloquear                              | `chamado-bloquear`        | the chamado is open and nobody holds it                                |
-| Desbloquear                           | `chamado-desbloquear`     | the chamado is open and held by the user, or the user is level 3 or up |
-| Priorizar / Remover prioridade        | `chamado-priorizar`       | the user has the `admin` role                                          |
-| (opening the "E-mails do ticket" tab) | `chamado-zerar-nao-lidos` | the user holds the chamado and it has unread e-mails                   |
+| Button (Chamado page)             | Operation                 | Shown when                                                             |
+| --------------------------------- | ------------------------- | ---------------------------------------------------------------------- |
+| Bloquear                          | `chamado-bloquear`        | the chamado is open and nobody holds it                                |
+| Desbloquear                       | `chamado-desbloquear`     | the chamado is open and held by the user, or the user is level 3 or up |
+| Priorizar / Remover prioridade    | `chamado-priorizar`       | the user has the `admin` role                                          |
+| Editar → Salvar (Informações tab) | `chamado-alterar`         | the chamado is open and the user holds it or is level 3 or up          |
+| (opening the Comunicação tab)     | `chamado-zerar-nao-lidos` | the user holds the chamado and it has unread e-mails                   |
 
 The **Registrar interação** tab records an interaction. The choice of type picks
 the operation; the text comes from the rich text editor and HexAPI cleans it
@@ -116,10 +117,39 @@ Where they appear:
   tooltip and alt text with its meaning, and the status icon's tooltip gives the
   full situation. The row under the mouse turns bisque, as in SIGAT. The painel
   refreshes every 2 minutes while it is open.
-- **Chamado**: a strip under the title with the status, queue, who holds the
-  chamado (or "Livre: bloqueie antes de atender"), the time without interaction,
-  unread e-mails, delivery, equipment on hold and the SIGAT "Este local não acessa
-  a infovia" warning.
+- **Chamado**: the title shows the queue icon and the priority star, as in
+  `ver_chamado.php`, and the Comunicação tab carries the unread e-mail count. The
+  SIGAT "Este local não acessa a infovia" warning sits under the title. The
+  earlier SIGAT2-only strip of status signals was removed so the page matches
+  production.
+
+## Chamado page
+
+The page follows `ver_chamado.php` inside the signed-in frame: a breadcrumb
+(Painel / Ver chamado / #id), a header with the ticket number and its OTOBO link,
+Imprimir, Relatório detalhado (level 4), the Prioridade checkbox and
+Bloquear/Desbloquear, then seven tabs with Lucide icons:
+
+- **Informações**: read-only fields in the production layout. **Editar** turns
+  Solicitante, Celular, Telefone and Local (autocomplete on `locais-nomes`) into
+  inputs, and Responsável into a select of `usuarios-ativos` for level 3 or up;
+  Salvar and Cancelar replace Editar and Bloquear is hidden. Salvar calls
+  `chamado-alterar`, which checks the same rules again and writes one history line
+  with only the fields that changed. The map pin opens the local's address and
+  telephones.
+- **Comunicação**: the ticket's e-mails as an accordion (sender and date, newest
+  open), then the attachments grid when there are any. Opening the tab clears the
+  unread count.
+- **Reparos**, **Equipamentos** and **Infraestrutura**: the SIGAT grids, with
+  "Lista vazia." or "Vazio" when empty.
+- **Interações**: the interactions in the Bootstrap `table-*` colours of
+  `chamado.js`, and **Nova interação**, which opens the register form.
+- **Histórico**: one card per `alteracao_chamado` row with the teal date badge.
+
+Imprimir and Relatório detalhado build a printable HTML page from the read
+endpoints and open the browser's print dialog. Still missing, because their writes
+are not in HexAPI yet: **Enviar e-mail** (Comunicação), **Desfazer** on an
+interaction, and the BGInfo block of the detailed report.
 
 ## Signed-in frame and Painel
 
@@ -152,19 +182,19 @@ boundaries.
 
 ## Pages
 
-| Page                | SIGAT screen                        | Endpoints                                                                                                                                                                                                                                                                                                                            |
-| ------------------- | ----------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Login               | Login                               | `sessao-usuario`                                                                                                                                                                                                                                                                                                                     |
-| Painel (`index`)    | Painel (chamados, triagem, arquivo) | `filas`, `painel-chamados`, `painel-indicadores`, `triagem`, `painel-encerrados`                                                                                                                                                                                                                                                     |
-| Chamado             | Chamado                             | writes: `chamado-bloquear`, `chamado-desbloquear`, `chamado-priorizar`, `chamado-zerar-nao-lidos`; reads: `chamado-detalhe`, `chamado-interacoes`, `chamado-equipamentos`, `chamado-servicos`, `chamado-reparos`, `reparo-historico`, `ticket-artigos`, `chamado-historico`, `chamado-anexos`, `chamado-termos`, `chamado-telefones` |
-| Triagem             | Triagem of an OTOBO ticket          | `triagem-ticket`, `ticket-artigos`, `ticket-anexos`, `ticket-importado`                                                                                                                                                                                                                                                              |
-| Equipamento         | Equipment history                   | `equipamento`, `equipamento-chamados`                                                                                                                                                                                                                                                                                                |
-| Busca               | Quick search                        | `busca-equipamentos`, `busca-chamados`                                                                                                                                                                                                                                                                                               |
-| Inserviveis/Remessa | Inservíveis                         | `remessas`, `remessa`, `remessa-equipamentos`                                                                                                                                                                                                                                                                                        |
-| Admin               | Administration                      | `admin-usuarios`, `admin-locais`, `admin-servicos`, `admin-filas`, `secretarias`, `bancadas`, `modelos-mensagem`, `admin-eventos`                                                                                                                                                                                                    |
-| Usuario             | User profile                        | `usuario-perfil`, `usuario-produtividade`, `usuario-bloqueados`                                                                                                                                                                                                                                                                      |
-| Local               | Location                            | `local`, `local-telefones`, `secretarias`                                                                                                                                                                                                                                                                                            |
-| Negado, 404         | Access denied, not found            | none                                                                                                                                                                                                                                                                                                                                 |
+| Page                | SIGAT screen                        | Endpoints                                                                                                                                                                                                                                                                                                                                                                                  |
+| ------------------- | ----------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Login               | Login                               | `sessao-usuario`                                                                                                                                                                                                                                                                                                                                                                           |
+| Painel (`index`)    | Painel (chamados, triagem, arquivo) | `filas`, `painel-chamados`, `painel-indicadores`, `triagem`, `painel-encerrados`                                                                                                                                                                                                                                                                                                           |
+| Chamado             | Chamado                             | writes: `chamado-bloquear`, `chamado-desbloquear`, `chamado-priorizar`, `chamado-alterar`, `chamado-zerar-nao-lidos`; reads: `chamado-detalhe`, `usuarios-ativos`, `locais-nomes`, `chamado-interacoes`, `chamado-equipamentos`, `chamado-servicos`, `chamado-reparos`, `reparo-historico`, `ticket-artigos`, `chamado-historico`, `chamado-anexos`, `chamado-termos`, `chamado-telefones` |
+| Triagem             | Triagem of an OTOBO ticket          | `triagem-ticket`, `ticket-artigos`, `ticket-anexos`, `ticket-importado`                                                                                                                                                                                                                                                                                                                    |
+| Equipamento         | Equipment history                   | `equipamento`, `equipamento-chamados`                                                                                                                                                                                                                                                                                                                                                      |
+| Busca               | Quick search                        | `busca-equipamentos`, `busca-chamados`                                                                                                                                                                                                                                                                                                                                                     |
+| Inserviveis/Remessa | Inservíveis                         | `remessas`, `remessa`, `remessa-equipamentos`                                                                                                                                                                                                                                                                                                                                              |
+| Admin               | Administration                      | `admin-usuarios`, `admin-locais`, `admin-servicos`, `admin-filas`, `secretarias`, `bancadas`, `modelos-mensagem`, `admin-eventos`                                                                                                                                                                                                                                                          |
+| Usuario             | User profile                        | `usuario-perfil`, `usuario-produtividade`, `usuario-bloqueados`                                                                                                                                                                                                                                                                                                                            |
+| Local               | Location                            | `local`, `local-telefones`, `secretarias`                                                                                                                                                                                                                                                                                                                                                  |
+| Negado, 404         | Access denied, not found            | none                                                                                                                                                                                                                                                                                                                                                                                       |
 
 Pages pass the selected chamado, ticket, equipment and so on through
 `sessionStorage` (see `units/Sigat2.ts`), because `Navigate` keeps the current
