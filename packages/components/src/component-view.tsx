@@ -719,7 +719,11 @@ const renderers: Readonly<Record<string, ComponentRenderer>> = Object.freeze({
             type="button"
           >
             {isLucideIconName(icons[index]) ? (
-              <LucideGraphic className="wr-icon-graphic wr-tab-icon" icon={icons[index]} strokeWidth={2} />
+              <LucideGraphic
+                className="wr-icon-graphic wr-tab-icon"
+                icon={icons[index]}
+                strokeWidth={2}
+              />
             ) : null}
             <span className="wr-tab-caption">{caption}</span>
             {(badges[index] ?? '').length > 0 ? (
