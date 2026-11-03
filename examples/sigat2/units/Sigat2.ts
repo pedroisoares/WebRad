@@ -855,35 +855,6 @@ export function iconeDoBotaoDaFila(iconeFila: unknown): WebButtonIcon {
   return 'list';
 }
 
-// ---- signal strips rendered inside WebHtml frames (real text next to every icon)
-
-const ESTILO_SINAIS =
-  '<style>body{font-family:system-ui,Segoe UI,Arial,sans-serif;font-size:14px;margin:0;padding:4px 2px;color:#1f2937}' +
-  '.faixa{display:flex;flex-wrap:wrap;gap:8px;align-items:center}' +
-  '.chip{display:inline-flex;align-items:center;gap:6px;border:1px solid #d1d5db;border-radius:999px;padding:3px 10px 3px 6px;background:#fff;white-space:nowrap}' +
-  '.chip svg{flex:none}.chip b{font-variant-numeric:tabular-nums}' +
-  '.perigo{border-color:#dc3545;background:#fdecee;color:#7a1520}.alerta{border-color:#d39e00;background:#fff8e1;color:#5c4400}' +
-  '.sucesso{border-color:#28a745;background:#e9f7ec;color:#145523}.info{border-color:#17a2b8;background:#e6f6f8;color:#0b4f5a}' +
-  '.neutro{color:#374151}.legenda{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:6px 16px;font-size:13px}' +
-  '.legenda div{display:flex;align-items:center;gap:8px}h2{font-size:13px;margin:0 0 6px;color:#4b5563;font-weight:600}</style>';
-
-function chip(
-  icone: string,
-  conteudo: string,
-  tom: 'perigo' | 'alerta' | 'sucesso' | 'info' | 'neutro',
-  largura = 24,
-): string {
-  return (
-    '<span class="chip ' +
-    tom +
-    '">' +
-    svg(largura, 24, icone) +
-    '<span>' +
-    conteudo +
-    '</span></span>'
-  );
-}
-
 // ---- Ver chamado: the SIGAT tab contents, in Bootstrap 4 colours, inside sandboxed frames
 
 const ESTILO_BOOTSTRAP =
