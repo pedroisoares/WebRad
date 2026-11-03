@@ -147,9 +147,15 @@ Bloquear/Desbloquear, then seven tabs with Lucide icons:
 - **Histórico**: one card per `alteracao_chamado` row with the teal date badge.
 
 Imprimir and Relatório detalhado build a printable HTML page from the read
-endpoints and open the browser's print dialog. Still missing, because their writes
-are not in HexAPI yet: **Enviar e-mail** (Comunicação), **Desfazer** on an
-interaction, and the BGInfo block of the detailed report.
+endpoints and open the browser's print dialog, with the SIGAT letterhead (city
+coat of arms, CGTI logo and "Página n/total") on every page. The detailed report
+follows `imprimir_relatorio_chamado`: Informações, Equipamentos with their repairs
+and repair history, Serviços, Interações (pictures pasted in an interaction are
+printed), Comunicação and Histórico. It fixes two SIGAT bugs: repairs without a
+date printed 31/12/1969, and e-mail dates were printed in UTC. Still missing,
+because their writes or sources are not in HexAPI yet: **Enviar e-mail**
+(Comunicação), **Desfazer** on an interaction, the BGInfo block of the detailed
+report and the termo PDFs SIGAT appends to it (the report lists the termos).
 
 ## Signed-in frame and Painel
 

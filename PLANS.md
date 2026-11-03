@@ -9,6 +9,8 @@ Histórico). Informações has an edit mode backed by the HexAPI composite opera
 `chamado-alterar`. WebTabs gained per-tab **Icons** (Lucide names) and **Badges**
 (text shown in a pill, empty hides it), plus the style properties Selected tab
 text, Selected tab background, Tab border, Badge colour and Idle tab opacity.
+The printed reports carry the SIGAT letterhead (assets `logo-pms.png` and
+`logo-cgti-preto.png`) and the detailed report follows the production PDF.
 Checked against a local HexAPI with the production dump: every tab, edit mode and
 a save. Pending, waiting on HexAPI writes: Enviar e-mail, Desfazer interação and
 the BGInfo block of the detailed report.

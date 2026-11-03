@@ -6,6 +6,8 @@
  * The output is an ordinary editable WebRAD project. Run
  * `node scripts/generate-sigat2.mjs` to regenerate `examples/sigat2`.
  */
+import { readFileSync } from 'node:fs';
+import path from 'node:path';
 import { defaultComponentRegistry } from '@webrad/component-registry';
 import {
   applyDefaultComponentStyle,
@@ -3344,6 +3346,13 @@ export function buildSigat2Project(): {
         mediaType: 'image/svg+xml',
         base64: Buffer.from(SIGAT_LOGO_SVG, 'utf8').toString('base64'),
       },
+      // Letterhead of the printed reports (libraries/Pdf_html.php in SIGAT).
+      ...['logo-pms.png', 'logo-cgti-preto.png'].map((fileName) => ({
+        id: 'sigat2-asset-' + fileName.replace('.png', ''),
+        fileName,
+        mediaType: 'image/png',
+        base64: readFileSync(path.join('scripts', 'sigat2', 'assets', fileName)).toString('base64'),
+      })),
     ],
     pages: [...pages, compose(notFound, styles, naoEncontradaPage(), version)],
   });

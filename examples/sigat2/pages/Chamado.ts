@@ -60,6 +60,7 @@ export class Chamado extends ChamadoGenerated {
   private historico: Linha[] = [];
   private termos: Linha[] = [];
   private reparos: Linha[] = [];
+  private artigos: Linha[] = [];
   private filas: Linha[] = [];
   private usuarios: Linha[] = [];
   private editando = false;
@@ -186,10 +187,14 @@ export class Chamado extends ChamadoGenerated {
           this.GRDTermos.visible = this.termos.length > 0;
         }),
         Number(this.ticketId) > 0
-          ? executar(this.Api.Artigos, { id: Number(this.ticketId) }).then((r) =>
-              mostrarComunicacao(this.HTMLEmails, linhas(r), naoLidos),
-            )
-          : Promise.resolve(mostrarComunicacao(this.HTMLEmails, [], 0)),
+          ? executar(this.Api.Artigos, { id: Number(this.ticketId) }).then((r) => {
+              this.artigos = linhas(r);
+              mostrarComunicacao(this.HTMLEmails, this.artigos, naoLidos);
+            })
+          : Promise.resolve().then(() => {
+              this.artigos = [];
+              mostrarComunicacao(this.HTMLEmails, [], 0);
+            }),
       ]);
       this.MostrarRegistro();
     } catch (e) {
@@ -436,6 +441,7 @@ export class Chamado extends ChamadoGenerated {
         interacoes: this.interacoes,
         historico: this.historico,
         termos: this.termos,
+        artigos: this.artigos,
         reparos,
         usuario: texto(Access.user?.name, ''),
       });

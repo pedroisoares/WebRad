@@ -1038,19 +1038,36 @@ export function mostrarHistorico(destino: WebHtml, historico: readonly Linha[]):
 
 // ---- Ver chamado: printing (chamado/imprimir_chamados and imprimir_relatorio_chamado)
 
+/** The FPDF letterhead (libraries/Pdf_html.php Header), repeated on every printed page. */
 const ESTILO_IMPRESSAO =
-  '<style>body{font-family:Arial,Helvetica,sans-serif;font-size:13px;color:#000;margin:24px}' +
-  'h1{font-size:20px;text-align:center;margin:0 0 4px}h2{font-size:15px;text-align:center;margin:18px 0 8px}' +
-  '.emitido{text-align:right;margin:0}.ticket{text-align:center;font-weight:700;font-size:11px;margin:0 0 8px}' +
-  'table{width:100%;border-collapse:collapse;margin:0 0 8px}td,th{border:1px solid #000;padding:4px 6px;vertical-align:top;text-align:left}' +
-  'th{width:1%;white-space:nowrap;text-align:right}.campos td,.campos th{border:0;padding:2px 6px}.campos th{text-align:left}' +
-  '.titulo{text-align:right;font-weight:700;border-bottom:1px solid #000;padding:4px 0;margin:0 0 8px}' +
-  '.bloco{border-top:1px solid #000;margin-top:12px;padding-top:4px}.interacao{margin:0 0 10px}' +
-  '@media print{body{margin:0}}</style>';
+  '<style>@page{size:A4;margin:10mm 12mm 14mm;' +
+  '@bottom-center{content:"Página " counter(page) "/" counter(pages);font:italic 8pt Arial,Helvetica,sans-serif}}' +
+  'body{font-family:Arial,Helvetica,sans-serif;font-size:10pt;color:#000;margin:0}' +
+  '.folha{width:100%;border-collapse:collapse}.folha>thead>tr>td,.folha>tbody>tr>td{padding:0;border:0}' +
+  '.timbre{display:flex;align-items:center;justify-content:space-between;padding:0 6mm 8mm}' +
+  '.timbre img{width:17mm;height:17mm;object-fit:contain}.timbre div{text-align:center;line-height:1.35}' +
+  '.timbre b{display:block;font-size:11pt}.timbre b+b{font-size:12pt}.timbre i{font-size:10pt}' +
+  'h1{font-size:12pt;text-align:center;margin:8mm 0 0}h2{font-size:12pt;text-align:center;margin:0 0 6mm}' +
+  '.ticket{text-align:center;font-weight:700;font-size:7pt;margin:1mm 0 6mm}' +
+  '.emitido{text-align:right;font-size:9pt;margin:0;line-height:1.6}.fim{text-align:center;font-size:9pt;line-height:1.6;margin-top:6mm}' +
+  '.secao{border-bottom:1px solid #000;padding:4mm 0 8mm;margin-bottom:8mm}' +
+  '.campo{display:flex;line-height:1.5}.campo>b{flex:none;width:35mm}.campo>b.largo{width:40mm}' +
+  '.campo>span{flex:1}.campo .par{flex:none;width:50mm}.campo .par+b{width:35mm}' +
+  '.sub{font-weight:700;margin:0;line-height:1.5}.reparo{margin:0 0 4mm}.equipamento{margin:0 0 6mm}' +
+  '.traco{text-align:center;font-weight:700;margin:4mm 0}' +
+  '.interacao{margin:0 0 8mm;break-inside:auto}.interacao img{max-width:100%;height:auto}' +
+  '.interacao .despacho>b{margin-right:2mm}.artigo{margin:0 0 6mm}.artigo pre{font:inherit;white-space:pre-wrap;margin:1mm 0 0}' +
+  '.historico{line-height:1.8}.historico b{margin-right:2mm}' +
+  'table.grade{width:100%;border-collapse:collapse;margin:0 0 3mm}.grade td,.grade th{border:1px solid #000;padding:1mm 2mm;vertical-align:top;text-align:left}' +
+  '.grade th{width:1%;white-space:nowrap}.ultima{display:flex;justify-content:space-between;font-weight:700;margin:4mm 0 2mm}' +
+  '</style>';
+
+function dois(n: number): string {
+  return String(n).padStart(2, '0');
+}
 
 function agoraFormatado(): string {
   const d = new Date();
-  const dois = (n: number): string => String(n).padStart(2, '0');
   return (
     dois(d.getDate()) +
     '/' +
@@ -1066,12 +1083,37 @@ function agoraFormatado(): string {
   );
 }
 
+/** OTOBO dates are UTC; the PDF printed them unshifted (3 h ahead). SIGAT2 uses local time as the tab does. */
+function dataCompletaDoArtigo(valor: unknown): string {
+  const data = new Date(texto(valor, ''));
+  if (Number.isNaN(data.getTime())) return texto(valor, '');
+  const local = new Date(data.getTime() - 3 * 60 * 60 * 1000);
+  return (
+    dois(local.getUTCDate()) +
+    '/' +
+    dois(local.getUTCMonth() + 1) +
+    '/' +
+    local.getUTCFullYear() +
+    ' - ' +
+    dois(local.getUTCHours()) +
+    ':' +
+    dois(local.getUTCMinutes()) +
+    ':' +
+    dois(local.getUTCSeconds())
+  );
+}
+
 /** Text before the first <hr> of an interaction (imprimir_chamados keeps only the note). */
 function textoSemResumo(html: string): string {
   const fim = html.indexOf('<hr');
   return fim >= 0 ? html.slice(0, fim) : html;
 }
 
+function endereco(arquivo: string): string {
+  return new URL('assets/imported/' + arquivo, document.baseURI).href;
+}
+
+/** Opens the page in a new window with the letterhead on every page and prints it once the logos load. */
 function janelaDeImpressao(titulo: string, corpo: string): void {
   const janela = window.open('', '_blank');
   if (janela === null) {
@@ -1080,19 +1122,49 @@ function janelaDeImpressao(titulo: string, corpo: string): void {
     });
     return;
   }
+  const timbre =
+    '<div class="timbre"><img src="' +
+    endereco('logo-pms.png') +
+    '" alt="Brasão de Sorocaba">' +
+    '<div><b>Secretaria do Gabinete Central</b><b>Coordenadoria Geral de Tecnologia da Informação</b>' +
+    '<i>Prefeitura de Sorocaba</i></div><img src="' +
+    endereco('logo-cgti-preto.png') +
+    '" alt="CGTI"></div>';
   janela.document.open();
   janela.document.write(
     '<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><title>' +
       escapar(titulo) +
       '</title>' +
       ESTILO_IMPRESSAO +
-      '</head><body>' +
+      '</head><body><table class="folha"><thead><tr><td>' +
+      timbre +
+      '</td></tr></thead><tbody><tr><td>' +
       corpo +
-      '</body></html>',
+      '</td></tr></tbody></table></body></html>',
   );
   janela.document.close();
-  janela.focus();
-  janela.print();
+  let impresso = false;
+  const imprimir = (): void => {
+    if (impresso) return;
+    impresso = true;
+    janela.focus();
+    janela.print();
+  };
+  janela.addEventListener('load', imprimir);
+  if (janela.document.readyState === 'complete') imprimir();
+  else window.setTimeout(imprimir, 3000);
+}
+
+function campo(rotulo: string, valor: unknown, largo = false): string {
+  return (
+    '<div class="campo"><b' +
+    (largo ? ' class="largo"' : '') +
+    '>' +
+    rotulo +
+    '</b><span>' +
+    escapar(valor) +
+    '</span></div>'
+  );
 }
 
 export interface DadosDoChamado {
@@ -1114,26 +1186,27 @@ export function imprimirChamado(d: DadosDoChamado): void {
     '<th>' + rotulo + '</th><td>' + escapar(valor) + '</td>';
   const corpoUltima =
     ultima === undefined
-      ? '<table><tr><td>Sem interações.</td></tr></table>'
-      : '<p class="titulo" style="text-align:left;border:0">Última interação <span style="float:right;font-weight:400">' +
+      ? '<table class="grade"><tr><td>Sem interações.</td></tr></table>'
+      : '<div class="ultima"><span>Última interação</span><span>' +
         escapar(ultima.data_interacao) +
         ' - ' +
         escapar(ultima.nome_usuario) +
-        '</span></p>' +
+        '</span></div><div class="interacao">' +
         (texto(ultima.tipo_interacao, '') === 'OBSERVACAO'
           ? texto(ultima.texto_interacao, '')
-          : textoSemResumo(texto(ultima.texto_interacao, '')));
+          : textoSemResumo(texto(ultima.texto_interacao, ''))) +
+        '</div>';
   janelaDeImpressao(
     'Chamado ' + texto(c.id_chamado),
     '<h1>CHAMADOS</h1><p class="emitido">Emitido em ' +
       agoraFormatado() +
       '</p>' +
-      '<p class="titulo">' +
+      '<p class="ultima"><span></span><span>' +
       escapar(c.ticket_chamado) +
       ' - Chamado #' +
       escapar(c.id_chamado) +
-      '</p>' +
-      '<table><tr>' +
+      '</span></p>' +
+      '<table class="grade"><tr>' +
       linha('Data', c.data_chamado) +
       linha('Fila', c.nome_fila_chamado) +
       '</tr>' +
@@ -1151,15 +1224,15 @@ export function imprimirChamado(d: DadosDoChamado): void {
       '<tr><th>Complemento</th><td colspan="3">' +
       escapar(c.complemento_chamado) +
       '</td></tr>' +
-      '<tr><th colspan="4" style="text-align:left">Resumo</th></tr><tr><td colspan="4">' +
+      '<tr><th colspan="4">Resumo</th></tr><tr><td colspan="4">' +
       escapar(c.resumo_chamado) +
       '</td></tr>' +
-      '<tr><th colspan="4" style="text-align:left">Equipamentos pendentes</th></tr><tr><td colspan="4">' +
+      '<tr><th colspan="4">Equipamentos pendentes</th></tr><tr><td colspan="4">' +
       pendentes
         .map((e) => escapar(e.num_equipamento) + ' - ' + escapar(e.descricao_equipamento))
         .join('<br>') +
       '&nbsp;</td></tr>' +
-      '<tr><th colspan="4" style="text-align:left">Serviços pendentes</th></tr><tr><td colspan="4">' +
+      '<tr><th colspan="4">Serviços pendentes</th></tr><tr><td colspan="4">' +
       servicos
         .map(
           (s) =>
@@ -1182,135 +1255,197 @@ export interface RelatorioDoChamado extends DadosDoChamado {
   readonly reparos: readonly { readonly reparo: Linha; readonly historico: readonly Linha[] }[];
   readonly historico: readonly Linha[];
   readonly termos: readonly Linha[];
+  readonly artigos: readonly Linha[];
 }
 
-/** The SIGAT "Relatório detalhado" (imprimir_relatorio_chamado), without the BGInfo inventory. */
+/** One line of a repair's history, with the wording of imprimir_relatorio_chamado. */
+function linhaDoReparo(h: Linha): string {
+  const subquery = numero(h.subquery);
+  const servico = texto(h.nome_servico, '');
+  let data = texto(h.data_reparo_servico, '');
+  let frase = texto(h.nome_abertura_usuario, '') + ' adicionou o serviço ' + servico + '.';
+  if (subquery === 3) {
+    frase = texto(h.nome_fechamento_usuario, '') + ' ' + servico;
+  } else if (subquery === 1 && numero(h.realizado_reparo_servico) === 1) {
+    data = texto(h.data_encerramento_reparo_servico, '');
+    frase = texto(h.nome_fechamento_usuario, '') + ' finalizou o serviço ' + servico + '.';
+  } else if (subquery === 1 && numero(h.status_reparo_servico) === 0) {
+    data = texto(h.data_encerramento_reparo_servico, '');
+    frase = texto(h.nome_fechamento_usuario, '') + ' removeu o serviço ' + servico + '.';
+  }
+  return '<div class="campo"><b>' + escapar(data) + '</b><span>' + escapar(frase) + '</span></div>';
+}
+
+/**
+ * The SIGAT "Relatório detalhado" (imprimir_relatorio_chamado): Informações, Equipamentos with
+ * their repairs, Serviços, Interações (with their pictures), Comunicação and Histórico. The BGInfo
+ * inventory and the merged termo PDFs are not included yet.
+ */
 export function imprimirRelatorio(r: RelatorioDoChamado): void {
   const c = r.chamado;
-  const campo = (rotulo: string, valor: unknown): string =>
-    '<tr><th>' + rotulo + '</th><td>' + escapar(valor) + '</td></tr>';
+  const secao = (titulo: string, corpo: string): string =>
+    corpo === '' ? '' : '<div class="secao"><h2>' + titulo + '</h2>' + corpo + '</div>';
   const equipamentos = r.equipamentos
     .map((e) => {
       const reparos = r.reparos.filter(
         (x) => texto(x.reparo.num_equipamento_reparo, '') === texto(e.num_equipamento, ''),
       );
       return (
-        '<table class="campos">' +
-        campo('Nº de identificação:', e.num_equipamento) +
+        '<div class="equipamento">' +
+        campo('Nº de identificação:', e.num_equipamento, true) +
         campo('Descrição:', e.descricao_equipamento) +
         campo('Lacre:', e.tag_equipamento) +
         campo('Status:', e.status_equipamento_chamado) +
-        '</table>' +
-        reparos
-          .map(
-            (x) =>
-              '<p><strong>Reparos</strong></p><table class="campos">' +
-              campo('Reparo:', x.reparo.id_reparo) +
-              campo('Início:', x.reparo.data_inicio_reparo) +
-              campo('Término:', x.reparo.data_fim_reparo) +
-              campo('Bancada:', x.reparo.nome_bancada) +
-              campo('Status:', x.reparo.status_reparo) +
-              '</table>' +
-              (x.historico.length === 0
-                ? ''
-                : '<p><strong>Histórico</strong></p><table class="campos">' +
-                  x.historico
-                    .map(
-                      (h) =>
-                        '<tr><td>' +
-                        escapar(h.data_reparo_servico) +
-                        '</td><td>' +
-                        escapar(texto(h.nome_abertura_usuario, '')) +
-                        ' — ' +
-                        escapar(h.nome_servico) +
-                        (texto(h.data_encerramento_reparo_servico, '') === ''
-                          ? ''
-                          : ' (encerrado em ' +
-                            escapar(h.data_encerramento_reparo_servico) +
-                            ' por ' +
-                            escapar(h.nome_fechamento_usuario) +
-                            ')') +
-                        '</td></tr>',
-                    )
-                    .join('') +
-                  '</table>'),
-          )
-          .join('')
+        (reparos.length === 0
+          ? ''
+          : '<p class="sub">Reparos</p>' +
+            reparos
+              .map(
+                (x) =>
+                  '<div class="reparo">' +
+                  campo('Reparo:', x.reparo.id_reparo) +
+                  campo('Início:', x.reparo.data_inicio_reparo) +
+                  campo('Término:', x.reparo.data_fim_reparo) +
+                  campo('Bancada:', x.reparo.nome_bancada) +
+                  campo('Status:', x.reparo.status_reparo) +
+                  (x.historico.length === 0
+                    ? ''
+                    : '<p class="sub">Histórico</p>' +
+                      '<div class="campo"><b>' +
+                      escapar(x.reparo.data_inicio_reparo) +
+                      '</b><span>' +
+                      escapar(
+                        texto(x.historico[0]?.nome_abertura_usuario, '') + ' iniciou o reparo.',
+                      ) +
+                      '</span></div>' +
+                      x.historico.map(linhaDoReparo).join('')) +
+                  '</div>',
+              )
+              .join('')) +
+        '</div>'
       );
     })
-    .join('<div class="bloco"></div>');
+    .join('');
   const servicos = r.servicos
     .map(
       (s) =>
-        '<table class="campos">' +
+        '<div class="equipamento">' +
         campo('Serviço:', s.nome_servico) +
         campo('Status:', s.status_servico) +
         campo('Quantidade:', texto(s.quantidade) + ' ' + texto(s.unidade_medida, '')) +
-        '</table>',
+        '</div>',
     )
     .join('');
   const interacoes = r.interacoes
-    .map(
-      (i) =>
-        '<div class="interacao"><strong>' +
+    .map((i) => {
+      const equips = texto(i.pool_equipamentos, '')
+        .split('::')
+        .filter((x) => x !== '');
+      return (
+        '<div class="traco">' +
+        '-'.repeat(65) +
+        '</div><div class="interacao">' +
+        '<div class="campo"><b class="largo">' +
         escapar(i.data_interacao) +
-        ' - ' +
+        '</b><span>' +
         escapar(i.nome_usuario) +
-        '</strong><br>' +
+        '</span></div>' +
+        campo('Tipo de interação:', i.tipo_interacao) +
+        (equips.length === 0
+          ? ''
+          : '<p class="sub">Equipamentos:</p>' +
+            equips.map((x) => '<p class="sub">' + escapar(x) + '</p>').join('')) +
+        '<div class="despacho"><b>Despacho:</b>' +
         texto(i.texto_interacao, '') +
-        '</div>',
-    )
+        '</div></div>'
+      );
+    })
     .join('');
-  const historico = r.historico
+  const artigos = r.artigos
     .map(
-      (h) =>
-        '<div class="interacao"><strong>' +
-        escapar(h.data_alteracao_fmt) +
-        '</strong> ' +
-        escapar(h.nome_usuario) +
-        ' ' +
-        texto(h.texto_alteracao, '') +
-        '</div>',
+      (a) =>
+        '<div class="artigo"><b>' +
+        escapar(dataCompletaDoArtigo(a.create_time)) +
+        '</b>' +
+        '<div class="campo"><b style="width:10mm">De:</b><span>' +
+        escapar(a.a_from) +
+        '</span></div>' +
+        '<div class="campo"><b style="width:20mm">Assunto:</b><span>' +
+        escapar(a.a_subject) +
+        '</span></div>' +
+        '<pre>' +
+        escapar(a.a_body) +
+        '</pre></div>',
     )
     .join('');
+  const historico =
+    r.historico.length === 0
+      ? ''
+      : '<div class="historico">' +
+        r.historico
+          .map(
+            (h) =>
+              '<div><b>' +
+              escapar(h.data_alteracao_fmt) +
+              '</b>' +
+              escapar(h.nome_usuario) +
+              ' ' +
+              texto(h.texto_alteracao, '') +
+              '</div>',
+          )
+          .join('') +
+        '</div>';
   const termos = r.termos
     .map(
       (t) =>
-        '<tr><td>' + escapar(t.nome_termo) + '</td><td>' + escapar(t.tipo_termo) + '</td></tr>',
+        '<div class="campo"><b>' +
+        escapar(t.tipo_termo) +
+        '</b><span>' +
+        escapar(t.nome_termo) +
+        '</span></div>',
     )
     .join('');
+  const emitido = 'Emitido em ' + agoraFormatado();
   janelaDeImpressao(
-    'Relatório do chamado ' + texto(c.id_chamado),
+    'impressao_chamado_' + texto(c.id_chamado),
     '<h1>CHAMADO - ' +
       escapar(c.id_chamado) +
       '</h1><p class="ticket">' +
       escapar(c.ticket_chamado) +
       '</p>' +
-      '<p class="emitido">Emitido em ' +
-      agoraFormatado() +
-      '</p><p class="emitido">Por: ' +
+      '<p class="emitido">' +
+      emitido +
+      '<br>Por: ' +
       escapar(r.usuario) +
       '</p>' +
-      '<h2>Informações</h2><table class="campos">' +
-      campo('Solicitante:', c.nome_solicitante_chamado) +
-      campo('Telefone:', c.telefone_chamado) +
-      campo('Celular:', c.celular_chamado) +
-      campo('Local:', c.nome_local) +
-      campo('Endereço:', c.endereco_local) +
-      campo('Complemento:', c.complemento_chamado) +
-      campo('Região:', c.regiao_local) +
-      campo('Resumo:', c.resumo_chamado) +
-      campo('Aberto em:', c.data_chamado) +
-      campo('Encerrado em:', c.data_encerramento_chamado) +
-      campo('Status:', c.status_chamado) +
-      campo('Responsável:', c.nome_responsavel) +
-      '</table>' +
-      (equipamentos === '' ? '' : '<div class="bloco"></div><h2>Equipamentos</h2>' + equipamentos) +
-      (servicos === '' ? '' : '<div class="bloco"></div><h2>Serviços</h2>' + servicos) +
-      (interacoes === '' ? '' : '<div class="bloco"></div><h2>Interações</h2>' + interacoes) +
-      (historico === '' ? '' : '<div class="bloco"></div><h2>Histórico</h2>' + historico) +
-      (termos === ''
-        ? ''
-        : '<div class="bloco"></div><h2>Termos</h2><table>' + termos + '</table>'),
+      secao(
+        'Informações',
+        campo('Solicitante:', c.nome_solicitante_chamado) +
+          '<div class="campo"><b>Telefone:</b><span class="par">' +
+          escapar(c.telefone_chamado) +
+          '</span><b>Celular:</b><span>' +
+          escapar(c.celular_chamado) +
+          '</span></div>' +
+          campo('Local:', c.nome_local) +
+          campo('Endereço:', c.endereco_local) +
+          campo('Complemento:', c.complemento_chamado) +
+          campo('Região:', c.regiao_local) +
+          campo('Resumo:', c.resumo_chamado) +
+          campo('Aberto em:', c.data_chamado) +
+          campo('Encerrado em:', c.data_encerramento_chamado) +
+          campo('Status:', c.status_chamado) +
+          campo('Responsável:', c.nome_responsavel),
+      ) +
+      secao('Equipamentos', equipamentos) +
+      secao('Serviços', servicos) +
+      secao('Interações', interacoes) +
+      secao('Comunicação', artigos) +
+      secao('Histórico', historico) +
+      secao('Termos', termos) +
+      '<p class="fim">' +
+      emitido +
+      '<br>Por: ' +
+      escapar(r.usuario) +
+      '</p>',
   );
 }
