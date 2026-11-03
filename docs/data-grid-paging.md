@@ -17,6 +17,7 @@ options keep rendering every row with no toolbar or pager.
 | `searchPlaceholder`        | `''`                | Empty uses the localized "Pesquisar…"/"Search…".                                                     |
 | `sortEnabled`              | `false`             | Text, checkbox, and toggle headers with a Field become sort buttons.                                 |
 | `exportEnabled`            | `false`             | Shows the CSV export button.                                                                         |
+| `columnFilters`            | `false`             | Client and none paging: a row of boxes under the header filters the rows by one column each.         |
 | `serverSearchParameter`    | `q`                 | Server mode: query parameter for the search text.                                                    |
 | `serverSortParameter`      | `sort`              | Server mode: query parameter for the sorted Field name.                                              |
 | `serverDirectionParameter` | `dir`               | Server mode: query parameter for `asc` or `desc`.                                                    |
@@ -37,6 +38,18 @@ of the searchable columns ("erica indaia" finds "Érica / Indaiatuba"). Sorting
 is stable, uses the page locale with numeric collation, compares numbers
 numerically, orders `dd/mm/yyyy` and `dd/mm/yyyy hh:mm[:ss]` dates
 chronologically, and keeps empty values last in both directions.
+
+### Column filters
+
+With `columnFilters`, a second header row holds one box per searchable text
+column with a Field ("Procurar ID"/"Search ID"), like the per-column search of
+a DataTables table. Each box filters the loaded rows by its column with the same
+accent-insensitive word match as the search box, and all boxes and the search
+box apply together. The row sticks with the header. It is not shown in server
+mode, because the server contract has a single search parameter. From page
+code, `filterColumn(column, text)` sets one filter (column ID, header, or
+Field), `clearColumnFilters()` removes them, and `columnFilterValues` lists the
+active ones by column ID; changes raise `OnSearch` and `OnQueryChange`.
 
 ## Server mode
 

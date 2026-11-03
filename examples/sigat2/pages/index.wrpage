@@ -1215,6 +1215,7 @@
           "cellPaddingHorizontal": 10,
           "cellPaddingVertical": 8,
           "columnCount": 4,
+          "columnFilters": false,
           "columns": [
             {
               "id": "18e7962c-52eb-4ccf-8de6-d5e545391b79",
@@ -2475,6 +2476,7 @@
           "cellPaddingHorizontal": 10,
           "cellPaddingVertical": 8,
           "columnCount": 9,
+          "columnFilters": false,
           "columns": [
             {
               "id": "4b2c6592-f8c1-42d0-96e4-6d4434c12bb7",
@@ -2808,6 +2810,7 @@
           "cellPaddingHorizontal": 10,
           "cellPaddingVertical": 8,
           "columnCount": 7,
+          "columnFilters": false,
           "columns": [
             {
               "id": "ac7e6fbc-e262-470a-8230-665c4ea4a2aa",

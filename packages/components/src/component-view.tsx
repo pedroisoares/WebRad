@@ -889,6 +889,33 @@ const renderers: Readonly<Record<string, ComponentRenderer>> = Object.freeze({
                 ))}
               </div>
             )}
+            {configuration.showHeader &&
+              configuration.columnFilters &&
+              configuration.pagination !== 'server' && (
+                <div className="wr-data-grid-row wr-data-grid-filter-row" role="row">
+                  {configuration.columns.map((column) => (
+                    <div
+                      className="wr-data-grid-cell wr-data-grid-filter-cell"
+                      data-webrad-data-grid-column={column.id}
+                      key={column.id}
+                      role="columnheader"
+                    >
+                      {column.searchable &&
+                        column.fieldPath.length > 0 &&
+                        column.cellKind === 'text' && (
+                          <input
+                            aria-label={'Search ' + column.header}
+                            className="wr-data-grid-filter-input"
+                            placeholder={'Search ' + column.header}
+                            readOnly
+                            tabIndex={-1}
+                            type="search"
+                          />
+                        )}
+                    </div>
+                  ))}
+                </div>
+              )}
             <div className="wr-data-grid-body" role="rowgroup">
               {[0, 1, 2].map((rowIndex) => (
                 <div className="wr-data-grid-row wr-data-grid-body-row" key={rowIndex} role="row">

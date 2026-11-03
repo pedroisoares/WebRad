@@ -2454,6 +2454,7 @@
           "cellPaddingHorizontal": 10,
           "cellPaddingVertical": 8,
           "columnCount": 3,
+          "columnFilters": false,
           "columns": [
             {
               "id": "27dd63af-340e-433b-949d-e82b7df5d0c4",

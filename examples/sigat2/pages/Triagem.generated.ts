@@ -266,6 +266,7 @@ export abstract class TriagemGenerated extends WebPage {
       searchPlaceholder: '',
       sortEnabled: true,
       exportEnabled: true,
+      columnFilters: false,
       serverSearchParameter: 'q',
       serverSortParameter: 'sort',
       serverDirectionParameter: 'dir',

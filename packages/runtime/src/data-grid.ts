@@ -70,6 +70,8 @@ export interface WebDataGridConfiguration {
   readonly searchPlaceholder: string;
   readonly sortEnabled: boolean;
   readonly exportEnabled: boolean;
+  /** Filter row under the header, one box per searchable column (client and none paging). */
+  readonly columnFilters: boolean;
   readonly serverSearchParameter: string;
   readonly serverSortParameter: string;
   readonly serverDirectionParameter: string;
@@ -86,6 +88,7 @@ type WebDataGridQueryOptionKey =
   | 'searchPlaceholder'
   | 'sortEnabled'
   | 'exportEnabled'
+  | 'columnFilters'
   | 'serverSearchParameter'
   | 'serverSortParameter'
   | 'serverDirectionParameter'
@@ -332,6 +335,7 @@ export function normalizeWebDataGridConfiguration(value: unknown): WebDataGridCo
     searchPlaceholder: typeof source.searchPlaceholder === 'string' ? source.searchPlaceholder : '',
     sortEnabled: source.sortEnabled === true,
     exportEnabled: source.exportEnabled === true,
+    columnFilters: source.columnFilters === true,
     serverSearchParameter: queryParameter(source.serverSearchParameter, 'q'),
     serverSortParameter: queryParameter(source.serverSortParameter, 'sort'),
     serverDirectionParameter: queryParameter(source.serverDirectionParameter, 'dir'),
@@ -344,6 +348,8 @@ interface WebDataGridLabels {
   readonly search: string;
   readonly searchPlaceholder: string;
   readonly export: string;
+  /** Placeholder and accessible name of a column filter box. */
+  readonly filter: (header: string) => string;
   readonly pageSize: string;
   readonly first: string;
   readonly previous: string;
@@ -362,6 +368,7 @@ const PORTUGUESE_LABELS: WebDataGridLabels = {
   search: 'Pesquisar',
   searchPlaceholder: 'Pesquisar…',
   export: 'Exportar CSV',
+  filter: (header) => `Procurar ${header}`,
   pageSize: 'Registros por página',
   first: 'Primeira página',
   previous: 'Página anterior',
@@ -385,6 +392,7 @@ const ENGLISH_LABELS: WebDataGridLabels = {
   search: 'Search',
   searchPlaceholder: 'Search…',
   export: 'Export CSV',
+  filter: (header) => `Search ${header}`,
   pageSize: 'Rows per page',
   first: 'First page',
   previous: 'Previous page',
@@ -411,6 +419,11 @@ function documentLocale(document: Document): string {
 
 function dataGridLabels(locale: string): WebDataGridLabels {
   return locale.toLowerCase().startsWith('pt') ? PORTUGUESE_LABELS : ENGLISH_LABELS;
+}
+
+/** Text columns with a Field and searchable get a box in the filter row. */
+function columnFilterable(column: WebDataGridColumn): boolean {
+  return column.searchable && column.fieldPath.length > 0 && column.cellKind === 'text';
 }
 
 /** Case- and accent-insensitive text used by the client-side search. */
@@ -774,6 +787,8 @@ export class WebDataGrid extends WebComponent<HTMLDivElement> {
   #sortColumnId: string | null = null;
   #sortDirection: WebDataGridSortDirection = 'asc';
   #search = '';
+  /** Column filter text by column ID (filter row, client and none paging). */
+  #columnFilters = new Map<string, string>();
   #serverRequest = 0;
 
   public constructor(element: HTMLElement) {
@@ -795,6 +810,11 @@ export class WebDataGrid extends WebComponent<HTMLDivElement> {
       !this.#configuration.columns.some((column) => column.id === this.#sortColumnId)
     ) {
       this.#sortColumnId = null;
+    }
+    for (const columnId of [...this.#columnFilters.keys()]) {
+      if (!this.#configuration.columns.some((column) => column.id === columnId)) {
+        this.#columnFilters.delete(columnId);
+      }
     }
     this.#buildToolbar();
     this.#render();
@@ -897,16 +917,7 @@ export class WebDataGrid extends WebComponent<HTMLDivElement> {
    * same column toggles ascending, descending and unsorted.
    */
   public sortBy(column: string | null, direction?: WebDataGridSortDirection): void {
-    const target =
-      column === null
-        ? undefined
-        : this.#configuration.columns.find(
-            (candidate) =>
-              candidate.id === column ||
-              candidate.header === column ||
-              candidate.fieldPath === column ||
-              sortFieldName(candidate.fieldPath) === column,
-          );
+    const target = column === null ? undefined : this.#findColumn(column);
     if (target === undefined) {
       if (this.#sortColumnId === null) return;
       this.#sortColumnId = null;
@@ -941,6 +952,43 @@ export class WebDataGrid extends WebComponent<HTMLDivElement> {
     this.#search = value;
     this.#page = 1;
     this.#queryChanged('OnSearch');
+  }
+
+  /** Text of each column filter, by column ID; only columns with a filter are listed. */
+  public get columnFilterValues(): Readonly<Record<string, string>> {
+    return Object.fromEntries(this.#columnFilters);
+  }
+
+  /**
+   * Filters the loaded rows by one column (column ID, header or Field), as the
+   * filter row does, and returns to the first page. Empty text removes the filter.
+   */
+  public filterColumn(column: string, text: string): void {
+    const target = this.#findColumn(column);
+    if (target === undefined) return;
+    const value = text.trim();
+    if ((this.#columnFilters.get(target.id) ?? '') === value) return;
+    if (value.length === 0) this.#columnFilters.delete(target.id);
+    else this.#columnFilters.set(target.id, value);
+    this.#page = 1;
+    this.#queryChanged('OnSearch');
+  }
+
+  public clearColumnFilters(): void {
+    if (this.#columnFilters.size === 0) return;
+    this.#columnFilters.clear();
+    this.#page = 1;
+    this.#queryChanged('OnSearch');
+  }
+
+  #findColumn(column: string): WebDataGridColumn | undefined {
+    return this.#configuration.columns.find(
+      (candidate) =>
+        candidate.id === column ||
+        candidate.header === column ||
+        candidate.fieldPath === column ||
+        sortFieldName(candidate.fieldPath) === column,
+    );
   }
 
   /**
@@ -1112,6 +1160,24 @@ export class WebDataGrid extends WebComponent<HTMLDivElement> {
         );
         return terms.every((term) => text.includes(term));
       });
+    }
+    if (configuration.columnFilters && this.#columnFilters.size > 0) {
+      const filters = configuration.columns.flatMap((column) => {
+        const value = this.#columnFilters.get(column.id);
+        return value === undefined || !columnFilterable(column)
+          ? []
+          : [{ column, terms: normalizeDataGridSearchText(value).split(/\s+/u) }];
+      });
+      if (filters.length > 0) {
+        filtered = filtered.filter((row) =>
+          filters.every(({ column, terms }) => {
+            const text = normalizeDataGridSearchText(
+              cellText(dataGridRowValue(row, column.fieldPath)),
+            );
+            return terms.every((term) => text.includes(term));
+          }),
+        );
+      }
     }
     const sortColumn = configuration.sortEnabled ? this.#sortColumn() : undefined;
     if (sortColumn !== undefined) {
@@ -1302,7 +1368,82 @@ export class WebDataGrid extends WebComponent<HTMLDivElement> {
     return pager;
   }
 
+  /**
+   * The filter row under the header: one text box per filterable column. It is
+   * shown with client or no paging, since the server contract has no per-column
+   * search.
+   */
+  #renderFilterRow(document: Document): HTMLDivElement | null {
+    const configuration = this.#configuration;
+    if (!this.#filterRowShown()) return null;
+    const labels = dataGridLabels(documentLocale(document));
+    const row = document.createElement('div');
+    row.className = 'wr-data-grid-row wr-data-grid-filter-row';
+    row.setAttribute('role', 'row');
+    row.setAttribute('aria-rowindex', '2');
+    for (const [columnIndex, column] of configuration.columns.entries()) {
+      const cell = appendGridCell(
+        document,
+        row,
+        'wr-data-grid-cell wr-data-grid-filter-cell',
+        'columnheader',
+        column,
+        columnIndex,
+      );
+      if (!columnFilterable(column)) continue;
+      const input = document.createElement('input');
+      input.type = 'search';
+      input.className = 'wr-data-grid-filter-input';
+      input.placeholder = labels.filter(column.header);
+      input.setAttribute('aria-label', labels.filter(column.header));
+      input.dataset.webradDataGridFilter = column.id;
+      input.value = this.#columnFilters.get(column.id) ?? '';
+      input.addEventListener('input', () => {
+        this.filterColumn(column.id, input.value);
+      });
+      cell.append(input);
+    }
+    return row;
+  }
+
+  #filterRowShown(): boolean {
+    const configuration = this.#configuration;
+    return (
+      configuration.showHeader &&
+      configuration.columnFilters &&
+      configuration.pagination !== 'server'
+    );
+  }
+
   #render(): void {
+    // Typing in a filter box re-renders the grid; keep the focus and the caret in it.
+    // The test DOM and other realms may not expose HTMLInputElement globally, so the
+    // focused filter box is recognized by its data attribute.
+    const active = this.element.ownerDocument.activeElement;
+    const focusedFilter =
+      active !== null && this.element.contains(active)
+        ? active.getAttribute('data-webrad-data-grid-filter')
+        : null;
+    const caret =
+      focusedFilter === null
+        ? null
+        : {
+            start: (active as HTMLInputElement).selectionStart,
+            end: (active as HTMLInputElement).selectionEnd,
+          };
+    this.#renderGrid();
+    if (focusedFilter === null) return;
+    const input = Array.from(
+      this.element.querySelectorAll<HTMLInputElement>('input[data-webrad-data-grid-filter]'),
+    ).find((candidate) => candidate.dataset.webradDataGridFilter === focusedFilter);
+    if (input === undefined) return;
+    input.focus();
+    if (caret !== null && caret.start !== null && caret.end !== null) {
+      input.setSelectionRange(caret.start, caret.end);
+    }
+  }
+
+  #renderGrid(): void {
     for (const toggle of this.#toggles) toggle.dispose();
     this.#toggles = [];
     this.#resizeObserver?.disconnect();
@@ -1383,7 +1524,19 @@ export class WebDataGrid extends WebComponent<HTMLDivElement> {
           cell.textContent = column.header;
         }
       }
-      content.append(header);
+      const filterRow = this.#renderFilterRow(document);
+      if (filterRow !== null && configuration.stickyHeader) {
+        // Header and filter row stick together, so the filters stay under their titles.
+        header.classList.remove('wr-data-grid-sticky-header');
+        const head = document.createElement('div');
+        head.className = 'wr-data-grid-sticky-header';
+        head.setAttribute('role', 'presentation');
+        head.append(header, filterRow);
+        content.append(head);
+      } else {
+        content.append(header);
+        if (filterRow !== null) content.append(filterRow);
+      }
     }
 
     const body = document.createElement('div');
@@ -1392,7 +1545,7 @@ export class WebDataGrid extends WebComponent<HTMLDivElement> {
     const view = this.#view();
     if (configuration.pagination !== 'server') this.#page = Math.min(this.#page, view.pageCount);
     const rows = view.rows;
-    const headerRowCount = configuration.showHeader ? 1 : 0;
+    const headerRowCount = configuration.showHeader ? (this.#filterRowShown() ? 2 : 1) : 0;
     const bodyRowCount = Math.max(1, rows.length);
     scroll.setAttribute(
       'aria-rowcount',

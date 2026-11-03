@@ -186,6 +186,24 @@ SIGAT showed no clock when the wait was exactly 24 hours (it compared whole
 hours with `>= 6 && < 24` and `> 24`). SIGAT2 uses 6 h and 24 h as the
 boundaries.
 
+## Administração
+
+The Admin page copies `paginas/admin.php`: the "Administração" title over a
+rule, then Bootstrap nav-pills in the SIGAT order (Log de Eventos, Usuários,
+Modelos de Mensagem, Locais, Secretarias, Serviços, Bancadas), plus a Filas tab
+that SIGAT does not have. Each list is read the first time its tab opens.
+
+**Log de Eventos** is the SIGAT DataTable (`admin/listar_eventos`): the last
+2,000 `evento` rows from `admin-eventos`, newest ID first, 10 per page (10, 25,
+50 or 100), the "Busca:" box and a filter row with one "Procurar …" box per
+column (the Data Grid `columnFilters` option). Like SIGAT, it reloads every 30
+seconds while its tab is open and keeps the page, sort and filters. The hour is
+printed with two digits (`08:54:06`); SIGAT prints `8:54:06`.
+
+The other tabs still show read-only lists. They become CRUD screens (list with
+filters, Novo, Editar, Ativar/Desativar, each change written to `evento`) once
+HexAPI has their write operations.
+
 ## Pages
 
 | Page                | SIGAT screen                        | Endpoints                                                                                                                                                                                                                                                                                                                                                                                  |

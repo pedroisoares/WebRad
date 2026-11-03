@@ -843,6 +843,19 @@ export function DataGridConfigurationDialog({
                   </label>
                   <label>
                     <input
+                      aria-label="Enable Data Grid column filters"
+                      checked={draft.columnFilters}
+                      disabled={draft.pagination === 'server'}
+                      type="checkbox"
+                      onChange={(event) => {
+                        const columnFilters = event.currentTarget.checked;
+                        updateDraft((current) => ({ ...current, columnFilters }));
+                      }}
+                    />
+                    <span>Column filter row</span>
+                  </label>
+                  <label>
+                    <input
                       aria-label="Show Data Grid page size selector"
                       checked={draft.showPageSizeSelector}
                       disabled={draft.pagination === 'none'}

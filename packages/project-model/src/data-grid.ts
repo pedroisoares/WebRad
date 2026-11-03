@@ -103,6 +103,11 @@ export interface DataGridConfiguration {
   readonly sortEnabled: boolean;
   /** Shows a button that downloads the filtered and sorted rows as CSV. */
   readonly exportEnabled: boolean;
+  /**
+   * Shows a row of text boxes under the header, one per searchable column, that
+   * filter the loaded rows by that column (client and none paging only).
+   */
+  readonly columnFilters: boolean;
   /** Server mode: query parameter that receives the search text. */
   readonly serverSearchParameter: string;
   /** Server mode: query parameter that receives the sorted column field name. */
@@ -200,6 +205,7 @@ const DataGridConfigurationV2Schema: z.ZodType<DataGridConfiguration> = z
     searchPlaceholder: z.string().max(256).default(''),
     sortEnabled: z.boolean().default(false),
     exportEnabled: z.boolean().default(false),
+    columnFilters: z.boolean().default(false),
     serverSearchParameter: queryParameterSchema.default('q'),
     serverSortParameter: queryParameterSchema.default('sort'),
     serverDirectionParameter: queryParameterSchema.default('dir'),
@@ -337,6 +343,7 @@ const DATA_GRID_QUERY_DEFAULTS = {
   searchPlaceholder: '',
   sortEnabled: false,
   exportEnabled: false,
+  columnFilters: false,
   serverSearchParameter: 'q',
   serverSortParameter: 'sort',
   serverDirectionParameter: 'dir',

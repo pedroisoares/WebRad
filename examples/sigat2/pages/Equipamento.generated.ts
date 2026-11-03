@@ -305,6 +305,7 @@ export abstract class EquipamentoGenerated extends WebPage {
       searchPlaceholder: '',
       sortEnabled: true,
       exportEnabled: true,
+      columnFilters: false,
       serverSearchParameter: 'q',
       serverSortParameter: 'sort',
       serverDirectionParameter: 'dir',
