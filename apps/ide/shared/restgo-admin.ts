@@ -27,9 +27,13 @@ export interface RestGoAdminEndpointInput {
   readonly idoperacao: number | null;
 }
 
-export interface RestGoAdminEndpoint extends RestGoAdminEndpointInput {
+export interface RestGoAdminEndpoint extends Omit<RestGoAdminEndpointInput, 'tipo'> {
   readonly id: number;
   readonly ativo: boolean;
+  /** 'composto': a HexAPI composite operation, defined in its catalog and read-only in the IDE. */
+  readonly tipo: RestGoAdminEndpointInput['tipo'] | 'composto';
+  /** HexAPI parameter list, for example "id_chamado:int, texto:html, servicos:json?". */
+  readonly parametros?: string | undefined;
 }
 
 export interface RestGoAdminDatabase {

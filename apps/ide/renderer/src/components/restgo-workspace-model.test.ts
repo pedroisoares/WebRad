@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import type { RestGoAdminCatalog } from '../../../shared/restgo-admin';
 import {
+  hexApiParameters,
   restGoCatalogToPublishedApis,
   restGoEndpointGroups,
   restGoPublicationEndpoints,
@@ -98,6 +99,50 @@ describe('RestGo catalog conversion', () => {
     });
     expect(apis[1]).not.toHaveProperty('script');
     expect(apis[1]?.parameters?.[0]).not.toHaveProperty('valorTeste');
+  });
+
+  it('lists HexAPI composite operations with the parameters declared in the catalog', () => {
+    const base = catalog();
+    const apis = restGoCatalogToPublishedApis({
+      ...base,
+      endpoints: [
+        ...base.endpoints,
+        {
+          id: 14,
+          ativo: true,
+          slug: 'interacao-espera',
+          versao: 1,
+          metodo: 'POST',
+          script: '',
+          tipo: 'composto',
+          idoperacao: null,
+          parametros: 'id_chamado:int, texto:html, equipamentos:json?, quando?:datetime',
+        },
+      ],
+      publications: [
+        ...base.publications,
+        {
+          ...base.publications[0]!,
+          id: 21,
+          idendpoint: 14,
+          endpointSlug: 'interacao-espera',
+          versao: 1,
+        },
+      ],
+    });
+    const composite = apis.find((api) => api.endpoint === 'interacao-espera');
+    expect(composite).toMatchObject({
+      method: 'POST',
+      kind: 'operation',
+      parameters: [
+        { name: 'id_chamado', type: 'numeric' },
+        { name: 'texto', type: 'string' },
+        { name: 'equipamentos', type: 'string' },
+        { name: 'quando', type: 'data' },
+      ],
+    });
+    expect(composite).not.toHaveProperty('script');
+    expect(hexApiParameters(undefined)).toEqual([]);
   });
 
   it('excludes inactive databases, publications, handlers, and API Operations from importable requests', () => {

@@ -110,8 +110,13 @@ const endpointSchema = z.object({
   script: z.string(),
   metodo: httpMethod,
   versao: recordId,
-  tipo: z.enum(['normal', 'operation']).default('normal'),
+  // HexAPI also lists composite operations: steps defined in its catalog, read-only here.
+  tipo: z.enum(['normal', 'operation', 'composto']).default('normal'),
   idoperacao: recordId.nullable().default(null),
+  parametros: z
+    .string()
+    .nullish()
+    .transform((value) => value ?? undefined),
 });
 const databaseSchema = z.object({
   id: recordId,

@@ -198,7 +198,9 @@ export function RestGoPublishedApis(props: Props): ReactElement {
                         <span className="wr-restgo-method-kind">
                           {endpoint.tipo === 'operation'
                             ? operation?.nome || 'API Operation'
-                            : 'SQL endpoint'}
+                            : endpoint.tipo === 'composto'
+                              ? 'Composite operation'
+                              : 'SQL endpoint'}
                           {!endpoint.ativo
                             ? ' · Inactive'
                             : endpoint.tipo === 'operation' && !operation?.ativo

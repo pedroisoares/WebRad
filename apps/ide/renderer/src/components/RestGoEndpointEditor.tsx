@@ -69,7 +69,7 @@ function createMethods(group: RestGoEndpointGroup | null): readonly MethodDraft[
       configured: endpoint !== undefined,
       ...(endpoint ? { existingId: endpoint.id } : {}),
       script: endpoint?.script ?? '',
-      type: endpoint?.tipo ?? 'normal',
+      type: endpoint?.tipo === 'operation' ? 'operation' : 'normal',
       operationId: endpoint?.idoperacao ? String(endpoint.idoperacao) : '',
     };
   });
@@ -95,6 +95,8 @@ export function RestGoEndpointEditor(props: RestGoEndpointEditorProps): ReactEle
   >(null);
   const id = useId();
   const current = methods.find((method) => method.method === activeMethod)!;
+  // HexAPI composite operations are defined by steps in its catalog; the IDE only shows them.
+  const composite = group?.endpoints.find((endpoint) => endpoint.tipo === 'composto');
   const operation = catalog.operations.find((entry) => String(entry.id) === current.operationId);
   const publications = useMemo(
     () =>
@@ -286,12 +288,19 @@ export function RestGoEndpointEditor(props: RestGoEndpointEditorProps): ReactEle
           {error}
         </div>
       )}
+      {composite && (
+        <div className="wr-restgo-alert" role="status">
+          Composite operation ({composite.metodo}): its steps run in one transaction and are defined
+          in the HexAPI catalog, so it is read-only here.
+          {composite.parametros ? ` Parameters: ${composite.parametros}.` : ''}
+        </div>
+      )}
       <form
         onSubmit={(event) => {
           void save(event);
         }}
       >
-        <fieldset disabled={busy} className="wr-restgo-fields">
+        <fieldset disabled={busy || composite !== undefined} className="wr-restgo-fields">
           <label>
             <span>Endpoint slug</span>
             <input
@@ -362,7 +371,10 @@ export function RestGoEndpointEditor(props: RestGoEndpointEditorProps): ReactEle
             {current.existingId !== undefined && <small>Saved method</small>}
           </label>
           {current.configured ? (
-            <fieldset disabled={busy} className="wr-restgo-method-fields">
+            <fieldset
+              disabled={busy || composite !== undefined}
+              className="wr-restgo-method-fields"
+            >
               <label>
                 <span>Execution</span>
                 <select
@@ -477,7 +489,7 @@ export function RestGoEndpointEditor(props: RestGoEndpointEditorProps): ReactEle
           <button
             type="submit"
             className="wr-restgo-button is-primary"
-            disabled={busy || (!dirty && group !== null)}
+            disabled={busy || composite !== undefined || (!dirty && group !== null)}
           >
             <Icon name="save" />
             Save endpoint
