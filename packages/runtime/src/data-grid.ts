@@ -1417,15 +1417,20 @@ export class WebDataGrid extends WebComponent<HTMLDivElement> {
 
   #render(): void {
     // Typing in a filter box re-renders the grid; keep the focus and the caret in it.
+    // The test DOM and other realms may not expose HTMLInputElement globally, so the
+    // focused filter box is recognized by its data attribute.
     const active = this.element.ownerDocument.activeElement;
     const focusedFilter =
-      active instanceof HTMLInputElement && this.element.contains(active)
-        ? (active.dataset.webradDataGridFilter ?? null)
+      active !== null && this.element.contains(active)
+        ? active.getAttribute('data-webrad-data-grid-filter')
         : null;
     const caret =
-      focusedFilter === null || !(active instanceof HTMLInputElement)
+      focusedFilter === null
         ? null
-        : { start: active.selectionStart, end: active.selectionEnd };
+        : {
+            start: (active as HTMLInputElement).selectionStart,
+            end: (active as HTMLInputElement).selectionEnd,
+          };
     this.#renderGrid();
     if (focusedFilter === null) return;
     const input = Array.from(
