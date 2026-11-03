@@ -1292,7 +1292,13 @@ function bootstrapButton(
 function sigatStyles(): readonly ComponentStyleModel[] {
   const textoBarra = (id: string, name: string, extra: ComponentStyleProperties) =>
     loginStyle(id, name, 'WebLabel', {
-      base: { ...SYSTEM_FONT, textColor: '#f8f9fa', fontSize: px(16), lineHeight: px(24), ...extra },
+      base: {
+        ...SYSTEM_FONT,
+        textColor: '#f8f9fa',
+        fontSize: px(16),
+        lineHeight: px(24),
+        ...extra,
+      },
     });
   return [
     loginStyle(SIGAT_STYLE.pagina, 'SIGAT Pagina', 'WebPage', {
@@ -1579,7 +1585,11 @@ function painelPage(): PageSpec {
     header: true,
     children: [
       {
-        ...tabs('Abas', ['Triagem', 'Chamados', 'Arquivo'], ['PNLTriagem', 'PNLChamados', 'PNLArquivo']),
+        ...tabs(
+          'Abas',
+          ['Triagem', 'Chamados', 'Arquivo'],
+          ['PNLTriagem', 'PNLChamados', 'PNLArquivo'],
+        ),
         styleId: SIGAT_STYLE.abas,
         height: 48,
         props: {
@@ -1617,11 +1627,23 @@ function painelPage(): PageSpec {
           children: [
             ...Array.from({ length: PAINEL_FILAS }, (_, index) => filaButton(index + 1)),
             {
-              ...sigatButton('BTNEntrega', 'Entrega', 'FiltrarFila', 'truck', SIGAT_STYLE.botaoSucesso),
+              ...sigatButton(
+                'BTNEntrega',
+                'Entrega',
+                'FiltrarFila',
+                'truck',
+                SIGAT_STYLE.botaoSucesso,
+              ),
               props: { caption: 'Entrega', icon: 'truck', visible: false },
             },
             sigatButton('BTNTodos', 'Todos', 'FiltrarFila', 'search', SIGAT_STYLE.botaoInfo),
-            sigatButton('BTNImprimir', 'Imprimir', 'Imprimir', 'printer', SIGAT_STYLE.botaoSecundario),
+            sigatButton(
+              'BTNImprimir',
+              'Imprimir',
+              'Imprimir',
+              'printer',
+              SIGAT_STYLE.botaoSecundario,
+            ),
             {
               ...sigatButton(
                 'BTNLimpar',
