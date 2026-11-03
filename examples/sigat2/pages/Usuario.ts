@@ -1,4 +1,5 @@
 import {
+  abrirBloqueados,
   buscar,
   sair,
   preencherCabecalho,
@@ -37,8 +38,12 @@ export class Usuario extends UsuarioGenerated {
     await sair();
   }
 
+  public MostrarBloqueados(): void {
+    abrirBloqueados();
+  }
+
   public async Mostrar(): Promise<void> {
-    preencherCabecalho(this.LBLUsuario);
+    preencherCabecalho(this);
     const id = Number(contexto('usuario'));
     if (!Number.isInteger(id) || id <= 0) {
       this.LBLUsuarioNome.caption = 'Nenhum usuário selecionado';

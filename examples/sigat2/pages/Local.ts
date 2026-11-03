@@ -1,4 +1,5 @@
 import {
+  abrirBloqueados,
   buscar,
   sair,
   preencherCabecalho,
@@ -37,8 +38,12 @@ export class Local extends LocalGenerated {
     await sair();
   }
 
+  public MostrarBloqueados(): void {
+    abrirBloqueados();
+  }
+
   public async Mostrar(): Promise<void> {
-    preencherCabecalho(this.LBLUsuario);
+    preencherCabecalho(this);
     const id = Number(contexto('local'));
     if (!Number.isInteger(id) || id <= 0) {
       this.LBLLocal.caption = 'Nenhum local selecionado';

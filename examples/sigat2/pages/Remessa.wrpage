@@ -1,35 +1,35 @@
 {
   "formatVersion": 2,
-  "id": "11189fb8-05a2-4a80-8ac8-5b8f398f9e5e",
+  "id": "db863eb8-c72c-45e5-ad42-53bd9547384e",
   "name": "Remessa",
   "caption": "Remessa",
   "width": 1280,
   "height": 1200,
-  "rootComponentId": "c12108c3-4f5e-460d-8d1d-1e290e940f28",
+  "rootComponentId": "19da069f-86f0-49bc-9c47-dd9e7f1ccce1",
   "components": [
     {
-      "id": "c12108c3-4f5e-460d-8d1d-1e290e940f28",
+      "id": "19da069f-86f0-49bc-9c47-dd9e7f1ccce1",
       "type": "WebPage",
       "name": "Remessa",
       "parentId": null,
       "layout": {
         "container": {
           "mode": "column",
-          "paddingTop": 16,
-          "paddingRight": 24,
-          "paddingBottom": 24,
-          "paddingLeft": 24,
-          "gap": 16,
+          "paddingTop": 0,
+          "paddingRight": 0,
+          "paddingBottom": 0,
+          "paddingLeft": 0,
+          "gap": 0,
           "wrap": false,
           "justifyContent": "start",
           "alignItems": "stretch"
         },
         "item": {
           "width": "fixed",
-          "height": "fit-content",
+          "height": "stretch",
           "minWidth": 0,
           "maxWidth": null,
-          "minHeight": 600,
+          "minHeight": 0,
           "maxHeight": null,
           "grow": 0,
           "shrink": true,
@@ -64,30 +64,28 @@
         "OnResize": null,
         "OnShow": "Mostrar"
       },
-      "styleId": "3755d9a1-991d-4861-8878-42148ee446dc:default-style:WebPage",
+      "styleId": "sigat2-pagina",
       "children": [
-        "aaca620b-d9c1-418f-8fdf-678cc6ddbb50",
-        "f895ab88-278f-476a-b210-2485af4cb011",
-        "b3292542-9320-4ec7-9ebe-92dd844db57c",
-        "ff4452c8-c237-45e0-b7c2-12921c85c5ed",
-        "fa42a68b-90e5-4b2a-b943-1f1e1b87fb62"
+        "4dff6488-eee2-4eaf-96af-93f103104225",
+        "638a099d-7859-47b5-9a39-b259187aa4ca",
+        "e2783215-03de-4106-b853-09b7243ac6cf"
       ]
     },
     {
-      "id": "aaca620b-d9c1-418f-8fdf-678cc6ddbb50",
+      "id": "4dff6488-eee2-4eaf-96af-93f103104225",
       "type": "WebGroup",
       "name": "Cabecalho",
-      "parentId": "c12108c3-4f5e-460d-8d1d-1e290e940f28",
+      "parentId": "19da069f-86f0-49bc-9c47-dd9e7f1ccce1",
       "layout": {
         "container": {
           "mode": "row",
-          "paddingTop": 0,
-          "paddingRight": 0,
-          "paddingBottom": 0,
-          "paddingLeft": 0,
-          "gap": 12,
+          "paddingTop": 8,
+          "paddingRight": 16,
+          "paddingBottom": 8,
+          "paddingLeft": 16,
+          "gap": 16,
           "wrap": true,
-          "justifyContent": "start",
+          "justifyContent": "space-between",
           "alignItems": "center"
         },
         "item": {
@@ -126,22 +124,76 @@
         "OnMouseEnter": null,
         "OnMouseLeave": null
       },
+      "styleId": "sigat2-barra",
       "children": [
-        "c9c6f2ba-2651-4396-9d15-75becea21f9e",
-        "1ebdf439-6900-4123-9163-3093b046978e",
-        "b8f98382-1de4-46ea-983c-74e6c7c49343",
-        "608c0587-2119-4f3d-acc2-999170a635f2",
-        "979583b2-41ea-453b-b589-b1ea976257a2",
-        "3a6eb704-c388-4ee0-85ae-64aae9e7dd05",
-        "a0c708c4-6528-4170-a13e-165353e5360a",
-        "7c3d3849-217f-4c7c-9c35-304129c1c4a8"
+        "94d3188d-2fc8-434e-97c5-af4f814ad591",
+        "405903d4-bfdd-473e-aa9c-3a7a5ffa0d40",
+        "c69ea8e8-7a22-4126-83a8-ca2d6be6ee08"
       ]
     },
     {
-      "id": "c9c6f2ba-2651-4396-9d15-75becea21f9e",
-      "type": "WebLabel",
-      "name": "Marca",
-      "parentId": "aaca620b-d9c1-418f-8fdf-678cc6ddbb50",
+      "id": "94d3188d-2fc8-434e-97c5-af4f814ad591",
+      "type": "WebGroup",
+      "name": "GRPMarca",
+      "parentId": "4dff6488-eee2-4eaf-96af-93f103104225",
+      "layout": {
+        "container": {
+          "mode": "row",
+          "paddingTop": 0,
+          "paddingRight": 0,
+          "paddingBottom": 0,
+          "paddingLeft": 0,
+          "gap": 8,
+          "wrap": false,
+          "justifyContent": "start",
+          "alignItems": "center"
+        },
+        "item": {
+          "width": "fit-content",
+          "height": "fit-content",
+          "minWidth": 0,
+          "maxWidth": null,
+          "minHeight": 0,
+          "maxHeight": null,
+          "grow": 0,
+          "shrink": false,
+          "alignSelf": "auto",
+          "horizontalAnchor": "start",
+          "verticalAnchor": "start",
+          "left": 0,
+          "right": 0,
+          "top": 0,
+          "bottom": 0
+        }
+      },
+      "bounds": {
+        "width": 240,
+        "height": 160,
+        "x": 0,
+        "y": 0
+      },
+      "props": {
+        "enabled": true,
+        "aspectRatio": "none",
+        "collapseWhenHidden": true,
+        "visible": true
+      },
+      "events": {
+        "OnClick": null,
+        "OnDblClick": null,
+        "OnMouseEnter": null,
+        "OnMouseLeave": null
+      },
+      "children": [
+        "b0d096aa-a9aa-4ff1-84d8-4202f1b58097",
+        "e4e23775-5535-4a95-9e40-a8859411198e"
+      ]
+    },
+    {
+      "id": "b0d096aa-a9aa-4ff1-84d8-4202f1b58097",
+      "type": "WebImage",
+      "name": "IMGMarca",
+      "parentId": "94d3188d-2fc8-434e-97c5-af4f814ad591",
       "layout": {
         "container": {
           "mode": "fixed",
@@ -173,13 +225,71 @@
         }
       },
       "bounds": {
-        "width": 110,
-        "height": 32,
+        "width": 40,
+        "height": 40,
         "x": 0,
         "y": 0
       },
       "props": {
-        "caption": "SIGAT2",
+        "enabled": true,
+        "alt": "",
+        "collapseWhenHidden": true,
+        "objectFit": "contain",
+        "placeholder": "image",
+        "src": "assets/imported/sigat-logo.svg",
+        "visible": true
+      },
+      "events": {
+        "OnClick": null,
+        "OnError": null,
+        "OnLoad": null
+      },
+      "styleId": "sigat2-login-logo",
+      "children": []
+    },
+    {
+      "id": "e4e23775-5535-4a95-9e40-a8859411198e",
+      "type": "WebLabel",
+      "name": "LBLMarca",
+      "parentId": "94d3188d-2fc8-434e-97c5-af4f814ad591",
+      "layout": {
+        "container": {
+          "mode": "fixed",
+          "paddingTop": 0,
+          "paddingRight": 0,
+          "paddingBottom": 0,
+          "paddingLeft": 0,
+          "gap": 0,
+          "wrap": false,
+          "justifyContent": "start",
+          "alignItems": "start"
+        },
+        "item": {
+          "width": "fit-content",
+          "height": "fixed",
+          "minWidth": 0,
+          "maxWidth": null,
+          "minHeight": 0,
+          "maxHeight": null,
+          "grow": 0,
+          "shrink": false,
+          "alignSelf": "auto",
+          "horizontalAnchor": "start",
+          "verticalAnchor": "start",
+          "left": 0,
+          "right": 0,
+          "top": 0,
+          "bottom": 0
+        }
+      },
+      "bounds": {
+        "width": 80,
+        "height": 40,
+        "x": 0,
+        "y": 0
+      },
+      "props": {
+        "caption": "SIGAT",
         "enabled": true,
         "autoSize": false,
         "collapseWhenHidden": true,
@@ -192,17 +302,17 @@
         "OnMouseEnter": null,
         "OnMouseLeave": null
       },
-      "styleId": "3755d9a1-991d-4861-8878-42148ee446dc:default-style:WebLabel",
+      "styleId": "sigat2-marca",
       "children": []
     },
     {
-      "id": "1ebdf439-6900-4123-9163-3093b046978e",
-      "type": "WebButton",
-      "name": "BTNPainel",
-      "parentId": "aaca620b-d9c1-418f-8fdf-678cc6ddbb50",
+      "id": "405903d4-bfdd-473e-aa9c-3a7a5ffa0d40",
+      "type": "WebGroup",
+      "name": "GRPBusca",
+      "parentId": "4dff6488-eee2-4eaf-96af-93f103104225",
       "layout": {
         "container": {
-          "mode": "fixed",
+          "mode": "row",
           "paddingTop": 0,
           "paddingRight": 0,
           "paddingBottom": 0,
@@ -210,13 +320,13 @@
           "gap": 0,
           "wrap": false,
           "justifyContent": "start",
-          "alignItems": "start"
+          "alignItems": "center"
         },
         "item": {
-          "width": "fixed",
-          "height": "fixed",
-          "minWidth": 120,
-          "maxWidth": 220,
+          "width": "fit-content",
+          "height": "fit-content",
+          "minWidth": 0,
+          "maxWidth": null,
           "minHeight": 0,
           "maxHeight": null,
           "grow": 0,
@@ -231,34 +341,33 @@
         }
       },
       "bounds": {
-        "width": 180,
-        "height": 40,
+        "width": 240,
+        "height": 160,
         "x": 0,
         "y": 0
       },
       "props": {
-        "caption": "Painel",
         "enabled": true,
+        "aspectRatio": "none",
         "collapseWhenHidden": true,
-        "icon": "list",
-        "tabIndex": 0,
         "visible": true
       },
       "events": {
-        "OnBlur": null,
-        "OnClick": "AbrirPainel",
-        "OnFocus": null,
+        "OnClick": null,
+        "OnDblClick": null,
         "OnMouseEnter": null,
         "OnMouseLeave": null
       },
-      "styleId": "3755d9a1-991d-4861-8878-42148ee446dc:default-style:WebButton",
-      "children": []
+      "children": [
+        "019be645-be30-45f4-ab2c-d71b36e8b858",
+        "92d50b5c-479a-4040-a7ae-e72f0be58c8b"
+      ]
     },
     {
-      "id": "b8f98382-1de4-46ea-983c-74e6c7c49343",
+      "id": "019be645-be30-45f4-ab2c-d71b36e8b858",
       "type": "WebEdit",
       "name": "EDTBuscaRapida",
-      "parentId": "aaca620b-d9c1-418f-8fdf-678cc6ddbb50",
+      "parentId": "405903d4-bfdd-473e-aa9c-3a7a5ffa0d40",
       "layout": {
         "container": {
           "mode": "fixed",
@@ -274,11 +383,11 @@
         "item": {
           "width": "fixed",
           "height": "fixed",
-          "minWidth": 200,
+          "minWidth": 160,
           "maxWidth": null,
           "minHeight": 0,
           "maxHeight": null,
-          "grow": 1,
+          "grow": 0,
           "shrink": true,
           "alignSelf": "auto",
           "horizontalAnchor": "start",
@@ -291,7 +400,7 @@
       },
       "bounds": {
         "width": 300,
-        "height": 40,
+        "height": 38,
         "x": 0,
         "y": 0
       },
@@ -299,7 +408,7 @@
         "value": "",
         "enabled": true,
         "collapseWhenHidden": true,
-        "placeholder": "Busca rápida (patrimônio, ticket, local)...",
+        "placeholder": "Busca rápida...",
         "readOnly": false,
         "tabIndex": 0,
         "visible": true
@@ -312,14 +421,14 @@
         "OnKeyDown": "BuscaRapidaTecla",
         "OnKeyUp": null
       },
-      "styleId": "3755d9a1-991d-4861-8878-42148ee446dc:default-style:WebEdit",
+      "styleId": "sigat2-busca",
       "children": []
     },
     {
-      "id": "608c0587-2119-4f3d-acc2-999170a635f2",
+      "id": "92d50b5c-479a-4040-a7ae-e72f0be58c8b",
       "type": "WebButton",
       "name": "BTNBuscar",
-      "parentId": "aaca620b-d9c1-418f-8fdf-678cc6ddbb50",
+      "parentId": "405903d4-bfdd-473e-aa9c-3a7a5ffa0d40",
       "layout": {
         "container": {
           "mode": "fixed",
@@ -335,12 +444,12 @@
         "item": {
           "width": "fixed",
           "height": "fixed",
-          "minWidth": 120,
-          "maxWidth": 220,
+          "minWidth": 0,
+          "maxWidth": null,
           "minHeight": 0,
           "maxHeight": null,
           "grow": 0,
-          "shrink": true,
+          "shrink": false,
           "alignSelf": "auto",
           "horizontalAnchor": "start",
           "verticalAnchor": "start",
@@ -351,8 +460,8 @@
         }
       },
       "bounds": {
-        "width": 180,
-        "height": 40,
+        "width": 42,
+        "height": 38,
         "x": 0,
         "y": 0
       },
@@ -371,14 +480,77 @@
         "OnMouseEnter": null,
         "OnMouseLeave": null
       },
-      "styleId": "3755d9a1-991d-4861-8878-42148ee446dc:default-style:WebButton",
+      "styleId": "sigat2-botao-busca",
       "children": []
     },
     {
-      "id": "979583b2-41ea-453b-b589-b1ea976257a2",
-      "type": "WebButton",
-      "name": "BTNInserviveis",
-      "parentId": "aaca620b-d9c1-418f-8fdf-678cc6ddbb50",
+      "id": "c69ea8e8-7a22-4126-83a8-ca2d6be6ee08",
+      "type": "WebGroup",
+      "name": "GRPUsuario",
+      "parentId": "4dff6488-eee2-4eaf-96af-93f103104225",
+      "layout": {
+        "container": {
+          "mode": "row",
+          "paddingTop": 0,
+          "paddingRight": 0,
+          "paddingBottom": 0,
+          "paddingLeft": 0,
+          "gap": 4,
+          "wrap": true,
+          "justifyContent": "start",
+          "alignItems": "center"
+        },
+        "item": {
+          "width": "fit-content",
+          "height": "fit-content",
+          "minWidth": 0,
+          "maxWidth": null,
+          "minHeight": 0,
+          "maxHeight": null,
+          "grow": 0,
+          "shrink": false,
+          "alignSelf": "auto",
+          "horizontalAnchor": "start",
+          "verticalAnchor": "start",
+          "left": 0,
+          "right": 0,
+          "top": 0,
+          "bottom": 0
+        }
+      },
+      "bounds": {
+        "width": 240,
+        "height": 160,
+        "x": 0,
+        "y": 0
+      },
+      "props": {
+        "enabled": true,
+        "aspectRatio": "none",
+        "collapseWhenHidden": true,
+        "visible": true
+      },
+      "events": {
+        "OnClick": null,
+        "OnDblClick": null,
+        "OnMouseEnter": null,
+        "OnMouseLeave": null
+      },
+      "children": [
+        "2e0ef306-c042-479f-95be-70cc1bcb5e2a",
+        "264a1c5a-a7fa-48a4-851a-5116d352ac45",
+        "5a60e34b-e15c-4f9e-b872-f6012a2ece74",
+        "0b5d5067-23ba-4b65-9a36-4db353ae1aef",
+        "53b73e28-1432-4927-b73f-7d08d365674d",
+        "40ffe070-41c4-481f-812f-231612a0f409",
+        "4993e98d-8dae-4b82-a0fe-e7ddbd3c11f5"
+      ]
+    },
+    {
+      "id": "2e0ef306-c042-479f-95be-70cc1bcb5e2a",
+      "type": "WebLabel",
+      "name": "LBLOla",
+      "parentId": "c69ea8e8-7a22-4126-83a8-ca2d6be6ee08",
       "layout": {
         "container": {
           "mode": "fixed",
@@ -392,14 +564,14 @@
           "alignItems": "start"
         },
         "item": {
-          "width": "fixed",
+          "width": "fit-content",
           "height": "fixed",
-          "minWidth": 120,
-          "maxWidth": 220,
+          "minWidth": 0,
+          "maxWidth": null,
           "minHeight": 0,
           "maxHeight": null,
           "grow": 0,
-          "shrink": true,
+          "shrink": false,
           "alignSelf": "auto",
           "horizontalAnchor": "start",
           "verticalAnchor": "start",
@@ -410,19 +582,253 @@
         }
       },
       "bounds": {
-        "width": 180,
-        "height": 40,
+        "width": 80,
+        "height": 24,
         "x": 0,
         "y": 0
       },
       "props": {
-        "caption": "Inservíveis",
+        "caption": "Olá,",
+        "enabled": true,
+        "autoSize": false,
+        "collapseWhenHidden": true,
+        "color": "#000000",
+        "visible": true
+      },
+      "events": {
+        "OnClick": null,
+        "OnDblClick": null,
+        "OnMouseEnter": null,
+        "OnMouseLeave": null
+      },
+      "styleId": "sigat2-texto-claro",
+      "children": []
+    },
+    {
+      "id": "264a1c5a-a7fa-48a4-851a-5116d352ac45",
+      "type": "WebLabel",
+      "name": "LBLUsuario",
+      "parentId": "c69ea8e8-7a22-4126-83a8-ca2d6be6ee08",
+      "layout": {
+        "container": {
+          "mode": "fixed",
+          "paddingTop": 0,
+          "paddingRight": 0,
+          "paddingBottom": 0,
+          "paddingLeft": 0,
+          "gap": 0,
+          "wrap": false,
+          "justifyContent": "start",
+          "alignItems": "start"
+        },
+        "item": {
+          "width": "fit-content",
+          "height": "fixed",
+          "minWidth": 0,
+          "maxWidth": null,
+          "minHeight": 0,
+          "maxHeight": null,
+          "grow": 0,
+          "shrink": false,
+          "alignSelf": "auto",
+          "horizontalAnchor": "start",
+          "verticalAnchor": "start",
+          "left": 0,
+          "right": 0,
+          "top": 0,
+          "bottom": 0
+        }
+      },
+      "bounds": {
+        "width": 80,
+        "height": 24,
+        "x": 0,
+        "y": 0
+      },
+      "props": {
+        "caption": "",
+        "enabled": true,
+        "autoSize": false,
+        "collapseWhenHidden": true,
+        "color": "#000000",
+        "visible": true
+      },
+      "events": {
+        "OnClick": null,
+        "OnDblClick": null,
+        "OnMouseEnter": null,
+        "OnMouseLeave": null
+      },
+      "styleId": "sigat2-texto-claro-forte",
+      "children": []
+    },
+    {
+      "id": "5a60e34b-e15c-4f9e-b872-f6012a2ece74",
+      "type": "WebButton",
+      "name": "BTNBloqueados",
+      "parentId": "c69ea8e8-7a22-4126-83a8-ca2d6be6ee08",
+      "layout": {
+        "container": {
+          "mode": "fixed",
+          "paddingTop": 0,
+          "paddingRight": 0,
+          "paddingBottom": 0,
+          "paddingLeft": 0,
+          "gap": 0,
+          "wrap": false,
+          "justifyContent": "start",
+          "alignItems": "start"
+        },
+        "item": {
+          "width": "fit-content",
+          "height": "fixed",
+          "minWidth": 0,
+          "maxWidth": null,
+          "minHeight": 0,
+          "maxHeight": null,
+          "grow": 0,
+          "shrink": false,
+          "alignSelf": "auto",
+          "horizontalAnchor": "start",
+          "verticalAnchor": "start",
+          "left": 0,
+          "right": 0,
+          "top": 0,
+          "bottom": 0
+        }
+      },
+      "bounds": {
+        "width": 100,
+        "height": 26,
+        "x": 0,
+        "y": 0
+      },
+      "props": {
+        "caption": "0",
+        "enabled": true,
+        "collapseWhenHidden": true,
+        "icon": "lock",
+        "tabIndex": 0,
+        "visible": true
+      },
+      "events": {
+        "OnBlur": null,
+        "OnClick": "MostrarBloqueados",
+        "OnFocus": null,
+        "OnMouseEnter": null,
+        "OnMouseLeave": null
+      },
+      "styleId": "sigat2-selo-bloqueados",
+      "children": []
+    },
+    {
+      "id": "0b5d5067-23ba-4b65-9a36-4db353ae1aef",
+      "type": "WebButton",
+      "name": "BTNPainel",
+      "parentId": "c69ea8e8-7a22-4126-83a8-ca2d6be6ee08",
+      "layout": {
+        "container": {
+          "mode": "fixed",
+          "paddingTop": 0,
+          "paddingRight": 0,
+          "paddingBottom": 0,
+          "paddingLeft": 0,
+          "gap": 0,
+          "wrap": false,
+          "justifyContent": "start",
+          "alignItems": "start"
+        },
+        "item": {
+          "width": "fit-content",
+          "height": "fixed",
+          "minWidth": 0,
+          "maxWidth": null,
+          "minHeight": 0,
+          "maxHeight": null,
+          "grow": 0,
+          "shrink": false,
+          "alignSelf": "auto",
+          "horizontalAnchor": "start",
+          "verticalAnchor": "start",
+          "left": 0,
+          "right": 0,
+          "top": 0,
+          "bottom": 0
+        }
+      },
+      "bounds": {
+        "width": 100,
+        "height": 31,
+        "x": 0,
+        "y": 0
+      },
+      "props": {
+        "caption": "Painel",
+        "enabled": true,
+        "collapseWhenHidden": true,
+        "icon": "menu",
+        "tabIndex": 0,
+        "visible": true
+      },
+      "events": {
+        "OnBlur": null,
+        "OnClick": "AbrirPainel",
+        "OnFocus": null,
+        "OnMouseEnter": null,
+        "OnMouseLeave": null
+      },
+      "styleId": "sigat2-botao-primario",
+      "children": []
+    },
+    {
+      "id": "53b73e28-1432-4927-b73f-7d08d365674d",
+      "type": "WebButton",
+      "name": "BTNInserviveis",
+      "parentId": "c69ea8e8-7a22-4126-83a8-ca2d6be6ee08",
+      "layout": {
+        "container": {
+          "mode": "fixed",
+          "paddingTop": 0,
+          "paddingRight": 0,
+          "paddingBottom": 0,
+          "paddingLeft": 0,
+          "gap": 0,
+          "wrap": false,
+          "justifyContent": "start",
+          "alignItems": "start"
+        },
+        "item": {
+          "width": "fit-content",
+          "height": "fixed",
+          "minWidth": 0,
+          "maxWidth": null,
+          "minHeight": 0,
+          "maxHeight": null,
+          "grow": 0,
+          "shrink": false,
+          "alignSelf": "auto",
+          "horizontalAnchor": "start",
+          "verticalAnchor": "start",
+          "left": 0,
+          "right": 0,
+          "top": 0,
+          "bottom": 0
+        }
+      },
+      "bounds": {
+        "width": 100,
+        "height": 31,
+        "x": 0,
+        "y": 0
+      },
+      "props": {
+        "caption": "Remessas de inservíveis",
         "enabled": true,
         "allowedRoles": [
           "inservivel"
         ],
         "collapseWhenHidden": true,
-        "icon": "archive",
+        "icon": "cart",
         "tabIndex": 0,
         "visible": true
       },
@@ -433,14 +839,14 @@
         "OnMouseEnter": null,
         "OnMouseLeave": null
       },
-      "styleId": "3755d9a1-991d-4861-8878-42148ee446dc:default-style:WebButton",
+      "styleId": "sigat2-botao-primario",
       "children": []
     },
     {
-      "id": "3a6eb704-c388-4ee0-85ae-64aae9e7dd05",
+      "id": "40ffe070-41c4-481f-812f-231612a0f409",
       "type": "WebButton",
       "name": "BTNAdmin",
-      "parentId": "aaca620b-d9c1-418f-8fdf-678cc6ddbb50",
+      "parentId": "c69ea8e8-7a22-4126-83a8-ca2d6be6ee08",
       "layout": {
         "container": {
           "mode": "fixed",
@@ -454,14 +860,14 @@
           "alignItems": "start"
         },
         "item": {
-          "width": "fixed",
+          "width": "fit-content",
           "height": "fixed",
-          "minWidth": 120,
-          "maxWidth": 220,
+          "minWidth": 0,
+          "maxWidth": null,
           "minHeight": 0,
           "maxHeight": null,
           "grow": 0,
-          "shrink": true,
+          "shrink": false,
           "alignSelf": "auto",
           "horizontalAnchor": "start",
           "verticalAnchor": "start",
@@ -472,8 +878,8 @@
         }
       },
       "bounds": {
-        "width": 180,
-        "height": 40,
+        "width": 100,
+        "height": 31,
         "x": 0,
         "y": 0
       },
@@ -495,14 +901,14 @@
         "OnMouseEnter": null,
         "OnMouseLeave": null
       },
-      "styleId": "3755d9a1-991d-4861-8878-42148ee446dc:default-style:WebButton",
+      "styleId": "sigat2-botao-secundario",
       "children": []
     },
     {
-      "id": "a0c708c4-6528-4170-a13e-165353e5360a",
-      "type": "WebLabel",
-      "name": "LBLUsuario",
-      "parentId": "aaca620b-d9c1-418f-8fdf-678cc6ddbb50",
+      "id": "4993e98d-8dae-4b82-a0fe-e7ddbd3c11f5",
+      "type": "WebButton",
+      "name": "BTNSair",
+      "parentId": "c69ea8e8-7a22-4126-83a8-ca2d6be6ee08",
       "layout": {
         "container": {
           "mode": "fixed",
@@ -516,13 +922,13 @@
           "alignItems": "start"
         },
         "item": {
-          "width": "fixed",
+          "width": "fit-content",
           "height": "fixed",
           "minWidth": 0,
           "maxWidth": null,
           "minHeight": 0,
           "maxHeight": null,
-          "grow": 1,
+          "grow": 0,
           "shrink": false,
           "alignSelf": "auto",
           "horizontalAnchor": "start",
@@ -534,50 +940,51 @@
         }
       },
       "bounds": {
-        "width": 200,
-        "height": 28,
+        "width": 100,
+        "height": 31,
         "x": 0,
         "y": 0
       },
       "props": {
-        "caption": "",
+        "caption": "Sair",
         "enabled": true,
-        "autoSize": false,
         "collapseWhenHidden": true,
-        "color": "#000000",
+        "icon": "sign-out",
+        "tabIndex": 0,
         "visible": true
       },
       "events": {
-        "OnClick": null,
-        "OnDblClick": null,
+        "OnBlur": null,
+        "OnClick": "Sair",
+        "OnFocus": null,
         "OnMouseEnter": null,
         "OnMouseLeave": null
       },
-      "styleId": "3755d9a1-991d-4861-8878-42148ee446dc:default-style:WebLabel",
+      "styleId": "sigat2-botao-perigo",
       "children": []
     },
     {
-      "id": "7c3d3849-217f-4c7c-9c35-304129c1c4a8",
-      "type": "WebButton",
-      "name": "BTNSair",
-      "parentId": "aaca620b-d9c1-418f-8fdf-678cc6ddbb50",
+      "id": "638a099d-7859-47b5-9a39-b259187aa4ca",
+      "type": "WebGroup",
+      "name": "Conteudo",
+      "parentId": "19da069f-86f0-49bc-9c47-dd9e7f1ccce1",
       "layout": {
         "container": {
-          "mode": "fixed",
-          "paddingTop": 0,
-          "paddingRight": 0,
-          "paddingBottom": 0,
-          "paddingLeft": 0,
-          "gap": 0,
+          "mode": "column",
+          "paddingTop": 16,
+          "paddingRight": 24,
+          "paddingBottom": 24,
+          "paddingLeft": 24,
+          "gap": 16,
           "wrap": false,
           "justifyContent": "start",
-          "alignItems": "start"
+          "alignItems": "stretch"
         },
         "item": {
-          "width": "fixed",
-          "height": "fixed",
-          "minWidth": 120,
-          "maxWidth": 220,
+          "width": "stretch",
+          "height": "stretch",
+          "minWidth": 0,
+          "maxWidth": null,
           "minHeight": 0,
           "maxHeight": null,
           "grow": 0,
@@ -592,34 +999,36 @@
         }
       },
       "bounds": {
-        "width": 180,
-        "height": 40,
+        "width": 240,
+        "height": 160,
         "x": 0,
         "y": 0
       },
       "props": {
-        "caption": "Sair",
         "enabled": true,
+        "aspectRatio": "none",
         "collapseWhenHidden": true,
-        "icon": "logout",
-        "tabIndex": 0,
         "visible": true
       },
       "events": {
-        "OnBlur": null,
-        "OnClick": "Sair",
-        "OnFocus": null,
+        "OnClick": null,
+        "OnDblClick": null,
         "OnMouseEnter": null,
         "OnMouseLeave": null
       },
-      "styleId": "3755d9a1-991d-4861-8878-42148ee446dc:default-style:WebButton",
-      "children": []
+      "styleId": "sigat2-conteudo",
+      "children": [
+        "8fe2c759-a6da-48bc-ba0a-61b14c133881",
+        "92fc7271-97e1-4234-b32e-6fe3a91ffb0c",
+        "fa7160c7-9219-4ff8-9f38-c403e4c0dfe9",
+        "12422f0d-ff60-4931-b03a-7030f75237ee"
+      ]
     },
     {
-      "id": "f895ab88-278f-476a-b210-2485af4cb011",
+      "id": "8fe2c759-a6da-48bc-ba0a-61b14c133881",
       "type": "WebGroup",
       "name": "Topo",
-      "parentId": "c12108c3-4f5e-460d-8d1d-1e290e940f28",
+      "parentId": "638a099d-7859-47b5-9a39-b259187aa4ca",
       "layout": {
         "container": {
           "mode": "row",
@@ -669,15 +1078,15 @@
         "OnMouseLeave": null
       },
       "children": [
-        "582be749-e002-474a-a5b2-cbb5da695d56",
-        "4369e5d8-d85f-416b-a0d1-ed63b81a781b"
+        "d7676a1a-7a40-49ab-be98-2c4601828ba1",
+        "01c9fe40-b683-4244-a1c5-0f9ba6009f9e"
       ]
     },
     {
-      "id": "582be749-e002-474a-a5b2-cbb5da695d56",
+      "id": "d7676a1a-7a40-49ab-be98-2c4601828ba1",
       "type": "WebLabel",
       "name": "LBLRemessa",
-      "parentId": "f895ab88-278f-476a-b210-2485af4cb011",
+      "parentId": "8fe2c759-a6da-48bc-ba0a-61b14c133881",
       "layout": {
         "container": {
           "mode": "fixed",
@@ -732,10 +1141,10 @@
       "children": []
     },
     {
-      "id": "4369e5d8-d85f-416b-a0d1-ed63b81a781b",
+      "id": "01c9fe40-b683-4244-a1c5-0f9ba6009f9e",
       "type": "WebButton",
       "name": "BTNVoltar",
-      "parentId": "f895ab88-278f-476a-b210-2485af4cb011",
+      "parentId": "8fe2c759-a6da-48bc-ba0a-61b14c133881",
       "layout": {
         "container": {
           "mode": "fixed",
@@ -791,10 +1200,10 @@
       "children": []
     },
     {
-      "id": "b3292542-9320-4ec7-9ebe-92dd844db57c",
+      "id": "92fc7271-97e1-4234-b32e-6fe3a91ffb0c",
       "type": "WebPanel",
       "name": "PNLDados",
-      "parentId": "c12108c3-4f5e-460d-8d1d-1e290e940f28",
+      "parentId": "638a099d-7859-47b5-9a39-b259187aa4ca",
       "layout": {
         "container": {
           "mode": "column",
@@ -859,14 +1268,14 @@
       },
       "styleId": "3755d9a1-991d-4861-8878-42148ee446dc:default-style:WebPanel",
       "children": [
-        "878af721-df35-486b-ba41-b37796e2a93c"
+        "2a792919-85b8-434e-9444-f8ace5bd62f8"
       ]
     },
     {
-      "id": "878af721-df35-486b-ba41-b37796e2a93c",
+      "id": "2a792919-85b8-434e-9444-f8ace5bd62f8",
       "type": "WebGroup",
       "name": "Dados",
-      "parentId": "b3292542-9320-4ec7-9ebe-92dd844db57c",
+      "parentId": "92fc7271-97e1-4234-b32e-6fe3a91ffb0c",
       "layout": {
         "container": {
           "mode": "row",
@@ -916,19 +1325,19 @@
         "OnMouseLeave": null
       },
       "children": [
-        "ff1ab590-3ce8-42cb-a548-2c58de458fc3",
-        "23621527-be15-448d-81d7-5a9bdbc1ffec",
-        "6522c6ba-cfbf-40af-9e24-7cbf90f11bda",
-        "3b4bdfc8-c54f-4d03-b207-4c6ca8fccddd",
-        "f5b18486-8294-4940-a702-ea603c90aa05",
-        "ede380a9-42b7-4aa3-94dc-4b847a0b0628"
+        "374a8e6c-124b-4652-a4fd-3fd3f47f8027",
+        "16594986-5b15-4861-9252-c9a5531599fd",
+        "b94a8e7c-5464-4c19-b85a-8ecad04a4da7",
+        "cbab5b29-ab0b-4b89-8953-19a563365e5f",
+        "57738959-97c7-46a8-b456-fb7ba7ba42c8",
+        "790da16c-ac21-4fb2-913e-4b2feaa4305c"
       ]
     },
     {
-      "id": "ff1ab590-3ce8-42cb-a548-2c58de458fc3",
+      "id": "374a8e6c-124b-4652-a4fd-3fd3f47f8027",
       "type": "WebGroup",
       "name": "DadosSituacao",
-      "parentId": "878af721-df35-486b-ba41-b37796e2a93c",
+      "parentId": "2a792919-85b8-434e-9444-f8ace5bd62f8",
       "layout": {
         "container": {
           "mode": "column",
@@ -978,15 +1387,15 @@
         "OnMouseLeave": null
       },
       "children": [
-        "ac2b927c-e94e-4749-af28-0e8e2cc0f08a",
-        "ecef369e-8e25-4892-a635-035f54f06fb4"
+        "3d256c12-7df7-4f07-8399-4b67f9fa0e2f",
+        "3b2388f0-827a-42a0-ac56-f547080eb1f7"
       ]
     },
     {
-      "id": "ac2b927c-e94e-4749-af28-0e8e2cc0f08a",
+      "id": "3d256c12-7df7-4f07-8399-4b67f9fa0e2f",
       "type": "WebLabel",
       "name": "LBLSituacao",
-      "parentId": "ff1ab590-3ce8-42cb-a548-2c58de458fc3",
+      "parentId": "374a8e6c-124b-4652-a4fd-3fd3f47f8027",
       "layout": {
         "container": {
           "mode": "fixed",
@@ -1041,10 +1450,10 @@
       "children": []
     },
     {
-      "id": "ecef369e-8e25-4892-a635-035f54f06fb4",
+      "id": "3b2388f0-827a-42a0-ac56-f547080eb1f7",
       "type": "WebLabel",
       "name": "Situacao",
-      "parentId": "ff1ab590-3ce8-42cb-a548-2c58de458fc3",
+      "parentId": "374a8e6c-124b-4652-a4fd-3fd3f47f8027",
       "layout": {
         "container": {
           "mode": "fixed",
@@ -1099,10 +1508,10 @@
       "children": []
     },
     {
-      "id": "23621527-be15-448d-81d7-5a9bdbc1ffec",
+      "id": "16594986-5b15-4861-9252-c9a5531599fd",
       "type": "WebGroup",
       "name": "DadosAbertura",
-      "parentId": "878af721-df35-486b-ba41-b37796e2a93c",
+      "parentId": "2a792919-85b8-434e-9444-f8ace5bd62f8",
       "layout": {
         "container": {
           "mode": "column",
@@ -1152,15 +1561,15 @@
         "OnMouseLeave": null
       },
       "children": [
-        "4e1d42b0-4291-48e4-8926-55ec05672f5a",
-        "e0e3ee84-b8e8-4c8f-8740-7980aa358e0f"
+        "faa579bd-3ca2-491c-a43d-79a6c0fb828d",
+        "bf4a05d8-6f52-4b10-a389-85d843f5b341"
       ]
     },
     {
-      "id": "4e1d42b0-4291-48e4-8926-55ec05672f5a",
+      "id": "faa579bd-3ca2-491c-a43d-79a6c0fb828d",
       "type": "WebLabel",
       "name": "LBLAbertura",
-      "parentId": "23621527-be15-448d-81d7-5a9bdbc1ffec",
+      "parentId": "16594986-5b15-4861-9252-c9a5531599fd",
       "layout": {
         "container": {
           "mode": "fixed",
@@ -1215,10 +1624,10 @@
       "children": []
     },
     {
-      "id": "e0e3ee84-b8e8-4c8f-8740-7980aa358e0f",
+      "id": "bf4a05d8-6f52-4b10-a389-85d843f5b341",
       "type": "WebLabel",
       "name": "Abertura",
-      "parentId": "23621527-be15-448d-81d7-5a9bdbc1ffec",
+      "parentId": "16594986-5b15-4861-9252-c9a5531599fd",
       "layout": {
         "container": {
           "mode": "fixed",
@@ -1273,10 +1682,10 @@
       "children": []
     },
     {
-      "id": "6522c6ba-cfbf-40af-9e24-7cbf90f11bda",
+      "id": "b94a8e7c-5464-4c19-b85a-8ecad04a4da7",
       "type": "WebGroup",
       "name": "DadosFechamento",
-      "parentId": "878af721-df35-486b-ba41-b37796e2a93c",
+      "parentId": "2a792919-85b8-434e-9444-f8ace5bd62f8",
       "layout": {
         "container": {
           "mode": "column",
@@ -1326,15 +1735,15 @@
         "OnMouseLeave": null
       },
       "children": [
-        "fe59d077-5765-49a0-ba8b-78e4de78a5e7",
-        "c706d526-2576-4c61-9fad-64112aa1df33"
+        "8a9bae07-9c52-42f4-978a-ac026f31df64",
+        "d112c2b9-b822-4f2a-a150-2fefab172391"
       ]
     },
     {
-      "id": "fe59d077-5765-49a0-ba8b-78e4de78a5e7",
+      "id": "8a9bae07-9c52-42f4-978a-ac026f31df64",
       "type": "WebLabel",
       "name": "LBLFechamento",
-      "parentId": "6522c6ba-cfbf-40af-9e24-7cbf90f11bda",
+      "parentId": "b94a8e7c-5464-4c19-b85a-8ecad04a4da7",
       "layout": {
         "container": {
           "mode": "fixed",
@@ -1389,10 +1798,10 @@
       "children": []
     },
     {
-      "id": "c706d526-2576-4c61-9fad-64112aa1df33",
+      "id": "d112c2b9-b822-4f2a-a150-2fefab172391",
       "type": "WebLabel",
       "name": "Fechamento",
-      "parentId": "6522c6ba-cfbf-40af-9e24-7cbf90f11bda",
+      "parentId": "b94a8e7c-5464-4c19-b85a-8ecad04a4da7",
       "layout": {
         "container": {
           "mode": "fixed",
@@ -1447,10 +1856,10 @@
       "children": []
     },
     {
-      "id": "3b4bdfc8-c54f-4d03-b207-4c6ca8fccddd",
+      "id": "cbab5b29-ab0b-4b89-8953-19a563365e5f",
       "type": "WebGroup",
       "name": "DadosEntrega",
-      "parentId": "878af721-df35-486b-ba41-b37796e2a93c",
+      "parentId": "2a792919-85b8-434e-9444-f8ace5bd62f8",
       "layout": {
         "container": {
           "mode": "column",
@@ -1500,15 +1909,15 @@
         "OnMouseLeave": null
       },
       "children": [
-        "6f1d5d3d-d986-4d8b-bb2c-b36c2ba6b21f",
-        "e519a101-caa2-4b06-b3c0-d2b0aaf66b8a"
+        "28919a9b-b0fc-43dc-8957-d6b7c850180a",
+        "6bbeeb20-1d83-46ab-8bec-3797e038a667"
       ]
     },
     {
-      "id": "6f1d5d3d-d986-4d8b-bb2c-b36c2ba6b21f",
+      "id": "28919a9b-b0fc-43dc-8957-d6b7c850180a",
       "type": "WebLabel",
       "name": "LBLEntrega",
-      "parentId": "3b4bdfc8-c54f-4d03-b207-4c6ca8fccddd",
+      "parentId": "cbab5b29-ab0b-4b89-8953-19a563365e5f",
       "layout": {
         "container": {
           "mode": "fixed",
@@ -1563,10 +1972,10 @@
       "children": []
     },
     {
-      "id": "e519a101-caa2-4b06-b3c0-d2b0aaf66b8a",
+      "id": "6bbeeb20-1d83-46ab-8bec-3797e038a667",
       "type": "WebLabel",
       "name": "Entrega",
-      "parentId": "3b4bdfc8-c54f-4d03-b207-4c6ca8fccddd",
+      "parentId": "cbab5b29-ab0b-4b89-8953-19a563365e5f",
       "layout": {
         "container": {
           "mode": "fixed",
@@ -1621,10 +2030,10 @@
       "children": []
     },
     {
-      "id": "f5b18486-8294-4940-a702-ea603c90aa05",
+      "id": "57738959-97c7-46a8-b456-fb7ba7ba42c8",
       "type": "WebGroup",
       "name": "DadosRecebedor",
-      "parentId": "878af721-df35-486b-ba41-b37796e2a93c",
+      "parentId": "2a792919-85b8-434e-9444-f8ace5bd62f8",
       "layout": {
         "container": {
           "mode": "column",
@@ -1674,15 +2083,15 @@
         "OnMouseLeave": null
       },
       "children": [
-        "3852a87a-1f27-47c1-83e7-00592a87f01e",
-        "589010ba-6f5c-4e4a-b49b-07d751335c5b"
+        "f33a643f-bb2d-4e18-aa20-f9043eaf431b",
+        "7c185fc6-697f-4c9a-a608-0f8481dc8ef5"
       ]
     },
     {
-      "id": "3852a87a-1f27-47c1-83e7-00592a87f01e",
+      "id": "f33a643f-bb2d-4e18-aa20-f9043eaf431b",
       "type": "WebLabel",
       "name": "LBLRecebedor",
-      "parentId": "f5b18486-8294-4940-a702-ea603c90aa05",
+      "parentId": "57738959-97c7-46a8-b456-fb7ba7ba42c8",
       "layout": {
         "container": {
           "mode": "fixed",
@@ -1737,10 +2146,10 @@
       "children": []
     },
     {
-      "id": "589010ba-6f5c-4e4a-b49b-07d751335c5b",
+      "id": "7c185fc6-697f-4c9a-a608-0f8481dc8ef5",
       "type": "WebLabel",
       "name": "Recebedor",
-      "parentId": "f5b18486-8294-4940-a702-ea603c90aa05",
+      "parentId": "57738959-97c7-46a8-b456-fb7ba7ba42c8",
       "layout": {
         "container": {
           "mode": "fixed",
@@ -1795,10 +2204,10 @@
       "children": []
     },
     {
-      "id": "ede380a9-42b7-4aa3-94dc-4b847a0b0628",
+      "id": "790da16c-ac21-4fb2-913e-4b2feaa4305c",
       "type": "WebGroup",
       "name": "DadosTermo",
-      "parentId": "878af721-df35-486b-ba41-b37796e2a93c",
+      "parentId": "2a792919-85b8-434e-9444-f8ace5bd62f8",
       "layout": {
         "container": {
           "mode": "column",
@@ -1848,15 +2257,15 @@
         "OnMouseLeave": null
       },
       "children": [
-        "02e1b012-81b9-4c12-9f14-bc18ea92e272",
-        "e7129493-9e5d-4bdc-9d99-e73803ed25d0"
+        "4b418bb2-9307-4506-abcd-d93e27355527",
+        "cc0643de-63b8-4f54-99d0-24e975efb3c2"
       ]
     },
     {
-      "id": "02e1b012-81b9-4c12-9f14-bc18ea92e272",
+      "id": "4b418bb2-9307-4506-abcd-d93e27355527",
       "type": "WebLabel",
       "name": "LBLTermo",
-      "parentId": "ede380a9-42b7-4aa3-94dc-4b847a0b0628",
+      "parentId": "790da16c-ac21-4fb2-913e-4b2feaa4305c",
       "layout": {
         "container": {
           "mode": "fixed",
@@ -1911,10 +2320,10 @@
       "children": []
     },
     {
-      "id": "e7129493-9e5d-4bdc-9d99-e73803ed25d0",
+      "id": "cc0643de-63b8-4f54-99d0-24e975efb3c2",
       "type": "WebLabel",
       "name": "Termo",
-      "parentId": "ede380a9-42b7-4aa3-94dc-4b847a0b0628",
+      "parentId": "790da16c-ac21-4fb2-913e-4b2feaa4305c",
       "layout": {
         "container": {
           "mode": "fixed",
@@ -1969,10 +2378,10 @@
       "children": []
     },
     {
-      "id": "ff4452c8-c237-45e0-b7c2-12921c85c5ed",
+      "id": "fa7160c7-9219-4ff8-9f38-c403e4c0dfe9",
       "type": "WebDataGrid",
       "name": "GRDEquipamentos",
-      "parentId": "c12108c3-4f5e-460d-8d1d-1e290e940f28",
+      "parentId": "638a099d-7859-47b5-9a39-b259187aa4ca",
       "layout": {
         "container": {
           "mode": "fixed",
@@ -2013,13 +2422,13 @@
         "enabled": true,
         "collapseWhenHidden": true,
         "dataGridConfig": {
-          "apiClientId": "fa42a68b-90e5-4b2a-b943-1f1e1b87fb62",
+          "apiClientId": "12422f0d-ff60-4931-b03a-7030f75237ee",
           "cellPaddingHorizontal": 10,
           "cellPaddingVertical": 8,
           "columnCount": 4,
           "columns": [
             {
-              "id": "bcb70bf4-9b36-46d9-8554-a2df32df8188",
+              "id": "fa42a68b-90e5-4b2a-b943-1f1e1b87fb62",
               "width": 140,
               "minWidth": 90,
               "maxWidth": null,
@@ -2037,7 +2446,7 @@
               "widthMode": "fixed"
             },
             {
-              "id": "bd1a35e9-c696-4f4c-8a46-09b7e3c4b036",
+              "id": "f9af7317-220f-4d3e-a690-ed334d07cf05",
               "width": 180,
               "minWidth": 90,
               "maxWidth": null,
@@ -2055,7 +2464,7 @@
               "widthMode": "dynamic"
             },
             {
-              "id": "2019f4c3-bd2b-4cc5-a86b-76696d75330f",
+              "id": "39c0b6fb-795b-4a8f-bd65-814d268b5016",
               "width": 100,
               "minWidth": 90,
               "maxWidth": null,
@@ -2073,7 +2482,7 @@
               "widthMode": "fixed"
             },
             {
-              "id": "2b041ea1-395f-47ef-815f-e71737e65b4f",
+              "id": "bcb70bf4-9b36-46d9-8554-a2df32df8188",
               "width": 180,
               "minWidth": 90,
               "maxWidth": null,
@@ -2097,7 +2506,7 @@
           "listPath": "/data",
           "maxRowHeight": null,
           "minRowHeight": 36,
-          "operationId": "39c0b6fb-795b-4a8f-bd65-814d268b5016",
+          "operationId": "5c2672c5-5615-4e0d-a1a8-f4dbff32bf05",
           "pageSize": 25,
           "pageSizeOptions": [
             10,
@@ -2139,10 +2548,10 @@
       "children": []
     },
     {
-      "id": "fa42a68b-90e5-4b2a-b943-1f1e1b87fb62",
+      "id": "12422f0d-ff60-4931-b03a-7030f75237ee",
       "type": "WebApiClient",
       "name": "Api",
-      "parentId": "c12108c3-4f5e-460d-8d1d-1e290e940f28",
+      "parentId": "638a099d-7859-47b5-9a39-b259187aa4ca",
       "layout": {
         "container": {
           "mode": "fixed",
@@ -2186,7 +2595,7 @@
           "defaultHeaders": [],
           "operations": [
             {
-              "id": "f9af7317-220f-4d3e-a690-ed334d07cf05",
+              "id": "6c95b187-ff27-41ad-9359-fc66b8848592",
               "name": "Remessa",
               "apiVersion": 1,
               "body": {
@@ -2199,7 +2608,7 @@
               "path": "sigat/remessa",
               "query": [
                 {
-                  "id": "d6522f93-5dfc-4823-90f1-079933084f19",
+                  "id": "bd1a35e9-c696-4f4c-8a46-09b7e3c4b036",
                   "name": "id",
                   "value": "",
                   "enabled": false
@@ -2207,11 +2616,11 @@
               ],
               "responseSchema": {
                 "root": {
-                  "id": "db0746ca-bcc5-4f61-96b7-6a2efcf625c8",
+                  "id": "2019f4c3-bd2b-4cc5-a86b-76696d75330f",
                   "name": "Response",
                   "children": [
                     {
-                      "id": "683db3a8-5003-41ed-86a0-b53ecdfb7cb9",
+                      "id": "2b041ea1-395f-47ef-815f-e71737e65b4f",
                       "name": "success",
                       "children": [],
                       "kind": "field",
@@ -2220,11 +2629,11 @@
                       "path": "/success"
                     },
                     {
-                      "id": "5d95a538-f2d0-4ff0-aee4-25b09d56c0b0",
+                      "id": "d6522f93-5dfc-4823-90f1-079933084f19",
                       "name": "data",
                       "children": [
                         {
-                          "id": "53288858-21a7-4aac-8c5a-af061ba0bcf7",
+                          "id": "db0746ca-bcc5-4f61-96b7-6a2efcf625c8",
                           "name": "id_remessa_inservivel",
                           "children": [],
                           "kind": "field",
@@ -2233,7 +2642,7 @@
                           "path": "/data/*/id_remessa_inservivel"
                         },
                         {
-                          "id": "cec1c4a3-c704-4091-91d4-d1e39ed75a95",
+                          "id": "683db3a8-5003-41ed-86a0-b53ecdfb7cb9",
                           "name": "data_abertura",
                           "children": [],
                           "kind": "field",
@@ -2242,7 +2651,7 @@
                           "path": "/data/*/data_abertura"
                         },
                         {
-                          "id": "bc255c70-9dac-4ce2-a125-fc1dd96bb484",
+                          "id": "5d95a538-f2d0-4ff0-aee4-25b09d56c0b0",
                           "name": "data_fechamento",
                           "children": [],
                           "kind": "field",
@@ -2251,7 +2660,7 @@
                           "path": "/data/*/data_fechamento"
                         },
                         {
-                          "id": "f5d77684-1e85-45df-adbc-cddca21292de",
+                          "id": "53288858-21a7-4aac-8c5a-af061ba0bcf7",
                           "name": "data_entrega",
                           "children": [],
                           "kind": "field",
@@ -2260,7 +2669,7 @@
                           "path": "/data/*/data_entrega"
                         },
                         {
-                          "id": "7159a357-7e00-43d3-92bd-1c91b77259d4",
+                          "id": "cec1c4a3-c704-4091-91d4-d1e39ed75a95",
                           "name": "nome_recebedor",
                           "children": [],
                           "kind": "field",
@@ -2269,7 +2678,7 @@
                           "path": "/data/*/nome_recebedor"
                         },
                         {
-                          "id": "1fb7badf-4a41-4df5-857c-214e31bdabc0",
+                          "id": "bc255c70-9dac-4ce2-a125-fc1dd96bb484",
                           "name": "falha_envio",
                           "children": [],
                           "kind": "field",
@@ -2278,7 +2687,7 @@
                           "path": "/data/*/falha_envio"
                         },
                         {
-                          "id": "d4e56ba4-9a4e-4e22-897f-5aa2e50f5740",
+                          "id": "f5d77684-1e85-45df-adbc-cddca21292de",
                           "name": "divisao_remessa",
                           "children": [],
                           "kind": "field",
@@ -2287,7 +2696,7 @@
                           "path": "/data/*/divisao_remessa"
                         },
                         {
-                          "id": "fc461c34-5074-427b-b186-d209b8aef0fd",
+                          "id": "7159a357-7e00-43d3-92bd-1c91b77259d4",
                           "name": "pool_equipamentos",
                           "children": [],
                           "kind": "field",
@@ -2296,7 +2705,7 @@
                           "path": "/data/*/pool_equipamentos"
                         },
                         {
-                          "id": "a30b6376-d9e9-4de4-a49f-0db662f337df",
+                          "id": "1fb7badf-4a41-4df5-857c-214e31bdabc0",
                           "name": "nome_usuario",
                           "children": [],
                           "kind": "field",
@@ -2305,7 +2714,7 @@
                           "path": "/data/*/nome_usuario"
                         },
                         {
-                          "id": "57e112bd-179d-4258-9d39-183de2f20ef3",
+                          "id": "d4e56ba4-9a4e-4e22-897f-5aa2e50f5740",
                           "name": "id_termo",
                           "children": [],
                           "kind": "field",
@@ -2314,7 +2723,7 @@
                           "path": "/data/*/id_termo"
                         },
                         {
-                          "id": "abe405c4-2018-49ca-bc70-0bb8073771aa",
+                          "id": "fc461c34-5074-427b-b186-d209b8aef0fd",
                           "name": "nome_termo",
                           "children": [],
                           "kind": "field",
@@ -2329,7 +2738,7 @@
                       "path": "/data"
                     },
                     {
-                      "id": "350b9a9e-299e-4ec4-856c-cdf81e367793",
+                      "id": "a30b6376-d9e9-4de4-a49f-0db662f337df",
                       "name": "page",
                       "children": [],
                       "kind": "field",
@@ -2338,7 +2747,7 @@
                       "path": "/page"
                     },
                     {
-                      "id": "e7c5c1f9-eec6-4e8b-8167-09522138e118",
+                      "id": "57e112bd-179d-4258-9d39-183de2f20ef3",
                       "name": "page_size",
                       "children": [],
                       "kind": "field",
@@ -2347,7 +2756,7 @@
                       "path": "/page_size"
                     },
                     {
-                      "id": "8fb62f6a-6232-42bd-96fc-0829672472bf",
+                      "id": "abe405c4-2018-49ca-bc70-0bb8073771aa",
                       "name": "total_pages",
                       "children": [],
                       "kind": "field",
@@ -2356,7 +2765,7 @@
                       "path": "/total_pages"
                     },
                     {
-                      "id": "0d52731e-7cec-473e-9b9e-26a008b4362e",
+                      "id": "350b9a9e-299e-4ec4-856c-cdf81e367793",
                       "name": "total",
                       "children": [],
                       "kind": "field",
@@ -2365,7 +2774,7 @@
                       "path": "/total"
                     },
                     {
-                      "id": "a7de1aff-80ef-42f3-a751-d15784454cde",
+                      "id": "e7c5c1f9-eec6-4e8b-8167-09522138e118",
                       "name": "has_more",
                       "children": [],
                       "kind": "field",
@@ -2384,7 +2793,7 @@
               "timeoutMs": null
             },
             {
-              "id": "39c0b6fb-795b-4a8f-bd65-814d268b5016",
+              "id": "5c2672c5-5615-4e0d-a1a8-f4dbff32bf05",
               "name": "Equipamentos",
               "apiVersion": 1,
               "body": {
@@ -2397,7 +2806,7 @@
               "path": "sigat/remessa-equipamentos",
               "query": [
                 {
-                  "id": "b3b39b85-0f15-4744-a2ea-f72591713726",
+                  "id": "8fb62f6a-6232-42bd-96fc-0829672472bf",
                   "name": "id",
                   "value": "",
                   "enabled": false
@@ -2405,11 +2814,11 @@
               ],
               "responseSchema": {
                 "root": {
-                  "id": "889c78d5-f828-4cae-96e3-f4c0a31274fc",
+                  "id": "0d52731e-7cec-473e-9b9e-26a008b4362e",
                   "name": "Response",
                   "children": [
                     {
-                      "id": "fb00d809-92b4-42d7-9ecf-49112aff66cc",
+                      "id": "a7de1aff-80ef-42f3-a751-d15784454cde",
                       "name": "success",
                       "children": [],
                       "kind": "field",
@@ -2418,11 +2827,11 @@
                       "path": "/success"
                     },
                     {
-                      "id": "dd879c7c-bfd8-4061-b514-366e921a737d",
+                      "id": "b3b39b85-0f15-4744-a2ea-f72591713726",
                       "name": "data",
                       "children": [
                         {
-                          "id": "6d4b2e09-93b4-48f0-89f7-d929dd5989ba",
+                          "id": "889c78d5-f828-4cae-96e3-f4c0a31274fc",
                           "name": "numero_equipamento",
                           "children": [],
                           "kind": "field",
@@ -2431,7 +2840,7 @@
                           "path": "/data/*/numero_equipamento"
                         },
                         {
-                          "id": "bb3db075-0b2b-4cc4-8d05-5491d785027b",
+                          "id": "fb00d809-92b4-42d7-9ecf-49112aff66cc",
                           "name": "descricao_equipamento",
                           "children": [],
                           "kind": "field",
@@ -2440,7 +2849,7 @@
                           "path": "/data/*/descricao_equipamento"
                         },
                         {
-                          "id": "c4c88cca-8961-4e28-a449-a5d8966908b0",
+                          "id": "dd879c7c-bfd8-4061-b514-366e921a737d",
                           "name": "id_chamado",
                           "children": [],
                           "kind": "field",
@@ -2449,7 +2858,7 @@
                           "path": "/data/*/id_chamado"
                         },
                         {
-                          "id": "f68b5355-b25c-476c-ac57-6f624d3c4056",
+                          "id": "6d4b2e09-93b4-48f0-89f7-d929dd5989ba",
                           "name": "id_interacao",
                           "children": [],
                           "kind": "field",
@@ -2458,7 +2867,7 @@
                           "path": "/data/*/id_interacao"
                         },
                         {
-                          "id": "88516d3e-932a-4133-a143-5f96e2d22ae6",
+                          "id": "bb3db075-0b2b-4cc4-8d05-5491d785027b",
                           "name": "texto_interacao",
                           "children": [],
                           "kind": "field",
@@ -2467,7 +2876,7 @@
                           "path": "/data/*/texto_interacao"
                         },
                         {
-                          "id": "f6e56a80-8516-453c-a38a-d2a528757b5a",
+                          "id": "c4c88cca-8961-4e28-a449-a5d8966908b0",
                           "name": "nome_local",
                           "children": [],
                           "kind": "field",
@@ -2476,7 +2885,7 @@
                           "path": "/data/*/nome_local"
                         },
                         {
-                          "id": "25311fcf-6e6a-44d5-be7f-fe5160b7dadb",
+                          "id": "f68b5355-b25c-476c-ac57-6f624d3c4056",
                           "name": "nome_usuario",
                           "children": [],
                           "kind": "field",
@@ -2485,7 +2894,7 @@
                           "path": "/data/*/nome_usuario"
                         },
                         {
-                          "id": "171c8681-458c-4f0c-b583-d839a16bfa44",
+                          "id": "88516d3e-932a-4133-a143-5f96e2d22ae6",
                           "name": "data_abertura",
                           "children": [],
                           "kind": "field",
@@ -2494,7 +2903,7 @@
                           "path": "/data/*/data_abertura"
                         },
                         {
-                          "id": "8a126094-9907-4a38-9974-fa98607c901b",
+                          "id": "f6e56a80-8516-453c-a38a-d2a528757b5a",
                           "name": "data_fechamento",
                           "children": [],
                           "kind": "field",
@@ -2503,7 +2912,7 @@
                           "path": "/data/*/data_fechamento"
                         },
                         {
-                          "id": "4a329dd7-5685-402f-8570-5938927e7a47",
+                          "id": "25311fcf-6e6a-44d5-be7f-fe5160b7dadb",
                           "name": "falha_envio",
                           "children": [],
                           "kind": "field",
@@ -2512,7 +2921,7 @@
                           "path": "/data/*/falha_envio"
                         },
                         {
-                          "id": "270fcd2b-eca1-4e03-9948-d2c39d140436",
+                          "id": "171c8681-458c-4f0c-b583-d839a16bfa44",
                           "name": "id_termo",
                           "children": [],
                           "kind": "field",
@@ -2527,7 +2936,7 @@
                       "path": "/data"
                     },
                     {
-                      "id": "beab1424-dedc-43d6-a867-b52f47dd4105",
+                      "id": "8a126094-9907-4a38-9974-fa98607c901b",
                       "name": "page",
                       "children": [],
                       "kind": "field",
@@ -2536,7 +2945,7 @@
                       "path": "/page"
                     },
                     {
-                      "id": "ccb9ea67-05cd-4e20-a0c1-dbf4d2a9bd18",
+                      "id": "4a329dd7-5685-402f-8570-5938927e7a47",
                       "name": "page_size",
                       "children": [],
                       "kind": "field",
@@ -2545,7 +2954,7 @@
                       "path": "/page_size"
                     },
                     {
-                      "id": "e05662d3-c60d-414c-8cda-d76f2b4afce3",
+                      "id": "270fcd2b-eca1-4e03-9948-d2c39d140436",
                       "name": "total_pages",
                       "children": [],
                       "kind": "field",
@@ -2554,7 +2963,7 @@
                       "path": "/total_pages"
                     },
                     {
-                      "id": "87052a8d-6726-4001-89f5-358a60634a08",
+                      "id": "beab1424-dedc-43d6-a867-b52f47dd4105",
                       "name": "total",
                       "children": [],
                       "kind": "field",
@@ -2563,7 +2972,7 @@
                       "path": "/total"
                     },
                     {
-                      "id": "5c958f20-b9bc-439d-bef2-34482aa2ac1d",
+                      "id": "ccb9ea67-05cd-4e20-a0c1-dbf4d2a9bd18",
                       "name": "has_more",
                       "children": [],
                       "kind": "field",
@@ -2592,6 +3001,240 @@
         "OnRequest": null,
         "OnSuccess": null
       },
+      "children": []
+    },
+    {
+      "id": "e2783215-03de-4106-b853-09b7243ac6cf",
+      "type": "WebGroup",
+      "name": "Rodape",
+      "parentId": "19da069f-86f0-49bc-9c47-dd9e7f1ccce1",
+      "layout": {
+        "container": {
+          "mode": "row",
+          "paddingTop": 8,
+          "paddingRight": 16,
+          "paddingBottom": 8,
+          "paddingLeft": 16,
+          "gap": 4,
+          "wrap": true,
+          "justifyContent": "end",
+          "alignItems": "center"
+        },
+        "item": {
+          "width": "stretch",
+          "height": "fit-content",
+          "minWidth": 0,
+          "maxWidth": null,
+          "minHeight": 0,
+          "maxHeight": null,
+          "grow": 0,
+          "shrink": false,
+          "alignSelf": "auto",
+          "horizontalAnchor": "start",
+          "verticalAnchor": "start",
+          "left": 0,
+          "right": 0,
+          "top": 0,
+          "bottom": 0
+        }
+      },
+      "bounds": {
+        "width": 240,
+        "height": 160,
+        "x": 0,
+        "y": 0
+      },
+      "props": {
+        "enabled": true,
+        "aspectRatio": "none",
+        "collapseWhenHidden": true,
+        "visible": true
+      },
+      "events": {
+        "OnClick": null,
+        "OnDblClick": null,
+        "OnMouseEnter": null,
+        "OnMouseLeave": null
+      },
+      "styleId": "sigat2-barra",
+      "children": [
+        "78dd52d6-c7d4-480e-9840-7df5bce091a0",
+        "7420d255-2b98-47e9-953f-3d102c5cb71e",
+        "0d4da069-b021-41d8-8d9a-6a6a65e46689"
+      ]
+    },
+    {
+      "id": "78dd52d6-c7d4-480e-9840-7df5bce091a0",
+      "type": "WebLabel",
+      "name": "LBLRodapeAutorizacao",
+      "parentId": "e2783215-03de-4106-b853-09b7243ac6cf",
+      "layout": {
+        "container": {
+          "mode": "fixed",
+          "paddingTop": 0,
+          "paddingRight": 0,
+          "paddingBottom": 0,
+          "paddingLeft": 0,
+          "gap": 0,
+          "wrap": false,
+          "justifyContent": "start",
+          "alignItems": "start"
+        },
+        "item": {
+          "width": "fit-content",
+          "height": "fixed",
+          "minWidth": 0,
+          "maxWidth": null,
+          "minHeight": 0,
+          "maxHeight": null,
+          "grow": 0,
+          "shrink": false,
+          "alignSelf": "auto",
+          "horizontalAnchor": "start",
+          "verticalAnchor": "start",
+          "left": 0,
+          "right": 0,
+          "top": 0,
+          "bottom": 0
+        }
+      },
+      "bounds": {
+        "width": 80,
+        "height": 20,
+        "x": 0,
+        "y": 0
+      },
+      "props": {
+        "caption": "Autorização:",
+        "enabled": true,
+        "autoSize": false,
+        "collapseWhenHidden": true,
+        "color": "#000000",
+        "visible": true
+      },
+      "events": {
+        "OnClick": null,
+        "OnDblClick": null,
+        "OnMouseEnter": null,
+        "OnMouseLeave": null
+      },
+      "styleId": "sigat2-rodape",
+      "children": []
+    },
+    {
+      "id": "7420d255-2b98-47e9-953f-3d102c5cb71e",
+      "type": "WebLabel",
+      "name": "LBLRodapeGrupo",
+      "parentId": "e2783215-03de-4106-b853-09b7243ac6cf",
+      "layout": {
+        "container": {
+          "mode": "fixed",
+          "paddingTop": 0,
+          "paddingRight": 0,
+          "paddingBottom": 0,
+          "paddingLeft": 0,
+          "gap": 0,
+          "wrap": false,
+          "justifyContent": "start",
+          "alignItems": "start"
+        },
+        "item": {
+          "width": "fit-content",
+          "height": "fixed",
+          "minWidth": 0,
+          "maxWidth": null,
+          "minHeight": 0,
+          "maxHeight": null,
+          "grow": 0,
+          "shrink": false,
+          "alignSelf": "auto",
+          "horizontalAnchor": "start",
+          "verticalAnchor": "start",
+          "left": 0,
+          "right": 0,
+          "top": 0,
+          "bottom": 0
+        }
+      },
+      "bounds": {
+        "width": 80,
+        "height": 18,
+        "x": 0,
+        "y": 0
+      },
+      "props": {
+        "caption": "-",
+        "enabled": true,
+        "autoSize": false,
+        "collapseWhenHidden": true,
+        "color": "#000000",
+        "visible": true
+      },
+      "events": {
+        "OnClick": null,
+        "OnDblClick": null,
+        "OnMouseEnter": null,
+        "OnMouseLeave": null
+      },
+      "styleId": "sigat2-selo",
+      "children": []
+    },
+    {
+      "id": "0d4da069-b021-41d8-8d9a-6a6a65e46689",
+      "type": "WebLabel",
+      "name": "LBLRodapeAmbiente",
+      "parentId": "e2783215-03de-4106-b853-09b7243ac6cf",
+      "layout": {
+        "container": {
+          "mode": "fixed",
+          "paddingTop": 0,
+          "paddingRight": 0,
+          "paddingBottom": 0,
+          "paddingLeft": 0,
+          "gap": 0,
+          "wrap": false,
+          "justifyContent": "start",
+          "alignItems": "start"
+        },
+        "item": {
+          "width": "fit-content",
+          "height": "fixed",
+          "minWidth": 0,
+          "maxWidth": null,
+          "minHeight": 0,
+          "maxHeight": null,
+          "grow": 0,
+          "shrink": false,
+          "alignSelf": "auto",
+          "horizontalAnchor": "start",
+          "verticalAnchor": "start",
+          "left": 0,
+          "right": 0,
+          "top": 0,
+          "bottom": 0
+        }
+      },
+      "bounds": {
+        "width": 80,
+        "height": 20,
+        "x": 0,
+        "y": 0
+      },
+      "props": {
+        "caption": "| Ambiente: production | Versão: 0.1.0 | SEAD/CGTI",
+        "enabled": true,
+        "autoSize": false,
+        "collapseWhenHidden": true,
+        "color": "#000000",
+        "visible": true
+      },
+      "events": {
+        "OnClick": null,
+        "OnDblClick": null,
+        "OnMouseEnter": null,
+        "OnMouseLeave": null
+      },
+      "styleId": "sigat2-rodape",
       "children": []
     }
   ]

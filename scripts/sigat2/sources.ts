@@ -1,6 +1,6 @@
 /** Authored TypeScript of the SIGAT2 example: one shared unit plus one class per page. */
 
-const UNIT = `import type { WebHtml, WebLabel } from '@webrad/runtime';
+const UNIT = `import type { WebButton, WebButtonIcon, WebDataGrid, WebHtml, WebLabel, WebTabs } from '@webrad/runtime';
 
 export type Linha = Readonly<Record<string, unknown>>;
 
@@ -155,8 +155,53 @@ export function abrirEquipamento(num: unknown): void {
 
 // ---- header shared by every signed-in page
 
-export function preencherCabecalho(usuario: WebLabel): void {
-  usuario.caption = Access.user?.name ?? '';
+/** The navbar and footer components every signed-in page has (see header() and footer()). */
+export interface Moldura {
+  readonly LBLUsuario: WebLabel;
+  readonly BTNBloqueados: WebButton;
+  readonly LBLRodapeGrupo: WebLabel;
+  readonly LBLRodapeAmbiente: WebLabel;
+}
+
+/** Bootstrap 4 badge colours named by grupo.cor_grupo. */
+const COR_DO_GRUPO: Readonly<Record<string, readonly [fundo: string, texto: string]>> = {
+  primary: ['#007bff', '#ffffff'], secondary: ['#6c757d', '#ffffff'], success: ['#28a745', '#ffffff'],
+  danger: ['#dc3545', '#ffffff'], warning: ['#ffc107', '#212529'], info: ['#17a2b8', '#ffffff'],
+  light: ['#f8f9fa', '#212529'], dark: ['#343a40', '#ffffff'],
+};
+
+function ambiente(): string {
+  const host = location.hostname;
+  return host === 'localhost' || host.startsWith('127.') || host === '' ? 'development' : 'production';
+}
+
+/** Fills the navbar greeting and lock count and the footer group badge and environment. */
+export function preencherCabecalho(pagina: Moldura): void {
+  const dados = Access.user?.data ?? {};
+  pagina.LBLUsuario.caption = (Access.user?.name ?? '') + '!';
+  mostrarBloqueados(pagina, numero(dados.total_bloqueados));
+  pagina.LBLRodapeGrupo.caption = texto(dados.nome_grupo);
+  const [fundo, cor] = COR_DO_GRUPO[texto(dados.cor_grupo, 'secondary')] ?? COR_DO_GRUPO.secondary ?? ['#6c757d', '#ffffff'];
+  pagina.LBLRodapeGrupo.backgroundColor = fundo;
+  pagina.LBLRodapeGrupo.color = cor;
+  pagina.LBLRodapeAmbiente.caption = pagina.LBLRodapeAmbiente.caption.replace(/Ambiente: [^|]*/u, 'Ambiente: ' + ambiente() + ' ');
+}
+
+/** The yellow lock badge: how many open chamados the user holds. */
+export function mostrarBloqueados(pagina: Pick<Moldura, 'BTNBloqueados'>, total: number | null): void {
+  pagina.BTNBloqueados.caption = String(total ?? 0);
+  pagina.BTNBloqueados.element.title = (total ?? 0) === 1 ? '1 chamado bloqueado por você' : String(total ?? 0) + ' chamados bloqueados por você';
+}
+
+/** SIGAT lists the user's locked chamados from the lock badge; SIGAT2 opens the user's page. */
+export function abrirBloqueados(): void {
+  const id = Access.user?.id ?? '';
+  if (Access.hasRole('admin') && id !== '') {
+    abrir('Usuario', 'usuario', id);
+    return;
+  }
+  const total = numero(Access.user?.data?.total_bloqueados) ?? 0;
+  Toast(total === 1 ? 'Você tem 1 chamado bloqueado.' : 'Você tem ' + String(total) + ' chamados bloqueados.', { kind: 'info' });
 }
 
 export function buscar(termo: string): void {
@@ -368,9 +413,10 @@ export function situacaoDaEntrega(entregaChamado: unknown, equipPendentes: unkno
 }
 
 /**
- * Adds the painel signal columns to each row of painel-chamados: the status icon,
- * the alert strip (clock, unread e-mail, delivery), the queue badge, the wait time
- * and a text summary of all of them. Rows already prepared are left alone.
+ * Adds the painel signals to each row of painel-chamados, as Chamado::listar_chamados_painel
+ * draws them: the status icon, the clock and unread e-mail badge that follow the requester,
+ * the queue and delivery badges that follow the location, the wait time and a text summary
+ * of all of them. Rows already prepared are left alone.
  */
 export function prepararLinhasDoPainel(resposta: unknown): void {
   for (const linha of linhas(resposta) as Record<string, unknown>[]) {
@@ -380,35 +426,162 @@ export function prepararLinhasDoPainel(resposta: unknown): void {
     const nivel = nivelDeEspera(minutos);
     const naoLidos = numero(linha.email_nao_lido_chamado) ?? 0;
     const entrega = situacaoDaEntrega(linha.entrega_chamado, linha.equip_pendentes);
-    let alertas = '';
-    let x = 2;
+    let solicitante = '';
+    let x = 1;
+    const avisos: string[] = [];
     if (nivel > 0) {
-      alertas += relogio(x + 3, 9, 18, nivel === 2);
-      x += 28;
+      solicitante += relogio(x, 1, 16, nivel === 2);
+      x += 20;
+      avisos.push(nivel === 2 ? 'Chamado pendente há mais de 24 horas' : 'Chamado pendente há mais de 6 horas');
     }
     if (naoLidos > 0) {
-      alertas += selo('mail', x, 8, COR.info, '#ffffff');
-      x += 30;
+      solicitante += selo('mail', x, 0, COR.info, '#ffffff', 22);
+      x += 24;
+      avisos.push('e-mail não lido');
     }
+    const fila = texto(linha.nome_fila, '');
+    let local = selo(formaDaFila(linha.icone_fila), 1, 0, COR.secundario, '#ffffff', 22);
+    const locais = ['Fila ' + fila];
     if (entrega !== '') {
-      alertas += selo('truck', x, 8, entrega === 'PRONTO' ? COR.sucesso : COR.alerta, entrega === 'PRONTO' ? '#ffffff' : COR.escuro);
+      local += selo('truck', 25, 0, entrega === 'PRONTO' ? COR.sucesso : COR.alerta, entrega === 'PRONTO' ? '#ffffff' : COR.escuro, 22);
+      locais.push(entrega === 'PRONTO' ? 'Pronto para entrega' : 'Parcialmente pronto para entrega');
     }
     const partes = [nomeDoStatus(status)];
     if (nivel > 0) partes.push((nivel === 2 ? '24h+' : '6h+') + ' sem interação');
     if (naoLidos > 0) partes.push('e-mail não lido');
     if (entrega === 'PRONTO') partes.push('entrega pronta');
     if (entrega === 'PARCIAL') partes.push('entrega parcial');
-    const fila = texto(linha.nome_fila, '');
-    const largura = Math.min(190, 34 + fila.length * 7);
-    linha.sinal_status = imagem(36, 36, iconeStatus(status));
-    linha.sinal_alertas = imagem(90, 36, alertas);
-    linha.sinal_fila = imagem(largura, 36,
-      '<rect x="1" y="7" width="' + (largura - 2) + '" height="22" rx="5" fill="' + COR.secundario + '"/>' +
-      forma(formaDaFila(linha.icone_fila), 7, 11, 14, TRACO + ' stroke="#ffffff"') +
-      '<text x="27" y="22.5" font-family="system-ui,Segoe UI,Arial,sans-serif" font-size="12" fill="#ffffff">' + escapar(fila) + '</text>');
+    linha.sinal_status = imagem(20, 20, iconeStatus(status, 2, 2, 16));
+    linha.sinal_solicitante = solicitante === '' ? '' : imagem(x, 20, solicitante);
+    linha.aviso_solicitante = avisos.join(', ');
+    linha.sinal_local = imagem(entrega === '' ? 24 : 48, 20, local);
+    linha.aviso_local = locais.join(', ');
     linha.situacao = partes.join(' · ');
     linha.espera_fmt = tempoDeEspera(minutos);
   }
+}
+
+// ---- painel decorations: SIGAT puts badges inside the text cells and icons in the tabs
+
+const CSS_PAINEL = '[data-sigat2-lista] .wr-data-grid-body-row:hover > .wr-data-grid-cell{background:bisque;cursor:pointer}' +
+  '.sigat2-sinal{display:inline-block;height:19px;margin-left:4px;vertical-align:top}' +
+  '.sigat2-contador{display:inline-block;margin-left:2px;padding:2px 5px;border-radius:4px;background:#f8f9fa;color:#212529;font-size:11px;font-weight:700;line-height:1}' +
+  '.sigat2-aba-icone{display:inline-block;width:16px;height:16px;margin-right:6px;vertical-align:-2px}' +
+  '.sigat2-aba-icone svg{display:block;width:16px;height:16px}' +
+  '[data-sigat2-abas] .wr-tab{opacity:1;font-weight:400;padding:8px 16px}' +
+  '[data-sigat2-abas] .wr-tab[aria-selected="true"]{color:#495057;border-color:#dee2e6 #dee2e6 #fff;font-weight:400}' +
+  '[data-sigat2-abas] .wr-tab:hover:not([aria-selected="true"]){border-color:#e9ecef #e9ecef #dee2e6}';
+
+function estiloDoPainel(documento: Document): void {
+  if (documento.getElementById('sigat2-painel-css') !== null) return;
+  const estilo = documento.createElement('style');
+  estilo.id = 'sigat2-painel-css';
+  estilo.textContent = CSS_PAINEL;
+  documento.head.append(estilo);
+}
+
+/** Field of a row that holds the signal image drawn after the text of a column. */
+const SINAIS_DA_COLUNA: Readonly<Record<string, readonly [imagem: string, aviso: string]>> = {
+  '/nome_solicitante_chamado': ['sinal_solicitante', 'aviso_solicitante'],
+  '/nome_local': ['sinal_local', 'aviso_local'],
+};
+
+function decorarLinhas(grade: WebDataGrid): void {
+  const colunas = new Map(grade.configuration.columns.map((coluna) => [coluna.id, coluna.fieldPath]));
+  const linhasVisiveis = grade.visibleRows;
+  const corpo = grade.element.querySelectorAll<HTMLElement>('.wr-data-grid-body > .wr-data-grid-body-row');
+  corpo.forEach((elemento, indice) => {
+    const linha = linhasVisiveis[indice] as Linha | undefined;
+    if (linha === undefined || elemento.dataset.sigat2Sinais === 'true') return;
+    elemento.dataset.sigat2Sinais = 'true';
+    for (const celula of elemento.querySelectorAll<HTMLElement>('.wr-data-grid-cell')) {
+      const campo = colunas.get(celula.dataset.webradDataGridColumn ?? '') ?? '';
+      if (campo === '/resumo_chamado') celula.title = texto(linha.resumo_chamado, '');
+      if (campo === '/sinal_status') {
+        const imagemStatus = celula.querySelector('img');
+        if (imagemStatus !== null) imagemStatus.alt = imagemStatus.title = texto(linha.situacao, '');
+      }
+      const sinal = SINAIS_DA_COLUNA[campo];
+      if (sinal === undefined) continue;
+      if (campo === '/nome_solicitante_chamado' && (numero(linha.email_nao_lido_chamado) ?? 0) > 0)
+        celula.style.fontWeight = '700';
+      const fonte = texto(linha[sinal[0]], '');
+      if (fonte === '') continue;
+      const imagemSinal = celula.ownerDocument.createElement('img');
+      imagemSinal.className = 'sigat2-sinal';
+      imagemSinal.src = fonte;
+      imagemSinal.alt = imagemSinal.title = texto(linha[sinal[1]], '');
+      celula.append(imagemSinal);
+    }
+  });
+}
+
+/**
+ * Draws the SIGAT badges right after the requester and location texts of the painel list,
+ * and the DataTables row highlight. The cells keep their text, so sorting and searching
+ * still work on them. Runs again whenever the grid draws new rows.
+ */
+export function sinaisNaLista(grade: WebDataGrid): void {
+  estiloDoPainel(grade.element.ownerDocument);
+  grade.element.dataset.sigat2Lista = 'true';
+  const observador = new MutationObserver(() => decorarLinhas(grade));
+  observador.observe(grade.element, { childList: true, subtree: true });
+  decorarLinhas(grade);
+}
+
+/** Marks a list with the DataTables row highlight of the painel. */
+export function destacarLinhas(grade: WebDataGrid): void {
+  estiloDoPainel(grade.element.ownerDocument);
+  grade.element.dataset.sigat2Lista = 'true';
+}
+
+const FORMAS_DAS_ABAS: Readonly<Record<string, readonly NoSvg[]>> = {
+  funnel: [['path', { d: 'M10 20a1 1 0 0 0 .553.895l2 1A1 1 0 0 0 14 21v-7a2 2 0 0 1 .517-1.341L21.74 4.67A1 1 0 0 0 21 3H3a1 1 0 0 0-.742 1.67l7.225 7.989A2 2 0 0 1 10 14z' }]],
+  archive: [['rect', { width: '20', height: '5', x: '2', y: '3', rx: '1' }], ['path', { d: 'M4 8v11a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8' }], ['path', { d: 'M10 12h4' }]],
+};
+
+/** The nav-tabs look of the SIGAT painel, with the Font Awesome icons redrawn in Lucide. */
+export function iconesNasAbas(abas: WebTabs, icones: readonly string[]): void {
+  estiloDoPainel(abas.element.ownerDocument);
+  abas.element.dataset.sigat2Abas = 'true';
+  abas.element.querySelectorAll<HTMLElement>('[role="tab"]').forEach((aba, indice) => {
+    const nome = icones[indice];
+    if (nome === undefined || aba.querySelector('.sigat2-aba-icone') !== null) return;
+    const nos = FORMAS_DAS_ABAS[nome] ?? FORMAS[nome] ?? [];
+    const icone = aba.ownerDocument.createElement('span');
+    icone.className = 'sigat2-aba-icone';
+    icone.setAttribute('aria-hidden', 'true');
+    icone.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">' +
+      nos.map(([tag, atributos]) => '<' + tag + Object.entries(atributos).map(([k, v]) => ' ' + k + '="' + v + '"').join('') + '/>').join('') + '</svg>';
+    aba.prepend(icone);
+  });
+}
+
+/** The badge-light counter that SIGAT puts on the selected queue button. */
+export function contadorNoBotao(botao: WebButton, valor: number | null): void {
+  botao.element.querySelector('.sigat2-contador')?.remove();
+  if (valor === null) return;
+  estiloDoPainel(botao.element.ownerDocument);
+  const contador = botao.element.ownerDocument.createElement('span');
+  contador.className = 'sigat2-contador';
+  contador.textContent = String(valor);
+  botao.element.append(contador);
+}
+
+/** fila.icone_fila (Font Awesome 5) mapped to the closest icon of the WebRAD button catalogue. */
+const ICONE_DO_BOTAO: Readonly<Record<string, WebButtonIcon>> = {
+  'fa-headset': 'headset', 'fa-walking': 'user', 'fa-tools': 'settings', 'fa-cubes': 'archive',
+  'fa-project-diagram': 'share', 'fa-phone-volume': 'phone', 'fa-network-wired': 'server',
+  'fa-broadcast-tower': 'radio', 'fa-box': 'gift', 'fa-truck': 'truck', 'fa-chalkboard-teacher': 'monitor',
+  'fa-laptop': 'laptop', 'fa-desktop': 'monitor', 'fa-print': 'printer',
+};
+
+export function iconeDoBotaoDaFila(iconeFila: unknown): WebButtonIcon {
+  for (const classe of texto(iconeFila, '').split(' ')) {
+    const icone = ICONE_DO_BOTAO[classe];
+    if (icone !== undefined) return icone;
+  }
+  return 'list';
 }
 
 // ---- signal strips rendered inside WebHtml frames (real text next to every icon)
@@ -424,53 +597,6 @@ const ESTILO_SINAIS = '<style>body{font-family:system-ui,Segoe UI,Arial,sans-ser
 
 function chip(icone: string, conteudo: string, tom: 'perigo' | 'alerta' | 'sucesso' | 'info' | 'neutro', largura = 24): string {
   return '<span class="chip ' + tom + '">' + svg(largura, 24, icone) + '<span>' + conteudo + '</span></span>';
-}
-
-function contagem(valor: unknown): number {
-  return numero(valor) ?? 0;
-}
-
-/** Counters above the painel queue (painel-indicadores): what needs attention first. */
-export function mostrarIndicadores(destino: WebHtml, indicadores: Linha | undefined): void {
-  if (indicadores === undefined) {
-    destino.html = ESTILO_SINAIS + '<p class="neutro">Indicadores indisponíveis.</p>';
-    return;
-  }
-  const bloqueados = contagem(indicadores.meus_bloqueados);
-  const remoto = contagem(indicadores.meus_bloqueados_remoto);
-  const comLimite = (numero(Access.user?.data?.autorizacao_usuario) ?? 0) <= 2;
-  const itens = [
-    chip(solido('circle', 3, 3, 18, COR.alerta, COR.alertaBorda), 'Abertos <b>' + contagem(indicadores.abertos) + '</b> de ' + contagem(indicadores.total), 'neutro'),
-    chip(solido('star', 3, 3, 18, COR.perigo, COR.perigoBorda), 'Prioridade <b>' + contagem(indicadores.prioritarios) + '</b>', contagem(indicadores.prioritarios) > 0 ? 'perigo' : 'neutro'),
-    chip(relogio(3, 3, 18, true), 'Sem interação há 24 h ou mais <b>' + contagem(indicadores.sem_interacao_24h) + '</b>', contagem(indicadores.sem_interacao_24h) > 0 ? 'perigo' : 'neutro'),
-    chip(relogio(3, 3, 18, false), 'Entre 6 h e 24 h <b>' + contagem(indicadores.sem_interacao_6h) + '</b>', contagem(indicadores.sem_interacao_6h) > 0 ? 'alerta' : 'neutro'),
-    chip(forma('lock-open', 3, 3, 18, TRACO + ' stroke="' + COR.secundario + '"'), 'Sem responsável <b>' + contagem(indicadores.sem_responsavel) + '</b>', 'neutro'),
-    chip(selo('mail', 0, 2, COR.info, '#ffffff'), 'E-mails não lidos <b>' + contagem(indicadores.emails_nao_lidos) + '</b>', contagem(indicadores.emails_nao_lidos) > 0 ? 'info' : 'neutro', 26),
-    chip(selo('truck', 0, 2, COR.sucesso, '#ffffff'), 'Prontos para entrega <b>' + contagem(indicadores.prontos_entrega) + '</b>', contagem(indicadores.prontos_entrega) > 0 ? 'sucesso' : 'neutro', 26),
-    chip(selo('truck', 0, 2, COR.alerta, COR.escuro), 'Entrega parcial <b>' + contagem(indicadores.entrega_parcial) + '</b>', 'neutro', 26),
-    chip(forma('lock', 3, 3, 18, TRACO + ' stroke="' + COR.escuro + '"'), 'Meus bloqueados <b>' + bloqueados + '</b>', 'neutro'),
-  ];
-  if (comLimite)
-    itens.push(chip(forma('lock', 3, 3, 18, TRACO + ' stroke="' + (remoto >= LIMITE_BLOQUEIOS_REMOTO ? COR.perigo : COR.escuro) + '"'),
-      'No Remoto <b>' + remoto + '</b> de ' + LIMITE_BLOQUEIOS_REMOTO, remoto >= LIMITE_BLOQUEIOS_REMOTO ? 'perigo' : 'neutro'));
-  destino.html = ESTILO_SINAIS + '<div class="faixa" role="list">' + itens.map((i) => i.replace('<span class="chip', '<span role="listitem" class="chip')).join('') + '</div>';
-}
-
-/** What each SIGAT icon means, as the ConsulTIC manual teaches new attendants. */
-export function mostrarLegenda(destino: WebHtml): void {
-  const item = (icone: string, significado: string, largura = 24): string =>
-    '<div>' + svg(largura, 24, icone) + '<span>' + significado + '</span></div>';
-  destino.html = ESTILO_SINAIS + '<h2>Legenda</h2><div class="legenda">' +
-    item(iconeStatus('PRIORIDADE', 3, 3), 'Prioridade: atender antes dos demais') +
-    item(iconeStatus('ABERTO', 3, 3), 'Chamado aberto, aguardando atendimento') +
-    item(iconeStatus('FECHADO', 3, 3), 'Chamado fechado') +
-    item(relogio(3, 3, 18, false), 'Sem interação há mais de 6 horas') +
-    item(relogio(3, 3, 18, true), 'Sem interação há 24 horas ou mais') +
-    item(selo('mail', 0, 2, COR.info, '#ffffff'), 'E-mail do solicitante não lido', 26) +
-    item(selo('truck', 0, 2, COR.sucesso, '#ffffff'), 'Pronto para entrega', 26) +
-    item(selo('truck', 0, 2, COR.alerta, COR.escuro), 'Parcialmente pronto para entrega', 26) +
-    item(forma('lock', 3, 3, 18, TRACO + ' stroke="' + COR.escuro + '"'), 'Bloqueie antes de atender (no Remoto, até ' + LIMITE_BLOQUEIOS_REMOTO + ' por pessoa)') +
-    '</div>';
 }
 
 /** The chamado header signals of ver_chamado.php, with text, as one strip. */
@@ -543,6 +669,10 @@ const CABECALHO = `
   public async Sair(): Promise<void> {
     await sair();
   }
+
+  public MostrarBloqueados(): void {
+    abrirBloqueados();
+  }
 `;
 
 function page(
@@ -554,7 +684,7 @@ function page(
 ): string {
   const unitImports = [
     ...new Set([
-      ...(header ? ['buscar', 'sair', 'preencherCabecalho'] : []),
+      ...(header ? ['abrirBloqueados', 'buscar', 'sair', 'preencherCabecalho'] : []),
       ...imports,
       ...(body.includes('executar(') ? ['executar'] : []),
     ]),
@@ -573,69 +703,156 @@ const INDEX = page(
   [
     'abrir',
     'abrirChamado',
+    'contadorNoBotao',
+    'destacarLinhas',
     'erro',
+    'iconeDoBotaoDaFila',
+    'iconesNasAbas',
     'linhas',
-    'mostrarIndicadores',
-    'mostrarLegenda',
+    'mostrarBloqueados',
+    'numero',
     'prepararLinhasDoPainel',
     'primeira',
+    'sinaisNaLista',
     'texto',
   ],
   `
   private carregado = false;
+  /** id_fila of each visible queue button, in order. */
+  private filas: number[] = [];
+  /** Selected queue: 0 = Todos, 99 = Entrega, as in SIGAT. */
+  private fila = 0;
+
+  private botoesDeFila() {
+    return [
+      this.BTNFila1, this.BTNFila2, this.BTNFila3, this.BTNFila4, this.BTNFila5, this.BTNFila6,
+      this.BTNFila7, this.BTNFila8, this.BTNFila9, this.BTNFila10, this.BTNFila11, this.BTNFila12,
+    ];
+  }
 
   public async Mostrar(): Promise<void> {
-    preencherCabecalho(this.LBLUsuario);
+    preencherCabecalho(this);
     this.TMRAtualizar.Start();
     if (this.carregado) {
       await this.Atualizar();
       return;
     }
     this.carregado = true;
-    // The signal columns (status icon, alerts, queue badge) are computed from each row
-    // before the grid draws it: prepare what is loaded, listen first, then bind the grid
-    // again so its own listener runs after this one.
-    const prepararPainel = (): void => prepararLinhasDoPainel(this.Api.getOperationState('Chamados').data);
+    iconesNasAbas(this.Abas, ['funnel', 'headset', 'archive']);
+    // The signals are computed from each row before the grid draws it: prepare what is
+    // loaded, listen first, then bind the grid again so its own listener runs after this one.
+    const prepararPainel = (): void =>
+      prepararLinhasDoPainel(this.Api.getOperationState('Chamados').data);
     prepararPainel();
     this.Api.subscribe(prepararPainel);
     this.GRDChamados.bindApiClient(this.Api);
-    mostrarLegenda(this.HTMLLegenda);
-    void this.CarregarIndicadores();
+    sinaisNaLista(this.GRDChamados);
+    destacarLinhas(this.GRDTriagem);
+    destacarLinhas(this.GRDEncerrados);
     try {
       const filas = linhas(await this.Api.Filas.execute());
-      this.CBFila.items = ['Todas as filas', ...filas.map((f) => texto(f.nome_fila)), 'Entrega'];
-      this.CBFila.values = ['0', ...filas.map((f) => texto(f.id_fila)), '99'];
-      this.CBFila.value = '0';
+      this.filas = [];
+      this.botoesDeFila().forEach((botao, indice) => {
+        const fila = filas[indice];
+        botao.visible = fila !== undefined;
+        if (fila === undefined) return;
+        botao.caption = texto(fila.nome_fila);
+        botao.icon = iconeDoBotaoDaFila(fila.icone_fila);
+        this.filas.push(numero(fila.id_fila) ?? 0);
+      });
     } catch (e) {
       Toast('Não foi possível carregar as filas: ' + erro(e), { kind: 'error' });
     }
     if (Access.hasRole('triagem')) void this.Api.Triagem.execute().catch(() => undefined);
+    await this.SelecionarFila(this.filaInicial());
   }
 
   public Ocultar(): void {
     this.TMRAtualizar.Stop();
   }
 
-  public async MudarFila(): Promise<void> {
-    const fila = Number(this.CBFila.value);
-    this.Api.Chamados.parameter.fila = fila > 0 ? fila : undefined;
-    await Promise.all([this.GRDChamados.refresh(), this.CarregarIndicadores()]);
-    this.LBLResumo.caption = fila === 99 ? 'Chamados com entrega pendente' : '';
+  /** SIGAT opens the queue chosen last (cookie fila_painel), else the user's own queue. */
+  private filaInicial(): number {
+    let salva = '';
+    try {
+      salva = localStorage.getItem('sigat2.fila_painel') ?? '';
+    } catch {
+      // Storage may be blocked; fall back to the user's queue.
+    }
+    const valida = (fila: number | null): fila is number =>
+      fila !== null && (fila === 0 || fila === 99 || this.filas.includes(fila));
+    const escolhida = salva === '' ? null : numero(salva);
+    if (valida(escolhida)) return escolhida;
+    const doUsuario = numero(Access.user?.data?.fila_usuario);
+    return valida(doUsuario) ? doUsuario : 0;
   }
 
-  /** Runs on the Atualizar button and every 2 minutes while the painel is open. */
+  private botaoDaFila(fila: number) {
+    if (fila === 99) return this.BTNEntrega;
+    return this.botoesDeFila()[this.filas.indexOf(fila)] ?? this.BTNTodos;
+  }
+
+  public async FiltrarFila(sender: { readonly name: string }): Promise<void> {
+    if (sender.name === 'BTNTodos') return this.SelecionarFila(0);
+    if (sender.name === 'BTNEntrega') return this.SelecionarFila(99);
+    const indice = this.botoesDeFila().findIndex((botao) => botao.name === sender.name);
+    const fila = this.filas[indice];
+    if (fila !== undefined) await this.SelecionarFila(fila);
+  }
+
+  private async SelecionarFila(fila: number): Promise<void> {
+    this.fila = fila;
+    try {
+      localStorage.setItem('sigat2.fila_painel', String(fila));
+    } catch {
+      // Storage may be blocked; the choice then lasts only while the page is open.
+    }
+    this.Api.Chamados.parameter.fila = fila > 0 ? fila : undefined;
+    // Bootstrap marks the pressed toggle with its darker active colour.
+    const ativo: Readonly<Record<string, string>> = { BTNTodos: '#117a8b', BTNEntrega: '#1e7e34' };
+    const selecionado = this.botaoDaFila(fila);
+    for (const botao of [...this.botoesDeFila(), this.BTNEntrega, this.BTNTodos]) {
+      const cor = botao === selecionado ? (ativo[botao.name] ?? '#0062cc') : '';
+      botao.backgroundColor = cor;
+      botao.borderColor = cor;
+      botao.element.setAttribute('aria-pressed', String(botao === selecionado));
+    }
+    await this.Atualizar();
+  }
+
+  /** Runs on a queue change and every 2 minutes while the painel is open. */
   public async Atualizar(): Promise<void> {
     await Promise.all([this.GRDChamados.refresh(), this.CarregarIndicadores()]);
+    const total = numero((this.Api.getOperationState('Chamados').data as { total?: unknown } | undefined)?.total);
+    for (const botao of [...this.botoesDeFila(), this.BTNEntrega, this.BTNTodos])
+      contadorNoBotao(botao, botao === this.botaoDaFila(this.fila) ? total ?? this.GRDChamados.visibleRows.length : null);
     if (Access.hasRole('triagem')) await this.Api.Triagem.execute().catch(() => undefined);
   }
 
+  /** The lock badge and the Entrega button come from painel-indicadores. */
   private async CarregarIndicadores(): Promise<void> {
-    const fila = Number(this.CBFila.value);
     try {
-      mostrarIndicadores(this.HTMLIndicadores, primeira(await executar(this.Api.Indicadores, { fila: fila > 0 ? fila : undefined })));
+      const indicadores = primeira(await executar(this.Api.Indicadores, { fila: undefined }));
+      mostrarBloqueados(this, numero(indicadores?.meus_bloqueados));
+      const entregas = (numero(indicadores?.prontos_entrega) ?? 0) + (numero(indicadores?.entrega_parcial) ?? 0);
+      this.BTNEntrega.visible = entregas > 0 || this.fila === 99;
     } catch {
-      mostrarIndicadores(this.HTMLIndicadores, undefined);
+      // The painel works without the counters.
     }
+  }
+
+  /** Prints the painel as listed (SIGAT printed the chamados ticked in its list). */
+  public Imprimir(): void {
+    window.print();
+  }
+
+  /** SIGAT's broom: forget the list's search, sort and page size and load it again. */
+  public async LimparPainel(): Promise<void> {
+    this.GRDChamados.searchText = '';
+    this.GRDChamados.clearSort();
+    this.GRDChamados.pageSize = 200;
+    this.GRDChamados.page = 1;
+    await this.Atualizar();
   }
 
   public AbrirChamadoDaGrade(_sender: unknown, event: CustomEvent<{ getValue<T>(field: string): T | undefined }>): void {
@@ -728,7 +945,7 @@ const CHAMADO = page(
   private filas: Linha[] = [];
 
   public async Mostrar(): Promise<void> {
-    preencherCabecalho(this.LBLUsuario);
+    preencherCabecalho(this);
     await this.Carregar();
   }
 
@@ -996,7 +1213,7 @@ const TRIAGEM = page(
   private chamadoCriado: unknown = undefined;
 
   public async Mostrar(): Promise<void> {
-    preencherCabecalho(this.LBLUsuario);
+    preencherCabecalho(this);
     this.BTNAbrirChamado.visible = false;
     const id = Number(contexto('ticket'));
     if (!Number.isInteger(id) || id <= 0) {
@@ -1047,7 +1264,7 @@ const EQUIPAMENTO = page(
   ['abrirChamado', 'contexto', 'erro', 'primeira', 'texto'],
   `
   public async Mostrar(): Promise<void> {
-    preencherCabecalho(this.LBLUsuario);
+    preencherCabecalho(this);
     const num = contexto('equipamento');
     this.LBLEquipamento.caption = num === '' ? 'Nenhum equipamento selecionado' : 'Patrimônio ' + num;
     if (num === '') return;
@@ -1081,7 +1298,7 @@ const BUSCA = page(
   ['abrirChamado', 'abrirEquipamento', 'contexto', 'erro', 'linhas'],
   `
   public async Mostrar(): Promise<void> {
-    preencherCabecalho(this.LBLUsuario);
+    preencherCabecalho(this);
     const q = contexto('busca');
     this.EDTBuscaRapida.value = q;
     if (q.length < 3) return;
@@ -1115,7 +1332,7 @@ const INSERVIVEIS = page(
   ['abrir', 'erro'],
   `
   public async Mostrar(): Promise<void> {
-    preencherCabecalho(this.LBLUsuario);
+    preencherCabecalho(this);
     try {
       await this.Api.Remessas.execute();
     } catch (e) {
@@ -1135,7 +1352,7 @@ const REMESSA = page(
   ['abrirChamado', 'contexto', 'erro', 'primeira', 'sim', 'texto'],
   `
   public async Mostrar(): Promise<void> {
-    preencherCabecalho(this.LBLUsuario);
+    preencherCabecalho(this);
     const id = Number(contexto('remessa'));
     if (!Number.isInteger(id) || id <= 0) {
       this.LBLRemessa.caption = 'Nenhuma remessa selecionada';
@@ -1178,7 +1395,7 @@ const ADMIN = page(
   private carregado = false;
 
   public async Mostrar(): Promise<void> {
-    preencherCabecalho(this.LBLUsuario);
+    preencherCabecalho(this);
     if (this.carregado) return;
     this.carregado = true;
     try {
@@ -1209,7 +1426,7 @@ const USUARIO = page(
   ['abrirChamado', 'contexto', 'erro', 'primeira', 'sim', 'texto'],
   `
   public async Mostrar(): Promise<void> {
-    preencherCabecalho(this.LBLUsuario);
+    preencherCabecalho(this);
     const id = Number(contexto('usuario'));
     if (!Number.isInteger(id) || id <= 0) {
       this.LBLUsuarioNome.caption = 'Nenhum usuário selecionado';
@@ -1254,7 +1471,7 @@ const LOCAL = page(
   ['contexto', 'erro', 'linhas', 'primeira', 'sim', 'texto'],
   `
   public async Mostrar(): Promise<void> {
-    preencherCabecalho(this.LBLUsuario);
+    preencherCabecalho(this);
     const id = Number(contexto('local'));
     if (!Number.isInteger(id) || id <= 0) {
       this.LBLLocal.caption = 'Nenhum local selecionado';
@@ -1291,7 +1508,7 @@ const NEGADO = page(
   [],
   `
   public Mostrar(): void {
-    preencherCabecalho(this.LBLUsuario);
+    preencherCabecalho(this);
   }
 `,
 );

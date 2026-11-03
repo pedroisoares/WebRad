@@ -7,61 +7,96 @@ import {
   WebDataGrid,
   WebEdit,
   WebGroup,
+  WebImage,
   WebLabel,
   WebPage,
 } from '@webrad/runtime';
 
 export abstract class InserviveisGenerated extends WebPage {
   public readonly Cabecalho: WebGroup;
-  public readonly Marca: WebLabel;
-  public readonly BTNPainel: WebButton;
+  public readonly GRPMarca: WebGroup;
+  public readonly IMGMarca: WebImage;
+  public readonly LBLMarca: WebLabel;
+  public readonly GRPBusca: WebGroup;
   public readonly EDTBuscaRapida: WebEdit;
   public readonly BTNBuscar: WebButton;
+  public readonly GRPUsuario: WebGroup;
+  public readonly LBLOla: WebLabel;
+  public readonly LBLUsuario: WebLabel;
+  public readonly BTNBloqueados: WebButton;
+  public readonly BTNPainel: WebButton;
   public readonly BTNInserviveis: WebButton;
   public readonly BTNAdmin: WebButton;
-  public readonly LBLUsuario: WebLabel;
   public readonly BTNSair: WebButton;
+  public readonly Conteudo: WebGroup;
   public readonly LBLTitulo: WebLabel;
   public readonly GRDRemessas: WebDataGrid;
   public readonly Api: WebApiClientInstance<ApiApiOutputs, ApiApiInputs, ApiApiDefaultHeaders>;
+  public readonly Rodape: WebGroup;
+  public readonly LBLRodapeAutorizacao: WebLabel;
+  public readonly LBLRodapeGrupo: WebLabel;
+  public readonly LBLRodapeAmbiente: WebLabel;
 
   public constructor(element: HTMLElement) {
     super(element);
     this.Cabecalho = new WebGroup(
-      this.requireComponentElement('9f249795-b018-4332-bf26-031a7a03f583'),
+      this.requireComponentElement('016d0016-3e6b-49c1-9e24-7381db81c935'),
     );
-    this.Marca = new WebLabel(this.requireComponentElement('5f2f1a77-46fb-4e18-b067-c2c6218cf57b'));
-    this.BTNPainel = new WebButton(
-      this.requireComponentElement('86d2e1e5-5de8-4068-b03f-4f1c970c335a'),
+    this.GRPMarca = new WebGroup(
+      this.requireComponentElement('301b8654-c4bd-4a0a-8799-5d90e96acc0b'),
+    );
+    this.IMGMarca = new WebImage(
+      this.requireComponentElement('484aabc6-91f3-4633-82c7-7144688d067f'),
+    );
+    this.LBLMarca = new WebLabel(
+      this.requireComponentElement('32e552a3-1e8a-4699-986a-bb28ad27fceb'),
+    );
+    this.GRPBusca = new WebGroup(
+      this.requireComponentElement('99dbc0c3-8404-4cbd-87be-8a5719473104'),
     );
     this.EDTBuscaRapida = new WebEdit(
-      this.requireComponentElement('e6b43f63-3a96-490e-8391-5c5949320b59'),
+      this.requireComponentElement('a2ab78d9-8c63-435a-b4e5-f678528a8ea4'),
     );
     this.BTNBuscar = new WebButton(
-      this.requireComponentElement('6fda350e-85ba-47c3-9a83-976f54d165c9'),
+      this.requireComponentElement('77251ac3-7e87-4785-82a3-66be9df52d3d'),
     );
-    this.BTNInserviveis = new WebButton(
-      this.requireComponentElement('6b0ff36e-d2b5-4793-af93-0772e6c419d3'),
+    this.GRPUsuario = new WebGroup(
+      this.requireComponentElement('50f504a0-8ba2-4767-b26b-18cf9ffd22f0'),
     );
-    this.BTNAdmin = new WebButton(
-      this.requireComponentElement('97a7dce4-b3c9-48a1-a050-20e0f13c7521'),
+    this.LBLOla = new WebLabel(
+      this.requireComponentElement('2aedebc1-fdbc-41a8-8f3e-e5533f84bc0a'),
     );
     this.LBLUsuario = new WebLabel(
-      this.requireComponentElement('ba47dde3-d22c-45e9-b099-e52c5144975f'),
+      this.requireComponentElement('21945891-a2df-4d27-a87a-b6e6daf65894'),
+    );
+    this.BTNBloqueados = new WebButton(
+      this.requireComponentElement('b14be180-1c9f-4705-a65a-2c4f68df3e9e'),
+    );
+    this.BTNPainel = new WebButton(
+      this.requireComponentElement('dfd6a582-f7df-483b-afe4-c5fdbdfcd4c0'),
+    );
+    this.BTNInserviveis = new WebButton(
+      this.requireComponentElement('2a472932-79b5-4d4f-9e21-0c337b24b609'),
+    );
+    this.BTNAdmin = new WebButton(
+      this.requireComponentElement('f9289c15-cd8c-48e2-9e16-b59552a99227'),
     );
     this.BTNSair = new WebButton(
-      this.requireComponentElement('bf444150-8afc-4f68-88f9-e30fe21dd7e6'),
+      this.requireComponentElement('8a4665f2-d11e-4b91-b008-96b0d3854a5b'),
+    );
+    this.Conteudo = new WebGroup(
+      this.requireComponentElement('2e1362d4-2b1c-4d93-974f-7de15727fe80'),
     );
     this.LBLTitulo = new WebLabel(
-      this.requireComponentElement('56be07e4-83d1-4943-b64e-7e9ca13d0950'),
+      this.requireComponentElement('d68d20ee-cdec-4d25-a4db-4fa3ad681a2a'),
     );
     this.GRDRemessas = new WebDataGrid(
-      this.requireComponentElement('01e58491-3d15-4327-8d29-20851dfcec17'),
+      this.requireComponentElement('24d21901-ab71-4506-8bcd-25b58da931cc'),
     );
     this.GRDRemessas.dataGridConfig = {
       schemaVersion: 2,
-      apiClientId: '2592ce82-779c-4ba7-b37f-78fa7db93707',
-      operationId: '8b447e91-d83a-45be-877c-01cc17092e95',
+      apiClientId: 'f8efb5fd-847a-4fd6-86ef-245cfa52df13',
+      operationId: 'a0fda5f9-9d08-4c48-b140-37706fd8fa5b',
       listPath: '/data',
       columnCount: 8,
       showHeader: true,
@@ -81,7 +116,7 @@ export abstract class InserviveisGenerated extends WebPage {
       emptyMessage: 'Nenhum registro',
       columns: [
         {
-          id: 'c91e07bf-ab2a-4484-b25a-b99ebe76fcd2',
+          id: '1df538f9-49ab-4c46-843f-0521715ed756',
           header: '#',
           fieldPath: '/id_remessa_inservivel',
           cellKind: 'text',
@@ -99,7 +134,7 @@ export abstract class InserviveisGenerated extends WebPage {
           searchable: true,
         },
         {
-          id: '83659acb-fb80-4749-b0bd-67cf3cebe813',
+          id: '2592ce82-779c-4ba7-b37f-78fa7db93707',
           header: 'Divisão',
           fieldPath: '/divisao_remessa',
           cellKind: 'text',
@@ -117,7 +152,7 @@ export abstract class InserviveisGenerated extends WebPage {
           searchable: true,
         },
         {
-          id: 'e8e9f60a-0979-427a-a1d2-5112ad25b7d1',
+          id: '8b447e91-d83a-45be-877c-01cc17092e95',
           header: 'Abertura',
           fieldPath: '/data_abertura',
           cellKind: 'text',
@@ -135,7 +170,7 @@ export abstract class InserviveisGenerated extends WebPage {
           searchable: true,
         },
         {
-          id: 'd2b45c46-234e-4dae-9c66-ee2a9df7bc58',
+          id: 'c91e07bf-ab2a-4484-b25a-b99ebe76fcd2',
           header: 'Fechamento',
           fieldPath: '/data_fechamento',
           cellKind: 'text',
@@ -153,7 +188,7 @@ export abstract class InserviveisGenerated extends WebPage {
           searchable: true,
         },
         {
-          id: 'ac9971ff-4a0d-415f-95dd-5a3f1b385082',
+          id: '83659acb-fb80-4749-b0bd-67cf3cebe813',
           header: 'Entrega',
           fieldPath: '/data_entrega',
           cellKind: 'text',
@@ -171,7 +206,7 @@ export abstract class InserviveisGenerated extends WebPage {
           searchable: true,
         },
         {
-          id: 'c5ba46d0-93e6-4b99-92c6-0d75824010dc',
+          id: 'e8e9f60a-0979-427a-a1d2-5112ad25b7d1',
           header: 'Recebedor',
           fieldPath: '/nome_recebedor',
           cellKind: 'text',
@@ -189,7 +224,7 @@ export abstract class InserviveisGenerated extends WebPage {
           searchable: true,
         },
         {
-          id: '57bedfa9-b0b9-4025-ab25-976c475a9ce6',
+          id: 'd2b45c46-234e-4dae-9c66-ee2a9df7bc58',
           header: 'Equipamentos',
           fieldPath: '/qtd_equipamentos',
           cellKind: 'text',
@@ -207,7 +242,7 @@ export abstract class InserviveisGenerated extends WebPage {
           searchable: true,
         },
         {
-          id: '3820873b-f1ff-4d9e-8194-0ba2530e86e5',
+          id: 'ac9971ff-4a0d-415f-95dd-5a3f1b385082',
           header: 'Aberta por',
           fieldPath: '/nome_usuario',
           cellKind: 'text',
@@ -248,7 +283,7 @@ export abstract class InserviveisGenerated extends WebPage {
         timeoutMs: 30000,
         operations: [
           {
-            id: '8b447e91-d83a-45be-877c-01cc17092e95',
+            id: 'a0fda5f9-9d08-4c48-b140-37706fd8fa5b',
             name: 'Remessas',
             method: 'GET',
             path: 'sigat/remessas',
@@ -261,7 +296,7 @@ export abstract class InserviveisGenerated extends WebPage {
             responseSchema: {
               version: 1,
               root: {
-                id: '5e46a83a-284f-4d08-964e-200340afbcd8',
+                id: 'c5ba46d0-93e6-4b99-92c6-0d75824010dc',
                 name: 'Response',
                 path: '',
                 kind: 'object',
@@ -269,7 +304,7 @@ export abstract class InserviveisGenerated extends WebPage {
                 nullable: false,
                 children: [
                   {
-                    id: '29cd1659-2df3-410d-9b96-1acc15f39581',
+                    id: '57bedfa9-b0b9-4025-ab25-976c475a9ce6',
                     name: 'success',
                     path: '/success',
                     kind: 'field',
@@ -278,7 +313,7 @@ export abstract class InserviveisGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: 'ef16141f-3090-4366-9a1b-2ea37326e19b',
+                    id: '3820873b-f1ff-4d9e-8194-0ba2530e86e5',
                     name: 'data',
                     path: '/data',
                     kind: 'list',
@@ -286,7 +321,7 @@ export abstract class InserviveisGenerated extends WebPage {
                     nullable: false,
                     children: [
                       {
-                        id: '08742dc8-fa46-4e24-9264-557c9c4e71b5',
+                        id: '5e46a83a-284f-4d08-964e-200340afbcd8',
                         name: 'id_remessa_inservivel',
                         path: '/data/*/id_remessa_inservivel',
                         kind: 'field',
@@ -295,7 +330,7 @@ export abstract class InserviveisGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: '4dc1d913-b19c-4758-87db-49aca7c6d3f4',
+                        id: '29cd1659-2df3-410d-9b96-1acc15f39581',
                         name: 'cod_divisao',
                         path: '/data/*/cod_divisao',
                         kind: 'field',
@@ -304,7 +339,7 @@ export abstract class InserviveisGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: '10b310e1-a379-4b43-8ffa-6e271c56cab6',
+                        id: 'ef16141f-3090-4366-9a1b-2ea37326e19b',
                         name: 'divisao_remessa',
                         path: '/data/*/divisao_remessa',
                         kind: 'field',
@@ -313,7 +348,7 @@ export abstract class InserviveisGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: '81a2954d-b299-4789-83c5-2e24a63e7c81',
+                        id: '08742dc8-fa46-4e24-9264-557c9c4e71b5',
                         name: 'data_abertura',
                         path: '/data/*/data_abertura',
                         kind: 'field',
@@ -322,7 +357,7 @@ export abstract class InserviveisGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: 'c1e14ca7-bb13-43a9-bd19-d904a57dd64e',
+                        id: '4dc1d913-b19c-4758-87db-49aca7c6d3f4',
                         name: 'data_fechamento',
                         path: '/data/*/data_fechamento',
                         kind: 'field',
@@ -331,7 +366,7 @@ export abstract class InserviveisGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: 'cd65eac0-cf3c-44dd-8eb9-6a86b5b4f5df',
+                        id: '10b310e1-a379-4b43-8ffa-6e271c56cab6',
                         name: 'data_entrega',
                         path: '/data/*/data_entrega',
                         kind: 'field',
@@ -340,7 +375,7 @@ export abstract class InserviveisGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: '83253d3c-10ea-45b5-86a6-cace13916d6a',
+                        id: '81a2954d-b299-4789-83c5-2e24a63e7c81',
                         name: 'nome_recebedor',
                         path: '/data/*/nome_recebedor',
                         kind: 'field',
@@ -349,7 +384,7 @@ export abstract class InserviveisGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: 'b791ce86-7828-4d10-963e-a1e54106593c',
+                        id: 'c1e14ca7-bb13-43a9-bd19-d904a57dd64e',
                         name: 'falha_envio',
                         path: '/data/*/falha_envio',
                         kind: 'field',
@@ -358,7 +393,7 @@ export abstract class InserviveisGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: 'dcbf033a-1d9b-4193-9f5f-43747cff936b',
+                        id: 'cd65eac0-cf3c-44dd-8eb9-6a86b5b4f5df',
                         name: 'id_termo',
                         path: '/data/*/id_termo',
                         kind: 'field',
@@ -367,7 +402,7 @@ export abstract class InserviveisGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: '240b100a-7550-4468-8c9c-a64759dd5b9c',
+                        id: '83253d3c-10ea-45b5-86a6-cace13916d6a',
                         name: 'nome_usuario',
                         path: '/data/*/nome_usuario',
                         kind: 'field',
@@ -376,7 +411,7 @@ export abstract class InserviveisGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: 'a91ff8c4-97e4-46b5-abd3-4b833373574f',
+                        id: 'b791ce86-7828-4d10-963e-a1e54106593c',
                         name: 'qtd_equipamentos',
                         path: '/data/*/qtd_equipamentos',
                         kind: 'field',
@@ -387,7 +422,7 @@ export abstract class InserviveisGenerated extends WebPage {
                     ],
                   },
                   {
-                    id: '78e3bbe8-ef50-4913-876c-3d1b06888bf5',
+                    id: 'dcbf033a-1d9b-4193-9f5f-43747cff936b',
                     name: 'page',
                     path: '/page',
                     kind: 'field',
@@ -396,7 +431,7 @@ export abstract class InserviveisGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: '60341b29-7656-4bb9-a3b2-29780087576e',
+                    id: '240b100a-7550-4468-8c9c-a64759dd5b9c',
                     name: 'page_size',
                     path: '/page_size',
                     kind: 'field',
@@ -405,7 +440,7 @@ export abstract class InserviveisGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: '12422f0d-ff60-4931-b03a-7030f75237ee',
+                    id: 'a91ff8c4-97e4-46b5-abd3-4b833373574f',
                     name: 'total_pages',
                     path: '/total_pages',
                     kind: 'field',
@@ -414,7 +449,7 @@ export abstract class InserviveisGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: '6c95b187-ff27-41ad-9359-fc66b8848592',
+                    id: '78e3bbe8-ef50-4913-876c-3d1b06888bf5',
                     name: 'total',
                     path: '/total',
                     kind: 'field',
@@ -423,7 +458,7 @@ export abstract class InserviveisGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: '5c2672c5-5615-4e0d-a1a8-f4dbff32bf05',
+                    id: '60341b29-7656-4bb9-a3b2-29780087576e',
                     name: 'has_more',
                     path: '/has_more',
                     kind: 'field',
@@ -437,16 +472,29 @@ export abstract class InserviveisGenerated extends WebPage {
           },
         ],
       },
-      id: '2592ce82-779c-4ba7-b37f-78fa7db93707',
+      id: 'f8efb5fd-847a-4fd6-86ef-245cfa52df13',
       name: 'Api',
     }).withRequests();
+    this.Rodape = new WebGroup(
+      this.requireComponentElement('d60b47e6-bcf1-425c-8d3b-9a920dbf92bb'),
+    );
+    this.LBLRodapeAutorizacao = new WebLabel(
+      this.requireComponentElement('81c149a4-0d98-42ad-8714-3a491316d644'),
+    );
+    this.LBLRodapeGrupo = new WebLabel(
+      this.requireComponentElement('6b95093c-32ea-416d-97f6-3522dbd62012'),
+    );
+    this.LBLRodapeAmbiente = new WebLabel(
+      this.requireComponentElement('7f31c69a-931a-4e66-9c08-d469776cb15c'),
+    );
 
     this.GRDRemessas.bindApiClient(this.Api);
 
     this.bindGeneratedEvent(this, 'OnShow', 'Mostrar');
-    this.bindGeneratedEvent(this.BTNPainel, 'OnClick', 'AbrirPainel');
     this.bindGeneratedEvent(this.EDTBuscaRapida, 'OnKeyDown', 'BuscaRapidaTecla');
     this.bindGeneratedEvent(this.BTNBuscar, 'OnClick', 'BuscaRapida');
+    this.bindGeneratedEvent(this.BTNBloqueados, 'OnClick', 'MostrarBloqueados');
+    this.bindGeneratedEvent(this.BTNPainel, 'OnClick', 'AbrirPainel');
     this.bindGeneratedEvent(this.BTNInserviveis, 'OnClick', 'AbrirInserviveis');
     this.bindGeneratedEvent(this.BTNAdmin, 'OnClick', 'AbrirAdmin');
     this.bindGeneratedEvent(this.BTNSair, 'OnClick', 'Sair');

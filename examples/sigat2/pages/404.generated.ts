@@ -10,13 +10,13 @@ export abstract class Page404Generated extends WebPage {
   public constructor(element: HTMLElement) {
     super(element);
     this.PNLNaoEncontrada = new WebPanel(
-      this.requireComponentElement('94c407f6-a0ef-48bd-953f-91a275870894'),
+      this.requireComponentElement('aaf085e3-a8a3-4c6e-97e5-2270eb940f8b'),
     );
     this.LBLNaoEncontrada = new WebLabel(
-      this.requireComponentElement('66760140-97f2-4635-bfa3-c20bf9c58316'),
+      this.requireComponentElement('ed3a9c45-20c3-4f07-a7e8-c489ef0a8bda'),
     );
     this.BTNVoltar = new WebButton(
-      this.requireComponentElement('29c7c3b0-dcdf-4b76-b98f-f68aae3fd918'),
+      this.requireComponentElement('e2ddafe1-636c-4694-9230-063d28994f7c'),
     );
 
     this.bindGeneratedEvent(this.BTNVoltar, 'OnClick', 'AbrirPainel');

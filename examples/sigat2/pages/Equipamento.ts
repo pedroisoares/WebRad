@@ -1,4 +1,5 @@
 import {
+  abrirBloqueados,
   buscar,
   sair,
   preencherCabecalho,
@@ -36,8 +37,12 @@ export class Equipamento extends EquipamentoGenerated {
     await sair();
   }
 
+  public MostrarBloqueados(): void {
+    abrirBloqueados();
+  }
+
   public async Mostrar(): Promise<void> {
-    preencherCabecalho(this.LBLUsuario);
+    preencherCabecalho(this);
     const num = contexto('equipamento');
     this.LBLEquipamento.caption =
       num === '' ? 'Nenhum equipamento selecionado' : 'Patrimônio ' + num;
