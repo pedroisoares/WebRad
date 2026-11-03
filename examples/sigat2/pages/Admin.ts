@@ -1,4 +1,4 @@
-import { buscar, sair, preencherCabecalho, abrir, erro } from '../units/Sigat2';
+import { abrirBloqueados, buscar, sair, preencherCabecalho, abrir, erro } from '../units/Sigat2';
 import { AdminGenerated } from './Admin.generated';
 
 export class Admin extends AdminGenerated {
@@ -26,10 +26,14 @@ export class Admin extends AdminGenerated {
     await sair();
   }
 
+  public MostrarBloqueados(): void {
+    abrirBloqueados();
+  }
+
   private carregado = false;
 
   public async Mostrar(): Promise<void> {
-    preencherCabecalho(this.LBLUsuario);
+    preencherCabecalho(this);
     if (this.carregado) return;
     this.carregado = true;
     try {

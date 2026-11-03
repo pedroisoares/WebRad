@@ -1,35 +1,35 @@
 {
   "formatVersion": 2,
-  "id": "a983ad9d-fd71-48d7-9b30-553c8d01b886",
+  "id": "f0ca895d-c5a0-4261-ab52-e6797ee52e77",
   "name": "Equipamento",
   "caption": "Equipamento",
   "width": 1280,
   "height": 1200,
-  "rootComponentId": "e267dd17-2bd8-410d-acf9-8e9233ac4f0c",
+  "rootComponentId": "c5b7a695-3c22-49e6-8ad2-5ffb89a370e1",
   "components": [
     {
-      "id": "e267dd17-2bd8-410d-acf9-8e9233ac4f0c",
+      "id": "c5b7a695-3c22-49e6-8ad2-5ffb89a370e1",
       "type": "WebPage",
       "name": "Equipamento",
       "parentId": null,
       "layout": {
         "container": {
           "mode": "column",
-          "paddingTop": 16,
-          "paddingRight": 24,
-          "paddingBottom": 24,
-          "paddingLeft": 24,
-          "gap": 16,
+          "paddingTop": 0,
+          "paddingRight": 0,
+          "paddingBottom": 0,
+          "paddingLeft": 0,
+          "gap": 0,
           "wrap": false,
           "justifyContent": "start",
           "alignItems": "stretch"
         },
         "item": {
           "width": "fixed",
-          "height": "fit-content",
+          "height": "stretch",
           "minWidth": 0,
           "maxWidth": null,
-          "minHeight": 600,
+          "minHeight": 0,
           "maxHeight": null,
           "grow": 0,
           "shrink": true,
@@ -64,30 +64,28 @@
         "OnResize": null,
         "OnShow": "Mostrar"
       },
-      "styleId": "3755d9a1-991d-4861-8878-42148ee446dc:default-style:WebPage",
+      "styleId": "sigat2-pagina",
       "children": [
-        "6de6cbc3-d9e1-49a3-bc04-bc28431c3035",
-        "4e684414-0ca7-4d04-a71b-5495a9ec6955",
-        "1b71b0f5-6d53-4d79-9578-d85bebbbbd83",
-        "6d019d22-806e-48d7-b22e-9997e59f46a4",
-        "5196e744-aef1-4050-9a09-3602f20aa8bf"
+        "f5d069b6-b0a7-43a9-a747-89d9e39dc286",
+        "6b0ff36e-d2b5-4793-af93-0772e6c419d3",
+        "878af721-df35-486b-ba41-b37796e2a93c"
       ]
     },
     {
-      "id": "6de6cbc3-d9e1-49a3-bc04-bc28431c3035",
+      "id": "f5d069b6-b0a7-43a9-a747-89d9e39dc286",
       "type": "WebGroup",
       "name": "Cabecalho",
-      "parentId": "e267dd17-2bd8-410d-acf9-8e9233ac4f0c",
+      "parentId": "c5b7a695-3c22-49e6-8ad2-5ffb89a370e1",
       "layout": {
         "container": {
           "mode": "row",
-          "paddingTop": 0,
-          "paddingRight": 0,
-          "paddingBottom": 0,
-          "paddingLeft": 0,
-          "gap": 12,
+          "paddingTop": 8,
+          "paddingRight": 16,
+          "paddingBottom": 8,
+          "paddingLeft": 16,
+          "gap": 16,
           "wrap": true,
-          "justifyContent": "start",
+          "justifyContent": "space-between",
           "alignItems": "center"
         },
         "item": {
@@ -126,22 +124,76 @@
         "OnMouseEnter": null,
         "OnMouseLeave": null
       },
+      "styleId": "sigat2-barra",
       "children": [
-        "cc0794f4-90b4-41af-a46d-5f9de8c5d2c8",
-        "0b9797fd-6a77-4b8f-bb46-41025c43c20c",
-        "f485dcfb-0155-4989-a914-f1ca7b38b787",
-        "90ecd813-7c99-40ce-aeb1-4b91f2063e69",
-        "3c712b35-e309-41e4-9fc0-cbce5b544dff",
-        "2aaaa110-d628-4b86-977a-687754ae6bb0",
-        "3f12858f-1574-4e33-ac47-7d185daa4f83",
-        "ff10d256-bfd9-46c7-843f-eacdd2cc830c"
+        "6fb0f029-705d-4f70-aa3e-bef44727a5d0",
+        "32d229aa-a064-426b-a861-396b4aded80f",
+        "363b406d-cf71-458c-b05c-8d3da8ba6706"
       ]
     },
     {
-      "id": "cc0794f4-90b4-41af-a46d-5f9de8c5d2c8",
-      "type": "WebLabel",
-      "name": "Marca",
-      "parentId": "6de6cbc3-d9e1-49a3-bc04-bc28431c3035",
+      "id": "6fb0f029-705d-4f70-aa3e-bef44727a5d0",
+      "type": "WebGroup",
+      "name": "GRPMarca",
+      "parentId": "f5d069b6-b0a7-43a9-a747-89d9e39dc286",
+      "layout": {
+        "container": {
+          "mode": "row",
+          "paddingTop": 0,
+          "paddingRight": 0,
+          "paddingBottom": 0,
+          "paddingLeft": 0,
+          "gap": 8,
+          "wrap": false,
+          "justifyContent": "start",
+          "alignItems": "center"
+        },
+        "item": {
+          "width": "fit-content",
+          "height": "fit-content",
+          "minWidth": 0,
+          "maxWidth": null,
+          "minHeight": 0,
+          "maxHeight": null,
+          "grow": 0,
+          "shrink": false,
+          "alignSelf": "auto",
+          "horizontalAnchor": "start",
+          "verticalAnchor": "start",
+          "left": 0,
+          "right": 0,
+          "top": 0,
+          "bottom": 0
+        }
+      },
+      "bounds": {
+        "width": 240,
+        "height": 160,
+        "x": 0,
+        "y": 0
+      },
+      "props": {
+        "enabled": true,
+        "aspectRatio": "none",
+        "collapseWhenHidden": true,
+        "visible": true
+      },
+      "events": {
+        "OnClick": null,
+        "OnDblClick": null,
+        "OnMouseEnter": null,
+        "OnMouseLeave": null
+      },
+      "children": [
+        "65eeab57-8179-4b5f-8907-3ac7abf85712",
+        "b7360441-3de7-4606-ac5a-4d64e864bac3"
+      ]
+    },
+    {
+      "id": "65eeab57-8179-4b5f-8907-3ac7abf85712",
+      "type": "WebImage",
+      "name": "IMGMarca",
+      "parentId": "6fb0f029-705d-4f70-aa3e-bef44727a5d0",
       "layout": {
         "container": {
           "mode": "fixed",
@@ -173,13 +225,71 @@
         }
       },
       "bounds": {
-        "width": 110,
-        "height": 32,
+        "width": 40,
+        "height": 40,
         "x": 0,
         "y": 0
       },
       "props": {
-        "caption": "SIGAT2",
+        "enabled": true,
+        "alt": "",
+        "collapseWhenHidden": true,
+        "objectFit": "contain",
+        "placeholder": "image",
+        "src": "assets/imported/sigat-logo.svg",
+        "visible": true
+      },
+      "events": {
+        "OnClick": null,
+        "OnError": null,
+        "OnLoad": null
+      },
+      "styleId": "sigat2-login-logo",
+      "children": []
+    },
+    {
+      "id": "b7360441-3de7-4606-ac5a-4d64e864bac3",
+      "type": "WebLabel",
+      "name": "LBLMarca",
+      "parentId": "6fb0f029-705d-4f70-aa3e-bef44727a5d0",
+      "layout": {
+        "container": {
+          "mode": "fixed",
+          "paddingTop": 0,
+          "paddingRight": 0,
+          "paddingBottom": 0,
+          "paddingLeft": 0,
+          "gap": 0,
+          "wrap": false,
+          "justifyContent": "start",
+          "alignItems": "start"
+        },
+        "item": {
+          "width": "fit-content",
+          "height": "fixed",
+          "minWidth": 0,
+          "maxWidth": null,
+          "minHeight": 0,
+          "maxHeight": null,
+          "grow": 0,
+          "shrink": false,
+          "alignSelf": "auto",
+          "horizontalAnchor": "start",
+          "verticalAnchor": "start",
+          "left": 0,
+          "right": 0,
+          "top": 0,
+          "bottom": 0
+        }
+      },
+      "bounds": {
+        "width": 80,
+        "height": 40,
+        "x": 0,
+        "y": 0
+      },
+      "props": {
+        "caption": "SIGAT",
         "enabled": true,
         "autoSize": false,
         "collapseWhenHidden": true,
@@ -192,17 +302,17 @@
         "OnMouseEnter": null,
         "OnMouseLeave": null
       },
-      "styleId": "3755d9a1-991d-4861-8878-42148ee446dc:default-style:WebLabel",
+      "styleId": "sigat2-marca",
       "children": []
     },
     {
-      "id": "0b9797fd-6a77-4b8f-bb46-41025c43c20c",
-      "type": "WebButton",
-      "name": "BTNPainel",
-      "parentId": "6de6cbc3-d9e1-49a3-bc04-bc28431c3035",
+      "id": "32d229aa-a064-426b-a861-396b4aded80f",
+      "type": "WebGroup",
+      "name": "GRPBusca",
+      "parentId": "f5d069b6-b0a7-43a9-a747-89d9e39dc286",
       "layout": {
         "container": {
-          "mode": "fixed",
+          "mode": "row",
           "paddingTop": 0,
           "paddingRight": 0,
           "paddingBottom": 0,
@@ -210,13 +320,13 @@
           "gap": 0,
           "wrap": false,
           "justifyContent": "start",
-          "alignItems": "start"
+          "alignItems": "center"
         },
         "item": {
-          "width": "fixed",
-          "height": "fixed",
-          "minWidth": 120,
-          "maxWidth": 220,
+          "width": "fit-content",
+          "height": "fit-content",
+          "minWidth": 0,
+          "maxWidth": null,
           "minHeight": 0,
           "maxHeight": null,
           "grow": 0,
@@ -231,34 +341,33 @@
         }
       },
       "bounds": {
-        "width": 180,
-        "height": 40,
+        "width": 240,
+        "height": 160,
         "x": 0,
         "y": 0
       },
       "props": {
-        "caption": "Painel",
         "enabled": true,
+        "aspectRatio": "none",
         "collapseWhenHidden": true,
-        "icon": "list",
-        "tabIndex": 0,
         "visible": true
       },
       "events": {
-        "OnBlur": null,
-        "OnClick": "AbrirPainel",
-        "OnFocus": null,
+        "OnClick": null,
+        "OnDblClick": null,
         "OnMouseEnter": null,
         "OnMouseLeave": null
       },
-      "styleId": "3755d9a1-991d-4861-8878-42148ee446dc:default-style:WebButton",
-      "children": []
+      "children": [
+        "523eb88e-b56f-4fa0-9757-3514ef2e3db4",
+        "c8734bf2-8c3e-400d-b6b4-b34fdde2179a"
+      ]
     },
     {
-      "id": "f485dcfb-0155-4989-a914-f1ca7b38b787",
+      "id": "523eb88e-b56f-4fa0-9757-3514ef2e3db4",
       "type": "WebEdit",
       "name": "EDTBuscaRapida",
-      "parentId": "6de6cbc3-d9e1-49a3-bc04-bc28431c3035",
+      "parentId": "32d229aa-a064-426b-a861-396b4aded80f",
       "layout": {
         "container": {
           "mode": "fixed",
@@ -274,11 +383,11 @@
         "item": {
           "width": "fixed",
           "height": "fixed",
-          "minWidth": 200,
+          "minWidth": 160,
           "maxWidth": null,
           "minHeight": 0,
           "maxHeight": null,
-          "grow": 1,
+          "grow": 0,
           "shrink": true,
           "alignSelf": "auto",
           "horizontalAnchor": "start",
@@ -291,7 +400,7 @@
       },
       "bounds": {
         "width": 300,
-        "height": 40,
+        "height": 38,
         "x": 0,
         "y": 0
       },
@@ -299,7 +408,7 @@
         "value": "",
         "enabled": true,
         "collapseWhenHidden": true,
-        "placeholder": "Busca rápida (patrimônio, ticket, local)...",
+        "placeholder": "Busca rápida...",
         "readOnly": false,
         "tabIndex": 0,
         "visible": true
@@ -312,14 +421,14 @@
         "OnKeyDown": "BuscaRapidaTecla",
         "OnKeyUp": null
       },
-      "styleId": "3755d9a1-991d-4861-8878-42148ee446dc:default-style:WebEdit",
+      "styleId": "sigat2-busca",
       "children": []
     },
     {
-      "id": "90ecd813-7c99-40ce-aeb1-4b91f2063e69",
+      "id": "c8734bf2-8c3e-400d-b6b4-b34fdde2179a",
       "type": "WebButton",
       "name": "BTNBuscar",
-      "parentId": "6de6cbc3-d9e1-49a3-bc04-bc28431c3035",
+      "parentId": "32d229aa-a064-426b-a861-396b4aded80f",
       "layout": {
         "container": {
           "mode": "fixed",
@@ -335,12 +444,12 @@
         "item": {
           "width": "fixed",
           "height": "fixed",
-          "minWidth": 120,
-          "maxWidth": 220,
+          "minWidth": 0,
+          "maxWidth": null,
           "minHeight": 0,
           "maxHeight": null,
           "grow": 0,
-          "shrink": true,
+          "shrink": false,
           "alignSelf": "auto",
           "horizontalAnchor": "start",
           "verticalAnchor": "start",
@@ -351,8 +460,8 @@
         }
       },
       "bounds": {
-        "width": 180,
-        "height": 40,
+        "width": 42,
+        "height": 38,
         "x": 0,
         "y": 0
       },
@@ -371,14 +480,77 @@
         "OnMouseEnter": null,
         "OnMouseLeave": null
       },
-      "styleId": "3755d9a1-991d-4861-8878-42148ee446dc:default-style:WebButton",
+      "styleId": "sigat2-botao-busca",
       "children": []
     },
     {
-      "id": "3c712b35-e309-41e4-9fc0-cbce5b544dff",
-      "type": "WebButton",
-      "name": "BTNInserviveis",
-      "parentId": "6de6cbc3-d9e1-49a3-bc04-bc28431c3035",
+      "id": "363b406d-cf71-458c-b05c-8d3da8ba6706",
+      "type": "WebGroup",
+      "name": "GRPUsuario",
+      "parentId": "f5d069b6-b0a7-43a9-a747-89d9e39dc286",
+      "layout": {
+        "container": {
+          "mode": "row",
+          "paddingTop": 0,
+          "paddingRight": 0,
+          "paddingBottom": 0,
+          "paddingLeft": 0,
+          "gap": 4,
+          "wrap": true,
+          "justifyContent": "start",
+          "alignItems": "center"
+        },
+        "item": {
+          "width": "fit-content",
+          "height": "fit-content",
+          "minWidth": 0,
+          "maxWidth": null,
+          "minHeight": 0,
+          "maxHeight": null,
+          "grow": 0,
+          "shrink": false,
+          "alignSelf": "auto",
+          "horizontalAnchor": "start",
+          "verticalAnchor": "start",
+          "left": 0,
+          "right": 0,
+          "top": 0,
+          "bottom": 0
+        }
+      },
+      "bounds": {
+        "width": 240,
+        "height": 160,
+        "x": 0,
+        "y": 0
+      },
+      "props": {
+        "enabled": true,
+        "aspectRatio": "none",
+        "collapseWhenHidden": true,
+        "visible": true
+      },
+      "events": {
+        "OnClick": null,
+        "OnDblClick": null,
+        "OnMouseEnter": null,
+        "OnMouseLeave": null
+      },
+      "children": [
+        "2be566bb-ba0a-4d77-91bf-fb5283b986e6",
+        "c91ac11d-c8e8-496b-a939-6e31404eaf68",
+        "9f249795-b018-4332-bf26-031a7a03f583",
+        "5f2f1a77-46fb-4e18-b067-c2c6218cf57b",
+        "86d2e1e5-5de8-4068-b03f-4f1c970c335a",
+        "e6b43f63-3a96-490e-8391-5c5949320b59",
+        "6fda350e-85ba-47c3-9a83-976f54d165c9"
+      ]
+    },
+    {
+      "id": "2be566bb-ba0a-4d77-91bf-fb5283b986e6",
+      "type": "WebLabel",
+      "name": "LBLOla",
+      "parentId": "363b406d-cf71-458c-b05c-8d3da8ba6706",
       "layout": {
         "container": {
           "mode": "fixed",
@@ -392,14 +564,14 @@
           "alignItems": "start"
         },
         "item": {
-          "width": "fixed",
+          "width": "fit-content",
           "height": "fixed",
-          "minWidth": 120,
-          "maxWidth": 220,
+          "minWidth": 0,
+          "maxWidth": null,
           "minHeight": 0,
           "maxHeight": null,
           "grow": 0,
-          "shrink": true,
+          "shrink": false,
           "alignSelf": "auto",
           "horizontalAnchor": "start",
           "verticalAnchor": "start",
@@ -410,19 +582,253 @@
         }
       },
       "bounds": {
-        "width": 180,
-        "height": 40,
+        "width": 80,
+        "height": 24,
         "x": 0,
         "y": 0
       },
       "props": {
-        "caption": "Inservíveis",
+        "caption": "Olá,",
+        "enabled": true,
+        "autoSize": false,
+        "collapseWhenHidden": true,
+        "color": "#000000",
+        "visible": true
+      },
+      "events": {
+        "OnClick": null,
+        "OnDblClick": null,
+        "OnMouseEnter": null,
+        "OnMouseLeave": null
+      },
+      "styleId": "sigat2-texto-claro",
+      "children": []
+    },
+    {
+      "id": "c91ac11d-c8e8-496b-a939-6e31404eaf68",
+      "type": "WebLabel",
+      "name": "LBLUsuario",
+      "parentId": "363b406d-cf71-458c-b05c-8d3da8ba6706",
+      "layout": {
+        "container": {
+          "mode": "fixed",
+          "paddingTop": 0,
+          "paddingRight": 0,
+          "paddingBottom": 0,
+          "paddingLeft": 0,
+          "gap": 0,
+          "wrap": false,
+          "justifyContent": "start",
+          "alignItems": "start"
+        },
+        "item": {
+          "width": "fit-content",
+          "height": "fixed",
+          "minWidth": 0,
+          "maxWidth": null,
+          "minHeight": 0,
+          "maxHeight": null,
+          "grow": 0,
+          "shrink": false,
+          "alignSelf": "auto",
+          "horizontalAnchor": "start",
+          "verticalAnchor": "start",
+          "left": 0,
+          "right": 0,
+          "top": 0,
+          "bottom": 0
+        }
+      },
+      "bounds": {
+        "width": 80,
+        "height": 24,
+        "x": 0,
+        "y": 0
+      },
+      "props": {
+        "caption": "",
+        "enabled": true,
+        "autoSize": false,
+        "collapseWhenHidden": true,
+        "color": "#000000",
+        "visible": true
+      },
+      "events": {
+        "OnClick": null,
+        "OnDblClick": null,
+        "OnMouseEnter": null,
+        "OnMouseLeave": null
+      },
+      "styleId": "sigat2-texto-claro-forte",
+      "children": []
+    },
+    {
+      "id": "9f249795-b018-4332-bf26-031a7a03f583",
+      "type": "WebButton",
+      "name": "BTNBloqueados",
+      "parentId": "363b406d-cf71-458c-b05c-8d3da8ba6706",
+      "layout": {
+        "container": {
+          "mode": "fixed",
+          "paddingTop": 0,
+          "paddingRight": 0,
+          "paddingBottom": 0,
+          "paddingLeft": 0,
+          "gap": 0,
+          "wrap": false,
+          "justifyContent": "start",
+          "alignItems": "start"
+        },
+        "item": {
+          "width": "fit-content",
+          "height": "fixed",
+          "minWidth": 0,
+          "maxWidth": null,
+          "minHeight": 0,
+          "maxHeight": null,
+          "grow": 0,
+          "shrink": false,
+          "alignSelf": "auto",
+          "horizontalAnchor": "start",
+          "verticalAnchor": "start",
+          "left": 0,
+          "right": 0,
+          "top": 0,
+          "bottom": 0
+        }
+      },
+      "bounds": {
+        "width": 100,
+        "height": 26,
+        "x": 0,
+        "y": 0
+      },
+      "props": {
+        "caption": "0",
+        "enabled": true,
+        "collapseWhenHidden": true,
+        "icon": "lock",
+        "tabIndex": 0,
+        "visible": true
+      },
+      "events": {
+        "OnBlur": null,
+        "OnClick": "MostrarBloqueados",
+        "OnFocus": null,
+        "OnMouseEnter": null,
+        "OnMouseLeave": null
+      },
+      "styleId": "sigat2-selo-bloqueados",
+      "children": []
+    },
+    {
+      "id": "5f2f1a77-46fb-4e18-b067-c2c6218cf57b",
+      "type": "WebButton",
+      "name": "BTNPainel",
+      "parentId": "363b406d-cf71-458c-b05c-8d3da8ba6706",
+      "layout": {
+        "container": {
+          "mode": "fixed",
+          "paddingTop": 0,
+          "paddingRight": 0,
+          "paddingBottom": 0,
+          "paddingLeft": 0,
+          "gap": 0,
+          "wrap": false,
+          "justifyContent": "start",
+          "alignItems": "start"
+        },
+        "item": {
+          "width": "fit-content",
+          "height": "fixed",
+          "minWidth": 0,
+          "maxWidth": null,
+          "minHeight": 0,
+          "maxHeight": null,
+          "grow": 0,
+          "shrink": false,
+          "alignSelf": "auto",
+          "horizontalAnchor": "start",
+          "verticalAnchor": "start",
+          "left": 0,
+          "right": 0,
+          "top": 0,
+          "bottom": 0
+        }
+      },
+      "bounds": {
+        "width": 100,
+        "height": 31,
+        "x": 0,
+        "y": 0
+      },
+      "props": {
+        "caption": "Painel",
+        "enabled": true,
+        "collapseWhenHidden": true,
+        "icon": "menu",
+        "tabIndex": 0,
+        "visible": true
+      },
+      "events": {
+        "OnBlur": null,
+        "OnClick": "AbrirPainel",
+        "OnFocus": null,
+        "OnMouseEnter": null,
+        "OnMouseLeave": null
+      },
+      "styleId": "sigat2-botao-primario",
+      "children": []
+    },
+    {
+      "id": "86d2e1e5-5de8-4068-b03f-4f1c970c335a",
+      "type": "WebButton",
+      "name": "BTNInserviveis",
+      "parentId": "363b406d-cf71-458c-b05c-8d3da8ba6706",
+      "layout": {
+        "container": {
+          "mode": "fixed",
+          "paddingTop": 0,
+          "paddingRight": 0,
+          "paddingBottom": 0,
+          "paddingLeft": 0,
+          "gap": 0,
+          "wrap": false,
+          "justifyContent": "start",
+          "alignItems": "start"
+        },
+        "item": {
+          "width": "fit-content",
+          "height": "fixed",
+          "minWidth": 0,
+          "maxWidth": null,
+          "minHeight": 0,
+          "maxHeight": null,
+          "grow": 0,
+          "shrink": false,
+          "alignSelf": "auto",
+          "horizontalAnchor": "start",
+          "verticalAnchor": "start",
+          "left": 0,
+          "right": 0,
+          "top": 0,
+          "bottom": 0
+        }
+      },
+      "bounds": {
+        "width": 100,
+        "height": 31,
+        "x": 0,
+        "y": 0
+      },
+      "props": {
+        "caption": "Remessas de inservíveis",
         "enabled": true,
         "allowedRoles": [
           "inservivel"
         ],
         "collapseWhenHidden": true,
-        "icon": "archive",
+        "icon": "cart",
         "tabIndex": 0,
         "visible": true
       },
@@ -433,14 +839,14 @@
         "OnMouseEnter": null,
         "OnMouseLeave": null
       },
-      "styleId": "3755d9a1-991d-4861-8878-42148ee446dc:default-style:WebButton",
+      "styleId": "sigat2-botao-primario",
       "children": []
     },
     {
-      "id": "2aaaa110-d628-4b86-977a-687754ae6bb0",
+      "id": "e6b43f63-3a96-490e-8391-5c5949320b59",
       "type": "WebButton",
       "name": "BTNAdmin",
-      "parentId": "6de6cbc3-d9e1-49a3-bc04-bc28431c3035",
+      "parentId": "363b406d-cf71-458c-b05c-8d3da8ba6706",
       "layout": {
         "container": {
           "mode": "fixed",
@@ -454,14 +860,14 @@
           "alignItems": "start"
         },
         "item": {
-          "width": "fixed",
+          "width": "fit-content",
           "height": "fixed",
-          "minWidth": 120,
-          "maxWidth": 220,
+          "minWidth": 0,
+          "maxWidth": null,
           "minHeight": 0,
           "maxHeight": null,
           "grow": 0,
-          "shrink": true,
+          "shrink": false,
           "alignSelf": "auto",
           "horizontalAnchor": "start",
           "verticalAnchor": "start",
@@ -472,8 +878,8 @@
         }
       },
       "bounds": {
-        "width": 180,
-        "height": 40,
+        "width": 100,
+        "height": 31,
         "x": 0,
         "y": 0
       },
@@ -495,14 +901,14 @@
         "OnMouseEnter": null,
         "OnMouseLeave": null
       },
-      "styleId": "3755d9a1-991d-4861-8878-42148ee446dc:default-style:WebButton",
+      "styleId": "sigat2-botao-secundario",
       "children": []
     },
     {
-      "id": "3f12858f-1574-4e33-ac47-7d185daa4f83",
-      "type": "WebLabel",
-      "name": "LBLUsuario",
-      "parentId": "6de6cbc3-d9e1-49a3-bc04-bc28431c3035",
+      "id": "6fda350e-85ba-47c3-9a83-976f54d165c9",
+      "type": "WebButton",
+      "name": "BTNSair",
+      "parentId": "363b406d-cf71-458c-b05c-8d3da8ba6706",
       "layout": {
         "container": {
           "mode": "fixed",
@@ -516,13 +922,13 @@
           "alignItems": "start"
         },
         "item": {
-          "width": "fixed",
+          "width": "fit-content",
           "height": "fixed",
           "minWidth": 0,
           "maxWidth": null,
           "minHeight": 0,
           "maxHeight": null,
-          "grow": 1,
+          "grow": 0,
           "shrink": false,
           "alignSelf": "auto",
           "horizontalAnchor": "start",
@@ -534,50 +940,51 @@
         }
       },
       "bounds": {
-        "width": 200,
-        "height": 28,
+        "width": 100,
+        "height": 31,
         "x": 0,
         "y": 0
       },
       "props": {
-        "caption": "",
+        "caption": "Sair",
         "enabled": true,
-        "autoSize": false,
         "collapseWhenHidden": true,
-        "color": "#000000",
+        "icon": "sign-out",
+        "tabIndex": 0,
         "visible": true
       },
       "events": {
-        "OnClick": null,
-        "OnDblClick": null,
+        "OnBlur": null,
+        "OnClick": "Sair",
+        "OnFocus": null,
         "OnMouseEnter": null,
         "OnMouseLeave": null
       },
-      "styleId": "3755d9a1-991d-4861-8878-42148ee446dc:default-style:WebLabel",
+      "styleId": "sigat2-botao-perigo",
       "children": []
     },
     {
-      "id": "ff10d256-bfd9-46c7-843f-eacdd2cc830c",
-      "type": "WebButton",
-      "name": "BTNSair",
-      "parentId": "6de6cbc3-d9e1-49a3-bc04-bc28431c3035",
+      "id": "6b0ff36e-d2b5-4793-af93-0772e6c419d3",
+      "type": "WebGroup",
+      "name": "Conteudo",
+      "parentId": "c5b7a695-3c22-49e6-8ad2-5ffb89a370e1",
       "layout": {
         "container": {
-          "mode": "fixed",
-          "paddingTop": 0,
-          "paddingRight": 0,
-          "paddingBottom": 0,
-          "paddingLeft": 0,
-          "gap": 0,
+          "mode": "column",
+          "paddingTop": 16,
+          "paddingRight": 24,
+          "paddingBottom": 24,
+          "paddingLeft": 24,
+          "gap": 16,
           "wrap": false,
           "justifyContent": "start",
-          "alignItems": "start"
+          "alignItems": "stretch"
         },
         "item": {
-          "width": "fixed",
-          "height": "fixed",
-          "minWidth": 120,
-          "maxWidth": 220,
+          "width": "stretch",
+          "height": "stretch",
+          "minWidth": 0,
+          "maxWidth": null,
           "minHeight": 0,
           "maxHeight": null,
           "grow": 0,
@@ -592,34 +999,36 @@
         }
       },
       "bounds": {
-        "width": 180,
-        "height": 40,
+        "width": 240,
+        "height": 160,
         "x": 0,
         "y": 0
       },
       "props": {
-        "caption": "Sair",
         "enabled": true,
+        "aspectRatio": "none",
         "collapseWhenHidden": true,
-        "icon": "logout",
-        "tabIndex": 0,
         "visible": true
       },
       "events": {
-        "OnBlur": null,
-        "OnClick": "Sair",
-        "OnFocus": null,
+        "OnClick": null,
+        "OnDblClick": null,
         "OnMouseEnter": null,
         "OnMouseLeave": null
       },
-      "styleId": "3755d9a1-991d-4861-8878-42148ee446dc:default-style:WebButton",
-      "children": []
+      "styleId": "sigat2-conteudo",
+      "children": [
+        "97a7dce4-b3c9-48a1-a050-20e0f13c7521",
+        "ba47dde3-d22c-45e9-b099-e52c5144975f",
+        "7c3d3849-217f-4c7c-9c35-304129c1c4a8",
+        "4de31f2d-5170-4eb1-ae43-ca37fd8d7315"
+      ]
     },
     {
-      "id": "4e684414-0ca7-4d04-a71b-5495a9ec6955",
+      "id": "97a7dce4-b3c9-48a1-a050-20e0f13c7521",
       "type": "WebLabel",
       "name": "LBLEquipamento",
-      "parentId": "e267dd17-2bd8-410d-acf9-8e9233ac4f0c",
+      "parentId": "6b0ff36e-d2b5-4793-af93-0772e6c419d3",
       "layout": {
         "container": {
           "mode": "fixed",
@@ -674,10 +1083,10 @@
       "children": []
     },
     {
-      "id": "1b71b0f5-6d53-4d79-9578-d85bebbbbd83",
+      "id": "ba47dde3-d22c-45e9-b099-e52c5144975f",
       "type": "WebPanel",
       "name": "PNLDados",
-      "parentId": "e267dd17-2bd8-410d-acf9-8e9233ac4f0c",
+      "parentId": "6b0ff36e-d2b5-4793-af93-0772e6c419d3",
       "layout": {
         "container": {
           "mode": "column",
@@ -742,14 +1151,14 @@
       },
       "styleId": "3755d9a1-991d-4861-8878-42148ee446dc:default-style:WebPanel",
       "children": [
-        "68a26eb4-bc94-442e-94d2-c4fc2e4af91c"
+        "bf444150-8afc-4f68-88f9-e30fe21dd7e6"
       ]
     },
     {
-      "id": "68a26eb4-bc94-442e-94d2-c4fc2e4af91c",
+      "id": "bf444150-8afc-4f68-88f9-e30fe21dd7e6",
       "type": "WebGroup",
       "name": "Dados",
-      "parentId": "1b71b0f5-6d53-4d79-9578-d85bebbbbd83",
+      "parentId": "ba47dde3-d22c-45e9-b099-e52c5144975f",
       "layout": {
         "container": {
           "mode": "row",
@@ -799,17 +1208,17 @@
         "OnMouseLeave": null
       },
       "children": [
-        "9151bd04-9d04-4e98-9491-bf21dda918dd",
-        "9c0a2646-ce67-4e12-940c-34a8132537a3",
-        "af4e1a77-5c34-45b0-b9ae-d03398a9dc01",
-        "64051240-037c-4191-bc30-97e446c76d53"
+        "56be07e4-83d1-4943-b64e-7e9ca13d0950",
+        "c12108c3-4f5e-460d-8d1d-1e290e940f28",
+        "1ebdf439-6900-4123-9163-3093b046978e",
+        "979583b2-41ea-453b-b589-b1ea976257a2"
       ]
     },
     {
-      "id": "9151bd04-9d04-4e98-9491-bf21dda918dd",
+      "id": "56be07e4-83d1-4943-b64e-7e9ca13d0950",
       "type": "WebGroup",
       "name": "DadosDescricao",
-      "parentId": "68a26eb4-bc94-442e-94d2-c4fc2e4af91c",
+      "parentId": "bf444150-8afc-4f68-88f9-e30fe21dd7e6",
       "layout": {
         "container": {
           "mode": "column",
@@ -859,15 +1268,15 @@
         "OnMouseLeave": null
       },
       "children": [
-        "cd4c7877-ade3-43ed-bd37-33482507bbf3",
-        "bf421950-4245-46ac-bba5-c585a819e1bf"
+        "01e58491-3d15-4327-8d29-20851dfcec17",
+        "11189fb8-05a2-4a80-8ac8-5b8f398f9e5e"
       ]
     },
     {
-      "id": "cd4c7877-ade3-43ed-bd37-33482507bbf3",
+      "id": "01e58491-3d15-4327-8d29-20851dfcec17",
       "type": "WebLabel",
       "name": "LBLDescricao",
-      "parentId": "9151bd04-9d04-4e98-9491-bf21dda918dd",
+      "parentId": "56be07e4-83d1-4943-b64e-7e9ca13d0950",
       "layout": {
         "container": {
           "mode": "fixed",
@@ -922,10 +1331,10 @@
       "children": []
     },
     {
-      "id": "bf421950-4245-46ac-bba5-c585a819e1bf",
+      "id": "11189fb8-05a2-4a80-8ac8-5b8f398f9e5e",
       "type": "WebLabel",
       "name": "Descricao",
-      "parentId": "9151bd04-9d04-4e98-9491-bf21dda918dd",
+      "parentId": "56be07e4-83d1-4943-b64e-7e9ca13d0950",
       "layout": {
         "container": {
           "mode": "fixed",
@@ -980,10 +1389,10 @@
       "children": []
     },
     {
-      "id": "9c0a2646-ce67-4e12-940c-34a8132537a3",
+      "id": "c12108c3-4f5e-460d-8d1d-1e290e940f28",
       "type": "WebGroup",
       "name": "DadosEtiqueta",
-      "parentId": "68a26eb4-bc94-442e-94d2-c4fc2e4af91c",
+      "parentId": "bf444150-8afc-4f68-88f9-e30fe21dd7e6",
       "layout": {
         "container": {
           "mode": "column",
@@ -1033,15 +1442,15 @@
         "OnMouseLeave": null
       },
       "children": [
-        "7284d53f-72c3-4c04-89ae-b184ac3a3d99",
-        "f0ca1a47-413c-4f35-9d7b-292f0852fd43"
+        "aaca620b-d9c1-418f-8fdf-678cc6ddbb50",
+        "c9c6f2ba-2651-4396-9d15-75becea21f9e"
       ]
     },
     {
-      "id": "7284d53f-72c3-4c04-89ae-b184ac3a3d99",
+      "id": "aaca620b-d9c1-418f-8fdf-678cc6ddbb50",
       "type": "WebLabel",
       "name": "LBLEtiqueta",
-      "parentId": "9c0a2646-ce67-4e12-940c-34a8132537a3",
+      "parentId": "c12108c3-4f5e-460d-8d1d-1e290e940f28",
       "layout": {
         "container": {
           "mode": "fixed",
@@ -1096,10 +1505,10 @@
       "children": []
     },
     {
-      "id": "f0ca1a47-413c-4f35-9d7b-292f0852fd43",
+      "id": "c9c6f2ba-2651-4396-9d15-75becea21f9e",
       "type": "WebLabel",
       "name": "Etiqueta",
-      "parentId": "9c0a2646-ce67-4e12-940c-34a8132537a3",
+      "parentId": "c12108c3-4f5e-460d-8d1d-1e290e940f28",
       "layout": {
         "container": {
           "mode": "fixed",
@@ -1154,10 +1563,10 @@
       "children": []
     },
     {
-      "id": "af4e1a77-5c34-45b0-b9ae-d03398a9dc01",
+      "id": "1ebdf439-6900-4123-9163-3093b046978e",
       "type": "WebGroup",
       "name": "DadosCadastro",
-      "parentId": "68a26eb4-bc94-442e-94d2-c4fc2e4af91c",
+      "parentId": "bf444150-8afc-4f68-88f9-e30fe21dd7e6",
       "layout": {
         "container": {
           "mode": "column",
@@ -1207,15 +1616,15 @@
         "OnMouseLeave": null
       },
       "children": [
-        "55d57f15-4755-40b2-97cc-9adee790a438",
-        "d0dbdd7b-a828-4766-a321-dbb2ddc41f27"
+        "b8f98382-1de4-46ea-983c-74e6c7c49343",
+        "608c0587-2119-4f3d-acc2-999170a635f2"
       ]
     },
     {
-      "id": "55d57f15-4755-40b2-97cc-9adee790a438",
+      "id": "b8f98382-1de4-46ea-983c-74e6c7c49343",
       "type": "WebLabel",
       "name": "LBLCadastro",
-      "parentId": "af4e1a77-5c34-45b0-b9ae-d03398a9dc01",
+      "parentId": "1ebdf439-6900-4123-9163-3093b046978e",
       "layout": {
         "container": {
           "mode": "fixed",
@@ -1270,10 +1679,10 @@
       "children": []
     },
     {
-      "id": "d0dbdd7b-a828-4766-a321-dbb2ddc41f27",
+      "id": "608c0587-2119-4f3d-acc2-999170a635f2",
       "type": "WebLabel",
       "name": "Cadastro",
-      "parentId": "af4e1a77-5c34-45b0-b9ae-d03398a9dc01",
+      "parentId": "1ebdf439-6900-4123-9163-3093b046978e",
       "layout": {
         "container": {
           "mode": "fixed",
@@ -1328,10 +1737,10 @@
       "children": []
     },
     {
-      "id": "64051240-037c-4191-bc30-97e446c76d53",
+      "id": "979583b2-41ea-453b-b589-b1ea976257a2",
       "type": "WebGroup",
       "name": "DadosAlteracao",
-      "parentId": "68a26eb4-bc94-442e-94d2-c4fc2e4af91c",
+      "parentId": "bf444150-8afc-4f68-88f9-e30fe21dd7e6",
       "layout": {
         "container": {
           "mode": "column",
@@ -1381,15 +1790,15 @@
         "OnMouseLeave": null
       },
       "children": [
-        "1c2d0766-336e-4ac5-868e-44e66e535587",
-        "75a0b235-d573-45fa-969f-5124429ee265"
+        "3a6eb704-c388-4ee0-85ae-64aae9e7dd05",
+        "a0c708c4-6528-4170-a13e-165353e5360a"
       ]
     },
     {
-      "id": "1c2d0766-336e-4ac5-868e-44e66e535587",
+      "id": "3a6eb704-c388-4ee0-85ae-64aae9e7dd05",
       "type": "WebLabel",
       "name": "LBLAlteracao",
-      "parentId": "64051240-037c-4191-bc30-97e446c76d53",
+      "parentId": "979583b2-41ea-453b-b589-b1ea976257a2",
       "layout": {
         "container": {
           "mode": "fixed",
@@ -1444,10 +1853,10 @@
       "children": []
     },
     {
-      "id": "75a0b235-d573-45fa-969f-5124429ee265",
+      "id": "a0c708c4-6528-4170-a13e-165353e5360a",
       "type": "WebLabel",
       "name": "Alteracao",
-      "parentId": "64051240-037c-4191-bc30-97e446c76d53",
+      "parentId": "979583b2-41ea-453b-b589-b1ea976257a2",
       "layout": {
         "container": {
           "mode": "fixed",
@@ -1502,10 +1911,10 @@
       "children": []
     },
     {
-      "id": "6d019d22-806e-48d7-b22e-9997e59f46a4",
+      "id": "7c3d3849-217f-4c7c-9c35-304129c1c4a8",
       "type": "WebPanel",
       "name": "PNLChamados",
-      "parentId": "e267dd17-2bd8-410d-acf9-8e9233ac4f0c",
+      "parentId": "6b0ff36e-d2b5-4793-af93-0772e6c419d3",
       "layout": {
         "container": {
           "mode": "column",
@@ -1570,15 +1979,15 @@
       },
       "styleId": "3755d9a1-991d-4861-8878-42148ee446dc:default-style:WebPanel",
       "children": [
-        "6f89acfe-91ff-4ce0-81c2-7216807f8f3f",
-        "79370fd4-6966-4366-8b85-5ecb6b501629"
+        "f895ab88-278f-476a-b210-2485af4cb011",
+        "b3292542-9320-4ec7-9ebe-92dd844db57c"
       ]
     },
     {
-      "id": "6f89acfe-91ff-4ce0-81c2-7216807f8f3f",
+      "id": "f895ab88-278f-476a-b210-2485af4cb011",
       "type": "WebGroup",
       "name": "Filtro",
-      "parentId": "6d019d22-806e-48d7-b22e-9997e59f46a4",
+      "parentId": "7c3d3849-217f-4c7c-9c35-304129c1c4a8",
       "layout": {
         "container": {
           "mode": "row",
@@ -1628,15 +2037,15 @@
         "OnMouseLeave": null
       },
       "children": [
-        "1e6c9f74-a781-41b1-9683-62e4af7cc547",
-        "da6b537d-431c-430c-a773-2cb0dffe1b21"
+        "582be749-e002-474a-a5b2-cbb5da695d56",
+        "4369e5d8-d85f-416b-a0d1-ed63b81a781b"
       ]
     },
     {
-      "id": "1e6c9f74-a781-41b1-9683-62e4af7cc547",
+      "id": "582be749-e002-474a-a5b2-cbb5da695d56",
       "type": "WebToggle",
       "name": "TGLAtendidos",
-      "parentId": "6f89acfe-91ff-4ce0-81c2-7216807f8f3f",
+      "parentId": "f895ab88-278f-476a-b210-2485af4cb011",
       "layout": {
         "container": {
           "mode": "fixed",
@@ -1690,10 +2099,10 @@
       "children": []
     },
     {
-      "id": "da6b537d-431c-430c-a773-2cb0dffe1b21",
+      "id": "4369e5d8-d85f-416b-a0d1-ed63b81a781b",
       "type": "WebLabel",
       "name": "LBLAtendidos",
-      "parentId": "6f89acfe-91ff-4ce0-81c2-7216807f8f3f",
+      "parentId": "f895ab88-278f-476a-b210-2485af4cb011",
       "layout": {
         "container": {
           "mode": "fixed",
@@ -1748,10 +2157,10 @@
       "children": []
     },
     {
-      "id": "79370fd4-6966-4366-8b85-5ecb6b501629",
+      "id": "b3292542-9320-4ec7-9ebe-92dd844db57c",
       "type": "WebDataGrid",
       "name": "GRDChamados",
-      "parentId": "6d019d22-806e-48d7-b22e-9997e59f46a4",
+      "parentId": "7c3d3849-217f-4c7c-9c35-304129c1c4a8",
       "layout": {
         "container": {
           "mode": "fixed",
@@ -1792,13 +2201,13 @@
         "enabled": true,
         "collapseWhenHidden": true,
         "dataGridConfig": {
-          "apiClientId": "5196e744-aef1-4050-9a09-3602f20aa8bf",
+          "apiClientId": "4de31f2d-5170-4eb1-ae43-ca37fd8d7315",
           "cellPaddingHorizontal": 10,
           "cellPaddingVertical": 8,
           "columnCount": 6,
           "columns": [
             {
-              "id": "97542457-836e-44eb-ad37-b70f2302d17e",
+              "id": "5196e744-aef1-4050-9a09-3602f20aa8bf",
               "width": 90,
               "minWidth": 90,
               "maxWidth": null,
@@ -1816,7 +2225,7 @@
               "widthMode": "fixed"
             },
             {
-              "id": "267ba1da-ed8c-40e3-b6b9-31a8eed41e53",
+              "id": "7caf38ab-19db-4829-ad0e-137aaa0bcbb1",
               "width": 170,
               "minWidth": 90,
               "maxWidth": null,
@@ -1834,7 +2243,7 @@
               "widthMode": "fixed"
             },
             {
-              "id": "87ed0811-e7e2-41b2-a0dc-58adb9972673",
+              "id": "2a1030e2-d546-4fcd-81a7-53b4b53148cf",
               "width": 180,
               "minWidth": 90,
               "maxWidth": null,
@@ -1852,7 +2261,7 @@
               "widthMode": "dynamic"
             },
             {
-              "id": "f9274270-7014-4219-a4b4-f7858f042136",
+              "id": "97542457-836e-44eb-ad37-b70f2302d17e",
               "width": 150,
               "minWidth": 90,
               "maxWidth": null,
@@ -1870,7 +2279,7 @@
               "widthMode": "fixed"
             },
             {
-              "id": "53653812-d7d7-4fb0-af9e-62433721915d",
+              "id": "267ba1da-ed8c-40e3-b6b9-31a8eed41e53",
               "width": 160,
               "minWidth": 90,
               "maxWidth": null,
@@ -1888,7 +2297,7 @@
               "widthMode": "fixed"
             },
             {
-              "id": "43f85044-37c3-4d76-a721-6ee6278dd3b6",
+              "id": "87ed0811-e7e2-41b2-a0dc-58adb9972673",
               "width": 120,
               "minWidth": 90,
               "maxWidth": null,
@@ -1912,7 +2321,7 @@
           "listPath": "/data",
           "maxRowHeight": null,
           "minRowHeight": 36,
-          "operationId": "2a1030e2-d546-4fcd-81a7-53b4b53148cf",
+          "operationId": "0826128a-763d-4816-a7a4-2b040b0381ea",
           "pageSize": 25,
           "pageSizeOptions": [
             10,
@@ -1954,10 +2363,10 @@
       "children": []
     },
     {
-      "id": "5196e744-aef1-4050-9a09-3602f20aa8bf",
+      "id": "4de31f2d-5170-4eb1-ae43-ca37fd8d7315",
       "type": "WebApiClient",
       "name": "Api",
-      "parentId": "e267dd17-2bd8-410d-acf9-8e9233ac4f0c",
+      "parentId": "6b0ff36e-d2b5-4793-af93-0772e6c419d3",
       "layout": {
         "container": {
           "mode": "fixed",
@@ -2001,7 +2410,7 @@
           "defaultHeaders": [],
           "operations": [
             {
-              "id": "7caf38ab-19db-4829-ad0e-137aaa0bcbb1",
+              "id": "95621da3-87a4-4e51-bf80-e805e312f7a0",
               "name": "Equipamento",
               "apiVersion": 1,
               "body": {
@@ -2014,7 +2423,7 @@
               "path": "sigat/equipamento",
               "query": [
                 {
-                  "id": "d5f784e7-649e-4f74-8703-b0ee52914d37",
+                  "id": "f9274270-7014-4219-a4b4-f7858f042136",
                   "name": "num",
                   "value": "",
                   "enabled": false
@@ -2022,11 +2431,11 @@
               ],
               "responseSchema": {
                 "root": {
-                  "id": "ebda2213-7c54-49fc-8df1-9fea02968479",
+                  "id": "53653812-d7d7-4fb0-af9e-62433721915d",
                   "name": "Response",
                   "children": [
                     {
-                      "id": "3ac6f0a3-07b3-425d-b5db-d26a1dd0636f",
+                      "id": "43f85044-37c3-4d76-a721-6ee6278dd3b6",
                       "name": "success",
                       "children": [],
                       "kind": "field",
@@ -2035,11 +2444,11 @@
                       "path": "/success"
                     },
                     {
-                      "id": "94a3c717-700c-48ad-be0e-033b4cc7b686",
+                      "id": "d5f784e7-649e-4f74-8703-b0ee52914d37",
                       "name": "data",
                       "children": [
                         {
-                          "id": "5a47d18b-ef60-486a-94c6-3db069645a5d",
+                          "id": "ebda2213-7c54-49fc-8df1-9fea02968479",
                           "name": "num_equipamento",
                           "children": [],
                           "kind": "field",
@@ -2048,7 +2457,7 @@
                           "path": "/data/*/num_equipamento"
                         },
                         {
-                          "id": "470c9cae-fb84-4949-9af4-d7ad7b965c51",
+                          "id": "3ac6f0a3-07b3-425d-b5db-d26a1dd0636f",
                           "name": "descricao_equipamento",
                           "children": [],
                           "kind": "field",
@@ -2057,7 +2466,7 @@
                           "path": "/data/*/descricao_equipamento"
                         },
                         {
-                          "id": "175b2532-5c15-4843-9ff5-b71901e4c351",
+                          "id": "94a3c717-700c-48ad-be0e-033b4cc7b686",
                           "name": "tag_equipamento",
                           "children": [],
                           "kind": "field",
@@ -2066,7 +2475,7 @@
                           "path": "/data/*/tag_equipamento"
                         },
                         {
-                          "id": "21679642-567b-49d5-9dbe-e188100bc568",
+                          "id": "5a47d18b-ef60-486a-94c6-3db069645a5d",
                           "name": "data_equipamento",
                           "children": [],
                           "kind": "field",
@@ -2075,7 +2484,7 @@
                           "path": "/data/*/data_equipamento"
                         },
                         {
-                          "id": "aee2d48e-a9ae-47c5-b3d2-7efeb234edb0",
+                          "id": "470c9cae-fb84-4949-9af4-d7ad7b965c51",
                           "name": "data_alteracao_equipamento",
                           "children": [],
                           "kind": "field",
@@ -2090,7 +2499,7 @@
                       "path": "/data"
                     },
                     {
-                      "id": "57ae5722-7305-4525-9719-ea8d2d1cc966",
+                      "id": "175b2532-5c15-4843-9ff5-b71901e4c351",
                       "name": "page",
                       "children": [],
                       "kind": "field",
@@ -2099,7 +2508,7 @@
                       "path": "/page"
                     },
                     {
-                      "id": "ef48b4fd-8a9f-4c29-9d8a-c8b1ada0464e",
+                      "id": "21679642-567b-49d5-9dbe-e188100bc568",
                       "name": "page_size",
                       "children": [],
                       "kind": "field",
@@ -2108,7 +2517,7 @@
                       "path": "/page_size"
                     },
                     {
-                      "id": "47f993b1-3f84-4fa7-ad39-abcf13b1768c",
+                      "id": "aee2d48e-a9ae-47c5-b3d2-7efeb234edb0",
                       "name": "total_pages",
                       "children": [],
                       "kind": "field",
@@ -2117,7 +2526,7 @@
                       "path": "/total_pages"
                     },
                     {
-                      "id": "616cbe9f-d090-4a41-aa4f-912376f7e02d",
+                      "id": "57ae5722-7305-4525-9719-ea8d2d1cc966",
                       "name": "total",
                       "children": [],
                       "kind": "field",
@@ -2126,7 +2535,7 @@
                       "path": "/total"
                     },
                     {
-                      "id": "cba42867-29e1-4f61-bcf8-442c789ddd1a",
+                      "id": "ef48b4fd-8a9f-4c29-9d8a-c8b1ada0464e",
                       "name": "has_more",
                       "children": [],
                       "kind": "field",
@@ -2145,7 +2554,7 @@
               "timeoutMs": null
             },
             {
-              "id": "2a1030e2-d546-4fcd-81a7-53b4b53148cf",
+              "id": "0826128a-763d-4816-a7a4-2b040b0381ea",
               "name": "Chamados",
               "apiVersion": 1,
               "body": {
@@ -2158,13 +2567,13 @@
               "path": "sigat/equipamento-chamados",
               "query": [
                 {
-                  "id": "082b6c83-a148-4a33-a88d-0b8842d042db",
+                  "id": "47f993b1-3f84-4fa7-ad39-abcf13b1768c",
                   "name": "num",
                   "value": "",
                   "enabled": false
                 },
                 {
-                  "id": "0e4bb58a-f7e1-44bf-98b0-eeb19b965b08",
+                  "id": "616cbe9f-d090-4a41-aa4f-912376f7e02d",
                   "name": "atendidos",
                   "value": "",
                   "enabled": false
@@ -2172,11 +2581,11 @@
               ],
               "responseSchema": {
                 "root": {
-                  "id": "dfc684de-fe02-45e7-a34c-e09cf30c45ee",
+                  "id": "cba42867-29e1-4f61-bcf8-442c789ddd1a",
                   "name": "Response",
                   "children": [
                     {
-                      "id": "5013a5a9-afd5-4744-b344-d98af62ec4e4",
+                      "id": "082b6c83-a148-4a33-a88d-0b8842d042db",
                       "name": "success",
                       "children": [],
                       "kind": "field",
@@ -2185,11 +2594,11 @@
                       "path": "/success"
                     },
                     {
-                      "id": "34023484-b4dc-4925-a9f8-f0fc1e511835",
+                      "id": "0e4bb58a-f7e1-44bf-98b0-eeb19b965b08",
                       "name": "data",
                       "children": [
                         {
-                          "id": "46c582f1-81e2-482c-a76b-0d9e267235d0",
+                          "id": "dfc684de-fe02-45e7-a34c-e09cf30c45ee",
                           "name": "status_equipamento_chamado",
                           "children": [],
                           "kind": "field",
@@ -2198,7 +2607,7 @@
                           "path": "/data/*/status_equipamento_chamado"
                         },
                         {
-                          "id": "f0efaf77-d274-4885-b715-a0319dd01a26",
+                          "id": "5013a5a9-afd5-4744-b344-d98af62ec4e4",
                           "name": "id_chamado",
                           "children": [],
                           "kind": "field",
@@ -2207,7 +2616,7 @@
                           "path": "/data/*/id_chamado"
                         },
                         {
-                          "id": "1738ad02-fb66-4455-aff8-9ad1e7925c94",
+                          "id": "34023484-b4dc-4925-a9f8-f0fc1e511835",
                           "name": "resumo_chamado",
                           "children": [],
                           "kind": "field",
@@ -2216,7 +2625,7 @@
                           "path": "/data/*/resumo_chamado"
                         },
                         {
-                          "id": "72d9c974-4ce8-446f-a1eb-206d9aa5406a",
+                          "id": "46c582f1-81e2-482c-a76b-0d9e267235d0",
                           "name": "data_chamado",
                           "children": [],
                           "kind": "field",
@@ -2225,7 +2634,7 @@
                           "path": "/data/*/data_chamado"
                         },
                         {
-                          "id": "25268ba9-5671-4030-9781-ab0b5d0f0883",
+                          "id": "f0efaf77-d274-4885-b715-a0319dd01a26",
                           "name": "data_chamado_fmt",
                           "children": [],
                           "kind": "field",
@@ -2234,7 +2643,7 @@
                           "path": "/data/*/data_chamado_fmt"
                         },
                         {
-                          "id": "90cf5eee-2c4c-4d43-9a84-c62b6a49d379",
+                          "id": "1738ad02-fb66-4455-aff8-9ad1e7925c94",
                           "name": "ticket_chamado",
                           "children": [],
                           "kind": "field",
@@ -2243,7 +2652,7 @@
                           "path": "/data/*/ticket_chamado"
                         },
                         {
-                          "id": "e93f40ae-7706-4552-a5df-30627f4bcfbf",
+                          "id": "72d9c974-4ce8-446f-a1eb-206d9aa5406a",
                           "name": "id_ticket_chamado",
                           "children": [],
                           "kind": "field",
@@ -2252,7 +2661,7 @@
                           "path": "/data/*/id_ticket_chamado"
                         },
                         {
-                          "id": "8299b7be-53b6-49f5-ba03-af5489e49398",
+                          "id": "25268ba9-5671-4030-9781-ab0b5d0f0883",
                           "name": "status_chamado",
                           "children": [],
                           "kind": "field",
@@ -2267,7 +2676,7 @@
                       "path": "/data"
                     },
                     {
-                      "id": "bcc4e62b-d285-46ba-85e2-9306f92e269a",
+                      "id": "90cf5eee-2c4c-4d43-9a84-c62b6a49d379",
                       "name": "page",
                       "children": [],
                       "kind": "field",
@@ -2276,7 +2685,7 @@
                       "path": "/page"
                     },
                     {
-                      "id": "69c347da-fd73-4aa8-8951-e01013a897dd",
+                      "id": "e93f40ae-7706-4552-a5df-30627f4bcfbf",
                       "name": "page_size",
                       "children": [],
                       "kind": "field",
@@ -2285,7 +2694,7 @@
                       "path": "/page_size"
                     },
                     {
-                      "id": "81031654-93da-4e53-83a1-888eebdc1510",
+                      "id": "8299b7be-53b6-49f5-ba03-af5489e49398",
                       "name": "total_pages",
                       "children": [],
                       "kind": "field",
@@ -2294,7 +2703,7 @@
                       "path": "/total_pages"
                     },
                     {
-                      "id": "f2291380-27cf-4adc-bd04-881585b00bbe",
+                      "id": "bcc4e62b-d285-46ba-85e2-9306f92e269a",
                       "name": "total",
                       "children": [],
                       "kind": "field",
@@ -2303,7 +2712,7 @@
                       "path": "/total"
                     },
                     {
-                      "id": "17ef1210-6a41-4465-90e9-6930a7814c42",
+                      "id": "69c347da-fd73-4aa8-8951-e01013a897dd",
                       "name": "has_more",
                       "children": [],
                       "kind": "field",
@@ -2332,6 +2741,240 @@
         "OnRequest": null,
         "OnSuccess": null
       },
+      "children": []
+    },
+    {
+      "id": "878af721-df35-486b-ba41-b37796e2a93c",
+      "type": "WebGroup",
+      "name": "Rodape",
+      "parentId": "c5b7a695-3c22-49e6-8ad2-5ffb89a370e1",
+      "layout": {
+        "container": {
+          "mode": "row",
+          "paddingTop": 8,
+          "paddingRight": 16,
+          "paddingBottom": 8,
+          "paddingLeft": 16,
+          "gap": 4,
+          "wrap": true,
+          "justifyContent": "end",
+          "alignItems": "center"
+        },
+        "item": {
+          "width": "stretch",
+          "height": "fit-content",
+          "minWidth": 0,
+          "maxWidth": null,
+          "minHeight": 0,
+          "maxHeight": null,
+          "grow": 0,
+          "shrink": false,
+          "alignSelf": "auto",
+          "horizontalAnchor": "start",
+          "verticalAnchor": "start",
+          "left": 0,
+          "right": 0,
+          "top": 0,
+          "bottom": 0
+        }
+      },
+      "bounds": {
+        "width": 240,
+        "height": 160,
+        "x": 0,
+        "y": 0
+      },
+      "props": {
+        "enabled": true,
+        "aspectRatio": "none",
+        "collapseWhenHidden": true,
+        "visible": true
+      },
+      "events": {
+        "OnClick": null,
+        "OnDblClick": null,
+        "OnMouseEnter": null,
+        "OnMouseLeave": null
+      },
+      "styleId": "sigat2-barra",
+      "children": [
+        "ff1ab590-3ce8-42cb-a548-2c58de458fc3",
+        "ac2b927c-e94e-4749-af28-0e8e2cc0f08a",
+        "ecef369e-8e25-4892-a635-035f54f06fb4"
+      ]
+    },
+    {
+      "id": "ff1ab590-3ce8-42cb-a548-2c58de458fc3",
+      "type": "WebLabel",
+      "name": "LBLRodapeAutorizacao",
+      "parentId": "878af721-df35-486b-ba41-b37796e2a93c",
+      "layout": {
+        "container": {
+          "mode": "fixed",
+          "paddingTop": 0,
+          "paddingRight": 0,
+          "paddingBottom": 0,
+          "paddingLeft": 0,
+          "gap": 0,
+          "wrap": false,
+          "justifyContent": "start",
+          "alignItems": "start"
+        },
+        "item": {
+          "width": "fit-content",
+          "height": "fixed",
+          "minWidth": 0,
+          "maxWidth": null,
+          "minHeight": 0,
+          "maxHeight": null,
+          "grow": 0,
+          "shrink": false,
+          "alignSelf": "auto",
+          "horizontalAnchor": "start",
+          "verticalAnchor": "start",
+          "left": 0,
+          "right": 0,
+          "top": 0,
+          "bottom": 0
+        }
+      },
+      "bounds": {
+        "width": 80,
+        "height": 20,
+        "x": 0,
+        "y": 0
+      },
+      "props": {
+        "caption": "Autorização:",
+        "enabled": true,
+        "autoSize": false,
+        "collapseWhenHidden": true,
+        "color": "#000000",
+        "visible": true
+      },
+      "events": {
+        "OnClick": null,
+        "OnDblClick": null,
+        "OnMouseEnter": null,
+        "OnMouseLeave": null
+      },
+      "styleId": "sigat2-rodape",
+      "children": []
+    },
+    {
+      "id": "ac2b927c-e94e-4749-af28-0e8e2cc0f08a",
+      "type": "WebLabel",
+      "name": "LBLRodapeGrupo",
+      "parentId": "878af721-df35-486b-ba41-b37796e2a93c",
+      "layout": {
+        "container": {
+          "mode": "fixed",
+          "paddingTop": 0,
+          "paddingRight": 0,
+          "paddingBottom": 0,
+          "paddingLeft": 0,
+          "gap": 0,
+          "wrap": false,
+          "justifyContent": "start",
+          "alignItems": "start"
+        },
+        "item": {
+          "width": "fit-content",
+          "height": "fixed",
+          "minWidth": 0,
+          "maxWidth": null,
+          "minHeight": 0,
+          "maxHeight": null,
+          "grow": 0,
+          "shrink": false,
+          "alignSelf": "auto",
+          "horizontalAnchor": "start",
+          "verticalAnchor": "start",
+          "left": 0,
+          "right": 0,
+          "top": 0,
+          "bottom": 0
+        }
+      },
+      "bounds": {
+        "width": 80,
+        "height": 18,
+        "x": 0,
+        "y": 0
+      },
+      "props": {
+        "caption": "-",
+        "enabled": true,
+        "autoSize": false,
+        "collapseWhenHidden": true,
+        "color": "#000000",
+        "visible": true
+      },
+      "events": {
+        "OnClick": null,
+        "OnDblClick": null,
+        "OnMouseEnter": null,
+        "OnMouseLeave": null
+      },
+      "styleId": "sigat2-selo",
+      "children": []
+    },
+    {
+      "id": "ecef369e-8e25-4892-a635-035f54f06fb4",
+      "type": "WebLabel",
+      "name": "LBLRodapeAmbiente",
+      "parentId": "878af721-df35-486b-ba41-b37796e2a93c",
+      "layout": {
+        "container": {
+          "mode": "fixed",
+          "paddingTop": 0,
+          "paddingRight": 0,
+          "paddingBottom": 0,
+          "paddingLeft": 0,
+          "gap": 0,
+          "wrap": false,
+          "justifyContent": "start",
+          "alignItems": "start"
+        },
+        "item": {
+          "width": "fit-content",
+          "height": "fixed",
+          "minWidth": 0,
+          "maxWidth": null,
+          "minHeight": 0,
+          "maxHeight": null,
+          "grow": 0,
+          "shrink": false,
+          "alignSelf": "auto",
+          "horizontalAnchor": "start",
+          "verticalAnchor": "start",
+          "left": 0,
+          "right": 0,
+          "top": 0,
+          "bottom": 0
+        }
+      },
+      "bounds": {
+        "width": 80,
+        "height": 20,
+        "x": 0,
+        "y": 0
+      },
+      "props": {
+        "caption": "| Ambiente: production | Versão: 0.1.0 | SEAD/CGTI",
+        "enabled": true,
+        "autoSize": false,
+        "collapseWhenHidden": true,
+        "color": "#000000",
+        "visible": true
+      },
+      "events": {
+        "OnClick": null,
+        "OnDblClick": null,
+        "OnMouseEnter": null,
+        "OnMouseLeave": null
+      },
+      "styleId": "sigat2-rodape",
       "children": []
     }
   ]

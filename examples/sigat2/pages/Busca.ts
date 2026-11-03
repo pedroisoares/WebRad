@@ -1,4 +1,5 @@
 import {
+  abrirBloqueados,
   buscar,
   sair,
   preencherCabecalho,
@@ -36,8 +37,12 @@ export class Busca extends BuscaGenerated {
     await sair();
   }
 
+  public MostrarBloqueados(): void {
+    abrirBloqueados();
+  }
+
   public async Mostrar(): Promise<void> {
-    preencherCabecalho(this.LBLUsuario);
+    preencherCabecalho(this);
     const q = contexto('busca');
     this.EDTBuscaRapida.value = q;
     if (q.length < 3) return;

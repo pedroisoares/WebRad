@@ -1,4 +1,5 @@
 import {
+  abrirBloqueados,
   buscar,
   sair,
   preencherCabecalho,
@@ -38,10 +39,14 @@ export class Triagem extends TriagemGenerated {
     await sair();
   }
 
+  public MostrarBloqueados(): void {
+    abrirBloqueados();
+  }
+
   private chamadoCriado: unknown = undefined;
 
   public async Mostrar(): Promise<void> {
-    preencherCabecalho(this.LBLUsuario);
+    preencherCabecalho(this);
     this.BTNAbrirChamado.visible = false;
     const id = Number(contexto('ticket'));
     if (!Number.isInteger(id) || id <= 0) {

@@ -9,6 +9,7 @@ import {
   WebEdit,
   WebGroup,
   WebHtml,
+  WebImage,
   WebLabel,
   WebPage,
   WebPanel,
@@ -16,14 +17,21 @@ import {
 
 export abstract class TriagemGenerated extends WebPage {
   public readonly Cabecalho: WebGroup;
-  public readonly Marca: WebLabel;
-  public readonly BTNPainel: WebButton;
+  public readonly GRPMarca: WebGroup;
+  public readonly IMGMarca: WebImage;
+  public readonly LBLMarca: WebLabel;
+  public readonly GRPBusca: WebGroup;
   public readonly EDTBuscaRapida: WebEdit;
   public readonly BTNBuscar: WebButton;
+  public readonly GRPUsuario: WebGroup;
+  public readonly LBLOla: WebLabel;
+  public readonly LBLUsuario: WebLabel;
+  public readonly BTNBloqueados: WebButton;
+  public readonly BTNPainel: WebButton;
   public readonly BTNInserviveis: WebButton;
   public readonly BTNAdmin: WebButton;
-  public readonly LBLUsuario: WebLabel;
   public readonly BTNSair: WebButton;
+  public readonly Conteudo: WebGroup;
   public readonly Topo: WebGroup;
   public readonly LBLTicket: WebLabel;
   public readonly BTNVoltar: WebButton;
@@ -50,106 +58,133 @@ export abstract class TriagemGenerated extends WebPage {
   public readonly GRDAnexos: WebDataGrid;
   public readonly LBLFase2: WebLabel;
   public readonly Api: WebApiClientInstance<ApiApiOutputs, ApiApiInputs, ApiApiDefaultHeaders>;
+  public readonly Rodape: WebGroup;
+  public readonly LBLRodapeAutorizacao: WebLabel;
+  public readonly LBLRodapeGrupo: WebLabel;
+  public readonly LBLRodapeAmbiente: WebLabel;
 
   public constructor(element: HTMLElement) {
     super(element);
     this.Cabecalho = new WebGroup(
-      this.requireComponentElement('0ac80fb8-46c3-4f0b-bbba-1ddfdc72b161'),
-    );
-    this.Marca = new WebLabel(this.requireComponentElement('e514f8a0-f6fc-4cb8-bdd1-f3292a017f74'));
-    this.BTNPainel = new WebButton(
-      this.requireComponentElement('c5114e3d-fb59-47c9-b568-8416f503f95a'),
-    );
-    this.EDTBuscaRapida = new WebEdit(
-      this.requireComponentElement('615c120c-5ba4-43b4-b764-4d470582ee7f'),
-    );
-    this.BTNBuscar = new WebButton(
-      this.requireComponentElement('9fa1ce07-88ec-424b-9a80-26d44f5ff9da'),
-    );
-    this.BTNInserviveis = new WebButton(
-      this.requireComponentElement('3bbd9a15-4e54-4ae4-9a95-d3a8c5934796'),
-    );
-    this.BTNAdmin = new WebButton(
-      this.requireComponentElement('2f9e6a22-ccc8-4037-bbb8-443ab2b390b8'),
-    );
-    this.LBLUsuario = new WebLabel(
-      this.requireComponentElement('2f480886-228f-4f6c-91cb-493d5226ea9a'),
-    );
-    this.BTNSair = new WebButton(
-      this.requireComponentElement('5a94ff49-e34c-4050-9393-9ee0fb33fbae'),
-    );
-    this.Topo = new WebGroup(this.requireComponentElement('2a3bf081-4902-4fcf-b46b-b533512a4fe1'));
-    this.LBLTicket = new WebLabel(
-      this.requireComponentElement('c8d446ed-664d-4841-a5e8-e2b90ffe63bb'),
-    );
-    this.BTNVoltar = new WebButton(
-      this.requireComponentElement('f5653906-2b5e-4350-83cc-224e6268e5f9'),
-    );
-    this.BTNAbrirChamado = new WebButton(
-      this.requireComponentElement('d50cee89-7d20-4585-856d-6eb367e2b8aa'),
-    );
-    this.PNLTicket = new WebPanel(
-      this.requireComponentElement('338d9cb8-825a-4aee-8e0f-c368533fc656'),
-    );
-    this.Dados = new WebGroup(this.requireComponentElement('5d53c833-d072-4852-ac32-ca2a22a7f6db'));
-    this.DadosAssunto = new WebGroup(
-      this.requireComponentElement('cb69b8a4-f664-4e00-adaa-519108484f1f'),
-    );
-    this.LBLAssunto = new WebLabel(
-      this.requireComponentElement('cd5471c3-8282-426b-89dd-286e8a8b37f6'),
-    );
-    this.Assunto = new WebLabel(
-      this.requireComponentElement('141a1c3f-fed0-49ba-bf38-6febf853dde0'),
-    );
-    this.DadosRemetente = new WebGroup(
-      this.requireComponentElement('2a3cc118-6240-451b-9e45-ed0ce0ecb536'),
-    );
-    this.LBLRemetente = new WebLabel(
-      this.requireComponentElement('d0087b3e-cb6a-4f87-9d34-d848572cf1e0'),
-    );
-    this.Remetente = new WebLabel(
-      this.requireComponentElement('23f74fae-1bd8-4dbe-8c30-0a9f775b73e8'),
-    );
-    this.DadosAbertura = new WebGroup(
-      this.requireComponentElement('d11abc84-9d0c-41b1-b237-e1386493b01e'),
-    );
-    this.LBLAbertura = new WebLabel(
-      this.requireComponentElement('00b8c344-997b-467f-bae2-f3ce4a35e1fe'),
-    );
-    this.Abertura = new WebLabel(
-      this.requireComponentElement('055d5dc9-596d-45c2-bd4c-5c1bd4b3ebf5'),
-    );
-    this.DadosFilaSigat = new WebGroup(
-      this.requireComponentElement('292c49ca-a5d3-4caa-92ea-b2827296560f'),
-    );
-    this.LBLFilaSigat = new WebLabel(
-      this.requireComponentElement('603c57cb-2200-404c-86a2-4c62a7a5f5e0'),
-    );
-    this.FilaSigat = new WebLabel(
-      this.requireComponentElement('e94dec72-f984-46e1-8888-e4be28f4a92c'),
-    );
-    this.LBLImportacao = new WebLabel(
-      this.requireComponentElement('010cd95f-eb39-4ef2-8eef-7e40ab224504'),
-    );
-    this.PNLArtigos = new WebPanel(
-      this.requireComponentElement('d9dd595a-455f-487d-91a3-c9675c90a117'),
-    );
-    this.HTMLArtigos = new WebHtml(
       this.requireComponentElement('ef0f464c-3fd7-43e4-86e9-41195bb26f88'),
     );
-    this.PNLAnexos = new WebPanel(
+    this.GRPMarca = new WebGroup(
       this.requireComponentElement('fd229f25-a574-4733-a73e-fe564a807afd'),
     );
-    this.LBLAnexos = new WebLabel(
+    this.IMGMarca = new WebImage(
       this.requireComponentElement('dee35afe-cab7-464b-90f8-1c941a85c9e6'),
     );
-    this.GRDAnexos = new WebDataGrid(
+    this.LBLMarca = new WebLabel(
       this.requireComponentElement('0c4b782f-2f4f-4666-95a1-117d49adf714'),
+    );
+    this.GRPBusca = new WebGroup(
+      this.requireComponentElement('f860f36d-cb10-4e6f-b233-256dc8306014'),
+    );
+    this.EDTBuscaRapida = new WebEdit(
+      this.requireComponentElement('a983ad9d-fd71-48d7-9b30-553c8d01b886'),
+    );
+    this.BTNBuscar = new WebButton(
+      this.requireComponentElement('e267dd17-2bd8-410d-acf9-8e9233ac4f0c'),
+    );
+    this.GRPUsuario = new WebGroup(
+      this.requireComponentElement('6de6cbc3-d9e1-49a3-bc04-bc28431c3035'),
+    );
+    this.LBLOla = new WebLabel(
+      this.requireComponentElement('cc0794f4-90b4-41af-a46d-5f9de8c5d2c8'),
+    );
+    this.LBLUsuario = new WebLabel(
+      this.requireComponentElement('0b9797fd-6a77-4b8f-bb46-41025c43c20c'),
+    );
+    this.BTNBloqueados = new WebButton(
+      this.requireComponentElement('f485dcfb-0155-4989-a914-f1ca7b38b787'),
+    );
+    this.BTNPainel = new WebButton(
+      this.requireComponentElement('90ecd813-7c99-40ce-aeb1-4b91f2063e69'),
+    );
+    this.BTNInserviveis = new WebButton(
+      this.requireComponentElement('3c712b35-e309-41e4-9fc0-cbce5b544dff'),
+    );
+    this.BTNAdmin = new WebButton(
+      this.requireComponentElement('2aaaa110-d628-4b86-977a-687754ae6bb0'),
+    );
+    this.BTNSair = new WebButton(
+      this.requireComponentElement('3f12858f-1574-4e33-ac47-7d185daa4f83'),
+    );
+    this.Conteudo = new WebGroup(
+      this.requireComponentElement('ff10d256-bfd9-46c7-843f-eacdd2cc830c'),
+    );
+    this.Topo = new WebGroup(this.requireComponentElement('4e684414-0ca7-4d04-a71b-5495a9ec6955'));
+    this.LBLTicket = new WebLabel(
+      this.requireComponentElement('1b71b0f5-6d53-4d79-9578-d85bebbbbd83'),
+    );
+    this.BTNVoltar = new WebButton(
+      this.requireComponentElement('68a26eb4-bc94-442e-94d2-c4fc2e4af91c'),
+    );
+    this.BTNAbrirChamado = new WebButton(
+      this.requireComponentElement('9151bd04-9d04-4e98-9491-bf21dda918dd'),
+    );
+    this.PNLTicket = new WebPanel(
+      this.requireComponentElement('cd4c7877-ade3-43ed-bd37-33482507bbf3'),
+    );
+    this.Dados = new WebGroup(this.requireComponentElement('bf421950-4245-46ac-bba5-c585a819e1bf'));
+    this.DadosAssunto = new WebGroup(
+      this.requireComponentElement('9c0a2646-ce67-4e12-940c-34a8132537a3'),
+    );
+    this.LBLAssunto = new WebLabel(
+      this.requireComponentElement('7284d53f-72c3-4c04-89ae-b184ac3a3d99'),
+    );
+    this.Assunto = new WebLabel(
+      this.requireComponentElement('f0ca1a47-413c-4f35-9d7b-292f0852fd43'),
+    );
+    this.DadosRemetente = new WebGroup(
+      this.requireComponentElement('af4e1a77-5c34-45b0-b9ae-d03398a9dc01'),
+    );
+    this.LBLRemetente = new WebLabel(
+      this.requireComponentElement('55d57f15-4755-40b2-97cc-9adee790a438'),
+    );
+    this.Remetente = new WebLabel(
+      this.requireComponentElement('d0dbdd7b-a828-4766-a321-dbb2ddc41f27'),
+    );
+    this.DadosAbertura = new WebGroup(
+      this.requireComponentElement('64051240-037c-4191-bc30-97e446c76d53'),
+    );
+    this.LBLAbertura = new WebLabel(
+      this.requireComponentElement('1c2d0766-336e-4ac5-868e-44e66e535587'),
+    );
+    this.Abertura = new WebLabel(
+      this.requireComponentElement('75a0b235-d573-45fa-969f-5124429ee265'),
+    );
+    this.DadosFilaSigat = new WebGroup(
+      this.requireComponentElement('6d019d22-806e-48d7-b22e-9997e59f46a4'),
+    );
+    this.LBLFilaSigat = new WebLabel(
+      this.requireComponentElement('6f89acfe-91ff-4ce0-81c2-7216807f8f3f'),
+    );
+    this.FilaSigat = new WebLabel(
+      this.requireComponentElement('1e6c9f74-a781-41b1-9683-62e4af7cc547'),
+    );
+    this.LBLImportacao = new WebLabel(
+      this.requireComponentElement('da6b537d-431c-430c-a773-2cb0dffe1b21'),
+    );
+    this.PNLArtigos = new WebPanel(
+      this.requireComponentElement('79370fd4-6966-4366-8b85-5ecb6b501629'),
+    );
+    this.HTMLArtigos = new WebHtml(
+      this.requireComponentElement('0e57197e-d263-4aef-8ee2-a8706564051a'),
+    );
+    this.PNLAnexos = new WebPanel(
+      this.requireComponentElement('8380c22d-b463-45fa-9b18-16da39127221'),
+    );
+    this.LBLAnexos = new WebLabel(
+      this.requireComponentElement('63ebe04b-a908-47b9-8873-7458f3b5a3a5'),
+    );
+    this.GRDAnexos = new WebDataGrid(
+      this.requireComponentElement('8f2f4a91-1525-41e7-9da1-0b8912b8120a'),
     );
     this.GRDAnexos.dataGridConfig = {
       schemaVersion: 2,
-      apiClientId: '72cdb0d8-12d8-4bb9-b25b-747eaf358aad',
-      operationId: 'f1182c5b-d3d5-4ebb-9499-db194a76f2f6',
+      apiClientId: 'aa572f39-edf2-4ad0-aa50-1e9a4e77f5b3',
+      operationId: '72cdb0d8-12d8-4bb9-b25b-747eaf358aad',
       listPath: '/data',
       columnCount: 3,
       showHeader: true,
@@ -169,7 +204,7 @@ export abstract class TriagemGenerated extends WebPage {
       emptyMessage: 'Nenhum registro',
       columns: [
         {
-          id: '60c54303-e24c-4777-b160-268a08c2897b',
+          id: '5f1ab952-17b4-406b-aef8-6e11989f2fa6',
           header: 'Arquivo',
           fieldPath: '/filename',
           cellKind: 'text',
@@ -187,7 +222,7 @@ export abstract class TriagemGenerated extends WebPage {
           searchable: true,
         },
         {
-          id: '81d16bb0-4d11-42fc-ab09-0eda03e9172f',
+          id: 'f1182c5b-d3d5-4ebb-9499-db194a76f2f6',
           header: 'Tipo',
           fieldPath: '/content_type',
           cellKind: 'text',
@@ -205,7 +240,7 @@ export abstract class TriagemGenerated extends WebPage {
           searchable: true,
         },
         {
-          id: 'df2d7dcd-a1e2-4b61-9615-caa1eb520741',
+          id: '844dfd14-d795-40f5-bc83-1cbb09afd125',
           header: 'Tamanho',
           fieldPath: '/content_size',
           cellKind: 'text',
@@ -238,7 +273,7 @@ export abstract class TriagemGenerated extends WebPage {
       totalRowsPath: '/total',
     };
     this.LBLFase2 = new WebLabel(
-      this.requireComponentElement('f860f36d-cb10-4e6f-b233-256dc8306014'),
+      this.requireComponentElement('151862cb-9f25-4cd0-9c4c-2d2eff24eb21'),
     );
     this.Api = new WebApiClient<ApiApiOutputs, ApiApiInputs, ApiApiDefaultHeaders>({
       baseUrl: '',
@@ -249,14 +284,14 @@ export abstract class TriagemGenerated extends WebPage {
         timeoutMs: 30000,
         operations: [
           {
-            id: 'ed3ac9cd-a51f-4e3a-85e9-1d32977892f5',
+            id: '4e358914-2e6c-4a3a-9f79-42cef0f638da',
             name: 'Ticket',
             method: 'GET',
             path: 'otobo/triagem-ticket',
             apiVersion: 1,
             headers: [],
             query: [
-              { id: '673231f5-4e9f-444b-bad1-fbe95409078a', name: 'id', value: '', enabled: false },
+              { id: '60c54303-e24c-4777-b160-268a08c2897b', name: 'id', value: '', enabled: false },
             ],
             body: { kind: 'none', content: '' },
             credentials: 'omit',
@@ -264,7 +299,7 @@ export abstract class TriagemGenerated extends WebPage {
             responseSchema: {
               version: 1,
               root: {
-                id: '29e3d305-fa80-4371-90b6-eebef19839e1',
+                id: '81d16bb0-4d11-42fc-ab09-0eda03e9172f',
                 name: 'Response',
                 path: '',
                 kind: 'object',
@@ -272,7 +307,7 @@ export abstract class TriagemGenerated extends WebPage {
                 nullable: false,
                 children: [
                   {
-                    id: '92ca26d5-df4a-4ce1-b5e5-a4e37a06795e',
+                    id: 'df2d7dcd-a1e2-4b61-9615-caa1eb520741',
                     name: 'success',
                     path: '/success',
                     kind: 'field',
@@ -281,7 +316,7 @@ export abstract class TriagemGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: '3eae6efb-088f-4714-b5b6-f7dcf1dfba32',
+                    id: '673231f5-4e9f-444b-bad1-fbe95409078a',
                     name: 'data',
                     path: '/data',
                     kind: 'list',
@@ -289,7 +324,7 @@ export abstract class TriagemGenerated extends WebPage {
                     nullable: false,
                     children: [
                       {
-                        id: 'f5de332b-2d32-46a8-a6b7-749dca4facc3',
+                        id: '29e3d305-fa80-4371-90b6-eebef19839e1',
                         name: 'id',
                         path: '/data/*/id',
                         kind: 'field',
@@ -298,7 +333,7 @@ export abstract class TriagemGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: 'cac40ea4-92bc-4e20-bf90-d557883dbfdd',
+                        id: '92ca26d5-df4a-4ce1-b5e5-a4e37a06795e',
                         name: 'tn',
                         path: '/data/*/tn',
                         kind: 'field',
@@ -307,7 +342,7 @@ export abstract class TriagemGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: '480d7516-bea5-47c0-b220-eb1abc2d169f',
+                        id: '3eae6efb-088f-4714-b5b6-f7dcf1dfba32',
                         name: 'queue_id',
                         path: '/data/*/queue_id',
                         kind: 'field',
@@ -316,7 +351,7 @@ export abstract class TriagemGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: 'febcb77f-bb55-4e4c-8e9c-d5898ba53fd8',
+                        id: 'f5de332b-2d32-46a8-a6b7-749dca4facc3',
                         name: 'id_fila_sigat',
                         path: '/data/*/id_fila_sigat',
                         kind: 'field',
@@ -325,7 +360,7 @@ export abstract class TriagemGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: '2386b1a7-593e-4ee6-adae-c9ab062f1638',
+                        id: 'cac40ea4-92bc-4e20-bf90-d557883dbfdd',
                         name: 'create_time',
                         path: '/data/*/create_time',
                         kind: 'field',
@@ -334,7 +369,7 @@ export abstract class TriagemGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: 'ac032609-bd10-4ae6-9ee7-6cad82726f54',
+                        id: '480d7516-bea5-47c0-b220-eb1abc2d169f',
                         name: 'title',
                         path: '/data/*/title',
                         kind: 'field',
@@ -343,7 +378,7 @@ export abstract class TriagemGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: '29e01954-d983-4a57-91ac-ce570e948928',
+                        id: 'febcb77f-bb55-4e4c-8e9c-d5898ba53fd8',
                         name: 'a_from',
                         path: '/data/*/a_from',
                         kind: 'field',
@@ -354,7 +389,7 @@ export abstract class TriagemGenerated extends WebPage {
                     ],
                   },
                   {
-                    id: '3699f6fe-5e7a-4808-9a78-b4b8830c391e',
+                    id: '2386b1a7-593e-4ee6-adae-c9ab062f1638',
                     name: 'page',
                     path: '/page',
                     kind: 'field',
@@ -363,7 +398,7 @@ export abstract class TriagemGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: 'b98d379a-d44e-4a36-a26b-ffb22c583d0b',
+                    id: 'ac032609-bd10-4ae6-9ee7-6cad82726f54',
                     name: 'page_size',
                     path: '/page_size',
                     kind: 'field',
@@ -372,7 +407,7 @@ export abstract class TriagemGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: '9759314a-ae63-4787-9517-5471baa5568f',
+                    id: '29e01954-d983-4a57-91ac-ce570e948928',
                     name: 'total_pages',
                     path: '/total_pages',
                     kind: 'field',
@@ -381,7 +416,7 @@ export abstract class TriagemGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: 'e5d4c0a1-9524-467e-b230-fd41c6d1a936',
+                    id: '3699f6fe-5e7a-4808-9a78-b4b8830c391e',
                     name: 'total',
                     path: '/total',
                     kind: 'field',
@@ -390,7 +425,7 @@ export abstract class TriagemGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: '26e8deba-164c-4b37-a5eb-9422dd2b96aa',
+                    id: 'b98d379a-d44e-4a36-a26b-ffb22c583d0b',
                     name: 'has_more',
                     path: '/has_more',
                     kind: 'field',
@@ -403,14 +438,14 @@ export abstract class TriagemGenerated extends WebPage {
             },
           },
           {
-            id: '5f1ab952-17b4-406b-aef8-6e11989f2fa6',
+            id: '4e70cf6d-ec80-49cb-90d8-4508874880b7',
             name: 'Artigos',
             method: 'GET',
             path: 'otobo/ticket-artigos',
             apiVersion: 1,
             headers: [],
             query: [
-              { id: 'a39682f4-56a3-4d31-b4c4-569851efa80b', name: 'id', value: '', enabled: false },
+              { id: '9759314a-ae63-4787-9517-5471baa5568f', name: 'id', value: '', enabled: false },
             ],
             body: { kind: 'none', content: '' },
             credentials: 'omit',
@@ -418,7 +453,7 @@ export abstract class TriagemGenerated extends WebPage {
             responseSchema: {
               version: 1,
               root: {
-                id: 'b4766f96-a500-4cdf-bd3d-df2dae66064b',
+                id: 'e5d4c0a1-9524-467e-b230-fd41c6d1a936',
                 name: 'Response',
                 path: '',
                 kind: 'object',
@@ -426,7 +461,7 @@ export abstract class TriagemGenerated extends WebPage {
                 nullable: false,
                 children: [
                   {
-                    id: '8ed6e231-bf36-4cff-abb9-5c387460cccc',
+                    id: '26e8deba-164c-4b37-a5eb-9422dd2b96aa',
                     name: 'success',
                     path: '/success',
                     kind: 'field',
@@ -435,7 +470,7 @@ export abstract class TriagemGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: '3ceb46e9-039f-45be-ad42-51ad47443266',
+                    id: 'a39682f4-56a3-4d31-b4c4-569851efa80b',
                     name: 'data',
                     path: '/data',
                     kind: 'list',
@@ -443,7 +478,7 @@ export abstract class TriagemGenerated extends WebPage {
                     nullable: false,
                     children: [
                       {
-                        id: '27dd63af-340e-433b-949d-e82b7df5d0c4',
+                        id: 'b4766f96-a500-4cdf-bd3d-df2dae66064b',
                         name: 'article_id',
                         path: '/data/*/article_id',
                         kind: 'field',
@@ -452,7 +487,7 @@ export abstract class TriagemGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: 'ec1fb932-727b-4efd-a68b-e5adebd3c895',
+                        id: '8ed6e231-bf36-4cff-abb9-5c387460cccc',
                         name: 'a_from',
                         path: '/data/*/a_from',
                         kind: 'field',
@@ -461,7 +496,7 @@ export abstract class TriagemGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: '7472adf4-7c32-4c6d-9f8a-88fdfef3fd53',
+                        id: '3ceb46e9-039f-45be-ad42-51ad47443266',
                         name: 'a_subject',
                         path: '/data/*/a_subject',
                         kind: 'field',
@@ -470,7 +505,7 @@ export abstract class TriagemGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: '634a02da-5f8b-437e-a50b-533c9820a252',
+                        id: '27dd63af-340e-433b-949d-e82b7df5d0c4',
                         name: 'a_body',
                         path: '/data/*/a_body',
                         kind: 'field',
@@ -479,7 +514,7 @@ export abstract class TriagemGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: '4056b4ba-8ea4-4318-9e6f-6a52c767ad6e',
+                        id: 'ec1fb932-727b-4efd-a68b-e5adebd3c895',
                         name: 'create_time',
                         path: '/data/*/create_time',
                         kind: 'field',
@@ -488,7 +523,7 @@ export abstract class TriagemGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: 'b95c82e3-841c-442a-9867-40052dbf1e1d',
+                        id: '7472adf4-7c32-4c6d-9f8a-88fdfef3fd53',
                         name: 'create_time_fmt',
                         path: '/data/*/create_time_fmt',
                         kind: 'field',
@@ -499,7 +534,7 @@ export abstract class TriagemGenerated extends WebPage {
                     ],
                   },
                   {
-                    id: '791683b9-3746-49a0-a835-c31df3594d68',
+                    id: '634a02da-5f8b-437e-a50b-533c9820a252',
                     name: 'page',
                     path: '/page',
                     kind: 'field',
@@ -508,7 +543,7 @@ export abstract class TriagemGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: '0658736d-13f4-4964-bc61-d36e51b44728',
+                    id: '4056b4ba-8ea4-4318-9e6f-6a52c767ad6e',
                     name: 'page_size',
                     path: '/page_size',
                     kind: 'field',
@@ -517,7 +552,7 @@ export abstract class TriagemGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: '899fd0df-809b-4351-a355-edb8048c99f6',
+                    id: 'b95c82e3-841c-442a-9867-40052dbf1e1d',
                     name: 'total_pages',
                     path: '/total_pages',
                     kind: 'field',
@@ -526,7 +561,7 @@ export abstract class TriagemGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: 'db993184-35a3-4dee-a21f-afbadee1b12b',
+                    id: '791683b9-3746-49a0-a835-c31df3594d68',
                     name: 'total',
                     path: '/total',
                     kind: 'field',
@@ -535,7 +570,7 @@ export abstract class TriagemGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: '021bd3bd-d18e-4533-9b45-f823d5d72919',
+                    id: '0658736d-13f4-4964-bc61-d36e51b44728',
                     name: 'has_more',
                     path: '/has_more',
                     kind: 'field',
@@ -548,14 +583,14 @@ export abstract class TriagemGenerated extends WebPage {
             },
           },
           {
-            id: 'f1182c5b-d3d5-4ebb-9499-db194a76f2f6',
+            id: '72cdb0d8-12d8-4bb9-b25b-747eaf358aad',
             name: 'Anexos',
             method: 'GET',
             path: 'otobo/ticket-anexos',
             apiVersion: 1,
             headers: [],
             query: [
-              { id: '3dae33b5-77d6-488a-9792-30be670d4aeb', name: 'id', value: '', enabled: false },
+              { id: '899fd0df-809b-4351-a355-edb8048c99f6', name: 'id', value: '', enabled: false },
             ],
             body: { kind: 'none', content: '' },
             credentials: 'omit',
@@ -563,7 +598,7 @@ export abstract class TriagemGenerated extends WebPage {
             responseSchema: {
               version: 1,
               root: {
-                id: 'dbd8cafa-274a-4820-9c98-c496d891f9de',
+                id: 'db993184-35a3-4dee-a21f-afbadee1b12b',
                 name: 'Response',
                 path: '',
                 kind: 'object',
@@ -571,7 +606,7 @@ export abstract class TriagemGenerated extends WebPage {
                 nullable: false,
                 children: [
                   {
-                    id: '2fd971ee-baa9-4597-91f9-a031d6610674',
+                    id: '021bd3bd-d18e-4533-9b45-f823d5d72919',
                     name: 'success',
                     path: '/success',
                     kind: 'field',
@@ -580,7 +615,7 @@ export abstract class TriagemGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: '6dc63539-783d-48a6-893a-cfa4c2a040f0',
+                    id: '3dae33b5-77d6-488a-9792-30be670d4aeb',
                     name: 'data',
                     path: '/data',
                     kind: 'list',
@@ -588,7 +623,7 @@ export abstract class TriagemGenerated extends WebPage {
                     nullable: false,
                     children: [
                       {
-                        id: '30516d15-463c-4370-8370-5d69f3f4faea',
+                        id: 'dbd8cafa-274a-4820-9c98-c496d891f9de',
                         name: 'id',
                         path: '/data/*/id',
                         kind: 'field',
@@ -597,7 +632,7 @@ export abstract class TriagemGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: '1adb891c-e660-4298-a731-cc399f805b37',
+                        id: '2fd971ee-baa9-4597-91f9-a031d6610674',
                         name: 'article_id',
                         path: '/data/*/article_id',
                         kind: 'field',
@@ -606,7 +641,7 @@ export abstract class TriagemGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: '3e08f8c3-8ab3-4e50-9941-13d7de9006a0',
+                        id: '6dc63539-783d-48a6-893a-cfa4c2a040f0',
                         name: 'filename',
                         path: '/data/*/filename',
                         kind: 'field',
@@ -615,7 +650,7 @@ export abstract class TriagemGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: '529e2b99-e8f4-439f-9c5b-cedfb23a264c',
+                        id: '30516d15-463c-4370-8370-5d69f3f4faea',
                         name: 'content_type',
                         path: '/data/*/content_type',
                         kind: 'field',
@@ -624,7 +659,7 @@ export abstract class TriagemGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: '261faa25-7a74-4bd7-8818-d9bde7bc67f4',
+                        id: '1adb891c-e660-4298-a731-cc399f805b37',
                         name: 'content_size',
                         path: '/data/*/content_size',
                         kind: 'field',
@@ -635,7 +670,7 @@ export abstract class TriagemGenerated extends WebPage {
                     ],
                   },
                   {
-                    id: 'a92a7daf-8eca-40cf-a67c-78dc50ca13d6',
+                    id: '3e08f8c3-8ab3-4e50-9941-13d7de9006a0',
                     name: 'page',
                     path: '/page',
                     kind: 'field',
@@ -644,7 +679,7 @@ export abstract class TriagemGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: '4ad85d32-ea89-46ad-a22e-e741df88b688',
+                    id: '529e2b99-e8f4-439f-9c5b-cedfb23a264c',
                     name: 'page_size',
                     path: '/page_size',
                     kind: 'field',
@@ -653,7 +688,7 @@ export abstract class TriagemGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: 'e93af517-2671-4afe-90eb-22632cccd5f2',
+                    id: '261faa25-7a74-4bd7-8818-d9bde7bc67f4',
                     name: 'total_pages',
                     path: '/total_pages',
                     kind: 'field',
@@ -662,7 +697,7 @@ export abstract class TriagemGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: '907e3202-c133-4f2e-aff5-afad2acd8935',
+                    id: 'a92a7daf-8eca-40cf-a67c-78dc50ca13d6',
                     name: 'total',
                     path: '/total',
                     kind: 'field',
@@ -671,7 +706,7 @@ export abstract class TriagemGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: 'fb3968ab-63f7-4a7e-bdad-92c5e5e11ea3',
+                    id: '4ad85d32-ea89-46ad-a22e-e741df88b688',
                     name: 'has_more',
                     path: '/has_more',
                     kind: 'field',
@@ -684,7 +719,7 @@ export abstract class TriagemGenerated extends WebPage {
             },
           },
           {
-            id: '844dfd14-d795-40f5-bc83-1cbb09afd125',
+            id: 'ed3ac9cd-a51f-4e3a-85e9-1d32977892f5',
             name: 'Importado',
             method: 'GET',
             path: 'sigat/ticket-importado',
@@ -692,7 +727,7 @@ export abstract class TriagemGenerated extends WebPage {
             headers: [],
             query: [
               {
-                id: '876346dd-c18e-4e47-bd46-b0fc2b3518c3',
+                id: 'e93af517-2671-4afe-90eb-22632cccd5f2',
                 name: 'ticket',
                 value: '',
                 enabled: false,
@@ -704,7 +739,7 @@ export abstract class TriagemGenerated extends WebPage {
             responseSchema: {
               version: 1,
               root: {
-                id: '45999b12-c654-4e32-a3d4-31818597808d',
+                id: '907e3202-c133-4f2e-aff5-afad2acd8935',
                 name: 'Response',
                 path: '',
                 kind: 'object',
@@ -712,7 +747,7 @@ export abstract class TriagemGenerated extends WebPage {
                 nullable: false,
                 children: [
                   {
-                    id: '4a00d1c9-244e-4049-99b9-ca8c13c8badc',
+                    id: 'fb3968ab-63f7-4a7e-bdad-92c5e5e11ea3',
                     name: 'success',
                     path: '/success',
                     kind: 'field',
@@ -721,7 +756,7 @@ export abstract class TriagemGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: '311405c2-c600-44f9-80b8-1e76c1341445',
+                    id: '876346dd-c18e-4e47-bd46-b0fc2b3518c3',
                     name: 'data',
                     path: '/data',
                     kind: 'list',
@@ -729,7 +764,7 @@ export abstract class TriagemGenerated extends WebPage {
                     nullable: false,
                     children: [
                       {
-                        id: '352c74cb-7ec3-41b4-a387-8093c0f18d97',
+                        id: '45999b12-c654-4e32-a3d4-31818597808d',
                         name: 'id_chamado',
                         path: '/data/*/id_chamado',
                         kind: 'field',
@@ -738,7 +773,7 @@ export abstract class TriagemGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: 'fdd8b1fd-fb73-4e16-a53f-783a6a2f947c',
+                        id: '4a00d1c9-244e-4049-99b9-ca8c13c8badc',
                         name: 'ticket_chamado',
                         path: '/data/*/ticket_chamado',
                         kind: 'field',
@@ -747,7 +782,7 @@ export abstract class TriagemGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: '474990e6-459a-448f-a778-81fccf1bf88a',
+                        id: '311405c2-c600-44f9-80b8-1e76c1341445',
                         name: 'status_chamado',
                         path: '/data/*/status_chamado',
                         kind: 'field',
@@ -758,7 +793,7 @@ export abstract class TriagemGenerated extends WebPage {
                     ],
                   },
                   {
-                    id: '4a43b804-b8d6-4409-a50e-e44ee676474f',
+                    id: '352c74cb-7ec3-41b4-a387-8093c0f18d97',
                     name: 'page',
                     path: '/page',
                     kind: 'field',
@@ -767,7 +802,7 @@ export abstract class TriagemGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: '55b19d4a-9ac3-4a60-9c11-503aedd6097d',
+                    id: 'fdd8b1fd-fb73-4e16-a53f-783a6a2f947c',
                     name: 'page_size',
                     path: '/page_size',
                     kind: 'field',
@@ -776,7 +811,7 @@ export abstract class TriagemGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: '4de31f2d-5170-4eb1-ae43-ca37fd8d7315',
+                    id: '474990e6-459a-448f-a778-81fccf1bf88a',
                     name: 'total_pages',
                     path: '/total_pages',
                     kind: 'field',
@@ -785,7 +820,7 @@ export abstract class TriagemGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: '95621da3-87a4-4e51-bf80-e805e312f7a0',
+                    id: '4a43b804-b8d6-4409-a50e-e44ee676474f',
                     name: 'total',
                     path: '/total',
                     kind: 'field',
@@ -794,7 +829,7 @@ export abstract class TriagemGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: '0826128a-763d-4816-a7a4-2b040b0381ea',
+                    id: '55b19d4a-9ac3-4a60-9c11-503aedd6097d',
                     name: 'has_more',
                     path: '/has_more',
                     kind: 'field',
@@ -808,16 +843,29 @@ export abstract class TriagemGenerated extends WebPage {
           },
         ],
       },
-      id: '72cdb0d8-12d8-4bb9-b25b-747eaf358aad',
+      id: 'aa572f39-edf2-4ad0-aa50-1e9a4e77f5b3',
       name: 'Api',
     }).withRequests();
+    this.Rodape = new WebGroup(
+      this.requireComponentElement('f3027957-0b4a-4809-9110-4c521d6d58f7'),
+    );
+    this.LBLRodapeAutorizacao = new WebLabel(
+      this.requireComponentElement('ff5759c8-5b70-4e11-a75f-7043aed44a9c'),
+    );
+    this.LBLRodapeGrupo = new WebLabel(
+      this.requireComponentElement('32df29e5-a43f-4aa9-b65d-03b7ecbd8801'),
+    );
+    this.LBLRodapeAmbiente = new WebLabel(
+      this.requireComponentElement('1856a888-f846-4829-bbc7-b9fb3383ed79'),
+    );
 
     this.GRDAnexos.bindApiClient(this.Api);
 
     this.bindGeneratedEvent(this, 'OnShow', 'Mostrar');
-    this.bindGeneratedEvent(this.BTNPainel, 'OnClick', 'AbrirPainel');
     this.bindGeneratedEvent(this.EDTBuscaRapida, 'OnKeyDown', 'BuscaRapidaTecla');
     this.bindGeneratedEvent(this.BTNBuscar, 'OnClick', 'BuscaRapida');
+    this.bindGeneratedEvent(this.BTNBloqueados, 'OnClick', 'MostrarBloqueados');
+    this.bindGeneratedEvent(this.BTNPainel, 'OnClick', 'AbrirPainel');
     this.bindGeneratedEvent(this.BTNInserviveis, 'OnClick', 'AbrirInserviveis');
     this.bindGeneratedEvent(this.BTNAdmin, 'OnClick', 'AbrirAdmin');
     this.bindGeneratedEvent(this.BTNSair, 'OnClick', 'Sair');

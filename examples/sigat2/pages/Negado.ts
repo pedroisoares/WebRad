@@ -1,4 +1,4 @@
-import { buscar, sair, preencherCabecalho } from '../units/Sigat2';
+import { abrirBloqueados, buscar, sair, preencherCabecalho } from '../units/Sigat2';
 import { NegadoGenerated } from './Negado.generated';
 
 export class Negado extends NegadoGenerated {
@@ -26,7 +26,11 @@ export class Negado extends NegadoGenerated {
     await sair();
   }
 
+  public MostrarBloqueados(): void {
+    abrirBloqueados();
+  }
+
   public Mostrar(): void {
-    preencherCabecalho(this.LBLUsuario);
+    preencherCabecalho(this);
   }
 }

@@ -1,4 +1,5 @@
 import {
+  abrirBloqueados,
   buscar,
   sair,
   preencherCabecalho,
@@ -43,6 +44,10 @@ export class Chamado extends ChamadoGenerated {
     await sair();
   }
 
+  public MostrarBloqueados(): void {
+    abrirBloqueados();
+  }
+
   private ticketId = '';
   private chamado: Linha | undefined;
   private equipamentos: Linha[] = [];
@@ -50,7 +55,7 @@ export class Chamado extends ChamadoGenerated {
   private filas: Linha[] = [];
 
   public async Mostrar(): Promise<void> {
-    preencherCabecalho(this.LBLUsuario);
+    preencherCabecalho(this);
     await this.Carregar();
   }
 

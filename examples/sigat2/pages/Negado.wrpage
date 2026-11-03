@@ -1,35 +1,35 @@
 {
   "formatVersion": 2,
-  "id": "aa1c05b4-f35a-4698-a12f-ff60a02c1b03",
+  "id": "2a931bd9-efc2-426b-8d2b-34c9a6fd6990",
   "name": "Negado",
   "caption": "Negado",
   "width": 1280,
   "height": 1200,
-  "rootComponentId": "05b641cc-21d9-43fc-9804-be1bbbaa45e1",
+  "rootComponentId": "0110701f-70fa-4714-8996-e2e3da30dde7",
   "components": [
     {
-      "id": "05b641cc-21d9-43fc-9804-be1bbbaa45e1",
+      "id": "0110701f-70fa-4714-8996-e2e3da30dde7",
       "type": "WebPage",
       "name": "Negado",
       "parentId": null,
       "layout": {
         "container": {
           "mode": "column",
-          "paddingTop": 16,
-          "paddingRight": 24,
-          "paddingBottom": 24,
-          "paddingLeft": 24,
-          "gap": 16,
+          "paddingTop": 0,
+          "paddingRight": 0,
+          "paddingBottom": 0,
+          "paddingLeft": 0,
+          "gap": 0,
           "wrap": false,
           "justifyContent": "start",
           "alignItems": "stretch"
         },
         "item": {
           "width": "fixed",
-          "height": "fit-content",
+          "height": "stretch",
           "minWidth": 0,
           "maxWidth": null,
-          "minHeight": 600,
+          "minHeight": 0,
           "maxHeight": null,
           "grow": 0,
           "shrink": true,
@@ -64,27 +64,28 @@
         "OnResize": null,
         "OnShow": "Mostrar"
       },
-      "styleId": "3755d9a1-991d-4861-8878-42148ee446dc:default-style:WebPage",
+      "styleId": "sigat2-pagina",
       "children": [
-        "42898aa7-2d8a-48be-bd58-e0e758c9811e",
-        "5bf7d62d-e131-47e5-b6b2-3bea7d2b07f9"
+        "d3afa742-de15-4db2-bc04-2febdb902c0e",
+        "3f654b0a-413e-40ea-8123-5a661ec9efd9",
+        "ab803871-5c07-49e3-8bed-cbd8a9d96343"
       ]
     },
     {
-      "id": "42898aa7-2d8a-48be-bd58-e0e758c9811e",
+      "id": "d3afa742-de15-4db2-bc04-2febdb902c0e",
       "type": "WebGroup",
       "name": "Cabecalho",
-      "parentId": "05b641cc-21d9-43fc-9804-be1bbbaa45e1",
+      "parentId": "0110701f-70fa-4714-8996-e2e3da30dde7",
       "layout": {
         "container": {
           "mode": "row",
-          "paddingTop": 0,
-          "paddingRight": 0,
-          "paddingBottom": 0,
-          "paddingLeft": 0,
-          "gap": 12,
+          "paddingTop": 8,
+          "paddingRight": 16,
+          "paddingBottom": 8,
+          "paddingLeft": 16,
+          "gap": 16,
           "wrap": true,
-          "justifyContent": "start",
+          "justifyContent": "space-between",
           "alignItems": "center"
         },
         "item": {
@@ -123,22 +124,76 @@
         "OnMouseEnter": null,
         "OnMouseLeave": null
       },
+      "styleId": "sigat2-barra",
       "children": [
-        "8b359976-f68a-4f1f-a936-fac814518356",
-        "cf019585-31aa-4a9b-ad7c-8020e5a037b5",
-        "0e85cc12-1cc3-439e-977e-13441a65107a",
-        "8bbd29dd-6a96-4673-8fee-df431eb67e82",
-        "4d7faaba-5320-4fde-833d-f3f91e7310eb",
-        "68e07632-8abb-4f6a-8cae-095fbd1c2e8f",
-        "b6398489-7364-4fe4-8971-4d930a756c95",
-        "379df523-8eda-479b-b539-3c47715c40dd"
+        "4e7f2dc0-12fe-42a1-b64b-1c8e2b442d61",
+        "c01da27c-eed3-44e0-adbf-4c1fbab8d95f",
+        "1916e61c-a100-4b54-b51f-c506dc2babab"
       ]
     },
     {
-      "id": "8b359976-f68a-4f1f-a936-fac814518356",
-      "type": "WebLabel",
-      "name": "Marca",
-      "parentId": "42898aa7-2d8a-48be-bd58-e0e758c9811e",
+      "id": "4e7f2dc0-12fe-42a1-b64b-1c8e2b442d61",
+      "type": "WebGroup",
+      "name": "GRPMarca",
+      "parentId": "d3afa742-de15-4db2-bc04-2febdb902c0e",
+      "layout": {
+        "container": {
+          "mode": "row",
+          "paddingTop": 0,
+          "paddingRight": 0,
+          "paddingBottom": 0,
+          "paddingLeft": 0,
+          "gap": 8,
+          "wrap": false,
+          "justifyContent": "start",
+          "alignItems": "center"
+        },
+        "item": {
+          "width": "fit-content",
+          "height": "fit-content",
+          "minWidth": 0,
+          "maxWidth": null,
+          "minHeight": 0,
+          "maxHeight": null,
+          "grow": 0,
+          "shrink": false,
+          "alignSelf": "auto",
+          "horizontalAnchor": "start",
+          "verticalAnchor": "start",
+          "left": 0,
+          "right": 0,
+          "top": 0,
+          "bottom": 0
+        }
+      },
+      "bounds": {
+        "width": 240,
+        "height": 160,
+        "x": 0,
+        "y": 0
+      },
+      "props": {
+        "enabled": true,
+        "aspectRatio": "none",
+        "collapseWhenHidden": true,
+        "visible": true
+      },
+      "events": {
+        "OnClick": null,
+        "OnDblClick": null,
+        "OnMouseEnter": null,
+        "OnMouseLeave": null
+      },
+      "children": [
+        "800d19ed-74ad-4b19-9fde-efeebee2bbfb",
+        "de4fea37-2385-40af-b249-af025eec94b0"
+      ]
+    },
+    {
+      "id": "800d19ed-74ad-4b19-9fde-efeebee2bbfb",
+      "type": "WebImage",
+      "name": "IMGMarca",
+      "parentId": "4e7f2dc0-12fe-42a1-b64b-1c8e2b442d61",
       "layout": {
         "container": {
           "mode": "fixed",
@@ -170,13 +225,71 @@
         }
       },
       "bounds": {
-        "width": 110,
-        "height": 32,
+        "width": 40,
+        "height": 40,
         "x": 0,
         "y": 0
       },
       "props": {
-        "caption": "SIGAT2",
+        "enabled": true,
+        "alt": "",
+        "collapseWhenHidden": true,
+        "objectFit": "contain",
+        "placeholder": "image",
+        "src": "assets/imported/sigat-logo.svg",
+        "visible": true
+      },
+      "events": {
+        "OnClick": null,
+        "OnError": null,
+        "OnLoad": null
+      },
+      "styleId": "sigat2-login-logo",
+      "children": []
+    },
+    {
+      "id": "de4fea37-2385-40af-b249-af025eec94b0",
+      "type": "WebLabel",
+      "name": "LBLMarca",
+      "parentId": "4e7f2dc0-12fe-42a1-b64b-1c8e2b442d61",
+      "layout": {
+        "container": {
+          "mode": "fixed",
+          "paddingTop": 0,
+          "paddingRight": 0,
+          "paddingBottom": 0,
+          "paddingLeft": 0,
+          "gap": 0,
+          "wrap": false,
+          "justifyContent": "start",
+          "alignItems": "start"
+        },
+        "item": {
+          "width": "fit-content",
+          "height": "fixed",
+          "minWidth": 0,
+          "maxWidth": null,
+          "minHeight": 0,
+          "maxHeight": null,
+          "grow": 0,
+          "shrink": false,
+          "alignSelf": "auto",
+          "horizontalAnchor": "start",
+          "verticalAnchor": "start",
+          "left": 0,
+          "right": 0,
+          "top": 0,
+          "bottom": 0
+        }
+      },
+      "bounds": {
+        "width": 80,
+        "height": 40,
+        "x": 0,
+        "y": 0
+      },
+      "props": {
+        "caption": "SIGAT",
         "enabled": true,
         "autoSize": false,
         "collapseWhenHidden": true,
@@ -189,17 +302,17 @@
         "OnMouseEnter": null,
         "OnMouseLeave": null
       },
-      "styleId": "3755d9a1-991d-4861-8878-42148ee446dc:default-style:WebLabel",
+      "styleId": "sigat2-marca",
       "children": []
     },
     {
-      "id": "cf019585-31aa-4a9b-ad7c-8020e5a037b5",
-      "type": "WebButton",
-      "name": "BTNPainel",
-      "parentId": "42898aa7-2d8a-48be-bd58-e0e758c9811e",
+      "id": "c01da27c-eed3-44e0-adbf-4c1fbab8d95f",
+      "type": "WebGroup",
+      "name": "GRPBusca",
+      "parentId": "d3afa742-de15-4db2-bc04-2febdb902c0e",
       "layout": {
         "container": {
-          "mode": "fixed",
+          "mode": "row",
           "paddingTop": 0,
           "paddingRight": 0,
           "paddingBottom": 0,
@@ -207,13 +320,13 @@
           "gap": 0,
           "wrap": false,
           "justifyContent": "start",
-          "alignItems": "start"
+          "alignItems": "center"
         },
         "item": {
-          "width": "fixed",
-          "height": "fixed",
-          "minWidth": 120,
-          "maxWidth": 220,
+          "width": "fit-content",
+          "height": "fit-content",
+          "minWidth": 0,
+          "maxWidth": null,
           "minHeight": 0,
           "maxHeight": null,
           "grow": 0,
@@ -228,34 +341,33 @@
         }
       },
       "bounds": {
-        "width": 180,
-        "height": 40,
+        "width": 240,
+        "height": 160,
         "x": 0,
         "y": 0
       },
       "props": {
-        "caption": "Painel",
         "enabled": true,
+        "aspectRatio": "none",
         "collapseWhenHidden": true,
-        "icon": "list",
-        "tabIndex": 0,
         "visible": true
       },
       "events": {
-        "OnBlur": null,
-        "OnClick": "AbrirPainel",
-        "OnFocus": null,
+        "OnClick": null,
+        "OnDblClick": null,
         "OnMouseEnter": null,
         "OnMouseLeave": null
       },
-      "styleId": "3755d9a1-991d-4861-8878-42148ee446dc:default-style:WebButton",
-      "children": []
+      "children": [
+        "6fe9b79e-9917-4893-98a4-55751b648a72",
+        "cd7e93ab-bf9a-48d7-878c-347b090e90cb"
+      ]
     },
     {
-      "id": "0e85cc12-1cc3-439e-977e-13441a65107a",
+      "id": "6fe9b79e-9917-4893-98a4-55751b648a72",
       "type": "WebEdit",
       "name": "EDTBuscaRapida",
-      "parentId": "42898aa7-2d8a-48be-bd58-e0e758c9811e",
+      "parentId": "c01da27c-eed3-44e0-adbf-4c1fbab8d95f",
       "layout": {
         "container": {
           "mode": "fixed",
@@ -271,11 +383,11 @@
         "item": {
           "width": "fixed",
           "height": "fixed",
-          "minWidth": 200,
+          "minWidth": 160,
           "maxWidth": null,
           "minHeight": 0,
           "maxHeight": null,
-          "grow": 1,
+          "grow": 0,
           "shrink": true,
           "alignSelf": "auto",
           "horizontalAnchor": "start",
@@ -288,7 +400,7 @@
       },
       "bounds": {
         "width": 300,
-        "height": 40,
+        "height": 38,
         "x": 0,
         "y": 0
       },
@@ -296,7 +408,7 @@
         "value": "",
         "enabled": true,
         "collapseWhenHidden": true,
-        "placeholder": "Busca rápida (patrimônio, ticket, local)...",
+        "placeholder": "Busca rápida...",
         "readOnly": false,
         "tabIndex": 0,
         "visible": true
@@ -309,14 +421,14 @@
         "OnKeyDown": "BuscaRapidaTecla",
         "OnKeyUp": null
       },
-      "styleId": "3755d9a1-991d-4861-8878-42148ee446dc:default-style:WebEdit",
+      "styleId": "sigat2-busca",
       "children": []
     },
     {
-      "id": "8bbd29dd-6a96-4673-8fee-df431eb67e82",
+      "id": "cd7e93ab-bf9a-48d7-878c-347b090e90cb",
       "type": "WebButton",
       "name": "BTNBuscar",
-      "parentId": "42898aa7-2d8a-48be-bd58-e0e758c9811e",
+      "parentId": "c01da27c-eed3-44e0-adbf-4c1fbab8d95f",
       "layout": {
         "container": {
           "mode": "fixed",
@@ -332,12 +444,12 @@
         "item": {
           "width": "fixed",
           "height": "fixed",
-          "minWidth": 120,
-          "maxWidth": 220,
+          "minWidth": 0,
+          "maxWidth": null,
           "minHeight": 0,
           "maxHeight": null,
           "grow": 0,
-          "shrink": true,
+          "shrink": false,
           "alignSelf": "auto",
           "horizontalAnchor": "start",
           "verticalAnchor": "start",
@@ -348,8 +460,8 @@
         }
       },
       "bounds": {
-        "width": 180,
-        "height": 40,
+        "width": 42,
+        "height": 38,
         "x": 0,
         "y": 0
       },
@@ -368,14 +480,77 @@
         "OnMouseEnter": null,
         "OnMouseLeave": null
       },
-      "styleId": "3755d9a1-991d-4861-8878-42148ee446dc:default-style:WebButton",
+      "styleId": "sigat2-botao-busca",
       "children": []
     },
     {
-      "id": "4d7faaba-5320-4fde-833d-f3f91e7310eb",
-      "type": "WebButton",
-      "name": "BTNInserviveis",
-      "parentId": "42898aa7-2d8a-48be-bd58-e0e758c9811e",
+      "id": "1916e61c-a100-4b54-b51f-c506dc2babab",
+      "type": "WebGroup",
+      "name": "GRPUsuario",
+      "parentId": "d3afa742-de15-4db2-bc04-2febdb902c0e",
+      "layout": {
+        "container": {
+          "mode": "row",
+          "paddingTop": 0,
+          "paddingRight": 0,
+          "paddingBottom": 0,
+          "paddingLeft": 0,
+          "gap": 4,
+          "wrap": true,
+          "justifyContent": "start",
+          "alignItems": "center"
+        },
+        "item": {
+          "width": "fit-content",
+          "height": "fit-content",
+          "minWidth": 0,
+          "maxWidth": null,
+          "minHeight": 0,
+          "maxHeight": null,
+          "grow": 0,
+          "shrink": false,
+          "alignSelf": "auto",
+          "horizontalAnchor": "start",
+          "verticalAnchor": "start",
+          "left": 0,
+          "right": 0,
+          "top": 0,
+          "bottom": 0
+        }
+      },
+      "bounds": {
+        "width": 240,
+        "height": 160,
+        "x": 0,
+        "y": 0
+      },
+      "props": {
+        "enabled": true,
+        "aspectRatio": "none",
+        "collapseWhenHidden": true,
+        "visible": true
+      },
+      "events": {
+        "OnClick": null,
+        "OnDblClick": null,
+        "OnMouseEnter": null,
+        "OnMouseLeave": null
+      },
+      "children": [
+        "bd24d928-b6dc-43f2-b624-1e51c683d410",
+        "b423624b-f747-4a55-a0e5-e9249d896526",
+        "ae3a7bb2-74fd-4681-a5ea-7ca141dc1860",
+        "53496295-8556-4dd2-a975-a7dd1993af04",
+        "8c91c635-c7d2-48af-8d70-029e22f07846",
+        "7f940b4b-f873-4f50-b131-d99a5e3a476c",
+        "57ba2b31-0863-48a5-8ff5-52c7b96a78b3"
+      ]
+    },
+    {
+      "id": "bd24d928-b6dc-43f2-b624-1e51c683d410",
+      "type": "WebLabel",
+      "name": "LBLOla",
+      "parentId": "1916e61c-a100-4b54-b51f-c506dc2babab",
       "layout": {
         "container": {
           "mode": "fixed",
@@ -389,14 +564,14 @@
           "alignItems": "start"
         },
         "item": {
-          "width": "fixed",
+          "width": "fit-content",
           "height": "fixed",
-          "minWidth": 120,
-          "maxWidth": 220,
+          "minWidth": 0,
+          "maxWidth": null,
           "minHeight": 0,
           "maxHeight": null,
           "grow": 0,
-          "shrink": true,
+          "shrink": false,
           "alignSelf": "auto",
           "horizontalAnchor": "start",
           "verticalAnchor": "start",
@@ -407,19 +582,253 @@
         }
       },
       "bounds": {
-        "width": 180,
-        "height": 40,
+        "width": 80,
+        "height": 24,
         "x": 0,
         "y": 0
       },
       "props": {
-        "caption": "Inservíveis",
+        "caption": "Olá,",
+        "enabled": true,
+        "autoSize": false,
+        "collapseWhenHidden": true,
+        "color": "#000000",
+        "visible": true
+      },
+      "events": {
+        "OnClick": null,
+        "OnDblClick": null,
+        "OnMouseEnter": null,
+        "OnMouseLeave": null
+      },
+      "styleId": "sigat2-texto-claro",
+      "children": []
+    },
+    {
+      "id": "b423624b-f747-4a55-a0e5-e9249d896526",
+      "type": "WebLabel",
+      "name": "LBLUsuario",
+      "parentId": "1916e61c-a100-4b54-b51f-c506dc2babab",
+      "layout": {
+        "container": {
+          "mode": "fixed",
+          "paddingTop": 0,
+          "paddingRight": 0,
+          "paddingBottom": 0,
+          "paddingLeft": 0,
+          "gap": 0,
+          "wrap": false,
+          "justifyContent": "start",
+          "alignItems": "start"
+        },
+        "item": {
+          "width": "fit-content",
+          "height": "fixed",
+          "minWidth": 0,
+          "maxWidth": null,
+          "minHeight": 0,
+          "maxHeight": null,
+          "grow": 0,
+          "shrink": false,
+          "alignSelf": "auto",
+          "horizontalAnchor": "start",
+          "verticalAnchor": "start",
+          "left": 0,
+          "right": 0,
+          "top": 0,
+          "bottom": 0
+        }
+      },
+      "bounds": {
+        "width": 80,
+        "height": 24,
+        "x": 0,
+        "y": 0
+      },
+      "props": {
+        "caption": "",
+        "enabled": true,
+        "autoSize": false,
+        "collapseWhenHidden": true,
+        "color": "#000000",
+        "visible": true
+      },
+      "events": {
+        "OnClick": null,
+        "OnDblClick": null,
+        "OnMouseEnter": null,
+        "OnMouseLeave": null
+      },
+      "styleId": "sigat2-texto-claro-forte",
+      "children": []
+    },
+    {
+      "id": "ae3a7bb2-74fd-4681-a5ea-7ca141dc1860",
+      "type": "WebButton",
+      "name": "BTNBloqueados",
+      "parentId": "1916e61c-a100-4b54-b51f-c506dc2babab",
+      "layout": {
+        "container": {
+          "mode": "fixed",
+          "paddingTop": 0,
+          "paddingRight": 0,
+          "paddingBottom": 0,
+          "paddingLeft": 0,
+          "gap": 0,
+          "wrap": false,
+          "justifyContent": "start",
+          "alignItems": "start"
+        },
+        "item": {
+          "width": "fit-content",
+          "height": "fixed",
+          "minWidth": 0,
+          "maxWidth": null,
+          "minHeight": 0,
+          "maxHeight": null,
+          "grow": 0,
+          "shrink": false,
+          "alignSelf": "auto",
+          "horizontalAnchor": "start",
+          "verticalAnchor": "start",
+          "left": 0,
+          "right": 0,
+          "top": 0,
+          "bottom": 0
+        }
+      },
+      "bounds": {
+        "width": 100,
+        "height": 26,
+        "x": 0,
+        "y": 0
+      },
+      "props": {
+        "caption": "0",
+        "enabled": true,
+        "collapseWhenHidden": true,
+        "icon": "lock",
+        "tabIndex": 0,
+        "visible": true
+      },
+      "events": {
+        "OnBlur": null,
+        "OnClick": "MostrarBloqueados",
+        "OnFocus": null,
+        "OnMouseEnter": null,
+        "OnMouseLeave": null
+      },
+      "styleId": "sigat2-selo-bloqueados",
+      "children": []
+    },
+    {
+      "id": "53496295-8556-4dd2-a975-a7dd1993af04",
+      "type": "WebButton",
+      "name": "BTNPainel",
+      "parentId": "1916e61c-a100-4b54-b51f-c506dc2babab",
+      "layout": {
+        "container": {
+          "mode": "fixed",
+          "paddingTop": 0,
+          "paddingRight": 0,
+          "paddingBottom": 0,
+          "paddingLeft": 0,
+          "gap": 0,
+          "wrap": false,
+          "justifyContent": "start",
+          "alignItems": "start"
+        },
+        "item": {
+          "width": "fit-content",
+          "height": "fixed",
+          "minWidth": 0,
+          "maxWidth": null,
+          "minHeight": 0,
+          "maxHeight": null,
+          "grow": 0,
+          "shrink": false,
+          "alignSelf": "auto",
+          "horizontalAnchor": "start",
+          "verticalAnchor": "start",
+          "left": 0,
+          "right": 0,
+          "top": 0,
+          "bottom": 0
+        }
+      },
+      "bounds": {
+        "width": 100,
+        "height": 31,
+        "x": 0,
+        "y": 0
+      },
+      "props": {
+        "caption": "Painel",
+        "enabled": true,
+        "collapseWhenHidden": true,
+        "icon": "menu",
+        "tabIndex": 0,
+        "visible": true
+      },
+      "events": {
+        "OnBlur": null,
+        "OnClick": "AbrirPainel",
+        "OnFocus": null,
+        "OnMouseEnter": null,
+        "OnMouseLeave": null
+      },
+      "styleId": "sigat2-botao-primario",
+      "children": []
+    },
+    {
+      "id": "8c91c635-c7d2-48af-8d70-029e22f07846",
+      "type": "WebButton",
+      "name": "BTNInserviveis",
+      "parentId": "1916e61c-a100-4b54-b51f-c506dc2babab",
+      "layout": {
+        "container": {
+          "mode": "fixed",
+          "paddingTop": 0,
+          "paddingRight": 0,
+          "paddingBottom": 0,
+          "paddingLeft": 0,
+          "gap": 0,
+          "wrap": false,
+          "justifyContent": "start",
+          "alignItems": "start"
+        },
+        "item": {
+          "width": "fit-content",
+          "height": "fixed",
+          "minWidth": 0,
+          "maxWidth": null,
+          "minHeight": 0,
+          "maxHeight": null,
+          "grow": 0,
+          "shrink": false,
+          "alignSelf": "auto",
+          "horizontalAnchor": "start",
+          "verticalAnchor": "start",
+          "left": 0,
+          "right": 0,
+          "top": 0,
+          "bottom": 0
+        }
+      },
+      "bounds": {
+        "width": 100,
+        "height": 31,
+        "x": 0,
+        "y": 0
+      },
+      "props": {
+        "caption": "Remessas de inservíveis",
         "enabled": true,
         "allowedRoles": [
           "inservivel"
         ],
         "collapseWhenHidden": true,
-        "icon": "archive",
+        "icon": "cart",
         "tabIndex": 0,
         "visible": true
       },
@@ -430,14 +839,14 @@
         "OnMouseEnter": null,
         "OnMouseLeave": null
       },
-      "styleId": "3755d9a1-991d-4861-8878-42148ee446dc:default-style:WebButton",
+      "styleId": "sigat2-botao-primario",
       "children": []
     },
     {
-      "id": "68e07632-8abb-4f6a-8cae-095fbd1c2e8f",
+      "id": "7f940b4b-f873-4f50-b131-d99a5e3a476c",
       "type": "WebButton",
       "name": "BTNAdmin",
-      "parentId": "42898aa7-2d8a-48be-bd58-e0e758c9811e",
+      "parentId": "1916e61c-a100-4b54-b51f-c506dc2babab",
       "layout": {
         "container": {
           "mode": "fixed",
@@ -451,14 +860,14 @@
           "alignItems": "start"
         },
         "item": {
-          "width": "fixed",
+          "width": "fit-content",
           "height": "fixed",
-          "minWidth": 120,
-          "maxWidth": 220,
+          "minWidth": 0,
+          "maxWidth": null,
           "minHeight": 0,
           "maxHeight": null,
           "grow": 0,
-          "shrink": true,
+          "shrink": false,
           "alignSelf": "auto",
           "horizontalAnchor": "start",
           "verticalAnchor": "start",
@@ -469,8 +878,8 @@
         }
       },
       "bounds": {
-        "width": 180,
-        "height": 40,
+        "width": 100,
+        "height": 31,
         "x": 0,
         "y": 0
       },
@@ -492,14 +901,14 @@
         "OnMouseEnter": null,
         "OnMouseLeave": null
       },
-      "styleId": "3755d9a1-991d-4861-8878-42148ee446dc:default-style:WebButton",
+      "styleId": "sigat2-botao-secundario",
       "children": []
     },
     {
-      "id": "b6398489-7364-4fe4-8971-4d930a756c95",
-      "type": "WebLabel",
-      "name": "LBLUsuario",
-      "parentId": "42898aa7-2d8a-48be-bd58-e0e758c9811e",
+      "id": "57ba2b31-0863-48a5-8ff5-52c7b96a78b3",
+      "type": "WebButton",
+      "name": "BTNSair",
+      "parentId": "1916e61c-a100-4b54-b51f-c506dc2babab",
       "layout": {
         "container": {
           "mode": "fixed",
@@ -513,13 +922,13 @@
           "alignItems": "start"
         },
         "item": {
-          "width": "fixed",
+          "width": "fit-content",
           "height": "fixed",
           "minWidth": 0,
           "maxWidth": null,
           "minHeight": 0,
           "maxHeight": null,
-          "grow": 1,
+          "grow": 0,
           "shrink": false,
           "alignSelf": "auto",
           "horizontalAnchor": "start",
@@ -531,50 +940,51 @@
         }
       },
       "bounds": {
-        "width": 200,
-        "height": 28,
+        "width": 100,
+        "height": 31,
         "x": 0,
         "y": 0
       },
       "props": {
-        "caption": "",
+        "caption": "Sair",
         "enabled": true,
-        "autoSize": false,
         "collapseWhenHidden": true,
-        "color": "#000000",
+        "icon": "sign-out",
+        "tabIndex": 0,
         "visible": true
       },
       "events": {
-        "OnClick": null,
-        "OnDblClick": null,
+        "OnBlur": null,
+        "OnClick": "Sair",
+        "OnFocus": null,
         "OnMouseEnter": null,
         "OnMouseLeave": null
       },
-      "styleId": "3755d9a1-991d-4861-8878-42148ee446dc:default-style:WebLabel",
+      "styleId": "sigat2-botao-perigo",
       "children": []
     },
     {
-      "id": "379df523-8eda-479b-b539-3c47715c40dd",
-      "type": "WebButton",
-      "name": "BTNSair",
-      "parentId": "42898aa7-2d8a-48be-bd58-e0e758c9811e",
+      "id": "3f654b0a-413e-40ea-8123-5a661ec9efd9",
+      "type": "WebGroup",
+      "name": "Conteudo",
+      "parentId": "0110701f-70fa-4714-8996-e2e3da30dde7",
       "layout": {
         "container": {
-          "mode": "fixed",
-          "paddingTop": 0,
-          "paddingRight": 0,
-          "paddingBottom": 0,
-          "paddingLeft": 0,
-          "gap": 0,
+          "mode": "column",
+          "paddingTop": 16,
+          "paddingRight": 24,
+          "paddingBottom": 24,
+          "paddingLeft": 24,
+          "gap": 16,
           "wrap": false,
           "justifyContent": "start",
-          "alignItems": "start"
+          "alignItems": "stretch"
         },
         "item": {
-          "width": "fixed",
-          "height": "fixed",
-          "minWidth": 120,
-          "maxWidth": 220,
+          "width": "stretch",
+          "height": "stretch",
+          "minWidth": 0,
+          "maxWidth": null,
           "minHeight": 0,
           "maxHeight": null,
           "grow": 0,
@@ -589,34 +999,33 @@
         }
       },
       "bounds": {
-        "width": 180,
-        "height": 40,
+        "width": 240,
+        "height": 160,
         "x": 0,
         "y": 0
       },
       "props": {
-        "caption": "Sair",
         "enabled": true,
+        "aspectRatio": "none",
         "collapseWhenHidden": true,
-        "icon": "logout",
-        "tabIndex": 0,
         "visible": true
       },
       "events": {
-        "OnBlur": null,
-        "OnClick": "Sair",
-        "OnFocus": null,
+        "OnClick": null,
+        "OnDblClick": null,
         "OnMouseEnter": null,
         "OnMouseLeave": null
       },
-      "styleId": "3755d9a1-991d-4861-8878-42148ee446dc:default-style:WebButton",
-      "children": []
+      "styleId": "sigat2-conteudo",
+      "children": [
+        "d6cebeba-7bd4-44e0-b385-05425393fa01"
+      ]
     },
     {
-      "id": "5bf7d62d-e131-47e5-b6b2-3bea7d2b07f9",
+      "id": "d6cebeba-7bd4-44e0-b385-05425393fa01",
       "type": "WebPanel",
       "name": "PNLNegado",
-      "parentId": "05b641cc-21d9-43fc-9804-be1bbbaa45e1",
+      "parentId": "3f654b0a-413e-40ea-8123-5a661ec9efd9",
       "layout": {
         "container": {
           "mode": "column",
@@ -681,16 +1090,16 @@
       },
       "styleId": "3755d9a1-991d-4861-8878-42148ee446dc:default-style:WebPanel",
       "children": [
-        "53c2e0dc-6caf-489b-9735-e4e5c434ce12",
-        "c768742d-df77-48a5-b4ad-1695a56274be",
-        "34b3b6b7-5fff-4afd-972a-c23d5c8f873b"
+        "1e326f5a-0e55-411e-9bed-2d8326736cca",
+        "8c93aeeb-e666-41a7-a879-1f95c195c1eb",
+        "ce855a16-04a3-4283-85a2-b04fc7e1adba"
       ]
     },
     {
-      "id": "53c2e0dc-6caf-489b-9735-e4e5c434ce12",
+      "id": "1e326f5a-0e55-411e-9bed-2d8326736cca",
       "type": "WebLabel",
       "name": "LBLNegado",
-      "parentId": "5bf7d62d-e131-47e5-b6b2-3bea7d2b07f9",
+      "parentId": "d6cebeba-7bd4-44e0-b385-05425393fa01",
       "layout": {
         "container": {
           "mode": "fixed",
@@ -745,10 +1154,10 @@
       "children": []
     },
     {
-      "id": "c768742d-df77-48a5-b4ad-1695a56274be",
+      "id": "8c93aeeb-e666-41a7-a879-1f95c195c1eb",
       "type": "WebLabel",
       "name": "LBLTexto",
-      "parentId": "5bf7d62d-e131-47e5-b6b2-3bea7d2b07f9",
+      "parentId": "d6cebeba-7bd4-44e0-b385-05425393fa01",
       "layout": {
         "container": {
           "mode": "fixed",
@@ -803,10 +1212,10 @@
       "children": []
     },
     {
-      "id": "34b3b6b7-5fff-4afd-972a-c23d5c8f873b",
+      "id": "ce855a16-04a3-4283-85a2-b04fc7e1adba",
       "type": "WebButton",
       "name": "BTNVoltar",
-      "parentId": "5bf7d62d-e131-47e5-b6b2-3bea7d2b07f9",
+      "parentId": "d6cebeba-7bd4-44e0-b385-05425393fa01",
       "layout": {
         "container": {
           "mode": "fixed",
@@ -859,6 +1268,240 @@
         "OnMouseLeave": null
       },
       "styleId": "3755d9a1-991d-4861-8878-42148ee446dc:default-style:WebButton",
+      "children": []
+    },
+    {
+      "id": "ab803871-5c07-49e3-8bed-cbd8a9d96343",
+      "type": "WebGroup",
+      "name": "Rodape",
+      "parentId": "0110701f-70fa-4714-8996-e2e3da30dde7",
+      "layout": {
+        "container": {
+          "mode": "row",
+          "paddingTop": 8,
+          "paddingRight": 16,
+          "paddingBottom": 8,
+          "paddingLeft": 16,
+          "gap": 4,
+          "wrap": true,
+          "justifyContent": "end",
+          "alignItems": "center"
+        },
+        "item": {
+          "width": "stretch",
+          "height": "fit-content",
+          "minWidth": 0,
+          "maxWidth": null,
+          "minHeight": 0,
+          "maxHeight": null,
+          "grow": 0,
+          "shrink": false,
+          "alignSelf": "auto",
+          "horizontalAnchor": "start",
+          "verticalAnchor": "start",
+          "left": 0,
+          "right": 0,
+          "top": 0,
+          "bottom": 0
+        }
+      },
+      "bounds": {
+        "width": 240,
+        "height": 160,
+        "x": 0,
+        "y": 0
+      },
+      "props": {
+        "enabled": true,
+        "aspectRatio": "none",
+        "collapseWhenHidden": true,
+        "visible": true
+      },
+      "events": {
+        "OnClick": null,
+        "OnDblClick": null,
+        "OnMouseEnter": null,
+        "OnMouseLeave": null
+      },
+      "styleId": "sigat2-barra",
+      "children": [
+        "f61ea437-a875-464e-a804-11202f1e9b65",
+        "a8910c3a-3eff-417d-a417-504afc881f47",
+        "8fb93d2d-1f20-4be0-9b21-bcdbe29a1a6a"
+      ]
+    },
+    {
+      "id": "f61ea437-a875-464e-a804-11202f1e9b65",
+      "type": "WebLabel",
+      "name": "LBLRodapeAutorizacao",
+      "parentId": "ab803871-5c07-49e3-8bed-cbd8a9d96343",
+      "layout": {
+        "container": {
+          "mode": "fixed",
+          "paddingTop": 0,
+          "paddingRight": 0,
+          "paddingBottom": 0,
+          "paddingLeft": 0,
+          "gap": 0,
+          "wrap": false,
+          "justifyContent": "start",
+          "alignItems": "start"
+        },
+        "item": {
+          "width": "fit-content",
+          "height": "fixed",
+          "minWidth": 0,
+          "maxWidth": null,
+          "minHeight": 0,
+          "maxHeight": null,
+          "grow": 0,
+          "shrink": false,
+          "alignSelf": "auto",
+          "horizontalAnchor": "start",
+          "verticalAnchor": "start",
+          "left": 0,
+          "right": 0,
+          "top": 0,
+          "bottom": 0
+        }
+      },
+      "bounds": {
+        "width": 80,
+        "height": 20,
+        "x": 0,
+        "y": 0
+      },
+      "props": {
+        "caption": "Autorização:",
+        "enabled": true,
+        "autoSize": false,
+        "collapseWhenHidden": true,
+        "color": "#000000",
+        "visible": true
+      },
+      "events": {
+        "OnClick": null,
+        "OnDblClick": null,
+        "OnMouseEnter": null,
+        "OnMouseLeave": null
+      },
+      "styleId": "sigat2-rodape",
+      "children": []
+    },
+    {
+      "id": "a8910c3a-3eff-417d-a417-504afc881f47",
+      "type": "WebLabel",
+      "name": "LBLRodapeGrupo",
+      "parentId": "ab803871-5c07-49e3-8bed-cbd8a9d96343",
+      "layout": {
+        "container": {
+          "mode": "fixed",
+          "paddingTop": 0,
+          "paddingRight": 0,
+          "paddingBottom": 0,
+          "paddingLeft": 0,
+          "gap": 0,
+          "wrap": false,
+          "justifyContent": "start",
+          "alignItems": "start"
+        },
+        "item": {
+          "width": "fit-content",
+          "height": "fixed",
+          "minWidth": 0,
+          "maxWidth": null,
+          "minHeight": 0,
+          "maxHeight": null,
+          "grow": 0,
+          "shrink": false,
+          "alignSelf": "auto",
+          "horizontalAnchor": "start",
+          "verticalAnchor": "start",
+          "left": 0,
+          "right": 0,
+          "top": 0,
+          "bottom": 0
+        }
+      },
+      "bounds": {
+        "width": 80,
+        "height": 18,
+        "x": 0,
+        "y": 0
+      },
+      "props": {
+        "caption": "-",
+        "enabled": true,
+        "autoSize": false,
+        "collapseWhenHidden": true,
+        "color": "#000000",
+        "visible": true
+      },
+      "events": {
+        "OnClick": null,
+        "OnDblClick": null,
+        "OnMouseEnter": null,
+        "OnMouseLeave": null
+      },
+      "styleId": "sigat2-selo",
+      "children": []
+    },
+    {
+      "id": "8fb93d2d-1f20-4be0-9b21-bcdbe29a1a6a",
+      "type": "WebLabel",
+      "name": "LBLRodapeAmbiente",
+      "parentId": "ab803871-5c07-49e3-8bed-cbd8a9d96343",
+      "layout": {
+        "container": {
+          "mode": "fixed",
+          "paddingTop": 0,
+          "paddingRight": 0,
+          "paddingBottom": 0,
+          "paddingLeft": 0,
+          "gap": 0,
+          "wrap": false,
+          "justifyContent": "start",
+          "alignItems": "start"
+        },
+        "item": {
+          "width": "fit-content",
+          "height": "fixed",
+          "minWidth": 0,
+          "maxWidth": null,
+          "minHeight": 0,
+          "maxHeight": null,
+          "grow": 0,
+          "shrink": false,
+          "alignSelf": "auto",
+          "horizontalAnchor": "start",
+          "verticalAnchor": "start",
+          "left": 0,
+          "right": 0,
+          "top": 0,
+          "bottom": 0
+        }
+      },
+      "bounds": {
+        "width": 80,
+        "height": 20,
+        "x": 0,
+        "y": 0
+      },
+      "props": {
+        "caption": "| Ambiente: production | Versão: 0.1.0 | SEAD/CGTI",
+        "enabled": true,
+        "autoSize": false,
+        "collapseWhenHidden": true,
+        "color": "#000000",
+        "visible": true
+      },
+      "events": {
+        "OnClick": null,
+        "OnDblClick": null,
+        "OnMouseEnter": null,
+        "OnMouseLeave": null
+      },
+      "styleId": "sigat2-rodape",
       "children": []
     }
   ]

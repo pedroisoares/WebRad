@@ -1,4 +1,4 @@
-import { buscar, sair, preencherCabecalho, abrir, erro } from '../units/Sigat2';
+import { abrirBloqueados, buscar, sair, preencherCabecalho, abrir, erro } from '../units/Sigat2';
 import { InserviveisGenerated } from './Inserviveis.generated';
 
 export class Inserviveis extends InserviveisGenerated {
@@ -26,8 +26,12 @@ export class Inserviveis extends InserviveisGenerated {
     await sair();
   }
 
+  public MostrarBloqueados(): void {
+    abrirBloqueados();
+  }
+
   public async Mostrar(): Promise<void> {
-    preencherCabecalho(this.LBLUsuario);
+    preencherCabecalho(this);
     try {
       await this.Api.Remessas.execute();
     } catch (e) {

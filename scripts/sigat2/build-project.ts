@@ -65,6 +65,7 @@ function compose(
   document: PageModel,
   styles: readonly ComponentStyleModel[],
   spec: PageSpec,
+  version: string,
 ): PageModel {
   const root = document.components.find((node) => node.id === document.rootComponentId);
   if (!root) throw new Error('Document has no root.');
@@ -106,7 +107,30 @@ function compose(
     );
     return created.id;
   };
-  const body = spec.header ? [header(), ...spec.children] : spec.children;
+  // Signed-in pages copy the SIGAT frame: navbar, content and footer. The content is the
+  // only part that scrolls, so its horizontal scrollbar stays above the footer.
+  const body: readonly Node[] = spec.header
+    ? [
+        header(),
+        {
+          type: 'WebGroup',
+          name: 'Conteudo',
+          styleId: SIGAT_STYLE.conteudo,
+          item: { height: 'stretch', minHeight: 0, shrink: true },
+          container: {
+            mode: 'column',
+            gap: 16,
+            alignItems: 'stretch',
+            paddingTop: 16,
+            paddingRight: 24,
+            paddingBottom: 24,
+            paddingLeft: 24,
+          },
+          children: spec.children,
+        },
+        footer(version),
+      ]
+    : spec.children;
   const childIds = body.map((child) => add(child, root.id));
   const layout = createDefaultComponentLayout();
   return {
@@ -115,7 +139,11 @@ function compose(
       applyDefaultComponentStyle(
         {
           ...root,
-          ...(spec.styleId === undefined ? {} : { styleId: spec.styleId }),
+          ...(spec.styleId === undefined
+            ? spec.header
+              ? { styleId: SIGAT_STYLE.pagina }
+              : {}
+            : { styleId: spec.styleId }),
           children: childIds,
           props: {
             ...root.props,
@@ -126,16 +154,17 @@ function compose(
           events: { ...root.events, ...spec.events },
           layout: {
             ...layout,
-            item: { ...layout.item, height: 'fit-content', minHeight: 600 },
+            item: spec.header
+              ? { ...layout.item, height: 'stretch', minHeight: 0 }
+              : { ...layout.item, height: 'fit-content', minHeight: 600 },
             container: {
               ...layout.container,
               mode: 'column',
-              gap: 16,
+              gap: spec.header ? 0 : 16,
               alignItems: 'stretch',
-              paddingTop: 16,
-              paddingRight: 24,
-              paddingBottom: 24,
-              paddingLeft: 24,
+              ...(spec.header
+                ? { paddingTop: 0, paddingRight: 0, paddingBottom: 0, paddingLeft: 0 }
+                : { paddingTop: 16, paddingRight: 24, paddingBottom: 24, paddingLeft: 24 }),
               ...spec.container,
             },
           },
@@ -260,23 +289,171 @@ function html(name: string, height = 420, title = name): Node {
   return { type: 'WebHtml', name, height, props: { html: '', title } };
 }
 
-/** The SIGAT header: navigation, quick search and sign-out, shown on every signed-in page. */
+/** A Bootstrap 4 small button (`btn btn-sm btn-*`) of the SIGAT navbar and painel. */
+function sigatButton(
+  name: string,
+  caption: string,
+  handler: string,
+  icon: WebRadIconName,
+  styleId: string,
+  roles: readonly string[] = [],
+): Node {
+  return {
+    type: 'WebButton',
+    name,
+    height: 31,
+    props: { caption, icon, ...(roles.length > 0 ? { allowedRoles: [...roles] } : {}) },
+    events: { OnClick: handler },
+    styleId,
+    item: { width: 'fit-content', grow: 0, shrink: false },
+  };
+}
+
+function sigatLabel(name: string, caption: string, styleId: string, height = 24): Node {
+  return {
+    ...label(name, caption, height),
+    styleId,
+    item: { width: 'fit-content', grow: 0, shrink: false },
+  };
+}
+
+/**
+ * The SIGAT navbar (`templates/cabecalho.php`), shown on every signed-in page: the star
+ * logo and "SIGAT" on the left, the quick search in the middle and, on the right, the
+ * greeting, the user's lock count, Painel, Inservíveis, Administração and Sair.
+ */
 function header(): Node {
-  return row('Cabecalho', [
-    { ...label('Marca', 'SIGAT2', 32), width: 110, item: { width: 'fixed' } },
-    button('BTNPainel', 'Painel', 'AbrirPainel', 'list'),
-    {
-      ...edit('EDTBuscaRapida', 'Busca rápida (patrimônio, ticket, local)...'),
-      width: 300,
-      item: { width: 'fixed', minWidth: 200, grow: 1, shrink: true },
-      events: { OnKeyDown: 'BuscaRapidaTecla' },
+  return {
+    type: 'WebGroup',
+    name: 'Cabecalho',
+    styleId: SIGAT_STYLE.barra,
+    item: { height: 'fit-content', shrink: false },
+    container: {
+      mode: 'row',
+      gap: 16,
+      wrap: true,
+      alignItems: 'center',
+      justifyContent: 'space-between',
+      paddingTop: 8,
+      paddingRight: 16,
+      paddingBottom: 8,
+      paddingLeft: 16,
     },
-    button('BTNBuscar', 'Buscar', 'BuscaRapida', 'search'),
-    button('BTNInserviveis', 'Inservíveis', 'AbrirInserviveis', 'archive', ['inservivel']),
-    button('BTNAdmin', 'Administração', 'AbrirAdmin', 'settings', ['admin']),
-    { ...label('LBLUsuario', '', 28), width: 200, item: { width: 'fixed', grow: 1 } },
-    button('BTNSair', 'Sair', 'Sair', 'logout'),
-  ]);
+    children: [
+      {
+        type: 'WebGroup',
+        name: 'GRPMarca',
+        item: { width: 'fit-content', height: 'fit-content', grow: 0 },
+        container: { mode: 'row', gap: 8, alignItems: 'center' },
+        children: [
+          {
+            type: 'WebImage',
+            name: 'IMGMarca',
+            width: 40,
+            height: 40,
+            props: { src: 'assets/imported/' + LOGIN_LOGO_ASSET, alt: '' },
+            styleId: LOGIN_STYLE.logo,
+            item: { width: 'fixed', grow: 0, shrink: false },
+          },
+          sigatLabel('LBLMarca', 'SIGAT', SIGAT_STYLE.marca, 40),
+        ],
+      },
+      {
+        type: 'WebGroup',
+        name: 'GRPBusca',
+        item: { width: 'fit-content', height: 'fit-content', grow: 0, shrink: true },
+        container: { mode: 'row', gap: 0, alignItems: 'center' },
+        children: [
+          {
+            ...edit('EDTBuscaRapida', 'Busca rápida...'),
+            height: 38,
+            width: 300,
+            styleId: SIGAT_STYLE.busca,
+            item: { width: 'fixed', minWidth: 160, grow: 0, shrink: true },
+            events: { OnKeyDown: 'BuscaRapidaTecla' },
+          },
+          {
+            ...sigatButton('BTNBuscar', 'Buscar', 'BuscaRapida', 'search', SIGAT_STYLE.botaoBusca),
+            width: 42,
+            height: 38,
+            item: { width: 'fixed', grow: 0, shrink: false },
+          },
+        ],
+      },
+      {
+        type: 'WebGroup',
+        name: 'GRPUsuario',
+        item: { width: 'fit-content', height: 'fit-content', grow: 0 },
+        container: { mode: 'row', gap: 4, wrap: true, alignItems: 'center' },
+        children: [
+          sigatLabel('LBLOla', 'Olá,', SIGAT_STYLE.textoClaro),
+          sigatLabel('LBLUsuario', '', SIGAT_STYLE.textoClaroForte),
+          {
+            ...sigatButton(
+              'BTNBloqueados',
+              '0',
+              'MostrarBloqueados',
+              'lock',
+              SIGAT_STYLE.seloBloqueados,
+            ),
+            height: 26,
+          },
+          sigatButton('BTNPainel', 'Painel', 'AbrirPainel', 'menu', SIGAT_STYLE.botaoPrimario),
+          sigatButton(
+            'BTNInserviveis',
+            'Remessas de inservíveis',
+            'AbrirInserviveis',
+            'cart',
+            SIGAT_STYLE.botaoPrimario,
+            ['inservivel'],
+          ),
+          sigatButton(
+            'BTNAdmin',
+            'Administração',
+            'AbrirAdmin',
+            'settings',
+            SIGAT_STYLE.botaoSecundario,
+            ['admin'],
+          ),
+          sigatButton('BTNSair', 'Sair', 'Sair', 'sign-out', SIGAT_STYLE.botaoPerigo),
+        ],
+      },
+    ],
+  };
+}
+
+/**
+ * The SIGAT footer (`templates/rodape.php`): the user's group badge, the environment and
+ * the version, right-aligned on a dark bar fixed to the bottom of the window.
+ */
+function footer(version: string): Node {
+  return {
+    type: 'WebGroup',
+    name: 'Rodape',
+    styleId: SIGAT_STYLE.barra,
+    item: { height: 'fit-content', shrink: false },
+    container: {
+      mode: 'row',
+      gap: 4,
+      wrap: true,
+      alignItems: 'center',
+      justifyContent: 'end',
+      paddingTop: 8,
+      paddingRight: 16,
+      paddingBottom: 8,
+      paddingLeft: 16,
+    },
+    children: [
+      sigatLabel('LBLRodapeAutorizacao', 'Autorização:', SIGAT_STYLE.rodape, 20),
+      sigatLabel('LBLRodapeGrupo', '-', SIGAT_STYLE.selo, 18),
+      sigatLabel(
+        'LBLRodapeAmbiente',
+        '| Ambiente: production | Versão: ' + version + ' | SEAD/CGTI',
+        SIGAT_STYLE.rodape,
+        20,
+      ),
+    ],
+  };
 }
 
 // ---------------------------------------------------------------- API helpers
@@ -448,6 +625,8 @@ function apiClient(name: string, id: string, operations: readonly Operation[]): 
  */
 interface ColumnOptions {
   readonly image?: boolean;
+  /** Smallest width of a dynamic column, so a wide list scrolls instead of squeezing it. */
+  readonly minWidth?: number;
   readonly computed?: boolean;
   readonly align?: 'start' | 'center' | 'end';
 }
@@ -496,7 +675,7 @@ function grid(
           header: headerText,
           fieldPath: '/' + field,
           ...(width === undefined
-            ? { widthMode: 'dynamic', minWidth: 90 }
+            ? { widthMode: 'dynamic', minWidth: extra?.minWidth ?? 90 }
             : { widthMode: 'fixed', width, minWidth: Math.min(width, 90) }),
           ...(extra?.image === true ? { cellKind: 'image' as const } : {}),
           ...(extra?.computed === true ? { sortable: false, searchable: false } : {}),
@@ -1033,6 +1212,251 @@ function loginStyles(): readonly ComponentStyleModel[] {
   ];
 }
 
+// ---------------------------------------------------------------- SIGAT frame (legacy look)
+
+/**
+ * Styles of the signed-in SIGAT frame and painel: the Bootstrap 4 dark navbar and footer,
+ * `btn-sm` buttons in the Bootstrap colours, the nav tabs and the DataTables list. Like
+ * the Login page, they use fixed light colours, as SIGAT does.
+ */
+const SIGAT_STYLE = {
+  pagina: 'sigat2-pagina',
+  barra: 'sigat2-barra',
+  conteudo: 'sigat2-conteudo',
+  marca: 'sigat2-marca',
+  busca: 'sigat2-busca',
+  botaoBusca: 'sigat2-botao-busca',
+  textoClaro: 'sigat2-texto-claro',
+  textoClaroForte: 'sigat2-texto-claro-forte',
+  seloBloqueados: 'sigat2-selo-bloqueados',
+  botaoPrimario: 'sigat2-botao-primario',
+  botaoSecundario: 'sigat2-botao-secundario',
+  botaoSecundarioIcone: 'sigat2-botao-secundario-icone',
+  botaoPerigo: 'sigat2-botao-perigo',
+  botaoInfo: 'sigat2-botao-info',
+  botaoSucesso: 'sigat2-botao-sucesso',
+  rodape: 'sigat2-rodape',
+  selo: 'sigat2-selo',
+  abas: 'sigat2-abas',
+  quadro: 'sigat2-quadro',
+  lista: 'sigat2-lista',
+} as const;
+
+const DARK = '#343a40';
+
+/** Bootstrap 4 `.btn-sm` in one colour; `cor` is [background, hover, active, text]. */
+function bootstrapButton(
+  id: string,
+  name: string,
+  [fundo, hover, ativo, texto]: readonly [string, string, string, string],
+  extra: ComponentStyleProperties = {},
+): ComponentStyleModel {
+  return loginStyle(id, name, 'WebButton', {
+    base: {
+      ...SYSTEM_FONT,
+      backgroundColor: fundo,
+      borderWidth: px(1),
+      borderStyle: 'solid',
+      borderColor: fundo,
+      borderRadius: px(3),
+      textColor: texto,
+      fontSize: px(14),
+      fontWeight: 'normal',
+      lineHeight: px(21),
+      paddingTop: px(4),
+      paddingBottom: px(4),
+      paddingLeft: px(8),
+      paddingRight: px(8),
+      gap: px(5),
+      justifyContent: 'center',
+      textAlign: 'center',
+      whiteSpace: 'nowrap',
+      buttonContentMode: 'text-icon',
+      buttonIconPosition: 'left',
+      buttonIconSize: px(14),
+      buttonIconColor: texto,
+      boxShadow: 'none',
+      cursor: 'pointer',
+      transitionProperty: 'colors',
+      transitionDuration: 150,
+      transitionTimingFunction: 'easeOut',
+      ...extra,
+    },
+    hover: { backgroundColor: hover, borderColor: hover },
+    focus: { ringWidth: px(3), ringColor: '#80bdff', ringOffsetWidth: px(0) },
+    active: { backgroundColor: ativo, borderColor: ativo },
+    disabled: { opacity: 65, cursor: 'not-allowed' },
+  });
+}
+
+function sigatStyles(): readonly ComponentStyleModel[] {
+  const textoBarra = (id: string, name: string, extra: ComponentStyleProperties) =>
+    loginStyle(id, name, 'WebLabel', {
+      base: { ...SYSTEM_FONT, textColor: '#f8f9fa', fontSize: px(16), lineHeight: px(24), ...extra },
+    });
+  return [
+    loginStyle(SIGAT_STYLE.pagina, 'SIGAT Pagina', 'WebPage', {
+      base: { ...SYSTEM_FONT, backgroundColor: '#ffffff', textColor: TEXT },
+    }),
+    loginStyle(SIGAT_STYLE.barra, 'SIGAT Barra escura', 'WebGroup', {
+      base: { ...SYSTEM_FONT, backgroundColor: DARK, textColor: '#f8f9fa' },
+    }),
+    loginStyle(SIGAT_STYLE.conteudo, 'SIGAT Conteudo', 'WebGroup', {
+      base: { ...SYSTEM_FONT, backgroundColor: '#ffffff', textColor: TEXT, overflow: 'auto' },
+    }),
+    textoBarra(SIGAT_STYLE.marca, 'SIGAT Marca', {
+      textColor: '#ffffff',
+      fontSize: px(28),
+      fontWeight: 'medium',
+      lineHeight: px(34),
+    }),
+    textoBarra(SIGAT_STYLE.textoClaro, 'SIGAT Texto claro', {}),
+    textoBarra(SIGAT_STYLE.textoClaroForte, 'SIGAT Texto claro forte', { fontWeight: 'bold' }),
+    loginStyle(SIGAT_STYLE.busca, 'SIGAT Busca rapida', 'WebEdit', {
+      base: {
+        ...SYSTEM_FONT,
+        backgroundColor: '#ffffff',
+        textColor: '#495057',
+        fontSize: px(16),
+        borderWidth: px(1),
+        borderStyle: 'solid',
+        borderColor: '#ced4da',
+        borderRadius: px(4),
+        paddingLeft: px(12),
+        paddingRight: px(12),
+        boxShadow: 'none',
+      },
+      focus: {
+        borderColor: '#80bdff',
+        ringWidth: px(3),
+        ringColor: '#bfdeff',
+        ringOffsetWidth: px(0),
+      },
+    }),
+    bootstrapButton(
+      SIGAT_STYLE.botaoBusca,
+      'SIGAT Botao busca',
+      ['#007bff', '#0069d9', '#0062cc', '#ffffff'],
+      { buttonContentMode: 'icon', buttonIconSize: px(16), borderRadius: px(4) },
+    ),
+    bootstrapButton(
+      SIGAT_STYLE.seloBloqueados,
+      'SIGAT Selo bloqueados',
+      ['#ffc107', '#e0a800', '#d39e00', TEXT],
+      {
+        buttonIconPosition: 'right',
+        fontSize: px(12),
+        fontWeight: 'bold',
+        lineHeight: px(16),
+        paddingLeft: px(5),
+        paddingRight: px(5),
+        gap: px(3),
+        buttonIconSize: px(13),
+        borderRadius: px(4),
+      },
+    ),
+    bootstrapButton(SIGAT_STYLE.botaoPrimario, 'SIGAT Botao primario', [
+      '#007bff',
+      '#0069d9',
+      '#0062cc',
+      '#ffffff',
+    ]),
+    bootstrapButton(SIGAT_STYLE.botaoSecundario, 'SIGAT Botao secundario', [
+      '#6c757d',
+      '#5a6268',
+      '#545b62',
+      '#ffffff',
+    ]),
+    bootstrapButton(
+      SIGAT_STYLE.botaoSecundarioIcone,
+      'SIGAT Botao secundario so icone',
+      ['#6c757d', '#5a6268', '#545b62', '#ffffff'],
+      { buttonContentMode: 'icon' },
+    ),
+    bootstrapButton(SIGAT_STYLE.botaoPerigo, 'SIGAT Botao perigo', [
+      '#dc3545',
+      '#c82333',
+      '#bd2130',
+      '#ffffff',
+    ]),
+    bootstrapButton(SIGAT_STYLE.botaoInfo, 'SIGAT Botao info', [
+      '#17a2b8',
+      '#138496',
+      '#117a8b',
+      '#ffffff',
+    ]),
+    bootstrapButton(SIGAT_STYLE.botaoSucesso, 'SIGAT Botao sucesso', [
+      '#28a745',
+      '#218838',
+      '#1e7e34',
+      '#ffffff',
+    ]),
+    textoBarra(SIGAT_STYLE.rodape, 'SIGAT Rodape', { fontSize: px(13), lineHeight: px(20) }),
+    loginStyle(SIGAT_STYLE.selo, 'SIGAT Selo', 'WebLabel', {
+      base: {
+        ...SYSTEM_FONT,
+        backgroundColor: '#dc3545',
+        textColor: '#ffffff',
+        fontSize: px(10),
+        fontWeight: 'bold',
+        lineHeight: px(12),
+        paddingLeft: px(4),
+        paddingRight: px(4),
+        borderRadius: px(4),
+        justifyContent: 'center',
+      },
+    }),
+    loginStyle(SIGAT_STYLE.abas, 'SIGAT Abas', 'WebTabs', {
+      // The tab buttons stretch to the full strip height, one pixel over its bottom border;
+      // hidden overflow keeps that pixel from adding a scrollbar to the three tabs.
+      base: {
+        ...SYSTEM_FONT,
+        textColor: '#007bff',
+        fontSize: px(16),
+        borderColor: '#dee2e6',
+        overflow: 'hidden',
+      },
+    }),
+    loginStyle(SIGAT_STYLE.quadro, 'SIGAT Quadro', 'WebPanel', {
+      base: {
+        ...SYSTEM_FONT,
+        backgroundColor: '#ffffff',
+        textColor: TEXT,
+        borderWidth: px(0),
+        borderStyle: 'none',
+        boxShadow: 'none',
+        paddingTop: px(0),
+        paddingRight: px(0),
+        paddingBottom: px(0),
+        paddingLeft: px(0),
+      },
+    }),
+    loginStyle(SIGAT_STYLE.lista, 'SIGAT Lista', 'WebDataGrid', {
+      base: {
+        ...SYSTEM_FONT,
+        backgroundColor: '#ffffff',
+        textColor: TEXT,
+        fontSize: px(13),
+        borderWidth: px(0),
+        borderStyle: 'none',
+        borderRadius: px(0),
+        boxShadow: 'none',
+        dataGridHeaderBackgroundColor: '#ffffff',
+        dataGridHeaderTextColor: TEXT,
+        dataGridHeaderFontWeight: 'bold',
+        dataGridHeaderBorderColor: '#111111',
+        dataGridHeaderBorderWidth: px(2),
+        dataGridHeaderBorderStyle: 'solid',
+        dataGridHorizontalLineVisibility: 'show',
+        dataGridHorizontalLineColor: '#dddddd',
+        dataGridHorizontalLineWidth: px(1),
+        dataGridHorizontalLineStyle: 'solid',
+        dataGridVerticalLineVisibility: 'hide',
+      },
+    }),
+  ];
+}
+
 function loginPage(): PageSpec {
   const id = defaultIdFactory();
   const campo = (name: string, placeholder: string, props: Record<string, unknown> = {}): Node => ({
@@ -1101,6 +1525,9 @@ function loginPage(): PageSpec {
   };
 }
 
+/** Slots for the painel queue buttons; page code fills them from `filas`. */
+const PAINEL_FILAS = 12;
+
 function painelPage(): PageSpec {
   const id = defaultIdFactory();
   const filas = op('Filas', 'filas', F.filas);
@@ -1108,6 +1535,42 @@ function painelPage(): PageSpec {
   const indicadores = op('Indicadores', 'painel-indicadores', F.indicadores, ['fila']);
   const encerrados = op('Encerrados', 'painel-encerrados', F.encerrados, ['q']);
   const triagem = op('Triagem', 'triagem', F.triagem, ['q'], 'otobo');
+  const quadro = (name: string, children: readonly Node[]): Node => ({
+    ...panel(name, children),
+    styleId: SIGAT_STYLE.quadro,
+    item: { width: 'stretch', height: 'stretch', minWidth: 0, minHeight: 0, grow: 1, shrink: true },
+    container: { paddingTop: 0, paddingRight: 0, paddingBottom: 0, paddingLeft: 0, gap: 8 },
+  });
+  const lista = (node: Node): Node => {
+    const config = (node.props as { dataGridConfig: Record<string, unknown> }).dataGridConfig;
+    return {
+      ...node,
+      styleId: SIGAT_STYLE.lista,
+      item: { height: 'stretch', minHeight: 320, shrink: true },
+      props: {
+        dataGridConfig: {
+          ...config,
+          pageSize: 200,
+          pageSizeOptions: [15, 25, 50, 100, 200],
+          stickyHeader: true,
+          rowHeightMode: 'fixed',
+          fixedRowHeight: 36,
+          cellPaddingVertical: 8,
+          searchPlaceholder: 'Busca:',
+        },
+      },
+    };
+  };
+  const filaButton = (index: number): Node => ({
+    ...sigatButton(
+      'BTNFila' + String(index),
+      'Fila ' + String(index),
+      'FiltrarFila',
+      'list',
+      SIGAT_STYLE.botaoPrimario,
+    ),
+    props: { caption: 'Fila ' + String(index), icon: 'list', visible: false },
+  });
   return {
     name: 'index',
     caption: 'Painel',
@@ -1115,77 +1578,100 @@ function painelPage(): PageSpec {
     events: { OnShow: 'Mostrar', OnHide: 'Ocultar' },
     header: true,
     children: [
-      tabs('Abas', ['Chamados', 'Triagem', 'Arquivo'], ['PNLChamados', 'PNLTriagem', 'PNLArquivo']),
-      panel('PNLChamados', [
-        row('Filtros', [
-          {
-            type: 'WebComboBox',
-            name: 'CBFila',
-            width: 260,
-            height: 40,
-            props: { items: ['Todas as filas'], values: ['0'], value: '0' },
-            events: { OnChange: 'MudarFila' },
-            item: { width: 'fixed' },
-          },
-          button('BTNAtualizar', 'Atualizar', 'Atualizar', 'refresh'),
-          { ...label('LBLResumo', '', 28), width: 320, item: { width: 'fixed', grow: 1 } },
-        ]),
-        html('HTMLIndicadores', 76, 'Indicadores da fila'),
-        grid(
-          'GRDChamados',
-          id,
-          painel,
-          [
-            ['#', 'id_chamado', 64],
-            ['Status', 'sinal_status', 72, { image: true, computed: true, align: 'center' }],
-            ['Situação', 'situacao', 200, { computed: true }],
-            ['Solicitante', 'nome_solicitante_chamado'],
-            ['Alertas', 'sinal_alertas', 96, { image: true, computed: true, align: 'center' }],
-            ['Solicitação', 'resumo_chamado'],
-            ['Local', 'nome_local'],
-            ['Fila', 'sinal_fila', 160, { image: true, computed: true, align: 'center' }],
-            ['Região', 'regiao_local', 90],
-            ['Abertura', 'data_chamado_fmt', 145],
-            ['Última interação', 'espera_fmt', 130, { computed: true }],
-            ['Responsável', 'nome_responsavel', 130],
-          ],
-          { server: true, height: 620, onCell: 'AbrirChamadoDaGrade' },
-        ),
-        html('HTMLLegenda', 112, 'Legenda dos ícones do painel'),
-      ]),
       {
-        ...panel('PNLTriagem', [
-          label('LBLTriagem', 'Tickets novos do OTOBO nas filas Suporte, Redes e Telefonia.'),
-          grid(
-            'GRDTriagem',
-            id,
-            triagem,
-            [
-              ['Ticket', 'ticket', 200],
-              ['Abertura', 'create_time_fmt', 150],
-              ['Assunto', 'title'],
-              ['Solicitante', 'a_from'],
-            ],
-            { height: 560, onCell: 'AbrirTriagem', empty: 'Nenhum ticket aguardando triagem' },
+        ...tabs('Abas', ['Triagem', 'Chamados', 'Arquivo'], ['PNLTriagem', 'PNLChamados', 'PNLArquivo']),
+        styleId: SIGAT_STYLE.abas,
+        height: 48,
+        props: {
+          tabs: ['Triagem', 'Chamados', 'Arquivo'],
+          panels: ['PNLTriagem', 'PNLChamados', 'PNLArquivo'],
+          selectedIndex: 1,
+        },
+        item: { shrink: false },
+      },
+      {
+        ...quadro('PNLTriagem', [
+          lista(
+            grid(
+              'GRDTriagem',
+              id,
+              triagem,
+              [
+                ['Ticket', 'ticket', 200],
+                ['Data de abertura', 'create_time_fmt', 150],
+                ['Assunto', 'title'],
+                ['Solicitante', 'a_from'],
+              ],
+              { onCell: 'AbrirTriagem', empty: 'Sem resultados.' },
+            ),
           ),
         ]),
         props: { allowedRoles: ['triagem'] },
       },
-      panel('PNLArquivo', [
-        grid(
-          'GRDEncerrados',
-          id,
-          encerrados,
-          [
-            ['#', 'id_chamado', 80],
-            ['Ticket', 'ticket_chamado', 170],
-            ['Solicitante', 'nome_solicitante_chamado'],
-            ['Local', 'nome_local'],
-            ['Fila', 'nome_fila', 140],
-            ['Encerramento', 'data_encerramento_fmt', 150],
-            ['Finalizado por', 'nome_usuario', 170],
+      quadro('PNLChamados', [
+        {
+          type: 'WebGroup',
+          name: 'Filas',
+          item: { height: 'fit-content', shrink: false },
+          container: { mode: 'row', gap: 4, wrap: true, alignItems: 'center' },
+          children: [
+            ...Array.from({ length: PAINEL_FILAS }, (_, index) => filaButton(index + 1)),
+            {
+              ...sigatButton('BTNEntrega', 'Entrega', 'FiltrarFila', 'truck', SIGAT_STYLE.botaoSucesso),
+              props: { caption: 'Entrega', icon: 'truck', visible: false },
+            },
+            sigatButton('BTNTodos', 'Todos', 'FiltrarFila', 'search', SIGAT_STYLE.botaoInfo),
+            sigatButton('BTNImprimir', 'Imprimir', 'Imprimir', 'printer', SIGAT_STYLE.botaoSecundario),
+            {
+              ...sigatButton(
+                'BTNLimpar',
+                'Limpar filtros do painel',
+                'LimparPainel',
+                'rotate-ccw',
+                SIGAT_STYLE.botaoSecundarioIcone,
+              ),
+              width: 36,
+              item: { width: 'fixed', grow: 0, shrink: false },
+            },
           ],
-          { server: true, height: 560, onCell: 'AbrirEncerrado' },
+        },
+        lista(
+          grid(
+            'GRDChamados',
+            id,
+            painel,
+            [
+              ['#', 'id_chamado', 72],
+              ['Status', 'sinal_status', 64, { image: true, computed: true, align: 'center' }],
+              ['Solicitante', 'nome_solicitante_chamado', undefined, { minWidth: 280 }],
+              ['Solicitação', 'resumo_chamado', 300],
+              ['Local', 'nome_local', undefined, { minWidth: 400 }],
+              ['Região', 'regiao_local', 100],
+              ['Data', 'data_chamado_fmt', 140],
+              ['Última interação', 'espera_fmt', 130, { computed: true }],
+              ['Responsável', 'nome_responsavel', 170],
+            ],
+            { server: true, onCell: 'AbrirChamadoDaGrade', empty: 'Sem chamados :)' },
+          ),
+        ),
+      ]),
+      quadro('PNLArquivo', [
+        lista(
+          grid(
+            'GRDEncerrados',
+            id,
+            encerrados,
+            [
+              ['#', 'id_chamado', 80],
+              ['Ticket', 'ticket_chamado', 170],
+              ['Solicitante', 'nome_solicitante_chamado'],
+              ['Local', 'nome_local'],
+              ['Fila', 'nome_fila', 140],
+              ['Encerramento', 'data_encerramento_fmt', 150],
+              ['Finalizado por', 'nome_usuario', 170],
+            ],
+            { server: true, onCell: 'AbrirEncerrado', empty: 'Sem resultados.' },
+          ),
         ),
       ]),
       apiClient('Api', id, [filas, painel, indicadores, encerrados, triagem]),
@@ -1992,6 +2478,8 @@ export function buildSigat2Project(): {
   const index = base.pages.find((page) => page.id === base.entryPage);
   const notFound = base.pages.find((page) => page.name === '404');
   if (!index || !notFound) throw new Error('The mandatory index and 404 pages are missing.');
+  const styles = [...base.styles, ...loginStyles(), ...sigatStyles()];
+  const version = base.settings.nativeApplication.version;
   const specs = [
     painelPage(),
     loginPage(),
@@ -2009,8 +2497,9 @@ export function buildSigat2Project(): {
   const pages = specs.map((spec) =>
     compose(
       spec.name === 'index' ? index : createPage(spec.name, { width: 1280, height: 1200 }),
-      base.styles,
+      styles,
       spec,
+      version,
     ),
   );
   const project = parseProject({
@@ -2028,7 +2517,7 @@ export function buildSigat2Project(): {
         storageKey: 'sigat2',
       },
     },
-    styles: [...base.styles, ...loginStyles()],
+    styles,
     sourceFiles: [
       ...(base.sourceFiles ?? []),
       { id: defaultIdFactory(), kind: 'unit', name: 'Sigat2' },
@@ -2042,7 +2531,7 @@ export function buildSigat2Project(): {
         base64: Buffer.from(SIGAT_LOGO_SVG, 'utf8').toString('base64'),
       },
     ],
-    pages: [...pages, compose(notFound, base.styles, naoEncontradaPage())],
+    pages: [...pages, compose(notFound, styles, naoEncontradaPage(), version)],
   });
   return { project, userSources: SIGAT2_SOURCES };
 }

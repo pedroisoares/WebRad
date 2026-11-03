@@ -12,77 +12,77 @@
       "codeFile": "pages/index.ts"
     },
     {
-      "id": "d95b0182-309e-48a5-9be3-b2122c0041af",
+      "id": "eafe94b6-a178-4ae5-ad22-2853174d291d",
       "name": "Login",
       "pageFile": "pages/Login.wrpage",
       "generatedFile": "pages/Login.generated.ts",
       "codeFile": "pages/Login.ts"
     },
     {
-      "id": "d9263d69-8b47-4f48-b9d1-15772d47e3ec",
+      "id": "24edcff0-0b05-48a1-a4e5-88cb45087e85",
       "name": "Chamado",
       "pageFile": "pages/Chamado.wrpage",
       "generatedFile": "pages/Chamado.generated.ts",
       "codeFile": "pages/Chamado.ts"
     },
     {
-      "id": "bf06cd57-857f-4b1c-8c54-9635577d1e53",
+      "id": "010cd95f-eb39-4ef2-8eef-7e40ab224504",
       "name": "Triagem",
       "pageFile": "pages/Triagem.wrpage",
       "generatedFile": "pages/Triagem.generated.ts",
       "codeFile": "pages/Triagem.ts"
     },
     {
-      "id": "a983ad9d-fd71-48d7-9b30-553c8d01b886",
+      "id": "f0ca895d-c5a0-4261-ab52-e6797ee52e77",
       "name": "Equipamento",
       "pageFile": "pages/Equipamento.wrpage",
       "generatedFile": "pages/Equipamento.generated.ts",
       "codeFile": "pages/Equipamento.ts"
     },
     {
-      "id": "0e57197e-d263-4aef-8ee2-a8706564051a",
+      "id": "23621527-be15-448d-81d7-5a9bdbc1ffec",
       "name": "Busca",
       "pageFile": "pages/Busca.wrpage",
       "generatedFile": "pages/Busca.generated.ts",
       "codeFile": "pages/Busca.ts"
     },
     {
-      "id": "2be566bb-ba0a-4d77-91bf-fb5283b986e6",
+      "id": "a5332c54-e36d-4d9f-a1d7-32cb24d86a89",
       "name": "Inserviveis",
       "pageFile": "pages/Inserviveis.wrpage",
       "generatedFile": "pages/Inserviveis.generated.ts",
       "codeFile": "pages/Inserviveis.ts"
     },
     {
-      "id": "11189fb8-05a2-4a80-8ac8-5b8f398f9e5e",
+      "id": "db863eb8-c72c-45e5-ad42-53bd9547384e",
       "name": "Remessa",
       "pageFile": "pages/Remessa.wrpage",
       "generatedFile": "pages/Remessa.generated.ts",
       "codeFile": "pages/Remessa.ts"
     },
     {
-      "id": "b0771027-5c8d-4b8a-94a4-cc263f7a87f2",
+      "id": "641f8601-df3a-4833-a999-f6d461925f4e",
       "name": "Admin",
       "pageFile": "pages/Admin.wrpage",
       "generatedFile": "pages/Admin.generated.ts",
       "codeFile": "pages/Admin.ts"
     },
     {
-      "id": "f9289c15-cd8c-48e2-9e16-b59552a99227",
+      "id": "1f54b7fd-7616-47cd-9168-988c8d2fcaf2",
       "name": "Usuario",
       "pageFile": "pages/Usuario.wrpage",
       "generatedFile": "pages/Usuario.generated.ts",
       "codeFile": "pages/Usuario.ts"
     },
     {
-      "id": "bf4a05d8-6f52-4b10-a389-85d843f5b341",
+      "id": "4930786a-78b9-452c-8840-f4de048b7c0a",
       "name": "Local",
       "pageFile": "pages/Local.wrpage",
       "generatedFile": "pages/Local.generated.ts",
       "codeFile": "pages/Local.ts"
     },
     {
-      "id": "aa1c05b4-f35a-4698-a12f-ff60a02c1b03",
+      "id": "2a931bd9-efc2-426b-8d2b-34c9a6fd6990",
       "name": "Negado",
       "pageFile": "pages/Negado.wrpage",
       "generatedFile": "pages/Negado.generated.ts",
@@ -1164,6 +1164,1055 @@
         "active": {},
         "disabled": {}
       }
+    },
+    {
+      "id": "sigat2-pagina",
+      "name": "SIGAT Pagina",
+      "componentType": "WebPage",
+      "states": {
+        "base": {
+          "backgroundColor": "#ffffff",
+          "fontFamily": "ide",
+          "textColor": "#212529"
+        },
+        "hover": {},
+        "focus": {},
+        "active": {},
+        "disabled": {}
+      }
+    },
+    {
+      "id": "sigat2-barra",
+      "name": "SIGAT Barra escura",
+      "componentType": "WebGroup",
+      "states": {
+        "base": {
+          "backgroundColor": "#343a40",
+          "fontFamily": "ide",
+          "textColor": "#f8f9fa"
+        },
+        "hover": {},
+        "focus": {},
+        "active": {},
+        "disabled": {}
+      }
+    },
+    {
+      "id": "sigat2-conteudo",
+      "name": "SIGAT Conteudo",
+      "componentType": "WebGroup",
+      "states": {
+        "base": {
+          "backgroundColor": "#ffffff",
+          "fontFamily": "ide",
+          "overflow": "auto",
+          "textColor": "#212529"
+        },
+        "hover": {},
+        "focus": {},
+        "active": {},
+        "disabled": {}
+      }
+    },
+    {
+      "id": "sigat2-marca",
+      "name": "SIGAT Marca",
+      "componentType": "WebLabel",
+      "states": {
+        "base": {
+          "fontFamily": "ide",
+          "fontSize": {
+            "value": 28,
+            "unit": "px"
+          },
+          "fontWeight": "medium",
+          "lineHeight": {
+            "value": 34,
+            "unit": "px"
+          },
+          "textColor": "#ffffff"
+        },
+        "hover": {},
+        "focus": {},
+        "active": {},
+        "disabled": {}
+      }
+    },
+    {
+      "id": "sigat2-texto-claro",
+      "name": "SIGAT Texto claro",
+      "componentType": "WebLabel",
+      "states": {
+        "base": {
+          "fontFamily": "ide",
+          "fontSize": {
+            "value": 16,
+            "unit": "px"
+          },
+          "lineHeight": {
+            "value": 24,
+            "unit": "px"
+          },
+          "textColor": "#f8f9fa"
+        },
+        "hover": {},
+        "focus": {},
+        "active": {},
+        "disabled": {}
+      }
+    },
+    {
+      "id": "sigat2-texto-claro-forte",
+      "name": "SIGAT Texto claro forte",
+      "componentType": "WebLabel",
+      "states": {
+        "base": {
+          "fontFamily": "ide",
+          "fontSize": {
+            "value": 16,
+            "unit": "px"
+          },
+          "fontWeight": "bold",
+          "lineHeight": {
+            "value": 24,
+            "unit": "px"
+          },
+          "textColor": "#f8f9fa"
+        },
+        "hover": {},
+        "focus": {},
+        "active": {},
+        "disabled": {}
+      }
+    },
+    {
+      "id": "sigat2-busca",
+      "name": "SIGAT Busca rapida",
+      "componentType": "WebEdit",
+      "states": {
+        "base": {
+          "paddingRight": {
+            "value": 12,
+            "unit": "px"
+          },
+          "paddingLeft": {
+            "value": 12,
+            "unit": "px"
+          },
+          "backgroundColor": "#ffffff",
+          "borderColor": "#ced4da",
+          "borderRadius": {
+            "value": 4,
+            "unit": "px"
+          },
+          "borderStyle": "solid",
+          "borderWidth": {
+            "value": 1,
+            "unit": "px"
+          },
+          "boxShadow": "none",
+          "fontFamily": "ide",
+          "fontSize": {
+            "value": 16,
+            "unit": "px"
+          },
+          "textColor": "#495057"
+        },
+        "hover": {},
+        "focus": {
+          "borderColor": "#80bdff",
+          "ringColor": "#bfdeff",
+          "ringOffsetWidth": {
+            "value": 0,
+            "unit": "px"
+          },
+          "ringWidth": {
+            "value": 3,
+            "unit": "px"
+          }
+        },
+        "active": {},
+        "disabled": {}
+      }
+    },
+    {
+      "id": "sigat2-botao-busca",
+      "name": "SIGAT Botao busca",
+      "componentType": "WebButton",
+      "states": {
+        "base": {
+          "paddingTop": {
+            "value": 4,
+            "unit": "px"
+          },
+          "paddingRight": {
+            "value": 8,
+            "unit": "px"
+          },
+          "paddingBottom": {
+            "value": 4,
+            "unit": "px"
+          },
+          "paddingLeft": {
+            "value": 8,
+            "unit": "px"
+          },
+          "gap": {
+            "value": 5,
+            "unit": "px"
+          },
+          "justifyContent": "center",
+          "backgroundColor": "#007bff",
+          "borderColor": "#007bff",
+          "borderRadius": {
+            "value": 4,
+            "unit": "px"
+          },
+          "borderStyle": "solid",
+          "borderWidth": {
+            "value": 1,
+            "unit": "px"
+          },
+          "boxShadow": "none",
+          "buttonContentMode": "icon",
+          "buttonIconColor": "#ffffff",
+          "buttonIconPosition": "left",
+          "buttonIconSize": {
+            "value": 16,
+            "unit": "px"
+          },
+          "cursor": "pointer",
+          "fontFamily": "ide",
+          "fontSize": {
+            "value": 14,
+            "unit": "px"
+          },
+          "fontWeight": "normal",
+          "lineHeight": {
+            "value": 21,
+            "unit": "px"
+          },
+          "textAlign": "center",
+          "textColor": "#ffffff",
+          "transitionDuration": 150,
+          "transitionProperty": "colors",
+          "transitionTimingFunction": "easeOut",
+          "whiteSpace": "nowrap"
+        },
+        "hover": {
+          "backgroundColor": "#0069d9",
+          "borderColor": "#0069d9"
+        },
+        "focus": {
+          "ringColor": "#80bdff",
+          "ringOffsetWidth": {
+            "value": 0,
+            "unit": "px"
+          },
+          "ringWidth": {
+            "value": 3,
+            "unit": "px"
+          }
+        },
+        "active": {
+          "backgroundColor": "#0062cc",
+          "borderColor": "#0062cc"
+        },
+        "disabled": {
+          "cursor": "not-allowed",
+          "opacity": 65
+        }
+      }
+    },
+    {
+      "id": "sigat2-selo-bloqueados",
+      "name": "SIGAT Selo bloqueados",
+      "componentType": "WebButton",
+      "states": {
+        "base": {
+          "paddingTop": {
+            "value": 4,
+            "unit": "px"
+          },
+          "paddingRight": {
+            "value": 5,
+            "unit": "px"
+          },
+          "paddingBottom": {
+            "value": 4,
+            "unit": "px"
+          },
+          "paddingLeft": {
+            "value": 5,
+            "unit": "px"
+          },
+          "gap": {
+            "value": 3,
+            "unit": "px"
+          },
+          "justifyContent": "center",
+          "backgroundColor": "#ffc107",
+          "borderColor": "#ffc107",
+          "borderRadius": {
+            "value": 4,
+            "unit": "px"
+          },
+          "borderStyle": "solid",
+          "borderWidth": {
+            "value": 1,
+            "unit": "px"
+          },
+          "boxShadow": "none",
+          "buttonContentMode": "text-icon",
+          "buttonIconColor": "#212529",
+          "buttonIconPosition": "right",
+          "buttonIconSize": {
+            "value": 13,
+            "unit": "px"
+          },
+          "cursor": "pointer",
+          "fontFamily": "ide",
+          "fontSize": {
+            "value": 12,
+            "unit": "px"
+          },
+          "fontWeight": "bold",
+          "lineHeight": {
+            "value": 16,
+            "unit": "px"
+          },
+          "textAlign": "center",
+          "textColor": "#212529",
+          "transitionDuration": 150,
+          "transitionProperty": "colors",
+          "transitionTimingFunction": "easeOut",
+          "whiteSpace": "nowrap"
+        },
+        "hover": {
+          "backgroundColor": "#e0a800",
+          "borderColor": "#e0a800"
+        },
+        "focus": {
+          "ringColor": "#80bdff",
+          "ringOffsetWidth": {
+            "value": 0,
+            "unit": "px"
+          },
+          "ringWidth": {
+            "value": 3,
+            "unit": "px"
+          }
+        },
+        "active": {
+          "backgroundColor": "#d39e00",
+          "borderColor": "#d39e00"
+        },
+        "disabled": {
+          "cursor": "not-allowed",
+          "opacity": 65
+        }
+      }
+    },
+    {
+      "id": "sigat2-botao-primario",
+      "name": "SIGAT Botao primario",
+      "componentType": "WebButton",
+      "states": {
+        "base": {
+          "paddingTop": {
+            "value": 4,
+            "unit": "px"
+          },
+          "paddingRight": {
+            "value": 8,
+            "unit": "px"
+          },
+          "paddingBottom": {
+            "value": 4,
+            "unit": "px"
+          },
+          "paddingLeft": {
+            "value": 8,
+            "unit": "px"
+          },
+          "gap": {
+            "value": 5,
+            "unit": "px"
+          },
+          "justifyContent": "center",
+          "backgroundColor": "#007bff",
+          "borderColor": "#007bff",
+          "borderRadius": {
+            "value": 3,
+            "unit": "px"
+          },
+          "borderStyle": "solid",
+          "borderWidth": {
+            "value": 1,
+            "unit": "px"
+          },
+          "boxShadow": "none",
+          "buttonContentMode": "text-icon",
+          "buttonIconColor": "#ffffff",
+          "buttonIconPosition": "left",
+          "buttonIconSize": {
+            "value": 14,
+            "unit": "px"
+          },
+          "cursor": "pointer",
+          "fontFamily": "ide",
+          "fontSize": {
+            "value": 14,
+            "unit": "px"
+          },
+          "fontWeight": "normal",
+          "lineHeight": {
+            "value": 21,
+            "unit": "px"
+          },
+          "textAlign": "center",
+          "textColor": "#ffffff",
+          "transitionDuration": 150,
+          "transitionProperty": "colors",
+          "transitionTimingFunction": "easeOut",
+          "whiteSpace": "nowrap"
+        },
+        "hover": {
+          "backgroundColor": "#0069d9",
+          "borderColor": "#0069d9"
+        },
+        "focus": {
+          "ringColor": "#80bdff",
+          "ringOffsetWidth": {
+            "value": 0,
+            "unit": "px"
+          },
+          "ringWidth": {
+            "value": 3,
+            "unit": "px"
+          }
+        },
+        "active": {
+          "backgroundColor": "#0062cc",
+          "borderColor": "#0062cc"
+        },
+        "disabled": {
+          "cursor": "not-allowed",
+          "opacity": 65
+        }
+      }
+    },
+    {
+      "id": "sigat2-botao-secundario",
+      "name": "SIGAT Botao secundario",
+      "componentType": "WebButton",
+      "states": {
+        "base": {
+          "paddingTop": {
+            "value": 4,
+            "unit": "px"
+          },
+          "paddingRight": {
+            "value": 8,
+            "unit": "px"
+          },
+          "paddingBottom": {
+            "value": 4,
+            "unit": "px"
+          },
+          "paddingLeft": {
+            "value": 8,
+            "unit": "px"
+          },
+          "gap": {
+            "value": 5,
+            "unit": "px"
+          },
+          "justifyContent": "center",
+          "backgroundColor": "#6c757d",
+          "borderColor": "#6c757d",
+          "borderRadius": {
+            "value": 3,
+            "unit": "px"
+          },
+          "borderStyle": "solid",
+          "borderWidth": {
+            "value": 1,
+            "unit": "px"
+          },
+          "boxShadow": "none",
+          "buttonContentMode": "text-icon",
+          "buttonIconColor": "#ffffff",
+          "buttonIconPosition": "left",
+          "buttonIconSize": {
+            "value": 14,
+            "unit": "px"
+          },
+          "cursor": "pointer",
+          "fontFamily": "ide",
+          "fontSize": {
+            "value": 14,
+            "unit": "px"
+          },
+          "fontWeight": "normal",
+          "lineHeight": {
+            "value": 21,
+            "unit": "px"
+          },
+          "textAlign": "center",
+          "textColor": "#ffffff",
+          "transitionDuration": 150,
+          "transitionProperty": "colors",
+          "transitionTimingFunction": "easeOut",
+          "whiteSpace": "nowrap"
+        },
+        "hover": {
+          "backgroundColor": "#5a6268",
+          "borderColor": "#5a6268"
+        },
+        "focus": {
+          "ringColor": "#80bdff",
+          "ringOffsetWidth": {
+            "value": 0,
+            "unit": "px"
+          },
+          "ringWidth": {
+            "value": 3,
+            "unit": "px"
+          }
+        },
+        "active": {
+          "backgroundColor": "#545b62",
+          "borderColor": "#545b62"
+        },
+        "disabled": {
+          "cursor": "not-allowed",
+          "opacity": 65
+        }
+      }
+    },
+    {
+      "id": "sigat2-botao-secundario-icone",
+      "name": "SIGAT Botao secundario so icone",
+      "componentType": "WebButton",
+      "states": {
+        "base": {
+          "paddingTop": {
+            "value": 4,
+            "unit": "px"
+          },
+          "paddingRight": {
+            "value": 8,
+            "unit": "px"
+          },
+          "paddingBottom": {
+            "value": 4,
+            "unit": "px"
+          },
+          "paddingLeft": {
+            "value": 8,
+            "unit": "px"
+          },
+          "gap": {
+            "value": 5,
+            "unit": "px"
+          },
+          "justifyContent": "center",
+          "backgroundColor": "#6c757d",
+          "borderColor": "#6c757d",
+          "borderRadius": {
+            "value": 3,
+            "unit": "px"
+          },
+          "borderStyle": "solid",
+          "borderWidth": {
+            "value": 1,
+            "unit": "px"
+          },
+          "boxShadow": "none",
+          "buttonContentMode": "icon",
+          "buttonIconColor": "#ffffff",
+          "buttonIconPosition": "left",
+          "buttonIconSize": {
+            "value": 14,
+            "unit": "px"
+          },
+          "cursor": "pointer",
+          "fontFamily": "ide",
+          "fontSize": {
+            "value": 14,
+            "unit": "px"
+          },
+          "fontWeight": "normal",
+          "lineHeight": {
+            "value": 21,
+            "unit": "px"
+          },
+          "textAlign": "center",
+          "textColor": "#ffffff",
+          "transitionDuration": 150,
+          "transitionProperty": "colors",
+          "transitionTimingFunction": "easeOut",
+          "whiteSpace": "nowrap"
+        },
+        "hover": {
+          "backgroundColor": "#5a6268",
+          "borderColor": "#5a6268"
+        },
+        "focus": {
+          "ringColor": "#80bdff",
+          "ringOffsetWidth": {
+            "value": 0,
+            "unit": "px"
+          },
+          "ringWidth": {
+            "value": 3,
+            "unit": "px"
+          }
+        },
+        "active": {
+          "backgroundColor": "#545b62",
+          "borderColor": "#545b62"
+        },
+        "disabled": {
+          "cursor": "not-allowed",
+          "opacity": 65
+        }
+      }
+    },
+    {
+      "id": "sigat2-botao-perigo",
+      "name": "SIGAT Botao perigo",
+      "componentType": "WebButton",
+      "states": {
+        "base": {
+          "paddingTop": {
+            "value": 4,
+            "unit": "px"
+          },
+          "paddingRight": {
+            "value": 8,
+            "unit": "px"
+          },
+          "paddingBottom": {
+            "value": 4,
+            "unit": "px"
+          },
+          "paddingLeft": {
+            "value": 8,
+            "unit": "px"
+          },
+          "gap": {
+            "value": 5,
+            "unit": "px"
+          },
+          "justifyContent": "center",
+          "backgroundColor": "#dc3545",
+          "borderColor": "#dc3545",
+          "borderRadius": {
+            "value": 3,
+            "unit": "px"
+          },
+          "borderStyle": "solid",
+          "borderWidth": {
+            "value": 1,
+            "unit": "px"
+          },
+          "boxShadow": "none",
+          "buttonContentMode": "text-icon",
+          "buttonIconColor": "#ffffff",
+          "buttonIconPosition": "left",
+          "buttonIconSize": {
+            "value": 14,
+            "unit": "px"
+          },
+          "cursor": "pointer",
+          "fontFamily": "ide",
+          "fontSize": {
+            "value": 14,
+            "unit": "px"
+          },
+          "fontWeight": "normal",
+          "lineHeight": {
+            "value": 21,
+            "unit": "px"
+          },
+          "textAlign": "center",
+          "textColor": "#ffffff",
+          "transitionDuration": 150,
+          "transitionProperty": "colors",
+          "transitionTimingFunction": "easeOut",
+          "whiteSpace": "nowrap"
+        },
+        "hover": {
+          "backgroundColor": "#c82333",
+          "borderColor": "#c82333"
+        },
+        "focus": {
+          "ringColor": "#80bdff",
+          "ringOffsetWidth": {
+            "value": 0,
+            "unit": "px"
+          },
+          "ringWidth": {
+            "value": 3,
+            "unit": "px"
+          }
+        },
+        "active": {
+          "backgroundColor": "#bd2130",
+          "borderColor": "#bd2130"
+        },
+        "disabled": {
+          "cursor": "not-allowed",
+          "opacity": 65
+        }
+      }
+    },
+    {
+      "id": "sigat2-botao-info",
+      "name": "SIGAT Botao info",
+      "componentType": "WebButton",
+      "states": {
+        "base": {
+          "paddingTop": {
+            "value": 4,
+            "unit": "px"
+          },
+          "paddingRight": {
+            "value": 8,
+            "unit": "px"
+          },
+          "paddingBottom": {
+            "value": 4,
+            "unit": "px"
+          },
+          "paddingLeft": {
+            "value": 8,
+            "unit": "px"
+          },
+          "gap": {
+            "value": 5,
+            "unit": "px"
+          },
+          "justifyContent": "center",
+          "backgroundColor": "#17a2b8",
+          "borderColor": "#17a2b8",
+          "borderRadius": {
+            "value": 3,
+            "unit": "px"
+          },
+          "borderStyle": "solid",
+          "borderWidth": {
+            "value": 1,
+            "unit": "px"
+          },
+          "boxShadow": "none",
+          "buttonContentMode": "text-icon",
+          "buttonIconColor": "#ffffff",
+          "buttonIconPosition": "left",
+          "buttonIconSize": {
+            "value": 14,
+            "unit": "px"
+          },
+          "cursor": "pointer",
+          "fontFamily": "ide",
+          "fontSize": {
+            "value": 14,
+            "unit": "px"
+          },
+          "fontWeight": "normal",
+          "lineHeight": {
+            "value": 21,
+            "unit": "px"
+          },
+          "textAlign": "center",
+          "textColor": "#ffffff",
+          "transitionDuration": 150,
+          "transitionProperty": "colors",
+          "transitionTimingFunction": "easeOut",
+          "whiteSpace": "nowrap"
+        },
+        "hover": {
+          "backgroundColor": "#138496",
+          "borderColor": "#138496"
+        },
+        "focus": {
+          "ringColor": "#80bdff",
+          "ringOffsetWidth": {
+            "value": 0,
+            "unit": "px"
+          },
+          "ringWidth": {
+            "value": 3,
+            "unit": "px"
+          }
+        },
+        "active": {
+          "backgroundColor": "#117a8b",
+          "borderColor": "#117a8b"
+        },
+        "disabled": {
+          "cursor": "not-allowed",
+          "opacity": 65
+        }
+      }
+    },
+    {
+      "id": "sigat2-botao-sucesso",
+      "name": "SIGAT Botao sucesso",
+      "componentType": "WebButton",
+      "states": {
+        "base": {
+          "paddingTop": {
+            "value": 4,
+            "unit": "px"
+          },
+          "paddingRight": {
+            "value": 8,
+            "unit": "px"
+          },
+          "paddingBottom": {
+            "value": 4,
+            "unit": "px"
+          },
+          "paddingLeft": {
+            "value": 8,
+            "unit": "px"
+          },
+          "gap": {
+            "value": 5,
+            "unit": "px"
+          },
+          "justifyContent": "center",
+          "backgroundColor": "#28a745",
+          "borderColor": "#28a745",
+          "borderRadius": {
+            "value": 3,
+            "unit": "px"
+          },
+          "borderStyle": "solid",
+          "borderWidth": {
+            "value": 1,
+            "unit": "px"
+          },
+          "boxShadow": "none",
+          "buttonContentMode": "text-icon",
+          "buttonIconColor": "#ffffff",
+          "buttonIconPosition": "left",
+          "buttonIconSize": {
+            "value": 14,
+            "unit": "px"
+          },
+          "cursor": "pointer",
+          "fontFamily": "ide",
+          "fontSize": {
+            "value": 14,
+            "unit": "px"
+          },
+          "fontWeight": "normal",
+          "lineHeight": {
+            "value": 21,
+            "unit": "px"
+          },
+          "textAlign": "center",
+          "textColor": "#ffffff",
+          "transitionDuration": 150,
+          "transitionProperty": "colors",
+          "transitionTimingFunction": "easeOut",
+          "whiteSpace": "nowrap"
+        },
+        "hover": {
+          "backgroundColor": "#218838",
+          "borderColor": "#218838"
+        },
+        "focus": {
+          "ringColor": "#80bdff",
+          "ringOffsetWidth": {
+            "value": 0,
+            "unit": "px"
+          },
+          "ringWidth": {
+            "value": 3,
+            "unit": "px"
+          }
+        },
+        "active": {
+          "backgroundColor": "#1e7e34",
+          "borderColor": "#1e7e34"
+        },
+        "disabled": {
+          "cursor": "not-allowed",
+          "opacity": 65
+        }
+      }
+    },
+    {
+      "id": "sigat2-rodape",
+      "name": "SIGAT Rodape",
+      "componentType": "WebLabel",
+      "states": {
+        "base": {
+          "fontFamily": "ide",
+          "fontSize": {
+            "value": 13,
+            "unit": "px"
+          },
+          "lineHeight": {
+            "value": 20,
+            "unit": "px"
+          },
+          "textColor": "#f8f9fa"
+        },
+        "hover": {},
+        "focus": {},
+        "active": {},
+        "disabled": {}
+      }
+    },
+    {
+      "id": "sigat2-selo",
+      "name": "SIGAT Selo",
+      "componentType": "WebLabel",
+      "states": {
+        "base": {
+          "paddingRight": {
+            "value": 4,
+            "unit": "px"
+          },
+          "paddingLeft": {
+            "value": 4,
+            "unit": "px"
+          },
+          "justifyContent": "center",
+          "backgroundColor": "#dc3545",
+          "borderRadius": {
+            "value": 4,
+            "unit": "px"
+          },
+          "fontFamily": "ide",
+          "fontSize": {
+            "value": 10,
+            "unit": "px"
+          },
+          "fontWeight": "bold",
+          "lineHeight": {
+            "value": 12,
+            "unit": "px"
+          },
+          "textColor": "#ffffff"
+        },
+        "hover": {},
+        "focus": {},
+        "active": {},
+        "disabled": {}
+      }
+    },
+    {
+      "id": "sigat2-abas",
+      "name": "SIGAT Abas",
+      "componentType": "WebTabs",
+      "states": {
+        "base": {
+          "borderColor": "#dee2e6",
+          "fontFamily": "ide",
+          "fontSize": {
+            "value": 16,
+            "unit": "px"
+          },
+          "overflow": "hidden",
+          "textColor": "#007bff"
+        },
+        "hover": {},
+        "focus": {},
+        "active": {},
+        "disabled": {}
+      }
+    },
+    {
+      "id": "sigat2-quadro",
+      "name": "SIGAT Quadro",
+      "componentType": "WebPanel",
+      "states": {
+        "base": {
+          "paddingTop": {
+            "value": 0,
+            "unit": "px"
+          },
+          "paddingRight": {
+            "value": 0,
+            "unit": "px"
+          },
+          "paddingBottom": {
+            "value": 0,
+            "unit": "px"
+          },
+          "paddingLeft": {
+            "value": 0,
+            "unit": "px"
+          },
+          "backgroundColor": "#ffffff",
+          "borderStyle": "none",
+          "borderWidth": {
+            "value": 0,
+            "unit": "px"
+          },
+          "boxShadow": "none",
+          "fontFamily": "ide",
+          "textColor": "#212529"
+        },
+        "hover": {},
+        "focus": {},
+        "active": {},
+        "disabled": {}
+      }
+    },
+    {
+      "id": "sigat2-lista",
+      "name": "SIGAT Lista",
+      "componentType": "WebDataGrid",
+      "states": {
+        "base": {
+          "backgroundColor": "#ffffff",
+          "borderRadius": {
+            "value": 0,
+            "unit": "px"
+          },
+          "borderStyle": "none",
+          "borderWidth": {
+            "value": 0,
+            "unit": "px"
+          },
+          "boxShadow": "none",
+          "dataGridHeaderBackgroundColor": "#ffffff",
+          "dataGridHeaderBorderColor": "#111111",
+          "dataGridHeaderBorderStyle": "solid",
+          "dataGridHeaderBorderWidth": {
+            "value": 2,
+            "unit": "px"
+          },
+          "dataGridHeaderFontWeight": "bold",
+          "dataGridHeaderTextColor": "#212529",
+          "dataGridHorizontalLineColor": "#dddddd",
+          "dataGridHorizontalLineStyle": "solid",
+          "dataGridHorizontalLineVisibility": "show",
+          "dataGridHorizontalLineWidth": {
+            "value": 1,
+            "unit": "px"
+          },
+          "dataGridVerticalLineVisibility": "hide",
+          "fontFamily": "ide",
+          "fontSize": {
+            "value": 13,
+            "unit": "px"
+          },
+          "textColor": "#212529"
+        },
+        "hover": {},
+        "focus": {},
+        "active": {},
+        "disabled": {}
+      }
     }
   ],
   "settings": {
@@ -1432,7 +2481,7 @@
   ],
   "sourceFiles": [
     {
-      "id": "31fa5f87-1ff0-44d0-a4db-c113d0ff7633",
+      "id": "c06021f1-a49a-4087-8515-1316535b2795",
       "name": "Sigat2",
       "kind": "unit"
     }

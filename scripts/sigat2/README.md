@@ -106,19 +106,45 @@ so colour is never the only cue.
 
 Where they appear:
 
-- **Painel**: Status icon, a text Situação column, an Alertas strip (clock,
-  e-mail, truck), the queue badge and the time since the last interaction, as in
-  SIGAT. The page computes these columns from each `painel-chamados` row
-  (`prepararLinhasDoPainel` in `units/Sigat2.ts`) before the grid draws it, so
-  they are not sortable on the server. Above the grid, `painel-indicadores` feeds
-  counters for the selected queue: open, priority, 24 h+ and 6 to 24 h without
-  interaction, without anyone assigned, unread e-mails, deliveries and the user's
-  locks. A legend below the grid explains each icon. The painel refreshes every
-  2 minutes while it is open.
+- **Painel**: laid out like the SIGAT painel. The Status column shows the star or
+  circle. The clock and the e-mail badge follow the requester's name, which is bold
+  when an e-mail is unread. The queue and delivery badges follow the location, as in
+  `Chamado::listar_chamados_painel`. The page computes these images from each
+  `painel-chamados` row (`prepararLinhasDoPainel` in `units/Sigat2.ts`), and
+  `sinaisNaLista` draws them after the cell text. The cells keep their text, so
+  sorting and searching on Solicitante and Local still work. Each image has a
+  tooltip and alt text with its meaning, and the status icon's tooltip gives the
+  full situation. The row under the mouse turns bisque, as in SIGAT. The painel
+  refreshes every 2 minutes while it is open.
 - **Chamado**: a strip under the title with the status, queue, who holds the
   chamado (or "Livre: bloqueie antes de atender"), the time without interaction,
   unread e-mails, delivery, equipment on hold and the SIGAT "Este local não acessa
   a infovia" warning.
+
+## Signed-in frame and Painel
+
+Every signed-in page uses the SIGAT frame (`templates/cabecalho.php` and
+`templates/rodape.php`). The dark navbar holds the star logo and "SIGAT", the
+quick search, "Olá, name!", the yellow lock badge with the user's lock count, and
+the Painel, Remessas de inservíveis, Administração and Sair buttons. The dark
+footer holds the user's group badge (`grupo.cor_grupo`), the environment and the
+project version. Only the content between the two bars scrolls, so a wide list's
+horizontal scrollbar sits above the footer, not under it as in SIGAT.
+
+The Painel has the Triagem, Chamados and Arquivo tabs, with Chamados open. Its
+queue buttons come from `filas` (up to 12), followed by Entrega (shown when
+`painel-indicadores` reports deliveries), Todos, Imprimir and the broom. The
+selected button carries the chamado count and the darker Bootstrap "active"
+colour. As SIGAT does with its `fila_painel` cookie, the painel reopens the
+queue chosen last, and otherwise the user's own queue. A few controls differ from
+SIGAT:
+
+- Imprimir prints the painel as listed. SIGAT printed the chamados ticked in a
+  checkbox column, and SIGAT2 has no endpoint for that yet.
+- The broom clears the list's search, sort and page size, as SIGAT's
+  `resetPainelChamados` does.
+- The lock badge opens the user's page for admins, and shows a count message for
+  everyone else. SIGAT opened a list of the locked chamados.
 
 SIGAT showed no clock when the wait was exactly 24 hours (it compared whole
 hours with `>= 6 && < 24` and `> 24`). SIGAT2 uses 6 h and 24 h as the
