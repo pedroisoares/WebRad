@@ -45,6 +45,35 @@ export function restGoPublicationEndpoints(
   );
 }
 
+type PublishedParameterType = NonNullable<
+  NonNullable<RestGoPublishedApi['parameters']>[number]['type']
+>;
+
+const HEXAPI_PARAMETER_TYPES: Readonly<Record<string, PublishedParameterType>> = {
+  int: 'numeric',
+  number: 'numeric',
+  bool: 'boolean',
+  date: 'data',
+  datetime: 'data',
+};
+
+/** Reads a HexAPI parameter list such as "id_chamado:int, texto:html, servicos:json?". */
+export function hexApiParameters(
+  spec: string | undefined,
+): readonly { readonly name: string; readonly type: PublishedParameterType }[] {
+  return (spec ?? '')
+    .split(',')
+    .map((part) => part.trim())
+    .filter((part) => part.length > 0)
+    .map((part) => {
+      const [rawName = '', rawType = 'string'] = part.split(':', 2);
+      const name = rawName.trim().replace(/\?$/u, '');
+      const type = rawType.trim().replace(/\?$/u, '').toLowerCase();
+      return { name, type: HEXAPI_PARAMETER_TYPES[type] ?? 'string' };
+    })
+    .filter((parameter) => parameter.name.length > 0);
+}
+
 export function restGoPublicationAuthentication(
   publication: RestGoAdminPublication,
 ): RestGoPublishedApi['authentication'] {
@@ -72,8 +101,11 @@ export function restGoCatalogToPublishedApis(
           method: endpoint.metodo,
           apiVersion: endpoint.versao,
           authentication: restGoPublicationAuthentication(publication),
-          kind: endpoint.tipo === 'operation' ? ('operation' as const) : ('sql' as const),
+          kind: endpoint.tipo === 'normal' ? ('sql' as const) : ('operation' as const),
           ...(endpoint.tipo === 'normal' ? { script: endpoint.script } : {}),
+          ...(endpoint.tipo === 'composto'
+            ? { parameters: hexApiParameters(endpoint.parametros) }
+            : {}),
           ...(operation
             ? {
                 parameters: operation.parametrosEntrada.map((parameter) => ({

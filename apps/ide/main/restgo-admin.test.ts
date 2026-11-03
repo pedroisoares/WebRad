@@ -107,6 +107,33 @@ describe('RestGo design-time administration', () => {
     ).toBe(true);
   });
 
+  it('accepts HexAPI composite operations when connecting and listing the catalog', async () => {
+    const composite = {
+      ...endpoint,
+      id: 9,
+      slug: 'interacao-observacao',
+      script: '',
+      metodo: 'POST' as const,
+      versao: 1,
+      tipo: 'composto',
+      parametros: 'id_chamado:int, texto:html',
+      passos: [{ nome: 'interacao', script: 'INSERT INTO interacao (...) VALUES (...)' }],
+    };
+    fetcher.mockResolvedValueOnce(jsonResponse({ data: [endpoint, composite], has_more: false }));
+    await service.connect(11, { baseUrl, token, remember: false });
+    fetcher.mockImplementation(async (input) =>
+      new URL(String(input)).pathname.endsWith('/endpoints')
+        ? jsonResponse({ data: [endpoint, composite], has_more: false })
+        : jsonResponse({ data: [], has_more: false }),
+    );
+    const catalog = await service.catalog(11, { baseUrl });
+    expect(catalog.endpoints[1]).toMatchObject({
+      tipo: 'composto',
+      parametros: 'id_chamado:int, texto:html',
+    });
+    expect(catalog.endpoints[0]?.parametros).toBeUndefined();
+  });
+
   it('reads persisted publication state after save because RestGo update omits ativo', async () => {
     await connect();
     const publication = {
