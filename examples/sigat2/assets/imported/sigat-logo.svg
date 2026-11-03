@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="4 6 132 128" role="img" aria-label="SIGAT">
+  <defs>
+    <linearGradient id="sigat-logo-cor" x1="0.15" y1="0.9" x2="0.95" y2="0.15">
+      <stop offset="0" stop-color="#1c1ce6"/>
+      <stop offset="0.5" stop-color="#2233ee"/>
+      <stop offset="0.72" stop-color="#2a7fd8"/>
+      <stop offset="1" stop-color="#4fe03a"/>
+    </linearGradient>
+  </defs>
+  <polygon points="121.00,70.00 98.58,86.50 95.50,114.17 70.00,103.00 44.50,114.17 41.42,86.50 19.00,70.00 41.42,53.50 44.50,25.83 70.00,37.00 95.50,25.83 98.58,53.50" fill="none" stroke="#1a1d4a" stroke-opacity="0.7" stroke-width="18" stroke-linejoin="round"/>
+  <polygon points="121.00,70.00 98.58,86.50 95.50,114.17 70.00,103.00 44.50,114.17 41.42,86.50 19.00,70.00 41.42,53.50 44.50,25.83 70.00,37.00 95.50,25.83 98.58,53.50" fill="none" stroke="url(#sigat-logo-cor)" stroke-width="15" stroke-linejoin="round"/>
+</svg>

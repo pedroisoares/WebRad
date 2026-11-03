@@ -21,6 +21,7 @@ import {
   type ApiClientFieldType,
   type ApiClientResponseSchema,
   type ComponentLayout,
+  type ComponentStyleProperties,
   type ComponentNode,
   type ComponentStyleModel,
   type DataGridColumn,
@@ -28,6 +29,7 @@ import {
   type WebRadProject,
 } from '@webrad/project-model';
 import type { WebRadIconName } from '@webrad/runtime/icons';
+import { SIGAT_LOGO_SVG } from './logo.js';
 import { SIGAT2_SOURCES } from './sources.js';
 
 // ---------------------------------------------------------------- layout helpers
@@ -42,6 +44,8 @@ interface Node {
   readonly events?: Readonly<Record<string, string>>;
   readonly container?: Partial<ComponentLayout['container']>;
   readonly item?: Partial<ComponentLayout['item']>;
+  /** A project style to use instead of the component type's default style. */
+  readonly styleId?: string;
   readonly children?: readonly Node[];
 }
 
@@ -52,6 +56,9 @@ interface PageSpec {
   readonly events: Readonly<Record<string, string>>;
   readonly header: boolean;
   readonly children: readonly Node[];
+  /** Page style and root layout overrides (the Login page uses them). */
+  readonly styleId?: string;
+  readonly container?: Partial<ComponentLayout['container']>;
 }
 
 function compose(
@@ -80,6 +87,7 @@ function compose(
     components[index] = applyDefaultComponentStyle(
       {
         ...created,
+        ...(node.styleId === undefined ? {} : { styleId: node.styleId }),
         children,
         layout: {
           container: definition.canHaveChildren
@@ -107,6 +115,7 @@ function compose(
       applyDefaultComponentStyle(
         {
           ...root,
+          ...(spec.styleId === undefined ? {} : { styleId: spec.styleId }),
           children: childIds,
           props: {
             ...root.props,
@@ -127,6 +136,7 @@ function compose(
               paddingRight: 24,
               paddingBottom: 24,
               paddingLeft: 24,
+              ...spec.container,
             },
           },
         },
@@ -868,26 +878,224 @@ const F = {
 
 // ---------------------------------------------------------------- pages
 
+// ---------------------------------------------------------------- Login (legacy SIGAT look)
+
+/**
+ * The Login page copies the legacy SIGAT sign-in screen (Bootstrap 4): a narrow
+ * white card with the star logo, the "SIGAT" title, two fields, a blue
+ * "Entrar" button and the CGTI footer. Its styles are fixed light colours, as
+ * in SIGAT, and only this page uses them.
+ */
+const LOGIN_STYLE = {
+  pagina: 'sigat2-login-pagina',
+  cartao: 'sigat2-login-cartao',
+  titulo: 'sigat2-login-titulo',
+  campo: 'sigat2-login-campo',
+  botao: 'sigat2-login-botao',
+  mensagem: 'sigat2-login-mensagem',
+  rodape: 'sigat2-login-rodape',
+  logo: 'sigat2-login-logo',
+} as const;
+
+const LOGIN_LOGO_ASSET = 'sigat-logo.svg';
+
+function px(value: number) {
+  return { value, unit: 'px' as const };
+}
+
+function loginStyle(
+  id: string,
+  name: string,
+  componentType: string,
+  states: Partial<
+    Record<'base' | 'hover' | 'focus' | 'active' | 'disabled', ComponentStyleProperties>
+  >,
+): ComponentStyleModel {
+  return {
+    id,
+    name,
+    componentType,
+    states: { base: {}, hover: {}, focus: {}, active: {}, disabled: {}, ...states },
+  };
+}
+
+const SYSTEM_FONT = { fontFamily: 'ide' } as const;
+const TEXT = '#212529';
+
+function loginStyles(): readonly ComponentStyleModel[] {
+  return [
+    loginStyle(LOGIN_STYLE.pagina, 'Login Pagina', 'WebPage', {
+      base: { ...SYSTEM_FONT, backgroundColor: '#ffffff', textColor: TEXT },
+    }),
+    loginStyle(LOGIN_STYLE.cartao, 'Login Cartao', 'WebPanel', {
+      base: {
+        ...SYSTEM_FONT,
+        backgroundColor: '#ffffff',
+        borderWidth: px(1),
+        borderStyle: 'solid',
+        borderColor: '#dfdfdf',
+        borderRadius: px(4),
+        boxShadow: 'none',
+      },
+    }),
+    loginStyle(LOGIN_STYLE.logo, 'Login Logo', 'WebImage', {
+      base: {
+        objectFit: 'contain',
+        objectPosition: 'center',
+        borderWidth: px(0),
+        borderStyle: 'none',
+      },
+    }),
+    loginStyle(LOGIN_STYLE.titulo, 'Login Titulo', 'WebLabel', {
+      base: {
+        ...SYSTEM_FONT,
+        textColor: TEXT,
+        fontSize: px(40),
+        fontWeight: 'medium',
+        lineHeight: px(48),
+        // A label is a flex box: justifyContent places the text, textAlign wraps it.
+        justifyContent: 'center',
+        textAlign: 'center',
+      },
+    }),
+    loginStyle(LOGIN_STYLE.campo, 'Login Campo', 'WebEdit', {
+      base: {
+        ...SYSTEM_FONT,
+        backgroundColor: '#ffffff',
+        textColor: '#495057',
+        fontSize: px(16),
+        borderWidth: px(1),
+        borderStyle: 'solid',
+        borderColor: '#ced4da',
+        borderRadius: px(4),
+        paddingLeft: px(12),
+        paddingRight: px(12),
+        boxShadow: 'none',
+        transitionProperty: 'all',
+        transitionDuration: 150,
+        transitionTimingFunction: 'easeOut',
+      },
+      focus: {
+        borderColor: '#80bdff',
+        ringWidth: px(3),
+        ringColor: '#bfdeff',
+        ringOffsetWidth: px(0),
+      },
+      disabled: { backgroundColor: '#e9ecef', cursor: 'not-allowed' },
+    }),
+    loginStyle(LOGIN_STYLE.botao, 'Login Botao', 'WebButton', {
+      base: {
+        ...SYSTEM_FONT,
+        backgroundColor: '#007bff',
+        borderWidth: px(1),
+        borderStyle: 'solid',
+        borderColor: '#007bff',
+        borderRadius: px(4),
+        textColor: '#ffffff',
+        fontSize: px(16),
+        fontWeight: 'normal',
+        justifyContent: 'center',
+        textAlign: 'center',
+        buttonContentMode: 'text',
+        boxShadow: 'none',
+        cursor: 'pointer',
+        transitionProperty: 'all',
+        transitionDuration: 150,
+        transitionTimingFunction: 'easeOut',
+      },
+      hover: { backgroundColor: '#0069d9', borderColor: '#0062cc' },
+      focus: { ringWidth: px(3), ringColor: '#80bdff', ringOffsetWidth: px(0) },
+      active: { backgroundColor: '#0062cc', borderColor: '#005cbf' },
+      disabled: { opacity: 65, cursor: 'not-allowed' },
+    }),
+    loginStyle(LOGIN_STYLE.mensagem, 'Login Mensagem', 'WebLabel', {
+      base: {
+        ...SYSTEM_FONT,
+        textColor: '#dc3545',
+        fontSize: px(14),
+        fontWeight: 'normal',
+        lineHeight: px(20),
+        justifyContent: 'center',
+        textAlign: 'center',
+      },
+    }),
+    loginStyle(LOGIN_STYLE.rodape, 'Login Rodape', 'WebLabel', {
+      base: {
+        ...SYSTEM_FONT,
+        textColor: TEXT,
+        fontSize: px(13),
+        fontWeight: 'normal',
+        lineHeight: px(18),
+        justifyContent: 'end',
+        textAlign: 'right',
+      },
+    }),
+  ];
+}
+
 function loginPage(): PageSpec {
   const id = defaultIdFactory();
+  const campo = (name: string, placeholder: string, props: Record<string, unknown> = {}): Node => ({
+    ...edit(name, placeholder, props),
+    height: 38,
+    styleId: LOGIN_STYLE.campo,
+  });
   return {
     name: 'Login',
     caption: 'Entrar',
     roles: [],
     events: { OnShow: 'Mostrar' },
     header: false,
+    styleId: LOGIN_STYLE.pagina,
+    container: { alignItems: 'center', paddingTop: 160, gap: 0 },
     children: [
-      panel('PNLLogin', [
-        title('LBLTitulo', 'SIGAT2'),
-        label('LBLSubtitulo', 'Entre com seu usuário de rede da Prefeitura.'),
-        edit('EDTLogin', 'Usuário (ex.: pedro.soares)'),
-        {
-          ...edit('EDTSenha', 'Senha', { inputType: 'password' }),
-          events: { OnKeyDown: 'SenhaTecla' },
-        },
-        button('BTNEntrar', 'Entrar', 'Entrar', 'login'),
-        label('LBLMensagem', '', 44),
-      ]),
+      {
+        type: 'WebPanel',
+        name: 'PNLLogin',
+        width: 305,
+        styleId: LOGIN_STYLE.cartao,
+        item: { width: 'fixed', height: 'fit-content', minWidth: 0, grow: 0, shrink: true },
+        container: { paddingTop: 26, paddingRight: 4, paddingBottom: 6, paddingLeft: 4, gap: 0 },
+        children: [
+          {
+            type: 'WebGroup',
+            // Fixed IDs for the components added to the page keep the seeded IDs of the
+            // other pages unchanged when the project is regenerated.
+            id: 'sigat2-login-formulario',
+            name: 'GRPFormulario',
+            item: { height: 'fit-content' },
+            container: { mode: 'column', gap: 16, paddingLeft: 16, paddingRight: 16 },
+            children: [
+              {
+                type: 'WebImage',
+                id: 'sigat2-login-logo',
+                name: 'IMGLogo',
+                width: 90,
+                height: 88,
+                props: { src: 'assets/imported/' + LOGIN_LOGO_ASSET, alt: 'SIGAT' },
+                styleId: LOGIN_STYLE.logo,
+                item: { width: 'fixed', alignSelf: 'center', grow: 0 },
+              },
+              { ...title('LBLTitulo', 'SIGAT'), height: 48, styleId: LOGIN_STYLE.titulo },
+              campo('EDTLogin', 'Nome de usuário'),
+              {
+                ...campo('EDTSenha', 'Senha', { inputType: 'password' }),
+                events: { OnKeyDown: 'SenhaTecla' },
+              },
+              {
+                type: 'WebButton',
+                name: 'BTNEntrar',
+                height: 38,
+                props: { caption: 'Entrar', icon: 'login' },
+                events: { OnClick: 'Entrar' },
+                styleId: LOGIN_STYLE.botao,
+              },
+              { ...label('LBLMensagem', '', 40), styleId: LOGIN_STYLE.mensagem },
+            ],
+          },
+          { ...label('LBLRodape', 'CGTI - SIGAT2', 18), styleId: LOGIN_STYLE.rodape },
+        ],
+      },
       apiClient('ApiSessao', id, [op('SessaoUsuario', 'sessao-usuario', F.sessaoUsuario)]),
     ],
   };
@@ -1820,9 +2028,19 @@ export function buildSigat2Project(): {
         storageKey: 'sigat2',
       },
     },
+    styles: [...base.styles, ...loginStyles()],
     sourceFiles: [
       ...(base.sourceFiles ?? []),
       { id: defaultIdFactory(), kind: 'unit', name: 'Sigat2' },
+    ],
+    assets: [
+      ...(base.assets ?? []),
+      {
+        id: 'sigat2-asset-logo',
+        fileName: LOGIN_LOGO_ASSET,
+        mediaType: 'image/svg+xml',
+        base64: Buffer.from(SIGAT_LOGO_SVG, 'utf8').toString('base64'),
+      },
     ],
     pages: [...pages, compose(notFound, base.styles, naoEncontradaPage())],
   });

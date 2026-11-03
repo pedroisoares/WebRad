@@ -15,14 +15,14 @@
       "layout": {
         "container": {
           "mode": "column",
-          "paddingTop": 16,
+          "paddingTop": 160,
           "paddingRight": 24,
           "paddingBottom": 24,
           "paddingLeft": 24,
-          "gap": 16,
+          "gap": 0,
           "wrap": false,
           "justifyContent": "start",
-          "alignItems": "stretch"
+          "alignItems": "center"
         },
         "item": {
           "width": "fixed",
@@ -62,7 +62,7 @@
         "OnResize": null,
         "OnShow": "Mostrar"
       },
-      "styleId": "3755d9a1-991d-4861-8878-42148ee446dc:default-style:WebPage",
+      "styleId": "sigat2-login-pagina",
       "children": [
         "d5b1c630-ad5f-4593-a4c5-53e4118f4725",
         "e33863a7-b75b-4e78-8825-431aa97c47fb"
@@ -76,17 +76,17 @@
       "layout": {
         "container": {
           "mode": "column",
-          "paddingTop": 16,
-          "paddingRight": 16,
-          "paddingBottom": 16,
-          "paddingLeft": 16,
-          "gap": 10,
+          "paddingTop": 26,
+          "paddingRight": 4,
+          "paddingBottom": 6,
+          "paddingLeft": 4,
+          "gap": 0,
           "wrap": false,
           "justifyContent": "start",
           "alignItems": "start"
         },
         "item": {
-          "width": "stretch",
+          "width": "fixed",
           "height": "fit-content",
           "minWidth": 0,
           "maxWidth": null,
@@ -104,7 +104,7 @@
         }
       },
       "bounds": {
-        "width": 600,
+        "width": 305,
         "height": 160,
         "x": 0,
         "y": 0
@@ -135,21 +135,137 @@
         "OnMouseEnter": null,
         "OnMouseLeave": null
       },
-      "styleId": "3755d9a1-991d-4861-8878-42148ee446dc:default-style:WebPanel",
+      "styleId": "sigat2-login-cartao",
       "children": [
+        "sigat2-login-formulario",
+        "881d28a9-196d-42c5-8f64-3dce8ce1d46b"
+      ]
+    },
+    {
+      "id": "sigat2-login-formulario",
+      "type": "WebGroup",
+      "name": "GRPFormulario",
+      "parentId": "d5b1c630-ad5f-4593-a4c5-53e4118f4725",
+      "layout": {
+        "container": {
+          "mode": "column",
+          "paddingTop": 0,
+          "paddingRight": 16,
+          "paddingBottom": 0,
+          "paddingLeft": 16,
+          "gap": 16,
+          "wrap": false,
+          "justifyContent": "start",
+          "alignItems": "start"
+        },
+        "item": {
+          "width": "stretch",
+          "height": "fit-content",
+          "minWidth": 0,
+          "maxWidth": null,
+          "minHeight": 0,
+          "maxHeight": null,
+          "grow": 0,
+          "shrink": false,
+          "alignSelf": "auto",
+          "horizontalAnchor": "start",
+          "verticalAnchor": "start",
+          "left": 0,
+          "right": 0,
+          "top": 0,
+          "bottom": 0
+        }
+      },
+      "bounds": {
+        "width": 240,
+        "height": 160,
+        "x": 0,
+        "y": 0
+      },
+      "props": {
+        "enabled": true,
+        "aspectRatio": "none",
+        "collapseWhenHidden": true,
+        "visible": true
+      },
+      "events": {
+        "OnClick": null,
+        "OnDblClick": null,
+        "OnMouseEnter": null,
+        "OnMouseLeave": null
+      },
+      "children": [
+        "sigat2-login-logo",
         "2f34111e-f6d8-48e5-90d0-5e1d8b2fcb48",
         "5431a13d-a6b7-4c3d-93ad-02160503e9e6",
         "a9cf1888-be83-4232-a011-a0582ec152cb",
         "f7d3a8d9-cd33-464e-883f-8d70ea74ce14",
-        "2c1f9d6c-bc71-4a19-87fc-52f2cf645dda",
-        "881d28a9-196d-42c5-8f64-3dce8ce1d46b"
+        "2c1f9d6c-bc71-4a19-87fc-52f2cf645dda"
       ]
+    },
+    {
+      "id": "sigat2-login-logo",
+      "type": "WebImage",
+      "name": "IMGLogo",
+      "parentId": "sigat2-login-formulario",
+      "layout": {
+        "container": {
+          "mode": "fixed",
+          "paddingTop": 0,
+          "paddingRight": 0,
+          "paddingBottom": 0,
+          "paddingLeft": 0,
+          "gap": 0,
+          "wrap": false,
+          "justifyContent": "start",
+          "alignItems": "start"
+        },
+        "item": {
+          "width": "fixed",
+          "height": "fixed",
+          "minWidth": 0,
+          "maxWidth": null,
+          "minHeight": 0,
+          "maxHeight": null,
+          "grow": 0,
+          "shrink": false,
+          "alignSelf": "center",
+          "horizontalAnchor": "start",
+          "verticalAnchor": "start",
+          "left": 0,
+          "right": 0,
+          "top": 0,
+          "bottom": 0
+        }
+      },
+      "bounds": {
+        "width": 90,
+        "height": 88,
+        "x": 0,
+        "y": 0
+      },
+      "props": {
+        "enabled": true,
+        "alt": "SIGAT",
+        "collapseWhenHidden": true,
+        "objectFit": "contain",
+        "placeholder": "image",
+        "src": "assets/imported/sigat-logo.svg",
+        "visible": true
+      },
+      "events": {
+        "OnClick": null,
+        "OnError": null,
+        "OnLoad": null
+      },
+      "styleId": "sigat2-login-logo",
+      "children": []
     },
     {
       "id": "2f34111e-f6d8-48e5-90d0-5e1d8b2fcb48",
       "type": "WebLabel",
       "name": "LBLTitulo",
-      "parentId": "d5b1c630-ad5f-4593-a4c5-53e4118f4725",
+      "parentId": "sigat2-login-formulario",
       "layout": {
         "container": {
           "mode": "fixed",
@@ -182,12 +298,12 @@
       },
       "bounds": {
         "width": 80,
-        "height": 36,
+        "height": 48,
         "x": 0,
         "y": 0
       },
       "props": {
-        "caption": "SIGAT2",
+        "caption": "SIGAT",
         "enabled": true,
         "autoSize": false,
         "collapseWhenHidden": true,
@@ -200,72 +316,14 @@
         "OnMouseEnter": null,
         "OnMouseLeave": null
       },
-      "styleId": "3755d9a1-991d-4861-8878-42148ee446dc:default-style:WebLabel",
+      "styleId": "sigat2-login-titulo",
       "children": []
     },
     {
       "id": "5431a13d-a6b7-4c3d-93ad-02160503e9e6",
-      "type": "WebLabel",
-      "name": "LBLSubtitulo",
-      "parentId": "d5b1c630-ad5f-4593-a4c5-53e4118f4725",
-      "layout": {
-        "container": {
-          "mode": "fixed",
-          "paddingTop": 0,
-          "paddingRight": 0,
-          "paddingBottom": 0,
-          "paddingLeft": 0,
-          "gap": 0,
-          "wrap": false,
-          "justifyContent": "start",
-          "alignItems": "start"
-        },
-        "item": {
-          "width": "stretch",
-          "height": "fixed",
-          "minWidth": 0,
-          "maxWidth": null,
-          "minHeight": 0,
-          "maxHeight": null,
-          "grow": 0,
-          "shrink": false,
-          "alignSelf": "auto",
-          "horizontalAnchor": "start",
-          "verticalAnchor": "start",
-          "left": 0,
-          "right": 0,
-          "top": 0,
-          "bottom": 0
-        }
-      },
-      "bounds": {
-        "width": 80,
-        "height": 28,
-        "x": 0,
-        "y": 0
-      },
-      "props": {
-        "caption": "Entre com seu usuário de rede da Prefeitura.",
-        "enabled": true,
-        "autoSize": false,
-        "collapseWhenHidden": true,
-        "color": "#000000",
-        "visible": true
-      },
-      "events": {
-        "OnClick": null,
-        "OnDblClick": null,
-        "OnMouseEnter": null,
-        "OnMouseLeave": null
-      },
-      "styleId": "3755d9a1-991d-4861-8878-42148ee446dc:default-style:WebLabel",
-      "children": []
-    },
-    {
-      "id": "a9cf1888-be83-4232-a011-a0582ec152cb",
       "type": "WebEdit",
       "name": "EDTLogin",
-      "parentId": "d5b1c630-ad5f-4593-a4c5-53e4118f4725",
+      "parentId": "sigat2-login-formulario",
       "layout": {
         "container": {
           "mode": "fixed",
@@ -298,7 +356,7 @@
       },
       "bounds": {
         "width": 160,
-        "height": 40,
+        "height": 38,
         "x": 0,
         "y": 0
       },
@@ -306,7 +364,7 @@
         "value": "",
         "enabled": true,
         "collapseWhenHidden": true,
-        "placeholder": "Usuário (ex.: pedro.soares)",
+        "placeholder": "Nome de usuário",
         "readOnly": false,
         "tabIndex": 0,
         "visible": true
@@ -319,14 +377,14 @@
         "OnKeyDown": null,
         "OnKeyUp": null
       },
-      "styleId": "3755d9a1-991d-4861-8878-42148ee446dc:default-style:WebEdit",
+      "styleId": "sigat2-login-campo",
       "children": []
     },
     {
-      "id": "f7d3a8d9-cd33-464e-883f-8d70ea74ce14",
+      "id": "a9cf1888-be83-4232-a011-a0582ec152cb",
       "type": "WebEdit",
       "name": "EDTSenha",
-      "parentId": "d5b1c630-ad5f-4593-a4c5-53e4118f4725",
+      "parentId": "sigat2-login-formulario",
       "layout": {
         "container": {
           "mode": "fixed",
@@ -359,7 +417,7 @@
       },
       "bounds": {
         "width": 160,
-        "height": 40,
+        "height": 38,
         "x": 0,
         "y": 0
       },
@@ -381,14 +439,14 @@
         "OnKeyDown": "SenhaTecla",
         "OnKeyUp": null
       },
-      "styleId": "3755d9a1-991d-4861-8878-42148ee446dc:default-style:WebEdit",
+      "styleId": "sigat2-login-campo",
       "children": []
     },
     {
-      "id": "2c1f9d6c-bc71-4a19-87fc-52f2cf645dda",
+      "id": "f7d3a8d9-cd33-464e-883f-8d70ea74ce14",
       "type": "WebButton",
       "name": "BTNEntrar",
-      "parentId": "d5b1c630-ad5f-4593-a4c5-53e4118f4725",
+      "parentId": "sigat2-login-formulario",
       "layout": {
         "container": {
           "mode": "fixed",
@@ -402,14 +460,14 @@
           "alignItems": "start"
         },
         "item": {
-          "width": "fixed",
+          "width": "stretch",
           "height": "fixed",
-          "minWidth": 120,
-          "maxWidth": 220,
+          "minWidth": 0,
+          "maxWidth": null,
           "minHeight": 0,
           "maxHeight": null,
           "grow": 0,
-          "shrink": true,
+          "shrink": false,
           "alignSelf": "auto",
           "horizontalAnchor": "start",
           "verticalAnchor": "start",
@@ -420,8 +478,8 @@
         }
       },
       "bounds": {
-        "width": 180,
-        "height": 40,
+        "width": 100,
+        "height": 38,
         "x": 0,
         "y": 0
       },
@@ -440,13 +498,71 @@
         "OnMouseEnter": null,
         "OnMouseLeave": null
       },
-      "styleId": "3755d9a1-991d-4861-8878-42148ee446dc:default-style:WebButton",
+      "styleId": "sigat2-login-botao",
+      "children": []
+    },
+    {
+      "id": "2c1f9d6c-bc71-4a19-87fc-52f2cf645dda",
+      "type": "WebLabel",
+      "name": "LBLMensagem",
+      "parentId": "sigat2-login-formulario",
+      "layout": {
+        "container": {
+          "mode": "fixed",
+          "paddingTop": 0,
+          "paddingRight": 0,
+          "paddingBottom": 0,
+          "paddingLeft": 0,
+          "gap": 0,
+          "wrap": false,
+          "justifyContent": "start",
+          "alignItems": "start"
+        },
+        "item": {
+          "width": "stretch",
+          "height": "fixed",
+          "minWidth": 0,
+          "maxWidth": null,
+          "minHeight": 0,
+          "maxHeight": null,
+          "grow": 0,
+          "shrink": false,
+          "alignSelf": "auto",
+          "horizontalAnchor": "start",
+          "verticalAnchor": "start",
+          "left": 0,
+          "right": 0,
+          "top": 0,
+          "bottom": 0
+        }
+      },
+      "bounds": {
+        "width": 80,
+        "height": 40,
+        "x": 0,
+        "y": 0
+      },
+      "props": {
+        "caption": "",
+        "enabled": true,
+        "autoSize": false,
+        "collapseWhenHidden": true,
+        "color": "#000000",
+        "visible": true
+      },
+      "events": {
+        "OnClick": null,
+        "OnDblClick": null,
+        "OnMouseEnter": null,
+        "OnMouseLeave": null
+      },
+      "styleId": "sigat2-login-mensagem",
       "children": []
     },
     {
       "id": "881d28a9-196d-42c5-8f64-3dce8ce1d46b",
       "type": "WebLabel",
-      "name": "LBLMensagem",
+      "name": "LBLRodape",
       "parentId": "d5b1c630-ad5f-4593-a4c5-53e4118f4725",
       "layout": {
         "container": {
@@ -480,12 +596,12 @@
       },
       "bounds": {
         "width": 80,
-        "height": 44,
+        "height": 18,
         "x": 0,
         "y": 0
       },
       "props": {
-        "caption": "",
+        "caption": "CGTI - SIGAT2",
         "enabled": true,
         "autoSize": false,
         "collapseWhenHidden": true,
@@ -498,7 +614,7 @@
         "OnMouseEnter": null,
         "OnMouseLeave": null
       },
-      "styleId": "3755d9a1-991d-4861-8878-42148ee446dc:default-style:WebLabel",
+      "styleId": "sigat2-login-rodape",
       "children": []
     },
     {
