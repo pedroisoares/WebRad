@@ -95,4 +95,20 @@ describe('WebTabs', () => {
     tabs.element.dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowRight' }));
     expect(events).toEqual([0]);
   });
+
+  it('draws an icon before and a badge after the captions that have them', () => {
+    const { root, tabs } = page();
+    tabs.tabs = ['Informações', 'Comunicação'];
+    tabs.icons = ['info', 'nao-existe'];
+    tabs.badges = ['', '3'];
+    const buttons = tabs.element.querySelectorAll<HTMLButtonElement>('[role="tab"]');
+    expect(buttons[0]?.querySelector('svg.wr-tab-icon')).not.toBeNull();
+    expect(buttons[0]?.querySelector('.wr-tab-badge')).toBeNull();
+    expect(buttons[1]?.querySelector('svg')).toBeNull();
+    expect(buttons[1]?.querySelector('.wr-tab-caption')?.textContent).toBe('Comunicação');
+    expect(buttons[1]?.querySelector('.wr-tab-badge')?.textContent).toBe('3');
+    tabs.badges = ['', ''];
+    expect(tabs.element.querySelector('.wr-tab-badge')).toBeNull();
+    root.remove();
+  });
 });

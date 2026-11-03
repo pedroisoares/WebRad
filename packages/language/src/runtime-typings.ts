@@ -775,6 +775,10 @@ ${chartsTypings.source}
     tabs: readonly string[];
     /** Name of the component each tab shows, by position. */
     panels: readonly string[];
+    /** Lucide icon shown before each tab caption, by position; '' for none. */
+    icons: readonly string[];
+    /** Short text shown in a badge after each tab caption (a count, for example); '' hides it. */
+    badges: readonly string[];
     selectedIndex: number;
     /** Caption of the selected tab, or ''. */
     readonly selectedTab: string;

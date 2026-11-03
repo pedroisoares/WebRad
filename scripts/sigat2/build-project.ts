@@ -6,6 +6,8 @@
  * The output is an ordinary editable WebRAD project. Run
  * `node scripts/generate-sigat2.mjs` to regenerate `examples/sigat2`.
  */
+import { readFileSync } from 'node:fs';
+import path from 'node:path';
 import { defaultComponentRegistry } from '@webrad/component-registry';
 import {
   applyDefaultComponentStyle,
@@ -59,6 +61,8 @@ interface PageSpec {
   /** Page style and root layout overrides (the Login page uses them). */
   readonly styleId?: string;
   readonly container?: Partial<ComponentLayout['container']>;
+  /** Layout overrides of the content area between the header and the footer. */
+  readonly content?: Partial<ComponentLayout['container']>;
 }
 
 function compose(
@@ -125,6 +129,7 @@ function compose(
             paddingRight: 24,
             paddingBottom: 24,
             paddingLeft: 24,
+            ...spec.content,
           },
           children: spec.children,
         },
@@ -713,6 +718,14 @@ const F = {
     total_bloqueados: I,
   },
   filas: { id_fila: I, nome_fila: S, icone_fila: S },
+  usuariosAtivos: {
+    id_usuario: I,
+    nome_usuario: S,
+    login_usuario: S,
+    autorizacao_usuario: I,
+    fila_usuario: I,
+  },
+  locaisNomes: { id_local: I, nome_local: S, regiao_local: S },
   painel: {
     id_chamado: I,
     status_painel: S,
@@ -1707,6 +1720,428 @@ function painelPage(): PageSpec {
   };
 }
 
+// ---------------------------------------------------------------- Chamado (legacy SIGAT look)
+
+/**
+ * The Chamado page copies the SIGAT "Ver chamado" screen (ver_chamado.php, Bootstrap 4):
+ * breadcrumb, the ticket header with the queue icon, print buttons and the priority star,
+ * Prioridade and Bloquear on the right, then seven tabs. Its styles are the Bootstrap 4
+ * colours and sizes, and only this page uses them.
+ */
+const CHAMADO_STYLE = {
+  trilha: 'sigat2-chamado-trilha',
+  trilhaLink: 'sigat2-chamado-trilha-link',
+  trilhaTexto: 'sigat2-chamado-trilha-texto',
+  trilhaSeparador: 'sigat2-chamado-trilha-separador',
+  titulo: 'sigat2-chamado-titulo',
+  numero: 'sigat2-chamado-numero',
+  iconeFila: 'sigat2-chamado-icone-fila',
+  estrela: 'sigat2-chamado-estrela',
+  link: 'sigat2-chamado-link',
+  linha: 'sigat2-chamado-linha',
+  abas: 'sigat2-chamado-abas',
+  botaoPrimarioSm: 'sigat2-chamado-botao-primario-sm',
+  botaoSecundarioSm: 'sigat2-chamado-botao-secundario-sm',
+  botaoPrimario: 'sigat2-chamado-botao-primario',
+  botaoInfo: 'sigat2-chamado-botao-info',
+  botaoSucesso: 'sigat2-chamado-botao-sucesso',
+  botaoPerigo: 'sigat2-chamado-botao-perigo',
+  marcadorLocal: 'sigat2-chamado-marcador-local',
+  checagem: 'sigat2-chamado-checagem',
+  rotulo: 'sigat2-chamado-rotulo',
+  campo: 'sigat2-chamado-campo',
+  lista: 'sigat2-chamado-lista',
+  busca: 'sigat2-chamado-busca',
+  alerta: 'sigat2-chamado-alerta',
+  aviso: 'sigat2-chamado-aviso',
+  secao: 'sigat2-chamado-secao',
+  grupo: 'sigat2-chamado-grupo',
+  janela: 'sigat2-chamado-janela',
+} as const;
+
+const BOOTSTRAP = {
+  primario: '#007bff',
+  primarioHover: '#0069d9',
+  secundario: '#6c757d',
+  secundarioHover: '#5a6268',
+  info: '#17a2b8',
+  infoHover: '#138496',
+  sucesso: '#28a745',
+  sucessoHover: '#218838',
+  perigo: '#dc3545',
+  perigoHover: '#c82333',
+  cinzaClaro: '#e9ecef',
+  borda: '#dee2e6',
+  bordaCampo: '#ced4da',
+  textoCampo: '#495057',
+} as const;
+
+function chamadoBotao(
+  id: string,
+  name: string,
+  cor: string,
+  hover: string,
+  pequeno: boolean,
+  conteudo: 'text' | 'text-icon' | 'icon' = 'text-icon',
+): ComponentStyleModel {
+  return loginStyle(id, name, 'WebButton', {
+    base: {
+      ...SYSTEM_FONT,
+      backgroundColor: cor,
+      borderWidth: px(1),
+      borderStyle: 'solid',
+      borderColor: cor,
+      borderRadius: px(pequeno ? 3 : 4),
+      textColor: '#ffffff',
+      fontSize: px(pequeno ? 14 : 16),
+      fontWeight: 'normal',
+      paddingLeft: px(pequeno ? 8 : 12),
+      paddingRight: px(pequeno ? 8 : 12),
+      justifyContent: 'center',
+      textAlign: 'center',
+      buttonContentMode: conteudo,
+      buttonIconSize: px(pequeno ? 14 : 16),
+      buttonIconColor: '#ffffff',
+      boxShadow: 'none',
+      cursor: 'pointer',
+      transitionProperty: 'all',
+      transitionDuration: 150,
+      transitionTimingFunction: 'easeOut',
+    },
+    hover: { backgroundColor: hover, borderColor: hover },
+    focus: { ringWidth: px(3), ringColor: '#80bdff', ringOffsetWidth: px(0) },
+    active: { backgroundColor: hover, borderColor: hover },
+    disabled: { opacity: 65, cursor: 'not-allowed' },
+  });
+}
+
+const CAMPO_BASE = {
+  ...SYSTEM_FONT,
+  backgroundColor: '#ffffff',
+  textColor: BOOTSTRAP.textoCampo,
+  fontSize: px(16),
+  borderWidth: px(1),
+  borderStyle: 'solid',
+  borderColor: BOOTSTRAP.bordaCampo,
+  borderRadius: px(4),
+  paddingLeft: px(12),
+  paddingRight: px(12),
+  boxShadow: 'none',
+} as const;
+
+const CAMPO_FOCO = {
+  borderColor: '#80bdff',
+  ringWidth: px(3),
+  ringColor: '#bfdeff',
+  ringOffsetWidth: px(0),
+} as const;
+
+/** Bootstrap 4 disables a form-control with a grey background; SIGAT shows read-only data so. */
+const CAMPO_DESABILITADO = {
+  backgroundColor: BOOTSTRAP.cinzaClaro,
+  textColor: BOOTSTRAP.textoCampo,
+  opacity: 100,
+  cursor: 'default',
+} as const;
+
+function texto16(
+  id: string,
+  name: string,
+  props: ComponentStyleProperties = {},
+): ComponentStyleModel {
+  return loginStyle(id, name, 'WebLabel', {
+    base: { ...SYSTEM_FONT, textColor: TEXT, fontSize: px(16), lineHeight: px(24), ...props },
+  });
+}
+
+function chamadoStyles(): readonly ComponentStyleModel[] {
+  return [
+    loginStyle(CHAMADO_STYLE.trilha, 'Chamado Trilha', 'WebGroup', {
+      base: { backgroundColor: BOOTSTRAP.cinzaClaro, borderRadius: px(0) },
+    }),
+    loginStyle(CHAMADO_STYLE.trilhaLink, 'Chamado Trilha Link', 'WebButton', {
+      base: {
+        ...SYSTEM_FONT,
+        backgroundColor: 'transparent',
+        borderWidth: px(0),
+        borderStyle: 'none',
+        textColor: BOOTSTRAP.primario,
+        fontSize: px(16),
+        fontWeight: 'normal',
+        paddingLeft: px(0),
+        paddingRight: px(0),
+        buttonContentMode: 'text',
+        boxShadow: 'none',
+        cursor: 'pointer',
+      },
+      hover: { textColor: '#0056b3', textDecoration: 'underline' },
+    }),
+    texto16(CHAMADO_STYLE.trilhaTexto, 'Chamado Trilha Texto'),
+    texto16(CHAMADO_STYLE.trilhaSeparador, 'Chamado Trilha Separador', {
+      textColor: BOOTSTRAP.secundario,
+      justifyContent: 'center',
+      textAlign: 'center',
+    }),
+    texto16(CHAMADO_STYLE.titulo, 'Chamado Titulo', {
+      fontSize: px(28),
+      lineHeight: px(34),
+      fontWeight: 'medium',
+    }),
+    texto16(CHAMADO_STYLE.numero, 'Chamado Numero', { fontSize: px(22), lineHeight: px(34) }),
+    loginStyle(CHAMADO_STYLE.iconeFila, 'Chamado Icone Fila', 'WebIcon', {
+      base: {
+        textColor: TEXT,
+        backgroundColor: 'transparent',
+        borderWidth: px(0),
+        borderStyle: 'none',
+      },
+    }),
+    loginStyle(CHAMADO_STYLE.estrela, 'Chamado Estrela', 'WebIcon', {
+      base: {
+        textColor: BOOTSTRAP.perigo,
+        backgroundColor: 'transparent',
+        borderWidth: px(0),
+        borderStyle: 'none',
+      },
+    }),
+    loginStyle(CHAMADO_STYLE.link, 'Chamado Link', 'WebButton', {
+      base: {
+        backgroundColor: 'transparent',
+        borderWidth: px(0),
+        borderStyle: 'none',
+        textColor: BOOTSTRAP.primario,
+        buttonContentMode: 'icon',
+        buttonIconSize: px(18),
+        buttonIconColor: BOOTSTRAP.primario,
+        paddingLeft: px(0),
+        paddingRight: px(0),
+        boxShadow: 'none',
+        cursor: 'pointer',
+      },
+      hover: { buttonIconColor: '#0056b3' },
+    }),
+    loginStyle(CHAMADO_STYLE.linha, 'Chamado Linha', 'WebGroup', {
+      base: { backgroundColor: BOOTSTRAP.borda },
+    }),
+    loginStyle(CHAMADO_STYLE.abas, 'Chamado Abas', 'WebTabs', {
+      base: {
+        ...SYSTEM_FONT,
+        textColor: BOOTSTRAP.primario,
+        fontSize: px(16),
+        fontWeight: 'normal',
+        backgroundColor: 'transparent',
+        tabSelectedTextColor: BOOTSTRAP.textoCampo,
+        tabSelectedBackgroundColor: '#ffffff',
+        tabBorderColor: BOOTSTRAP.borda,
+        tabBadgeColor: BOOTSTRAP.primario,
+        tabIdleOpacity: 100,
+        overflow: 'hidden',
+        cursor: 'pointer',
+      },
+    }),
+    chamadoBotao(
+      CHAMADO_STYLE.botaoPrimarioSm,
+      'Chamado Botao Primario Sm',
+      BOOTSTRAP.primario,
+      BOOTSTRAP.primarioHover,
+      true,
+    ),
+    chamadoBotao(
+      CHAMADO_STYLE.botaoSecundarioSm,
+      'Chamado Botao Secundario Sm',
+      BOOTSTRAP.secundario,
+      BOOTSTRAP.secundarioHover,
+      true,
+      'icon',
+    ),
+    chamadoBotao(
+      CHAMADO_STYLE.botaoPrimario,
+      'Chamado Botao Primario',
+      BOOTSTRAP.primario,
+      BOOTSTRAP.primarioHover,
+      false,
+    ),
+    chamadoBotao(
+      CHAMADO_STYLE.botaoInfo,
+      'Chamado Botao Info',
+      BOOTSTRAP.info,
+      BOOTSTRAP.infoHover,
+      false,
+    ),
+    chamadoBotao(
+      CHAMADO_STYLE.botaoSucesso,
+      'Chamado Botao Sucesso',
+      BOOTSTRAP.sucesso,
+      BOOTSTRAP.sucessoHover,
+      false,
+    ),
+    chamadoBotao(
+      CHAMADO_STYLE.botaoPerigo,
+      'Chamado Botao Perigo',
+      BOOTSTRAP.perigo,
+      BOOTSTRAP.perigoHover,
+      false,
+    ),
+    chamadoBotao(
+      CHAMADO_STYLE.marcadorLocal,
+      'Chamado Marcador Local',
+      BOOTSTRAP.perigo,
+      BOOTSTRAP.perigoHover,
+      true,
+      'icon',
+    ),
+    loginStyle(CHAMADO_STYLE.checagem, 'Chamado Checagem', 'WebCheckBox', {
+      base: { ...SYSTEM_FONT, textColor: TEXT, fontSize: px(14), cursor: 'pointer' },
+    }),
+    texto16(CHAMADO_STYLE.rotulo, 'Chamado Rotulo'),
+    loginStyle(CHAMADO_STYLE.campo, 'Chamado Campo', 'WebEdit', {
+      base: CAMPO_BASE,
+      focus: CAMPO_FOCO,
+      disabled: CAMPO_DESABILITADO,
+    }),
+    loginStyle(CHAMADO_STYLE.lista, 'Chamado Lista', 'WebComboBox', {
+      base: CAMPO_BASE,
+      focus: CAMPO_FOCO,
+      disabled: CAMPO_DESABILITADO,
+    }),
+    loginStyle(CHAMADO_STYLE.busca, 'Chamado Busca', 'WebAutocomplete', {
+      base: CAMPO_BASE,
+      focus: CAMPO_FOCO,
+    }),
+    texto16(CHAMADO_STYLE.alerta, 'Chamado Alerta', {
+      textColor: '#721c24',
+      backgroundColor: '#f8d7da',
+      borderWidth: px(1),
+      borderStyle: 'solid',
+      borderColor: '#f5c6cb',
+      borderRadius: px(4),
+      fontSize: px(15),
+      paddingLeft: px(12),
+      paddingRight: px(12),
+    }),
+    texto16(CHAMADO_STYLE.aviso, 'Chamado Aviso', { textColor: BOOTSTRAP.secundario }),
+    texto16(CHAMADO_STYLE.secao, 'Chamado Secao', {
+      fontSize: px(20),
+      lineHeight: px(28),
+      fontWeight: 'medium',
+    }),
+    loginStyle(CHAMADO_STYLE.grupo, 'Chamado Grupo', 'WebGroup', {
+      base: { ...SYSTEM_FONT, textColor: TEXT, backgroundColor: 'transparent' },
+    }),
+    loginStyle(CHAMADO_STYLE.janela, 'Chamado Janela', 'WebPopup', {
+      base: {
+        ...SYSTEM_FONT,
+        textColor: TEXT,
+        backgroundColor: '#ffffff',
+        borderWidth: px(1),
+        borderStyle: 'solid',
+        borderColor: '#cccccc',
+        borderRadius: px(5),
+      },
+    }),
+  ];
+}
+
+/** A Bootstrap form-group: label over a control, with a width share of the row (col-N). */
+function formGroup(
+  name: string,
+  caption: string,
+  colunas: number,
+  control: Node,
+  extra: readonly Node[] = [],
+): Node {
+  return {
+    type: 'WebGroup',
+    name: 'GRP' + name,
+    width: colunas * 80,
+    item: { width: 'fixed', height: 'fit-content', minWidth: 160, grow: colunas, shrink: true },
+    container: { mode: 'column', gap: 8 },
+    children: [
+      extra.length === 0
+        ? { ...label('LBL' + name, caption, 24), styleId: CHAMADO_STYLE.rotulo }
+        : {
+            type: 'WebGroup',
+            name: 'GRPRotulo' + name,
+            item: { height: 'fit-content' },
+            container: { mode: 'row', gap: 6, alignItems: 'center' },
+            children: [
+              {
+                ...label('LBL' + name, caption, 24),
+                width: 60,
+                styleId: CHAMADO_STYLE.rotulo,
+                item: { width: 'fit-content', grow: 0 },
+              },
+              ...extra,
+            ],
+          },
+      control,
+    ],
+  };
+}
+
+function campoChamado(name: string): Node {
+  return {
+    type: 'WebEdit',
+    name: 'EDT' + name,
+    height: 38,
+    props: { value: '', placeholder: '' },
+    styleId: CHAMADO_STYLE.campo,
+  };
+}
+
+function formRow(name: string, children: readonly Node[]): Node {
+  return {
+    type: 'WebGroup',
+    name,
+    item: { height: 'fit-content' },
+    container: { mode: 'row', gap: 32, wrap: true, alignItems: 'start' },
+    children,
+  };
+}
+
+function botaoChamado(
+  name: string,
+  caption: string,
+  handler: string,
+  icon: WebRadIconName,
+  styleId: string,
+  width: number,
+  height = 31,
+  roles: readonly string[] = [],
+): Node {
+  return {
+    type: 'WebButton',
+    name,
+    width,
+    height,
+    props: { caption, icon, ...(roles.length > 0 ? { allowedRoles: [...roles] } : {}) },
+    events: { OnClick: handler },
+    styleId,
+    item: { width: 'fixed', grow: 0, shrink: false },
+  };
+}
+
+function texto(name: string, caption: string, styleId: string, width?: number, height = 24): Node {
+  return {
+    ...label(name, caption, height),
+    styleId,
+    ...(width === undefined
+      ? { item: { width: 'fit-content', grow: 0 } }
+      : { width, item: { width: 'fixed', grow: 0 } }),
+  };
+}
+
+function grupoChamado(name: string, children: readonly Node[], gap = 16): Node {
+  return {
+    type: 'WebGroup',
+    name,
+    item: { height: 'fit-content', minWidth: 0 },
+    container: { mode: 'column', gap, paddingTop: 16 },
+    styleId: CHAMADO_STYLE.grupo,
+    children,
+  };
+}
+
 function chamadoPage(): PageSpec {
   const id = defaultIdFactory();
   const ops = {
@@ -1721,10 +2156,20 @@ function chamadoPage(): PageSpec {
     reparos: op('Reparos', 'chamado-reparos', F.reparos, ['id']),
     reparoHistorico: op('ReparoHistorico', 'reparo-historico', F.reparoHistorico, ['id']),
     artigos: op('Artigos', 'ticket-artigos', F.artigos, ['id'], 'otobo'),
+    usuarios: op('Usuarios', 'usuarios-ativos', F.usuariosAtivos),
+    locais: op('Locais', 'locais-nomes', F.locaisNomes, ['q']),
     bloquear: write('Bloquear', 'chamado-bloquear', { id_chamado: 'integer' }),
     desbloquear: write('Desbloquear', 'chamado-desbloquear', { id_chamado: 'integer' }),
     priorizar: write('Priorizar', 'chamado-priorizar', { id_chamado: 'integer' }),
     zerarNaoLidos: write('ZerarNaoLidos', 'chamado-zerar-nao-lidos', { id_chamado: 'integer' }),
+    alterar: write('Alterar', 'chamado-alterar', {
+      id_chamado: 'integer',
+      nome_solicitante: 'string',
+      telefone: 'string',
+      celular: 'string',
+      id_local: 'integer',
+      id_responsavel: 'integer',
+    }),
     filas: op('Filas', 'filas', F.filas),
     observacao: write('Observacao', 'interacao-observacao', {
       id_chamado: 'integer',
@@ -1753,192 +2198,541 @@ function chamadoPage(): PageSpec {
       servicos: 'array',
     }),
   };
+  const listaChamado = (node: Node): Node => ({ ...node, styleId: SIGAT_STYLE.lista });
+  const direita = (name: string, children: readonly Node[]): Node => ({
+    type: 'WebGroup',
+    name,
+    item: { height: 'fit-content' },
+    container: { mode: 'row', gap: 8, wrap: true, alignItems: 'center', justifyContent: 'end' },
+    children,
+  });
   return {
     name: 'Chamado',
-    caption: 'Chamado',
+    caption: 'Ver chamado',
     roles: ['*'],
     events: { OnShow: 'Mostrar' },
     header: true,
+    // The breadcrumb spans the whole width under the navbar, as in SIGAT.
+    content: { paddingTop: 0, paddingRight: 0, paddingLeft: 0, gap: 16 },
     children: [
-      row('Topo', [
-        { ...title('LBLChamado', 'Chamado'), width: 400, item: { width: 'fixed', grow: 1 } },
-        button('BTNOtobo', 'Abrir no OTOBO', 'AbrirOtobo', 'external-link'),
-        button('BTNRecarregar', 'Recarregar', 'Carregar', 'refresh'),
-      ]),
-      html('HTMLSinais', 44, 'Situação do chamado'),
-      row('Acoes', [
-        button('BTNBloquear', 'Bloquear', 'Bloquear', 'lock'),
-        button('BTNDesbloquear', 'Desbloquear', 'Desbloquear', 'unlock'),
-        button('BTNPrioridade', 'Priorizar', 'Priorizar', 'star', ['admin']),
-      ]),
-      panel('PNLDados', [
-        details('Dados', [
-          ['Status', 'Status'],
-          ['Ticket', 'Ticket'],
-          ['Fila', 'Fila'],
-          ['Responsavel', 'Responsável'],
-          ['Solicitante', 'Solicitante'],
-          ['Telefone', 'Telefone / celular'],
-          ['Local', 'Local'],
-          ['Endereco', 'Endereço'],
-          ['Regiao', 'Região'],
-          ['Abertura', 'Abertura'],
-          ['Encerramento', 'Encerramento'],
-          ['Resumo', 'Resumo'],
-        ]),
-      ]),
-      tabs(
-        'Abas',
-        [
-          'Interações',
-          'Equipamentos',
-          'Serviços',
-          'Reparos',
-          'E-mails do ticket',
-          'Histórico',
-          'Anexos e termos',
-          'Registrar interação',
-        ],
-        [
-          'PNLInteracoes',
-          'PNLEquipamentos',
-          'PNLServicos',
-          'PNLReparos',
-          'PNLEmails',
-          'PNLHistorico',
-          'PNLAnexos',
-          'PNLRegistrar',
-        ],
-        'TrocarAba',
-      ),
-      panel('PNLInteracoes', [html('HTMLInteracoes', 520)]),
-      panel('PNLEquipamentos', [
-        grid(
-          'GRDEquipamentos',
-          id,
-          ops.equipamentos,
-          [
-            ['Patrimônio', 'num_equipamento', 140],
-            ['Descrição', 'descricao_equipamento'],
-            ['Etiqueta', 'tag_equipamento', 140],
-            ['Status', 'status_equipamento_chamado', 140],
-          ],
-          { height: 360, onCell: 'AbrirEquipamento' },
-        ),
-      ]),
-      panel('PNLServicos', [
-        grid(
-          'GRDServicos',
-          id,
-          ops.servicos,
-          [
-            ['Serviço', 'nome_servico'],
-            ['Qtde', 'quantidade', 90],
-            ['Unidade', 'unidade_medida', 100],
-            ['Status', 'status_servico', 120],
-          ],
-          { height: 320 },
-        ),
-      ]),
-      panel('PNLReparos', [
-        grid(
-          'GRDReparos',
-          id,
-          ops.reparos,
-          [
-            ['#', 'id_reparo', 80],
-            ['Patrimônio', 'num_equipamento_reparo', 130],
-            ['Bancada', 'nome_bancada', 140],
-            ['Status', 'status_reparo', 120],
-            ['Início', 'data_inicio_reparo', 160],
-            ['Fim', 'data_fim_reparo', 160],
-            ['Finalizado por', 'nome_usuario'],
-            ['Valor (R$)', 'soma_servico', 110],
-          ],
-          { height: 280, onCell: 'SelecionarReparo' },
-        ),
-        label('LBLReparo', 'Selecione um reparo para ver o histórico da bancada.'),
-        grid(
-          'GRDReparoHistorico',
-          id,
-          ops.reparoHistorico,
-          [
-            ['Data', 'data_reparo_servico', 160],
-            ['Serviço / anotação', 'nome_servico'],
-            ['Aberto por', 'nome_abertura_usuario', 170],
-            ['Encerrado em', 'data_encerramento_reparo_servico', 160],
-            ['Encerrado por', 'nome_fechamento_usuario', 170],
-          ],
-          { height: 300 },
-        ),
-      ]),
-      panel('PNLEmails', [html('HTMLEmails', 520)]),
-      panel('PNLHistorico', [
-        grid(
-          'GRDHistorico',
-          id,
-          ops.historico,
-          [
-            ['Data', 'data_alteracao_fmt', 170],
-            ['Usuário', 'nome_usuario', 200],
-            ['Alteração', 'texto_alteracao'],
-          ],
-          { height: 420 },
-        ),
-      ]),
-      panel('PNLAnexos', [
-        label('LBLAnexos', 'Anexos do OTOBO (o download direto fica para a fase 2)'),
-        grid(
-          'GRDAnexos',
-          id,
-          ops.anexos,
-          [
-            ['#', 'id_anexo_otrs', 100],
-            ['Arquivo', 'nome_arquivo_otrs'],
-          ],
-          { height: 200 },
-        ),
-        label('LBLTermos', 'Termos gerados'),
-        grid(
-          'GRDTermos',
-          id,
-          ops.termos,
-          [
-            ['#', 'id_termo', 90],
-            ['Arquivo', 'nome_termo'],
-            ['Tipo', 'tipo_termo', 140],
-            ['Data', 'data_termo', 170],
-          ],
-          { height: 200 },
-        ),
-        label('LBLTelefones', 'Telefones do local'),
-        grid(
-          'GRDTelefones',
-          id,
-          ops.telefones,
-          [
-            ['Setor', 'setor'],
-            ['Telefone', 'telefone', 180],
-          ],
-          { height: 200 },
-        ),
-      ]),
-      panel('PNLRegistrar', [
-        label('LBLRegistrar', ''),
-        {
-          type: 'WebGroup',
-          name: 'GRPRegistrar',
-          item: { height: 'fit-content' },
-          container: { mode: 'column', gap: 10 },
-          children: [
-            row('TipoInteracao', [combo('CMBTipo', [], 'MudarTipo'), combo('CMBFila')]),
-            label('LBLItens', ''),
-            listBox('LSTItens', 180),
-            richText('RTEInteracao', 'Descreva a interação...', 220),
-            row('AcoesInteracao', [button('BTNRegistrar', 'Registrar', 'Registrar', 'save')]),
-          ],
+      {
+        type: 'WebGroup',
+        name: 'GRPTrilha',
+        styleId: CHAMADO_STYLE.trilha,
+        item: { height: 'fit-content' },
+        container: {
+          mode: 'row',
+          gap: 8,
+          alignItems: 'center',
+          paddingTop: 12,
+          paddingBottom: 12,
+          paddingLeft: 16,
+          paddingRight: 16,
         },
-      ]),
+        children: [
+          {
+            type: 'WebButton',
+            name: 'BTNTrilhaPainel',
+            width: 52,
+            height: 24,
+            props: { caption: 'Painel', icon: 'list' },
+            events: { OnClick: 'AbrirPainel' },
+            styleId: CHAMADO_STYLE.trilhaLink,
+            item: { width: 'fixed', grow: 0 },
+          },
+          texto('LBLTrilhaSeparador1', '/', CHAMADO_STYLE.trilhaSeparador, 10),
+          texto('LBLTrilhaVer', 'Ver chamado', CHAMADO_STYLE.trilhaTexto),
+          texto('LBLTrilhaSeparador2', '/', CHAMADO_STYLE.trilhaSeparador, 10),
+          texto('LBLTrilhaNumero', '', CHAMADO_STYLE.trilhaTexto),
+        ],
+      },
+      {
+        type: 'WebGroup',
+        name: 'GRPChamado',
+        // Bootstrap .container: centred, at most 1140 px wide.
+        item: { height: 'fit-content', maxWidth: 1188, alignSelf: 'center' },
+        container: { mode: 'column', gap: 0, paddingTop: 8, paddingLeft: 24, paddingRight: 24 },
+        children: [
+          {
+            type: 'WebGroup',
+            name: 'GRPCabecalhoChamado',
+            item: { height: 'fit-content' },
+            container: {
+              mode: 'row',
+              gap: 10,
+              wrap: true,
+              alignItems: 'center',
+              paddingBottom: 16,
+            },
+            children: [
+              {
+                type: 'WebIcon',
+                name: 'ICOFila',
+                width: 34,
+                height: 34,
+                props: { icon: 'package', accessibleLabel: 'Fila', strokeWidth: 2.5 },
+                styleId: CHAMADO_STYLE.iconeFila,
+                item: { width: 'fixed', grow: 0 },
+              },
+              texto('LBLTicket', '', CHAMADO_STYLE.titulo, undefined, 40),
+              {
+                ...botaoChamado(
+                  'BTNOtobo',
+                  'Abrir no OTOBO',
+                  'AbrirOtobo',
+                  'external-link',
+                  CHAMADO_STYLE.link,
+                  22,
+                  28,
+                ),
+              },
+              texto('LBLNumero', '', CHAMADO_STYLE.numero, undefined, 34),
+              botaoChamado(
+                'BTNImprimir',
+                'Imprimir',
+                'Imprimir',
+                'printer',
+                CHAMADO_STYLE.botaoSecundarioSm,
+                40,
+              ),
+              botaoChamado(
+                'BTNRelatorio',
+                'Relatório detalhado',
+                'Relatorio',
+                'printer',
+                CHAMADO_STYLE.botaoPrimarioSm,
+                168,
+                31,
+                ['admin'],
+              ),
+              {
+                type: 'WebIcon',
+                name: 'ICOPrioridade',
+                width: 28,
+                height: 28,
+                props: { icon: 'star', accessibleLabel: 'Prioridade', strokeWidth: 3 },
+                styleId: CHAMADO_STYLE.estrela,
+                item: { width: 'fixed', grow: 0 },
+              },
+              {
+                type: 'WebGroup',
+                name: 'GRPAcoesChamado',
+                item: { width: 'fit-content', height: 'fit-content', grow: 1 },
+                container: { mode: 'row', gap: 8, alignItems: 'center', justifyContent: 'end' },
+                children: [
+                  {
+                    type: 'WebCheckBox',
+                    name: 'CHKPrioridade',
+                    width: 100,
+                    height: 28,
+                    props: { caption: 'Prioridade', checked: false, allowedRoles: ['admin'] },
+                    events: { OnChange: 'Priorizar' },
+                    styleId: CHAMADO_STYLE.checagem,
+                    item: { width: 'fixed', grow: 0 },
+                  },
+                  botaoChamado(
+                    'BTNBloquear',
+                    'Bloquear',
+                    'Bloquear',
+                    'lock',
+                    CHAMADO_STYLE.botaoPrimarioSm,
+                    104,
+                  ),
+                  botaoChamado(
+                    'BTNDesbloquear',
+                    'Desbloquear',
+                    'Desbloquear',
+                    'unlock',
+                    CHAMADO_STYLE.botaoPrimarioSm,
+                    124,
+                  ),
+                ],
+              },
+            ],
+          },
+          {
+            ...texto(
+              'LBLInfovia',
+              'Este local não acessa a infovia',
+              CHAMADO_STYLE.alerta,
+              undefined,
+              40,
+            ),
+          },
+          {
+            type: 'WebGroup',
+            name: 'GRPLinha',
+            height: 1,
+            styleId: CHAMADO_STYLE.linha,
+            item: { height: 'fixed', minHeight: 1 },
+            container: { gap: 0 },
+            children: [],
+          },
+          {
+            ...tabs(
+              'Abas',
+              [
+                'Informações',
+                'Comunicação',
+                'Reparos',
+                'Interações',
+                'Equipamentos',
+                'Infraestrutura',
+                'Histórico',
+              ],
+              [
+                'PNLInformacoes',
+                'PNLComunicacao',
+                'PNLReparos',
+                'PNLInteracoes',
+                'PNLEquipamentos',
+                'PNLInfraestrutura',
+                'PNLHistorico',
+              ],
+              'TrocarAba',
+            ),
+            height: 42,
+            props: {
+              tabs: [
+                'Informações',
+                'Comunicação',
+                'Reparos',
+                'Interações',
+                'Equipamentos',
+                'Infraestrutura',
+                'Histórico',
+              ],
+              panels: [
+                'PNLInformacoes',
+                'PNLComunicacao',
+                'PNLReparos',
+                'PNLInteracoes',
+                'PNLEquipamentos',
+                'PNLInfraestrutura',
+                'PNLHistorico',
+              ],
+              icons: [
+                'info',
+                'arrow-left-right',
+                'wrench',
+                'pointer',
+                'monitor',
+                'radio-tower',
+                'clock',
+              ],
+              badges: [],
+              selectedIndex: 0,
+            },
+            styleId: CHAMADO_STYLE.abas,
+            item: { height: 'fixed' },
+          },
+          grupoChamado('PNLInformacoes', [
+            direita('GRPBotoesChamado', [
+              botaoChamado(
+                'BTNEditar',
+                'Editar',
+                'Editar',
+                'edit',
+                CHAMADO_STYLE.botaoInfo,
+                96,
+                38,
+              ),
+              botaoChamado(
+                'BTNSalvar',
+                'Salvar',
+                'Salvar',
+                'check',
+                CHAMADO_STYLE.botaoSucesso,
+                96,
+                38,
+              ),
+              botaoChamado(
+                'BTNCancelar',
+                'Cancelar',
+                'Cancelar',
+                'minus-circle',
+                CHAMADO_STYLE.botaoPerigo,
+                112,
+                38,
+              ),
+            ]),
+            formRow('LinhaResumo', [formGroup('Resumo', 'Resumo', 12, campoChamado('Resumo'))]),
+            formRow('LinhaSituacao', [
+              formGroup('Status', 'Status', 2, campoChamado('Status')),
+              formGroup('Fila', 'Fila', 3, campoChamado('Fila')),
+              formGroup('Abertura', 'Data de abertura', 3, campoChamado('Abertura')),
+              formGroup('Responsavel', 'Responsável', 4, {
+                type: 'WebComboBox',
+                name: 'CMBResponsavel',
+                height: 38,
+                props: { items: [], selectedIndex: -1, value: '' },
+                styleId: CHAMADO_STYLE.lista,
+              }),
+            ]),
+            formRow('LinhaSolicitante', [
+              formGroup('Solicitante', 'Solicitante', 6, campoChamado('Solicitante')),
+              formGroup('Celular', 'Celular', 3, campoChamado('Celular')),
+              formGroup('Telefone', 'Telefone', 3, campoChamado('Telefone')),
+            ]),
+            formRow('LinhaLocal', [
+              formGroup(
+                'Local',
+                'Local',
+                6,
+                {
+                  type: 'WebGroup',
+                  name: 'GRPCampoLocal',
+                  item: { height: 'fit-content' },
+                  container: { mode: 'column', gap: 0 },
+                  children: [
+                    campoChamado('Local'),
+                    {
+                      type: 'WebAutocomplete',
+                      name: 'ACPLocal',
+                      height: 38,
+                      props: {
+                        placeholder: 'Digite parte do nome do local',
+                        minChars: 3,
+                        requireSelection: true,
+                        noResultsText: 'Nenhum local encontrado',
+                        visible: false,
+                      },
+                      styleId: CHAMADO_STYLE.busca,
+                    },
+                  ],
+                },
+                [
+                  {
+                    type: 'WebButton',
+                    name: 'BTNVerEndereco',
+                    width: 22,
+                    height: 22,
+                    props: { caption: 'Ver endereço e telefones do local', icon: 'map-pin' },
+                    events: { OnClick: 'VerEndereco' },
+                    styleId: CHAMADO_STYLE.marcadorLocal,
+                    item: { width: 'fixed', grow: 0 },
+                  },
+                ],
+              ),
+              formGroup('Regiao', 'Região', 2, campoChamado('Regiao')),
+              formGroup('Complemento', 'Complemento', 4, campoChamado('Complemento')),
+            ]),
+          ]),
+          grupoChamado('PNLComunicacao', [
+            html('HTMLEmails', 560, 'E-mails do ticket'),
+            texto('LBLAnexos', 'Anexos', CHAMADO_STYLE.secao, undefined, 28),
+            listaChamado(
+              grid(
+                'GRDAnexos',
+                id,
+                ops.anexos,
+                [
+                  ['#', 'id_anexo_otrs', 100],
+                  ['Arquivo', 'nome_arquivo_otrs'],
+                ],
+                { height: 200, empty: 'Nenhum anexo.' },
+              ),
+            ),
+          ]),
+          grupoChamado('PNLReparos', [
+            listaChamado(
+              grid(
+                'GRDReparos',
+                id,
+                ops.reparos,
+                [
+                  ['Equipamento', 'num_equipamento_reparo', 220],
+                  ['Bancada', 'nome_bancada', 160],
+                  ['Status', 'status_reparo', 130],
+                  ['Iniciado', 'data_inicio_reparo', 160],
+                  ['Finalizado', 'data_fim_reparo', 160],
+                  ['Finalizado por', 'nome_usuario'],
+                ],
+                { height: 280, onCell: 'SelecionarReparo', empty: 'Lista vazia.' },
+              ),
+            ),
+            texto(
+              'LBLReparo',
+              'Selecione um reparo para ver o histórico da bancada.',
+              CHAMADO_STYLE.aviso,
+            ),
+            listaChamado(
+              grid(
+                'GRDReparoHistorico',
+                id,
+                ops.reparoHistorico,
+                [
+                  ['Data', 'data_reparo_servico', 160],
+                  ['Serviço / anotação', 'nome_servico'],
+                  ['Aberto por', 'nome_abertura_usuario', 170],
+                  ['Encerrado em', 'data_encerramento_reparo_servico', 160],
+                  ['Encerrado por', 'nome_fechamento_usuario', 170],
+                ],
+                { height: 300, empty: 'Lista vazia.' },
+              ),
+            ),
+          ]),
+          grupoChamado('PNLInteracoes', [
+            direita('GRPBotoesInteracao', [
+              botaoChamado(
+                'BTNNovaInteracao',
+                'Nova interação',
+                'NovaInteracao',
+                'add',
+                CHAMADO_STYLE.botaoPrimario,
+                180,
+                38,
+              ),
+            ]),
+            texto('LBLRegistrar', '', CHAMADO_STYLE.aviso),
+            {
+              type: 'WebGroup',
+              name: 'GRPRegistrar',
+              item: { height: 'fit-content' },
+              container: { mode: 'column', gap: 10 },
+              children: [
+                texto('LBLNovaInteracao', 'Nova interação', CHAMADO_STYLE.secao, undefined, 28),
+                row('TipoInteracao', [
+                  {
+                    ...combo('CMBTipo', [], 'MudarTipo'),
+                    styleId: CHAMADO_STYLE.lista,
+                    height: 38,
+                  },
+                  { ...combo('CMBFila'), styleId: CHAMADO_STYLE.lista, height: 38 },
+                ]),
+                label('LBLItens', ''),
+                listBox('LSTItens', 180),
+                richText('RTEInteracao', 'Descreva a interação...', 220),
+                direita('AcoesInteracao', [
+                  botaoChamado(
+                    'BTNFecharInteracao',
+                    'Cancelar',
+                    'FecharInteracao',
+                    'close',
+                    CHAMADO_STYLE.botaoPerigo,
+                    112,
+                    38,
+                  ),
+                  botaoChamado(
+                    'BTNRegistrar',
+                    'Registrar',
+                    'Registrar',
+                    'check',
+                    CHAMADO_STYLE.botaoSucesso,
+                    112,
+                    38,
+                  ),
+                ]),
+              ],
+            },
+            html('HTMLInteracoes', 560, 'Interações do chamado'),
+          ]),
+          grupoChamado('PNLEquipamentos', [
+            listaChamado(
+              grid(
+                'GRDEquipamentos',
+                id,
+                ops.equipamentos,
+                [
+                  ['Núm. de identificação', 'num_equipamento', 220],
+                  ['Descrição', 'descricao_equipamento'],
+                  ['Lacre', 'tag_equipamento', 160],
+                  ['Status', 'status_equipamento_chamado', 160],
+                ],
+                { height: 360, onCell: 'AbrirEquipamento', empty: 'Vazio' },
+              ),
+            ),
+            texto('LBLTermos', 'Termos de entrega', CHAMADO_STYLE.secao, undefined, 28),
+            listaChamado(
+              grid(
+                'GRDTermos',
+                id,
+                ops.termos,
+                [
+                  ['#', 'id_termo', 90],
+                  ['Arquivo', 'nome_termo'],
+                  ['Tipo', 'tipo_termo', 140],
+                  ['Data', 'data_termo', 170],
+                ],
+                { height: 200, empty: 'Nenhum termo.' },
+              ),
+            ),
+          ]),
+          grupoChamado('PNLInfraestrutura', [
+            listaChamado(
+              grid(
+                'GRDServicos',
+                id,
+                ops.servicos,
+                [
+                  ['Nome do Serviço', 'nome_servico'],
+                  ['Quantidade', 'quantidade', 130],
+                  ['Unidade de medida', 'unidade_medida', 170],
+                  ['Status', 'status_servico', 170],
+                ],
+                { height: 320, empty: 'Vazio' },
+              ),
+            ),
+          ]),
+          grupoChamado('PNLHistorico', [html('HTMLHistorico', 560, 'Histórico do chamado')]),
+        ],
+      },
+      {
+        type: 'WebPopup',
+        name: 'POPLocal',
+        width: 640,
+        height: 480,
+        props: { modal: true },
+        styleId: CHAMADO_STYLE.janela,
+        item: { height: 'fit-content' },
+        container: {
+          mode: 'column',
+          gap: 12,
+          paddingTop: 16,
+          paddingRight: 16,
+          paddingBottom: 16,
+          paddingLeft: 16,
+        },
+        children: [
+          texto('LBLLocalNome', '', CHAMADO_STYLE.secao, undefined, 28),
+          texto('LBLLocalEndereco', '', CHAMADO_STYLE.rotulo),
+          listaChamado(
+            grid(
+              'GRDTelefones',
+              id,
+              ops.telefones,
+              [
+                ['Setor', 'setor'],
+                ['Telefone', 'telefone', 180],
+              ],
+              { height: 240, empty: 'Nenhum telefone cadastrado.' },
+            ),
+          ),
+          direita('GRPFecharLocal', [
+            botaoChamado(
+              'BTNAbrirLocal',
+              'Abrir local',
+              'AbrirLocal',
+              'external-link',
+              CHAMADO_STYLE.botaoPrimario,
+              140,
+              38,
+            ),
+            {
+              ...botaoChamado(
+                'BTNFecharLocal',
+                'Fechar',
+                'FecharEndereco',
+                'close',
+                CHAMADO_STYLE.botaoPrimario,
+                110,
+                38,
+              ),
+              styleId: CHAMADO_STYLE.botaoSecundarioSm,
+            },
+          ]),
+        ],
+      },
       apiClient('Api', id, Object.values(ops)),
     ],
   };
@@ -2500,7 +3294,7 @@ export function buildSigat2Project(): {
   const index = base.pages.find((page) => page.id === base.entryPage);
   const notFound = base.pages.find((page) => page.name === '404');
   if (!index || !notFound) throw new Error('The mandatory index and 404 pages are missing.');
-  const styles = [...base.styles, ...loginStyles(), ...sigatStyles()];
+  const styles = [...base.styles, ...loginStyles(), ...sigatStyles(), ...chamadoStyles()];
   const version = base.settings.nativeApplication.version;
   const specs = [
     painelPage(),
@@ -2552,6 +3346,13 @@ export function buildSigat2Project(): {
         mediaType: 'image/svg+xml',
         base64: Buffer.from(SIGAT_LOGO_SVG, 'utf8').toString('base64'),
       },
+      // Letterhead of the printed reports (libraries/Pdf_html.php in SIGAT).
+      ...['logo-pms.png', 'logo-cgti-preto.png'].map((fileName) => ({
+        id: 'sigat2-asset-' + fileName.replace('.png', ''),
+        fileName,
+        mediaType: 'image/png',
+        base64: readFileSync(path.join('scripts', 'sigat2', 'assets', fileName)).toString('base64'),
+      })),
     ],
     pages: [...pages, compose(notFound, styles, naoEncontradaPage(), version)],
   });

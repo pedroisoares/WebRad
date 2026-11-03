@@ -2294,6 +2294,14 @@ const webTabs: ComponentDefinition = {
   visual: true,
   styleEditor: {
     ...checkBoxStyleEditor,
+    essentialProperties: [
+      ...checkBoxStyleEditor.essentialProperties,
+      'tabSelectedTextColor',
+      'tabSelectedBackgroundColor',
+      'tabBorderColor',
+      'tabBadgeColor',
+      'tabIdleOpacity',
+    ],
     previewProps: { tabs: ['General', 'History'], selectedIndex: 0 },
   },
   canHaveChildren: false,
@@ -2302,6 +2310,8 @@ const webTabs: ComponentDefinition = {
   defaults: {
     tabs: ['Tab 1', 'Tab 2'],
     panels: [],
+    icons: [],
+    badges: [],
     selectedIndex: 0,
     visible: true,
     collapseWhenHidden: true,
@@ -2327,6 +2337,26 @@ const webTabs: ComponentDefinition = {
       defaultValue: [],
       description:
         'Name of the component (usually a Panel) shown by each tab, in the same order; the others are hidden.',
+    },
+    {
+      name: 'icons',
+      label: 'Icons',
+      type: 'string-list',
+      category: 'Appearance',
+      source: 'props',
+      defaultValue: [],
+      description:
+        'Lucide icon shown before each tab caption, in the same order (for example info or history); leave a line empty for no icon.',
+    },
+    {
+      name: 'badges',
+      label: 'Badges',
+      type: 'string-list',
+      category: 'Appearance',
+      source: 'props',
+      defaultValue: [],
+      description:
+        'Short text shown in a badge after each tab caption, in the same order (for example a count); leave a line empty to hide it.',
     },
     {
       name: 'selectedIndex',

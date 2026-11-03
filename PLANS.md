@@ -1,5 +1,20 @@
 # WebRAD delivery plan
 
+## SIGAT2 Chamado page and WebTabs icons: 2026-11-03
+
+The SIGAT2 Chamado page now follows SIGAT's `ver_chamado.php`: breadcrumb, header
+with print and detailed report, Prioridade and Bloquear, and the seven tabs
+(Informações, Comunicação, Reparos, Interações, Equipamentos, Infraestrutura,
+Histórico). Informações has an edit mode backed by the HexAPI composite operation
+`chamado-alterar`. WebTabs gained per-tab **Icons** (Lucide names) and **Badges**
+(text shown in a pill, empty hides it), plus the style properties Selected tab
+text, Selected tab background, Tab border, Badge colour and Idle tab opacity.
+The printed reports carry the SIGAT letterhead (assets `logo-pms.png` and
+`logo-cgti-preto.png`) and the detailed report follows the production PDF.
+Checked against a local HexAPI with the production dump: every tab, edit mode and
+a save. Pending, waiting on HexAPI writes: Enviar e-mail, Desfazer interação and
+the BGInfo block of the detailed report.
+
 ## SIGAT2 example generator: 2026-11-02
 
 Added `examples/sigat2`, the first phase of the SIGAT → SIGAT2 migration: 13

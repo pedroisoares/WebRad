@@ -681,6 +681,8 @@ runtimeComponentRegistry
     createComponent: (element) => new WebTabs(element),
     applyProperties: (component, node) => {
       applyCommon(component, node);
+      component.icons = readStringListProperty(node, 'icons');
+      component.badges = readStringListProperty(node, 'badges');
       component.tabs = readStringListProperty(node, 'tabs');
       component.panels = readStringListProperty(node, 'panels');
       component.selectedIndex = readIntegerProperty(node, 'selectedIndex') ?? 0;

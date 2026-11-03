@@ -28,6 +28,18 @@ public AbaAlterada(_sender: WebTabs, event: CustomEvent<WebTabChangeEventDetail>
 
 `OnChange` fires only when the user changes the tab.
 
+**Icons** puts a Lucide icon before each caption (for example `info`,
+`history`) and **Badges** puts a short text after it, such as a count of new
+messages. Both follow the tab order; an empty line means no icon or no badge.
+Change the badges from code when the count changes:
+
+```ts
+this.Abas.badges = ['', String(naoLidos > 0 ? naoLidos : '')];
+```
+
+The Tabs style also sets the selected tab's text and background colours, the
+border colour, the badge colour, and the opacity of the unselected tabs.
+
 ## Radio Group
 
 `WebRadioGroup` is a `fieldset` of native radio buttons with an optional

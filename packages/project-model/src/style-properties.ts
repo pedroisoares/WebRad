@@ -585,6 +585,28 @@ export const COMPONENT_STYLE_PROPERTY_DEFINITIONS: readonly ComponentStyleProper
     componentTypes: ['WebToggle', 'WebDataGrid'],
     defaultValue: '#ffffff',
   }),
+  colorProperty('tabSelectedTextColor', 'Selected tab text color', 'Colors', {
+    componentTypes: ['WebTabs'],
+    defaultValue: 'current',
+  }),
+  colorProperty('tabSelectedBackgroundColor', 'Selected tab background', 'Colors', {
+    componentTypes: ['WebTabs'],
+    defaultValue: '#ffffff',
+  }),
+  colorProperty('tabBorderColor', 'Tab border color', 'Border', {
+    componentTypes: ['WebTabs'],
+    defaultValue: '#cbd5e1',
+  }),
+  colorProperty('tabBadgeColor', 'Badge color', 'Colors', {
+    componentTypes: ['WebTabs'],
+    defaultValue: '#007bff',
+  }),
+  {
+    ...numberProperty('tabIdleOpacity', 'Unselected tab opacity', 'Effects', 0, 100, 1, '%'),
+    defaultValue: 75,
+    componentTypes: ['WebTabs'],
+    description: 'Opacity of the tabs that are not selected; the selected tab is always opaque.',
+  },
   colorProperty('progressColor', 'Progress color', 'Colors', {
     componentTypes: ['WebProgressBar'],
     defaultValue: '#2563eb',

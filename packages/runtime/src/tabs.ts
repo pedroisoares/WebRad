@@ -1,4 +1,5 @@
 import { WebComponent, type WebComponentEventHandler } from './component.js';
+import { createLucideIconElement, isLucideIconName } from './icon.js';
 
 export interface WebTabChangeEventDetail {
   readonly index: number;
@@ -13,6 +14,8 @@ const SCOPE_SELECTOR = '[data-webrad-reusable-instance="true"], [data-webrad-pag
 interface TabsState {
   captions: readonly string[];
   panels: readonly string[];
+  icons: readonly string[];
+  badges: readonly string[];
   selectedIndex: number;
   retryScheduled: boolean;
 }
@@ -41,7 +44,14 @@ export class WebTabs extends WebComponent<HTMLDivElement> {
       this.#state = existing;
       return;
     }
-    this.#state = { captions: [], panels: [], selectedIndex: 0, retryScheduled: false };
+    this.#state = {
+      captions: [],
+      panels: [],
+      icons: [],
+      badges: [],
+      selectedIndex: 0,
+      retryScheduled: false,
+    };
     tabsStates.set(element, this.#state);
     element.setAttribute('role', 'tablist');
     element.addEventListener('keydown', (event) => this.#onKeyDown(event));
@@ -65,6 +75,26 @@ export class WebTabs extends WebComponent<HTMLDivElement> {
   public set panels(value: readonly string[]) {
     this.#state.panels = [...value];
     this.#apply();
+  }
+
+  /** Lucide icon shown before each tab caption, by position; '' or an unknown name for none. */
+  public get icons(): readonly string[] {
+    return this.#state.icons;
+  }
+
+  public set icons(value: readonly string[]) {
+    this.#state.icons = [...value];
+    this.#render();
+  }
+
+  /** Short text shown in a badge after each tab caption (a count, for example); '' hides it. */
+  public get badges(): readonly string[] {
+    return this.#state.badges;
+  }
+
+  public set badges(value: readonly string[]) {
+    this.#state.badges = [...value];
+    this.#render();
   }
 
   public get selectedIndex(): number {
@@ -126,7 +156,23 @@ export class WebTabs extends WebComponent<HTMLDivElement> {
       button.type = 'button';
       button.className = 'wr-tab';
       button.setAttribute('role', 'tab');
-      button.textContent = caption;
+      const icon = this.#state.icons[index] ?? '';
+      if (isLucideIconName(icon)) {
+        const graphic = createLucideIconElement(document, icon);
+        graphic.classList.add('wr-tab-icon');
+        button.append(graphic);
+      }
+      const text = document.createElement('span');
+      text.className = 'wr-tab-caption';
+      text.textContent = caption;
+      button.append(text);
+      const badge = this.#state.badges[index] ?? '';
+      if (badge.length > 0) {
+        const mark = document.createElement('span');
+        mark.className = 'wr-tab-badge';
+        mark.textContent = badge;
+        button.append(mark);
+      }
       button.dataset.webradTabIndex = String(index);
       button.addEventListener('click', () => this.#select(index, true));
       return button;

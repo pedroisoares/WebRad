@@ -1,5 +1,5 @@
 import { projectProgressBar } from '@webrad/runtime/progress-bar';
-import { projectIcon } from '@webrad/runtime/icon';
+import { isLucideIconName, projectIcon } from '@webrad/runtime/icon';
 import { LucideGraphic } from './lucide-graphic.js';
 import { MenuView } from './menu-view.js';
 import { ProgressBarGraphic } from './progress-bar-graphic.js';
@@ -704,6 +704,8 @@ const renderers: Readonly<Record<string, ComponentRenderer>> = Object.freeze({
   ),
   WebTabs: ({ node, designTime, styleClassName }) => {
     const tabs = readStringListProperty(node, 'tabs');
+    const icons = readStringListProperty(node, 'icons');
+    const badges = readStringListProperty(node, 'badges');
     const selectedIndex = readIntegerProperty(node, 'selectedIndex', 0);
     return (
       <div {...sharedAttributes(node, designTime, styleClassName)} role="tablist">
@@ -716,7 +718,17 @@ const renderers: Readonly<Record<string, ComponentRenderer>> = Object.freeze({
             tabIndex={designTime ? -1 : index === selectedIndex ? 0 : -1}
             type="button"
           >
-            {caption}
+            {isLucideIconName(icons[index]) ? (
+              <LucideGraphic
+                className="wr-icon-graphic wr-tab-icon"
+                icon={icons[index]}
+                strokeWidth={2}
+              />
+            ) : null}
+            <span className="wr-tab-caption">{caption}</span>
+            {(badges[index] ?? '').length > 0 ? (
+              <span className="wr-tab-badge">{badges[index]}</span>
+            ) : null}
           </button>
         ))}
       </div>
