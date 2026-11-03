@@ -910,6 +910,260 @@
           "textColor": "var(--wr-theme-disabled-text)"
         }
       }
+    },
+    {
+      "id": "sigat2-login-pagina",
+      "name": "Login Pagina",
+      "componentType": "WebPage",
+      "states": {
+        "base": {
+          "backgroundColor": "#ffffff",
+          "fontFamily": "ide",
+          "textColor": "#212529"
+        },
+        "hover": {},
+        "focus": {},
+        "active": {},
+        "disabled": {}
+      }
+    },
+    {
+      "id": "sigat2-login-cartao",
+      "name": "Login Cartao",
+      "componentType": "WebPanel",
+      "states": {
+        "base": {
+          "backgroundColor": "#ffffff",
+          "borderColor": "#dfdfdf",
+          "borderRadius": {
+            "value": 4,
+            "unit": "px"
+          },
+          "borderStyle": "solid",
+          "borderWidth": {
+            "value": 1,
+            "unit": "px"
+          },
+          "boxShadow": "none",
+          "fontFamily": "ide"
+        },
+        "hover": {},
+        "focus": {},
+        "active": {},
+        "disabled": {}
+      }
+    },
+    {
+      "id": "sigat2-login-logo",
+      "name": "Login Logo",
+      "componentType": "WebImage",
+      "states": {
+        "base": {
+          "borderStyle": "none",
+          "borderWidth": {
+            "value": 0,
+            "unit": "px"
+          },
+          "objectFit": "contain",
+          "objectPosition": "center"
+        },
+        "hover": {},
+        "focus": {},
+        "active": {},
+        "disabled": {}
+      }
+    },
+    {
+      "id": "sigat2-login-titulo",
+      "name": "Login Titulo",
+      "componentType": "WebLabel",
+      "states": {
+        "base": {
+          "justifyContent": "center",
+          "fontFamily": "ide",
+          "fontSize": {
+            "value": 40,
+            "unit": "px"
+          },
+          "fontWeight": "medium",
+          "lineHeight": {
+            "value": 48,
+            "unit": "px"
+          },
+          "textAlign": "center",
+          "textColor": "#212529"
+        },
+        "hover": {},
+        "focus": {},
+        "active": {},
+        "disabled": {}
+      }
+    },
+    {
+      "id": "sigat2-login-campo",
+      "name": "Login Campo",
+      "componentType": "WebEdit",
+      "states": {
+        "base": {
+          "paddingRight": {
+            "value": 12,
+            "unit": "px"
+          },
+          "paddingLeft": {
+            "value": 12,
+            "unit": "px"
+          },
+          "backgroundColor": "#ffffff",
+          "borderColor": "#ced4da",
+          "borderRadius": {
+            "value": 4,
+            "unit": "px"
+          },
+          "borderStyle": "solid",
+          "borderWidth": {
+            "value": 1,
+            "unit": "px"
+          },
+          "boxShadow": "none",
+          "fontFamily": "ide",
+          "fontSize": {
+            "value": 16,
+            "unit": "px"
+          },
+          "textColor": "#495057",
+          "transitionDuration": 150,
+          "transitionProperty": "all",
+          "transitionTimingFunction": "easeOut"
+        },
+        "hover": {},
+        "focus": {
+          "borderColor": "#80bdff",
+          "ringColor": "#bfdeff",
+          "ringOffsetWidth": {
+            "value": 0,
+            "unit": "px"
+          },
+          "ringWidth": {
+            "value": 3,
+            "unit": "px"
+          }
+        },
+        "active": {},
+        "disabled": {
+          "backgroundColor": "#e9ecef",
+          "cursor": "not-allowed"
+        }
+      }
+    },
+    {
+      "id": "sigat2-login-botao",
+      "name": "Login Botao",
+      "componentType": "WebButton",
+      "states": {
+        "base": {
+          "justifyContent": "center",
+          "backgroundColor": "#007bff",
+          "borderColor": "#007bff",
+          "borderRadius": {
+            "value": 4,
+            "unit": "px"
+          },
+          "borderStyle": "solid",
+          "borderWidth": {
+            "value": 1,
+            "unit": "px"
+          },
+          "boxShadow": "none",
+          "buttonContentMode": "text",
+          "cursor": "pointer",
+          "fontFamily": "ide",
+          "fontSize": {
+            "value": 16,
+            "unit": "px"
+          },
+          "fontWeight": "normal",
+          "textAlign": "center",
+          "textColor": "#ffffff",
+          "transitionDuration": 150,
+          "transitionProperty": "all",
+          "transitionTimingFunction": "easeOut"
+        },
+        "hover": {
+          "backgroundColor": "#0069d9",
+          "borderColor": "#0062cc"
+        },
+        "focus": {
+          "ringColor": "#80bdff",
+          "ringOffsetWidth": {
+            "value": 0,
+            "unit": "px"
+          },
+          "ringWidth": {
+            "value": 3,
+            "unit": "px"
+          }
+        },
+        "active": {
+          "backgroundColor": "#0062cc",
+          "borderColor": "#005cbf"
+        },
+        "disabled": {
+          "cursor": "not-allowed",
+          "opacity": 65
+        }
+      }
+    },
+    {
+      "id": "sigat2-login-mensagem",
+      "name": "Login Mensagem",
+      "componentType": "WebLabel",
+      "states": {
+        "base": {
+          "justifyContent": "center",
+          "fontFamily": "ide",
+          "fontSize": {
+            "value": 14,
+            "unit": "px"
+          },
+          "fontWeight": "normal",
+          "lineHeight": {
+            "value": 20,
+            "unit": "px"
+          },
+          "textAlign": "center",
+          "textColor": "#dc3545"
+        },
+        "hover": {},
+        "focus": {},
+        "active": {},
+        "disabled": {}
+      }
+    },
+    {
+      "id": "sigat2-login-rodape",
+      "name": "Login Rodape",
+      "componentType": "WebLabel",
+      "states": {
+        "base": {
+          "justifyContent": "end",
+          "fontFamily": "ide",
+          "fontSize": {
+            "value": 13,
+            "unit": "px"
+          },
+          "fontWeight": "normal",
+          "lineHeight": {
+            "value": 18,
+            "unit": "px"
+          },
+          "textAlign": "right",
+          "textColor": "#212529"
+        },
+        "hover": {},
+        "focus": {},
+        "active": {},
+        "disabled": {}
+      }
     }
   ],
   "settings": {
@@ -1168,7 +1422,14 @@
     "routingBasePath": "/",
     "routingMode": "history"
   },
-  "assets": [],
+  "assets": [
+    {
+      "id": "sigat2-asset-logo",
+      "fileName": "sigat-logo.svg",
+      "mediaType": "image/svg+xml",
+      "base64": "PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjQgNiAxMzIgMTI4IiByb2xlPSJpbWciIGFyaWEtbGFiZWw9IlNJR0FUIj4KICA8ZGVmcz4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0ic2lnYXQtbG9nby1jb3IiIHgxPSIwLjE1IiB5MT0iMC45IiB4Mj0iMC45NSIgeTI9IjAuMTUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiMxYzFjZTYiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIwLjUiIHN0b3AtY29sb3I9IiMyMjMzZWUiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIwLjcyIiBzdG9wLWNvbG9yPSIjMmE3ZmQ4Ii8+CiAgICAgIDxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzRmZTAzYSIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICA8L2RlZnM+CiAgPHBvbHlnb24gcG9pbnRzPSIxMjEuMDAsNzAuMDAgOTguNTgsODYuNTAgOTUuNTAsMTE0LjE3IDcwLjAwLDEwMy4wMCA0NC41MCwxMTQuMTcgNDEuNDIsODYuNTAgMTkuMDAsNzAuMDAgNDEuNDIsNTMuNTAgNDQuNTAsMjUuODMgNzAuMDAsMzcuMDAgOTUuNTAsMjUuODMgOTguNTgsNTMuNTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzFhMWQ0YSIgc3Ryb2tlLW9wYWNpdHk9IjAuNyIgc3Ryb2tlLXdpZHRoPSIxOCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPgogIDxwb2x5Z29uIHBvaW50cz0iMTIxLjAwLDcwLjAwIDk4LjU4LDg2LjUwIDk1LjUwLDExNC4xNyA3MC4wMCwxMDMuMDAgNDQuNTAsMTE0LjE3IDQxLjQyLDg2LjUwIDE5LjAwLDcwLjAwIDQxLjQyLDUzLjUwIDQ0LjUwLDI1LjgzIDcwLjAwLDM3LjAwIDk1LjUwLDI1LjgzIDk4LjU4LDUzLjUwIiBmaWxsPSJub25lIiBzdHJva2U9InVybCgjc2lnYXQtbG9nby1jb3IpIiBzdHJva2Utd2lkdGg9IjE1IiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+Cjwvc3ZnPgo="
+    }
+  ],
   "sourceFiles": [
     {
       "id": "31fa5f87-1ff0-44d0-a4db-c113d0ff7633",

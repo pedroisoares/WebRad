@@ -5,6 +5,8 @@ import {
   type WebApiClientInstance,
   WebButton,
   WebEdit,
+  WebGroup,
+  WebImage,
   WebLabel,
   WebPage,
   WebPanel,
@@ -12,12 +14,14 @@ import {
 
 export abstract class LoginGenerated extends WebPage {
   public readonly PNLLogin: WebPanel;
+  public readonly GRPFormulario: WebGroup;
+  public readonly IMGLogo: WebImage;
   public readonly LBLTitulo: WebLabel;
-  public readonly LBLSubtitulo: WebLabel;
   public readonly EDTLogin: WebEdit;
   public readonly EDTSenha: WebEdit;
   public readonly BTNEntrar: WebButton;
   public readonly LBLMensagem: WebLabel;
+  public readonly LBLRodape: WebLabel;
   public readonly ApiSessao: WebApiClientInstance<
     ApiSessaoApiOutputs,
     ApiSessaoApiInputs,
@@ -29,22 +33,24 @@ export abstract class LoginGenerated extends WebPage {
     this.PNLLogin = new WebPanel(
       this.requireComponentElement('d5b1c630-ad5f-4593-a4c5-53e4118f4725'),
     );
+    this.GRPFormulario = new WebGroup(this.requireComponentElement('sigat2-login-formulario'));
+    this.IMGLogo = new WebImage(this.requireComponentElement('sigat2-login-logo'));
     this.LBLTitulo = new WebLabel(
       this.requireComponentElement('2f34111e-f6d8-48e5-90d0-5e1d8b2fcb48'),
     );
-    this.LBLSubtitulo = new WebLabel(
+    this.EDTLogin = new WebEdit(
       this.requireComponentElement('5431a13d-a6b7-4c3d-93ad-02160503e9e6'),
     );
-    this.EDTLogin = new WebEdit(
+    this.EDTSenha = new WebEdit(
       this.requireComponentElement('a9cf1888-be83-4232-a011-a0582ec152cb'),
     );
-    this.EDTSenha = new WebEdit(
+    this.BTNEntrar = new WebButton(
       this.requireComponentElement('f7d3a8d9-cd33-464e-883f-8d70ea74ce14'),
     );
-    this.BTNEntrar = new WebButton(
+    this.LBLMensagem = new WebLabel(
       this.requireComponentElement('2c1f9d6c-bc71-4a19-87fc-52f2cf645dda'),
     );
-    this.LBLMensagem = new WebLabel(
+    this.LBLRodape = new WebLabel(
       this.requireComponentElement('881d28a9-196d-42c5-8f64-3dce8ce1d46b'),
     );
     this.ApiSessao = new WebApiClient<
