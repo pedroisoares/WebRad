@@ -61,110 +61,110 @@ export abstract class EquipamentoGenerated extends WebPage {
   public constructor(element: HTMLElement) {
     super(element);
     this.Cabecalho = new WebGroup(
-      this.requireComponentElement('02e1b012-81b9-4c12-9f14-bc18ea92e272'),
-    );
-    this.GRPMarca = new WebGroup(
-      this.requireComponentElement('e7129493-9e5d-4bdc-9d99-e73803ed25d0'),
-    );
-    this.IMGMarca = new WebImage(
-      this.requireComponentElement('ff4452c8-c237-45e0-b7c2-12921c85c5ed'),
-    );
-    this.LBLMarca = new WebLabel(
-      this.requireComponentElement('b0771027-5c8d-4b8a-94a4-cc263f7a87f2'),
-    );
-    this.GRPBusca = new WebGroup(
-      this.requireComponentElement('e1cefdbc-4996-4ef9-ba97-4a16a85cf950'),
-    );
-    this.EDTBuscaRapida = new WebEdit(
-      this.requireComponentElement('ab805ddb-147b-4713-9e1c-687c1f5b7666'),
-    );
-    this.BTNBuscar = new WebButton(
-      this.requireComponentElement('21a05f1c-0dea-4e66-954f-d597afb917b4'),
-    );
-    this.GRPUsuario = new WebGroup(
-      this.requireComponentElement('408c2e09-0b10-41c3-a13d-b080f41ce3cd'),
-    );
-    this.LBLOla = new WebLabel(
-      this.requireComponentElement('096dddac-a06b-4074-9d88-abdc5362837c'),
-    );
-    this.LBLUsuario = new WebLabel(
-      this.requireComponentElement('af596c04-5bc9-46cd-acb2-b899ee59ab42'),
-    );
-    this.BTNBloqueados = new WebButton(
-      this.requireComponentElement('0d620b34-94d8-4b04-827f-d83b7d9374a9'),
-    );
-    this.BTNPainel = new WebButton(
-      this.requireComponentElement('23cd3de5-5663-499c-8f48-ce615248fc21'),
-    );
-    this.BTNInserviveis = new WebButton(
-      this.requireComponentElement('f781d4b2-8fd9-4cb0-8263-108afe7d484d'),
-    );
-    this.BTNAdmin = new WebButton(
-      this.requireComponentElement('1ea71d19-d33e-4293-bdcd-edfbbb661ec9'),
-    );
-    this.BTNSair = new WebButton(
-      this.requireComponentElement('392e7819-adef-4088-9517-28e00b4ed8fb'),
-    );
-    this.Conteudo = new WebGroup(
-      this.requireComponentElement('9ed5744e-dbe8-4fd1-97df-35f5f100ec09'),
-    );
-    this.LBLEquipamento = new WebLabel(
-      this.requireComponentElement('74be87b4-b329-4360-9c19-9c653f51d61e'),
-    );
-    this.PNLDados = new WebPanel(
-      this.requireComponentElement('a5332c54-e36d-4d9f-a1d7-32cb24d86a89'),
-    );
-    this.Dados = new WebGroup(this.requireComponentElement('a3b403f5-9650-4c85-9d35-e84660d9336a'));
-    this.DadosDescricao = new WebGroup(
-      this.requireComponentElement('016d0016-3e6b-49c1-9e24-7381db81c935'),
-    );
-    this.LBLDescricao = new WebLabel(
-      this.requireComponentElement('301b8654-c4bd-4a0a-8799-5d90e96acc0b'),
-    );
-    this.Descricao = new WebLabel(
-      this.requireComponentElement('484aabc6-91f3-4633-82c7-7144688d067f'),
-    );
-    this.DadosEtiqueta = new WebGroup(
-      this.requireComponentElement('32e552a3-1e8a-4699-986a-bb28ad27fceb'),
-    );
-    this.LBLEtiqueta = new WebLabel(
-      this.requireComponentElement('99dbc0c3-8404-4cbd-87be-8a5719473104'),
-    );
-    this.Etiqueta = new WebLabel(
-      this.requireComponentElement('a2ab78d9-8c63-435a-b4e5-f678528a8ea4'),
-    );
-    this.DadosCadastro = new WebGroup(
-      this.requireComponentElement('77251ac3-7e87-4785-82a3-66be9df52d3d'),
-    );
-    this.LBLCadastro = new WebLabel(
-      this.requireComponentElement('50f504a0-8ba2-4767-b26b-18cf9ffd22f0'),
-    );
-    this.Cadastro = new WebLabel(
-      this.requireComponentElement('2aedebc1-fdbc-41a8-8f3e-e5533f84bc0a'),
-    );
-    this.DadosAlteracao = new WebGroup(
       this.requireComponentElement('21945891-a2df-4d27-a87a-b6e6daf65894'),
     );
-    this.LBLAlteracao = new WebLabel(
+    this.GRPMarca = new WebGroup(
       this.requireComponentElement('b14be180-1c9f-4705-a65a-2c4f68df3e9e'),
     );
-    this.Alteracao = new WebLabel(
+    this.IMGMarca = new WebImage(
       this.requireComponentElement('dfd6a582-f7df-483b-afe4-c5fdbdfcd4c0'),
     );
-    this.PNLChamados = new WebPanel(
+    this.LBLMarca = new WebLabel(
       this.requireComponentElement('2a472932-79b5-4d4f-9e21-0c337b24b609'),
     );
-    this.Filtro = new WebGroup(
+    this.GRPBusca = new WebGroup(
       this.requireComponentElement('f9289c15-cd8c-48e2-9e16-b59552a99227'),
     );
-    this.TGLAtendidos = new WebToggle(
+    this.EDTBuscaRapida = new WebEdit(
       this.requireComponentElement('8a4665f2-d11e-4b91-b008-96b0d3854a5b'),
     );
-    this.LBLAtendidos = new WebLabel(
+    this.BTNBuscar = new WebButton(
       this.requireComponentElement('2e1362d4-2b1c-4d93-974f-7de15727fe80'),
     );
-    this.GRDChamados = new WebDataGrid(
+    this.GRPUsuario = new WebGroup(
       this.requireComponentElement('d68d20ee-cdec-4d25-a4db-4fa3ad681a2a'),
+    );
+    this.LBLOla = new WebLabel(
+      this.requireComponentElement('24d21901-ab71-4506-8bcd-25b58da931cc'),
+    );
+    this.LBLUsuario = new WebLabel(
+      this.requireComponentElement('d60b47e6-bcf1-425c-8d3b-9a920dbf92bb'),
+    );
+    this.BTNBloqueados = new WebButton(
+      this.requireComponentElement('81c149a4-0d98-42ad-8714-3a491316d644'),
+    );
+    this.BTNPainel = new WebButton(
+      this.requireComponentElement('6b95093c-32ea-416d-97f6-3522dbd62012'),
+    );
+    this.BTNInserviveis = new WebButton(
+      this.requireComponentElement('7f31c69a-931a-4e66-9c08-d469776cb15c'),
+    );
+    this.BTNAdmin = new WebButton(
+      this.requireComponentElement('db863eb8-c72c-45e5-ad42-53bd9547384e'),
+    );
+    this.BTNSair = new WebButton(
+      this.requireComponentElement('19da069f-86f0-49bc-9c47-dd9e7f1ccce1'),
+    );
+    this.Conteudo = new WebGroup(
+      this.requireComponentElement('4dff6488-eee2-4eaf-96af-93f103104225'),
+    );
+    this.LBLEquipamento = new WebLabel(
+      this.requireComponentElement('94d3188d-2fc8-434e-97c5-af4f814ad591'),
+    );
+    this.PNLDados = new WebPanel(
+      this.requireComponentElement('b0d096aa-a9aa-4ff1-84d8-4202f1b58097'),
+    );
+    this.Dados = new WebGroup(this.requireComponentElement('e4e23775-5535-4a95-9e40-a8859411198e'));
+    this.DadosDescricao = new WebGroup(
+      this.requireComponentElement('405903d4-bfdd-473e-aa9c-3a7a5ffa0d40'),
+    );
+    this.LBLDescricao = new WebLabel(
+      this.requireComponentElement('019be645-be30-45f4-ab2c-d71b36e8b858'),
+    );
+    this.Descricao = new WebLabel(
+      this.requireComponentElement('92d50b5c-479a-4040-a7ae-e72f0be58c8b'),
+    );
+    this.DadosEtiqueta = new WebGroup(
+      this.requireComponentElement('c69ea8e8-7a22-4126-83a8-ca2d6be6ee08'),
+    );
+    this.LBLEtiqueta = new WebLabel(
+      this.requireComponentElement('2e0ef306-c042-479f-95be-70cc1bcb5e2a'),
+    );
+    this.Etiqueta = new WebLabel(
+      this.requireComponentElement('264a1c5a-a7fa-48a4-851a-5116d352ac45'),
+    );
+    this.DadosCadastro = new WebGroup(
+      this.requireComponentElement('5a60e34b-e15c-4f9e-b872-f6012a2ece74'),
+    );
+    this.LBLCadastro = new WebLabel(
+      this.requireComponentElement('0b5d5067-23ba-4b65-9a36-4db353ae1aef'),
+    );
+    this.Cadastro = new WebLabel(
+      this.requireComponentElement('53b73e28-1432-4927-b73f-7d08d365674d'),
+    );
+    this.DadosAlteracao = new WebGroup(
+      this.requireComponentElement('40ffe070-41c4-481f-812f-231612a0f409'),
+    );
+    this.LBLAlteracao = new WebLabel(
+      this.requireComponentElement('4993e98d-8dae-4b82-a0fe-e7ddbd3c11f5'),
+    );
+    this.Alteracao = new WebLabel(
+      this.requireComponentElement('638a099d-7859-47b5-9a39-b259187aa4ca'),
+    );
+    this.PNLChamados = new WebPanel(
+      this.requireComponentElement('8fe2c759-a6da-48bc-ba0a-61b14c133881'),
+    );
+    this.Filtro = new WebGroup(
+      this.requireComponentElement('d7676a1a-7a40-49ab-be98-2c4601828ba1'),
+    );
+    this.TGLAtendidos = new WebToggle(
+      this.requireComponentElement('01c9fe40-b683-4244-a1c5-0f9ba6009f9e'),
+    );
+    this.LBLAtendidos = new WebLabel(
+      this.requireComponentElement('92fc7271-97e1-4234-b32e-6fe3a91ffb0c'),
+    );
+    this.GRDChamados = new WebDataGrid(
+      this.requireComponentElement('2a792919-85b8-434e-9444-f8ace5bd62f8'),
     );
     this.GRDChamados.dataGridConfig = {
       schemaVersion: 2,
@@ -641,16 +641,16 @@ export abstract class EquipamentoGenerated extends WebPage {
       name: 'Api',
     }).withRequests();
     this.Rodape = new WebGroup(
-      this.requireComponentElement('24d21901-ab71-4506-8bcd-25b58da931cc'),
+      this.requireComponentElement('374a8e6c-124b-4652-a4fd-3fd3f47f8027'),
     );
     this.LBLRodapeAutorizacao = new WebLabel(
-      this.requireComponentElement('d60b47e6-bcf1-425c-8d3b-9a920dbf92bb'),
+      this.requireComponentElement('3d256c12-7df7-4f07-8399-4b67f9fa0e2f'),
     );
     this.LBLRodapeGrupo = new WebLabel(
-      this.requireComponentElement('81c149a4-0d98-42ad-8714-3a491316d644'),
+      this.requireComponentElement('3b2388f0-827a-42a0-ac56-f547080eb1f7'),
     );
     this.LBLRodapeAmbiente = new WebLabel(
-      this.requireComponentElement('6b95093c-32ea-416d-97f6-3522dbd62012'),
+      this.requireComponentElement('16594986-5b15-4861-9252-c9a5531599fd'),
     );
 
     this.GRDChamados.bindApiClient(this.Api);

@@ -48,67 +48,67 @@ export abstract class BuscaGenerated extends WebPage {
   public constructor(element: HTMLElement) {
     super(element);
     this.Cabecalho = new WebGroup(
-      this.requireComponentElement('19da069f-86f0-49bc-9c47-dd9e7f1ccce1'),
+      this.requireComponentElement('b94a8e7c-5464-4c19-b85a-8ecad04a4da7'),
     );
     this.GRPMarca = new WebGroup(
-      this.requireComponentElement('4dff6488-eee2-4eaf-96af-93f103104225'),
+      this.requireComponentElement('8a9bae07-9c52-42f4-978a-ac026f31df64'),
     );
     this.IMGMarca = new WebImage(
-      this.requireComponentElement('94d3188d-2fc8-434e-97c5-af4f814ad591'),
+      this.requireComponentElement('d112c2b9-b822-4f2a-a150-2fefab172391'),
     );
     this.LBLMarca = new WebLabel(
-      this.requireComponentElement('b0d096aa-a9aa-4ff1-84d8-4202f1b58097'),
+      this.requireComponentElement('cbab5b29-ab0b-4b89-8953-19a563365e5f'),
     );
     this.GRPBusca = new WebGroup(
-      this.requireComponentElement('e4e23775-5535-4a95-9e40-a8859411198e'),
+      this.requireComponentElement('28919a9b-b0fc-43dc-8957-d6b7c850180a'),
     );
     this.EDTBuscaRapida = new WebEdit(
-      this.requireComponentElement('405903d4-bfdd-473e-aa9c-3a7a5ffa0d40'),
+      this.requireComponentElement('6bbeeb20-1d83-46ab-8bec-3797e038a667'),
     );
     this.BTNBuscar = new WebButton(
-      this.requireComponentElement('019be645-be30-45f4-ab2c-d71b36e8b858'),
+      this.requireComponentElement('57738959-97c7-46a8-b456-fb7ba7ba42c8'),
     );
     this.GRPUsuario = new WebGroup(
-      this.requireComponentElement('92d50b5c-479a-4040-a7ae-e72f0be58c8b'),
+      this.requireComponentElement('f33a643f-bb2d-4e18-aa20-f9043eaf431b'),
     );
     this.LBLOla = new WebLabel(
-      this.requireComponentElement('c69ea8e8-7a22-4126-83a8-ca2d6be6ee08'),
+      this.requireComponentElement('7c185fc6-697f-4c9a-a608-0f8481dc8ef5'),
     );
     this.LBLUsuario = new WebLabel(
-      this.requireComponentElement('2e0ef306-c042-479f-95be-70cc1bcb5e2a'),
+      this.requireComponentElement('790da16c-ac21-4fb2-913e-4b2feaa4305c'),
     );
     this.BTNBloqueados = new WebButton(
-      this.requireComponentElement('264a1c5a-a7fa-48a4-851a-5116d352ac45'),
+      this.requireComponentElement('4b418bb2-9307-4506-abcd-d93e27355527'),
     );
     this.BTNPainel = new WebButton(
-      this.requireComponentElement('5a60e34b-e15c-4f9e-b872-f6012a2ece74'),
+      this.requireComponentElement('cc0643de-63b8-4f54-99d0-24e975efb3c2'),
     );
     this.BTNInserviveis = new WebButton(
-      this.requireComponentElement('0b5d5067-23ba-4b65-9a36-4db353ae1aef'),
+      this.requireComponentElement('fa7160c7-9219-4ff8-9f38-c403e4c0dfe9'),
     );
     this.BTNAdmin = new WebButton(
-      this.requireComponentElement('53b73e28-1432-4927-b73f-7d08d365674d'),
+      this.requireComponentElement('e2783215-03de-4106-b853-09b7243ac6cf'),
     );
     this.BTNSair = new WebButton(
-      this.requireComponentElement('40ffe070-41c4-481f-812f-231612a0f409'),
+      this.requireComponentElement('78dd52d6-c7d4-480e-9840-7df5bce091a0'),
     );
     this.Conteudo = new WebGroup(
-      this.requireComponentElement('4993e98d-8dae-4b82-a0fe-e7ddbd3c11f5'),
+      this.requireComponentElement('7420d255-2b98-47e9-953f-3d102c5cb71e'),
     );
     this.LBLBusca = new WebLabel(
-      this.requireComponentElement('638a099d-7859-47b5-9a39-b259187aa4ca'),
+      this.requireComponentElement('0d4da069-b021-41d8-8d9a-6a6a65e46689'),
     );
     this.LBLTermo = new WebLabel(
-      this.requireComponentElement('8fe2c759-a6da-48bc-ba0a-61b14c133881'),
+      this.requireComponentElement('641f8601-df3a-4833-a999-f6d461925f4e'),
     );
     this.PNLEquipamentos = new WebPanel(
-      this.requireComponentElement('d7676a1a-7a40-49ab-be98-2c4601828ba1'),
+      this.requireComponentElement('ae06155c-08af-40c9-8d62-90c3c8868cb5'),
     );
     this.LBLEquipamentos = new WebLabel(
-      this.requireComponentElement('01c9fe40-b683-4244-a1c5-0f9ba6009f9e'),
+      this.requireComponentElement('6437814d-3c2c-417b-9013-5ea9b8dfd129'),
     );
     this.GRDEquipamentos = new WebDataGrid(
-      this.requireComponentElement('92fc7271-97e1-4234-b32e-6fe3a91ffb0c'),
+      this.requireComponentElement('4d816b38-6e09-44ef-9907-2f32ac8a73f5'),
     );
     this.GRDEquipamentos.dataGridConfig = {
       schemaVersion: 2,
@@ -203,13 +203,13 @@ export abstract class BuscaGenerated extends WebPage {
       totalRowsPath: '/total',
     };
     this.PNLChamados = new WebPanel(
-      this.requireComponentElement('2a792919-85b8-434e-9444-f8ace5bd62f8'),
+      this.requireComponentElement('71cee5b5-dcba-47eb-b083-ddf8d0d0e591'),
     );
     this.LBLChamados = new WebLabel(
-      this.requireComponentElement('374a8e6c-124b-4652-a4fd-3fd3f47f8027'),
+      this.requireComponentElement('e7cff577-a302-48e3-b749-df30e283d21d'),
     );
     this.GRDChamados = new WebDataGrid(
-      this.requireComponentElement('3d256c12-7df7-4f07-8399-4b67f9fa0e2f'),
+      this.requireComponentElement('b8c3f6d6-ca82-4aab-8e15-2d87bd4a1c02'),
     );
     this.GRDChamados.dataGridConfig = {
       schemaVersion: 2,
@@ -652,16 +652,16 @@ export abstract class BuscaGenerated extends WebPage {
       name: 'Api',
     }).withRequests();
     this.Rodape = new WebGroup(
-      this.requireComponentElement('3b2388f0-827a-42a0-ac56-f547080eb1f7'),
+      this.requireComponentElement('3e56a2bd-b6ae-4ca2-b357-80a0365d9350'),
     );
     this.LBLRodapeAutorizacao = new WebLabel(
-      this.requireComponentElement('16594986-5b15-4861-9252-c9a5531599fd'),
+      this.requireComponentElement('3ea15907-aab3-4a10-8d6f-b32b93c7a616'),
     );
     this.LBLRodapeGrupo = new WebLabel(
-      this.requireComponentElement('faa579bd-3ca2-491c-a43d-79a6c0fb828d'),
+      this.requireComponentElement('5fda58de-b03e-4d60-9f76-216f5defcf53'),
     );
     this.LBLRodapeAmbiente = new WebLabel(
-      this.requireComponentElement('bf4a05d8-6f52-4b10-a389-85d843f5b341'),
+      this.requireComponentElement('81ba0283-4b2f-4017-bc78-16fbf8d0c74b'),
     );
 
     this.GRDEquipamentos.bindApiClient(this.Api);

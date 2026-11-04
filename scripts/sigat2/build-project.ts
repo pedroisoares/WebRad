@@ -634,6 +634,10 @@ interface ColumnOptions {
   readonly minWidth?: number;
   readonly computed?: boolean;
   readonly align?: 'start' | 'center' | 'end';
+  /** A read-only checkbox showing a 0/1 field, as the SIGAT "Ativo?" columns. */
+  readonly checkbox?: boolean;
+  /** An unbound icon button in every row, such as the pencil that opens the edit form. */
+  readonly button?: WebRadIconName;
 }
 
 type Column = readonly [header: string, field: string, width?: number, options?: ColumnOptions];
@@ -654,7 +658,7 @@ function grid(
   const column = base.columns[0];
   if (!column) throw new Error('Default Data Grid column is missing.');
   for (const [, field, , extra] of columns)
-    if (extra?.computed !== true && !(field in operation.fields))
+    if (extra?.computed !== true && extra?.button === undefined && !(field in operation.fields))
       throw new Error(`${name}: field ${field} is not returned by ${operation.endpoint}.`);
   return {
     type: 'WebDataGrid',
@@ -678,12 +682,21 @@ function grid(
           ...column,
           id: defaultIdFactory(),
           header: headerText,
-          fieldPath: '/' + field,
+          fieldPath: extra?.button === undefined ? '/' + field : '',
           ...(width === undefined
             ? { widthMode: 'dynamic', minWidth: extra?.minWidth ?? 90 }
             : { widthMode: 'fixed', width, minWidth: Math.min(width, 90) }),
           ...(extra?.image === true ? { cellKind: 'image' as const } : {}),
           ...(extra?.computed === true ? { sortable: false, searchable: false } : {}),
+          ...(extra?.checkbox === true ? { cellKind: 'checkbox' as const, searchable: false } : {}),
+          ...(extra?.button === undefined
+            ? {}
+            : {
+                cellKind: 'button' as const,
+                buttonIcon: extra.button,
+                sortable: false,
+                searchable: false,
+              }),
           ...(extra?.align === undefined
             ? {}
             : { headerAlign: extra.align, cellAlign: extra.align }),
@@ -1742,6 +1755,7 @@ const CHAMADO_STYLE = {
   abas: 'sigat2-chamado-abas',
   botaoPrimarioSm: 'sigat2-chamado-botao-primario-sm',
   botaoSecundarioSm: 'sigat2-chamado-botao-secundario-sm',
+  botaoSecundario: 'sigat2-chamado-botao-secundario',
   botaoPrimario: 'sigat2-chamado-botao-primario',
   botaoInfo: 'sigat2-chamado-botao-info',
   botaoSucesso: 'sigat2-chamado-botao-sucesso',
@@ -1953,6 +1967,13 @@ function chamadoStyles(): readonly ComponentStyleModel[] {
       BOOTSTRAP.secundarioHover,
       true,
       'icon',
+    ),
+    chamadoBotao(
+      CHAMADO_STYLE.botaoSecundario,
+      'Chamado Botao Secundario',
+      BOOTSTRAP.secundario,
+      BOOTSTRAP.secundarioHover,
+      false,
     ),
     chamadoBotao(
       CHAMADO_STYLE.botaoPrimario,
@@ -3018,6 +3039,126 @@ function adminPage(): PageSpec {
     servicos: op('Servicos', 'admin-servicos', F.servicosAdmin, ['q', 'fila', 'status']),
     bancadas: op('Bancadas', 'bancadas', F.bancadas, ['livres']),
     filas: op('Filas', 'admin-filas', { id_fila: I, nome_fila: S, status_fila: S, icone_fila: S }),
+    bancadaInserir: write('BancadaInserir', 'bancada-inserir', { nome_bancada: 'string' }),
+    bancadaAlterar: write('BancadaAlterar', 'bancada-alterar', {
+      id_bancada: 'integer',
+      nome_bancada: 'string',
+      status_bancada: 'boolean',
+      ocupado_bancada: 'boolean',
+    }),
+    secretariaInserir: write('SecretariaInserir', 'secretaria-inserir', {
+      nome_secretaria: 'string',
+      sigla_secretaria: 'string',
+    }),
+    secretariaAlterar: write('SecretariaAlterar', 'secretaria-alterar', {
+      id_secretaria: 'integer',
+      nome_secretaria: 'string',
+      sigla_secretaria: 'string',
+      status_secretaria: 'boolean',
+    }),
+    filaInserir: write('FilaInserir', 'fila-inserir', {
+      nome_fila: 'string',
+      icone_fila: 'string',
+    }),
+    filaAlterar: write('FilaAlterar', 'fila-alterar', {
+      id_fila: 'integer',
+      nome_fila: 'string',
+      icone_fila: 'string',
+      ativa: 'boolean',
+    }),
+  };
+  /** Lists of a cadastro: a filter box per column and ten rows per page, as SIGAT. */
+  const cadastroLista = (
+    name: string,
+    operation: Operation,
+    columns: readonly Column[],
+    onCell: string,
+  ): Node =>
+    lista(grid(name, id, operation, columns, { height: 560, onCell, empty: '(vazio)' }), {
+      pageSize: 10,
+      pageSizeOptions: [10, 25, 50, 100],
+      columnFilters: true,
+      exportEnabled: false,
+    });
+  const editar: Column = ['Editar', '', 80, { button: 'edit', align: 'center' }];
+  /** The bar over a list with the button that opens an empty form. */
+  const barra = (entidade: string, caption: string): Node => ({
+    type: 'WebGroup',
+    name: 'GRPBarra' + entidade,
+    item: { height: 'fit-content', shrink: false },
+    container: { mode: 'row', gap: 8, alignItems: 'center', justifyContent: 'end' },
+    children: [
+      botaoChamado(
+        'BTNNovo' + entidade,
+        caption,
+        'Novo' + entidade,
+        'add',
+        CHAMADO_STYLE.botaoSucesso,
+        180,
+        38,
+      ),
+    ],
+  });
+  const marcar = (name: string, caption: string): Node => ({
+    type: 'WebCheckBox',
+    name: 'CHK' + name,
+    width: 200,
+    height: 28,
+    props: { caption, checked: false },
+    styleId: CHAMADO_STYLE.checagem,
+    item: { width: 'fixed', grow: 0 },
+  });
+  /** The modal form of a cadastro: inclusion and edit share it, as in SIGAT. */
+  const janela = (entidade: string, height: number, campos: readonly Node[]): Node => ({
+    type: 'WebPopup',
+    name: 'POP' + entidade,
+    width: 560,
+    height,
+    props: { modal: true },
+    styleId: CHAMADO_STYLE.janela,
+    item: { height: 'fit-content' },
+    container: {
+      mode: 'column',
+      gap: 16,
+      paddingTop: 20,
+      paddingRight: 20,
+      paddingBottom: 20,
+      paddingLeft: 20,
+    },
+    children: [
+      texto('LBL' + entidade + 'Titulo', '', CHAMADO_STYLE.secao, undefined, 28),
+      ...campos,
+      {
+        type: 'WebGroup',
+        name: 'GRPBotoes' + entidade,
+        item: { height: 'fit-content' },
+        container: { mode: 'row', gap: 8, alignItems: 'center', justifyContent: 'end' },
+        children: [
+          botaoChamado(
+            'BTNCancelar' + entidade,
+            'Cancelar',
+            'Cancelar' + entidade,
+            'close',
+            CHAMADO_STYLE.botaoSecundario,
+            120,
+            38,
+          ),
+          botaoChamado(
+            'BTNSalvar' + entidade,
+            'Salvar',
+            'Salvar' + entidade,
+            'save',
+            CHAMADO_STYLE.botaoPrimario,
+            120,
+            38,
+          ),
+        ],
+      },
+    ],
+  });
+  const campo = (name: string, caption: string, colunas = 12): Node => {
+    const grupo = formGroup(name, caption, colunas, campoChamado(name));
+    return { ...grupo, item: { ...grupo.item, width: 'stretch', minWidth: 0 } };
   };
   const aba = (name: string, children: readonly Node[]): Node => ({
     ...panel(name, children),
@@ -3199,19 +3340,19 @@ function adminPage(): PageSpec {
         ),
       ]),
       aba('PNLSecretarias', [
-        lista(
-          grid(
-            'GRDSecretarias',
-            id,
-            ops.secretarias,
-            [
-              ['#', 'id_secretaria', 80],
-              ['Sigla', 'sigla_secretaria', 140],
-              ['Nome', 'nome_secretaria'],
-              ['Ativa', 'status_secretaria', 80],
-            ],
-            { height: 520 },
-          ),
+        barra('Secretaria', 'Nova secretaria'),
+        cadastroLista(
+          'GRDSecretarias',
+          ops.secretarias,
+          [
+            ['#', 'id_secretaria', 80],
+            ['Sigla', 'sigla_secretaria', 160],
+            ['Nome', 'nome_secretaria', undefined, { minWidth: 260 }],
+            ['Ativa?', 'status_secretaria', 90, { checkbox: true, align: 'center' }],
+            ['Última alteração', 'ultima_alteracao', 200],
+            editar,
+          ],
+          'EditarSecretaria',
         ),
       ]),
       aba('PNLServicos', [
@@ -3234,36 +3375,53 @@ function adminPage(): PageSpec {
         ),
       ]),
       aba('PNLBancadas', [
-        lista(
-          grid(
-            'GRDBancadas',
-            id,
-            ops.bancadas,
-            [
-              ['#', 'id_bancada', 80],
-              ['Bancada', 'nome_bancada'],
-              ['Ocupada', 'ocupado_bancada', 100],
-              ['Ativa', 'status_bancada', 100],
-            ],
-            { height: 420 },
-          ),
+        barra('Bancada', 'Nova bancada'),
+        cadastroLista(
+          'GRDBancadas',
+          ops.bancadas,
+          [
+            ['#', 'id_bancada', 80],
+            ['Identificação', 'nome_bancada', undefined, { minWidth: 220 }],
+            ['Ativa?', 'status_bancada', 100, { checkbox: true, align: 'center' }],
+            ['Ocupada?', 'ocupado_bancada', 110, { checkbox: true, align: 'center' }],
+            editar,
+          ],
+          'EditarBancada',
         ),
       ]),
       aba('PNLFilas', [
-        lista(
-          grid(
-            'GRDFilas',
-            id,
-            ops.filas,
-            [
-              ['#', 'id_fila', 80],
-              ['Fila', 'nome_fila'],
-              ['Status', 'status_fila', 120],
-              ['Ícone', 'icone_fila', 200],
-            ],
-            { height: 420 },
-          ),
+        barra('Fila', 'Nova fila'),
+        cadastroLista(
+          'GRDFilas',
+          ops.filas,
+          [
+            ['#', 'id_fila', 80],
+            ['Fila', 'nome_fila', undefined, { minWidth: 220 }],
+            ['Ícone', 'icone_fila', 240],
+            ['Situação', 'status_fila', 130],
+            editar,
+          ],
+          'EditarFila',
         ),
+      ]),
+      janela('Bancada', 250, [
+        campo('BancadaNome', 'Identificação'),
+        formRow('GRPBancadaMarcas', [
+          marcar('BancadaAtiva', 'Ativa'),
+          marcar('BancadaOcupada', 'Ocupada'),
+        ]),
+      ]),
+      janela('Secretaria', 250, [
+        formRow('GRPSecretariaCampos', [
+          campo('SecretariaSigla', 'Sigla', 3),
+          campo('SecretariaNome', 'Nome', 9),
+        ]),
+        marcar('SecretariaAtiva', 'Ativa'),
+      ]),
+      janela('Fila', 330, [
+        campo('FilaNome', 'Nome'),
+        campo('FilaIcone', 'Ícone (classe Font Awesome, como fas fa-desktop)'),
+        marcar('FilaAtiva', 'Ativa'),
       ]),
       apiClient('Api', id, Object.values(ops)),
       {
