@@ -1,14 +1,14 @@
 {
   "formatVersion": 2,
-  "id": "75a0b235-d573-45fa-969f-5124429ee265",
+  "id": "1856a888-f846-4829-bbc7-b9fb3383ed79",
   "name": "Login",
   "caption": "Login",
   "width": 1280,
   "height": 1200,
-  "rootComponentId": "6d019d22-806e-48d7-b22e-9997e59f46a4",
+  "rootComponentId": "f0ca895d-c5a0-4261-ab52-e6797ee52e77",
   "components": [
     {
-      "id": "6d019d22-806e-48d7-b22e-9997e59f46a4",
+      "id": "f0ca895d-c5a0-4261-ab52-e6797ee52e77",
       "type": "WebPage",
       "name": "Login",
       "parentId": null,
@@ -64,15 +64,15 @@
       },
       "styleId": "sigat2-login-pagina",
       "children": [
-        "6f89acfe-91ff-4ce0-81c2-7216807f8f3f",
+        "c5b7a695-3c22-49e6-8ad2-5ffb89a370e1",
         "d6d3fb11-142d-43cb-a2b2-f6174f86e1c6"
       ]
     },
     {
-      "id": "6f89acfe-91ff-4ce0-81c2-7216807f8f3f",
+      "id": "c5b7a695-3c22-49e6-8ad2-5ffb89a370e1",
       "type": "WebPanel",
       "name": "PNLLogin",
-      "parentId": "6d019d22-806e-48d7-b22e-9997e59f46a4",
+      "parentId": "f0ca895d-c5a0-4261-ab52-e6797ee52e77",
       "layout": {
         "container": {
           "mode": "column",
@@ -138,14 +138,14 @@
       "styleId": "sigat2-login-cartao",
       "children": [
         "sigat2-login-formulario",
-        "63ebe04b-a908-47b9-8873-7458f3b5a3a5"
+        "523eb88e-b56f-4fa0-9757-3514ef2e3db4"
       ]
     },
     {
       "id": "sigat2-login-formulario",
       "type": "WebGroup",
       "name": "GRPFormulario",
-      "parentId": "6f89acfe-91ff-4ce0-81c2-7216807f8f3f",
+      "parentId": "c5b7a695-3c22-49e6-8ad2-5ffb89a370e1",
       "layout": {
         "container": {
           "mode": "column",
@@ -196,11 +196,11 @@
       },
       "children": [
         "sigat2-login-logo",
-        "1e6c9f74-a781-41b1-9683-62e4af7cc547",
-        "da6b537d-431c-430c-a773-2cb0dffe1b21",
-        "79370fd4-6966-4366-8b85-5ecb6b501629",
-        "0e57197e-d263-4aef-8ee2-a8706564051a",
-        "8380c22d-b463-45fa-9b18-16da39127221"
+        "f5d069b6-b0a7-43a9-a747-89d9e39dc286",
+        "6fb0f029-705d-4f70-aa3e-bef44727a5d0",
+        "65eeab57-8179-4b5f-8907-3ac7abf85712",
+        "b7360441-3de7-4606-ac5a-4d64e864bac3",
+        "32d229aa-a064-426b-a861-396b4aded80f"
       ]
     },
     {
@@ -262,7 +262,7 @@
       "children": []
     },
     {
-      "id": "1e6c9f74-a781-41b1-9683-62e4af7cc547",
+      "id": "f5d069b6-b0a7-43a9-a747-89d9e39dc286",
       "type": "WebLabel",
       "name": "LBLTitulo",
       "parentId": "sigat2-login-formulario",
@@ -320,7 +320,7 @@
       "children": []
     },
     {
-      "id": "da6b537d-431c-430c-a773-2cb0dffe1b21",
+      "id": "6fb0f029-705d-4f70-aa3e-bef44727a5d0",
       "type": "WebEdit",
       "name": "EDTLogin",
       "parentId": "sigat2-login-formulario",
@@ -381,7 +381,7 @@
       "children": []
     },
     {
-      "id": "79370fd4-6966-4366-8b85-5ecb6b501629",
+      "id": "65eeab57-8179-4b5f-8907-3ac7abf85712",
       "type": "WebEdit",
       "name": "EDTSenha",
       "parentId": "sigat2-login-formulario",
@@ -443,7 +443,7 @@
       "children": []
     },
     {
-      "id": "0e57197e-d263-4aef-8ee2-a8706564051a",
+      "id": "b7360441-3de7-4606-ac5a-4d64e864bac3",
       "type": "WebButton",
       "name": "BTNEntrar",
       "parentId": "sigat2-login-formulario",
@@ -502,7 +502,7 @@
       "children": []
     },
     {
-      "id": "8380c22d-b463-45fa-9b18-16da39127221",
+      "id": "32d229aa-a064-426b-a861-396b4aded80f",
       "type": "WebLabel",
       "name": "LBLMensagem",
       "parentId": "sigat2-login-formulario",
@@ -560,10 +560,10 @@
       "children": []
     },
     {
-      "id": "63ebe04b-a908-47b9-8873-7458f3b5a3a5",
+      "id": "523eb88e-b56f-4fa0-9757-3514ef2e3db4",
       "type": "WebLabel",
       "name": "LBLRodape",
-      "parentId": "6f89acfe-91ff-4ce0-81c2-7216807f8f3f",
+      "parentId": "c5b7a695-3c22-49e6-8ad2-5ffb89a370e1",
       "layout": {
         "container": {
           "mode": "fixed",
@@ -621,7 +621,7 @@
       "id": "d6d3fb11-142d-43cb-a2b2-f6174f86e1c6",
       "type": "WebApiClient",
       "name": "ApiSessao",
-      "parentId": "6d019d22-806e-48d7-b22e-9997e59f46a4",
+      "parentId": "f0ca895d-c5a0-4261-ab52-e6797ee52e77",
       "layout": {
         "container": {
           "mode": "fixed",

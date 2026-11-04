@@ -48,67 +48,67 @@ export abstract class BuscaGenerated extends WebPage {
   public constructor(element: HTMLElement) {
     super(element);
     this.Cabecalho = new WebGroup(
-      this.requireComponentElement('17530c48-9dea-4771-98d0-a9147e6417d0'),
-    );
-    this.GRPMarca = new WebGroup(
-      this.requireComponentElement('40fd2adb-47fe-4191-99d1-a4d820d22a0b'),
-    );
-    this.IMGMarca = new WebImage(
-      this.requireComponentElement('f521a2d3-72aa-4574-be21-295f21fd06dc'),
-    );
-    this.LBLMarca = new WebLabel(
-      this.requireComponentElement('9934a23a-a467-4535-be52-0c1e35cab4ed'),
-    );
-    this.GRPBusca = new WebGroup(
-      this.requireComponentElement('931885ee-eb60-46f9-b220-1f147be79c6f'),
-    );
-    this.EDTBuscaRapida = new WebEdit(
-      this.requireComponentElement('faa4d3c4-8cec-4cfc-9c7a-289e704d3cad'),
-    );
-    this.BTNBuscar = new WebButton(
-      this.requireComponentElement('5fcc2138-6297-44a7-88a6-f0fa2fae457d'),
-    );
-    this.GRPUsuario = new WebGroup(
-      this.requireComponentElement('7801b239-112d-413a-9818-e872eb4c6192'),
-    );
-    this.LBLOla = new WebLabel(
-      this.requireComponentElement('b12264ff-12cb-461b-916f-8da642b72e37'),
-    );
-    this.LBLUsuario = new WebLabel(
-      this.requireComponentElement('3c18f37d-9823-47a0-9092-f62c6c8ab40d'),
-    );
-    this.BTNBloqueados = new WebButton(
-      this.requireComponentElement('40104f03-41cf-42ab-80b2-191298eeb86f'),
-    );
-    this.BTNPainel = new WebButton(
-      this.requireComponentElement('c1c4293c-c249-4d58-aea8-2adac01611c6'),
-    );
-    this.BTNInserviveis = new WebButton(
-      this.requireComponentElement('ca9f60e0-8e8b-4e6e-bab5-6215d84acb7f'),
-    );
-    this.BTNAdmin = new WebButton(
-      this.requireComponentElement('26a88812-fb92-4228-800a-0d51c26c81e6'),
-    );
-    this.BTNSair = new WebButton(
       this.requireComponentElement('a38eb588-98d8-4a64-b528-104768d7fb57'),
     );
-    this.Conteudo = new WebGroup(
+    this.GRPMarca = new WebGroup(
       this.requireComponentElement('a56ec7e7-60a7-4cb4-a733-8378f30810e3'),
     );
-    this.LBLBusca = new WebLabel(
+    this.IMGMarca = new WebImage(
       this.requireComponentElement('4930786a-78b9-452c-8840-f4de048b7c0a'),
     );
-    this.LBLTermo = new WebLabel(
+    this.LBLMarca = new WebLabel(
       this.requireComponentElement('5e359e16-bb52-4c48-9d49-b7aa02e5a144'),
     );
-    this.PNLEquipamentos = new WebPanel(
+    this.GRPBusca = new WebGroup(
       this.requireComponentElement('a81031fb-91f2-4f55-b201-72540416285c'),
     );
-    this.LBLEquipamentos = new WebLabel(
+    this.EDTBuscaRapida = new WebEdit(
       this.requireComponentElement('f8cbda57-2965-4b8a-86b4-05eb11517594'),
     );
-    this.GRDEquipamentos = new WebDataGrid(
+    this.BTNBuscar = new WebButton(
       this.requireComponentElement('3f0eff8e-8a60-4cd8-9023-1085fc21d332'),
+    );
+    this.GRPUsuario = new WebGroup(
+      this.requireComponentElement('bbf52667-30b3-4ce4-bd26-eb25111c8a01'),
+    );
+    this.LBLOla = new WebLabel(
+      this.requireComponentElement('d76ce495-10df-4725-882f-aacc46b4cce3'),
+    );
+    this.LBLUsuario = new WebLabel(
+      this.requireComponentElement('07cb52be-372f-4a4a-b1ee-305c89b443b5'),
+    );
+    this.BTNBloqueados = new WebButton(
+      this.requireComponentElement('0a7af8de-5712-41b1-abcd-1ca733b2bfc3'),
+    );
+    this.BTNPainel = new WebButton(
+      this.requireComponentElement('3ea3a705-4d9f-4200-b2d4-61789552e885'),
+    );
+    this.BTNInserviveis = new WebButton(
+      this.requireComponentElement('1e80dca8-d9ba-409b-9d35-6d935d8f5795'),
+    );
+    this.BTNAdmin = new WebButton(
+      this.requireComponentElement('01ae2190-e39f-4908-9f7d-5b847be255c3'),
+    );
+    this.BTNSair = new WebButton(
+      this.requireComponentElement('e7f2b145-ce82-46ab-86a6-03d420af35bc'),
+    );
+    this.Conteudo = new WebGroup(
+      this.requireComponentElement('cc2a7541-ba8a-486e-a134-49603baee1cf'),
+    );
+    this.LBLBusca = new WebLabel(
+      this.requireComponentElement('f75e90a7-87a8-4026-ae9b-3714aeb69319'),
+    );
+    this.LBLTermo = new WebLabel(
+      this.requireComponentElement('5ccbe437-d0c7-48a4-88ec-9853d2d599d8'),
+    );
+    this.PNLEquipamentos = new WebPanel(
+      this.requireComponentElement('0b371a6a-bb22-4596-9536-5f5e0a8b5f07'),
+    );
+    this.LBLEquipamentos = new WebLabel(
+      this.requireComponentElement('068e2f75-a5d3-4c20-88da-791d70e007fe'),
+    );
+    this.GRDEquipamentos = new WebDataGrid(
+      this.requireComponentElement('23ccc1d9-696c-4d39-bae7-ca9a97557021'),
     );
     this.GRDEquipamentos.dataGridConfig = {
       schemaVersion: 2,
@@ -203,13 +203,13 @@ export abstract class BuscaGenerated extends WebPage {
       totalRowsPath: '/total',
     };
     this.PNLChamados = new WebPanel(
-      this.requireComponentElement('bbf52667-30b3-4ce4-bd26-eb25111c8a01'),
+      this.requireComponentElement('bcf3b88d-f8c8-4b04-a19f-1f745a3cd723'),
     );
     this.LBLChamados = new WebLabel(
-      this.requireComponentElement('d76ce495-10df-4725-882f-aacc46b4cce3'),
+      this.requireComponentElement('a4f2135e-9e5c-47ee-8d67-6785857924d7'),
     );
     this.GRDChamados = new WebDataGrid(
-      this.requireComponentElement('07cb52be-372f-4a4a-b1ee-305c89b443b5'),
+      this.requireComponentElement('be81c432-4997-4cc4-a27a-b1469e20c2f4'),
     );
     this.GRDChamados.dataGridConfig = {
       schemaVersion: 2,
@@ -652,16 +652,16 @@ export abstract class BuscaGenerated extends WebPage {
       name: 'Api',
     }).withRequests();
     this.Rodape = new WebGroup(
-      this.requireComponentElement('0a7af8de-5712-41b1-abcd-1ca733b2bfc3'),
+      this.requireComponentElement('b451541a-a94e-4c05-b4bf-f7273453f194'),
     );
     this.LBLRodapeAutorizacao = new WebLabel(
-      this.requireComponentElement('3ea3a705-4d9f-4200-b2d4-61789552e885'),
+      this.requireComponentElement('63b4d29d-ce22-41ec-b1bb-dbbd7364d642'),
     );
     this.LBLRodapeGrupo = new WebLabel(
-      this.requireComponentElement('1e80dca8-d9ba-409b-9d35-6d935d8f5795'),
+      this.requireComponentElement('bb7d82aa-4f3f-4553-9fe3-16b0e13c6332'),
     );
     this.LBLRodapeAmbiente = new WebLabel(
-      this.requireComponentElement('01ae2190-e39f-4908-9f7d-5b847be255c3'),
+      this.requireComponentElement('b0842319-4e6c-479f-ac09-3cdc87759840'),
     );
 
     this.GRDEquipamentos.bindApiClient(this.Api);

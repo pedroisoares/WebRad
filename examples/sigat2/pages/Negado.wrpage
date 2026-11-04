@@ -1,14 +1,14 @@
 {
   "formatVersion": 2,
-  "id": "06b85a56-4861-45a1-a757-4d5b9a7719d4",
+  "id": "60e236ef-3f39-4b0f-aa0a-9477ac848337",
   "name": "Negado",
   "caption": "Negado",
   "width": 1280,
   "height": 1200,
-  "rootComponentId": "c18412bb-4e38-4deb-932c-41d0a3db1c5e",
+  "rootComponentId": "29913ed1-97d8-4439-b8c6-f641f86e5ffa",
   "components": [
     {
-      "id": "c18412bb-4e38-4deb-932c-41d0a3db1c5e",
+      "id": "29913ed1-97d8-4439-b8c6-f641f86e5ffa",
       "type": "WebPage",
       "name": "Negado",
       "parentId": null,
@@ -66,16 +66,16 @@
       },
       "styleId": "sigat2-pagina",
       "children": [
-        "be2795c6-a4df-442b-98d1-92f50a33b2cd",
-        "962bb686-7500-40c4-b260-6a895b4af997",
-        "e337cb84-8f95-490a-8f38-f07c0a8ee981"
+        "7333b5ce-ccc5-484d-b73b-1b09929bbe6e",
+        "0be648d4-41a9-400c-8816-c6ac76cd6414",
+        "a94d7689-dc49-4d9a-b11f-ba125dabd7fb"
       ]
     },
     {
-      "id": "be2795c6-a4df-442b-98d1-92f50a33b2cd",
+      "id": "7333b5ce-ccc5-484d-b73b-1b09929bbe6e",
       "type": "WebGroup",
       "name": "Cabecalho",
-      "parentId": "c18412bb-4e38-4deb-932c-41d0a3db1c5e",
+      "parentId": "29913ed1-97d8-4439-b8c6-f641f86e5ffa",
       "layout": {
         "container": {
           "mode": "row",
@@ -126,16 +126,16 @@
       },
       "styleId": "sigat2-barra",
       "children": [
-        "d08ced88-7f34-409a-a440-092ea85d658d",
-        "e882f1bf-f7b6-43b1-b7fc-f50cd91d0e8f",
-        "2233ba3c-bdc0-4b8c-9523-5bfb2a2dce66"
+        "ab436ef3-2706-4e9e-bd21-5072af8511e8",
+        "5f49c3ba-e6f0-4b39-8699-800e50167549",
+        "0706f21d-ae77-4f16-af7f-52a2304d68ce"
       ]
     },
     {
-      "id": "d08ced88-7f34-409a-a440-092ea85d658d",
+      "id": "ab436ef3-2706-4e9e-bd21-5072af8511e8",
       "type": "WebGroup",
       "name": "GRPMarca",
-      "parentId": "be2795c6-a4df-442b-98d1-92f50a33b2cd",
+      "parentId": "7333b5ce-ccc5-484d-b73b-1b09929bbe6e",
       "layout": {
         "container": {
           "mode": "row",
@@ -185,15 +185,15 @@
         "OnMouseLeave": null
       },
       "children": [
-        "f3ad9549-fb5b-4c09-b3a4-466c4e519a8f",
-        "c168ad68-6554-40da-b684-5301c7bc8955"
+        "b19cb750-4d71-42ea-853a-783c3096b86c",
+        "1d967225-91bc-45a7-ab67-d2a8b80e524d"
       ]
     },
     {
-      "id": "f3ad9549-fb5b-4c09-b3a4-466c4e519a8f",
+      "id": "b19cb750-4d71-42ea-853a-783c3096b86c",
       "type": "WebImage",
       "name": "IMGMarca",
-      "parentId": "d08ced88-7f34-409a-a440-092ea85d658d",
+      "parentId": "ab436ef3-2706-4e9e-bd21-5072af8511e8",
       "layout": {
         "container": {
           "mode": "fixed",
@@ -248,10 +248,10 @@
       "children": []
     },
     {
-      "id": "c168ad68-6554-40da-b684-5301c7bc8955",
+      "id": "1d967225-91bc-45a7-ab67-d2a8b80e524d",
       "type": "WebLabel",
       "name": "LBLMarca",
-      "parentId": "d08ced88-7f34-409a-a440-092ea85d658d",
+      "parentId": "ab436ef3-2706-4e9e-bd21-5072af8511e8",
       "layout": {
         "container": {
           "mode": "fixed",
@@ -306,10 +306,10 @@
       "children": []
     },
     {
-      "id": "e882f1bf-f7b6-43b1-b7fc-f50cd91d0e8f",
+      "id": "5f49c3ba-e6f0-4b39-8699-800e50167549",
       "type": "WebGroup",
       "name": "GRPBusca",
-      "parentId": "be2795c6-a4df-442b-98d1-92f50a33b2cd",
+      "parentId": "7333b5ce-ccc5-484d-b73b-1b09929bbe6e",
       "layout": {
         "container": {
           "mode": "row",
@@ -359,15 +359,15 @@
         "OnMouseLeave": null
       },
       "children": [
-        "b980e57c-50c7-4aff-84b1-042b403c1c37",
-        "f1c6066c-bcd7-4f8e-bdf1-2a9fe09a203e"
+        "62b6472e-5224-4393-930c-23b84ddd5477",
+        "887bc477-d2bd-4e34-8fcb-54642ecec425"
       ]
     },
     {
-      "id": "b980e57c-50c7-4aff-84b1-042b403c1c37",
+      "id": "62b6472e-5224-4393-930c-23b84ddd5477",
       "type": "WebEdit",
       "name": "EDTBuscaRapida",
-      "parentId": "e882f1bf-f7b6-43b1-b7fc-f50cd91d0e8f",
+      "parentId": "5f49c3ba-e6f0-4b39-8699-800e50167549",
       "layout": {
         "container": {
           "mode": "fixed",
@@ -425,10 +425,10 @@
       "children": []
     },
     {
-      "id": "f1c6066c-bcd7-4f8e-bdf1-2a9fe09a203e",
+      "id": "887bc477-d2bd-4e34-8fcb-54642ecec425",
       "type": "WebButton",
       "name": "BTNBuscar",
-      "parentId": "e882f1bf-f7b6-43b1-b7fc-f50cd91d0e8f",
+      "parentId": "5f49c3ba-e6f0-4b39-8699-800e50167549",
       "layout": {
         "container": {
           "mode": "fixed",
@@ -484,10 +484,10 @@
       "children": []
     },
     {
-      "id": "2233ba3c-bdc0-4b8c-9523-5bfb2a2dce66",
+      "id": "0706f21d-ae77-4f16-af7f-52a2304d68ce",
       "type": "WebGroup",
       "name": "GRPUsuario",
-      "parentId": "be2795c6-a4df-442b-98d1-92f50a33b2cd",
+      "parentId": "7333b5ce-ccc5-484d-b73b-1b09929bbe6e",
       "layout": {
         "container": {
           "mode": "row",
@@ -537,20 +537,20 @@
         "OnMouseLeave": null
       },
       "children": [
-        "2003505e-c1a1-4d33-b625-b45c614152a8",
-        "1cc81e03-478d-46ff-af0e-32afa0d72935",
-        "3e58bbec-d62a-421e-bf2e-ba7181d1cf16",
-        "33070751-b3a0-4683-92de-4a21c1bd3c82",
-        "62adf596-3bab-4f94-ba97-76e2bdb5ef84",
-        "9042e8a6-3f5c-44ca-a0b5-eb1363d8b16d",
-        "18c01c8f-dca4-4f38-adf9-074a9d3f66db"
+        "81ab4a01-f84d-439a-aaf0-9634dd1bfbd6",
+        "6a7c704d-c206-4247-92c2-076e935f7c2b",
+        "83dcec52-92b5-4490-9f67-0919de7109aa",
+        "64c8ea98-efac-4add-aba0-0c75bf9734c1",
+        "2659146e-6aa8-472b-86aa-fc6a0e2a7481",
+        "71284994-54fc-4573-843c-9c7bdf862b8c",
+        "69c1cbe8-2f55-4272-aaa5-7cfcc4ded49b"
       ]
     },
     {
-      "id": "2003505e-c1a1-4d33-b625-b45c614152a8",
+      "id": "81ab4a01-f84d-439a-aaf0-9634dd1bfbd6",
       "type": "WebLabel",
       "name": "LBLOla",
-      "parentId": "2233ba3c-bdc0-4b8c-9523-5bfb2a2dce66",
+      "parentId": "0706f21d-ae77-4f16-af7f-52a2304d68ce",
       "layout": {
         "container": {
           "mode": "fixed",
@@ -605,10 +605,10 @@
       "children": []
     },
     {
-      "id": "1cc81e03-478d-46ff-af0e-32afa0d72935",
+      "id": "6a7c704d-c206-4247-92c2-076e935f7c2b",
       "type": "WebLabel",
       "name": "LBLUsuario",
-      "parentId": "2233ba3c-bdc0-4b8c-9523-5bfb2a2dce66",
+      "parentId": "0706f21d-ae77-4f16-af7f-52a2304d68ce",
       "layout": {
         "container": {
           "mode": "fixed",
@@ -663,10 +663,10 @@
       "children": []
     },
     {
-      "id": "3e58bbec-d62a-421e-bf2e-ba7181d1cf16",
+      "id": "83dcec52-92b5-4490-9f67-0919de7109aa",
       "type": "WebButton",
       "name": "BTNBloqueados",
-      "parentId": "2233ba3c-bdc0-4b8c-9523-5bfb2a2dce66",
+      "parentId": "0706f21d-ae77-4f16-af7f-52a2304d68ce",
       "layout": {
         "container": {
           "mode": "fixed",
@@ -722,10 +722,10 @@
       "children": []
     },
     {
-      "id": "33070751-b3a0-4683-92de-4a21c1bd3c82",
+      "id": "64c8ea98-efac-4add-aba0-0c75bf9734c1",
       "type": "WebButton",
       "name": "BTNPainel",
-      "parentId": "2233ba3c-bdc0-4b8c-9523-5bfb2a2dce66",
+      "parentId": "0706f21d-ae77-4f16-af7f-52a2304d68ce",
       "layout": {
         "container": {
           "mode": "fixed",
@@ -781,10 +781,10 @@
       "children": []
     },
     {
-      "id": "62adf596-3bab-4f94-ba97-76e2bdb5ef84",
+      "id": "2659146e-6aa8-472b-86aa-fc6a0e2a7481",
       "type": "WebButton",
       "name": "BTNInserviveis",
-      "parentId": "2233ba3c-bdc0-4b8c-9523-5bfb2a2dce66",
+      "parentId": "0706f21d-ae77-4f16-af7f-52a2304d68ce",
       "layout": {
         "container": {
           "mode": "fixed",
@@ -843,10 +843,10 @@
       "children": []
     },
     {
-      "id": "9042e8a6-3f5c-44ca-a0b5-eb1363d8b16d",
+      "id": "71284994-54fc-4573-843c-9c7bdf862b8c",
       "type": "WebButton",
       "name": "BTNAdmin",
-      "parentId": "2233ba3c-bdc0-4b8c-9523-5bfb2a2dce66",
+      "parentId": "0706f21d-ae77-4f16-af7f-52a2304d68ce",
       "layout": {
         "container": {
           "mode": "fixed",
@@ -905,10 +905,10 @@
       "children": []
     },
     {
-      "id": "18c01c8f-dca4-4f38-adf9-074a9d3f66db",
+      "id": "69c1cbe8-2f55-4272-aaa5-7cfcc4ded49b",
       "type": "WebButton",
       "name": "BTNSair",
-      "parentId": "2233ba3c-bdc0-4b8c-9523-5bfb2a2dce66",
+      "parentId": "0706f21d-ae77-4f16-af7f-52a2304d68ce",
       "layout": {
         "container": {
           "mode": "fixed",
@@ -964,10 +964,10 @@
       "children": []
     },
     {
-      "id": "962bb686-7500-40c4-b260-6a895b4af997",
+      "id": "0be648d4-41a9-400c-8816-c6ac76cd6414",
       "type": "WebGroup",
       "name": "Conteudo",
-      "parentId": "c18412bb-4e38-4deb-932c-41d0a3db1c5e",
+      "parentId": "29913ed1-97d8-4439-b8c6-f641f86e5ffa",
       "layout": {
         "container": {
           "mode": "column",
@@ -1018,14 +1018,14 @@
       },
       "styleId": "sigat2-conteudo",
       "children": [
-        "543d44c9-c852-48a4-a697-e8cb3805b5e3"
+        "d8c08dbf-030e-4ee7-8f42-d67c60c98b0b"
       ]
     },
     {
-      "id": "543d44c9-c852-48a4-a697-e8cb3805b5e3",
+      "id": "d8c08dbf-030e-4ee7-8f42-d67c60c98b0b",
       "type": "WebPanel",
       "name": "PNLNegado",
-      "parentId": "962bb686-7500-40c4-b260-6a895b4af997",
+      "parentId": "0be648d4-41a9-400c-8816-c6ac76cd6414",
       "layout": {
         "container": {
           "mode": "column",
@@ -1090,16 +1090,16 @@
       },
       "styleId": "3755d9a1-991d-4861-8878-42148ee446dc:default-style:WebPanel",
       "children": [
-        "9c1a44a4-07f8-4c66-9038-db34f48eaa63",
-        "654285d2-7919-46a5-adc6-56ee6a71b7c9",
-        "97bfd9f0-e450-49b2-976a-587dea5b4681"
+        "0a0f2019-3212-4f5b-b98d-be2b197ad8ed",
+        "f7f77cc4-a4a0-406e-b475-633f14e5b03b",
+        "bee42847-de6e-4b60-9c07-ec922952048b"
       ]
     },
     {
-      "id": "9c1a44a4-07f8-4c66-9038-db34f48eaa63",
+      "id": "0a0f2019-3212-4f5b-b98d-be2b197ad8ed",
       "type": "WebLabel",
       "name": "LBLNegado",
-      "parentId": "543d44c9-c852-48a4-a697-e8cb3805b5e3",
+      "parentId": "d8c08dbf-030e-4ee7-8f42-d67c60c98b0b",
       "layout": {
         "container": {
           "mode": "fixed",
@@ -1154,10 +1154,10 @@
       "children": []
     },
     {
-      "id": "654285d2-7919-46a5-adc6-56ee6a71b7c9",
+      "id": "f7f77cc4-a4a0-406e-b475-633f14e5b03b",
       "type": "WebLabel",
       "name": "LBLTexto",
-      "parentId": "543d44c9-c852-48a4-a697-e8cb3805b5e3",
+      "parentId": "d8c08dbf-030e-4ee7-8f42-d67c60c98b0b",
       "layout": {
         "container": {
           "mode": "fixed",
@@ -1212,10 +1212,10 @@
       "children": []
     },
     {
-      "id": "97bfd9f0-e450-49b2-976a-587dea5b4681",
+      "id": "bee42847-de6e-4b60-9c07-ec922952048b",
       "type": "WebButton",
       "name": "BTNVoltar",
-      "parentId": "543d44c9-c852-48a4-a697-e8cb3805b5e3",
+      "parentId": "d8c08dbf-030e-4ee7-8f42-d67c60c98b0b",
       "layout": {
         "container": {
           "mode": "fixed",
@@ -1271,10 +1271,10 @@
       "children": []
     },
     {
-      "id": "e337cb84-8f95-490a-8f38-f07c0a8ee981",
+      "id": "a94d7689-dc49-4d9a-b11f-ba125dabd7fb",
       "type": "WebGroup",
       "name": "Rodape",
-      "parentId": "c18412bb-4e38-4deb-932c-41d0a3db1c5e",
+      "parentId": "29913ed1-97d8-4439-b8c6-f641f86e5ffa",
       "layout": {
         "container": {
           "mode": "row",
@@ -1325,16 +1325,16 @@
       },
       "styleId": "sigat2-barra",
       "children": [
-        "1be443b5-782a-43a8-9d64-c0aa15e39dee",
-        "37328ee5-f2fc-4524-950e-bcb600aaa55e",
-        "2fe4f4aa-181d-401a-9755-331ca864d871"
+        "dcf9b0b3-1bb6-4b73-8caa-d3fe517aefe8",
+        "96956f83-d73f-465e-9161-7a3b7cc086f3",
+        "b51aa14c-6b0b-45b3-9bdf-5403d005e4ef"
       ]
     },
     {
-      "id": "1be443b5-782a-43a8-9d64-c0aa15e39dee",
+      "id": "dcf9b0b3-1bb6-4b73-8caa-d3fe517aefe8",
       "type": "WebLabel",
       "name": "LBLRodapeAutorizacao",
-      "parentId": "e337cb84-8f95-490a-8f38-f07c0a8ee981",
+      "parentId": "a94d7689-dc49-4d9a-b11f-ba125dabd7fb",
       "layout": {
         "container": {
           "mode": "fixed",
@@ -1389,10 +1389,10 @@
       "children": []
     },
     {
-      "id": "37328ee5-f2fc-4524-950e-bcb600aaa55e",
+      "id": "96956f83-d73f-465e-9161-7a3b7cc086f3",
       "type": "WebLabel",
       "name": "LBLRodapeGrupo",
-      "parentId": "e337cb84-8f95-490a-8f38-f07c0a8ee981",
+      "parentId": "a94d7689-dc49-4d9a-b11f-ba125dabd7fb",
       "layout": {
         "container": {
           "mode": "fixed",
@@ -1447,10 +1447,10 @@
       "children": []
     },
     {
-      "id": "2fe4f4aa-181d-401a-9755-331ca864d871",
+      "id": "b51aa14c-6b0b-45b3-9bdf-5403d005e4ef",
       "type": "WebLabel",
       "name": "LBLRodapeAmbiente",
-      "parentId": "e337cb84-8f95-490a-8f38-f07c0a8ee981",
+      "parentId": "a94d7689-dc49-4d9a-b11f-ba125dabd7fb",
       "layout": {
         "container": {
           "mode": "fixed",

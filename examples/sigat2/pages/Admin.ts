@@ -89,6 +89,9 @@ export class Admin extends AdminGenerated {
         case 0:
           await this.Api.Eventos.execute();
           break;
+        case 1:
+          await this.Api.Usuarios.execute();
+          break;
         case 2:
           await this.Api.Modelos.execute();
           break;
@@ -107,7 +110,6 @@ export class Admin extends AdminGenerated {
         case 7:
           await this.Api.Filas.execute();
           break;
-        // Usuários pages on the server and loads itself.
         default:
           break;
       }
@@ -125,13 +127,6 @@ export class Admin extends AdminGenerated {
     } catch {
       // The next tick tries again; the list keeps the last events read.
     }
-  }
-
-  public AbrirUsuario(
-    _sender: unknown,
-    event: CustomEvent<{ getValue<T>(field: string): T | undefined }>,
-  ): void {
-    abrir('Usuario', 'usuario', event.detail.getValue<number>('id_usuario'));
   }
 
   // ---- cadastros: Bancadas, Secretarias e Filas
@@ -215,6 +210,105 @@ export class Admin extends AdminGenerated {
       return;
     }
     janela.show();
+  }
+
+  private usuario: number | null = null;
+
+  private static readonly AUTORIZACOES = [
+    { value: '2', label: 'Operação' },
+    { value: '3', label: 'Supervisão' },
+    { value: '4', label: 'Master' },
+  ];
+
+  private async FormularioUsuario(id: number | null, linha?: CelulaDoCadastro): Promise<void> {
+    await this.Abrir(this.POPUsuario, async () => {
+      const fila = numero(linha?.getValue('fila_usuario')) ?? 0;
+      this.Escolher(
+        this.CMBUsuarioAutorizacao,
+        Admin.AUTORIZACOES,
+        texto(linha?.getValue('autorizacao_usuario'), '2'),
+      );
+      this.Escolher(
+        this.CMBUsuarioFila,
+        [{ value: '0', label: 'Nenhuma' }, ...(await this.Filas(fila))],
+        String(fila),
+      );
+      this.usuario = id;
+      this.LBLUsuarioTitulo.caption =
+        id === null ? 'Novo usuário' : 'Editar usuário #' + String(id);
+      this.EDTUsuarioNome.value = texto(linha?.getValue('nome_usuario'), '');
+      this.EDTUsuarioLogin.value = texto(linha?.getValue('login_usuario'), '');
+      this.CHKUsuarioTriagem.checked = sim(linha?.getValue('triagem_usuario'));
+      this.CHKUsuarioEncerramento.checked = sim(linha?.getValue('encerramento_usuario'));
+      this.CHKUsuarioInservivel.checked = sim(linha?.getValue('inservivel_usuario'));
+      this.CHKUsuarioAtivo.checked = id === null || sim(linha?.getValue('status_usuario'));
+      this.CHKUsuarioAtivo.enabled = id !== null;
+    });
+  }
+
+  public async NovoUsuario(): Promise<void> {
+    await this.FormularioUsuario(null);
+  }
+
+  /** The pencil edits the usuário; any other cell opens the usuário page. */
+  public async EditarUsuario(
+    _sender: unknown,
+    event: CustomEvent<CelulaDoCadastro>,
+  ): Promise<void> {
+    const id = numero(event.detail.getValue('id_usuario'));
+    if (id === null) return;
+    const linha = this.Linha(event);
+    if (linha === undefined) abrir('Usuario', 'usuario', id);
+    else await this.FormularioUsuario(id, linha);
+  }
+
+  public CancelarUsuario(): void {
+    this.POPUsuario.hide();
+  }
+
+  public async SalvarUsuario(): Promise<void> {
+    const nome = this.EDTUsuarioNome.value.trim();
+    const login = this.EDTUsuarioLogin.value.trim();
+    const autorizacao = numero(this.CMBUsuarioAutorizacao.value);
+    const fila = numero(this.CMBUsuarioFila.value) ?? 0;
+    const falta =
+      nome === ''
+        ? 'Informe o nome completo.'
+        : login === ''
+          ? 'Informe o login de rede.'
+          : autorizacao === null || this.CMBUsuarioAutorizacao.value === ''
+            ? 'Escolha a autorização do usuário.'
+            : '';
+    if (falta !== '' || autorizacao === null) {
+      Toast(falta, { kind: 'warning' });
+      return;
+    }
+    const comum = {
+      nome_usuario: nome,
+      login_usuario: login,
+      autorizacao,
+      fila,
+      triagem: this.CHKUsuarioTriagem.checked,
+      encerramento: this.CHKUsuarioEncerramento.checked,
+      inservivel: this.CHKUsuarioInservivel.checked,
+    };
+    const id = this.usuario;
+    await this.Salvar(
+      this.BTNSalvarUsuario,
+      this.POPUsuario,
+      () =>
+        id === null
+          ? gravar(this.Api.UsuarioInserir, comum)
+          : gravar(this.Api.UsuarioAlterar, {
+              ...comum,
+              id_usuario: id,
+              ativo: this.CHKUsuarioAtivo.checked,
+            }),
+      id === null
+        ? 'Usuário incluído. As permissões valem no próximo login dele.'
+        : 'Usuário alterado. As permissões valem no próximo login dele.',
+      this.Api.Usuarios,
+    );
   }
 
   private static readonly TIPOS = [
