@@ -6,6 +6,7 @@ import {
   type WebApiQueryValue,
   WebButton,
   WebCheckBox,
+  WebComboBox,
   WebDataGrid,
   WebEdit,
   WebGroup,
@@ -16,6 +17,7 @@ import {
   WebPanel,
   WebPopup,
   WebTabs,
+  WebTextArea,
   WebTimer,
 } from '@webrad/runtime';
 
@@ -46,14 +48,20 @@ export abstract class AdminGenerated extends WebPage {
   public readonly PNLUsuarios: WebPanel;
   public readonly GRDUsuarios: WebDataGrid;
   public readonly PNLModelos: WebPanel;
+  public readonly GRPBarraModelo: WebGroup;
+  public readonly BTNNovoModelo: WebButton;
   public readonly GRDModelos: WebDataGrid;
   public readonly PNLLocais: WebPanel;
+  public readonly GRPBarraLocal: WebGroup;
+  public readonly BTNNovoLocal: WebButton;
   public readonly GRDLocais: WebDataGrid;
   public readonly PNLSecretarias: WebPanel;
   public readonly GRPBarraSecretaria: WebGroup;
   public readonly BTNNovoSecretaria: WebButton;
   public readonly GRDSecretarias: WebDataGrid;
   public readonly PNLServicos: WebPanel;
+  public readonly GRPBarraServico: WebGroup;
+  public readonly BTNNovoServico: WebButton;
   public readonly GRDServicos: WebDataGrid;
   public readonly PNLBancadas: WebPanel;
   public readonly GRPBarraBancada: WebGroup;
@@ -63,6 +71,80 @@ export abstract class AdminGenerated extends WebPage {
   public readonly GRPBarraFila: WebGroup;
   public readonly BTNNovoFila: WebButton;
   public readonly GRDFilas: WebDataGrid;
+  public readonly POPModelo: WebPopup;
+  public readonly LBLModeloTitulo: WebLabel;
+  public readonly GRPModeloEscolhas: WebGroup;
+  public readonly GRPModeloTipo: WebGroup;
+  public readonly LBLModeloTipo: WebLabel;
+  public readonly CMBModeloTipo: WebComboBox;
+  public readonly GRPModeloFila: WebGroup;
+  public readonly LBLModeloFila: WebLabel;
+  public readonly CMBModeloFila: WebComboBox;
+  public readonly GRPModeloTexto: WebGroup;
+  public readonly LBLModeloTexto: WebLabel;
+  public readonly TXAModeloTexto: WebTextArea;
+  public readonly CHKModeloAtivo: WebCheckBox;
+  public readonly GRPBotoesModelo: WebGroup;
+  public readonly BTNCancelarModelo: WebButton;
+  public readonly BTNSalvarModelo: WebButton;
+  public readonly POPLocal: WebPopup;
+  public readonly LBLLocalTitulo: WebLabel;
+  public readonly GRPLocalNome: WebGroup;
+  public readonly LBLLocalNome: WebLabel;
+  public readonly EDTLocalNome: WebEdit;
+  public readonly GRPLocalEndereco: WebGroup;
+  public readonly LBLLocalEndereco: WebLabel;
+  public readonly EDTLocalEndereco: WebEdit;
+  public readonly GRPLocalEscolhas: WebGroup;
+  public readonly GRPLocalSecretaria: WebGroup;
+  public readonly LBLLocalSecretaria: WebLabel;
+  public readonly CMBLocalSecretaria: WebComboBox;
+  public readonly GRPLocalRegiao: WebGroup;
+  public readonly LBLLocalRegiao: WebLabel;
+  public readonly CMBLocalRegiao: WebComboBox;
+  public readonly GRPLocalMarcas: WebGroup;
+  public readonly CHKLocalInfovia: WebCheckBox;
+  public readonly CHKLocalAtivo: WebCheckBox;
+  public readonly GRPBotoesLocal: WebGroup;
+  public readonly BTNCancelarLocal: WebButton;
+  public readonly BTNSalvarLocal: WebButton;
+  public readonly POPTelefone: WebPopup;
+  public readonly LBLTelefoneTitulo: WebLabel;
+  public readonly GRDTelefones: WebDataGrid;
+  public readonly GRPTelefoneCampos: WebGroup;
+  public readonly GRPTelefoneSetor: WebGroup;
+  public readonly LBLTelefoneSetor: WebLabel;
+  public readonly EDTTelefoneSetor: WebEdit;
+  public readonly GRPTelefoneNumero: WebGroup;
+  public readonly LBLTelefoneNumero: WebLabel;
+  public readonly EDTTelefoneNumero: WebEdit;
+  public readonly GRPBotoesTelefone: WebGroup;
+  public readonly BTNExcluirTelefone: WebButton;
+  public readonly BTNNovoTelefone: WebButton;
+  public readonly BTNCancelarTelefone: WebButton;
+  public readonly BTNSalvarTelefone: WebButton;
+  public readonly POPServico: WebPopup;
+  public readonly LBLServicoTitulo: WebLabel;
+  public readonly GRPServicoNome: WebGroup;
+  public readonly LBLServicoNome: WebLabel;
+  public readonly EDTServicoNome: WebEdit;
+  public readonly GRPServicoCampos: WebGroup;
+  public readonly GRPServicoFila: WebGroup;
+  public readonly LBLServicoFila: WebLabel;
+  public readonly CMBServicoFila: WebComboBox;
+  public readonly GRPServicoUnidade: WebGroup;
+  public readonly LBLServicoUnidade: WebLabel;
+  public readonly EDTServicoUnidade: WebEdit;
+  public readonly GRPServicoPontuacao: WebGroup;
+  public readonly LBLServicoPontuacao: WebLabel;
+  public readonly CMBServicoPontuacao: WebComboBox;
+  public readonly GRPServicoValor: WebGroup;
+  public readonly LBLServicoValor: WebLabel;
+  public readonly EDTServicoValor: WebEdit;
+  public readonly CHKServicoAtivo: WebCheckBox;
+  public readonly GRPBotoesServico: WebGroup;
+  public readonly BTNCancelarServico: WebButton;
+  public readonly BTNSalvarServico: WebButton;
   public readonly POPBancada: WebPopup;
   public readonly LBLBancadaTitulo: WebLabel;
   public readonly GRPBancadaNome: WebGroup;
@@ -109,71 +191,71 @@ export abstract class AdminGenerated extends WebPage {
   public constructor(element: HTMLElement) {
     super(element);
     this.Cabecalho = new WebGroup(
-      this.requireComponentElement('c1c4293c-c249-4d58-aea8-2adac01611c6'),
+      this.requireComponentElement('47519f0e-7022-4d4a-afa8-623826ff5f02'),
     );
     this.GRPMarca = new WebGroup(
-      this.requireComponentElement('ca9f60e0-8e8b-4e6e-bab5-6215d84acb7f'),
+      this.requireComponentElement('59523979-106e-4e56-8225-d7dfad322d22'),
     );
     this.IMGMarca = new WebImage(
-      this.requireComponentElement('26a88812-fb92-4228-800a-0d51c26c81e6'),
+      this.requireComponentElement('0f59018a-c0f8-4259-8479-bac92989e318'),
     );
     this.LBLMarca = new WebLabel(
-      this.requireComponentElement('a38eb588-98d8-4a64-b528-104768d7fb57'),
+      this.requireComponentElement('d4028c50-3cc6-4d82-a947-17852e4ddea3'),
     );
     this.GRPBusca = new WebGroup(
-      this.requireComponentElement('a56ec7e7-60a7-4cb4-a733-8378f30810e3'),
+      this.requireComponentElement('9834e34c-1956-4a7c-ae62-6dd2148088a3'),
     );
     this.EDTBuscaRapida = new WebEdit(
-      this.requireComponentElement('4930786a-78b9-452c-8840-f4de048b7c0a'),
+      this.requireComponentElement('7a9867d1-7067-42ed-ba52-d93668de28b2'),
     );
     this.BTNBuscar = new WebButton(
-      this.requireComponentElement('5e359e16-bb52-4c48-9d49-b7aa02e5a144'),
+      this.requireComponentElement('51da5f4c-a864-40d0-81fd-6fdb2483370e'),
     );
     this.GRPUsuario = new WebGroup(
-      this.requireComponentElement('a81031fb-91f2-4f55-b201-72540416285c'),
+      this.requireComponentElement('0d979df2-d4bd-4486-9f17-fe31d4bd3cf7'),
     );
     this.LBLOla = new WebLabel(
-      this.requireComponentElement('f8cbda57-2965-4b8a-86b4-05eb11517594'),
+      this.requireComponentElement('a49e28eb-1388-4f9a-b7c5-b9a42dc5ab56'),
     );
     this.LBLUsuario = new WebLabel(
-      this.requireComponentElement('3f0eff8e-8a60-4cd8-9023-1085fc21d332'),
+      this.requireComponentElement('a82f5e67-9c08-4d0d-8714-5521058b2286'),
     );
     this.BTNBloqueados = new WebButton(
-      this.requireComponentElement('bbf52667-30b3-4ce4-bd26-eb25111c8a01'),
+      this.requireComponentElement('4fd5bee3-6571-49f1-afc9-e8e31a12dbb3'),
     );
     this.BTNPainel = new WebButton(
-      this.requireComponentElement('d76ce495-10df-4725-882f-aacc46b4cce3'),
+      this.requireComponentElement('3d27f534-2482-4763-b663-c973e041a7c7'),
     );
     this.BTNInserviveis = new WebButton(
-      this.requireComponentElement('07cb52be-372f-4a4a-b1ee-305c89b443b5'),
+      this.requireComponentElement('22f98ee1-1c97-422a-bd39-c38cd6afdc68'),
     );
     this.BTNAdmin = new WebButton(
-      this.requireComponentElement('0a7af8de-5712-41b1-abcd-1ca733b2bfc3'),
+      this.requireComponentElement('909e2d96-6562-4304-8acd-8fff19883872'),
     );
     this.BTNSair = new WebButton(
-      this.requireComponentElement('3ea3a705-4d9f-4200-b2d4-61789552e885'),
+      this.requireComponentElement('fe8c0b8f-b8d3-4e55-8862-ec3b073cffb9'),
     );
     this.Conteudo = new WebGroup(
-      this.requireComponentElement('1e80dca8-d9ba-409b-9d35-6d935d8f5795'),
+      this.requireComponentElement('c047e983-0581-486e-a4ce-ae741144bc36'),
     );
     this.GRPTitulo = new WebGroup(
-      this.requireComponentElement('01ae2190-e39f-4908-9f7d-5b847be255c3'),
+      this.requireComponentElement('bb592523-673d-4964-8620-5964e1f41e29'),
     );
     this.ICOAdmin = new WebIcon(
-      this.requireComponentElement('e7f2b145-ce82-46ab-86a6-03d420af35bc'),
+      this.requireComponentElement('d2e199da-c4dd-4a68-a0a3-61e59458156f'),
     );
     this.LBLTitulo = new WebLabel(
-      this.requireComponentElement('cc2a7541-ba8a-486e-a134-49603baee1cf'),
+      this.requireComponentElement('3e30571d-6eca-4b7c-9720-1976683f94f7'),
     );
     this.GRPLinha = new WebGroup(
-      this.requireComponentElement('f75e90a7-87a8-4026-ae9b-3714aeb69319'),
+      this.requireComponentElement('3401dc29-2f5f-4158-b124-d9b83d2e93f9'),
     );
-    this.Abas = new WebTabs(this.requireComponentElement('5ccbe437-d0c7-48a4-88ec-9853d2d599d8'));
+    this.Abas = new WebTabs(this.requireComponentElement('c286a0b9-e82a-4dc5-87ca-6ab72b79f7e9'));
     this.PNLEventos = new WebPanel(
-      this.requireComponentElement('0b371a6a-bb22-4596-9536-5f5e0a8b5f07'),
+      this.requireComponentElement('9e89dfcb-74ba-41a3-8e78-55aee93e19e6'),
     );
     this.GRDEventos = new WebDataGrid(
-      this.requireComponentElement('068e2f75-a5d3-4c20-88da-791d70e007fe'),
+      this.requireComponentElement('5b67e419-9843-4d38-8206-f596f32f536c'),
     );
     this.GRDEventos.dataGridConfig = {
       schemaVersion: 2,
@@ -198,7 +280,7 @@ export abstract class AdminGenerated extends WebPage {
       emptyMessage: '(vazio)',
       columns: [
         {
-          id: 'e368fe33-fa55-4e7e-89af-6c6a1a61210d',
+          id: '8288481a-f861-4aa3-89f1-4bb173ae0831',
           header: 'ID',
           fieldPath: '/id_evento',
           cellKind: 'text',
@@ -216,7 +298,7 @@ export abstract class AdminGenerated extends WebPage {
           searchable: true,
         },
         {
-          id: 'c50c889f-2a80-4b34-8d2e-945ff08ea3d6',
+          id: 'dd827fbb-02bc-4538-921e-abcd1c7c543a',
           header: 'Ação',
           fieldPath: '/acao_evento',
           cellKind: 'text',
@@ -234,7 +316,7 @@ export abstract class AdminGenerated extends WebPage {
           searchable: true,
         },
         {
-          id: 'ccb20ff9-4280-4cdb-8032-fcffdb1f88c1',
+          id: '11c3f06a-bbef-43e0-9292-b916174eac60',
           header: 'Descrição',
           fieldPath: '/desc_evento',
           cellKind: 'text',
@@ -252,7 +334,7 @@ export abstract class AdminGenerated extends WebPage {
           searchable: true,
         },
         {
-          id: 'e9517655-3ecd-471c-bb80-43e9b3a66f21',
+          id: '4387d476-d585-4e24-a7d9-85e8a5011da2',
           header: 'Data/Hora',
           fieldPath: '/data_evento_fmt',
           cellKind: 'text',
@@ -270,7 +352,7 @@ export abstract class AdminGenerated extends WebPage {
           searchable: true,
         },
         {
-          id: 'c5d7906a-ab12-4052-9c9e-e57dc3dc7525',
+          id: '334de251-3b5d-40ba-85e2-f474d3619136',
           header: 'Usuário',
           fieldPath: '/nome_usuario',
           cellKind: 'text',
@@ -304,10 +386,10 @@ export abstract class AdminGenerated extends WebPage {
       totalRowsPath: '/total',
     };
     this.PNLUsuarios = new WebPanel(
-      this.requireComponentElement('23ccc1d9-696c-4d39-bae7-ca9a97557021'),
+      this.requireComponentElement('0c3823e4-59f9-473a-a836-2b560e942e80'),
     );
     this.GRDUsuarios = new WebDataGrid(
-      this.requireComponentElement('bcf3b88d-f8c8-4b04-a19f-1f745a3cd723'),
+      this.requireComponentElement('046fc2f9-aa63-4a47-945e-495932df47f8'),
     );
     this.GRDUsuarios.dataGridConfig = {
       schemaVersion: 2,
@@ -332,7 +414,7 @@ export abstract class AdminGenerated extends WebPage {
       emptyMessage: 'Nenhum registro',
       columns: [
         {
-          id: 'ec1e170e-9794-4362-ad49-42636f498b01',
+          id: '97513f4b-5218-4ef9-84e7-42c721747a2c',
           header: 'Nome',
           fieldPath: '/nome_usuario',
           cellKind: 'text',
@@ -350,7 +432,7 @@ export abstract class AdminGenerated extends WebPage {
           searchable: true,
         },
         {
-          id: 'c4986339-d99f-44fa-be6b-978e24f13206',
+          id: '7272278c-d4ef-4280-8bda-1be645675b67',
           header: 'Login',
           fieldPath: '/login_usuario',
           cellKind: 'text',
@@ -368,7 +450,7 @@ export abstract class AdminGenerated extends WebPage {
           searchable: true,
         },
         {
-          id: '506a5743-8d1a-44f2-ac36-51d14e55457a',
+          id: '26fc1acd-8deb-4c9d-88ea-5a5b0dd81a63',
           header: 'Autorização',
           fieldPath: '/autorizacao_usuario',
           cellKind: 'text',
@@ -386,7 +468,7 @@ export abstract class AdminGenerated extends WebPage {
           searchable: true,
         },
         {
-          id: '54025d48-8824-4945-bd8f-eaf98764bcb0',
+          id: '2b4ff2c3-e3f6-49be-9275-1e0b52d10a74',
           header: 'Fila',
           fieldPath: '/fila_usuario',
           cellKind: 'text',
@@ -404,7 +486,7 @@ export abstract class AdminGenerated extends WebPage {
           searchable: true,
         },
         {
-          id: 'b958221b-9cd5-4fea-906d-682f33e65663',
+          id: '6d63456c-5b67-46cc-a1bf-d0c663e2d77d',
           header: 'Triagem',
           fieldPath: '/triagem_usuario',
           cellKind: 'text',
@@ -422,7 +504,7 @@ export abstract class AdminGenerated extends WebPage {
           searchable: true,
         },
         {
-          id: 'eef4a88d-10ef-4d75-b164-32cf63304bf3',
+          id: '03823790-5222-4c2f-9673-6e1971b0705b',
           header: 'Encerramento',
           fieldPath: '/encerramento_usuario',
           cellKind: 'text',
@@ -440,7 +522,7 @@ export abstract class AdminGenerated extends WebPage {
           searchable: true,
         },
         {
-          id: 'c3973372-80d8-4e6c-8dda-b3e700a7aafa',
+          id: '55e5af12-f3de-45aa-9a01-ac093cb2d6ba',
           header: 'Inservível',
           fieldPath: '/inservivel_usuario',
           cellKind: 'text',
@@ -458,7 +540,7 @@ export abstract class AdminGenerated extends WebPage {
           searchable: true,
         },
         {
-          id: '8288481a-f861-4aa3-89f1-4bb173ae0831',
+          id: '3d7368c2-310b-4769-ae5b-797299d6eda1',
           header: 'Ativo',
           fieldPath: '/status_usuario',
           cellKind: 'text',
@@ -492,35 +574,41 @@ export abstract class AdminGenerated extends WebPage {
       totalRowsPath: '/total',
     };
     this.PNLModelos = new WebPanel(
-      this.requireComponentElement('a4f2135e-9e5c-47ee-8d67-6785857924d7'),
+      this.requireComponentElement('b569e3f0-64f2-4368-af92-b4961dcd567c'),
+    );
+    this.GRPBarraModelo = new WebGroup(
+      this.requireComponentElement('a94c30d2-f6bc-4444-9726-8bc8f23b1774'),
+    );
+    this.BTNNovoModelo = new WebButton(
+      this.requireComponentElement('856e975a-ccac-4f23-8489-93055bb96af7'),
     );
     this.GRDModelos = new WebDataGrid(
-      this.requireComponentElement('be81c432-4997-4cc4-a27a-b1469e20c2f4'),
+      this.requireComponentElement('f71567e4-b382-4ed5-949c-002a61361f14'),
     );
     this.GRDModelos.dataGridConfig = {
       schemaVersion: 2,
       apiClientId: '5c727ab8-4f68-4f6c-b396-6e265d7afedc',
       operationId: '3efd4e93-af44-4cb4-be1d-0f488827c018',
       listPath: '/data',
-      columnCount: 5,
+      columnCount: 8,
       showHeader: true,
       stickyHeader: true,
       showFooter: false,
       stickyFooter: true,
       rowHeightMode: 'dynamic',
       fixedRowHeight: 40,
-      minRowHeight: 36,
+      minRowHeight: 40,
       maxRowHeight: null,
       cellPaddingHorizontal: 10,
       cellPaddingVertical: 8,
-      wrapText: false,
+      wrapText: true,
       stripedRows: true,
       showHorizontalLines: true,
       showVerticalLines: false,
-      emptyMessage: 'Nenhum registro',
+      emptyMessage: '(vazio)',
       columns: [
         {
-          id: 'dd827fbb-02bc-4538-921e-abcd1c7c543a',
+          id: '4c3bbe0f-0166-4b2d-9783-7eab1eac208a',
           header: '#',
           fieldPath: '/id_modelo_mensagem',
           cellKind: 'text',
@@ -538,44 +626,8 @@ export abstract class AdminGenerated extends WebPage {
           searchable: true,
         },
         {
-          id: '11c3f06a-bbef-43e0-9292-b916174eac60',
-          header: 'Tipo',
-          fieldPath: '/tipo_modelo_mensagem',
-          cellKind: 'text',
-          fixedCaption: '',
-          buttonIcon: null,
-          footer: '',
-          widthMode: 'fixed',
-          width: 160,
-          minWidth: 90,
-          maxWidth: null,
-          flex: 1,
-          headerAlign: 'start',
-          cellAlign: 'start',
-          sortable: true,
-          searchable: true,
-        },
-        {
-          id: '4387d476-d585-4e24-a7d9-85e8a5011da2',
-          header: 'Fila',
-          fieldPath: '/nome_fila',
-          cellKind: 'text',
-          fixedCaption: '',
-          buttonIcon: null,
-          footer: '',
-          widthMode: 'fixed',
-          width: 160,
-          minWidth: 90,
-          maxWidth: null,
-          flex: 1,
-          headerAlign: 'start',
-          cellAlign: 'start',
-          sortable: true,
-          searchable: true,
-        },
-        {
-          id: '334de251-3b5d-40ba-85e2-f474d3619136',
-          header: 'Mensagem',
+          id: '061d6286-8a1e-4597-bc82-0d3fe52f06f9',
+          header: 'Texto',
           fieldPath: '/mensagem_modelo_mensagem',
           cellKind: 'text',
           fixedCaption: '',
@@ -583,281 +635,7 @@ export abstract class AdminGenerated extends WebPage {
           footer: '',
           widthMode: 'dynamic',
           width: 180,
-          minWidth: 90,
-          maxWidth: null,
-          flex: 1,
-          headerAlign: 'start',
-          cellAlign: 'start',
-          sortable: true,
-          searchable: true,
-        },
-        {
-          id: '97513f4b-5218-4ef9-84e7-42c721747a2c',
-          header: 'Ativo',
-          fieldPath: '/status_modelo_mensagem',
-          cellKind: 'text',
-          fixedCaption: '',
-          buttonIcon: null,
-          footer: '',
-          widthMode: 'fixed',
-          width: 80,
-          minWidth: 80,
-          maxWidth: null,
-          flex: 1,
-          headerAlign: 'start',
-          cellAlign: 'start',
-          sortable: true,
-          searchable: true,
-        },
-      ],
-      pagination: 'client',
-      pageSize: 25,
-      pageSizeOptions: [10, 25, 50, 100],
-      showPageSizeSelector: true,
-      searchEnabled: true,
-      searchPlaceholder: 'Busca:',
-      sortEnabled: true,
-      exportEnabled: true,
-      columnFilters: false,
-      serverSearchParameter: 'q',
-      serverSortParameter: 'sort',
-      serverDirectionParameter: 'dir',
-      totalPagesPath: '/total_pages',
-      totalRowsPath: '/total',
-    };
-    this.PNLLocais = new WebPanel(
-      this.requireComponentElement('b451541a-a94e-4c05-b4bf-f7273453f194'),
-    );
-    this.GRDLocais = new WebDataGrid(
-      this.requireComponentElement('63b4d29d-ce22-41ec-b1bb-dbbd7364d642'),
-    );
-    this.GRDLocais.dataGridConfig = {
-      schemaVersion: 2,
-      apiClientId: '5c727ab8-4f68-4f6c-b396-6e265d7afedc',
-      operationId: '298a0448-95b8-4f23-8da7-844d3455dba2',
-      listPath: '/data',
-      columnCount: 7,
-      showHeader: true,
-      stickyHeader: true,
-      showFooter: false,
-      stickyFooter: true,
-      rowHeightMode: 'dynamic',
-      fixedRowHeight: 40,
-      minRowHeight: 36,
-      maxRowHeight: null,
-      cellPaddingHorizontal: 10,
-      cellPaddingVertical: 8,
-      wrapText: false,
-      stripedRows: true,
-      showHorizontalLines: true,
-      showVerticalLines: false,
-      emptyMessage: 'Nenhum registro',
-      columns: [
-        {
-          id: '7272278c-d4ef-4280-8bda-1be645675b67',
-          header: '#',
-          fieldPath: '/id_local',
-          cellKind: 'text',
-          fixedCaption: '',
-          buttonIcon: null,
-          footer: '',
-          widthMode: 'fixed',
-          width: 80,
-          minWidth: 80,
-          maxWidth: null,
-          flex: 1,
-          headerAlign: 'start',
-          cellAlign: 'start',
-          sortable: true,
-          searchable: true,
-        },
-        {
-          id: '26fc1acd-8deb-4c9d-88ea-5a5b0dd81a63',
-          header: 'Local',
-          fieldPath: '/nome_local',
-          cellKind: 'text',
-          fixedCaption: '',
-          buttonIcon: null,
-          footer: '',
-          widthMode: 'dynamic',
-          width: 180,
-          minWidth: 90,
-          maxWidth: null,
-          flex: 1,
-          headerAlign: 'start',
-          cellAlign: 'start',
-          sortable: true,
-          searchable: true,
-        },
-        {
-          id: '2b4ff2c3-e3f6-49be-9275-1e0b52d10a74',
-          header: 'Endereço',
-          fieldPath: '/endereco_local',
-          cellKind: 'text',
-          fixedCaption: '',
-          buttonIcon: null,
-          footer: '',
-          widthMode: 'dynamic',
-          width: 180,
-          minWidth: 90,
-          maxWidth: null,
-          flex: 1,
-          headerAlign: 'start',
-          cellAlign: 'start',
-          sortable: true,
-          searchable: true,
-        },
-        {
-          id: '6d63456c-5b67-46cc-a1bf-d0c663e2d77d',
-          header: 'Secretaria',
-          fieldPath: '/sigla_secretaria',
-          cellKind: 'text',
-          fixedCaption: '',
-          buttonIcon: null,
-          footer: '',
-          widthMode: 'fixed',
-          width: 120,
-          minWidth: 90,
-          maxWidth: null,
-          flex: 1,
-          headerAlign: 'start',
-          cellAlign: 'start',
-          sortable: true,
-          searchable: true,
-        },
-        {
-          id: '03823790-5222-4c2f-9673-6e1971b0705b',
-          header: 'Região',
-          fieldPath: '/regiao_local',
-          cellKind: 'text',
-          fixedCaption: '',
-          buttonIcon: null,
-          footer: '',
-          widthMode: 'fixed',
-          width: 110,
-          minWidth: 90,
-          maxWidth: null,
-          flex: 1,
-          headerAlign: 'start',
-          cellAlign: 'start',
-          sortable: true,
-          searchable: true,
-        },
-        {
-          id: '55e5af12-f3de-45aa-9a01-ac093cb2d6ba',
-          header: 'Ativo',
-          fieldPath: '/status_local',
-          cellKind: 'text',
-          fixedCaption: '',
-          buttonIcon: null,
-          footer: '',
-          widthMode: 'fixed',
-          width: 80,
-          minWidth: 80,
-          maxWidth: null,
-          flex: 1,
-          headerAlign: 'start',
-          cellAlign: 'start',
-          sortable: true,
-          searchable: true,
-        },
-        {
-          id: '3d7368c2-310b-4769-ae5b-797299d6eda1',
-          header: 'Infovia',
-          fieldPath: '/infovia',
-          cellKind: 'text',
-          fixedCaption: '',
-          buttonIcon: null,
-          footer: '',
-          widthMode: 'fixed',
-          width: 80,
-          minWidth: 80,
-          maxWidth: null,
-          flex: 1,
-          headerAlign: 'start',
-          cellAlign: 'start',
-          sortable: true,
-          searchable: true,
-        },
-      ],
-      pagination: 'server',
-      pageSize: 25,
-      pageSizeOptions: [10, 25, 50, 100],
-      showPageSizeSelector: true,
-      searchEnabled: true,
-      searchPlaceholder: 'Busca:',
-      sortEnabled: true,
-      exportEnabled: true,
-      columnFilters: false,
-      serverSearchParameter: 'q',
-      serverSortParameter: 'sort',
-      serverDirectionParameter: 'dir',
-      totalPagesPath: '/total_pages',
-      totalRowsPath: '/total',
-    };
-    this.PNLSecretarias = new WebPanel(
-      this.requireComponentElement('bb7d82aa-4f3f-4553-9fe3-16b0e13c6332'),
-    );
-    this.GRPBarraSecretaria = new WebGroup(
-      this.requireComponentElement('b0842319-4e6c-479f-ac09-3cdc87759840'),
-    );
-    this.BTNNovoSecretaria = new WebButton(
-      this.requireComponentElement('c2fb615f-f2bf-4a05-97a7-1d9bce136d18'),
-    );
-    this.GRDSecretarias = new WebDataGrid(
-      this.requireComponentElement('ae9ccdf0-6d73-407b-9283-e7aed249c1b5'),
-    );
-    this.GRDSecretarias.dataGridConfig = {
-      schemaVersion: 2,
-      apiClientId: '5c727ab8-4f68-4f6c-b396-6e265d7afedc',
-      operationId: '5f347cbb-529f-4480-ac10-669d9be108d4',
-      listPath: '/data',
-      columnCount: 6,
-      showHeader: true,
-      stickyHeader: true,
-      showFooter: false,
-      stickyFooter: true,
-      rowHeightMode: 'dynamic',
-      fixedRowHeight: 40,
-      minRowHeight: 36,
-      maxRowHeight: null,
-      cellPaddingHorizontal: 10,
-      cellPaddingVertical: 8,
-      wrapText: false,
-      stripedRows: true,
-      showHorizontalLines: true,
-      showVerticalLines: false,
-      emptyMessage: '(vazio)',
-      columns: [
-        {
-          id: '4c3bbe0f-0166-4b2d-9783-7eab1eac208a',
-          header: '#',
-          fieldPath: '/id_secretaria',
-          cellKind: 'text',
-          fixedCaption: '',
-          buttonIcon: null,
-          footer: '',
-          widthMode: 'fixed',
-          width: 80,
-          minWidth: 80,
-          maxWidth: null,
-          flex: 1,
-          headerAlign: 'start',
-          cellAlign: 'start',
-          sortable: true,
-          searchable: true,
-        },
-        {
-          id: '061d6286-8a1e-4597-bc82-0d3fe52f06f9',
-          header: 'Sigla',
-          fieldPath: '/sigla_secretaria',
-          cellKind: 'text',
-          fixedCaption: '',
-          buttonIcon: null,
-          footer: '',
-          widthMode: 'fixed',
-          width: 160,
-          minWidth: 90,
+          minWidth: 320,
           maxWidth: null,
           flex: 1,
           headerAlign: 'start',
@@ -867,15 +645,15 @@ export abstract class AdminGenerated extends WebPage {
         },
         {
           id: '9cb77808-6ef9-4548-b962-2ebd3568cc2b',
-          header: 'Nome',
-          fieldPath: '/nome_secretaria',
+          header: 'Fila',
+          fieldPath: '/nome_fila',
           cellKind: 'text',
           fixedCaption: '',
           buttonIcon: null,
           footer: '',
-          widthMode: 'dynamic',
-          width: 180,
-          minWidth: 260,
+          widthMode: 'fixed',
+          width: 150,
+          minWidth: 90,
           maxWidth: null,
           flex: 1,
           headerAlign: 'start',
@@ -885,8 +663,26 @@ export abstract class AdminGenerated extends WebPage {
         },
         {
           id: 'b97f88db-e3a7-43aa-b2d7-b40cce0f9ed3',
-          header: 'Ativa?',
-          fieldPath: '/status_secretaria',
+          header: 'Tipo',
+          fieldPath: '/tipo_modelo_mensagem',
+          cellKind: 'text',
+          fixedCaption: '',
+          buttonIcon: null,
+          footer: '',
+          widthMode: 'fixed',
+          width: 140,
+          minWidth: 90,
+          maxWidth: null,
+          flex: 1,
+          headerAlign: 'start',
+          cellAlign: 'start',
+          sortable: true,
+          searchable: true,
+        },
+        {
+          id: 'a9b946dd-1d15-483b-b60f-845db578a7d1',
+          header: 'Ativo?',
+          fieldPath: '/status_modelo_mensagem',
           cellKind: 'checkbox',
           fixedCaption: '',
           buttonIcon: null,
@@ -902,15 +698,15 @@ export abstract class AdminGenerated extends WebPage {
           searchable: false,
         },
         {
-          id: 'a9b946dd-1d15-483b-b60f-845db578a7d1',
-          header: 'Última alteração',
-          fieldPath: '/ultima_alteracao',
+          id: '219dcfcc-1b65-4c0b-ac7b-8cb3b0dd033d',
+          header: 'Data de criação',
+          fieldPath: '/data_modelo_mensagem',
           cellKind: 'text',
           fixedCaption: '',
           buttonIcon: null,
           footer: '',
           widthMode: 'fixed',
-          width: 200,
+          width: 180,
           minWidth: 90,
           maxWidth: null,
           flex: 1,
@@ -920,7 +716,25 @@ export abstract class AdminGenerated extends WebPage {
           searchable: true,
         },
         {
-          id: '219dcfcc-1b65-4c0b-ac7b-8cb3b0dd033d',
+          id: '95dc10b2-5bfc-491c-abbd-a34c4bf51883',
+          header: 'Última alteração',
+          fieldPath: '/alterado_modelo_mensagem',
+          cellKind: 'text',
+          fixedCaption: '',
+          buttonIcon: null,
+          footer: '',
+          widthMode: 'fixed',
+          width: 180,
+          minWidth: 90,
+          maxWidth: null,
+          flex: 1,
+          headerAlign: 'start',
+          cellAlign: 'start',
+          sortable: true,
+          searchable: true,
+        },
+        {
+          id: '7a5ce407-84ed-4518-990c-458e2d080e50',
           header: 'Editar',
           fieldPath: '',
           cellKind: 'button',
@@ -953,38 +767,44 @@ export abstract class AdminGenerated extends WebPage {
       totalPagesPath: '/total_pages',
       totalRowsPath: '/total',
     };
-    this.PNLServicos = new WebPanel(
-      this.requireComponentElement('077c880f-6ce2-411c-96a9-7486cfd89106'),
+    this.PNLLocais = new WebPanel(
+      this.requireComponentElement('436467d1-3c0d-4550-8c61-3de9cd307be8'),
     );
-    this.GRDServicos = new WebDataGrid(
-      this.requireComponentElement('da1b6196-9efd-408c-a108-e899dd233336'),
+    this.GRPBarraLocal = new WebGroup(
+      this.requireComponentElement('fd964026-6b46-4652-a96a-ee6beae3c52c'),
     );
-    this.GRDServicos.dataGridConfig = {
+    this.BTNNovoLocal = new WebButton(
+      this.requireComponentElement('354b2a86-0f99-49f6-9512-ecea81edbb26'),
+    );
+    this.GRDLocais = new WebDataGrid(
+      this.requireComponentElement('0a081425-bcb2-41fc-b56d-0178cc53e798'),
+    );
+    this.GRDLocais.dataGridConfig = {
       schemaVersion: 2,
       apiClientId: '5c727ab8-4f68-4f6c-b396-6e265d7afedc',
-      operationId: 'f264b4c4-7b39-4472-899f-d66f1520e49d',
+      operationId: '298a0448-95b8-4f23-8da7-844d3455dba2',
       listPath: '/data',
-      columnCount: 7,
+      columnCount: 10,
       showHeader: true,
       stickyHeader: true,
       showFooter: false,
       stickyFooter: true,
       rowHeightMode: 'dynamic',
       fixedRowHeight: 40,
-      minRowHeight: 36,
+      minRowHeight: 40,
       maxRowHeight: null,
       cellPaddingHorizontal: 10,
       cellPaddingVertical: 8,
-      wrapText: false,
+      wrapText: true,
       stripedRows: true,
       showHorizontalLines: true,
       showVerticalLines: false,
-      emptyMessage: 'Nenhum registro',
+      emptyMessage: '(vazio)',
       columns: [
         {
-          id: '95dc10b2-5bfc-491c-abbd-a34c4bf51883',
+          id: '56550f84-404c-4cc5-8d1d-82e3870de2ea',
           header: '#',
-          fieldPath: '/id_servico',
+          fieldPath: '/id_local',
           cellKind: 'text',
           fixedCaption: '',
           buttonIcon: null,
@@ -1000,52 +820,16 @@ export abstract class AdminGenerated extends WebPage {
           searchable: true,
         },
         {
-          id: '7a5ce407-84ed-4518-990c-458e2d080e50',
-          header: 'Serviço',
-          fieldPath: '/nome_servico',
+          id: '426fb211-8f6c-480a-a3f3-7ed20994fe0b',
+          header: 'Nome',
+          fieldPath: '/nome_local',
           cellKind: 'text',
           fixedCaption: '',
           buttonIcon: null,
           footer: '',
           widthMode: 'dynamic',
           width: 180,
-          minWidth: 90,
-          maxWidth: null,
-          flex: 1,
-          headerAlign: 'start',
-          cellAlign: 'start',
-          sortable: true,
-          searchable: true,
-        },
-        {
-          id: '56550f84-404c-4cc5-8d1d-82e3870de2ea',
-          header: 'Fila',
-          fieldPath: '/nome_fila',
-          cellKind: 'text',
-          fixedCaption: '',
-          buttonIcon: null,
-          footer: '',
-          widthMode: 'fixed',
-          width: 160,
-          minWidth: 90,
-          maxWidth: null,
-          flex: 1,
-          headerAlign: 'start',
-          cellAlign: 'start',
-          sortable: true,
-          searchable: true,
-        },
-        {
-          id: '426fb211-8f6c-480a-a3f3-7ed20994fe0b',
-          header: 'Valor',
-          fieldPath: '/valor_servico',
-          cellKind: 'text',
-          fixedCaption: '',
-          buttonIcon: null,
-          footer: '',
-          widthMode: 'fixed',
-          width: 100,
-          minWidth: 90,
+          minWidth: 240,
           maxWidth: null,
           flex: 1,
           headerAlign: 'start',
@@ -1055,15 +839,15 @@ export abstract class AdminGenerated extends WebPage {
         },
         {
           id: '19d225e3-7c99-466e-af99-0b64ce1e3b81',
-          header: 'Pontos',
-          fieldPath: '/pontuacao_servico',
+          header: 'Endereço',
+          fieldPath: '/endereco_local',
           cellKind: 'text',
           fixedCaption: '',
           buttonIcon: null,
           footer: '',
-          widthMode: 'fixed',
-          width: 90,
-          minWidth: 90,
+          widthMode: 'dynamic',
+          width: 180,
+          minWidth: 240,
           maxWidth: null,
           flex: 1,
           headerAlign: 'start',
@@ -1073,14 +857,14 @@ export abstract class AdminGenerated extends WebPage {
         },
         {
           id: '3d045c37-a47e-42a0-865c-ec3931574d65',
-          header: 'Unidade',
-          fieldPath: '/unidade_medida',
+          header: 'Secretaria',
+          fieldPath: '/sigla_secretaria',
           cellKind: 'text',
           fixedCaption: '',
           buttonIcon: null,
           footer: '',
           widthMode: 'fixed',
-          width: 90,
+          width: 120,
           minWidth: 90,
           maxWidth: null,
           flex: 1,
@@ -1091,131 +875,9 @@ export abstract class AdminGenerated extends WebPage {
         },
         {
           id: '5cff4ca5-f3c1-46b1-886a-792204c9ccae',
-          header: 'Ativo',
-          fieldPath: '/status_servico',
+          header: 'Região',
+          fieldPath: '/regiao_local',
           cellKind: 'text',
-          fixedCaption: '',
-          buttonIcon: null,
-          footer: '',
-          widthMode: 'fixed',
-          width: 80,
-          minWidth: 80,
-          maxWidth: null,
-          flex: 1,
-          headerAlign: 'start',
-          cellAlign: 'start',
-          sortable: true,
-          searchable: true,
-        },
-      ],
-      pagination: 'server',
-      pageSize: 25,
-      pageSizeOptions: [10, 25, 50, 100],
-      showPageSizeSelector: true,
-      searchEnabled: true,
-      searchPlaceholder: 'Busca:',
-      sortEnabled: true,
-      exportEnabled: true,
-      columnFilters: false,
-      serverSearchParameter: 'q',
-      serverSortParameter: 'sort',
-      serverDirectionParameter: 'dir',
-      totalPagesPath: '/total_pages',
-      totalRowsPath: '/total',
-    };
-    this.PNLBancadas = new WebPanel(
-      this.requireComponentElement('89fd31bd-1bbe-409a-b0bd-3b1874872f1a'),
-    );
-    this.GRPBarraBancada = new WebGroup(
-      this.requireComponentElement('8a0cb4f0-4917-404d-a663-3a7e368af76e'),
-    );
-    this.BTNNovoBancada = new WebButton(
-      this.requireComponentElement('b3904613-2bac-4e47-99fc-35662ab745e2'),
-    );
-    this.GRDBancadas = new WebDataGrid(
-      this.requireComponentElement('4f02b0f9-4617-44b5-9ffa-12202416f5d1'),
-    );
-    this.GRDBancadas.dataGridConfig = {
-      schemaVersion: 2,
-      apiClientId: '5c727ab8-4f68-4f6c-b396-6e265d7afedc',
-      operationId: 'df8820e9-4c08-4ea1-a822-7db1faab3c5d',
-      listPath: '/data',
-      columnCount: 5,
-      showHeader: true,
-      stickyHeader: true,
-      showFooter: false,
-      stickyFooter: true,
-      rowHeightMode: 'dynamic',
-      fixedRowHeight: 40,
-      minRowHeight: 36,
-      maxRowHeight: null,
-      cellPaddingHorizontal: 10,
-      cellPaddingVertical: 8,
-      wrapText: false,
-      stripedRows: true,
-      showHorizontalLines: true,
-      showVerticalLines: false,
-      emptyMessage: '(vazio)',
-      columns: [
-        {
-          id: '25fb742d-7f18-4620-b97a-73588851094a',
-          header: '#',
-          fieldPath: '/id_bancada',
-          cellKind: 'text',
-          fixedCaption: '',
-          buttonIcon: null,
-          footer: '',
-          widthMode: 'fixed',
-          width: 80,
-          minWidth: 80,
-          maxWidth: null,
-          flex: 1,
-          headerAlign: 'start',
-          cellAlign: 'start',
-          sortable: true,
-          searchable: true,
-        },
-        {
-          id: '6ab0c0a7-5b24-4adb-9713-958c0f2ffbcb',
-          header: 'Identificação',
-          fieldPath: '/nome_bancada',
-          cellKind: 'text',
-          fixedCaption: '',
-          buttonIcon: null,
-          footer: '',
-          widthMode: 'dynamic',
-          width: 180,
-          minWidth: 220,
-          maxWidth: null,
-          flex: 1,
-          headerAlign: 'start',
-          cellAlign: 'start',
-          sortable: true,
-          searchable: true,
-        },
-        {
-          id: '9471ac0d-84eb-4756-8810-244bf4b9e5e9',
-          header: 'Ativa?',
-          fieldPath: '/status_bancada',
-          cellKind: 'checkbox',
-          fixedCaption: '',
-          buttonIcon: null,
-          footer: '',
-          widthMode: 'fixed',
-          width: 100,
-          minWidth: 90,
-          maxWidth: null,
-          flex: 1,
-          headerAlign: 'center',
-          cellAlign: 'center',
-          sortable: true,
-          searchable: false,
-        },
-        {
-          id: 'a621a8ee-c734-45cd-b2f4-7492c677dc84',
-          header: 'Ocupada?',
-          fieldPath: '/ocupado_bancada',
-          cellKind: 'checkbox',
           fixedCaption: '',
           buttonIcon: null,
           footer: '',
@@ -1224,9 +886,81 @@ export abstract class AdminGenerated extends WebPage {
           minWidth: 90,
           maxWidth: null,
           flex: 1,
+          headerAlign: 'start',
+          cellAlign: 'start',
+          sortable: true,
+          searchable: true,
+        },
+        {
+          id: '25fb742d-7f18-4620-b97a-73588851094a',
+          header: 'Ativo?',
+          fieldPath: '/status_local',
+          cellKind: 'checkbox',
+          fixedCaption: '',
+          buttonIcon: null,
+          footer: '',
+          widthMode: 'fixed',
+          width: 80,
+          minWidth: 80,
+          maxWidth: null,
+          flex: 1,
           headerAlign: 'center',
           cellAlign: 'center',
           sortable: true,
+          searchable: false,
+        },
+        {
+          id: '6ab0c0a7-5b24-4adb-9713-958c0f2ffbcb',
+          header: 'Infovia',
+          fieldPath: '/infovia',
+          cellKind: 'checkbox',
+          fixedCaption: '',
+          buttonIcon: null,
+          footer: '',
+          widthMode: 'fixed',
+          width: 80,
+          minWidth: 80,
+          maxWidth: null,
+          flex: 1,
+          headerAlign: 'center',
+          cellAlign: 'center',
+          sortable: true,
+          searchable: false,
+        },
+        {
+          id: '9471ac0d-84eb-4756-8810-244bf4b9e5e9',
+          header: 'Última alteração',
+          fieldPath: '/alteracao_local',
+          cellKind: 'text',
+          fixedCaption: '',
+          buttonIcon: null,
+          footer: '',
+          widthMode: 'fixed',
+          width: 180,
+          minWidth: 90,
+          maxWidth: null,
+          flex: 1,
+          headerAlign: 'start',
+          cellAlign: 'start',
+          sortable: true,
+          searchable: true,
+        },
+        {
+          id: 'a621a8ee-c734-45cd-b2f4-7492c677dc84',
+          header: 'Telefones',
+          fieldPath: '',
+          cellKind: 'button',
+          fixedCaption: '',
+          buttonIcon: 'phone',
+          footer: '',
+          widthMode: 'fixed',
+          width: 100,
+          minWidth: 90,
+          maxWidth: null,
+          flex: 1,
+          headerAlign: 'center',
+          cellAlign: 'center',
+          sortable: false,
           searchable: false,
         },
         {
@@ -1263,24 +997,24 @@ export abstract class AdminGenerated extends WebPage {
       totalPagesPath: '/total_pages',
       totalRowsPath: '/total',
     };
-    this.PNLFilas = new WebPanel(
-      this.requireComponentElement('eff8ae2d-9405-41b9-a00d-12deb1bdcd55'),
+    this.PNLSecretarias = new WebPanel(
+      this.requireComponentElement('99dd73de-c18a-46fb-9cf8-a5d9d51cf666'),
     );
-    this.GRPBarraFila = new WebGroup(
-      this.requireComponentElement('6ba239f0-b404-460b-bbdc-a30cea05decc'),
+    this.GRPBarraSecretaria = new WebGroup(
+      this.requireComponentElement('b77af7db-f86b-4fd6-bfb7-bd2edd353d24'),
     );
-    this.BTNNovoFila = new WebButton(
-      this.requireComponentElement('985bc3cc-a2af-434b-ad05-ea305e95b406'),
+    this.BTNNovoSecretaria = new WebButton(
+      this.requireComponentElement('09ac2c29-4198-4f59-9104-509c34fe17a0'),
     );
-    this.GRDFilas = new WebDataGrid(
-      this.requireComponentElement('bd0425a6-5be6-4229-aa1f-196f63a64e69'),
+    this.GRDSecretarias = new WebDataGrid(
+      this.requireComponentElement('b771b02d-ff73-4a10-b4af-00b7c95627b9'),
     );
-    this.GRDFilas.dataGridConfig = {
+    this.GRDSecretarias.dataGridConfig = {
       schemaVersion: 2,
       apiClientId: '5c727ab8-4f68-4f6c-b396-6e265d7afedc',
-      operationId: '482f8e73-9da6-406a-96eb-1d358cc089ee',
+      operationId: '5f347cbb-529f-4480-ac10-669d9be108d4',
       listPath: '/data',
-      columnCount: 5,
+      columnCount: 6,
       showHeader: true,
       stickyHeader: true,
       showFooter: false,
@@ -1300,7 +1034,7 @@ export abstract class AdminGenerated extends WebPage {
         {
           id: 'ff031e98-37d6-4711-92a3-a9f3140eae93',
           header: '#',
-          fieldPath: '/id_fila',
+          fieldPath: '/id_secretaria',
           cellKind: 'text',
           fixedCaption: '',
           buttonIcon: null,
@@ -1317,15 +1051,15 @@ export abstract class AdminGenerated extends WebPage {
         },
         {
           id: '405b9839-c02e-478c-9956-609967ad9160',
-          header: 'Fila',
-          fieldPath: '/nome_fila',
+          header: 'Sigla',
+          fieldPath: '/sigla_secretaria',
           cellKind: 'text',
           fixedCaption: '',
           buttonIcon: null,
           footer: '',
-          widthMode: 'dynamic',
-          width: 180,
-          minWidth: 220,
+          widthMode: 'fixed',
+          width: 160,
+          minWidth: 90,
           maxWidth: null,
           flex: 1,
           headerAlign: 'start',
@@ -1335,15 +1069,15 @@ export abstract class AdminGenerated extends WebPage {
         },
         {
           id: '08cf7a54-38b9-4151-91f2-d4d5589bb9ff',
-          header: 'Ícone',
-          fieldPath: '/icone_fila',
+          header: 'Nome',
+          fieldPath: '/nome_secretaria',
           cellKind: 'text',
           fixedCaption: '',
           buttonIcon: null,
           footer: '',
-          widthMode: 'fixed',
-          width: 240,
-          minWidth: 90,
+          widthMode: 'dynamic',
+          width: 180,
+          minWidth: 260,
           maxWidth: null,
           flex: 1,
           headerAlign: 'start',
@@ -1353,14 +1087,32 @@ export abstract class AdminGenerated extends WebPage {
         },
         {
           id: '57d58452-67ba-4df0-b234-571572d8f0aa',
-          header: 'Situação',
-          fieldPath: '/status_fila',
+          header: 'Ativa?',
+          fieldPath: '/status_secretaria',
+          cellKind: 'checkbox',
+          fixedCaption: '',
+          buttonIcon: null,
+          footer: '',
+          widthMode: 'fixed',
+          width: 90,
+          minWidth: 90,
+          maxWidth: null,
+          flex: 1,
+          headerAlign: 'center',
+          cellAlign: 'center',
+          sortable: true,
+          searchable: false,
+        },
+        {
+          id: '662d6de7-e846-413a-8e17-d69dc62cd6f1',
+          header: 'Última alteração',
+          fieldPath: '/ultima_alteracao',
           cellKind: 'text',
           fixedCaption: '',
           buttonIcon: null,
           footer: '',
           widthMode: 'fixed',
-          width: 130,
+          width: 200,
           minWidth: 90,
           maxWidth: null,
           flex: 1,
@@ -1370,7 +1122,7 @@ export abstract class AdminGenerated extends WebPage {
           searchable: true,
         },
         {
-          id: '662d6de7-e846-413a-8e17-d69dc62cd6f1',
+          id: 'aa564ea3-3c5c-410d-a451-76009a6b08a5',
           header: 'Editar',
           fieldPath: '',
           cellKind: 'button',
@@ -1403,113 +1155,919 @@ export abstract class AdminGenerated extends WebPage {
       totalPagesPath: '/total_pages',
       totalRowsPath: '/total',
     };
+    this.PNLServicos = new WebPanel(
+      this.requireComponentElement('7f5447d2-df69-4990-91db-8ede1f43cc6d'),
+    );
+    this.GRPBarraServico = new WebGroup(
+      this.requireComponentElement('487b419f-3be1-4dff-bce5-178d008d9f2b'),
+    );
+    this.BTNNovoServico = new WebButton(
+      this.requireComponentElement('e3b50e1d-6d21-43c8-9e12-de83db749119'),
+    );
+    this.GRDServicos = new WebDataGrid(
+      this.requireComponentElement('c79a833d-4807-43b5-84c4-ca526c77f791'),
+    );
+    this.GRDServicos.dataGridConfig = {
+      schemaVersion: 2,
+      apiClientId: '5c727ab8-4f68-4f6c-b396-6e265d7afedc',
+      operationId: 'f264b4c4-7b39-4472-899f-d66f1520e49d',
+      listPath: '/data',
+      columnCount: 9,
+      showHeader: true,
+      stickyHeader: true,
+      showFooter: false,
+      stickyFooter: true,
+      rowHeightMode: 'dynamic',
+      fixedRowHeight: 40,
+      minRowHeight: 40,
+      maxRowHeight: null,
+      cellPaddingHorizontal: 10,
+      cellPaddingVertical: 8,
+      wrapText: true,
+      stripedRows: true,
+      showHorizontalLines: true,
+      showVerticalLines: false,
+      emptyMessage: '(vazio)',
+      columns: [
+        {
+          id: 'e273b94e-805a-4c2d-92c8-14dc7cda6f15',
+          header: '#',
+          fieldPath: '/id_servico',
+          cellKind: 'text',
+          fixedCaption: '',
+          buttonIcon: null,
+          footer: '',
+          widthMode: 'fixed',
+          width: 80,
+          minWidth: 80,
+          maxWidth: null,
+          flex: 1,
+          headerAlign: 'start',
+          cellAlign: 'start',
+          sortable: true,
+          searchable: true,
+        },
+        {
+          id: '7aa24d52-aeb0-4b25-b572-377cd623593b',
+          header: 'Serviço',
+          fieldPath: '/nome_servico',
+          cellKind: 'text',
+          fixedCaption: '',
+          buttonIcon: null,
+          footer: '',
+          widthMode: 'dynamic',
+          width: 180,
+          minWidth: 280,
+          maxWidth: null,
+          flex: 1,
+          headerAlign: 'start',
+          cellAlign: 'start',
+          sortable: true,
+          searchable: true,
+        },
+        {
+          id: 'f7fc246d-7845-4fe1-a121-bff214b429c5',
+          header: 'Fila',
+          fieldPath: '/nome_fila',
+          cellKind: 'text',
+          fixedCaption: '',
+          buttonIcon: null,
+          footer: '',
+          widthMode: 'fixed',
+          width: 150,
+          minWidth: 90,
+          maxWidth: null,
+          flex: 1,
+          headerAlign: 'start',
+          cellAlign: 'start',
+          sortable: true,
+          searchable: true,
+        },
+        {
+          id: 'f133ffa1-6637-4445-bb1a-0331ec2d549d',
+          header: 'Unidade',
+          fieldPath: '/unidade_medida',
+          cellKind: 'text',
+          fixedCaption: '',
+          buttonIcon: null,
+          footer: '',
+          widthMode: 'fixed',
+          width: 100,
+          minWidth: 90,
+          maxWidth: null,
+          flex: 1,
+          headerAlign: 'start',
+          cellAlign: 'start',
+          sortable: true,
+          searchable: true,
+        },
+        {
+          id: 'a3b7005f-f645-4e13-9386-4ac2101a1de0',
+          header: 'Complexidade',
+          fieldPath: '/pontuacao_servico',
+          cellKind: 'text',
+          fixedCaption: '',
+          buttonIcon: null,
+          footer: '',
+          widthMode: 'fixed',
+          width: 130,
+          minWidth: 90,
+          maxWidth: null,
+          flex: 1,
+          headerAlign: 'start',
+          cellAlign: 'start',
+          sortable: true,
+          searchable: true,
+        },
+        {
+          id: 'e2ebe1ca-2d0b-4e55-9911-705ff47313f5',
+          header: 'Valor (R$)',
+          fieldPath: '/valor_servico',
+          cellKind: 'text',
+          fixedCaption: '',
+          buttonIcon: null,
+          footer: '',
+          widthMode: 'fixed',
+          width: 110,
+          minWidth: 90,
+          maxWidth: null,
+          flex: 1,
+          headerAlign: 'start',
+          cellAlign: 'start',
+          sortable: true,
+          searchable: true,
+        },
+        {
+          id: 'da62ce74-2e47-4458-ad30-46bb3de0850c',
+          header: 'Ativo?',
+          fieldPath: '/status_servico',
+          cellKind: 'checkbox',
+          fixedCaption: '',
+          buttonIcon: null,
+          footer: '',
+          widthMode: 'fixed',
+          width: 80,
+          minWidth: 80,
+          maxWidth: null,
+          flex: 1,
+          headerAlign: 'center',
+          cellAlign: 'center',
+          sortable: true,
+          searchable: false,
+        },
+        {
+          id: '1d01c137-adef-4179-8eb5-90cee2ee3b3f',
+          header: 'Última alteração',
+          fieldPath: '/data_ultima_alteracao',
+          cellKind: 'text',
+          fixedCaption: '',
+          buttonIcon: null,
+          footer: '',
+          widthMode: 'fixed',
+          width: 180,
+          minWidth: 90,
+          maxWidth: null,
+          flex: 1,
+          headerAlign: 'start',
+          cellAlign: 'start',
+          sortable: true,
+          searchable: true,
+        },
+        {
+          id: '613e005b-533e-4f54-a801-d11d576983d3',
+          header: 'Editar',
+          fieldPath: '',
+          cellKind: 'button',
+          fixedCaption: '',
+          buttonIcon: 'edit',
+          footer: '',
+          widthMode: 'fixed',
+          width: 80,
+          minWidth: 80,
+          maxWidth: null,
+          flex: 1,
+          headerAlign: 'center',
+          cellAlign: 'center',
+          sortable: false,
+          searchable: false,
+        },
+      ],
+      pagination: 'client',
+      pageSize: 10,
+      pageSizeOptions: [10, 25, 50, 100],
+      showPageSizeSelector: true,
+      searchEnabled: true,
+      searchPlaceholder: 'Busca:',
+      sortEnabled: true,
+      exportEnabled: false,
+      columnFilters: true,
+      serverSearchParameter: 'q',
+      serverSortParameter: 'sort',
+      serverDirectionParameter: 'dir',
+      totalPagesPath: '/total_pages',
+      totalRowsPath: '/total',
+    };
+    this.PNLBancadas = new WebPanel(
+      this.requireComponentElement('ce58b91e-76ce-428f-a639-ac62b962e5a5'),
+    );
+    this.GRPBarraBancada = new WebGroup(
+      this.requireComponentElement('de659f2f-09b0-40ca-b874-d1f8786b5d7e'),
+    );
+    this.BTNNovoBancada = new WebButton(
+      this.requireComponentElement('0e1ab113-7ccf-4b90-b063-d32d655e6917'),
+    );
+    this.GRDBancadas = new WebDataGrid(
+      this.requireComponentElement('14003961-5f95-41e5-abd8-4718ccf8485d'),
+    );
+    this.GRDBancadas.dataGridConfig = {
+      schemaVersion: 2,
+      apiClientId: '5c727ab8-4f68-4f6c-b396-6e265d7afedc',
+      operationId: 'df8820e9-4c08-4ea1-a822-7db1faab3c5d',
+      listPath: '/data',
+      columnCount: 5,
+      showHeader: true,
+      stickyHeader: true,
+      showFooter: false,
+      stickyFooter: true,
+      rowHeightMode: 'dynamic',
+      fixedRowHeight: 40,
+      minRowHeight: 36,
+      maxRowHeight: null,
+      cellPaddingHorizontal: 10,
+      cellPaddingVertical: 8,
+      wrapText: false,
+      stripedRows: true,
+      showHorizontalLines: true,
+      showVerticalLines: false,
+      emptyMessage: '(vazio)',
+      columns: [
+        {
+          id: '7e190511-7248-42fa-94e4-22c7623cddd4',
+          header: '#',
+          fieldPath: '/id_bancada',
+          cellKind: 'text',
+          fixedCaption: '',
+          buttonIcon: null,
+          footer: '',
+          widthMode: 'fixed',
+          width: 80,
+          minWidth: 80,
+          maxWidth: null,
+          flex: 1,
+          headerAlign: 'start',
+          cellAlign: 'start',
+          sortable: true,
+          searchable: true,
+        },
+        {
+          id: '6e672d8f-5fc3-4e76-bee7-2f742c240496',
+          header: 'Identificação',
+          fieldPath: '/nome_bancada',
+          cellKind: 'text',
+          fixedCaption: '',
+          buttonIcon: null,
+          footer: '',
+          widthMode: 'dynamic',
+          width: 180,
+          minWidth: 220,
+          maxWidth: null,
+          flex: 1,
+          headerAlign: 'start',
+          cellAlign: 'start',
+          sortable: true,
+          searchable: true,
+        },
+        {
+          id: 'ea5828e1-4ffb-4744-99ec-421245f8c2f1',
+          header: 'Ativa?',
+          fieldPath: '/status_bancada',
+          cellKind: 'checkbox',
+          fixedCaption: '',
+          buttonIcon: null,
+          footer: '',
+          widthMode: 'fixed',
+          width: 100,
+          minWidth: 90,
+          maxWidth: null,
+          flex: 1,
+          headerAlign: 'center',
+          cellAlign: 'center',
+          sortable: true,
+          searchable: false,
+        },
+        {
+          id: '137eaf77-17ed-4597-86e7-ea63ccecb469',
+          header: 'Ocupada?',
+          fieldPath: '/ocupado_bancada',
+          cellKind: 'checkbox',
+          fixedCaption: '',
+          buttonIcon: null,
+          footer: '',
+          widthMode: 'fixed',
+          width: 110,
+          minWidth: 90,
+          maxWidth: null,
+          flex: 1,
+          headerAlign: 'center',
+          cellAlign: 'center',
+          sortable: true,
+          searchable: false,
+        },
+        {
+          id: '52b4351f-e9e7-4815-a155-e5b17fedf61d',
+          header: 'Editar',
+          fieldPath: '',
+          cellKind: 'button',
+          fixedCaption: '',
+          buttonIcon: 'edit',
+          footer: '',
+          widthMode: 'fixed',
+          width: 80,
+          minWidth: 80,
+          maxWidth: null,
+          flex: 1,
+          headerAlign: 'center',
+          cellAlign: 'center',
+          sortable: false,
+          searchable: false,
+        },
+      ],
+      pagination: 'client',
+      pageSize: 10,
+      pageSizeOptions: [10, 25, 50, 100],
+      showPageSizeSelector: true,
+      searchEnabled: true,
+      searchPlaceholder: 'Busca:',
+      sortEnabled: true,
+      exportEnabled: false,
+      columnFilters: true,
+      serverSearchParameter: 'q',
+      serverSortParameter: 'sort',
+      serverDirectionParameter: 'dir',
+      totalPagesPath: '/total_pages',
+      totalRowsPath: '/total',
+    };
+    this.PNLFilas = new WebPanel(
+      this.requireComponentElement('635f1c74-d064-4bf8-919f-cd9e009464bd'),
+    );
+    this.GRPBarraFila = new WebGroup(
+      this.requireComponentElement('06c420d9-d26c-43c2-aaa7-3fe47defc54e'),
+    );
+    this.BTNNovoFila = new WebButton(
+      this.requireComponentElement('4e7a3edc-aa20-46f3-af7c-46861a6392c9'),
+    );
+    this.GRDFilas = new WebDataGrid(
+      this.requireComponentElement('c9ac9622-3ecf-44c4-a2d3-785e08d2f765'),
+    );
+    this.GRDFilas.dataGridConfig = {
+      schemaVersion: 2,
+      apiClientId: '5c727ab8-4f68-4f6c-b396-6e265d7afedc',
+      operationId: '482f8e73-9da6-406a-96eb-1d358cc089ee',
+      listPath: '/data',
+      columnCount: 5,
+      showHeader: true,
+      stickyHeader: true,
+      showFooter: false,
+      stickyFooter: true,
+      rowHeightMode: 'dynamic',
+      fixedRowHeight: 40,
+      minRowHeight: 36,
+      maxRowHeight: null,
+      cellPaddingHorizontal: 10,
+      cellPaddingVertical: 8,
+      wrapText: false,
+      stripedRows: true,
+      showHorizontalLines: true,
+      showVerticalLines: false,
+      emptyMessage: '(vazio)',
+      columns: [
+        {
+          id: 'f9c906d2-c0bd-413c-ac6c-797f3a57c27c',
+          header: '#',
+          fieldPath: '/id_fila',
+          cellKind: 'text',
+          fixedCaption: '',
+          buttonIcon: null,
+          footer: '',
+          widthMode: 'fixed',
+          width: 80,
+          minWidth: 80,
+          maxWidth: null,
+          flex: 1,
+          headerAlign: 'start',
+          cellAlign: 'start',
+          sortable: true,
+          searchable: true,
+        },
+        {
+          id: '5bd57fcb-b35d-418b-a3db-1e2e3d207588',
+          header: 'Fila',
+          fieldPath: '/nome_fila',
+          cellKind: 'text',
+          fixedCaption: '',
+          buttonIcon: null,
+          footer: '',
+          widthMode: 'dynamic',
+          width: 180,
+          minWidth: 220,
+          maxWidth: null,
+          flex: 1,
+          headerAlign: 'start',
+          cellAlign: 'start',
+          sortable: true,
+          searchable: true,
+        },
+        {
+          id: 'de104d7c-4edd-4077-9659-dcceeb8a7452',
+          header: 'Ícone',
+          fieldPath: '/icone_fila',
+          cellKind: 'text',
+          fixedCaption: '',
+          buttonIcon: null,
+          footer: '',
+          widthMode: 'fixed',
+          width: 240,
+          minWidth: 90,
+          maxWidth: null,
+          flex: 1,
+          headerAlign: 'start',
+          cellAlign: 'start',
+          sortable: true,
+          searchable: true,
+        },
+        {
+          id: '6b07190e-698e-4084-96d0-8bb6d8a47edb',
+          header: 'Situação',
+          fieldPath: '/status_fila',
+          cellKind: 'text',
+          fixedCaption: '',
+          buttonIcon: null,
+          footer: '',
+          widthMode: 'fixed',
+          width: 130,
+          minWidth: 90,
+          maxWidth: null,
+          flex: 1,
+          headerAlign: 'start',
+          cellAlign: 'start',
+          sortable: true,
+          searchable: true,
+        },
+        {
+          id: '489d1e36-a1b3-401a-8f57-d162a1d336c6',
+          header: 'Editar',
+          fieldPath: '',
+          cellKind: 'button',
+          fixedCaption: '',
+          buttonIcon: 'edit',
+          footer: '',
+          widthMode: 'fixed',
+          width: 80,
+          minWidth: 80,
+          maxWidth: null,
+          flex: 1,
+          headerAlign: 'center',
+          cellAlign: 'center',
+          sortable: false,
+          searchable: false,
+        },
+      ],
+      pagination: 'client',
+      pageSize: 10,
+      pageSizeOptions: [10, 25, 50, 100],
+      showPageSizeSelector: true,
+      searchEnabled: true,
+      searchPlaceholder: 'Busca:',
+      sortEnabled: true,
+      exportEnabled: false,
+      columnFilters: true,
+      serverSearchParameter: 'q',
+      serverSortParameter: 'sort',
+      serverDirectionParameter: 'dir',
+      totalPagesPath: '/total_pages',
+      totalRowsPath: '/total',
+    };
+    this.POPModelo = new WebPopup(
+      this.requireComponentElement('5cef4f43-c567-4664-99b9-b95805d6b475'),
+    );
+    this.LBLModeloTitulo = new WebLabel(
+      this.requireComponentElement('088ab356-5047-4c77-b0af-1b362690be7b'),
+    );
+    this.GRPModeloEscolhas = new WebGroup(
+      this.requireComponentElement('28c94c4c-e50e-402a-a888-79c2de676719'),
+    );
+    this.GRPModeloTipo = new WebGroup(
+      this.requireComponentElement('2c0969a3-d69e-496e-a7ce-f7d915e1e52f'),
+    );
+    this.LBLModeloTipo = new WebLabel(
+      this.requireComponentElement('87e764e9-0bb7-40f6-be1d-4055e9cf159a'),
+    );
+    this.CMBModeloTipo = new WebComboBox(
+      this.requireComponentElement('d81c2257-7ec8-4204-b337-a80556ce3d07'),
+    );
+    this.GRPModeloFila = new WebGroup(
+      this.requireComponentElement('3cd48648-3963-4a39-8946-89fead02f9d1'),
+    );
+    this.LBLModeloFila = new WebLabel(
+      this.requireComponentElement('5439a888-91ff-4616-bd5d-d1e48fb6a79e'),
+    );
+    this.CMBModeloFila = new WebComboBox(
+      this.requireComponentElement('6e2b3946-1662-4e38-92de-e27d45b4a01e'),
+    );
+    this.GRPModeloTexto = new WebGroup(
+      this.requireComponentElement('1fb17f09-df64-4eb8-b5af-cdde4042acde'),
+    );
+    this.LBLModeloTexto = new WebLabel(
+      this.requireComponentElement('5e1c7d4d-72f2-4083-a084-529724c8ef89'),
+    );
+    this.TXAModeloTexto = new WebTextArea(
+      this.requireComponentElement('403a80bd-e9c9-4590-bf86-f38f86a80477'),
+    );
+    this.CHKModeloAtivo = new WebCheckBox(
+      this.requireComponentElement('249c595a-adc0-45c8-94a4-50714a98200f'),
+    );
+    this.GRPBotoesModelo = new WebGroup(
+      this.requireComponentElement('bf090030-ea7b-4143-a577-55b67fd2417b'),
+    );
+    this.BTNCancelarModelo = new WebButton(
+      this.requireComponentElement('c15e3fee-bc5a-4afc-bdc5-25e32a6cd2a8'),
+    );
+    this.BTNSalvarModelo = new WebButton(
+      this.requireComponentElement('d5473134-a322-4057-9bd7-1dfe9aecfe6d'),
+    );
+    this.POPLocal = new WebPopup(
+      this.requireComponentElement('4215ad12-14e1-4c82-89f0-412bf8578218'),
+    );
+    this.LBLLocalTitulo = new WebLabel(
+      this.requireComponentElement('35677e80-2628-40ce-8fbc-8fbe979cf293'),
+    );
+    this.GRPLocalNome = new WebGroup(
+      this.requireComponentElement('357bd5b4-3905-4b83-b17f-63a5c497a994'),
+    );
+    this.LBLLocalNome = new WebLabel(
+      this.requireComponentElement('2f892445-5607-4fe0-8b3b-0c01b2674ae4'),
+    );
+    this.EDTLocalNome = new WebEdit(
+      this.requireComponentElement('7fd138e8-1851-44a3-88c3-a70dfe6eee73'),
+    );
+    this.GRPLocalEndereco = new WebGroup(
+      this.requireComponentElement('7fb2f89e-9443-4f48-a0d4-154c936127b3'),
+    );
+    this.LBLLocalEndereco = new WebLabel(
+      this.requireComponentElement('8590f887-3bab-46ce-b6bf-e63a716b0881'),
+    );
+    this.EDTLocalEndereco = new WebEdit(
+      this.requireComponentElement('46c098af-81d0-4a74-ada1-27f07aa62e57'),
+    );
+    this.GRPLocalEscolhas = new WebGroup(
+      this.requireComponentElement('a4330642-4970-4bd1-800c-7cc10da7c4cc'),
+    );
+    this.GRPLocalSecretaria = new WebGroup(
+      this.requireComponentElement('d47ce496-b69c-44bb-9cb7-bcc7b9bae2a5'),
+    );
+    this.LBLLocalSecretaria = new WebLabel(
+      this.requireComponentElement('c23cd0ac-1589-426e-ad55-0dd4a40f5ad6'),
+    );
+    this.CMBLocalSecretaria = new WebComboBox(
+      this.requireComponentElement('3a30513e-883e-42fd-ad21-18b25bf92886'),
+    );
+    this.GRPLocalRegiao = new WebGroup(
+      this.requireComponentElement('bb90d327-f920-4ddc-973d-be7368b16d3d'),
+    );
+    this.LBLLocalRegiao = new WebLabel(
+      this.requireComponentElement('8a48a58f-b26c-478d-972b-2805bdd7b621'),
+    );
+    this.CMBLocalRegiao = new WebComboBox(
+      this.requireComponentElement('5e0c4fe7-654c-4e02-80ca-168096ea84cd'),
+    );
+    this.GRPLocalMarcas = new WebGroup(
+      this.requireComponentElement('ef07d3c2-4af1-4b42-bce6-d8774c4c39b9'),
+    );
+    this.CHKLocalInfovia = new WebCheckBox(
+      this.requireComponentElement('9298c808-a6b6-433c-92d4-30084fdc70fb'),
+    );
+    this.CHKLocalAtivo = new WebCheckBox(
+      this.requireComponentElement('8cbe922f-9b19-4a7b-b4f9-234fa112e61d'),
+    );
+    this.GRPBotoesLocal = new WebGroup(
+      this.requireComponentElement('27557f4b-ce2b-4279-8c2b-a25ce11f27bf'),
+    );
+    this.BTNCancelarLocal = new WebButton(
+      this.requireComponentElement('fe410168-8548-4908-8d3c-904fcb0a1215'),
+    );
+    this.BTNSalvarLocal = new WebButton(
+      this.requireComponentElement('cfcc1ae8-0aac-40a5-9506-289de9b53c32'),
+    );
+    this.POPTelefone = new WebPopup(
+      this.requireComponentElement('f0cd85a3-bdf0-4398-97dc-8ba98a9b6e76'),
+    );
+    this.LBLTelefoneTitulo = new WebLabel(
+      this.requireComponentElement('644075b9-a4ec-477d-9d57-d8c72f3d11e0'),
+    );
+    this.GRDTelefones = new WebDataGrid(
+      this.requireComponentElement('50fd229d-505f-490a-be3e-203a4516837a'),
+    );
+    this.GRDTelefones.dataGridConfig = {
+      schemaVersion: 2,
+      apiClientId: '5c727ab8-4f68-4f6c-b396-6e265d7afedc',
+      operationId: 'c50c889f-2a80-4b34-8d2e-945ff08ea3d6',
+      listPath: '/data',
+      columnCount: 3,
+      showHeader: true,
+      stickyHeader: true,
+      showFooter: false,
+      stickyFooter: true,
+      rowHeightMode: 'dynamic',
+      fixedRowHeight: 40,
+      minRowHeight: 36,
+      maxRowHeight: null,
+      cellPaddingHorizontal: 10,
+      cellPaddingVertical: 8,
+      wrapText: false,
+      stripedRows: true,
+      showHorizontalLines: true,
+      showVerticalLines: false,
+      emptyMessage: 'Nenhum telefone cadastrado.',
+      columns: [
+        {
+          id: 'd18be97c-cefd-4265-bcf9-034084917730',
+          header: 'Setor',
+          fieldPath: '/setor',
+          cellKind: 'text',
+          fixedCaption: '',
+          buttonIcon: null,
+          footer: '',
+          widthMode: 'dynamic',
+          width: 180,
+          minWidth: 90,
+          maxWidth: null,
+          flex: 1,
+          headerAlign: 'start',
+          cellAlign: 'start',
+          sortable: true,
+          searchable: true,
+        },
+        {
+          id: '06e73b1c-20ef-4b3d-b088-6e299adfa357',
+          header: 'Telefone',
+          fieldPath: '/telefone',
+          cellKind: 'text',
+          fixedCaption: '',
+          buttonIcon: null,
+          footer: '',
+          widthMode: 'fixed',
+          width: 180,
+          minWidth: 90,
+          maxWidth: null,
+          flex: 1,
+          headerAlign: 'start',
+          cellAlign: 'start',
+          sortable: true,
+          searchable: true,
+        },
+        {
+          id: 'f4c50162-a8ce-41b2-b02e-04a79137491a',
+          header: 'Editar',
+          fieldPath: '',
+          cellKind: 'button',
+          fixedCaption: '',
+          buttonIcon: 'edit',
+          footer: '',
+          widthMode: 'fixed',
+          width: 80,
+          minWidth: 80,
+          maxWidth: null,
+          flex: 1,
+          headerAlign: 'center',
+          cellAlign: 'center',
+          sortable: false,
+          searchable: false,
+        },
+      ],
+      pagination: 'client',
+      pageSize: 25,
+      pageSizeOptions: [10, 25, 50, 100],
+      showPageSizeSelector: true,
+      searchEnabled: false,
+      searchPlaceholder: 'Busca:',
+      sortEnabled: true,
+      exportEnabled: false,
+      columnFilters: false,
+      serverSearchParameter: 'q',
+      serverSortParameter: 'sort',
+      serverDirectionParameter: 'dir',
+      totalPagesPath: '/total_pages',
+      totalRowsPath: '/total',
+    };
+    this.GRPTelefoneCampos = new WebGroup(
+      this.requireComponentElement('1cf6d258-e306-4b15-842d-50a79eb4f43d'),
+    );
+    this.GRPTelefoneSetor = new WebGroup(
+      this.requireComponentElement('f90400b7-5591-487d-935e-3d08779cdfe0'),
+    );
+    this.LBLTelefoneSetor = new WebLabel(
+      this.requireComponentElement('b754b518-c488-4bf5-aa93-bacf300fdf1d'),
+    );
+    this.EDTTelefoneSetor = new WebEdit(
+      this.requireComponentElement('9e93ef4a-8c02-4804-b7a4-d3e4203b8405'),
+    );
+    this.GRPTelefoneNumero = new WebGroup(
+      this.requireComponentElement('72aa867e-dc8a-4ced-947a-78d271de91c2'),
+    );
+    this.LBLTelefoneNumero = new WebLabel(
+      this.requireComponentElement('f9d562ce-6e03-48cd-8429-d1ea44c6a81c'),
+    );
+    this.EDTTelefoneNumero = new WebEdit(
+      this.requireComponentElement('6f41d958-46aa-45f2-a676-75cc55d03c65'),
+    );
+    this.GRPBotoesTelefone = new WebGroup(
+      this.requireComponentElement('88a3cc33-8bd2-4fa2-8422-404bff1e5667'),
+    );
+    this.BTNExcluirTelefone = new WebButton(
+      this.requireComponentElement('49d1ac71-98b6-409a-b19d-0f2c2a6d230f'),
+    );
+    this.BTNNovoTelefone = new WebButton(
+      this.requireComponentElement('781364ac-b58f-4cc9-a437-a67d68532a64'),
+    );
+    this.BTNCancelarTelefone = new WebButton(
+      this.requireComponentElement('8835abd7-d841-4de4-8d7e-af773ecdf4e7'),
+    );
+    this.BTNSalvarTelefone = new WebButton(
+      this.requireComponentElement('82f238b0-9e66-4554-90bd-cad62758bb98'),
+    );
+    this.POPServico = new WebPopup(
+      this.requireComponentElement('c116bdab-6aa6-4753-845f-911dd409e059'),
+    );
+    this.LBLServicoTitulo = new WebLabel(
+      this.requireComponentElement('4e524e58-f2cf-4d64-b785-dbb04de17c47'),
+    );
+    this.GRPServicoNome = new WebGroup(
+      this.requireComponentElement('04b22fa6-ac28-46fc-96f6-f407de48592c'),
+    );
+    this.LBLServicoNome = new WebLabel(
+      this.requireComponentElement('6cfc4bc7-c5c4-408e-b51b-9878006ac3b6'),
+    );
+    this.EDTServicoNome = new WebEdit(
+      this.requireComponentElement('690ba388-16d1-4c3f-b837-ce5d6a7ec2a0'),
+    );
+    this.GRPServicoCampos = new WebGroup(
+      this.requireComponentElement('2d32a057-b3bc-4c0d-8351-cba932483755'),
+    );
+    this.GRPServicoFila = new WebGroup(
+      this.requireComponentElement('84dca53a-3aa2-49a2-9832-00493951d95f'),
+    );
+    this.LBLServicoFila = new WebLabel(
+      this.requireComponentElement('f9980a13-7452-4503-9b16-872b684adf4d'),
+    );
+    this.CMBServicoFila = new WebComboBox(
+      this.requireComponentElement('f44d8383-dc9c-4fe9-8c46-3d56c8ca0c3c'),
+    );
+    this.GRPServicoUnidade = new WebGroup(
+      this.requireComponentElement('4f4a2676-6c94-4ea0-b88c-70f38f5cb720'),
+    );
+    this.LBLServicoUnidade = new WebLabel(
+      this.requireComponentElement('74bdbdfe-aeb8-47c1-b49f-2e31761bb011'),
+    );
+    this.EDTServicoUnidade = new WebEdit(
+      this.requireComponentElement('181460f1-3aa8-4a71-997b-a503437721d6'),
+    );
+    this.GRPServicoPontuacao = new WebGroup(
+      this.requireComponentElement('03ada3bd-b9cf-4cb0-b324-bea556bf6826'),
+    );
+    this.LBLServicoPontuacao = new WebLabel(
+      this.requireComponentElement('1c08a319-0462-48db-85be-1fb3399b9513'),
+    );
+    this.CMBServicoPontuacao = new WebComboBox(
+      this.requireComponentElement('f797133a-a79a-43bf-8998-5b707d4bf90a'),
+    );
+    this.GRPServicoValor = new WebGroup(
+      this.requireComponentElement('c85b703b-7fa3-4dbc-87f5-b4ec4da9b154'),
+    );
+    this.LBLServicoValor = new WebLabel(
+      this.requireComponentElement('94cb73db-1123-4732-9110-7e421c7eec79'),
+    );
+    this.EDTServicoValor = new WebEdit(
+      this.requireComponentElement('589b98e8-70ab-4946-8bdc-9c2a9b402217'),
+    );
+    this.CHKServicoAtivo = new WebCheckBox(
+      this.requireComponentElement('8d9e3c43-3220-4517-b5cf-99203a584797'),
+    );
+    this.GRPBotoesServico = new WebGroup(
+      this.requireComponentElement('9aaf60c4-3bcc-4537-918d-7409f317b461'),
+    );
+    this.BTNCancelarServico = new WebButton(
+      this.requireComponentElement('31cabf92-82fe-4bb4-816a-0e4faec8070a'),
+    );
+    this.BTNSalvarServico = new WebButton(
+      this.requireComponentElement('f5350cf3-1226-40d6-8817-76c23d27c52f'),
+    );
     this.POPBancada = new WebPopup(
-      this.requireComponentElement('39540888-0a74-45f4-9249-a30c6c7c1370'),
+      this.requireComponentElement('1a56bc38-a2e4-4783-befb-1f20e368332f'),
     );
     this.LBLBancadaTitulo = new WebLabel(
-      this.requireComponentElement('9edd715c-2562-4fb3-91d5-4c5f5ef4d5ff'),
+      this.requireComponentElement('4488eb62-f2fb-4080-a8cb-1ef67966cdfc'),
     );
     this.GRPBancadaNome = new WebGroup(
-      this.requireComponentElement('c2d06c59-20dd-4eb0-9295-c7373572aa5d'),
+      this.requireComponentElement('a71d9dde-a3be-4ea1-9262-f2d64578b8b2'),
     );
     this.LBLBancadaNome = new WebLabel(
-      this.requireComponentElement('fe2e2747-dafa-4fb0-b555-a41fad880701'),
+      this.requireComponentElement('3bf7eeea-8384-4da1-84e8-4a8d35a3c4a3'),
     );
     this.EDTBancadaNome = new WebEdit(
-      this.requireComponentElement('452505c6-2bc2-4548-9f45-873bc1eb015a'),
+      this.requireComponentElement('2288c34f-fc36-414c-81bc-c7d90430ddc2'),
     );
     this.GRPBancadaMarcas = new WebGroup(
-      this.requireComponentElement('3b8692bb-7b06-4b39-b7b8-df4a227ae8d9'),
+      this.requireComponentElement('cec58e0d-cf20-4118-8c3e-152d2ed485b2'),
     );
     this.CHKBancadaAtiva = new WebCheckBox(
-      this.requireComponentElement('1f931d99-5632-4e16-b408-0f9b35c407ac'),
+      this.requireComponentElement('94f8c6fa-9845-4d25-9188-250f6d578e69'),
     );
     this.CHKBancadaOcupada = new WebCheckBox(
-      this.requireComponentElement('2a931bd9-efc2-426b-8d2b-34c9a6fd6990'),
+      this.requireComponentElement('3dc7cc53-619e-4e6d-9b3d-220a47016d8c'),
     );
     this.GRPBotoesBancada = new WebGroup(
-      this.requireComponentElement('0110701f-70fa-4714-8996-e2e3da30dde7'),
+      this.requireComponentElement('bb3c89bb-86eb-460e-ab7b-c58a6c295a81'),
     );
     this.BTNCancelarBancada = new WebButton(
-      this.requireComponentElement('d3afa742-de15-4db2-bc04-2febdb902c0e'),
+      this.requireComponentElement('5f0cadb3-8034-472b-82b3-7d51c2b0877f'),
     );
     this.BTNSalvarBancada = new WebButton(
-      this.requireComponentElement('4e7f2dc0-12fe-42a1-b64b-1c8e2b442d61'),
+      this.requireComponentElement('6bfbb2b5-90e8-4736-b448-0b87dbe3ebc8'),
     );
     this.POPSecretaria = new WebPopup(
-      this.requireComponentElement('800d19ed-74ad-4b19-9fde-efeebee2bbfb'),
+      this.requireComponentElement('4a6b11ef-38dc-40f5-abce-42a16ffa5189'),
     );
     this.LBLSecretariaTitulo = new WebLabel(
-      this.requireComponentElement('de4fea37-2385-40af-b249-af025eec94b0'),
+      this.requireComponentElement('b3b6311e-b394-4f38-a2bb-5881ead08107'),
     );
     this.GRPSecretariaCampos = new WebGroup(
-      this.requireComponentElement('c01da27c-eed3-44e0-adbf-4c1fbab8d95f'),
+      this.requireComponentElement('9dcafda6-ba3a-40b1-85da-4c2b5b263a26'),
     );
     this.GRPSecretariaSigla = new WebGroup(
-      this.requireComponentElement('6fe9b79e-9917-4893-98a4-55751b648a72'),
+      this.requireComponentElement('72deeebc-53c1-4596-9d84-6dd38fe48b28'),
     );
     this.LBLSecretariaSigla = new WebLabel(
-      this.requireComponentElement('cd7e93ab-bf9a-48d7-878c-347b090e90cb'),
+      this.requireComponentElement('fc947bc9-1120-48cf-b6fa-e91905da052c'),
     );
     this.EDTSecretariaSigla = new WebEdit(
-      this.requireComponentElement('1916e61c-a100-4b54-b51f-c506dc2babab'),
+      this.requireComponentElement('586997be-76fb-474d-b59a-6451c86af8e2'),
     );
     this.GRPSecretariaNome = new WebGroup(
-      this.requireComponentElement('bd24d928-b6dc-43f2-b624-1e51c683d410'),
+      this.requireComponentElement('8aa20982-79fe-468f-90d4-83cbe3e2e326'),
     );
     this.LBLSecretariaNome = new WebLabel(
-      this.requireComponentElement('b423624b-f747-4a55-a0e5-e9249d896526'),
+      this.requireComponentElement('77460062-4c35-4070-9489-8f56f187c4cf'),
     );
     this.EDTSecretariaNome = new WebEdit(
-      this.requireComponentElement('ae3a7bb2-74fd-4681-a5ea-7ca141dc1860'),
+      this.requireComponentElement('43445474-c834-4e71-a002-ffae3ebed4db'),
     );
     this.CHKSecretariaAtiva = new WebCheckBox(
-      this.requireComponentElement('53496295-8556-4dd2-a975-a7dd1993af04'),
+      this.requireComponentElement('d50dcad1-a805-4ab5-84bd-eda895727ed9'),
     );
     this.GRPBotoesSecretaria = new WebGroup(
-      this.requireComponentElement('8c91c635-c7d2-48af-8d70-029e22f07846'),
+      this.requireComponentElement('c6232ebd-b24f-4545-a30a-f962e0321c29'),
     );
     this.BTNCancelarSecretaria = new WebButton(
-      this.requireComponentElement('7f940b4b-f873-4f50-b131-d99a5e3a476c'),
+      this.requireComponentElement('683be307-41f1-4cf4-8b55-cf2c84ab3b43'),
     );
     this.BTNSalvarSecretaria = new WebButton(
-      this.requireComponentElement('57ba2b31-0863-48a5-8ff5-52c7b96a78b3'),
+      this.requireComponentElement('32c7750f-88a3-4ad1-886a-0d1def70e89b'),
     );
     this.POPFila = new WebPopup(
-      this.requireComponentElement('3f654b0a-413e-40ea-8123-5a661ec9efd9'),
+      this.requireComponentElement('5f7731c8-3227-4be4-8beb-f5130c55a97f'),
     );
     this.LBLFilaTitulo = new WebLabel(
-      this.requireComponentElement('d6cebeba-7bd4-44e0-b385-05425393fa01'),
+      this.requireComponentElement('64baaec8-61a6-4517-b258-c20ba30ac392'),
     );
     this.GRPFilaNome = new WebGroup(
-      this.requireComponentElement('1e326f5a-0e55-411e-9bed-2d8326736cca'),
+      this.requireComponentElement('eb24c2ae-b9bb-480e-a82c-9c8369e48ed0'),
     );
     this.LBLFilaNome = new WebLabel(
-      this.requireComponentElement('8c93aeeb-e666-41a7-a879-1f95c195c1eb'),
+      this.requireComponentElement('4d462608-9f27-435c-9a51-021402c0ff49'),
     );
     this.EDTFilaNome = new WebEdit(
-      this.requireComponentElement('ce855a16-04a3-4283-85a2-b04fc7e1adba'),
+      this.requireComponentElement('633f79b4-477c-4cee-b998-c97b4bd4d412'),
     );
     this.GRPFilaIcone = new WebGroup(
-      this.requireComponentElement('ab803871-5c07-49e3-8bed-cbd8a9d96343'),
+      this.requireComponentElement('c0c375e7-45b8-4470-b451-1e07333cdeb5'),
     );
     this.LBLFilaIcone = new WebLabel(
-      this.requireComponentElement('f61ea437-a875-464e-a804-11202f1e9b65'),
+      this.requireComponentElement('4f196451-e48b-40a7-b25e-1d2e8dc54120'),
     );
     this.EDTFilaIcone = new WebEdit(
-      this.requireComponentElement('a8910c3a-3eff-417d-a417-504afc881f47'),
+      this.requireComponentElement('228fed19-4b18-45e4-b257-3f74c20a2017'),
     );
     this.CHKFilaAtiva = new WebCheckBox(
-      this.requireComponentElement('8fb93d2d-1f20-4be0-9b21-bcdbe29a1a6a'),
+      this.requireComponentElement('e0a8bfef-dc86-406d-9e48-5baf51df4f21'),
     );
     this.GRPBotoesFila = new WebGroup(
-      this.requireComponentElement('c06021f1-a49a-4087-8515-1316535b2795'),
+      this.requireComponentElement('9415edbe-fc43-4d47-9501-6a306100458c'),
     );
     this.BTNCancelarFila = new WebButton(
-      this.requireComponentElement('aaf085e3-a8a3-4c6e-97e5-2270eb940f8b'),
+      this.requireComponentElement('68162a04-8f80-44d9-b0c9-1f50c3c75107'),
     );
     this.BTNSalvarFila = new WebButton(
-      this.requireComponentElement('ed3a9c45-20c3-4f07-a7e8-c489ef0a8bda'),
+      this.requireComponentElement('6157d18b-be09-4529-95fb-5845b5d66a07'),
     );
     this.Api = new WebApiClient<ApiApiOutputs, ApiApiInputs, ApiApiDefaultHeaders>({
       baseUrl: '',
@@ -1527,7 +2085,7 @@ export abstract class AdminGenerated extends WebPage {
             apiVersion: 1,
             headers: [],
             query: [
-              { id: 'aa564ea3-3c5c-410d-a451-76009a6b08a5', name: 'q', value: '', enabled: false },
+              { id: '5acc50ec-12ee-4db3-9a0b-f559f187fe65', name: 'q', value: '', enabled: false },
             ],
             body: { kind: 'none', content: '' },
             credentials: 'omit',
@@ -1535,7 +2093,7 @@ export abstract class AdminGenerated extends WebPage {
             responseSchema: {
               version: 1,
               root: {
-                id: 'e273b94e-805a-4c2d-92c8-14dc7cda6f15',
+                id: 'b1e60e69-b54c-416b-985f-aa8ced5874f8',
                 name: 'Response',
                 path: '',
                 kind: 'object',
@@ -1543,7 +2101,7 @@ export abstract class AdminGenerated extends WebPage {
                 nullable: false,
                 children: [
                   {
-                    id: '7aa24d52-aeb0-4b25-b572-377cd623593b',
+                    id: 'dc7acf7c-53f9-4071-ac43-3f38b578470b',
                     name: 'success',
                     path: '/success',
                     kind: 'field',
@@ -1552,7 +2110,7 @@ export abstract class AdminGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: 'f7fc246d-7845-4fe1-a121-bff214b429c5',
+                    id: 'a7d37c8c-cfb5-4f16-b839-0a1e7dad109b',
                     name: 'data',
                     path: '/data',
                     kind: 'list',
@@ -1560,7 +2118,7 @@ export abstract class AdminGenerated extends WebPage {
                     nullable: false,
                     children: [
                       {
-                        id: 'f133ffa1-6637-4445-bb1a-0331ec2d549d',
+                        id: '346b1260-6a3f-475b-aa3f-b2dade409cea',
                         name: 'id_evento',
                         path: '/data/*/id_evento',
                         kind: 'field',
@@ -1569,7 +2127,7 @@ export abstract class AdminGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: 'a3b7005f-f645-4e13-9386-4ac2101a1de0',
+                        id: 'c7400898-b18a-49c5-925e-a5e382866978',
                         name: 'acao_evento',
                         path: '/data/*/acao_evento',
                         kind: 'field',
@@ -1578,7 +2136,7 @@ export abstract class AdminGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: 'e2ebe1ca-2d0b-4e55-9911-705ff47313f5',
+                        id: '865749c1-ee2c-4814-9abd-dae004405aa8',
                         name: 'desc_evento',
                         path: '/data/*/desc_evento',
                         kind: 'field',
@@ -1587,7 +2145,7 @@ export abstract class AdminGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: 'da62ce74-2e47-4458-ad30-46bb3de0850c',
+                        id: 'be568e21-f6d9-41bf-a5b1-41b8588c4a27',
                         name: 'nome_usuario',
                         path: '/data/*/nome_usuario',
                         kind: 'field',
@@ -1596,7 +2154,7 @@ export abstract class AdminGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: '1d01c137-adef-4179-8eb5-90cee2ee3b3f',
+                        id: '4b4f9465-9be1-4feb-a023-40bc710fff75',
                         name: 'data_evento',
                         path: '/data/*/data_evento',
                         kind: 'field',
@@ -1605,7 +2163,7 @@ export abstract class AdminGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: '613e005b-533e-4f54-a801-d11d576983d3',
+                        id: '585d32df-e4c9-4c7f-aa73-66b18364fe7b',
                         name: 'data_evento_fmt',
                         path: '/data/*/data_evento_fmt',
                         kind: 'field',
@@ -1616,7 +2174,7 @@ export abstract class AdminGenerated extends WebPage {
                     ],
                   },
                   {
-                    id: '7e190511-7248-42fa-94e4-22c7623cddd4',
+                    id: 'a3b3d936-ec71-44d5-b554-dfc2ceed4635',
                     name: 'page',
                     path: '/page',
                     kind: 'field',
@@ -1625,7 +2183,7 @@ export abstract class AdminGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: '6e672d8f-5fc3-4e76-bee7-2f742c240496',
+                    id: 'c6f24675-2179-4d99-96d9-9c35f40ce345',
                     name: 'page_size',
                     path: '/page_size',
                     kind: 'field',
@@ -1634,7 +2192,7 @@ export abstract class AdminGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: 'ea5828e1-4ffb-4744-99ec-421245f8c2f1',
+                    id: 'aeaa66fe-8cc5-4371-bc11-cc8a08404880',
                     name: 'total_pages',
                     path: '/total_pages',
                     kind: 'field',
@@ -1643,7 +2201,7 @@ export abstract class AdminGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: '137eaf77-17ed-4597-86e7-ea63ccecb469',
+                    id: 'fe6351da-bde9-49a7-921b-154cb2de5510',
                     name: 'total',
                     path: '/total',
                     kind: 'field',
@@ -1652,7 +2210,7 @@ export abstract class AdminGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: '52b4351f-e9e7-4815-a155-e5b17fedf61d',
+                    id: '817bc860-781d-47cf-8bc5-18ed2445b15b',
                     name: 'has_more',
                     path: '/has_more',
                     kind: 'field',
@@ -1672,7 +2230,7 @@ export abstract class AdminGenerated extends WebPage {
             apiVersion: 1,
             headers: [],
             query: [
-              { id: 'f9c906d2-c0bd-413c-ac6c-797f3a57c27c', name: 'q', value: '', enabled: false },
+              { id: 'c567196b-ea93-4dd7-978f-29bb853b976c', name: 'q', value: '', enabled: false },
             ],
             body: { kind: 'none', content: '' },
             credentials: 'omit',
@@ -1680,7 +2238,7 @@ export abstract class AdminGenerated extends WebPage {
             responseSchema: {
               version: 1,
               root: {
-                id: '5bd57fcb-b35d-418b-a3db-1e2e3d207588',
+                id: '4e312b24-c2c2-40e3-9425-9b419e65d6b5',
                 name: 'Response',
                 path: '',
                 kind: 'object',
@@ -1688,7 +2246,7 @@ export abstract class AdminGenerated extends WebPage {
                 nullable: false,
                 children: [
                   {
-                    id: 'de104d7c-4edd-4077-9659-dcceeb8a7452',
+                    id: '64f6e8a3-3d27-44d9-80d3-3ae664dd1c1c',
                     name: 'success',
                     path: '/success',
                     kind: 'field',
@@ -1697,7 +2255,7 @@ export abstract class AdminGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: '6b07190e-698e-4084-96d0-8bb6d8a47edb',
+                    id: '09aff555-5530-4e30-b002-71e78fd2b8d1',
                     name: 'data',
                     path: '/data',
                     kind: 'list',
@@ -1705,7 +2263,7 @@ export abstract class AdminGenerated extends WebPage {
                     nullable: false,
                     children: [
                       {
-                        id: '489d1e36-a1b3-401a-8f57-d162a1d336c6',
+                        id: '360afd74-6aa6-4f6f-858a-8f91446ed5a0',
                         name: 'id_usuario',
                         path: '/data/*/id_usuario',
                         kind: 'field',
@@ -1714,7 +2272,7 @@ export abstract class AdminGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: 'd18be97c-cefd-4265-bcf9-034084917730',
+                        id: 'bf2cfdd3-c8e2-4222-a783-5469cdc784a4',
                         name: 'nome_usuario',
                         path: '/data/*/nome_usuario',
                         kind: 'field',
@@ -1723,7 +2281,7 @@ export abstract class AdminGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: '06e73b1c-20ef-4b3d-b088-6e299adfa357',
+                        id: '06799dd7-d143-45ba-ab5e-05885b7a4696',
                         name: 'login_usuario',
                         path: '/data/*/login_usuario',
                         kind: 'field',
@@ -1732,7 +2290,7 @@ export abstract class AdminGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: 'f4c50162-a8ce-41b2-b02e-04a79137491a',
+                        id: '6f62c979-116d-4339-bf65-b346a00d7ec0',
                         name: 'autorizacao_usuario',
                         path: '/data/*/autorizacao_usuario',
                         kind: 'field',
@@ -1741,7 +2299,7 @@ export abstract class AdminGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: '5acc50ec-12ee-4db3-9a0b-f559f187fe65',
+                        id: '172e3b03-efbe-4989-a6c3-62aea0da157d',
                         name: 'fila_usuario',
                         path: '/data/*/fila_usuario',
                         kind: 'field',
@@ -1750,7 +2308,7 @@ export abstract class AdminGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: 'b1e60e69-b54c-416b-985f-aa8ced5874f8',
+                        id: '35435b40-11d2-432b-8c52-95d5c7f74606',
                         name: 'triagem_usuario',
                         path: '/data/*/triagem_usuario',
                         kind: 'field',
@@ -1759,7 +2317,7 @@ export abstract class AdminGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: 'dc7acf7c-53f9-4071-ac43-3f38b578470b',
+                        id: 'eb714108-35c7-49f6-9123-a306569419aa',
                         name: 'encerramento_usuario',
                         path: '/data/*/encerramento_usuario',
                         kind: 'field',
@@ -1768,7 +2326,7 @@ export abstract class AdminGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: 'a7d37c8c-cfb5-4f16-b839-0a1e7dad109b',
+                        id: 'f169d37e-812b-42b0-a0ba-8c37d6fd5483',
                         name: 'inservivel_usuario',
                         path: '/data/*/inservivel_usuario',
                         kind: 'field',
@@ -1777,7 +2335,7 @@ export abstract class AdminGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: '346b1260-6a3f-475b-aa3f-b2dade409cea',
+                        id: '57d0b42f-0932-41bd-980f-459ae50bc302',
                         name: 'status_usuario',
                         path: '/data/*/status_usuario',
                         kind: 'field',
@@ -1786,7 +2344,7 @@ export abstract class AdminGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: 'c7400898-b18a-49c5-925e-a5e382866978',
+                        id: '258b4773-64f7-47a4-a407-cec95bd70c61',
                         name: 'data_usuario',
                         path: '/data/*/data_usuario',
                         kind: 'field',
@@ -1795,7 +2353,7 @@ export abstract class AdminGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: '865749c1-ee2c-4814-9abd-dae004405aa8',
+                        id: 'aa32a338-a30e-4855-8db0-a22145844db7',
                         name: 'alteracao_usuario',
                         path: '/data/*/alteracao_usuario',
                         kind: 'field',
@@ -1806,7 +2364,7 @@ export abstract class AdminGenerated extends WebPage {
                     ],
                   },
                   {
-                    id: 'be568e21-f6d9-41bf-a5b1-41b8588c4a27',
+                    id: '91c47465-0465-4155-b057-16f5dc933924',
                     name: 'page',
                     path: '/page',
                     kind: 'field',
@@ -1815,7 +2373,7 @@ export abstract class AdminGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: '4b4f9465-9be1-4feb-a023-40bc710fff75',
+                    id: 'ae7c2e9d-794b-44b3-b5e9-c9359fbb64c2',
                     name: 'page_size',
                     path: '/page_size',
                     kind: 'field',
@@ -1824,7 +2382,7 @@ export abstract class AdminGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: '585d32df-e4c9-4c7f-aa73-66b18364fe7b',
+                    id: '435024bd-ec75-42e5-a9d6-fb8996c37ce0',
                     name: 'total_pages',
                     path: '/total_pages',
                     kind: 'field',
@@ -1833,7 +2391,7 @@ export abstract class AdminGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: 'a3b3d936-ec71-44d5-b554-dfc2ceed4635',
+                    id: '28e61f5d-ad5c-422a-9e25-9f167ed187df',
                     name: 'total',
                     path: '/total',
                     kind: 'field',
@@ -1842,7 +2400,7 @@ export abstract class AdminGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: 'c6f24675-2179-4d99-96d9-9c35f40ce345',
+                    id: 'ed841ab0-5e6b-450d-a358-23e17222a334',
                     name: 'has_more',
                     path: '/has_more',
                     kind: 'field',
@@ -1863,13 +2421,13 @@ export abstract class AdminGenerated extends WebPage {
             headers: [],
             query: [
               {
-                id: 'aeaa66fe-8cc5-4371-bc11-cc8a08404880',
+                id: '9a30c272-392a-432e-b04c-7f39b6475f43',
                 name: 'tipo',
                 value: '',
                 enabled: false,
               },
               {
-                id: 'fe6351da-bde9-49a7-921b-154cb2de5510',
+                id: '702fbd31-d2dc-46f3-8af9-83486a21498f',
                 name: 'fila',
                 value: '',
                 enabled: false,
@@ -1881,7 +2439,7 @@ export abstract class AdminGenerated extends WebPage {
             responseSchema: {
               version: 1,
               root: {
-                id: '817bc860-781d-47cf-8bc5-18ed2445b15b',
+                id: 'b9fa0b51-fc3f-4745-b5b4-2d3020c5fe0e',
                 name: 'Response',
                 path: '',
                 kind: 'object',
@@ -1889,7 +2447,7 @@ export abstract class AdminGenerated extends WebPage {
                 nullable: false,
                 children: [
                   {
-                    id: 'c567196b-ea93-4dd7-978f-29bb853b976c',
+                    id: 'd6e3e069-7c81-43ca-b684-908ff4fefd5d',
                     name: 'success',
                     path: '/success',
                     kind: 'field',
@@ -1898,7 +2456,7 @@ export abstract class AdminGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: '4e312b24-c2c2-40e3-9425-9b419e65d6b5',
+                    id: 'e7ab75ef-db05-4559-aa68-3fe8fb43c970',
                     name: 'data',
                     path: '/data',
                     kind: 'list',
@@ -1906,7 +2464,7 @@ export abstract class AdminGenerated extends WebPage {
                     nullable: false,
                     children: [
                       {
-                        id: '64f6e8a3-3d27-44d9-80d3-3ae664dd1c1c',
+                        id: 'f45d1e15-11dc-4342-b99c-7f75b78bd527',
                         name: 'id_modelo_mensagem',
                         path: '/data/*/id_modelo_mensagem',
                         kind: 'field',
@@ -1915,7 +2473,7 @@ export abstract class AdminGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: '09aff555-5530-4e30-b002-71e78fd2b8d1',
+                        id: '64935240-437c-4a22-b5f5-1d6b092d53d8',
                         name: 'status_modelo_mensagem',
                         path: '/data/*/status_modelo_mensagem',
                         kind: 'field',
@@ -1924,7 +2482,7 @@ export abstract class AdminGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: '360afd74-6aa6-4f6f-858a-8f91446ed5a0',
+                        id: '5c743630-8f08-4177-91bf-31e999d235dc',
                         name: 'fila_modelo_mensagem',
                         path: '/data/*/fila_modelo_mensagem',
                         kind: 'field',
@@ -1933,7 +2491,7 @@ export abstract class AdminGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: 'bf2cfdd3-c8e2-4222-a783-5469cdc784a4',
+                        id: 'c600bd40-1793-4427-8183-0ecfae758e27',
                         name: 'nome_fila',
                         path: '/data/*/nome_fila',
                         kind: 'field',
@@ -1942,7 +2500,7 @@ export abstract class AdminGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: '06799dd7-d143-45ba-ab5e-05885b7a4696',
+                        id: 'a5361b07-b5a4-4c3d-a214-cfd8306932db',
                         name: 'mensagem_modelo_mensagem',
                         path: '/data/*/mensagem_modelo_mensagem',
                         kind: 'field',
@@ -1951,7 +2509,7 @@ export abstract class AdminGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: '6f62c979-116d-4339-bf65-b346a00d7ec0',
+                        id: '27f92082-cd57-4037-879b-0e01691ef1fa',
                         name: 'tipo_modelo_mensagem',
                         path: '/data/*/tipo_modelo_mensagem',
                         kind: 'field',
@@ -1960,7 +2518,7 @@ export abstract class AdminGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: '172e3b03-efbe-4989-a6c3-62aea0da157d',
+                        id: 'ad8388ab-9de6-4806-a9d2-17df49f197e5',
                         name: 'data_modelo_mensagem',
                         path: '/data/*/data_modelo_mensagem',
                         kind: 'field',
@@ -1969,7 +2527,7 @@ export abstract class AdminGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: '35435b40-11d2-432b-8c52-95d5c7f74606',
+                        id: '0d625e59-abe5-4e54-b3f3-e00c112740db',
                         name: 'alterado_modelo_mensagem',
                         path: '/data/*/alterado_modelo_mensagem',
                         kind: 'field',
@@ -1980,7 +2538,7 @@ export abstract class AdminGenerated extends WebPage {
                     ],
                   },
                   {
-                    id: 'eb714108-35c7-49f6-9123-a306569419aa',
+                    id: 'ed028cda-3474-4a80-8c82-e69da071a121',
                     name: 'page',
                     path: '/page',
                     kind: 'field',
@@ -1989,7 +2547,7 @@ export abstract class AdminGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: 'f169d37e-812b-42b0-a0ba-8c37d6fd5483',
+                    id: '8e64c64a-fe32-433e-808e-d97477bdb823',
                     name: 'page_size',
                     path: '/page_size',
                     kind: 'field',
@@ -1998,7 +2556,7 @@ export abstract class AdminGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: '57d0b42f-0932-41bd-980f-459ae50bc302',
+                    id: '43cb4db2-a14b-4140-945c-318cb3212d14',
                     name: 'total_pages',
                     path: '/total_pages',
                     kind: 'field',
@@ -2007,7 +2565,7 @@ export abstract class AdminGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: '258b4773-64f7-47a4-a407-cec95bd70c61',
+                    id: '9da12c3f-9628-4ed7-a960-2c9a1b8ccd64',
                     name: 'total',
                     path: '/total',
                     kind: 'field',
@@ -2016,7 +2574,7 @@ export abstract class AdminGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: 'aa32a338-a30e-4855-8db0-a22145844db7',
+                    id: 'e796f378-15e6-4187-8d72-1179f68b2b93',
                     name: 'has_more',
                     path: '/has_more',
                     kind: 'field',
@@ -2036,7 +2594,7 @@ export abstract class AdminGenerated extends WebPage {
             apiVersion: 1,
             headers: [],
             query: [
-              { id: '91c47465-0465-4155-b057-16f5dc933924', name: 'q', value: '', enabled: false },
+              { id: 'f84c9ca9-6abb-4f5d-a69d-462269fc1962', name: 'q', value: '', enabled: false },
             ],
             body: { kind: 'none', content: '' },
             credentials: 'omit',
@@ -2044,7 +2602,7 @@ export abstract class AdminGenerated extends WebPage {
             responseSchema: {
               version: 1,
               root: {
-                id: 'ae7c2e9d-794b-44b3-b5e9-c9359fbb64c2',
+                id: 'fb2d476d-23f9-42b1-9665-dfc0e6f9e965',
                 name: 'Response',
                 path: '',
                 kind: 'object',
@@ -2052,7 +2610,7 @@ export abstract class AdminGenerated extends WebPage {
                 nullable: false,
                 children: [
                   {
-                    id: '435024bd-ec75-42e5-a9d6-fb8996c37ce0',
+                    id: '2f9b9f26-8e2a-4136-b562-6725d3017303',
                     name: 'success',
                     path: '/success',
                     kind: 'field',
@@ -2061,7 +2619,7 @@ export abstract class AdminGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: '28e61f5d-ad5c-422a-9e25-9f167ed187df',
+                    id: '3196946e-1df5-46fa-9457-23afa738d9d2',
                     name: 'data',
                     path: '/data',
                     kind: 'list',
@@ -2069,7 +2627,7 @@ export abstract class AdminGenerated extends WebPage {
                     nullable: false,
                     children: [
                       {
-                        id: 'ed841ab0-5e6b-450d-a358-23e17222a334',
+                        id: '64d0afa6-9b64-4d69-8b28-a08c4a8b25d6',
                         name: 'id_local',
                         path: '/data/*/id_local',
                         kind: 'field',
@@ -2078,7 +2636,7 @@ export abstract class AdminGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: '9a30c272-392a-432e-b04c-7f39b6475f43',
+                        id: '164cb775-4c0c-4768-a7b2-2d895c1d6c10',
                         name: 'nome_local',
                         path: '/data/*/nome_local',
                         kind: 'field',
@@ -2087,7 +2645,7 @@ export abstract class AdminGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: '702fbd31-d2dc-46f3-8af9-83486a21498f',
+                        id: 'd5d965ce-007f-4756-b0e3-cf644912e30c',
                         name: 'endereco_local',
                         path: '/data/*/endereco_local',
                         kind: 'field',
@@ -2096,7 +2654,7 @@ export abstract class AdminGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: 'b9fa0b51-fc3f-4745-b5b4-2d3020c5fe0e',
+                        id: '07468978-3b33-4dd3-a665-71bd53baa7af',
                         name: 'regiao_local',
                         path: '/data/*/regiao_local',
                         kind: 'field',
@@ -2105,7 +2663,7 @@ export abstract class AdminGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: 'd6e3e069-7c81-43ca-b684-908ff4fefd5d',
+                        id: 'a140cc44-4812-44f1-87bb-1e709b6dac9f',
                         name: 'status_local',
                         path: '/data/*/status_local',
                         kind: 'field',
@@ -2114,7 +2672,7 @@ export abstract class AdminGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: 'e7ab75ef-db05-4559-aa68-3fe8fb43c970',
+                        id: '41663ef5-def7-42c7-8f9c-3866ed72d2d0',
                         name: 'infovia',
                         path: '/data/*/infovia',
                         kind: 'field',
@@ -2123,7 +2681,7 @@ export abstract class AdminGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: 'f45d1e15-11dc-4342-b99c-7f75b78bd527',
+                        id: '94b2a5f3-2648-4064-b68f-f329360d0050',
                         name: 'alteracao_local',
                         path: '/data/*/alteracao_local',
                         kind: 'field',
@@ -2132,7 +2690,7 @@ export abstract class AdminGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: '64935240-437c-4a22-b5f5-1d6b092d53d8',
+                        id: '7d6baf57-e018-402b-bd62-8af4eab2e684',
                         name: 'id_secretaria',
                         path: '/data/*/id_secretaria',
                         kind: 'field',
@@ -2141,7 +2699,7 @@ export abstract class AdminGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: '5c743630-8f08-4177-91bf-31e999d235dc',
+                        id: '0658cf63-559d-4c5d-97ca-5c65fd36d4f9',
                         name: 'nome_secretaria',
                         path: '/data/*/nome_secretaria',
                         kind: 'field',
@@ -2150,7 +2708,7 @@ export abstract class AdminGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: 'c600bd40-1793-4427-8183-0ecfae758e27',
+                        id: 'b3df1fe9-6d74-4704-89c9-580c3954e415',
                         name: 'sigla_secretaria',
                         path: '/data/*/sigla_secretaria',
                         kind: 'field',
@@ -2161,7 +2719,7 @@ export abstract class AdminGenerated extends WebPage {
                     ],
                   },
                   {
-                    id: 'a5361b07-b5a4-4c3d-a214-cfd8306932db',
+                    id: '25ccc543-b1cd-4d72-aa92-1786b6e56ae1',
                     name: 'page',
                     path: '/page',
                     kind: 'field',
@@ -2170,7 +2728,7 @@ export abstract class AdminGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: '27f92082-cd57-4037-879b-0e01691ef1fa',
+                    id: '6f39ba97-2105-42f4-a3e7-d375a8f1b2e7',
                     name: 'page_size',
                     path: '/page_size',
                     kind: 'field',
@@ -2179,7 +2737,7 @@ export abstract class AdminGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: 'ad8388ab-9de6-4806-a9d2-17df49f197e5',
+                    id: '25cba440-2549-49ee-a74c-1e79bcb0b54d',
                     name: 'total_pages',
                     path: '/total_pages',
                     kind: 'field',
@@ -2188,7 +2746,7 @@ export abstract class AdminGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: '0d625e59-abe5-4e54-b3f3-e00c112740db',
+                    id: '925681ed-decb-4751-aa54-98509b276552',
                     name: 'total',
                     path: '/total',
                     kind: 'field',
@@ -2197,7 +2755,7 @@ export abstract class AdminGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: 'ed028cda-3474-4a80-8c82-e69da071a121',
+                    id: '522906ed-fce9-4667-9a47-ec08ba4125a2',
                     name: 'has_more',
                     path: '/has_more',
                     kind: 'field',
@@ -2218,7 +2776,7 @@ export abstract class AdminGenerated extends WebPage {
             headers: [],
             query: [
               {
-                id: '8e64c64a-fe32-433e-808e-d97477bdb823',
+                id: '9983e775-b65a-480f-9367-352fdcee5103',
                 name: 'ativas',
                 value: '',
                 enabled: false,
@@ -2230,7 +2788,7 @@ export abstract class AdminGenerated extends WebPage {
             responseSchema: {
               version: 1,
               root: {
-                id: '43cb4db2-a14b-4140-945c-318cb3212d14',
+                id: '63543752-4772-4b23-aed8-5f3150d29f06',
                 name: 'Response',
                 path: '',
                 kind: 'object',
@@ -2238,7 +2796,7 @@ export abstract class AdminGenerated extends WebPage {
                 nullable: false,
                 children: [
                   {
-                    id: '9da12c3f-9628-4ed7-a960-2c9a1b8ccd64',
+                    id: 'd6e75d3b-e1d6-4990-94dd-420cfbfcbdb1',
                     name: 'success',
                     path: '/success',
                     kind: 'field',
@@ -2247,7 +2805,7 @@ export abstract class AdminGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: 'e796f378-15e6-4187-8d72-1179f68b2b93',
+                    id: '1c97dc29-cce1-4707-a5fa-5ee565999841',
                     name: 'data',
                     path: '/data',
                     kind: 'list',
@@ -2255,7 +2813,7 @@ export abstract class AdminGenerated extends WebPage {
                     nullable: false,
                     children: [
                       {
-                        id: 'f84c9ca9-6abb-4f5d-a69d-462269fc1962',
+                        id: '09e3a3d9-e1b5-4d8c-81a9-4d53de629627',
                         name: 'id_secretaria',
                         path: '/data/*/id_secretaria',
                         kind: 'field',
@@ -2264,7 +2822,7 @@ export abstract class AdminGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: 'fb2d476d-23f9-42b1-9665-dfc0e6f9e965',
+                        id: '30f4ce6a-2948-4b54-bc2b-347d5a6c4167',
                         name: 'nome_secretaria',
                         path: '/data/*/nome_secretaria',
                         kind: 'field',
@@ -2273,7 +2831,7 @@ export abstract class AdminGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: '2f9b9f26-8e2a-4136-b562-6725d3017303',
+                        id: '9ff5077f-f71b-427a-82bc-bd0be4982e7c',
                         name: 'sigla_secretaria',
                         path: '/data/*/sigla_secretaria',
                         kind: 'field',
@@ -2282,7 +2840,7 @@ export abstract class AdminGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: '3196946e-1df5-46fa-9457-23afa738d9d2',
+                        id: '02663797-5729-4ed8-a074-f4c26ee3279d',
                         name: 'status_secretaria',
                         path: '/data/*/status_secretaria',
                         kind: 'field',
@@ -2291,7 +2849,7 @@ export abstract class AdminGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: '64d0afa6-9b64-4d69-8b28-a08c4a8b25d6',
+                        id: '92f29345-6fbd-4450-8500-522953d53e83',
                         name: 'ultima_alteracao',
                         path: '/data/*/ultima_alteracao',
                         kind: 'field',
@@ -2302,7 +2860,7 @@ export abstract class AdminGenerated extends WebPage {
                     ],
                   },
                   {
-                    id: '164cb775-4c0c-4768-a7b2-2d895c1d6c10',
+                    id: '34405ed9-2dda-4c60-a052-306443788398',
                     name: 'page',
                     path: '/page',
                     kind: 'field',
@@ -2311,7 +2869,7 @@ export abstract class AdminGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: 'd5d965ce-007f-4756-b0e3-cf644912e30c',
+                    id: '0c85fff9-f1ab-4b4c-b81a-c357f8aa2d99',
                     name: 'page_size',
                     path: '/page_size',
                     kind: 'field',
@@ -2320,7 +2878,7 @@ export abstract class AdminGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: '07468978-3b33-4dd3-a665-71bd53baa7af',
+                    id: 'e64029fe-79f0-49c5-954a-0e909fd12815',
                     name: 'total_pages',
                     path: '/total_pages',
                     kind: 'field',
@@ -2329,7 +2887,7 @@ export abstract class AdminGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: 'a140cc44-4812-44f1-87bb-1e709b6dac9f',
+                    id: 'b37ca94b-bc3a-4fcd-aeb2-06b5885d5a7c',
                     name: 'total',
                     path: '/total',
                     kind: 'field',
@@ -2338,7 +2896,7 @@ export abstract class AdminGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: '41663ef5-def7-42c7-8f9c-3866ed72d2d0',
+                    id: 'ab214671-8033-4afa-a77d-af1a61b139ba',
                     name: 'has_more',
                     path: '/has_more',
                     kind: 'field',
@@ -2358,15 +2916,15 @@ export abstract class AdminGenerated extends WebPage {
             apiVersion: 1,
             headers: [],
             query: [
-              { id: '94b2a5f3-2648-4064-b68f-f329360d0050', name: 'q', value: '', enabled: false },
+              { id: '50002ea4-3e1d-4d46-a880-90465bff2f26', name: 'q', value: '', enabled: false },
               {
-                id: '7d6baf57-e018-402b-bd62-8af4eab2e684',
+                id: '0a348797-e11e-4cd6-bd99-b6ce59c07235',
                 name: 'fila',
                 value: '',
                 enabled: false,
               },
               {
-                id: '0658cf63-559d-4c5d-97ca-5c65fd36d4f9',
+                id: 'c6e1e693-3214-40be-917d-c5007b4c6ceb',
                 name: 'status',
                 value: '',
                 enabled: false,
@@ -2378,7 +2936,7 @@ export abstract class AdminGenerated extends WebPage {
             responseSchema: {
               version: 1,
               root: {
-                id: 'b3df1fe9-6d74-4704-89c9-580c3954e415',
+                id: 'e83a588e-ff3e-4135-bea6-f7a4782500da',
                 name: 'Response',
                 path: '',
                 kind: 'object',
@@ -2386,7 +2944,7 @@ export abstract class AdminGenerated extends WebPage {
                 nullable: false,
                 children: [
                   {
-                    id: '25ccc543-b1cd-4d72-aa92-1786b6e56ae1',
+                    id: 'f6ec42a5-7620-4db3-81d8-e58f05fa3087',
                     name: 'success',
                     path: '/success',
                     kind: 'field',
@@ -2395,7 +2953,7 @@ export abstract class AdminGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: '6f39ba97-2105-42f4-a3e7-d375a8f1b2e7',
+                    id: '81129d18-1299-4be6-8d09-7a98dc172e97',
                     name: 'data',
                     path: '/data',
                     kind: 'list',
@@ -2403,7 +2961,7 @@ export abstract class AdminGenerated extends WebPage {
                     nullable: false,
                     children: [
                       {
-                        id: '25cba440-2549-49ee-a74c-1e79bcb0b54d',
+                        id: '58cea8c1-49dc-4515-9156-ec4c3902652d',
                         name: 'id_servico',
                         path: '/data/*/id_servico',
                         kind: 'field',
@@ -2412,7 +2970,7 @@ export abstract class AdminGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: '925681ed-decb-4751-aa54-98509b276552',
+                        id: '51bd21aa-e9ca-4d89-8e2b-a8d75befbe1a',
                         name: 'id_fila_servico',
                         path: '/data/*/id_fila_servico',
                         kind: 'field',
@@ -2421,7 +2979,7 @@ export abstract class AdminGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: '522906ed-fce9-4667-9a47-ec08ba4125a2',
+                        id: '016a7637-2197-4df4-8b6c-c6e627b0593a',
                         name: 'nome_fila',
                         path: '/data/*/nome_fila',
                         kind: 'field',
@@ -2430,7 +2988,7 @@ export abstract class AdminGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: '9983e775-b65a-480f-9367-352fdcee5103',
+                        id: '8dd93c4d-05b3-419b-9b4a-d371fbc1190b',
                         name: 'nome_servico',
                         path: '/data/*/nome_servico',
                         kind: 'field',
@@ -2439,7 +2997,7 @@ export abstract class AdminGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: '63543752-4772-4b23-aed8-5f3150d29f06',
+                        id: '845218bc-0392-4f2c-a957-f59ad24d5ff4',
                         name: 'valor_servico',
                         path: '/data/*/valor_servico',
                         kind: 'field',
@@ -2448,7 +3006,7 @@ export abstract class AdminGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: 'd6e75d3b-e1d6-4990-94dd-420cfbfcbdb1',
+                        id: 'e880f88a-cc7e-4666-9ea6-83eaa7a64f57',
                         name: 'pontuacao_servico',
                         path: '/data/*/pontuacao_servico',
                         kind: 'field',
@@ -2457,7 +3015,7 @@ export abstract class AdminGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: '1c97dc29-cce1-4707-a5fa-5ee565999841',
+                        id: '9dc4a8f9-a97d-4eb9-8600-d66dea438a26',
                         name: 'status_servico',
                         path: '/data/*/status_servico',
                         kind: 'field',
@@ -2466,7 +3024,7 @@ export abstract class AdminGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: '09e3a3d9-e1b5-4d8c-81a9-4d53de629627',
+                        id: '9faeec70-bbb2-45c0-83db-39b16f7ab304',
                         name: 'unidade_medida',
                         path: '/data/*/unidade_medida',
                         kind: 'field',
@@ -2475,7 +3033,7 @@ export abstract class AdminGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: '30f4ce6a-2948-4b54-bc2b-347d5a6c4167',
+                        id: '2a440ac1-cd5a-474b-a6e9-7e9a5343dd96',
                         name: 'data_ultima_alteracao',
                         path: '/data/*/data_ultima_alteracao',
                         kind: 'field',
@@ -2486,7 +3044,7 @@ export abstract class AdminGenerated extends WebPage {
                     ],
                   },
                   {
-                    id: '9ff5077f-f71b-427a-82bc-bd0be4982e7c',
+                    id: '4ad521e3-fd2b-417f-b684-b0e247ed7a81',
                     name: 'page',
                     path: '/page',
                     kind: 'field',
@@ -2495,7 +3053,7 @@ export abstract class AdminGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: '02663797-5729-4ed8-a074-f4c26ee3279d',
+                    id: '85448c88-a9d3-41aa-ae85-2bdc78bc33b5',
                     name: 'page_size',
                     path: '/page_size',
                     kind: 'field',
@@ -2504,7 +3062,7 @@ export abstract class AdminGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: '92f29345-6fbd-4450-8500-522953d53e83',
+                    id: 'e333427a-119f-40be-8d31-c3cf84ee57ac',
                     name: 'total_pages',
                     path: '/total_pages',
                     kind: 'field',
@@ -2513,7 +3071,7 @@ export abstract class AdminGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: '34405ed9-2dda-4c60-a052-306443788398',
+                    id: '29b17db1-53a3-42c3-a040-4ccac391a198',
                     name: 'total',
                     path: '/total',
                     kind: 'field',
@@ -2522,7 +3080,7 @@ export abstract class AdminGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: '0c85fff9-f1ab-4b4c-b81a-c357f8aa2d99',
+                    id: 'b18dd05d-1f90-4efe-85f4-f05e988328a3',
                     name: 'has_more',
                     path: '/has_more',
                     kind: 'field',
@@ -2543,7 +3101,7 @@ export abstract class AdminGenerated extends WebPage {
             headers: [],
             query: [
               {
-                id: 'e64029fe-79f0-49c5-954a-0e909fd12815',
+                id: '295629c1-44bd-410f-8749-23a20a5f9f4b',
                 name: 'livres',
                 value: '',
                 enabled: false,
@@ -2555,7 +3113,7 @@ export abstract class AdminGenerated extends WebPage {
             responseSchema: {
               version: 1,
               root: {
-                id: 'b37ca94b-bc3a-4fcd-aeb2-06b5885d5a7c',
+                id: 'd4c74907-63bd-41a9-8928-82b8d25d9c1c',
                 name: 'Response',
                 path: '',
                 kind: 'object',
@@ -2563,7 +3121,7 @@ export abstract class AdminGenerated extends WebPage {
                 nullable: false,
                 children: [
                   {
-                    id: 'ab214671-8033-4afa-a77d-af1a61b139ba',
+                    id: '39e5cd6a-56e7-46fd-b562-9d4968493df6',
                     name: 'success',
                     path: '/success',
                     kind: 'field',
@@ -2572,7 +3130,7 @@ export abstract class AdminGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: '50002ea4-3e1d-4d46-a880-90465bff2f26',
+                    id: '0544359d-dc89-45a7-b29f-d23fbe82255c',
                     name: 'data',
                     path: '/data',
                     kind: 'list',
@@ -2580,7 +3138,7 @@ export abstract class AdminGenerated extends WebPage {
                     nullable: false,
                     children: [
                       {
-                        id: '0a348797-e11e-4cd6-bd99-b6ce59c07235',
+                        id: 'b70338eb-ca5f-4331-9a6f-a8df4062b608',
                         name: 'id_bancada',
                         path: '/data/*/id_bancada',
                         kind: 'field',
@@ -2589,7 +3147,7 @@ export abstract class AdminGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: 'c6e1e693-3214-40be-917d-c5007b4c6ceb',
+                        id: 'b4914aeb-3ec2-4a86-927c-249ea358eae2',
                         name: 'nome_bancada',
                         path: '/data/*/nome_bancada',
                         kind: 'field',
@@ -2598,7 +3156,7 @@ export abstract class AdminGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: 'e83a588e-ff3e-4135-bea6-f7a4782500da',
+                        id: 'f78db585-fa84-45b8-bbbd-a06f05678f75',
                         name: 'status_bancada',
                         path: '/data/*/status_bancada',
                         kind: 'field',
@@ -2607,7 +3165,7 @@ export abstract class AdminGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: 'f6ec42a5-7620-4db3-81d8-e58f05fa3087',
+                        id: '6096f196-d764-405d-a0d1-e17d83e55643',
                         name: 'ocupado_bancada',
                         path: '/data/*/ocupado_bancada',
                         kind: 'field',
@@ -2618,7 +3176,7 @@ export abstract class AdminGenerated extends WebPage {
                     ],
                   },
                   {
-                    id: '81129d18-1299-4be6-8d09-7a98dc172e97',
+                    id: 'decd27f8-23b6-4282-8ea7-b605a79ec255',
                     name: 'page',
                     path: '/page',
                     kind: 'field',
@@ -2627,7 +3185,7 @@ export abstract class AdminGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: '58cea8c1-49dc-4515-9156-ec4c3902652d',
+                    id: '0f068add-16a5-474b-aad9-160dbb39ac42',
                     name: 'page_size',
                     path: '/page_size',
                     kind: 'field',
@@ -2636,7 +3194,7 @@ export abstract class AdminGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: '51bd21aa-e9ca-4d89-8e2b-a8d75befbe1a',
+                    id: '3f7c600a-9f59-419e-97ab-7f7f0e297013',
                     name: 'total_pages',
                     path: '/total_pages',
                     kind: 'field',
@@ -2645,7 +3203,7 @@ export abstract class AdminGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: '016a7637-2197-4df4-8b6c-c6e627b0593a',
+                    id: '44eeca22-3876-4d46-a171-d6a6aaad4153',
                     name: 'total',
                     path: '/total',
                     kind: 'field',
@@ -2654,7 +3212,7 @@ export abstract class AdminGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: '8dd93c4d-05b3-419b-9b4a-d371fbc1190b',
+                    id: '10ac1128-f4fb-425f-ad00-63262d829f4a',
                     name: 'has_more',
                     path: '/has_more',
                     kind: 'field',
@@ -2680,7 +3238,7 @@ export abstract class AdminGenerated extends WebPage {
             responseSchema: {
               version: 1,
               root: {
-                id: '845218bc-0392-4f2c-a957-f59ad24d5ff4',
+                id: '9e029d62-0c4f-4f1a-ab1e-cfdfbfa1b12c',
                 name: 'Response',
                 path: '',
                 kind: 'object',
@@ -2688,7 +3246,7 @@ export abstract class AdminGenerated extends WebPage {
                 nullable: false,
                 children: [
                   {
-                    id: 'e880f88a-cc7e-4666-9ea6-83eaa7a64f57',
+                    id: 'b9c856db-1982-42d0-9b53-46a56d8e30d8',
                     name: 'success',
                     path: '/success',
                     kind: 'field',
@@ -2697,7 +3255,7 @@ export abstract class AdminGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: '9dc4a8f9-a97d-4eb9-8600-d66dea438a26',
+                    id: '3681f38a-d736-4999-8aa4-0c97e5c963e2',
                     name: 'data',
                     path: '/data',
                     kind: 'list',
@@ -2705,7 +3263,7 @@ export abstract class AdminGenerated extends WebPage {
                     nullable: false,
                     children: [
                       {
-                        id: '9faeec70-bbb2-45c0-83db-39b16f7ab304',
+                        id: 'af5cdb0e-f3fd-41ea-963e-d95ec2a283b2',
                         name: 'id_fila',
                         path: '/data/*/id_fila',
                         kind: 'field',
@@ -2714,7 +3272,7 @@ export abstract class AdminGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: '2a440ac1-cd5a-474b-a6e9-7e9a5343dd96',
+                        id: '46e5d11f-634f-49be-96ad-b949fd750e71',
                         name: 'nome_fila',
                         path: '/data/*/nome_fila',
                         kind: 'field',
@@ -2723,7 +3281,7 @@ export abstract class AdminGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: '4ad521e3-fd2b-417f-b684-b0e247ed7a81',
+                        id: '748a0139-0b65-43f0-9a0d-b8c452527d81',
                         name: 'status_fila',
                         path: '/data/*/status_fila',
                         kind: 'field',
@@ -2732,7 +3290,7 @@ export abstract class AdminGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: '85448c88-a9d3-41aa-ae85-2bdc78bc33b5',
+                        id: 'cb7d9c29-f6ce-4411-9903-88f2b0d1295c',
                         name: 'icone_fila',
                         path: '/data/*/icone_fila',
                         kind: 'field',
@@ -2743,7 +3301,7 @@ export abstract class AdminGenerated extends WebPage {
                     ],
                   },
                   {
-                    id: 'e333427a-119f-40be-8d31-c3cf84ee57ac',
+                    id: '36d442da-c68c-4747-b0ca-461d05e124d6',
                     name: 'page',
                     path: '/page',
                     kind: 'field',
@@ -2752,7 +3310,7 @@ export abstract class AdminGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: '29b17db1-53a3-42c3-a040-4ccac391a198',
+                    id: 'd7a37e60-4904-4c40-adba-382477fc7a2d',
                     name: 'page_size',
                     path: '/page_size',
                     kind: 'field',
@@ -2761,7 +3319,7 @@ export abstract class AdminGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: 'b18dd05d-1f90-4efe-85f4-f05e988328a3',
+                    id: 'c90e747b-5f08-4538-9347-9dad51231fe6',
                     name: 'total_pages',
                     path: '/total_pages',
                     kind: 'field',
@@ -2770,7 +3328,7 @@ export abstract class AdminGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: '295629c1-44bd-410f-8749-23a20a5f9f4b',
+                    id: 'dc1e892c-1050-4d46-a158-d7dfa1124e3e',
                     name: 'total',
                     path: '/total',
                     kind: 'field',
@@ -2779,7 +3337,7 @@ export abstract class AdminGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: 'd4c74907-63bd-41a9-8928-82b8d25d9c1c',
+                    id: '8490ce1f-5728-477a-81b2-59caf9c88a72',
                     name: 'has_more',
                     path: '/has_more',
                     kind: 'field',
@@ -2809,7 +3367,7 @@ export abstract class AdminGenerated extends WebPage {
             responseSchema: {
               version: 1,
               root: {
-                id: '39e5cd6a-56e7-46fd-b562-9d4968493df6',
+                id: '056692df-793f-49e4-9335-689076ec4024',
                 name: 'Response',
                 path: '',
                 kind: 'object',
@@ -2817,7 +3375,7 @@ export abstract class AdminGenerated extends WebPage {
                 nullable: false,
                 children: [
                   {
-                    id: '0544359d-dc89-45a7-b29f-d23fbe82255c',
+                    id: 'a8b58cad-d2b5-4423-ad41-5587b547df97',
                     name: 'success',
                     path: '/success',
                     kind: 'field',
@@ -2826,7 +3384,7 @@ export abstract class AdminGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: 'b70338eb-ca5f-4331-9a6f-a8df4062b608',
+                    id: 'f25f1e96-eca5-4751-8a52-2b2b41aa8113',
                     name: 'data',
                     path: '/data',
                     kind: 'field',
@@ -2862,7 +3420,7 @@ export abstract class AdminGenerated extends WebPage {
             responseSchema: {
               version: 1,
               root: {
-                id: 'b4914aeb-3ec2-4a86-927c-249ea358eae2',
+                id: '8f0a23c1-56d4-4533-b05b-479e91b69ee6',
                 name: 'Response',
                 path: '',
                 kind: 'object',
@@ -2870,7 +3428,7 @@ export abstract class AdminGenerated extends WebPage {
                 nullable: false,
                 children: [
                   {
-                    id: 'f78db585-fa84-45b8-bbbd-a06f05678f75',
+                    id: '07c4cf10-40dc-4669-8dbc-52672053d7ff',
                     name: 'success',
                     path: '/success',
                     kind: 'field',
@@ -2879,7 +3437,7 @@ export abstract class AdminGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: '6096f196-d764-405d-a0d1-e17d83e55643',
+                    id: '1c5ed026-aeb8-44b0-8a4a-ab824614858b',
                     name: 'data',
                     path: '/data',
                     kind: 'field',
@@ -2913,7 +3471,7 @@ export abstract class AdminGenerated extends WebPage {
             responseSchema: {
               version: 1,
               root: {
-                id: 'decd27f8-23b6-4282-8ea7-b605a79ec255',
+                id: '593dd177-f63f-4469-b1dd-b8eb4d3247cc',
                 name: 'Response',
                 path: '',
                 kind: 'object',
@@ -2921,7 +3479,7 @@ export abstract class AdminGenerated extends WebPage {
                 nullable: false,
                 children: [
                   {
-                    id: '0f068add-16a5-474b-aad9-160dbb39ac42',
+                    id: '5b8f904f-e004-4477-9a1c-d8e97d66734f',
                     name: 'success',
                     path: '/success',
                     kind: 'field',
@@ -2930,7 +3488,7 @@ export abstract class AdminGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: '3f7c600a-9f59-419e-97ab-7f7f0e297013',
+                    id: 'ebc92ea8-0f43-4eee-899c-2853efd74751',
                     name: 'data',
                     path: '/data',
                     kind: 'field',
@@ -2966,7 +3524,7 @@ export abstract class AdminGenerated extends WebPage {
             responseSchema: {
               version: 1,
               root: {
-                id: '44eeca22-3876-4d46-a171-d6a6aaad4153',
+                id: '638ffdc2-bf5b-4474-87cd-084b273f85f3',
                 name: 'Response',
                 path: '',
                 kind: 'object',
@@ -2974,7 +3532,7 @@ export abstract class AdminGenerated extends WebPage {
                 nullable: false,
                 children: [
                   {
-                    id: '10ac1128-f4fb-425f-ad00-63262d829f4a',
+                    id: '56b99a78-9f1d-49e7-b221-9175b65be87b',
                     name: 'success',
                     path: '/success',
                     kind: 'field',
@@ -2983,7 +3541,7 @@ export abstract class AdminGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: '9e029d62-0c4f-4f1a-ab1e-cfdfbfa1b12c',
+                    id: '7031fed8-6717-4c06-adc3-bba7096ea060',
                     name: 'data',
                     path: '/data',
                     kind: 'field',
@@ -3016,7 +3574,7 @@ export abstract class AdminGenerated extends WebPage {
             responseSchema: {
               version: 1,
               root: {
-                id: 'b9c856db-1982-42d0-9b53-46a56d8e30d8',
+                id: 'df175d4f-f264-4444-a314-518f36073bd7',
                 name: 'Response',
                 path: '',
                 kind: 'object',
@@ -3024,7 +3582,7 @@ export abstract class AdminGenerated extends WebPage {
                 nullable: false,
                 children: [
                   {
-                    id: '3681f38a-d736-4999-8aa4-0c97e5c963e2',
+                    id: '025ac9e4-149f-49f4-920d-ef0c2c79b1de',
                     name: 'success',
                     path: '/success',
                     kind: 'field',
@@ -3033,7 +3591,7 @@ export abstract class AdminGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: 'af5cdb0e-f3fd-41ea-963e-d95ec2a283b2',
+                    id: 'd1ecd4e3-de78-44f4-8153-ccca8e5be67f',
                     name: 'data',
                     path: '/data',
                     kind: 'field',
@@ -3047,6 +3605,873 @@ export abstract class AdminGenerated extends WebPage {
           },
           {
             id: '91c9ff33-8446-4214-b304-b89dcd71e05b',
+            name: 'SecretariasAtivas',
+            method: 'GET',
+            path: 'sigat/secretarias',
+            apiVersion: 1,
+            headers: [],
+            query: [
+              {
+                id: '25a27577-38be-4f9f-9cd2-b6ad61b4adf4',
+                name: 'ativas',
+                value: '',
+                enabled: false,
+              },
+            ],
+            body: { kind: 'none', content: '' },
+            credentials: 'omit',
+            timeoutMs: null,
+            responseSchema: {
+              version: 1,
+              root: {
+                id: '696d6dec-9d0a-4abe-9baf-099bcedb7cae',
+                name: 'Response',
+                path: '',
+                kind: 'object',
+                fieldType: 'object',
+                nullable: false,
+                children: [
+                  {
+                    id: 'd0c0fe09-79d0-4145-a1fd-42d4e77d2b07',
+                    name: 'success',
+                    path: '/success',
+                    kind: 'field',
+                    fieldType: 'boolean',
+                    nullable: false,
+                    children: [],
+                  },
+                  {
+                    id: 'd15bdfb4-dbfd-4abc-8f26-6a693dfdd1b7',
+                    name: 'data',
+                    path: '/data',
+                    kind: 'list',
+                    fieldType: 'list',
+                    nullable: false,
+                    children: [
+                      {
+                        id: '4d8f8395-5265-4283-9561-5692b60817ca',
+                        name: 'id_secretaria',
+                        path: '/data/*/id_secretaria',
+                        kind: 'field',
+                        fieldType: 'integer',
+                        nullable: true,
+                        children: [],
+                      },
+                      {
+                        id: '217acb4a-1ab8-45c6-a926-a0265fff1e3a',
+                        name: 'nome_secretaria',
+                        path: '/data/*/nome_secretaria',
+                        kind: 'field',
+                        fieldType: 'string',
+                        nullable: true,
+                        children: [],
+                      },
+                      {
+                        id: 'e09aa2a0-4208-4693-8651-78659d956db5',
+                        name: 'sigla_secretaria',
+                        path: '/data/*/sigla_secretaria',
+                        kind: 'field',
+                        fieldType: 'string',
+                        nullable: true,
+                        children: [],
+                      },
+                      {
+                        id: '84129f8a-fed6-46b8-b66f-8a3dea4c7157',
+                        name: 'status_secretaria',
+                        path: '/data/*/status_secretaria',
+                        kind: 'field',
+                        fieldType: 'integer',
+                        nullable: true,
+                        children: [],
+                      },
+                      {
+                        id: '1bd8114d-b8b5-4c41-9a3e-d61c2ac0260f',
+                        name: 'ultima_alteracao',
+                        path: '/data/*/ultima_alteracao',
+                        kind: 'field',
+                        fieldType: 'datetime',
+                        nullable: true,
+                        children: [],
+                      },
+                    ],
+                  },
+                  {
+                    id: 'e6c84554-9153-4712-837a-859d4fb68c8c',
+                    name: 'page',
+                    path: '/page',
+                    kind: 'field',
+                    fieldType: 'integer',
+                    nullable: true,
+                    children: [],
+                  },
+                  {
+                    id: '186ef321-d9bb-4254-ab0e-9712be99e4cc',
+                    name: 'page_size',
+                    path: '/page_size',
+                    kind: 'field',
+                    fieldType: 'integer',
+                    nullable: true,
+                    children: [],
+                  },
+                  {
+                    id: '22b5faa6-f47c-4e67-8296-e7a4efe20ef8',
+                    name: 'total_pages',
+                    path: '/total_pages',
+                    kind: 'field',
+                    fieldType: 'integer',
+                    nullable: true,
+                    children: [],
+                  },
+                  {
+                    id: '1d292058-c20d-4365-b76b-a1f7331b6353',
+                    name: 'total',
+                    path: '/total',
+                    kind: 'field',
+                    fieldType: 'integer',
+                    nullable: true,
+                    children: [],
+                  },
+                  {
+                    id: '665a4a15-52dc-4c30-b34a-a0bcbd660d43',
+                    name: 'has_more',
+                    path: '/has_more',
+                    kind: 'field',
+                    fieldType: 'boolean',
+                    nullable: true,
+                    children: [],
+                  },
+                ],
+              },
+            },
+          },
+          {
+            id: 'e368fe33-fa55-4e7e-89af-6c6a1a61210d',
+            name: 'FilasLista',
+            method: 'GET',
+            path: 'sigat/admin-filas',
+            apiVersion: 1,
+            headers: [],
+            query: [],
+            body: { kind: 'none', content: '' },
+            credentials: 'omit',
+            timeoutMs: null,
+            responseSchema: {
+              version: 1,
+              root: {
+                id: '21da2087-6b3d-4f37-ba88-5a6be1b9387b',
+                name: 'Response',
+                path: '',
+                kind: 'object',
+                fieldType: 'object',
+                nullable: false,
+                children: [
+                  {
+                    id: 'fe9179d8-fff2-48b2-afde-1ec6389aad87',
+                    name: 'success',
+                    path: '/success',
+                    kind: 'field',
+                    fieldType: 'boolean',
+                    nullable: false,
+                    children: [],
+                  },
+                  {
+                    id: '18cfe43c-3cd7-44eb-ac46-c747f6fabede',
+                    name: 'data',
+                    path: '/data',
+                    kind: 'list',
+                    fieldType: 'list',
+                    nullable: false,
+                    children: [
+                      {
+                        id: '9855d3a5-f22d-4d01-8cd1-001ea5498da6',
+                        name: 'id_fila',
+                        path: '/data/*/id_fila',
+                        kind: 'field',
+                        fieldType: 'integer',
+                        nullable: true,
+                        children: [],
+                      },
+                      {
+                        id: '95f76f99-6c6b-4b7e-b939-200ef1bfe690',
+                        name: 'nome_fila',
+                        path: '/data/*/nome_fila',
+                        kind: 'field',
+                        fieldType: 'string',
+                        nullable: true,
+                        children: [],
+                      },
+                      {
+                        id: '0fa8652f-cfec-410b-ba48-fc8cf23f2080',
+                        name: 'status_fila',
+                        path: '/data/*/status_fila',
+                        kind: 'field',
+                        fieldType: 'string',
+                        nullable: true,
+                        children: [],
+                      },
+                      {
+                        id: '26b07bd4-af6d-4b5a-9922-7e0db36b1910',
+                        name: 'icone_fila',
+                        path: '/data/*/icone_fila',
+                        kind: 'field',
+                        fieldType: 'string',
+                        nullable: true,
+                        children: [],
+                      },
+                    ],
+                  },
+                  {
+                    id: '60e333f7-de88-4247-a60a-614d7c5a2e40',
+                    name: 'page',
+                    path: '/page',
+                    kind: 'field',
+                    fieldType: 'integer',
+                    nullable: true,
+                    children: [],
+                  },
+                  {
+                    id: 'cf3702e6-3a9a-4cb1-a53c-8b5292b555fd',
+                    name: 'page_size',
+                    path: '/page_size',
+                    kind: 'field',
+                    fieldType: 'integer',
+                    nullable: true,
+                    children: [],
+                  },
+                  {
+                    id: 'b3a921bc-4914-4b61-805e-e2c02c4dd859',
+                    name: 'total_pages',
+                    path: '/total_pages',
+                    kind: 'field',
+                    fieldType: 'integer',
+                    nullable: true,
+                    children: [],
+                  },
+                  {
+                    id: '51db09e2-d387-4019-af80-c5c435ac8f75',
+                    name: 'total',
+                    path: '/total',
+                    kind: 'field',
+                    fieldType: 'integer',
+                    nullable: true,
+                    children: [],
+                  },
+                  {
+                    id: 'dac9149d-5d79-450f-b48e-de714aeb3166',
+                    name: 'has_more',
+                    path: '/has_more',
+                    kind: 'field',
+                    fieldType: 'boolean',
+                    nullable: true,
+                    children: [],
+                  },
+                ],
+              },
+            },
+          },
+          {
+            id: 'c50c889f-2a80-4b34-8d2e-945ff08ea3d6',
+            name: 'Telefones',
+            method: 'GET',
+            path: 'sigat/local-telefones',
+            apiVersion: 1,
+            headers: [],
+            query: [
+              { id: '8b13d23e-6aef-4113-9b0f-1acd1b0ea868', name: 'id', value: '', enabled: false },
+            ],
+            body: { kind: 'none', content: '' },
+            credentials: 'omit',
+            timeoutMs: null,
+            responseSchema: {
+              version: 1,
+              root: {
+                id: '84006676-24e8-4fad-bc19-4e394f8796ce',
+                name: 'Response',
+                path: '',
+                kind: 'object',
+                fieldType: 'object',
+                nullable: false,
+                children: [
+                  {
+                    id: '0633bd81-310d-487b-9205-8c8bbbea72d3',
+                    name: 'success',
+                    path: '/success',
+                    kind: 'field',
+                    fieldType: 'boolean',
+                    nullable: false,
+                    children: [],
+                  },
+                  {
+                    id: 'f0be536f-2e4e-447e-9988-393d42fdbe3f',
+                    name: 'data',
+                    path: '/data',
+                    kind: 'list',
+                    fieldType: 'list',
+                    nullable: false,
+                    children: [
+                      {
+                        id: 'bdb7cb4b-4827-4f22-9eca-db5709cd6916',
+                        name: 'id',
+                        path: '/data/*/id',
+                        kind: 'field',
+                        fieldType: 'integer',
+                        nullable: true,
+                        children: [],
+                      },
+                      {
+                        id: '486067ac-c3d6-4d07-8c61-ae51a433c445',
+                        name: 'setor',
+                        path: '/data/*/setor',
+                        kind: 'field',
+                        fieldType: 'string',
+                        nullable: true,
+                        children: [],
+                      },
+                      {
+                        id: 'd5ee0681-5137-4c4f-ad52-abc6221cd772',
+                        name: 'telefone',
+                        path: '/data/*/telefone',
+                        kind: 'field',
+                        fieldType: 'string',
+                        nullable: true,
+                        children: [],
+                      },
+                      {
+                        id: 'fe4d415f-13b6-47ae-8753-4c776ba10981',
+                        name: 'id_local',
+                        path: '/data/*/id_local',
+                        kind: 'field',
+                        fieldType: 'integer',
+                        nullable: true,
+                        children: [],
+                      },
+                    ],
+                  },
+                  {
+                    id: '158b939f-6c91-48de-9c49-275fc061a942',
+                    name: 'page',
+                    path: '/page',
+                    kind: 'field',
+                    fieldType: 'integer',
+                    nullable: true,
+                    children: [],
+                  },
+                  {
+                    id: 'ec5c61f6-dacc-44dc-9683-601b6d66bfaf',
+                    name: 'page_size',
+                    path: '/page_size',
+                    kind: 'field',
+                    fieldType: 'integer',
+                    nullable: true,
+                    children: [],
+                  },
+                  {
+                    id: '0ec82448-2864-44a6-8dde-b55ba9924899',
+                    name: 'total_pages',
+                    path: '/total_pages',
+                    kind: 'field',
+                    fieldType: 'integer',
+                    nullable: true,
+                    children: [],
+                  },
+                  {
+                    id: '00b68a45-74dc-4d79-9b07-38a3e652bc35',
+                    name: 'total',
+                    path: '/total',
+                    kind: 'field',
+                    fieldType: 'integer',
+                    nullable: true,
+                    children: [],
+                  },
+                  {
+                    id: '1f83daf9-cec8-47d7-ae46-b71e9a0f8548',
+                    name: 'has_more',
+                    path: '/has_more',
+                    kind: 'field',
+                    fieldType: 'boolean',
+                    nullable: true,
+                    children: [],
+                  },
+                ],
+              },
+            },
+          },
+          {
+            id: 'ccb20ff9-4280-4cdb-8032-fcffdb1f88c1',
+            name: 'ModeloInserir',
+            method: 'POST',
+            path: 'sigat-gravacao/modelo-mensagem-inserir',
+            apiVersion: 1,
+            headers: [],
+            query: [],
+            body: {
+              kind: 'json',
+              content: '{ "mensagem": <mensagem>, "tipo": <tipo>, "id_fila": <id_fila> }',
+              parameters: [
+                { name: 'mensagem', type: 'string' },
+                { name: 'tipo', type: 'string' },
+                { name: 'id_fila', type: 'integer' },
+              ],
+            },
+            credentials: 'omit',
+            timeoutMs: null,
+            responseSchema: {
+              version: 1,
+              root: {
+                id: '690f3287-31be-4f41-a4c1-01f8b199bb32',
+                name: 'Response',
+                path: '',
+                kind: 'object',
+                fieldType: 'object',
+                nullable: false,
+                children: [
+                  {
+                    id: '249e51de-41e9-4ae7-9ac9-bf1877ff0312',
+                    name: 'success',
+                    path: '/success',
+                    kind: 'field',
+                    fieldType: 'boolean',
+                    nullable: false,
+                    children: [],
+                  },
+                  {
+                    id: 'e86e3017-471b-40b9-86de-6f3759e35a09',
+                    name: 'data',
+                    path: '/data',
+                    kind: 'field',
+                    fieldType: 'unknown',
+                    nullable: true,
+                    children: [],
+                  },
+                ],
+              },
+            },
+          },
+          {
+            id: 'e9517655-3ecd-471c-bb80-43e9b3a66f21',
+            name: 'ModeloAlterar',
+            method: 'POST',
+            path: 'sigat-gravacao/modelo-mensagem-alterar',
+            apiVersion: 1,
+            headers: [],
+            query: [],
+            body: {
+              kind: 'json',
+              content:
+                '{ "id_modelo_mensagem": <id_modelo_mensagem>, "mensagem": <mensagem>, "tipo": <tipo>, "id_fila": <id_fila>, "ativo": <ativo> }',
+              parameters: [
+                { name: 'id_modelo_mensagem', type: 'integer' },
+                { name: 'mensagem', type: 'string' },
+                { name: 'tipo', type: 'string' },
+                { name: 'id_fila', type: 'integer' },
+                { name: 'ativo', type: 'boolean' },
+              ],
+            },
+            credentials: 'omit',
+            timeoutMs: null,
+            responseSchema: {
+              version: 1,
+              root: {
+                id: 'bf9a61aa-1f38-4825-99f7-b11787c23f6e',
+                name: 'Response',
+                path: '',
+                kind: 'object',
+                fieldType: 'object',
+                nullable: false,
+                children: [
+                  {
+                    id: 'c29240a6-1d1a-4467-ba86-3004a641ce7a',
+                    name: 'success',
+                    path: '/success',
+                    kind: 'field',
+                    fieldType: 'boolean',
+                    nullable: false,
+                    children: [],
+                  },
+                  {
+                    id: '6e9e74ce-9beb-4adc-af53-4d9db3e29443',
+                    name: 'data',
+                    path: '/data',
+                    kind: 'field',
+                    fieldType: 'unknown',
+                    nullable: true,
+                    children: [],
+                  },
+                ],
+              },
+            },
+          },
+          {
+            id: 'c5d7906a-ab12-4052-9c9e-e57dc3dc7525',
+            name: 'LocalInserir',
+            method: 'POST',
+            path: 'sigat-gravacao/local-inserir',
+            apiVersion: 1,
+            headers: [],
+            query: [],
+            body: {
+              kind: 'json',
+              content:
+                '{ "nome_local": <nome_local>, "endereco_local": <endereco_local>, "id_secretaria": <id_secretaria>, "regiao_local": <regiao_local>, "infovia": <infovia> }',
+              parameters: [
+                { name: 'nome_local', type: 'string' },
+                { name: 'endereco_local', type: 'string' },
+                { name: 'id_secretaria', type: 'integer' },
+                { name: 'regiao_local', type: 'string' },
+                { name: 'infovia', type: 'boolean' },
+              ],
+            },
+            credentials: 'omit',
+            timeoutMs: null,
+            responseSchema: {
+              version: 1,
+              root: {
+                id: '205625ce-5f06-456c-94ac-4e9ba03df548',
+                name: 'Response',
+                path: '',
+                kind: 'object',
+                fieldType: 'object',
+                nullable: false,
+                children: [
+                  {
+                    id: 'a3527967-3f72-4012-8049-b7515c4d3df0',
+                    name: 'success',
+                    path: '/success',
+                    kind: 'field',
+                    fieldType: 'boolean',
+                    nullable: false,
+                    children: [],
+                  },
+                  {
+                    id: 'e19cbdb0-9e9c-45bd-991e-284e7328c4a8',
+                    name: 'data',
+                    path: '/data',
+                    kind: 'field',
+                    fieldType: 'unknown',
+                    nullable: true,
+                    children: [],
+                  },
+                ],
+              },
+            },
+          },
+          {
+            id: 'ec1e170e-9794-4362-ad49-42636f498b01',
+            name: 'LocalAlterar',
+            method: 'POST',
+            path: 'sigat-gravacao/local-alterar',
+            apiVersion: 1,
+            headers: [],
+            query: [],
+            body: {
+              kind: 'json',
+              content:
+                '{ "id_local": <id_local>, "nome_local": <nome_local>, "endereco_local": <endereco_local>, "id_secretaria": <id_secretaria>, "regiao_local": <regiao_local>, "infovia": <infovia>, "ativo": <ativo> }',
+              parameters: [
+                { name: 'id_local', type: 'integer' },
+                { name: 'nome_local', type: 'string' },
+                { name: 'endereco_local', type: 'string' },
+                { name: 'id_secretaria', type: 'integer' },
+                { name: 'regiao_local', type: 'string' },
+                { name: 'infovia', type: 'boolean' },
+                { name: 'ativo', type: 'boolean' },
+              ],
+            },
+            credentials: 'omit',
+            timeoutMs: null,
+            responseSchema: {
+              version: 1,
+              root: {
+                id: '51e3f584-d651-4ac2-9393-e5fc6d816654',
+                name: 'Response',
+                path: '',
+                kind: 'object',
+                fieldType: 'object',
+                nullable: false,
+                children: [
+                  {
+                    id: 'a0476a81-95b6-472a-bf1f-73b1b14bdaf3',
+                    name: 'success',
+                    path: '/success',
+                    kind: 'field',
+                    fieldType: 'boolean',
+                    nullable: false,
+                    children: [],
+                  },
+                  {
+                    id: 'd41d5bf2-0819-43fd-945f-946aed8e3993',
+                    name: 'data',
+                    path: '/data',
+                    kind: 'field',
+                    fieldType: 'unknown',
+                    nullable: true,
+                    children: [],
+                  },
+                ],
+              },
+            },
+          },
+          {
+            id: 'c4986339-d99f-44fa-be6b-978e24f13206',
+            name: 'TelefoneInserir',
+            method: 'POST',
+            path: 'sigat-gravacao/telefone-local-inserir',
+            apiVersion: 1,
+            headers: [],
+            query: [],
+            body: {
+              kind: 'json',
+              content: '{ "id_local": <id_local>, "setor": <setor>, "telefone": <telefone> }',
+              parameters: [
+                { name: 'id_local', type: 'integer' },
+                { name: 'setor', type: 'string' },
+                { name: 'telefone', type: 'string' },
+              ],
+            },
+            credentials: 'omit',
+            timeoutMs: null,
+            responseSchema: {
+              version: 1,
+              root: {
+                id: 'f64205ba-9688-4157-807c-4f1fc4646f7f',
+                name: 'Response',
+                path: '',
+                kind: 'object',
+                fieldType: 'object',
+                nullable: false,
+                children: [
+                  {
+                    id: '41da468d-7fc0-463d-bd0b-fc9f3a945220',
+                    name: 'success',
+                    path: '/success',
+                    kind: 'field',
+                    fieldType: 'boolean',
+                    nullable: false,
+                    children: [],
+                  },
+                  {
+                    id: 'b7cb0aca-7794-457b-a5b9-e12746e8a0ca',
+                    name: 'data',
+                    path: '/data',
+                    kind: 'field',
+                    fieldType: 'unknown',
+                    nullable: true,
+                    children: [],
+                  },
+                ],
+              },
+            },
+          },
+          {
+            id: '506a5743-8d1a-44f2-ac36-51d14e55457a',
+            name: 'TelefoneAlterar',
+            method: 'POST',
+            path: 'sigat-gravacao/telefone-local-alterar',
+            apiVersion: 1,
+            headers: [],
+            query: [],
+            body: {
+              kind: 'json',
+              content: '{ "id": <id>, "setor": <setor>, "telefone": <telefone> }',
+              parameters: [
+                { name: 'id', type: 'integer' },
+                { name: 'setor', type: 'string' },
+                { name: 'telefone', type: 'string' },
+              ],
+            },
+            credentials: 'omit',
+            timeoutMs: null,
+            responseSchema: {
+              version: 1,
+              root: {
+                id: '1663adaa-93d5-4c61-a8d3-04c688496314',
+                name: 'Response',
+                path: '',
+                kind: 'object',
+                fieldType: 'object',
+                nullable: false,
+                children: [
+                  {
+                    id: '79779c7f-1826-458c-8c0a-4aed020d0feb',
+                    name: 'success',
+                    path: '/success',
+                    kind: 'field',
+                    fieldType: 'boolean',
+                    nullable: false,
+                    children: [],
+                  },
+                  {
+                    id: '53406b9f-86eb-448f-b75f-eabfcd971213',
+                    name: 'data',
+                    path: '/data',
+                    kind: 'field',
+                    fieldType: 'unknown',
+                    nullable: true,
+                    children: [],
+                  },
+                ],
+              },
+            },
+          },
+          {
+            id: '54025d48-8824-4945-bd8f-eaf98764bcb0',
+            name: 'TelefoneExcluir',
+            method: 'POST',
+            path: 'sigat-gravacao/telefone-local-excluir',
+            apiVersion: 1,
+            headers: [],
+            query: [],
+            body: {
+              kind: 'json',
+              content: '{ "id": <id> }',
+              parameters: [{ name: 'id', type: 'integer' }],
+            },
+            credentials: 'omit',
+            timeoutMs: null,
+            responseSchema: {
+              version: 1,
+              root: {
+                id: '8e286273-af98-4ed4-ad31-2a109f29b2da',
+                name: 'Response',
+                path: '',
+                kind: 'object',
+                fieldType: 'object',
+                nullable: false,
+                children: [
+                  {
+                    id: '345e05fc-f15b-4213-b607-f9f6d87843b5',
+                    name: 'success',
+                    path: '/success',
+                    kind: 'field',
+                    fieldType: 'boolean',
+                    nullable: false,
+                    children: [],
+                  },
+                  {
+                    id: '664eaab4-be8c-4930-9f7b-24065947c9e6',
+                    name: 'data',
+                    path: '/data',
+                    kind: 'field',
+                    fieldType: 'unknown',
+                    nullable: true,
+                    children: [],
+                  },
+                ],
+              },
+            },
+          },
+          {
+            id: 'b958221b-9cd5-4fea-906d-682f33e65663',
+            name: 'ServicoInserir',
+            method: 'POST',
+            path: 'sigat-gravacao/servico-inserir',
+            apiVersion: 1,
+            headers: [],
+            query: [],
+            body: {
+              kind: 'json',
+              content:
+                '{ "nome_servico": <nome_servico>, "id_fila": <id_fila>, "unidade_medida": <unidade_medida>, "pontuacao": <pontuacao>, "valor": <valor> }',
+              parameters: [
+                { name: 'nome_servico', type: 'string' },
+                { name: 'id_fila', type: 'integer' },
+                { name: 'unidade_medida', type: 'string' },
+                { name: 'pontuacao', type: 'integer' },
+                { name: 'valor', type: 'number' },
+              ],
+            },
+            credentials: 'omit',
+            timeoutMs: null,
+            responseSchema: {
+              version: 1,
+              root: {
+                id: '44c2d3df-772d-4ecf-8425-a649e1e1886b',
+                name: 'Response',
+                path: '',
+                kind: 'object',
+                fieldType: 'object',
+                nullable: false,
+                children: [
+                  {
+                    id: '2de7b5ba-0c42-48d9-9988-6840bac41b1e',
+                    name: 'success',
+                    path: '/success',
+                    kind: 'field',
+                    fieldType: 'boolean',
+                    nullable: false,
+                    children: [],
+                  },
+                  {
+                    id: 'a76937fe-4880-4038-86e6-61deb2807b54',
+                    name: 'data',
+                    path: '/data',
+                    kind: 'field',
+                    fieldType: 'unknown',
+                    nullable: true,
+                    children: [],
+                  },
+                ],
+              },
+            },
+          },
+          {
+            id: 'eef4a88d-10ef-4d75-b164-32cf63304bf3',
+            name: 'ServicoAlterar',
+            method: 'POST',
+            path: 'sigat-gravacao/servico-alterar',
+            apiVersion: 1,
+            headers: [],
+            query: [],
+            body: {
+              kind: 'json',
+              content:
+                '{ "id_servico": <id_servico>, "nome_servico": <nome_servico>, "id_fila": <id_fila>, "unidade_medida": <unidade_medida>, "pontuacao": <pontuacao>, "valor": <valor>, "ativo": <ativo> }',
+              parameters: [
+                { name: 'id_servico', type: 'integer' },
+                { name: 'nome_servico', type: 'string' },
+                { name: 'id_fila', type: 'integer' },
+                { name: 'unidade_medida', type: 'string' },
+                { name: 'pontuacao', type: 'integer' },
+                { name: 'valor', type: 'number' },
+                { name: 'ativo', type: 'boolean' },
+              ],
+            },
+            credentials: 'omit',
+            timeoutMs: null,
+            responseSchema: {
+              version: 1,
+              root: {
+                id: 'cfc9712f-372d-4bfb-9a3e-6e490c463f30',
+                name: 'Response',
+                path: '',
+                kind: 'object',
+                fieldType: 'object',
+                nullable: false,
+                children: [
+                  {
+                    id: 'd95b0182-309e-48a5-9be3-b2122c0041af',
+                    name: 'success',
+                    path: '/success',
+                    kind: 'field',
+                    fieldType: 'boolean',
+                    nullable: false,
+                    children: [],
+                  },
+                  {
+                    id: '6cfabaaf-74ef-4cc3-be54-b938f96715a6',
+                    name: 'data',
+                    path: '/data',
+                    kind: 'field',
+                    fieldType: 'unknown',
+                    nullable: true,
+                    children: [],
+                  },
+                ],
+              },
+            },
+          },
+          {
+            id: 'c3973372-80d8-4e6c-8dda-b3e700a7aafa',
             name: 'FilaAlterar',
             method: 'POST',
             path: 'sigat-gravacao/fila-alterar',
@@ -3069,7 +4494,7 @@ export abstract class AdminGenerated extends WebPage {
             responseSchema: {
               version: 1,
               root: {
-                id: '46e5d11f-634f-49be-96ad-b949fd750e71',
+                id: 'd5b1c630-ad5f-4593-a4c5-53e4118f4725',
                 name: 'Response',
                 path: '',
                 kind: 'object',
@@ -3077,7 +4502,7 @@ export abstract class AdminGenerated extends WebPage {
                 nullable: false,
                 children: [
                   {
-                    id: '748a0139-0b65-43f0-9a0d-b8c452527d81',
+                    id: '2f34111e-f6d8-48e5-90d0-5e1d8b2fcb48',
                     name: 'success',
                     path: '/success',
                     kind: 'field',
@@ -3086,7 +4511,7 @@ export abstract class AdminGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: 'cb7d9c29-f6ce-4411-9903-88f2b0d1295c',
+                    id: '5431a13d-a6b7-4c3d-93ad-02160503e9e6',
                     name: 'data',
                     path: '/data',
                     kind: 'field',
@@ -3107,20 +4532,20 @@ export abstract class AdminGenerated extends WebPage {
       time: 30000,
       loop: true,
       enabled: false,
-      id: 'e2ddafe1-636c-4694-9230-063d28994f7c',
+      id: '71931251-f3df-4308-a2b5-371b1be17500',
       name: 'TMREventos',
     });
     this.Rodape = new WebGroup(
-      this.requireComponentElement('ac83aaef-8b38-4e93-89b1-10d3aa98aa5f'),
+      this.requireComponentElement('9e353095-835d-4a0a-8ddd-975f0e7ebf6b'),
     );
     this.LBLRodapeAutorizacao = new WebLabel(
-      this.requireComponentElement('66e8c786-9e73-4d3c-82fe-72ed429c1689'),
+      this.requireComponentElement('c41f187c-893d-42d5-bd60-cbc7bedf797e'),
     );
     this.LBLRodapeGrupo = new WebLabel(
-      this.requireComponentElement('bbe0e1a0-d43f-43fd-b14a-660d470215d6'),
+      this.requireComponentElement('502c74f8-51ab-47cd-b054-4e06449731a3'),
     );
     this.LBLRodapeAmbiente = new WebLabel(
-      this.requireComponentElement('d357a4ef-646f-4b15-a9a8-a5c197ded0db'),
+      this.requireComponentElement('1615bf38-a8b3-44a5-a1dc-a889b3fffc6f'),
     );
 
     this.GRDEventos.bindApiClient(this.Api);
@@ -3131,6 +4556,7 @@ export abstract class AdminGenerated extends WebPage {
     this.GRDServicos.bindApiClient(this.Api);
     this.GRDBancadas.bindApiClient(this.Api);
     this.GRDFilas.bindApiClient(this.Api);
+    this.GRDTelefones.bindApiClient(this.Api);
 
     this.bindGeneratedEvent(this, 'OnShow', 'Mostrar');
     this.bindGeneratedEvent(this, 'OnHide', 'Ocultar');
@@ -3143,13 +4569,29 @@ export abstract class AdminGenerated extends WebPage {
     this.bindGeneratedEvent(this.BTNSair, 'OnClick', 'Sair');
     this.bindGeneratedEvent(this.Abas, 'OnChange', 'TrocarAba');
     this.bindGeneratedEvent(this.GRDUsuarios, 'OnCellClick', 'AbrirUsuario');
-    this.bindGeneratedEvent(this.GRDLocais, 'OnCellClick', 'AbrirLocal');
+    this.bindGeneratedEvent(this.BTNNovoModelo, 'OnClick', 'NovoModelo');
+    this.bindGeneratedEvent(this.GRDModelos, 'OnCellClick', 'EditarModelo');
+    this.bindGeneratedEvent(this.BTNNovoLocal, 'OnClick', 'NovoLocal');
+    this.bindGeneratedEvent(this.GRDLocais, 'OnCellClick', 'EditarLocal');
     this.bindGeneratedEvent(this.BTNNovoSecretaria, 'OnClick', 'NovoSecretaria');
     this.bindGeneratedEvent(this.GRDSecretarias, 'OnCellClick', 'EditarSecretaria');
+    this.bindGeneratedEvent(this.BTNNovoServico, 'OnClick', 'NovoServico');
+    this.bindGeneratedEvent(this.GRDServicos, 'OnCellClick', 'EditarServico');
     this.bindGeneratedEvent(this.BTNNovoBancada, 'OnClick', 'NovoBancada');
     this.bindGeneratedEvent(this.GRDBancadas, 'OnCellClick', 'EditarBancada');
     this.bindGeneratedEvent(this.BTNNovoFila, 'OnClick', 'NovoFila');
     this.bindGeneratedEvent(this.GRDFilas, 'OnCellClick', 'EditarFila');
+    this.bindGeneratedEvent(this.BTNCancelarModelo, 'OnClick', 'CancelarModelo');
+    this.bindGeneratedEvent(this.BTNSalvarModelo, 'OnClick', 'SalvarModelo');
+    this.bindGeneratedEvent(this.BTNCancelarLocal, 'OnClick', 'CancelarLocal');
+    this.bindGeneratedEvent(this.BTNSalvarLocal, 'OnClick', 'SalvarLocal');
+    this.bindGeneratedEvent(this.GRDTelefones, 'OnCellClick', 'EditarTelefone');
+    this.bindGeneratedEvent(this.BTNExcluirTelefone, 'OnClick', 'ExcluirTelefone');
+    this.bindGeneratedEvent(this.BTNNovoTelefone, 'OnClick', 'NovoTelefone');
+    this.bindGeneratedEvent(this.BTNCancelarTelefone, 'OnClick', 'CancelarTelefone');
+    this.bindGeneratedEvent(this.BTNSalvarTelefone, 'OnClick', 'SalvarTelefone');
+    this.bindGeneratedEvent(this.BTNCancelarServico, 'OnClick', 'CancelarServico');
+    this.bindGeneratedEvent(this.BTNSalvarServico, 'OnClick', 'SalvarServico');
     this.bindGeneratedEvent(this.BTNCancelarBancada, 'OnClick', 'CancelarBancada');
     this.bindGeneratedEvent(this.BTNSalvarBancada, 'OnClick', 'SalvarBancada');
     this.bindGeneratedEvent(this.BTNCancelarSecretaria, 'OnClick', 'CancelarSecretaria');
@@ -3352,7 +4794,104 @@ export interface ApiFilaInserirResponseObject21 {
   readonly data: unknown | null;
 }
 
-export interface ApiFilaAlterarResponseObject22 {
+export interface ApiSecretariasAtivasResponseObject22dataItemObject23 {
+  readonly id_secretaria: number | null;
+  readonly nome_secretaria: string | null;
+  readonly sigla_secretaria: string | null;
+  readonly status_secretaria: number | null;
+  readonly ultima_alteracao: string | null;
+}
+
+export interface ApiSecretariasAtivasResponseObject22 {
+  readonly success: boolean;
+  readonly data: ReadonlyArray<ApiSecretariasAtivasResponseObject22dataItemObject23>;
+  readonly page: number | null;
+  readonly page_size: number | null;
+  readonly total_pages: number | null;
+  readonly total: number | null;
+  readonly has_more: boolean | null;
+}
+
+export interface ApiFilasListaResponseObject24dataItemObject25 {
+  readonly id_fila: number | null;
+  readonly nome_fila: string | null;
+  readonly status_fila: string | null;
+  readonly icone_fila: string | null;
+}
+
+export interface ApiFilasListaResponseObject24 {
+  readonly success: boolean;
+  readonly data: ReadonlyArray<ApiFilasListaResponseObject24dataItemObject25>;
+  readonly page: number | null;
+  readonly page_size: number | null;
+  readonly total_pages: number | null;
+  readonly total: number | null;
+  readonly has_more: boolean | null;
+}
+
+export interface ApiTelefonesResponseObject26dataItemObject27 {
+  readonly id: number | null;
+  readonly setor: string | null;
+  readonly telefone: string | null;
+  readonly id_local: number | null;
+}
+
+export interface ApiTelefonesResponseObject26 {
+  readonly success: boolean;
+  readonly data: ReadonlyArray<ApiTelefonesResponseObject26dataItemObject27>;
+  readonly page: number | null;
+  readonly page_size: number | null;
+  readonly total_pages: number | null;
+  readonly total: number | null;
+  readonly has_more: boolean | null;
+}
+
+export interface ApiModeloInserirResponseObject28 {
+  readonly success: boolean;
+  readonly data: unknown | null;
+}
+
+export interface ApiModeloAlterarResponseObject29 {
+  readonly success: boolean;
+  readonly data: unknown | null;
+}
+
+export interface ApiLocalInserirResponseObject30 {
+  readonly success: boolean;
+  readonly data: unknown | null;
+}
+
+export interface ApiLocalAlterarResponseObject31 {
+  readonly success: boolean;
+  readonly data: unknown | null;
+}
+
+export interface ApiTelefoneInserirResponseObject32 {
+  readonly success: boolean;
+  readonly data: unknown | null;
+}
+
+export interface ApiTelefoneAlterarResponseObject33 {
+  readonly success: boolean;
+  readonly data: unknown | null;
+}
+
+export interface ApiTelefoneExcluirResponseObject34 {
+  readonly success: boolean;
+  readonly data: unknown | null;
+}
+
+export interface ApiServicoInserirResponseObject35 {
+  readonly success: boolean;
+  readonly data: unknown | null;
+}
+
+export interface ApiServicoAlterarResponseObject36 {
+  readonly success: boolean;
+  readonly data: unknown | null;
+}
+
+export interface ApiFilaAlterarResponseObject37 {
   readonly success: boolean;
   readonly data: unknown | null;
 }
@@ -3371,7 +4910,19 @@ export interface ApiApiOutputs {
   readonly SecretariaInserir: ApiSecretariaInserirResponseObject19;
   readonly SecretariaAlterar: ApiSecretariaAlterarResponseObject20;
   readonly FilaInserir: ApiFilaInserirResponseObject21;
-  readonly FilaAlterar: ApiFilaAlterarResponseObject22;
+  readonly SecretariasAtivas: ApiSecretariasAtivasResponseObject22;
+  readonly FilasLista: ApiFilasListaResponseObject24;
+  readonly Telefones: ApiTelefonesResponseObject26;
+  readonly ModeloInserir: ApiModeloInserirResponseObject28;
+  readonly ModeloAlterar: ApiModeloAlterarResponseObject29;
+  readonly LocalInserir: ApiLocalInserirResponseObject30;
+  readonly LocalAlterar: ApiLocalAlterarResponseObject31;
+  readonly TelefoneInserir: ApiTelefoneInserirResponseObject32;
+  readonly TelefoneAlterar: ApiTelefoneAlterarResponseObject33;
+  readonly TelefoneExcluir: ApiTelefoneExcluirResponseObject34;
+  readonly ServicoInserir: ApiServicoInserirResponseObject35;
+  readonly ServicoAlterar: ApiServicoAlterarResponseObject36;
+  readonly FilaAlterar: ApiFilaAlterarResponseObject37;
 }
 
 export interface ApiApiInputs {
@@ -3488,6 +5039,122 @@ export interface ApiApiInputs {
     readonly Parameter: {
       readonly nome_fila: string;
       readonly icone_fila: string;
+    };
+    readonly Query: Readonly<Record<string, never>>;
+    readonly Headers: Readonly<Record<string, never>>;
+  };
+  readonly SecretariasAtivas: {
+    readonly Parameter: {
+      readonly ativas: WebApiQueryValue;
+    };
+    readonly Query: {
+      readonly ativas: WebApiQueryValue;
+    };
+    readonly Headers: Readonly<Record<string, never>>;
+  };
+  readonly FilasLista: {
+    readonly Parameter: Readonly<Record<string, never>>;
+    readonly Query: Readonly<Record<string, never>>;
+    readonly Headers: Readonly<Record<string, never>>;
+  };
+  readonly Telefones: {
+    readonly Parameter: {
+      readonly id: WebApiQueryValue;
+    };
+    readonly Query: {
+      readonly id: WebApiQueryValue;
+    };
+    readonly Headers: Readonly<Record<string, never>>;
+  };
+  readonly ModeloInserir: {
+    readonly Parameter: {
+      readonly mensagem: string;
+      readonly tipo: string;
+      readonly id_fila: number;
+    };
+    readonly Query: Readonly<Record<string, never>>;
+    readonly Headers: Readonly<Record<string, never>>;
+  };
+  readonly ModeloAlterar: {
+    readonly Parameter: {
+      readonly id_modelo_mensagem: number;
+      readonly mensagem: string;
+      readonly tipo: string;
+      readonly id_fila: number;
+      readonly ativo: boolean;
+    };
+    readonly Query: Readonly<Record<string, never>>;
+    readonly Headers: Readonly<Record<string, never>>;
+  };
+  readonly LocalInserir: {
+    readonly Parameter: {
+      readonly nome_local: string;
+      readonly endereco_local: string;
+      readonly id_secretaria: number;
+      readonly regiao_local: string;
+      readonly infovia: boolean;
+    };
+    readonly Query: Readonly<Record<string, never>>;
+    readonly Headers: Readonly<Record<string, never>>;
+  };
+  readonly LocalAlterar: {
+    readonly Parameter: {
+      readonly id_local: number;
+      readonly nome_local: string;
+      readonly endereco_local: string;
+      readonly id_secretaria: number;
+      readonly regiao_local: string;
+      readonly infovia: boolean;
+      readonly ativo: boolean;
+    };
+    readonly Query: Readonly<Record<string, never>>;
+    readonly Headers: Readonly<Record<string, never>>;
+  };
+  readonly TelefoneInserir: {
+    readonly Parameter: {
+      readonly id_local: number;
+      readonly setor: string;
+      readonly telefone: string;
+    };
+    readonly Query: Readonly<Record<string, never>>;
+    readonly Headers: Readonly<Record<string, never>>;
+  };
+  readonly TelefoneAlterar: {
+    readonly Parameter: {
+      readonly id: number;
+      readonly setor: string;
+      readonly telefone: string;
+    };
+    readonly Query: Readonly<Record<string, never>>;
+    readonly Headers: Readonly<Record<string, never>>;
+  };
+  readonly TelefoneExcluir: {
+    readonly Parameter: {
+      readonly id: number;
+    };
+    readonly Query: Readonly<Record<string, never>>;
+    readonly Headers: Readonly<Record<string, never>>;
+  };
+  readonly ServicoInserir: {
+    readonly Parameter: {
+      readonly nome_servico: string;
+      readonly id_fila: number;
+      readonly unidade_medida: string;
+      readonly pontuacao: number;
+      readonly valor: number;
+    };
+    readonly Query: Readonly<Record<string, never>>;
+    readonly Headers: Readonly<Record<string, never>>;
+  };
+  readonly ServicoAlterar: {
+    readonly Parameter: {
+      readonly id_servico: number;
+      readonly nome_servico: string;
+      readonly id_fila: number;
+      readonly unidade_medida: string;
+      readonly pontuacao: number;
+      readonly valor: number;
+      readonly ativo: boolean;
     };
     readonly Query: Readonly<Record<string, never>>;
     readonly Headers: Readonly<Record<string, never>>;

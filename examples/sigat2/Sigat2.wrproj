@@ -12,77 +12,77 @@
       "codeFile": "pages/index.ts"
     },
     {
-      "id": "f4e24c15-4b3c-4723-a0a5-000b3418a4f0",
+      "id": "75a0b235-d573-45fa-969f-5124429ee265",
       "name": "Login",
       "pageFile": "pages/Login.wrpage",
       "generatedFile": "pages/Login.generated.ts",
       "codeFile": "pages/Login.ts"
     },
     {
-      "id": "71abbaf9-d13d-4738-9b9b-7bfe49358a2e",
+      "id": "8f2f4a91-1525-41e7-9da1-0b8912b8120a",
       "name": "Chamado",
       "pageFile": "pages/Chamado.wrpage",
       "generatedFile": "pages/Chamado.generated.ts",
       "codeFile": "pages/Chamado.ts"
     },
     {
-      "id": "f895ab88-278f-476a-b210-2485af4cb011",
+      "id": "faa579bd-3ca2-491c-a43d-79a6c0fb828d",
       "name": "Triagem",
       "pageFile": "pages/Triagem.wrpage",
       "generatedFile": "pages/Triagem.generated.ts",
       "codeFile": "pages/Triagem.ts"
     },
     {
-      "id": "50f504a0-8ba2-4767-b26b-18cf9ffd22f0",
+      "id": "53c2e0dc-6caf-489b-9735-e4e5c434ce12",
       "name": "Equipamento",
       "pageFile": "pages/Equipamento.wrpage",
       "generatedFile": "pages/Equipamento.generated.ts",
       "codeFile": "pages/Equipamento.ts"
     },
     {
-      "id": "faa579bd-3ca2-491c-a43d-79a6c0fb828d",
+      "id": "0f34fe15-128e-4909-b2d4-26466fb28272",
       "name": "Busca",
       "pageFile": "pages/Busca.wrpage",
       "generatedFile": "pages/Busca.generated.ts",
       "codeFile": "pages/Busca.ts"
     },
     {
-      "id": "c41619dc-098d-4f4c-9209-62ce2ca67a3c",
+      "id": "e7f2b145-ce82-46ab-86a6-03d420af35bc",
       "name": "Inserviveis",
       "pageFile": "pages/Inserviveis.wrpage",
       "generatedFile": "pages/Inserviveis.generated.ts",
       "codeFile": "pages/Inserviveis.ts"
     },
     {
-      "id": "3c36b9f9-9c5d-498c-b69b-8c4897b5867e",
+      "id": "985bc3cc-a2af-434b-ad05-ea305e95b406",
       "name": "Remessa",
       "pageFile": "pages/Remessa.wrpage",
       "generatedFile": "pages/Remessa.generated.ts",
       "codeFile": "pages/Remessa.ts"
     },
     {
-      "id": "3c18f37d-9823-47a0-9092-f62c6c8ab40d",
+      "id": "7c7cd480-565f-429e-ac1f-5d5245ec432d",
       "name": "Admin",
       "pageFile": "pages/Admin.wrpage",
       "generatedFile": "pages/Admin.generated.ts",
       "codeFile": "pages/Admin.ts"
     },
     {
-      "id": "c4b2789c-f57e-4a88-ae25-7b3174de7b1d",
+      "id": "0e158435-efe4-4f8a-8484-b9ce4cc1ae86",
       "name": "Usuario",
       "pageFile": "pages/Usuario.wrpage",
       "generatedFile": "pages/Usuario.generated.ts",
       "codeFile": "pages/Usuario.ts"
     },
     {
-      "id": "0e1ab113-7ccf-4b90-b063-d32d655e6917",
+      "id": "c6b88bd3-2ff7-40f1-a71c-562f5d9b5735",
       "name": "Local",
       "pageFile": "pages/Local.wrpage",
       "generatedFile": "pages/Local.generated.ts",
       "codeFile": "pages/Local.ts"
     },
     {
-      "id": "50fd229d-505f-490a-be3e-203a4516837a",
+      "id": "06b85a56-4861-45a1-a757-4d5b9a7719d4",
       "name": "Negado",
       "pageFile": "pages/Negado.wrpage",
       "generatedFile": "pages/Negado.generated.ts",
@@ -3154,6 +3154,61 @@
       }
     },
     {
+      "id": "sigat2-chamado-texto",
+      "name": "Chamado Texto",
+      "componentType": "WebTextArea",
+      "states": {
+        "base": {
+          "paddingRight": {
+            "value": 12,
+            "unit": "px"
+          },
+          "paddingLeft": {
+            "value": 12,
+            "unit": "px"
+          },
+          "backgroundColor": "#ffffff",
+          "borderColor": "#ced4da",
+          "borderRadius": {
+            "value": 4,
+            "unit": "px"
+          },
+          "borderStyle": "solid",
+          "borderWidth": {
+            "value": 1,
+            "unit": "px"
+          },
+          "boxShadow": "none",
+          "fontFamily": "ide",
+          "fontSize": {
+            "value": 16,
+            "unit": "px"
+          },
+          "textColor": "#495057"
+        },
+        "hover": {},
+        "focus": {
+          "borderColor": "#80bdff",
+          "ringColor": "#bfdeff",
+          "ringOffsetWidth": {
+            "value": 0,
+            "unit": "px"
+          },
+          "ringWidth": {
+            "value": 3,
+            "unit": "px"
+          }
+        },
+        "active": {},
+        "disabled": {
+          "backgroundColor": "#e9ecef",
+          "cursor": "default",
+          "opacity": 100,
+          "textColor": "#495057"
+        }
+      }
+    },
+    {
       "id": "sigat2-chamado-lista",
       "name": "Chamado Lista",
       "componentType": "WebComboBox",
@@ -3695,7 +3750,7 @@
   ],
   "sourceFiles": [
     {
-      "id": "1c08a319-0462-48db-85be-1fb3399b9513",
+      "id": "88858ff2-bad2-4182-957e-d33adee86f56",
       "name": "Sigat2",
       "kind": "unit"
     }

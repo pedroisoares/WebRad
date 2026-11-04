@@ -1764,6 +1764,7 @@ const CHAMADO_STYLE = {
   checagem: 'sigat2-chamado-checagem',
   rotulo: 'sigat2-chamado-rotulo',
   campo: 'sigat2-chamado-campo',
+  texto: 'sigat2-chamado-texto',
   lista: 'sigat2-chamado-lista',
   busca: 'sigat2-chamado-busca',
   alerta: 'sigat2-chamado-alerta',
@@ -2016,6 +2017,11 @@ function chamadoStyles(): readonly ComponentStyleModel[] {
     }),
     texto16(CHAMADO_STYLE.rotulo, 'Chamado Rotulo'),
     loginStyle(CHAMADO_STYLE.campo, 'Chamado Campo', 'WebEdit', {
+      base: CAMPO_BASE,
+      focus: CAMPO_FOCO,
+      disabled: CAMPO_DESABILITADO,
+    }),
+    loginStyle(CHAMADO_STYLE.texto, 'Chamado Texto', 'WebTextArea', {
       base: CAMPO_BASE,
       focus: CAMPO_FOCO,
       disabled: CAMPO_DESABILITADO,
@@ -3060,6 +3066,69 @@ function adminPage(): PageSpec {
       nome_fila: 'string',
       icone_fila: 'string',
     }),
+    secretariasAtivas: op('SecretariasAtivas', 'secretarias', F.secretarias, ['ativas']),
+    filasLista: op('FilasLista', 'admin-filas', {
+      id_fila: I,
+      nome_fila: S,
+      status_fila: S,
+      icone_fila: S,
+    }),
+    telefones: op('Telefones', 'local-telefones', F.telefones, ['id']),
+    modeloInserir: write('ModeloInserir', 'modelo-mensagem-inserir', {
+      mensagem: 'string',
+      tipo: 'string',
+      id_fila: 'integer',
+    }),
+    modeloAlterar: write('ModeloAlterar', 'modelo-mensagem-alterar', {
+      id_modelo_mensagem: 'integer',
+      mensagem: 'string',
+      tipo: 'string',
+      id_fila: 'integer',
+      ativo: 'boolean',
+    }),
+    localInserir: write('LocalInserir', 'local-inserir', {
+      nome_local: 'string',
+      endereco_local: 'string',
+      id_secretaria: 'integer',
+      regiao_local: 'string',
+      infovia: 'boolean',
+    }),
+    localAlterar: write('LocalAlterar', 'local-alterar', {
+      id_local: 'integer',
+      nome_local: 'string',
+      endereco_local: 'string',
+      id_secretaria: 'integer',
+      regiao_local: 'string',
+      infovia: 'boolean',
+      ativo: 'boolean',
+    }),
+    telefoneInserir: write('TelefoneInserir', 'telefone-local-inserir', {
+      id_local: 'integer',
+      setor: 'string',
+      telefone: 'string',
+    }),
+    telefoneAlterar: write('TelefoneAlterar', 'telefone-local-alterar', {
+      id: 'integer',
+      setor: 'string',
+      telefone: 'string',
+    }),
+    telefoneExcluir: write('TelefoneExcluir', 'telefone-local-excluir', { id: 'integer' }),
+    servicoInserir: write('ServicoInserir', 'servico-inserir', {
+      nome_servico: 'string',
+      id_fila: 'integer',
+      unidade_medida: 'string',
+      pontuacao: 'integer',
+      valor: 'number',
+    }),
+    servicoAlterar: write('ServicoAlterar', 'servico-alterar', {
+      id_servico: 'integer',
+      nome_servico: 'string',
+      id_fila: 'integer',
+      unidade_medida: 'string',
+      pontuacao: 'integer',
+      valor: 'number',
+      ativo: 'boolean',
+    }),
     filaAlterar: write('FilaAlterar', 'fila-alterar', {
       id_fila: 'integer',
       nome_fila: 'string',
@@ -3073,13 +3142,17 @@ function adminPage(): PageSpec {
     operation: Operation,
     columns: readonly Column[],
     onCell: string,
+    extra: Record<string, unknown> = {},
   ): Node =>
     lista(grid(name, id, operation, columns, { height: 560, onCell, empty: '(vazio)' }), {
       pageSize: 10,
       pageSizeOptions: [10, 25, 50, 100],
       columnFilters: true,
       exportEnabled: false,
+      ...extra,
     });
+  /** Long texts wrap and grow the row, as the SIGAT tables do. */
+  const quebrar = { rowHeightMode: 'dynamic', minRowHeight: 40, wrapText: true };
   const editar: Column = ['Editar', '', 80, { button: 'edit', align: 'center' }];
   /** The bar over a list with the button that opens an empty form. */
   const barra = (entidade: string, caption: string): Node => ({
@@ -3109,10 +3182,17 @@ function adminPage(): PageSpec {
     item: { width: 'fixed', grow: 0 },
   });
   /** The modal form of a cadastro: inclusion and edit share it, as in SIGAT. */
-  const janela = (entidade: string, height: number, campos: readonly Node[]): Node => ({
+  const janela = (
+    entidade: string,
+    height: number,
+    campos: readonly Node[],
+    width = 560,
+    botoes: readonly Node[] = [],
+    fechar = 'Cancelar',
+  ): Node => ({
     type: 'WebPopup',
     name: 'POP' + entidade,
-    width: 560,
+    width,
     height,
     props: { modal: true },
     styleId: CHAMADO_STYLE.janela,
@@ -3134,9 +3214,10 @@ function adminPage(): PageSpec {
         item: { height: 'fit-content' },
         container: { mode: 'row', gap: 8, alignItems: 'center', justifyContent: 'end' },
         children: [
+          ...botoes,
           botaoChamado(
             'BTNCancelar' + entidade,
-            'Cancelar',
+            fechar,
             'Cancelar' + entidade,
             'close',
             CHAMADO_STYLE.botaoSecundario,
@@ -3156,10 +3237,22 @@ function adminPage(): PageSpec {
       },
     ],
   });
-  const campo = (name: string, caption: string, colunas = 12): Node => {
-    const grupo = formGroup(name, caption, colunas, campoChamado(name));
-    return { ...grupo, item: { ...grupo.item, width: 'stretch', minWidth: 0 } };
-  };
+  const largo = (grupo: Node): Node => ({
+    ...grupo,
+    item: { ...grupo.item, width: 'stretch', minWidth: 0 },
+  });
+  const campo = (name: string, caption: string, colunas = 12): Node =>
+    largo(formGroup(name, caption, colunas, campoChamado(name)));
+  const escolha = (name: string, caption: string, colunas: number): Node =>
+    largo(
+      formGroup(name, caption, colunas, {
+        type: 'WebComboBox',
+        name: 'CMB' + name,
+        height: 38,
+        props: { items: [], selectedIndex: -1, value: '' },
+        styleId: CHAMADO_STYLE.lista,
+      }),
+    );
   const aba = (name: string, children: readonly Node[]): Node => ({
     ...panel(name, children),
     styleId: SIGAT_STYLE.quadro,
@@ -3304,39 +3397,43 @@ function adminPage(): PageSpec {
         ),
       ]),
       aba('PNLModelos', [
-        lista(
-          grid(
-            'GRDModelos',
-            id,
-            ops.modelos,
-            [
-              ['#', 'id_modelo_mensagem', 80],
-              ['Tipo', 'tipo_modelo_mensagem', 160],
-              ['Fila', 'nome_fila', 160],
-              ['Mensagem', 'mensagem_modelo_mensagem'],
-              ['Ativo', 'status_modelo_mensagem', 80],
-            ],
-            { height: 520 },
-          ),
+        barra('Modelo', 'Novo modelo'),
+        cadastroLista(
+          'GRDModelos',
+          ops.modelos,
+          [
+            ['#', 'id_modelo_mensagem', 80],
+            ['Texto', 'mensagem_modelo_mensagem', undefined, { minWidth: 320 }],
+            ['Fila', 'nome_fila', 150],
+            ['Tipo', 'tipo_modelo_mensagem', 140],
+            ['Ativo?', 'status_modelo_mensagem', 90, { checkbox: true, align: 'center' }],
+            ['Data de criação', 'data_modelo_mensagem', 180],
+            ['Última alteração', 'alterado_modelo_mensagem', 180],
+            editar,
+          ],
+          'EditarModelo',
+          quebrar,
         ),
       ]),
       aba('PNLLocais', [
-        lista(
-          grid(
-            'GRDLocais',
-            id,
-            ops.locais,
-            [
-              ['#', 'id_local', 80],
-              ['Local', 'nome_local'],
-              ['Endereço', 'endereco_local'],
-              ['Secretaria', 'sigla_secretaria', 120],
-              ['Região', 'regiao_local', 110],
-              ['Ativo', 'status_local', 80],
-              ['Infovia', 'infovia', 80],
-            ],
-            { server: true, height: 560, onCell: 'AbrirLocal' },
-          ),
+        barra('Local', 'Novo local'),
+        cadastroLista(
+          'GRDLocais',
+          ops.locais,
+          [
+            ['#', 'id_local', 80],
+            ['Nome', 'nome_local', undefined, { minWidth: 240 }],
+            ['Endereço', 'endereco_local', undefined, { minWidth: 240 }],
+            ['Secretaria', 'sigla_secretaria', 120],
+            ['Região', 'regiao_local', 110],
+            ['Ativo?', 'status_local', 80, { checkbox: true, align: 'center' }],
+            ['Infovia', 'infovia', 80, { checkbox: true, align: 'center' }],
+            ['Última alteração', 'alteracao_local', 180],
+            ['Telefones', '', 100, { button: 'phone', align: 'center' }],
+            editar,
+          ],
+          'EditarLocal',
+          quebrar,
         ),
       ]),
       aba('PNLSecretarias', [
@@ -3356,22 +3453,23 @@ function adminPage(): PageSpec {
         ),
       ]),
       aba('PNLServicos', [
-        lista(
-          grid(
-            'GRDServicos',
-            id,
-            ops.servicos,
-            [
-              ['#', 'id_servico', 80],
-              ['Serviço', 'nome_servico'],
-              ['Fila', 'nome_fila', 160],
-              ['Valor', 'valor_servico', 100],
-              ['Pontos', 'pontuacao_servico', 90],
-              ['Unidade', 'unidade_medida', 90],
-              ['Ativo', 'status_servico', 80],
-            ],
-            { server: true, height: 560 },
-          ),
+        barra('Servico', 'Novo serviço'),
+        cadastroLista(
+          'GRDServicos',
+          ops.servicos,
+          [
+            ['#', 'id_servico', 80],
+            ['Serviço', 'nome_servico', undefined, { minWidth: 280 }],
+            ['Fila', 'nome_fila', 150],
+            ['Unidade', 'unidade_medida', 100],
+            ['Complexidade', 'pontuacao_servico', 130],
+            ['Valor (R$)', 'valor_servico', 110],
+            ['Ativo?', 'status_servico', 80, { checkbox: true, align: 'center' }],
+            ['Última alteração', 'data_ultima_alteracao', 180],
+            editar,
+          ],
+          'EditarServico',
+          quebrar,
         ),
       ]),
       aba('PNLBancadas', [
@@ -3404,6 +3502,107 @@ function adminPage(): PageSpec {
           'EditarFila',
         ),
       ]),
+      janela(
+        'Modelo',
+        450,
+        [
+          formRow('GRPModeloEscolhas', [
+            escolha('ModeloTipo', 'Tipo', 6),
+            escolha('ModeloFila', 'Fila', 6),
+          ]),
+          largo(
+            formGroup('ModeloTexto', 'Texto', 12, {
+              type: 'WebTextArea',
+              name: 'TXAModeloTexto',
+              height: 140,
+              props: { value: '', placeholder: '', rows: 6 },
+              styleId: CHAMADO_STYLE.texto,
+            }),
+          ),
+          marcar('ModeloAtivo', 'Ativo'),
+        ],
+        720,
+      ),
+      janela(
+        'Local',
+        420,
+        [
+          campo('LocalNome', 'Nome'),
+          campo('LocalEndereco', 'Endereço'),
+          formRow('GRPLocalEscolhas', [
+            escolha('LocalSecretaria', 'Secretaria', 8),
+            escolha('LocalRegiao', 'Região', 4),
+          ]),
+          formRow('GRPLocalMarcas', [
+            marcar('LocalInfovia', 'Infovia'),
+            marcar('LocalAtivo', 'Ativo'),
+          ]),
+        ],
+        720,
+      ),
+      {
+        ...janela(
+          'Telefone',
+          500,
+          [
+            lista(
+              grid(
+                'GRDTelefones',
+                id,
+                ops.telefones,
+                [
+                  ['Setor', 'setor'],
+                  ['Telefone', 'telefone', 180],
+                  ['Editar', '', 80, { button: 'edit', align: 'center' }],
+                ],
+                { height: 260, empty: 'Nenhum telefone cadastrado.', onCell: 'EditarTelefone' },
+              ),
+              { searchEnabled: false, exportEnabled: false },
+            ),
+            formRow('GRPTelefoneCampos', [
+              campo('TelefoneSetor', 'Setor', 8),
+              campo('TelefoneNumero', 'Telefone', 4),
+            ]),
+          ],
+          720,
+          [
+            botaoChamado(
+              'BTNExcluirTelefone',
+              'Excluir',
+              'ExcluirTelefone',
+              'delete',
+              CHAMADO_STYLE.botaoPerigo,
+              120,
+              38,
+            ),
+            botaoChamado(
+              'BTNNovoTelefone',
+              'Novo telefone',
+              'NovoTelefone',
+              'add',
+              CHAMADO_STYLE.botaoSucesso,
+              160,
+              38,
+            ),
+          ],
+          'Fechar',
+        ),
+      },
+      janela(
+        'Servico',
+        360,
+        [
+          campo('ServicoNome', 'Serviço'),
+          formRow('GRPServicoCampos', [
+            escolha('ServicoFila', 'Fila', 4),
+            campo('ServicoUnidade', 'Unidade', 2),
+            escolha('ServicoPontuacao', 'Complexidade', 3),
+            campo('ServicoValor', 'Valor unitário (R$)', 3),
+          ]),
+          marcar('ServicoAtivo', 'Ativo'),
+        ],
+        800,
+      ),
       janela('Bancada', 250, [
         campo('BancadaNome', 'Identificação'),
         formRow('GRPBancadaMarcas', [

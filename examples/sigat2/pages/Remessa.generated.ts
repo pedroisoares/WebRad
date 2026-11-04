@@ -64,118 +64,118 @@ export abstract class RemessaGenerated extends WebPage {
   public constructor(element: HTMLElement) {
     super(element);
     this.Cabecalho = new WebGroup(
-      this.requireComponentElement('a21a7705-d613-4c8b-92d5-cc93895f3886'),
+      this.requireComponentElement('39540888-0a74-45f4-9249-a30c6c7c1370'),
     );
     this.GRPMarca = new WebGroup(
-      this.requireComponentElement('2007b5ff-26a9-4499-9c8a-d8a3660dcc4d'),
+      this.requireComponentElement('9edd715c-2562-4fb3-91d5-4c5f5ef4d5ff'),
     );
     this.IMGMarca = new WebImage(
-      this.requireComponentElement('89dd6265-c5be-422e-8ebf-4d278f8556a2'),
+      this.requireComponentElement('c2d06c59-20dd-4eb0-9295-c7373572aa5d'),
     );
     this.LBLMarca = new WebLabel(
-      this.requireComponentElement('1f54b7fd-7616-47cd-9168-988c8d2fcaf2'),
+      this.requireComponentElement('fe2e2747-dafa-4fb0-b555-a41fad880701'),
     );
     this.GRPBusca = new WebGroup(
-      this.requireComponentElement('2e5642ad-c9c2-4bdd-83b5-ac20c2d9c386'),
+      this.requireComponentElement('452505c6-2bc2-4548-9f45-873bc1eb015a'),
     );
     this.EDTBuscaRapida = new WebEdit(
-      this.requireComponentElement('7c3a3b86-8f84-4895-b5d8-5d6dee01113b'),
+      this.requireComponentElement('3b8692bb-7b06-4b39-b7b8-df4a227ae8d9'),
     );
     this.BTNBuscar = new WebButton(
-      this.requireComponentElement('d623784d-24ca-4010-80f5-d741b854248b'),
+      this.requireComponentElement('1f931d99-5632-4e16-b408-0f9b35c407ac'),
     );
     this.GRPUsuario = new WebGroup(
-      this.requireComponentElement('b35bfbc7-8d09-4e80-9ff6-f158052a8925'),
+      this.requireComponentElement('2a931bd9-efc2-426b-8d2b-34c9a6fd6990'),
     );
     this.LBLOla = new WebLabel(
-      this.requireComponentElement('3caff0d0-ea76-488b-a585-32d1fe0d9ba3'),
+      this.requireComponentElement('0110701f-70fa-4714-8996-e2e3da30dde7'),
     );
     this.LBLUsuario = new WebLabel(
-      this.requireComponentElement('a6d6ffa0-77e6-4464-91ec-7f9d9df4d25d'),
+      this.requireComponentElement('d3afa742-de15-4db2-bc04-2febdb902c0e'),
     );
     this.BTNBloqueados = new WebButton(
-      this.requireComponentElement('2f744bd2-7542-4fac-92b8-80663dfdb0fc'),
+      this.requireComponentElement('4e7f2dc0-12fe-42a1-b64b-1c8e2b442d61'),
     );
     this.BTNPainel = new WebButton(
-      this.requireComponentElement('7360aa28-78f5-49ff-a5ec-40b768b75819'),
+      this.requireComponentElement('800d19ed-74ad-4b19-9fde-efeebee2bbfb'),
     );
     this.BTNInserviveis = new WebButton(
-      this.requireComponentElement('38dc3a58-854f-4644-9633-73e8f7b1914a'),
+      this.requireComponentElement('de4fea37-2385-40af-b249-af025eec94b0'),
     );
     this.BTNAdmin = new WebButton(
-      this.requireComponentElement('77e47159-9d43-4577-9308-e438368d9df9'),
+      this.requireComponentElement('c01da27c-eed3-44e0-adbf-4c1fbab8d95f'),
     );
     this.BTNSair = new WebButton(
-      this.requireComponentElement('aed5a655-5c3f-4ad3-b045-aa6af4f2a242'),
+      this.requireComponentElement('6fe9b79e-9917-4893-98a4-55751b648a72'),
     );
     this.Conteudo = new WebGroup(
-      this.requireComponentElement('30e7d84f-9aa1-49c5-b4fe-423ae86e183d'),
+      this.requireComponentElement('cd7e93ab-bf9a-48d7-878c-347b090e90cb'),
     );
-    this.Topo = new WebGroup(this.requireComponentElement('a58f525a-81bb-4d8e-80c2-5cdef81fa667'));
+    this.Topo = new WebGroup(this.requireComponentElement('1916e61c-a100-4b54-b51f-c506dc2babab'));
     this.LBLRemessa = new WebLabel(
-      this.requireComponentElement('4535f902-a93b-4119-b315-a1f9eb00ac80'),
+      this.requireComponentElement('bd24d928-b6dc-43f2-b624-1e51c683d410'),
     );
     this.BTNVoltar = new WebButton(
-      this.requireComponentElement('c0f779d1-1095-4a93-a576-708d6a8eb33e'),
+      this.requireComponentElement('b423624b-f747-4a55-a0e5-e9249d896526'),
     );
     this.PNLDados = new WebPanel(
-      this.requireComponentElement('b1589f3a-5dc7-42e2-9763-2227b771423c'),
+      this.requireComponentElement('ae3a7bb2-74fd-4681-a5ea-7ca141dc1860'),
     );
-    this.Dados = new WebGroup(this.requireComponentElement('0da8fd0f-71ae-4e99-aae6-bc9bd19d9a7a'));
+    this.Dados = new WebGroup(this.requireComponentElement('53496295-8556-4dd2-a975-a7dd1993af04'));
     this.DadosSituacao = new WebGroup(
-      this.requireComponentElement('15188a39-b3f3-4743-8161-77b5e123c242'),
+      this.requireComponentElement('8c91c635-c7d2-48af-8d70-029e22f07846'),
     );
     this.LBLSituacao = new WebLabel(
-      this.requireComponentElement('4f2b7641-d81b-4a88-a7e8-f3dcdbef2713'),
+      this.requireComponentElement('7f940b4b-f873-4f50-b131-d99a5e3a476c'),
     );
     this.Situacao = new WebLabel(
-      this.requireComponentElement('1d8c5be6-b7d1-4d50-bdf3-925dd30bddbe'),
+      this.requireComponentElement('57ba2b31-0863-48a5-8ff5-52c7b96a78b3'),
     );
     this.DadosAbertura = new WebGroup(
-      this.requireComponentElement('d1d112b7-36a6-4aca-9207-e2566d087cbf'),
+      this.requireComponentElement('3f654b0a-413e-40ea-8123-5a661ec9efd9'),
     );
     this.LBLAbertura = new WebLabel(
-      this.requireComponentElement('8159d78e-6797-4997-8292-eb7de28d481d'),
+      this.requireComponentElement('d6cebeba-7bd4-44e0-b385-05425393fa01'),
     );
     this.Abertura = new WebLabel(
-      this.requireComponentElement('47259f07-7d11-4f2c-9fda-96ed9b4174b7'),
+      this.requireComponentElement('1e326f5a-0e55-411e-9bed-2d8326736cca'),
     );
     this.DadosFechamento = new WebGroup(
-      this.requireComponentElement('949e898b-e0da-41bc-9453-da656914531e'),
+      this.requireComponentElement('8c93aeeb-e666-41a7-a879-1f95c195c1eb'),
     );
     this.LBLFechamento = new WebLabel(
-      this.requireComponentElement('0c6cdc20-d373-41cf-a72f-4765ea3a1c15'),
+      this.requireComponentElement('ce855a16-04a3-4283-85a2-b04fc7e1adba'),
     );
     this.Fechamento = new WebLabel(
-      this.requireComponentElement('a4fa6096-dd9b-4b9d-93fb-d686da18b169'),
+      this.requireComponentElement('ab803871-5c07-49e3-8bed-cbd8a9d96343'),
     );
     this.DadosEntrega = new WebGroup(
-      this.requireComponentElement('62c836a7-50c2-4480-8c0b-aba9deb49c38'),
+      this.requireComponentElement('f61ea437-a875-464e-a804-11202f1e9b65'),
     );
     this.LBLEntrega = new WebLabel(
-      this.requireComponentElement('fd6f6ade-77f4-41fc-9524-443b3546a974'),
+      this.requireComponentElement('a8910c3a-3eff-417d-a417-504afc881f47'),
     );
     this.Entrega = new WebLabel(
-      this.requireComponentElement('90d3f3b2-cb04-4ba4-9eb9-aa8adac309df'),
+      this.requireComponentElement('8fb93d2d-1f20-4be0-9b21-bcdbe29a1a6a'),
     );
     this.DadosRecebedor = new WebGroup(
-      this.requireComponentElement('0f34fe15-128e-4909-b2d4-26466fb28272'),
+      this.requireComponentElement('c06021f1-a49a-4087-8515-1316535b2795'),
     );
     this.LBLRecebedor = new WebLabel(
-      this.requireComponentElement('842f71e9-a878-452b-bcaa-8c44c26661c0'),
+      this.requireComponentElement('aaf085e3-a8a3-4c6e-97e5-2270eb940f8b'),
     );
     this.Recebedor = new WebLabel(
-      this.requireComponentElement('17530c48-9dea-4771-98d0-a9147e6417d0'),
+      this.requireComponentElement('ed3a9c45-20c3-4f07-a7e8-c489ef0a8bda'),
     );
     this.DadosTermo = new WebGroup(
-      this.requireComponentElement('40fd2adb-47fe-4191-99d1-a4d820d22a0b'),
+      this.requireComponentElement('e2ddafe1-636c-4694-9230-063d28994f7c'),
     );
     this.LBLTermo = new WebLabel(
-      this.requireComponentElement('f521a2d3-72aa-4574-be21-295f21fd06dc'),
+      this.requireComponentElement('ac83aaef-8b38-4e93-89b1-10d3aa98aa5f'),
     );
-    this.Termo = new WebLabel(this.requireComponentElement('9934a23a-a467-4535-be52-0c1e35cab4ed'));
+    this.Termo = new WebLabel(this.requireComponentElement('66e8c786-9e73-4d3c-82fe-72ed429c1689'));
     this.GRDEquipamentos = new WebDataGrid(
-      this.requireComponentElement('931885ee-eb60-46f9-b220-1f147be79c6f'),
+      this.requireComponentElement('bbe0e1a0-d43f-43fd-b14a-660d470215d6'),
     );
     this.GRDEquipamentos.dataGridConfig = {
       schemaVersion: 2,
@@ -681,16 +681,16 @@ export abstract class RemessaGenerated extends WebPage {
       name: 'Api',
     }).withRequests();
     this.Rodape = new WebGroup(
-      this.requireComponentElement('faa4d3c4-8cec-4cfc-9c7a-289e704d3cad'),
+      this.requireComponentElement('d357a4ef-646f-4b15-a9a8-a5c197ded0db'),
     );
     this.LBLRodapeAutorizacao = new WebLabel(
-      this.requireComponentElement('5fcc2138-6297-44a7-88a6-f0fa2fae457d'),
+      this.requireComponentElement('c4b2789c-f57e-4a88-ae25-7b3174de7b1d'),
     );
     this.LBLRodapeGrupo = new WebLabel(
-      this.requireComponentElement('7801b239-112d-413a-9818-e872eb4c6192'),
+      this.requireComponentElement('d4b1fe79-d007-4018-b464-f91e99f7df5a'),
     );
     this.LBLRodapeAmbiente = new WebLabel(
-      this.requireComponentElement('b12264ff-12cb-461b-916f-8da642b72e37'),
+      this.requireComponentElement('e2f080a3-b317-4b9b-aa75-3a27945c9f41'),
     );
 
     this.GRDEquipamentos.bindApiClient(this.Api);
