@@ -64,7 +64,7 @@ export function erro(e: unknown): string {
 
 /** The click on a cadastro list: the pencil column is a button cell. */
 export interface CelulaDoCadastro {
-  readonly column: { readonly cellKind: string };
+  readonly column: { readonly cellKind: string; readonly header: string };
   getValue<T = unknown>(field: string): T | undefined;
 }
 

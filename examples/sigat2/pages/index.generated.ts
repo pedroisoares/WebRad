@@ -67,59 +67,59 @@ export abstract class indexGenerated extends WebPage {
   public constructor(element: HTMLElement) {
     super(element);
     this.Cabecalho = new WebGroup(
-      this.requireComponentElement('24edcff0-0b05-48a1-a4e5-88cb45087e85'),
+      this.requireComponentElement('5d53c833-d072-4852-ac32-ca2a22a7f6db'),
     );
     this.GRPMarca = new WebGroup(
-      this.requireComponentElement('a44fcd72-b00e-4403-a49a-da5c64dcb9c0'),
+      this.requireComponentElement('cb69b8a4-f664-4e00-adaa-519108484f1f'),
     );
     this.IMGMarca = new WebImage(
-      this.requireComponentElement('fc38af6e-e1ff-4284-950d-637b2250efeb'),
+      this.requireComponentElement('cd5471c3-8282-426b-89dd-286e8a8b37f6'),
     );
     this.LBLMarca = new WebLabel(
-      this.requireComponentElement('8d00c568-93c5-4c7a-b639-a17280c30ee7'),
+      this.requireComponentElement('141a1c3f-fed0-49ba-bf38-6febf853dde0'),
     );
     this.GRPBusca = new WebGroup(
-      this.requireComponentElement('0323cff5-0722-40c0-bbe4-dd160c48b6a6'),
+      this.requireComponentElement('2a3cc118-6240-451b-9e45-ed0ce0ecb536'),
     );
     this.EDTBuscaRapida = new WebEdit(
-      this.requireComponentElement('b5bdeb96-215c-468d-8c47-722276369a4b'),
+      this.requireComponentElement('d0087b3e-cb6a-4f87-9d34-d848572cf1e0'),
     );
     this.BTNBuscar = new WebButton(
-      this.requireComponentElement('0f3ecf79-0116-4c3b-98ca-b95aa50df30a'),
+      this.requireComponentElement('23f74fae-1bd8-4dbe-8c30-0a9f775b73e8'),
     );
     this.GRPUsuario = new WebGroup(
-      this.requireComponentElement('5d8b9a22-dff1-461e-b759-f238b3808bcb'),
+      this.requireComponentElement('d11abc84-9d0c-41b1-b237-e1386493b01e'),
     );
     this.LBLOla = new WebLabel(
-      this.requireComponentElement('e1ae51cc-f6d6-4e7d-a26e-43e20f8988e7'),
+      this.requireComponentElement('00b8c344-997b-467f-bae2-f3ce4a35e1fe'),
     );
     this.LBLUsuario = new WebLabel(
-      this.requireComponentElement('830540b7-4755-4ebe-b7fe-68a4a001e27d'),
+      this.requireComponentElement('055d5dc9-596d-45c2-bd4c-5c1bd4b3ebf5'),
     );
     this.BTNBloqueados = new WebButton(
-      this.requireComponentElement('60907507-cff6-4469-b557-c33b523724d0'),
+      this.requireComponentElement('292c49ca-a5d3-4caa-92ea-b2827296560f'),
     );
     this.BTNPainel = new WebButton(
-      this.requireComponentElement('aaead21c-74ca-47cc-b63b-707792c40e60'),
+      this.requireComponentElement('603c57cb-2200-404c-86a2-4c62a7a5f5e0'),
     );
     this.BTNInserviveis = new WebButton(
-      this.requireComponentElement('677d96d3-3f02-4f0c-8742-2fe6dc836110'),
+      this.requireComponentElement('e94dec72-f984-46e1-8888-e4be28f4a92c'),
     );
     this.BTNAdmin = new WebButton(
-      this.requireComponentElement('9d951651-761e-48fe-bf4d-7f88a6c513c6'),
+      this.requireComponentElement('010cd95f-eb39-4ef2-8eef-7e40ab224504'),
     );
     this.BTNSair = new WebButton(
-      this.requireComponentElement('a2d53966-7c6e-4085-a065-4ac0f64072ed'),
+      this.requireComponentElement('d9dd595a-455f-487d-91a3-c9675c90a117'),
     );
     this.Conteudo = new WebGroup(
-      this.requireComponentElement('e04adde0-a3b2-4c8d-8212-921a0231e6cd'),
+      this.requireComponentElement('ef0f464c-3fd7-43e4-86e9-41195bb26f88'),
     );
-    this.Abas = new WebTabs(this.requireComponentElement('79c99aeb-3e4c-48c1-b063-24073f520e59'));
+    this.Abas = new WebTabs(this.requireComponentElement('fd229f25-a574-4733-a73e-fe564a807afd'));
     this.PNLTriagem = new WebPanel(
-      this.requireComponentElement('343c0e9a-e431-4f14-9b59-cd6f2c2bc437'),
+      this.requireComponentElement('dee35afe-cab7-464b-90f8-1c941a85c9e6'),
     );
     this.GRDTriagem = new WebDataGrid(
-      this.requireComponentElement('d1902eee-9fa1-49bf-b84e-ac584e5b5218'),
+      this.requireComponentElement('0c4b782f-2f4f-4666-95a1-117d49adf714'),
     );
     this.GRDTriagem.dataGridConfig = {
       schemaVersion: 2,
@@ -232,59 +232,59 @@ export abstract class indexGenerated extends WebPage {
       totalRowsPath: '/total',
     };
     this.PNLChamados = new WebPanel(
-      this.requireComponentElement('4940dce0-d07a-4630-9943-af80777ec1f2'),
+      this.requireComponentElement('f860f36d-cb10-4e6f-b233-256dc8306014'),
     );
-    this.Filas = new WebGroup(this.requireComponentElement('fe4a7da4-2246-4a8d-88df-cf97258ee347'));
+    this.Filas = new WebGroup(this.requireComponentElement('a983ad9d-fd71-48d7-9b30-553c8d01b886'));
     this.BTNFila1 = new WebButton(
-      this.requireComponentElement('a103d6c8-15c5-4521-ad19-ec9081df4d07'),
+      this.requireComponentElement('e267dd17-2bd8-410d-acf9-8e9233ac4f0c'),
     );
     this.BTNFila2 = new WebButton(
-      this.requireComponentElement('07aa4e01-64dc-46f4-9c73-d3379a1c3f4e'),
+      this.requireComponentElement('6de6cbc3-d9e1-49a3-bc04-bc28431c3035'),
     );
     this.BTNFila3 = new WebButton(
-      this.requireComponentElement('6984fa62-66c1-4188-bb4d-f8a1aa0bf55a'),
+      this.requireComponentElement('cc0794f4-90b4-41af-a46d-5f9de8c5d2c8'),
     );
     this.BTNFila4 = new WebButton(
-      this.requireComponentElement('2ce3d933-d875-44d0-a129-878d564b87db'),
+      this.requireComponentElement('0b9797fd-6a77-4b8f-bb46-41025c43c20c'),
     );
     this.BTNFila5 = new WebButton(
-      this.requireComponentElement('e2924bd9-3c87-4302-aac9-546f81f57e01'),
+      this.requireComponentElement('f485dcfb-0155-4989-a914-f1ca7b38b787'),
     );
     this.BTNFila6 = new WebButton(
-      this.requireComponentElement('b7c51394-c65d-43b4-9d3c-2d4b1ce119d4'),
+      this.requireComponentElement('90ecd813-7c99-40ce-aeb1-4b91f2063e69'),
     );
     this.BTNFila7 = new WebButton(
-      this.requireComponentElement('24d7e666-749c-4e75-8619-9dadb50ae9f1'),
+      this.requireComponentElement('3c712b35-e309-41e4-9fc0-cbce5b544dff'),
     );
     this.BTNFila8 = new WebButton(
-      this.requireComponentElement('15e01257-8530-48e7-bd92-b266ee288396'),
+      this.requireComponentElement('2aaaa110-d628-4b86-977a-687754ae6bb0'),
     );
     this.BTNFila9 = new WebButton(
-      this.requireComponentElement('5e444df7-fce3-475e-84ed-7ce2b3a9ea0c'),
+      this.requireComponentElement('3f12858f-1574-4e33-ac47-7d185daa4f83'),
     );
     this.BTNFila10 = new WebButton(
-      this.requireComponentElement('b7582e23-a41e-4fd5-b807-aaa747d90ae5'),
+      this.requireComponentElement('ff10d256-bfd9-46c7-843f-eacdd2cc830c'),
     );
     this.BTNFila11 = new WebButton(
-      this.requireComponentElement('a0b66e27-a65f-4bb6-9d5e-b1ffec25ec6a'),
+      this.requireComponentElement('4e684414-0ca7-4d04-a71b-5495a9ec6955'),
     );
     this.BTNFila12 = new WebButton(
-      this.requireComponentElement('41e7f868-72e5-4b28-9da7-b957367d9d5d'),
+      this.requireComponentElement('1b71b0f5-6d53-4d79-9578-d85bebbbbd83'),
     );
     this.BTNEntrega = new WebButton(
-      this.requireComponentElement('d35a16f1-e4e0-47b9-a95f-2b1f92e22ada'),
+      this.requireComponentElement('68a26eb4-bc94-442e-94d2-c4fc2e4af91c'),
     );
     this.BTNTodos = new WebButton(
-      this.requireComponentElement('c344bdcf-5bea-4916-af77-3e7fc646541e'),
+      this.requireComponentElement('9151bd04-9d04-4e98-9491-bf21dda918dd'),
     );
     this.BTNImprimir = new WebButton(
-      this.requireComponentElement('486232ab-72c6-41d1-887e-4feafffe5a95'),
+      this.requireComponentElement('cd4c7877-ade3-43ed-bd37-33482507bbf3'),
     );
     this.BTNLimpar = new WebButton(
-      this.requireComponentElement('1726aef1-c8b2-413d-a896-8aadde19f43a'),
+      this.requireComponentElement('bf421950-4245-46ac-bba5-c585a819e1bf'),
     );
     this.GRDChamados = new WebDataGrid(
-      this.requireComponentElement('22db05c0-b437-4e5c-90e2-188a2b98edbd'),
+      this.requireComponentElement('9c0a2646-ce67-4e12-940c-34a8132537a3'),
     );
     this.GRDChamados.dataGridConfig = {
       schemaVersion: 2,
@@ -487,10 +487,10 @@ export abstract class indexGenerated extends WebPage {
       totalRowsPath: '/total',
     };
     this.PNLArquivo = new WebPanel(
-      this.requireComponentElement('a9803d7c-2e8e-48c4-97e1-9d0d709617b1'),
+      this.requireComponentElement('7284d53f-72c3-4c04-89ae-b184ac3a3d99'),
     );
     this.GRDEncerrados = new WebDataGrid(
-      this.requireComponentElement('d3bb9d35-7739-4e24-8448-200953029335'),
+      this.requireComponentElement('f0ca1a47-413c-4f35-9d7b-292f0852fd43'),
     );
     this.GRDEncerrados.dataGridConfig = {
       schemaVersion: 2,
@@ -1614,20 +1614,20 @@ export abstract class indexGenerated extends WebPage {
       time: 120000,
       loop: true,
       enabled: false,
-      id: 'f3c93262-d7d0-43f2-a50d-c1c443241a2d',
+      id: 'af4e1a77-5c34-45b0-b9ae-d03398a9dc01',
       name: 'TMRAtualizar',
     });
     this.Rodape = new WebGroup(
-      this.requireComponentElement('ef4be685-4590-4111-b8bc-4e09d063e7ae'),
+      this.requireComponentElement('55d57f15-4755-40b2-97cc-9adee790a438'),
     );
     this.LBLRodapeAutorizacao = new WebLabel(
-      this.requireComponentElement('adc61bb7-f255-4b67-b39e-3d4c7ec4a16a'),
+      this.requireComponentElement('d0dbdd7b-a828-4766-a321-dbb2ddc41f27'),
     );
     this.LBLRodapeGrupo = new WebLabel(
-      this.requireComponentElement('f5a29631-9942-476e-bd7d-37713a8df7ce'),
+      this.requireComponentElement('64051240-037c-4191-bc30-97e446c76d53'),
     );
     this.LBLRodapeAmbiente = new WebLabel(
-      this.requireComponentElement('babdff29-a3ed-485d-9513-826bcbe6479a'),
+      this.requireComponentElement('1c2d0766-336e-4ac5-868e-44e66e535587'),
     );
 
     this.GRDTriagem.bindApiClient(this.Api);

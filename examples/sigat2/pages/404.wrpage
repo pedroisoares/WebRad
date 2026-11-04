@@ -64,11 +64,11 @@
       },
       "styleId": "3755d9a1-991d-4861-8878-42148ee446dc:default-style:WebPage",
       "children": [
-        "f797133a-a79a-43bf-8998-5b707d4bf90a"
+        "f25583ae-530d-4562-82cc-ec33b4a191e6"
       ]
     },
     {
-      "id": "f797133a-a79a-43bf-8998-5b707d4bf90a",
+      "id": "f25583ae-530d-4562-82cc-ec33b4a191e6",
       "type": "WebPanel",
       "name": "PNLNaoEncontrada",
       "parentId": "3755d9a1-991d-4861-8878-42148ee446dc:404:root",
@@ -136,15 +136,15 @@
       },
       "styleId": "3755d9a1-991d-4861-8878-42148ee446dc:default-style:WebPanel",
       "children": [
-        "c85b703b-7fa3-4dbc-87f5-b4ec4da9b154",
-        "94cb73db-1123-4732-9110-7e421c7eec79"
+        "a8899f49-68ba-4873-806f-e25daae0eafa",
+        "1c739d15-21a8-4b31-bcbc-7076daab5b41"
       ]
     },
     {
-      "id": "c85b703b-7fa3-4dbc-87f5-b4ec4da9b154",
+      "id": "a8899f49-68ba-4873-806f-e25daae0eafa",
       "type": "WebLabel",
       "name": "LBLNaoEncontrada",
-      "parentId": "f797133a-a79a-43bf-8998-5b707d4bf90a",
+      "parentId": "f25583ae-530d-4562-82cc-ec33b4a191e6",
       "layout": {
         "container": {
           "mode": "fixed",
@@ -199,10 +199,10 @@
       "children": []
     },
     {
-      "id": "94cb73db-1123-4732-9110-7e421c7eec79",
+      "id": "1c739d15-21a8-4b31-bcbc-7076daab5b41",
       "type": "WebButton",
       "name": "BTNVoltar",
-      "parentId": "f797133a-a79a-43bf-8998-5b707d4bf90a",
+      "parentId": "f25583ae-530d-4562-82cc-ec33b4a191e6",
       "layout": {
         "container": {
           "mode": "fixed",
