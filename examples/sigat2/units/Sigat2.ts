@@ -62,6 +62,12 @@ export function erro(e: unknown): string {
   return e instanceof Error ? e.message : String(e);
 }
 
+/** The click on a cadastro list: the pencil column is a button cell. */
+export interface CelulaDoCadastro {
+  readonly column: { readonly cellKind: string };
+  getValue<T = unknown>(field: string): T | undefined;
+}
+
 // ---- writes: HexAPI composite operations
 
 type ValorGravacao = string | number | boolean | null | readonly (string | number)[];

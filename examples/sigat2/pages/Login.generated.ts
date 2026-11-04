@@ -31,27 +31,27 @@ export abstract class LoginGenerated extends WebPage {
   public constructor(element: HTMLElement) {
     super(element);
     this.PNLLogin = new WebPanel(
-      this.requireComponentElement('4940dce0-d07a-4630-9943-af80777ec1f2'),
+      this.requireComponentElement('43a7da6c-6aa4-4625-8e55-c7226ff89483'),
     );
     this.GRPFormulario = new WebGroup(this.requireComponentElement('sigat2-login-formulario'));
     this.IMGLogo = new WebImage(this.requireComponentElement('sigat2-login-logo'));
     this.LBLTitulo = new WebLabel(
-      this.requireComponentElement('fe4a7da4-2246-4a8d-88df-cf97258ee347'),
+      this.requireComponentElement('fe3981e6-32ee-497d-b759-0824d521206e'),
     );
     this.EDTLogin = new WebEdit(
-      this.requireComponentElement('a103d6c8-15c5-4521-ad19-ec9081df4d07'),
+      this.requireComponentElement('8e0c0a88-4b7c-486f-bfab-a8967e99d80a'),
     );
     this.EDTSenha = new WebEdit(
-      this.requireComponentElement('07aa4e01-64dc-46f4-9c73-d3379a1c3f4e'),
+      this.requireComponentElement('854b92f4-463b-4ee9-9a08-e60328551cac'),
     );
     this.BTNEntrar = new WebButton(
-      this.requireComponentElement('6984fa62-66c1-4188-bb4d-f8a1aa0bf55a'),
+      this.requireComponentElement('44e0780d-91e7-40e6-a39b-f4f598170551'),
     );
     this.LBLMensagem = new WebLabel(
-      this.requireComponentElement('2ce3d933-d875-44d0-a129-878d564b87db'),
+      this.requireComponentElement('37a90189-cbff-4673-b207-74f108e40047'),
     );
     this.LBLRodape = new WebLabel(
-      this.requireComponentElement('e2924bd9-3c87-4302-aac9-546f81f57e01'),
+      this.requireComponentElement('3690c0fe-43b9-4ea4-9853-c08fe0f90d1e'),
     );
     this.ApiSessao = new WebApiClient<
       ApiSessaoApiOutputs,

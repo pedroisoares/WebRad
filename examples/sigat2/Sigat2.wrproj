@@ -12,77 +12,77 @@
       "codeFile": "pages/index.ts"
     },
     {
-      "id": "343c0e9a-e431-4f14-9b59-cd6f2c2bc437",
+      "id": "f4e24c15-4b3c-4723-a0a5-000b3418a4f0",
       "name": "Login",
       "pageFile": "pages/Login.wrpage",
       "generatedFile": "pages/Login.generated.ts",
       "codeFile": "pages/Login.ts"
     },
     {
-      "id": "b7c51394-c65d-43b4-9d3c-2d4b1ce119d4",
+      "id": "71abbaf9-d13d-4738-9b9b-7bfe49358a2e",
       "name": "Chamado",
       "pageFile": "pages/Chamado.wrpage",
       "generatedFile": "pages/Chamado.generated.ts",
       "codeFile": "pages/Chamado.ts"
     },
     {
-      "id": "32d229aa-a064-426b-a861-396b4aded80f",
+      "id": "f895ab88-278f-476a-b210-2485af4cb011",
       "name": "Triagem",
       "pageFile": "pages/Triagem.wrpage",
       "generatedFile": "pages/Triagem.generated.ts",
       "codeFile": "pages/Triagem.ts"
     },
     {
-      "id": "589010ba-6f5c-4e4a-b49b-07d751335c5b",
+      "id": "50f504a0-8ba2-4767-b26b-18cf9ffd22f0",
       "name": "Equipamento",
       "pageFile": "pages/Equipamento.wrpage",
       "generatedFile": "pages/Equipamento.generated.ts",
       "codeFile": "pages/Equipamento.ts"
     },
     {
-      "id": "7f31c69a-931a-4e66-9c08-d469776cb15c",
+      "id": "faa579bd-3ca2-491c-a43d-79a6c0fb828d",
       "name": "Busca",
       "pageFile": "pages/Busca.wrpage",
       "generatedFile": "pages/Busca.generated.ts",
       "codeFile": "pages/Busca.ts"
     },
     {
-      "id": "b94a8e7c-5464-4c19-b85a-8ecad04a4da7",
+      "id": "c41619dc-098d-4f4c-9209-62ce2ca67a3c",
       "name": "Inserviveis",
       "pageFile": "pages/Inserviveis.wrpage",
       "generatedFile": "pages/Inserviveis.generated.ts",
       "codeFile": "pages/Inserviveis.ts"
     },
     {
-      "id": "3e56a2bd-b6ae-4ca2-b357-80a0365d9350",
+      "id": "3c36b9f9-9c5d-498c-b69b-8c4897b5867e",
       "name": "Remessa",
       "pageFile": "pages/Remessa.wrpage",
       "generatedFile": "pages/Remessa.generated.ts",
       "codeFile": "pages/Remessa.ts"
     },
     {
-      "id": "a58f525a-81bb-4d8e-80c2-5cdef81fa667",
+      "id": "3c18f37d-9823-47a0-9092-f62c6c8ab40d",
       "name": "Admin",
       "pageFile": "pages/Admin.wrpage",
       "generatedFile": "pages/Admin.generated.ts",
       "codeFile": "pages/Admin.ts"
     },
     {
-      "id": "3ea3a705-4d9f-4200-b2d4-61789552e885",
+      "id": "c4b2789c-f57e-4a88-ae25-7b3174de7b1d",
       "name": "Usuario",
       "pageFile": "pages/Usuario.wrpage",
       "generatedFile": "pages/Usuario.generated.ts",
       "codeFile": "pages/Usuario.ts"
     },
     {
-      "id": "ae3a7bb2-74fd-4681-a5ea-7ca141dc1860",
+      "id": "0e1ab113-7ccf-4b90-b063-d32d655e6917",
       "name": "Local",
       "pageFile": "pages/Local.wrpage",
       "generatedFile": "pages/Local.generated.ts",
       "codeFile": "pages/Local.ts"
     },
     {
-      "id": "3e30571d-6eca-4b7c-9720-1976683f94f7",
+      "id": "50fd229d-505f-490a-be3e-203a4516837a",
       "name": "Negado",
       "pageFile": "pages/Negado.wrpage",
       "generatedFile": "pages/Negado.generated.ts",
@@ -2630,6 +2630,77 @@
       }
     },
     {
+      "id": "sigat2-chamado-botao-secundario",
+      "name": "Chamado Botao Secundario",
+      "componentType": "WebButton",
+      "states": {
+        "base": {
+          "paddingRight": {
+            "value": 12,
+            "unit": "px"
+          },
+          "paddingLeft": {
+            "value": 12,
+            "unit": "px"
+          },
+          "justifyContent": "center",
+          "backgroundColor": "#6c757d",
+          "borderColor": "#6c757d",
+          "borderRadius": {
+            "value": 4,
+            "unit": "px"
+          },
+          "borderStyle": "solid",
+          "borderWidth": {
+            "value": 1,
+            "unit": "px"
+          },
+          "boxShadow": "none",
+          "buttonContentMode": "text-icon",
+          "buttonIconColor": "#ffffff",
+          "buttonIconSize": {
+            "value": 16,
+            "unit": "px"
+          },
+          "cursor": "pointer",
+          "fontFamily": "ide",
+          "fontSize": {
+            "value": 16,
+            "unit": "px"
+          },
+          "fontWeight": "normal",
+          "textAlign": "center",
+          "textColor": "#ffffff",
+          "transitionDuration": 150,
+          "transitionProperty": "all",
+          "transitionTimingFunction": "easeOut"
+        },
+        "hover": {
+          "backgroundColor": "#5a6268",
+          "borderColor": "#5a6268"
+        },
+        "focus": {
+          "ringColor": "#80bdff",
+          "ringOffsetWidth": {
+            "value": 0,
+            "unit": "px"
+          },
+          "ringWidth": {
+            "value": 3,
+            "unit": "px"
+          }
+        },
+        "active": {
+          "backgroundColor": "#5a6268",
+          "borderColor": "#5a6268"
+        },
+        "disabled": {
+          "cursor": "not-allowed",
+          "opacity": 65
+        }
+      }
+    },
+    {
       "id": "sigat2-chamado-botao-primario",
       "name": "Chamado Botao Primario",
       "componentType": "WebButton",
@@ -3624,7 +3695,7 @@
   ],
   "sourceFiles": [
     {
-      "id": "14003961-5f95-41e5-abd8-4718ccf8485d",
+      "id": "1c08a319-0462-48db-85be-1fb3399b9513",
       "name": "Sigat2",
       "kind": "unit"
     }

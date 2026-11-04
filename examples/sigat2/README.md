@@ -200,9 +200,20 @@ column (the Data Grid `columnFilters` option). Like SIGAT, it reloads every 30
 seconds while its tab is open and keeps the page, sort and filters. The hour is
 printed with two digits (`08:54:06`); SIGAT prints `8:54:06`.
 
-The other tabs still show read-only lists. They become CRUD screens (list with
-filters, Novo, Editar, Ativar/Desativar, each change written to `evento`) once
-HexAPI has their write operations.
+**Bancadas, Secretarias and Filas** are cadastro screens. Each lists every row,
+active or not, 10 per page with the filter row, an "Ativa?" checkbox column and
+a pencil button per row. "Nova …" and the pencil open the same modal form; the
+edit form adds the Ativa (and, for bancadas, Ocupada) box, which is how a record
+is switched off. Salvar calls the HexAPI composite operation on
+`sigat-gravacao` (`bancada-inserir`/`-alterar`, `secretaria-inserir`/`-alterar`,
+`fila-inserir`/`-alterar`) through `gravar()`, so one click is one write even
+after a retry. The operation records the SIGAT event in the same transaction. A
+refusal (empty or repeated name, a fila with open chamados) keeps the form open
+and shows the HexAPI message; a success closes it and reads the list again.
+Unlike SIGAT, editing a bancada also saves its name.
+
+Usuários, Modelos de Mensagem, Locais and Serviços still show read-only lists
+until HexAPI has their write operations.
 
 ## Pages
 
@@ -215,7 +226,7 @@ HexAPI has their write operations.
 | Equipamento         | Equipment history                   | `equipamento`, `equipamento-chamados`                                                                                                                                                                                                                                                                                                                                                      |
 | Busca               | Quick search                        | `busca-equipamentos`, `busca-chamados`                                                                                                                                                                                                                                                                                                                                                     |
 | Inserviveis/Remessa | Inservíveis                         | `remessas`, `remessa`, `remessa-equipamentos`                                                                                                                                                                                                                                                                                                                                              |
-| Admin               | Administration                      | `admin-usuarios`, `admin-locais`, `admin-servicos`, `admin-filas`, `secretarias`, `bancadas`, `modelos-mensagem`, `admin-eventos`                                                                                                                                                                                                                                                          |
+| Admin               | Administration                      | writes: `bancada-inserir`, `bancada-alterar`, `secretaria-inserir`, `secretaria-alterar`, `fila-inserir`, `fila-alterar`; reads: `admin-usuarios`, `admin-locais`, `admin-servicos`, `admin-filas`, `secretarias`, `bancadas`, `modelos-mensagem`, `admin-eventos`                                                                                                                         |
 | Usuario             | User profile                        | `usuario-perfil`, `usuario-produtividade`, `usuario-bloqueados`                                                                                                                                                                                                                                                                                                                            |
 | Local               | Location                            | `local`, `local-telefones`, `secretarias`                                                                                                                                                                                                                                                                                                                                                  |
 | Negado, 404         | Access denied, not found            | none                                                                                                                                                                                                                                                                                                                                                                                       |
