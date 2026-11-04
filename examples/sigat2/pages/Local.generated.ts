@@ -63,122 +63,122 @@ export abstract class LocalGenerated extends WebPage {
   public constructor(element: HTMLElement) {
     super(element);
     this.Cabecalho = new WebGroup(
-      this.requireComponentElement('db160046-232c-4849-aa06-8fc422e5b08f'),
+      this.requireComponentElement('13f2820f-5431-4d3b-9331-a63e8cf00d04'),
     );
     this.GRPMarca = new WebGroup(
-      this.requireComponentElement('bce3bd1a-913c-45f3-917c-ea72cca44d2c'),
+      this.requireComponentElement('27c5bd28-77d3-4535-bb1b-91b0a1dbf741'),
     );
     this.IMGMarca = new WebImage(
-      this.requireComponentElement('ad9e0e12-5b04-47a9-96cd-dc124324f74e'),
+      this.requireComponentElement('4f088498-0e25-45fc-a751-7e97636edbbb'),
     );
     this.LBLMarca = new WebLabel(
-      this.requireComponentElement('c53f7093-2b70-4a09-b47a-43a955a334af'),
+      this.requireComponentElement('06b85a56-4861-45a1-a757-4d5b9a7719d4'),
     );
     this.GRPBusca = new WebGroup(
-      this.requireComponentElement('528986dd-dcb3-44da-a248-6b15f1910243'),
+      this.requireComponentElement('c18412bb-4e38-4deb-932c-41d0a3db1c5e'),
     );
     this.EDTBuscaRapida = new WebEdit(
-      this.requireComponentElement('024b4f54-fb28-44f1-a1b5-88e29033e88f'),
+      this.requireComponentElement('be2795c6-a4df-442b-98d1-92f50a33b2cd'),
     );
     this.BTNBuscar = new WebButton(
-      this.requireComponentElement('d56ad206-4b3a-461c-bcd8-2d8ebcc6dc3c'),
+      this.requireComponentElement('d08ced88-7f34-409a-a440-092ea85d658d'),
     );
     this.GRPUsuario = new WebGroup(
-      this.requireComponentElement('7ff2f9d9-fb81-48dd-95f9-092edbf2d925'),
+      this.requireComponentElement('f3ad9549-fb5b-4c09-b3a4-466c4e519a8f'),
     );
     this.LBLOla = new WebLabel(
-      this.requireComponentElement('49386fe4-c55c-4dc2-b17c-122d951498d6'),
+      this.requireComponentElement('c168ad68-6554-40da-b684-5301c7bc8955'),
     );
     this.LBLUsuario = new WebLabel(
-      this.requireComponentElement('2590563a-81c1-44f1-931e-4b11d555691b'),
+      this.requireComponentElement('e882f1bf-f7b6-43b1-b7fc-f50cd91d0e8f'),
     );
     this.BTNBloqueados = new WebButton(
-      this.requireComponentElement('0159a156-6c1f-40ff-92ae-dba937158553'),
+      this.requireComponentElement('b980e57c-50c7-4aff-84b1-042b403c1c37'),
     );
     this.BTNPainel = new WebButton(
-      this.requireComponentElement('3b774ab5-4b03-4897-b546-291d48bd506f'),
+      this.requireComponentElement('f1c6066c-bcd7-4f8e-bdf1-2a9fe09a203e'),
     );
     this.BTNInserviveis = new WebButton(
-      this.requireComponentElement('3d2bacd4-1df0-4c6b-80dc-81497857b819'),
+      this.requireComponentElement('2233ba3c-bdc0-4b8c-9523-5bfb2a2dce66'),
     );
     this.BTNAdmin = new WebButton(
-      this.requireComponentElement('ef937108-91aa-4b59-9e69-98562186fe8b'),
+      this.requireComponentElement('2003505e-c1a1-4d33-b625-b45c614152a8'),
     );
     this.BTNSair = new WebButton(
-      this.requireComponentElement('ec03dd7b-8e6d-49b4-8db6-0f01f8990cd0'),
+      this.requireComponentElement('1cc81e03-478d-46ff-af0e-32afa0d72935'),
     );
     this.Conteudo = new WebGroup(
-      this.requireComponentElement('069daf13-7338-4c69-9a64-19b46833da03'),
+      this.requireComponentElement('3e58bbec-d62a-421e-bf2e-ba7181d1cf16'),
     );
-    this.Topo = new WebGroup(this.requireComponentElement('8fc17117-0b71-41f4-9eda-0993e6f238a7'));
+    this.Topo = new WebGroup(this.requireComponentElement('33070751-b3a0-4683-92de-4a21c1bd3c82'));
     this.LBLLocal = new WebLabel(
-      this.requireComponentElement('d5deacb2-cd4d-4b81-930d-dae2bedd858f'),
+      this.requireComponentElement('62adf596-3bab-4f94-ba97-76e2bdb5ef84'),
     );
     this.BTNVoltar = new WebButton(
-      this.requireComponentElement('20c807a3-7515-42a3-a61e-a8bda9552679'),
+      this.requireComponentElement('9042e8a6-3f5c-44ca-a0b5-eb1363d8b16d'),
     );
     this.PNLDados = new WebPanel(
-      this.requireComponentElement('bb2009e7-7efc-44af-9f77-42a5578128d9'),
+      this.requireComponentElement('18c01c8f-dca4-4f38-adf9-074a9d3f66db'),
     );
-    this.Dados = new WebGroup(this.requireComponentElement('cce48201-4b74-4798-baf2-bdd84cb93e82'));
+    this.Dados = new WebGroup(this.requireComponentElement('962bb686-7500-40c4-b260-6a895b4af997'));
     this.DadosEndereco = new WebGroup(
-      this.requireComponentElement('3eb2b5ea-9938-4f14-b308-93c8a15a6fb6'),
+      this.requireComponentElement('543d44c9-c852-48a4-a697-e8cb3805b5e3'),
     );
     this.LBLEndereco = new WebLabel(
-      this.requireComponentElement('487b74c1-9572-4278-996b-d5299c3f707b'),
+      this.requireComponentElement('9c1a44a4-07f8-4c66-9038-db34f48eaa63'),
     );
     this.Endereco = new WebLabel(
-      this.requireComponentElement('5edf1cb8-89bf-444e-aaeb-cb46d2aafab2'),
+      this.requireComponentElement('654285d2-7919-46a5-adc6-56ee6a71b7c9'),
     );
     this.DadosSecretaria = new WebGroup(
-      this.requireComponentElement('a09fc3e5-6eb5-4255-945d-8dc557562e98'),
+      this.requireComponentElement('97bfd9f0-e450-49b2-976a-587dea5b4681'),
     );
     this.LBLSecretaria = new WebLabel(
-      this.requireComponentElement('4ffb963f-f63b-4463-ad6c-c66c065df787'),
+      this.requireComponentElement('e337cb84-8f95-490a-8f38-f07c0a8ee981'),
     );
     this.Secretaria = new WebLabel(
-      this.requireComponentElement('db660822-165b-4eca-a207-1fcca265aad8'),
+      this.requireComponentElement('1be443b5-782a-43a8-9d64-c0aa15e39dee'),
     );
     this.DadosRegiao = new WebGroup(
-      this.requireComponentElement('73612395-f29f-4407-b6c5-4c76b8b595d5'),
+      this.requireComponentElement('37328ee5-f2fc-4524-950e-bcb600aaa55e'),
     );
     this.LBLRegiao = new WebLabel(
-      this.requireComponentElement('cfbae9cd-9c27-44ad-98dc-9ff773aaf0b8'),
+      this.requireComponentElement('2fe4f4aa-181d-401a-9755-331ca864d871'),
     );
     this.Regiao = new WebLabel(
-      this.requireComponentElement('0756959d-16a3-4806-93cb-c7aafad20842'),
+      this.requireComponentElement('88858ff2-bad2-4182-957e-d33adee86f56'),
     );
     this.DadosSituacao = new WebGroup(
-      this.requireComponentElement('73ccfbaa-a71c-4e56-82a9-64b1f6fc8582'),
+      this.requireComponentElement('f25583ae-530d-4562-82cc-ec33b4a191e6'),
     );
     this.LBLSituacao = new WebLabel(
-      this.requireComponentElement('bec68c1c-f65e-4eab-80e3-064fb0ea58a6'),
+      this.requireComponentElement('a8899f49-68ba-4873-806f-e25daae0eafa'),
     );
     this.Situacao = new WebLabel(
-      this.requireComponentElement('141ade40-ff87-4cac-8727-6bdaa3b409b2'),
+      this.requireComponentElement('1c739d15-21a8-4b31-bcbc-7076daab5b41'),
     );
     this.DadosInfovia = new WebGroup(
-      this.requireComponentElement('59382551-8362-4aba-a1ab-65d701138594'),
+      this.requireComponentElement('0b478986-718c-4c73-8ee4-6a5c3cf44c7c'),
     );
     this.LBLInfovia = new WebLabel(
-      this.requireComponentElement('893e0bdd-c455-4e91-ae5b-0cf74b3ee158'),
+      this.requireComponentElement('836580f8-6c67-49fe-ae41-9f5e5a9d0349'),
     );
     this.Infovia = new WebLabel(
-      this.requireComponentElement('7e526daa-41f8-4849-982c-1484ee0359e8'),
+      this.requireComponentElement('98d52f50-addc-45af-a74e-47c2038addaa'),
     );
     this.PNLTelefones = new WebPanel(
-      this.requireComponentElement('4828669f-c614-44be-b62f-15d4a895d76a'),
+      this.requireComponentElement('bc1ea9d6-50b1-4e86-8d9d-fdd18159907b'),
     );
     this.LBLTelefones = new WebLabel(
-      this.requireComponentElement('978d057f-fddb-425c-a488-de9b7276fe38'),
+      this.requireComponentElement('4de3a3d0-8b32-4bdb-b74d-32f22c61d64b'),
     );
     this.GRDTelefones = new WebDataGrid(
-      this.requireComponentElement('a4691967-6f8a-4b07-b03a-3d31d0e590a4'),
+      this.requireComponentElement('d5d1d367-857e-4171-96f5-3dd92e48aab2'),
     );
     this.GRDTelefones.dataGridConfig = {
       schemaVersion: 2,
-      apiClientId: 'd3bb9d35-7739-4e24-8448-200953029335',
-      operationId: 'ef4be685-4590-4111-b8bc-4e09d063e7ae',
+      apiClientId: '3690c0fe-43b9-4ea4-9853-c08fe0f90d1e',
+      operationId: '1a844d48-23b0-4ab9-a759-dcfa2eb9eab0',
       listPath: '/data',
       columnCount: 2,
       showHeader: true,
@@ -198,7 +198,7 @@ export abstract class LocalGenerated extends WebPage {
       emptyMessage: 'Nenhum registro',
       columns: [
         {
-          id: 'f5a29631-9942-476e-bd7d-37713a8df7ce',
+          id: '4f6e225d-3b77-4d81-a639-dc69698e044f',
           header: 'Setor',
           fieldPath: '/setor',
           cellKind: 'text',
@@ -216,7 +216,7 @@ export abstract class LocalGenerated extends WebPage {
           searchable: true,
         },
         {
-          id: 'babdff29-a3ed-485d-9513-826bcbe6479a',
+          id: '62d94b86-69dd-443d-8ee9-763841511dd1',
           header: 'Telefone',
           fieldPath: '/telefone',
           cellKind: 'text',
@@ -258,14 +258,14 @@ export abstract class LocalGenerated extends WebPage {
         timeoutMs: 30000,
         operations: [
           {
-            id: 'f3c93262-d7d0-43f2-a50d-c1c443241a2d',
+            id: '71abbaf9-d13d-4738-9b9b-7bfe49358a2e',
             name: 'Local',
             method: 'GET',
             path: 'sigat/local',
             apiVersion: 1,
             headers: [],
             query: [
-              { id: 'f4e24c15-4b3c-4723-a0a5-000b3418a4f0', name: 'id', value: '', enabled: false },
+              { id: 'f16f2bc2-db11-4edf-a6fa-5bb9260eb6ef', name: 'id', value: '', enabled: false },
             ],
             body: { kind: 'none', content: '' },
             credentials: 'omit',
@@ -273,7 +273,7 @@ export abstract class LocalGenerated extends WebPage {
             responseSchema: {
               version: 1,
               root: {
-                id: '7ffa96e9-4f29-4e35-8495-d0ddb2cf3208',
+                id: 'ffa48eaa-8590-4c6a-9327-80f7d9d4ae3b',
                 name: 'Response',
                 path: '',
                 kind: 'object',
@@ -281,7 +281,7 @@ export abstract class LocalGenerated extends WebPage {
                 nullable: false,
                 children: [
                   {
-                    id: '43a7da6c-6aa4-4625-8e55-c7226ff89483',
+                    id: '81c8af35-ccc1-411c-8486-3ede1c874d48',
                     name: 'success',
                     path: '/success',
                     kind: 'field',
@@ -290,7 +290,7 @@ export abstract class LocalGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: 'fe3981e6-32ee-497d-b759-0824d521206e',
+                    id: 'dd4fba2d-887e-45de-a99d-0facb501f01c',
                     name: 'data',
                     path: '/data',
                     kind: 'list',
@@ -298,7 +298,7 @@ export abstract class LocalGenerated extends WebPage {
                     nullable: false,
                     children: [
                       {
-                        id: '8e0c0a88-4b7c-486f-bfab-a8967e99d80a',
+                        id: 'bb4439ed-dc15-4e98-93ee-986f56dee70c',
                         name: 'id_local',
                         path: '/data/*/id_local',
                         kind: 'field',
@@ -307,7 +307,7 @@ export abstract class LocalGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: '854b92f4-463b-4ee9-9a08-e60328551cac',
+                        id: '1bee131d-f88c-4392-89f5-b711720985a2',
                         name: 'status_local',
                         path: '/data/*/status_local',
                         kind: 'field',
@@ -316,7 +316,7 @@ export abstract class LocalGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: '44e0780d-91e7-40e6-a39b-f4f598170551',
+                        id: 'f219b5a8-672d-469a-9ab2-d4af4454ae47',
                         name: 'nome_local',
                         path: '/data/*/nome_local',
                         kind: 'field',
@@ -325,7 +325,7 @@ export abstract class LocalGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: '37a90189-cbff-4673-b207-74f108e40047',
+                        id: 'b43e04ae-3334-4f7c-ba19-07cf37eb2f62',
                         name: 'secretaria_local',
                         path: '/data/*/secretaria_local',
                         kind: 'field',
@@ -334,7 +334,7 @@ export abstract class LocalGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: '3690c0fe-43b9-4ea4-9853-c08fe0f90d1e',
+                        id: '7d2ac783-66eb-42dd-89a3-01378d46aaa6',
                         name: 'endereco_local',
                         path: '/data/*/endereco_local',
                         kind: 'field',
@@ -343,7 +343,7 @@ export abstract class LocalGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: '71abbaf9-d13d-4738-9b9b-7bfe49358a2e',
+                        id: 'b136c031-ef8a-487c-8028-6d16b1c298d1',
                         name: 'regiao_local',
                         path: '/data/*/regiao_local',
                         kind: 'field',
@@ -352,7 +352,7 @@ export abstract class LocalGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: '1a844d48-23b0-4ab9-a759-dcfa2eb9eab0',
+                        id: 'c24de564-1722-4c12-abc1-0caba1916948',
                         name: 'infovia',
                         path: '/data/*/infovia',
                         kind: 'field',
@@ -361,7 +361,7 @@ export abstract class LocalGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: '953bd1d2-208a-4e95-8955-8ac4241bd286',
+                        id: '5fb9e9e9-1fc6-4a8d-aab7-35b22d3f94df',
                         name: 'pms_id',
                         path: '/data/*/pms_id',
                         kind: 'field',
@@ -372,7 +372,7 @@ export abstract class LocalGenerated extends WebPage {
                     ],
                   },
                   {
-                    id: '4f6e225d-3b77-4d81-a639-dc69698e044f',
+                    id: 'a4fe6b2c-2d85-4b9d-888b-181829d35376',
                     name: 'page',
                     path: '/page',
                     kind: 'field',
@@ -381,7 +381,7 @@ export abstract class LocalGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: '62d94b86-69dd-443d-8ee9-763841511dd1',
+                    id: 'f1bad240-cb3c-49a8-ac61-a58e378522c0',
                     name: 'page_size',
                     path: '/page_size',
                     kind: 'field',
@@ -390,7 +390,7 @@ export abstract class LocalGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: 'f16f2bc2-db11-4edf-a6fa-5bb9260eb6ef',
+                    id: 'bf06cd57-857f-4b1c-8c54-9635577d1e53',
                     name: 'total_pages',
                     path: '/total_pages',
                     kind: 'field',
@@ -399,7 +399,7 @@ export abstract class LocalGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: 'ffa48eaa-8590-4c6a-9327-80f7d9d4ae3b',
+                    id: '0ba7456b-f4e8-4084-8022-eb9f03d8062e',
                     name: 'total',
                     path: '/total',
                     kind: 'field',
@@ -408,7 +408,7 @@ export abstract class LocalGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: '81c8af35-ccc1-411c-8486-3ede1c874d48',
+                    id: '0ac80fb8-46c3-4f0b-bbba-1ddfdc72b161',
                     name: 'has_more',
                     path: '/has_more',
                     kind: 'field',
@@ -421,14 +421,14 @@ export abstract class LocalGenerated extends WebPage {
             },
           },
           {
-            id: 'ef4be685-4590-4111-b8bc-4e09d063e7ae',
+            id: '1a844d48-23b0-4ab9-a759-dcfa2eb9eab0',
             name: 'Telefones',
             method: 'GET',
             path: 'sigat/local-telefones',
             apiVersion: 1,
             headers: [],
             query: [
-              { id: 'dd4fba2d-887e-45de-a99d-0facb501f01c', name: 'id', value: '', enabled: false },
+              { id: 'e514f8a0-f6fc-4cb8-bdd1-f3292a017f74', name: 'id', value: '', enabled: false },
             ],
             body: { kind: 'none', content: '' },
             credentials: 'omit',
@@ -436,7 +436,7 @@ export abstract class LocalGenerated extends WebPage {
             responseSchema: {
               version: 1,
               root: {
-                id: 'bb4439ed-dc15-4e98-93ee-986f56dee70c',
+                id: 'c5114e3d-fb59-47c9-b568-8416f503f95a',
                 name: 'Response',
                 path: '',
                 kind: 'object',
@@ -444,7 +444,7 @@ export abstract class LocalGenerated extends WebPage {
                 nullable: false,
                 children: [
                   {
-                    id: '1bee131d-f88c-4392-89f5-b711720985a2',
+                    id: '615c120c-5ba4-43b4-b764-4d470582ee7f',
                     name: 'success',
                     path: '/success',
                     kind: 'field',
@@ -453,7 +453,7 @@ export abstract class LocalGenerated extends WebPage {
                     children: [],
                   },
                   {
-                    id: 'f219b5a8-672d-469a-9ab2-d4af4454ae47',
+                    id: '9fa1ce07-88ec-424b-9a80-26d44f5ff9da',
                     name: 'data',
                     path: '/data',
                     kind: 'list',
@@ -461,7 +461,7 @@ export abstract class LocalGenerated extends WebPage {
                     nullable: false,
                     children: [
                       {
-                        id: 'b43e04ae-3334-4f7c-ba19-07cf37eb2f62',
+                        id: '3bbd9a15-4e54-4ae4-9a95-d3a8c5934796',
                         name: 'id',
                         path: '/data/*/id',
                         kind: 'field',
@@ -470,7 +470,7 @@ export abstract class LocalGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: '7d2ac783-66eb-42dd-89a3-01378d46aaa6',
+                        id: '2f9e6a22-ccc8-4037-bbb8-443ab2b390b8',
                         name: 'setor',
                         path: '/data/*/setor',
                         kind: 'field',
@@ -479,7 +479,7 @@ export abstract class LocalGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: 'b136c031-ef8a-487c-8028-6d16b1c298d1',
+                        id: '2f480886-228f-4f6c-91cb-493d5226ea9a',
                         name: 'telefone',
                         path: '/data/*/telefone',
                         kind: 'field',
@@ -488,152 +488,11 @@ export abstract class LocalGenerated extends WebPage {
                         children: [],
                       },
                       {
-                        id: 'c24de564-1722-4c12-abc1-0caba1916948',
+                        id: '5a94ff49-e34c-4050-9393-9ee0fb33fbae',
                         name: 'id_local',
                         path: '/data/*/id_local',
                         kind: 'field',
                         fieldType: 'integer',
-                        nullable: true,
-                        children: [],
-                      },
-                    ],
-                  },
-                  {
-                    id: '5fb9e9e9-1fc6-4a8d-aab7-35b22d3f94df',
-                    name: 'page',
-                    path: '/page',
-                    kind: 'field',
-                    fieldType: 'integer',
-                    nullable: true,
-                    children: [],
-                  },
-                  {
-                    id: 'a4fe6b2c-2d85-4b9d-888b-181829d35376',
-                    name: 'page_size',
-                    path: '/page_size',
-                    kind: 'field',
-                    fieldType: 'integer',
-                    nullable: true,
-                    children: [],
-                  },
-                  {
-                    id: 'f1bad240-cb3c-49a8-ac61-a58e378522c0',
-                    name: 'total_pages',
-                    path: '/total_pages',
-                    kind: 'field',
-                    fieldType: 'integer',
-                    nullable: true,
-                    children: [],
-                  },
-                  {
-                    id: 'bf06cd57-857f-4b1c-8c54-9635577d1e53',
-                    name: 'total',
-                    path: '/total',
-                    kind: 'field',
-                    fieldType: 'integer',
-                    nullable: true,
-                    children: [],
-                  },
-                  {
-                    id: '0ba7456b-f4e8-4084-8022-eb9f03d8062e',
-                    name: 'has_more',
-                    path: '/has_more',
-                    kind: 'field',
-                    fieldType: 'boolean',
-                    nullable: true,
-                    children: [],
-                  },
-                ],
-              },
-            },
-          },
-          {
-            id: 'adc61bb7-f255-4b67-b39e-3d4c7ec4a16a',
-            name: 'Secretarias',
-            method: 'GET',
-            path: 'sigat/secretarias',
-            apiVersion: 1,
-            headers: [],
-            query: [
-              {
-                id: '0ac80fb8-46c3-4f0b-bbba-1ddfdc72b161',
-                name: 'ativas',
-                value: '',
-                enabled: false,
-              },
-            ],
-            body: { kind: 'none', content: '' },
-            credentials: 'omit',
-            timeoutMs: null,
-            responseSchema: {
-              version: 1,
-              root: {
-                id: 'e514f8a0-f6fc-4cb8-bdd1-f3292a017f74',
-                name: 'Response',
-                path: '',
-                kind: 'object',
-                fieldType: 'object',
-                nullable: false,
-                children: [
-                  {
-                    id: 'c5114e3d-fb59-47c9-b568-8416f503f95a',
-                    name: 'success',
-                    path: '/success',
-                    kind: 'field',
-                    fieldType: 'boolean',
-                    nullable: false,
-                    children: [],
-                  },
-                  {
-                    id: '615c120c-5ba4-43b4-b764-4d470582ee7f',
-                    name: 'data',
-                    path: '/data',
-                    kind: 'list',
-                    fieldType: 'list',
-                    nullable: false,
-                    children: [
-                      {
-                        id: '9fa1ce07-88ec-424b-9a80-26d44f5ff9da',
-                        name: 'id_secretaria',
-                        path: '/data/*/id_secretaria',
-                        kind: 'field',
-                        fieldType: 'integer',
-                        nullable: true,
-                        children: [],
-                      },
-                      {
-                        id: '3bbd9a15-4e54-4ae4-9a95-d3a8c5934796',
-                        name: 'nome_secretaria',
-                        path: '/data/*/nome_secretaria',
-                        kind: 'field',
-                        fieldType: 'string',
-                        nullable: true,
-                        children: [],
-                      },
-                      {
-                        id: '2f9e6a22-ccc8-4037-bbb8-443ab2b390b8',
-                        name: 'sigla_secretaria',
-                        path: '/data/*/sigla_secretaria',
-                        kind: 'field',
-                        fieldType: 'string',
-                        nullable: true,
-                        children: [],
-                      },
-                      {
-                        id: '2f480886-228f-4f6c-91cb-493d5226ea9a',
-                        name: 'status_secretaria',
-                        path: '/data/*/status_secretaria',
-                        kind: 'field',
-                        fieldType: 'integer',
-                        nullable: true,
-                        children: [],
-                      },
-                      {
-                        id: '5a94ff49-e34c-4050-9393-9ee0fb33fbae',
-                        name: 'ultima_alteracao',
-                        path: '/data/*/ultima_alteracao',
-                        kind: 'field',
-                        fieldType: 'datetime',
                         nullable: true,
                         children: [],
                       },
@@ -688,22 +547,163 @@ export abstract class LocalGenerated extends WebPage {
               },
             },
           },
+          {
+            id: '953bd1d2-208a-4e95-8955-8ac4241bd286',
+            name: 'Secretarias',
+            method: 'GET',
+            path: 'sigat/secretarias',
+            apiVersion: 1,
+            headers: [],
+            query: [
+              {
+                id: '5d53c833-d072-4852-ac32-ca2a22a7f6db',
+                name: 'ativas',
+                value: '',
+                enabled: false,
+              },
+            ],
+            body: { kind: 'none', content: '' },
+            credentials: 'omit',
+            timeoutMs: null,
+            responseSchema: {
+              version: 1,
+              root: {
+                id: 'cb69b8a4-f664-4e00-adaa-519108484f1f',
+                name: 'Response',
+                path: '',
+                kind: 'object',
+                fieldType: 'object',
+                nullable: false,
+                children: [
+                  {
+                    id: 'cd5471c3-8282-426b-89dd-286e8a8b37f6',
+                    name: 'success',
+                    path: '/success',
+                    kind: 'field',
+                    fieldType: 'boolean',
+                    nullable: false,
+                    children: [],
+                  },
+                  {
+                    id: '141a1c3f-fed0-49ba-bf38-6febf853dde0',
+                    name: 'data',
+                    path: '/data',
+                    kind: 'list',
+                    fieldType: 'list',
+                    nullable: false,
+                    children: [
+                      {
+                        id: '2a3cc118-6240-451b-9e45-ed0ce0ecb536',
+                        name: 'id_secretaria',
+                        path: '/data/*/id_secretaria',
+                        kind: 'field',
+                        fieldType: 'integer',
+                        nullable: true,
+                        children: [],
+                      },
+                      {
+                        id: 'd0087b3e-cb6a-4f87-9d34-d848572cf1e0',
+                        name: 'nome_secretaria',
+                        path: '/data/*/nome_secretaria',
+                        kind: 'field',
+                        fieldType: 'string',
+                        nullable: true,
+                        children: [],
+                      },
+                      {
+                        id: '23f74fae-1bd8-4dbe-8c30-0a9f775b73e8',
+                        name: 'sigla_secretaria',
+                        path: '/data/*/sigla_secretaria',
+                        kind: 'field',
+                        fieldType: 'string',
+                        nullable: true,
+                        children: [],
+                      },
+                      {
+                        id: 'd11abc84-9d0c-41b1-b237-e1386493b01e',
+                        name: 'status_secretaria',
+                        path: '/data/*/status_secretaria',
+                        kind: 'field',
+                        fieldType: 'integer',
+                        nullable: true,
+                        children: [],
+                      },
+                      {
+                        id: '00b8c344-997b-467f-bae2-f3ce4a35e1fe',
+                        name: 'ultima_alteracao',
+                        path: '/data/*/ultima_alteracao',
+                        kind: 'field',
+                        fieldType: 'datetime',
+                        nullable: true,
+                        children: [],
+                      },
+                    ],
+                  },
+                  {
+                    id: '055d5dc9-596d-45c2-bd4c-5c1bd4b3ebf5',
+                    name: 'page',
+                    path: '/page',
+                    kind: 'field',
+                    fieldType: 'integer',
+                    nullable: true,
+                    children: [],
+                  },
+                  {
+                    id: '292c49ca-a5d3-4caa-92ea-b2827296560f',
+                    name: 'page_size',
+                    path: '/page_size',
+                    kind: 'field',
+                    fieldType: 'integer',
+                    nullable: true,
+                    children: [],
+                  },
+                  {
+                    id: '603c57cb-2200-404c-86a2-4c62a7a5f5e0',
+                    name: 'total_pages',
+                    path: '/total_pages',
+                    kind: 'field',
+                    fieldType: 'integer',
+                    nullable: true,
+                    children: [],
+                  },
+                  {
+                    id: 'e94dec72-f984-46e1-8888-e4be28f4a92c',
+                    name: 'total',
+                    path: '/total',
+                    kind: 'field',
+                    fieldType: 'integer',
+                    nullable: true,
+                    children: [],
+                  },
+                  {
+                    id: '010cd95f-eb39-4ef2-8eef-7e40ab224504',
+                    name: 'has_more',
+                    path: '/has_more',
+                    kind: 'field',
+                    fieldType: 'boolean',
+                    nullable: true,
+                    children: [],
+                  },
+                ],
+              },
+            },
+          },
         ],
       },
-      id: 'd3bb9d35-7739-4e24-8448-200953029335',
+      id: '3690c0fe-43b9-4ea4-9853-c08fe0f90d1e',
       name: 'Api',
     }).withRequests();
     this.Rodape = new WebGroup(
-      this.requireComponentElement('13b924fa-0e48-4579-91c3-6a5a6e3ada70'),
+      this.requireComponentElement('24c1867a-04b7-4130-bf10-e23ca95abf9a'),
     );
     this.LBLRodapeAutorizacao = new WebLabel(
-      this.requireComponentElement('13f2820f-5431-4d3b-9331-a63e8cf00d04'),
+      this.requireComponentElement('231b2bf9-eebd-48c7-b14f-09aa8e4331ce'),
     );
     this.LBLRodapeGrupo = new WebLabel(
-      this.requireComponentElement('27c5bd28-77d3-4535-bb1b-91b0a1dbf741'),
+      this.requireComponentElement('611881a2-4966-41ba-ad3b-bb35adcd2144'),
     );
     this.LBLRodapeAmbiente = new WebLabel(
-      this.requireComponentElement('4f088498-0e25-45fc-a751-7e97636edbbb'),
+      this.requireComponentElement('f9c325fc-a97f-4034-b661-27cdb17fed2a'),
     );
 
     this.GRDTelefones.bindApiClient(this.Api);

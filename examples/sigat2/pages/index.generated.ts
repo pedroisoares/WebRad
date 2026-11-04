@@ -67,59 +67,59 @@ export abstract class indexGenerated extends WebPage {
   public constructor(element: HTMLElement) {
     super(element);
     this.Cabecalho = new WebGroup(
-      this.requireComponentElement('5d53c833-d072-4852-ac32-ca2a22a7f6db'),
-    );
-    this.GRPMarca = new WebGroup(
-      this.requireComponentElement('cb69b8a4-f664-4e00-adaa-519108484f1f'),
-    );
-    this.IMGMarca = new WebImage(
-      this.requireComponentElement('cd5471c3-8282-426b-89dd-286e8a8b37f6'),
-    );
-    this.LBLMarca = new WebLabel(
-      this.requireComponentElement('141a1c3f-fed0-49ba-bf38-6febf853dde0'),
-    );
-    this.GRPBusca = new WebGroup(
-      this.requireComponentElement('2a3cc118-6240-451b-9e45-ed0ce0ecb536'),
-    );
-    this.EDTBuscaRapida = new WebEdit(
-      this.requireComponentElement('d0087b3e-cb6a-4f87-9d34-d848572cf1e0'),
-    );
-    this.BTNBuscar = new WebButton(
-      this.requireComponentElement('23f74fae-1bd8-4dbe-8c30-0a9f775b73e8'),
-    );
-    this.GRPUsuario = new WebGroup(
-      this.requireComponentElement('d11abc84-9d0c-41b1-b237-e1386493b01e'),
-    );
-    this.LBLOla = new WebLabel(
-      this.requireComponentElement('00b8c344-997b-467f-bae2-f3ce4a35e1fe'),
-    );
-    this.LBLUsuario = new WebLabel(
-      this.requireComponentElement('055d5dc9-596d-45c2-bd4c-5c1bd4b3ebf5'),
-    );
-    this.BTNBloqueados = new WebButton(
-      this.requireComponentElement('292c49ca-a5d3-4caa-92ea-b2827296560f'),
-    );
-    this.BTNPainel = new WebButton(
-      this.requireComponentElement('603c57cb-2200-404c-86a2-4c62a7a5f5e0'),
-    );
-    this.BTNInserviveis = new WebButton(
-      this.requireComponentElement('e94dec72-f984-46e1-8888-e4be28f4a92c'),
-    );
-    this.BTNAdmin = new WebButton(
-      this.requireComponentElement('010cd95f-eb39-4ef2-8eef-7e40ab224504'),
-    );
-    this.BTNSair = new WebButton(
       this.requireComponentElement('d9dd595a-455f-487d-91a3-c9675c90a117'),
     );
-    this.Conteudo = new WebGroup(
+    this.GRPMarca = new WebGroup(
       this.requireComponentElement('ef0f464c-3fd7-43e4-86e9-41195bb26f88'),
     );
-    this.Abas = new WebTabs(this.requireComponentElement('fd229f25-a574-4733-a73e-fe564a807afd'));
-    this.PNLTriagem = new WebPanel(
+    this.IMGMarca = new WebImage(
+      this.requireComponentElement('fd229f25-a574-4733-a73e-fe564a807afd'),
+    );
+    this.LBLMarca = new WebLabel(
       this.requireComponentElement('dee35afe-cab7-464b-90f8-1c941a85c9e6'),
     );
-    this.GRDTriagem = new WebDataGrid(
+    this.GRPBusca = new WebGroup(
       this.requireComponentElement('0c4b782f-2f4f-4666-95a1-117d49adf714'),
+    );
+    this.EDTBuscaRapida = new WebEdit(
+      this.requireComponentElement('f860f36d-cb10-4e6f-b233-256dc8306014'),
+    );
+    this.BTNBuscar = new WebButton(
+      this.requireComponentElement('a983ad9d-fd71-48d7-9b30-553c8d01b886'),
+    );
+    this.GRPUsuario = new WebGroup(
+      this.requireComponentElement('e267dd17-2bd8-410d-acf9-8e9233ac4f0c'),
+    );
+    this.LBLOla = new WebLabel(
+      this.requireComponentElement('6de6cbc3-d9e1-49a3-bc04-bc28431c3035'),
+    );
+    this.LBLUsuario = new WebLabel(
+      this.requireComponentElement('cc0794f4-90b4-41af-a46d-5f9de8c5d2c8'),
+    );
+    this.BTNBloqueados = new WebButton(
+      this.requireComponentElement('0b9797fd-6a77-4b8f-bb46-41025c43c20c'),
+    );
+    this.BTNPainel = new WebButton(
+      this.requireComponentElement('f485dcfb-0155-4989-a914-f1ca7b38b787'),
+    );
+    this.BTNInserviveis = new WebButton(
+      this.requireComponentElement('90ecd813-7c99-40ce-aeb1-4b91f2063e69'),
+    );
+    this.BTNAdmin = new WebButton(
+      this.requireComponentElement('3c712b35-e309-41e4-9fc0-cbce5b544dff'),
+    );
+    this.BTNSair = new WebButton(
+      this.requireComponentElement('2aaaa110-d628-4b86-977a-687754ae6bb0'),
+    );
+    this.Conteudo = new WebGroup(
+      this.requireComponentElement('3f12858f-1574-4e33-ac47-7d185daa4f83'),
+    );
+    this.Abas = new WebTabs(this.requireComponentElement('ff10d256-bfd9-46c7-843f-eacdd2cc830c'));
+    this.PNLTriagem = new WebPanel(
+      this.requireComponentElement('4e684414-0ca7-4d04-a71b-5495a9ec6955'),
+    );
+    this.GRDTriagem = new WebDataGrid(
+      this.requireComponentElement('1b71b0f5-6d53-4d79-9578-d85bebbbbd83'),
     );
     this.GRDTriagem.dataGridConfig = {
       schemaVersion: 2,
@@ -232,59 +232,59 @@ export abstract class indexGenerated extends WebPage {
       totalRowsPath: '/total',
     };
     this.PNLChamados = new WebPanel(
-      this.requireComponentElement('f860f36d-cb10-4e6f-b233-256dc8306014'),
-    );
-    this.Filas = new WebGroup(this.requireComponentElement('a983ad9d-fd71-48d7-9b30-553c8d01b886'));
-    this.BTNFila1 = new WebButton(
-      this.requireComponentElement('e267dd17-2bd8-410d-acf9-8e9233ac4f0c'),
-    );
-    this.BTNFila2 = new WebButton(
-      this.requireComponentElement('6de6cbc3-d9e1-49a3-bc04-bc28431c3035'),
-    );
-    this.BTNFila3 = new WebButton(
-      this.requireComponentElement('cc0794f4-90b4-41af-a46d-5f9de8c5d2c8'),
-    );
-    this.BTNFila4 = new WebButton(
-      this.requireComponentElement('0b9797fd-6a77-4b8f-bb46-41025c43c20c'),
-    );
-    this.BTNFila5 = new WebButton(
-      this.requireComponentElement('f485dcfb-0155-4989-a914-f1ca7b38b787'),
-    );
-    this.BTNFila6 = new WebButton(
-      this.requireComponentElement('90ecd813-7c99-40ce-aeb1-4b91f2063e69'),
-    );
-    this.BTNFila7 = new WebButton(
-      this.requireComponentElement('3c712b35-e309-41e4-9fc0-cbce5b544dff'),
-    );
-    this.BTNFila8 = new WebButton(
-      this.requireComponentElement('2aaaa110-d628-4b86-977a-687754ae6bb0'),
-    );
-    this.BTNFila9 = new WebButton(
-      this.requireComponentElement('3f12858f-1574-4e33-ac47-7d185daa4f83'),
-    );
-    this.BTNFila10 = new WebButton(
-      this.requireComponentElement('ff10d256-bfd9-46c7-843f-eacdd2cc830c'),
-    );
-    this.BTNFila11 = new WebButton(
-      this.requireComponentElement('4e684414-0ca7-4d04-a71b-5495a9ec6955'),
-    );
-    this.BTNFila12 = new WebButton(
-      this.requireComponentElement('1b71b0f5-6d53-4d79-9578-d85bebbbbd83'),
-    );
-    this.BTNEntrega = new WebButton(
       this.requireComponentElement('68a26eb4-bc94-442e-94d2-c4fc2e4af91c'),
     );
-    this.BTNTodos = new WebButton(
-      this.requireComponentElement('9151bd04-9d04-4e98-9491-bf21dda918dd'),
-    );
-    this.BTNImprimir = new WebButton(
+    this.Filas = new WebGroup(this.requireComponentElement('9151bd04-9d04-4e98-9491-bf21dda918dd'));
+    this.BTNFila1 = new WebButton(
       this.requireComponentElement('cd4c7877-ade3-43ed-bd37-33482507bbf3'),
     );
-    this.BTNLimpar = new WebButton(
+    this.BTNFila2 = new WebButton(
       this.requireComponentElement('bf421950-4245-46ac-bba5-c585a819e1bf'),
     );
-    this.GRDChamados = new WebDataGrid(
+    this.BTNFila3 = new WebButton(
       this.requireComponentElement('9c0a2646-ce67-4e12-940c-34a8132537a3'),
+    );
+    this.BTNFila4 = new WebButton(
+      this.requireComponentElement('7284d53f-72c3-4c04-89ae-b184ac3a3d99'),
+    );
+    this.BTNFila5 = new WebButton(
+      this.requireComponentElement('f0ca1a47-413c-4f35-9d7b-292f0852fd43'),
+    );
+    this.BTNFila6 = new WebButton(
+      this.requireComponentElement('af4e1a77-5c34-45b0-b9ae-d03398a9dc01'),
+    );
+    this.BTNFila7 = new WebButton(
+      this.requireComponentElement('55d57f15-4755-40b2-97cc-9adee790a438'),
+    );
+    this.BTNFila8 = new WebButton(
+      this.requireComponentElement('d0dbdd7b-a828-4766-a321-dbb2ddc41f27'),
+    );
+    this.BTNFila9 = new WebButton(
+      this.requireComponentElement('64051240-037c-4191-bc30-97e446c76d53'),
+    );
+    this.BTNFila10 = new WebButton(
+      this.requireComponentElement('1c2d0766-336e-4ac5-868e-44e66e535587'),
+    );
+    this.BTNFila11 = new WebButton(
+      this.requireComponentElement('75a0b235-d573-45fa-969f-5124429ee265'),
+    );
+    this.BTNFila12 = new WebButton(
+      this.requireComponentElement('6d019d22-806e-48d7-b22e-9997e59f46a4'),
+    );
+    this.BTNEntrega = new WebButton(
+      this.requireComponentElement('6f89acfe-91ff-4ce0-81c2-7216807f8f3f'),
+    );
+    this.BTNTodos = new WebButton(
+      this.requireComponentElement('1e6c9f74-a781-41b1-9683-62e4af7cc547'),
+    );
+    this.BTNImprimir = new WebButton(
+      this.requireComponentElement('da6b537d-431c-430c-a773-2cb0dffe1b21'),
+    );
+    this.BTNLimpar = new WebButton(
+      this.requireComponentElement('79370fd4-6966-4366-8b85-5ecb6b501629'),
+    );
+    this.GRDChamados = new WebDataGrid(
+      this.requireComponentElement('0e57197e-d263-4aef-8ee2-a8706564051a'),
     );
     this.GRDChamados.dataGridConfig = {
       schemaVersion: 2,
@@ -487,10 +487,10 @@ export abstract class indexGenerated extends WebPage {
       totalRowsPath: '/total',
     };
     this.PNLArquivo = new WebPanel(
-      this.requireComponentElement('7284d53f-72c3-4c04-89ae-b184ac3a3d99'),
+      this.requireComponentElement('8380c22d-b463-45fa-9b18-16da39127221'),
     );
     this.GRDEncerrados = new WebDataGrid(
-      this.requireComponentElement('f0ca1a47-413c-4f35-9d7b-292f0852fd43'),
+      this.requireComponentElement('63ebe04b-a908-47b9-8873-7458f3b5a3a5'),
     );
     this.GRDEncerrados.dataGridConfig = {
       schemaVersion: 2,
@@ -1614,20 +1614,20 @@ export abstract class indexGenerated extends WebPage {
       time: 120000,
       loop: true,
       enabled: false,
-      id: 'af4e1a77-5c34-45b0-b9ae-d03398a9dc01',
+      id: '8f2f4a91-1525-41e7-9da1-0b8912b8120a',
       name: 'TMRAtualizar',
     });
     this.Rodape = new WebGroup(
-      this.requireComponentElement('55d57f15-4755-40b2-97cc-9adee790a438'),
+      this.requireComponentElement('151862cb-9f25-4cd0-9c4c-2d2eff24eb21'),
     );
     this.LBLRodapeAutorizacao = new WebLabel(
-      this.requireComponentElement('d0dbdd7b-a828-4766-a321-dbb2ddc41f27'),
+      this.requireComponentElement('f3027957-0b4a-4809-9110-4c521d6d58f7'),
     );
     this.LBLRodapeGrupo = new WebLabel(
-      this.requireComponentElement('64051240-037c-4191-bc30-97e446c76d53'),
+      this.requireComponentElement('ff5759c8-5b70-4e11-a75f-7043aed44a9c'),
     );
     this.LBLRodapeAmbiente = new WebLabel(
-      this.requireComponentElement('1c2d0766-336e-4ac5-868e-44e66e535587'),
+      this.requireComponentElement('32df29e5-a43f-4aa9-b65d-03b7ecbd8801'),
     );
 
     this.GRDTriagem.bindApiClient(this.Api);
